@@ -1,15 +1,68 @@
 <footer>
 		<div class="lbabfooter">
-				<a href="http://www.humboldt.org.co" class="humboldtft" target="_blank">
-					<%= image_tag("logohumboldt.png") %>
+			<a href="http://www.humboldt.org.co" class="humboldtft" target="_blank">
+				<%= image_tag("logohumboldt.png") %>
 				<div class="humbname">
 					<h1>Instituto de Investigación de Recursos Biológicos</br>
 						Alexander von Humboldt</h1>
 					<h2>Programa de Evaluación y Monitoreo de la Biodiversidad</br>
 						Laboratorio de Biogeografía Aplicada · LBA</h2>
 				</div>
-				</a>
+			</a>
 		</div>
-	</div>
-
+		<div class="sitemap">
+			<nav>
+				<ul id="subnav">
+					<li>
+						<%= link_to 'Modelos', root_path %>
+					</li>
+					<li>
+						<%= link_to 'Grupos', root_path %>
+					</li>
+					<li>
+						<%= link_to 'Expertos', root_path %>
+					</li>
+				</ul>
+				<ul id="subnav">
+					<li>
+						<%= link_to 'Biomodelos', root_path %>
+					</li>
+					<li>
+						<%= link_to 'Acerca', root_path, class: 'smallnavli' %>
+					</li>
+					<li>
+						<%= link_to 'Aliados', root_path, class: 'smallnavli'  %>
+					</li>
+					<li>
+						<%= link_to 'Equipo', root_path, class: 'smallnavli'  %>
+					</li>
+				</ul>
+				<ul id="subnav">
+					<li>
+						<%= link_to 'Tutorial', root_path %>
+					</li>
+					<li>
+						<%= link_to 'Términos', root_path %>
+					</li>
+					<li>
+						<%= link_to 'Contacto', root_path %>
+					</li>
+				</ul>
+				<ul id="subnav">
+					<li>
+						<%= link_to 'Info', root_path %>
+					</li>
+					<li>
+						<%= link_to 'Blog', root_path, class: 'smallnavli'  %>
+					</li>
+					<li>
+						<%= link_to 'Docs', root_path, class: 'smallnavli'  %>
+					</li>
+					<li>
+						<%= link_to 'FAQ', root_path, class: 'smallnavli'  %>
+					</li>
+				</ul>
+			</nav>
+			<%= image_tag("logolba.png") %>
+		</div>
 </footer>

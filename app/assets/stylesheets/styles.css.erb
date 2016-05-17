@@ -25,11 +25,26 @@ a {
 	font-weight: 300;
 }
 
+img {
+	border: 0;
+}
+
 body {
     font: 14px/24px 'Lato', sans-serif;
     font-size: 1em; 
     line-height: 1.2;
+    background-color: #f2f2f2;
 }
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+.clearfix { display: inline-block; }
 
 /* header */
 
@@ -75,7 +90,7 @@ header nav a:hover {
 footer {
 	width: 100%;
 	background-color: #393836;
-	padding: 12px 34px;
+	padding: 20px 34px 15px;
 	display: flex;
     justify-content: space-between;
     position: absolute;
@@ -88,19 +103,154 @@ footer {
 	*display: inline;
 	*zoom: 1;
 	margin-right: 10px;
-
 }
 
 .humbname h1 {
 	font-size: 12px;
-	vertical-align: text-top;
 	color: #fff;
 	font-weight: 400;
+	margin-bottom: 20px;
+	font-size: 0.87em;
+	letter-spacing: 0.5px;
 }
 
 .humbname h2 {
 	font-size: 11px;
-	vertical-align: text-bottom;
 	color: #fff;
 	font-weight: 400;
+	font-size: 0.8em;
+}
+
+footer nav ul, footer nav {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: top;
+}
+
+footer ul:nth-child(2) {
+	border-right: solid #75746f 1px;
+}
+footer ul:nth-child(even) {
+	border-left: solid #75746f 1px;
+}
+
+footer li {
+	list-style: none;
+	padding: 0 15px;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	line-height: 1.8;
+}	
+
+footer li a {
+	color: #18b4b1;
+}
+
+.smallnavli {
+	color: #fff;
+	text-transform: none;
+}
+
+footer nav {
+	margin-right: 20px;
+}
+
+/* container */
+
+.fullcontainer {
+	position: absolute;
+	width: 100%;
+	height: -moz-calc(100% - 187px);
+	height: -webkit-calc(100% - 187px);
+	height: calc(100% - 187px);
+	overflow: scroll;
+}
+
+.container {
+	margin: 0 auto;
+}
+
+/*home*/
+
+.homeline {
+	height: 54%;
+	background-image: url(<%= asset_path 'grillo.jpg' %>);
+    background-repeat: no-repeat;
+  	background-size: cover;
+  	background-position: center;
+}
+
+.homec {
+	width: 700px;
+	position: relative;
+	top: 35%;
+	transform: translateY(-35%);
+}
+
+.homeline form {
+	margin: 0 auto;
+	width: 700px;
+	padding: 5px;
+	background-color: #fff;
+}
+
+.homeline input[type=text] {
+	width: -moz-calc(100% - 50px);
+	width: -webkit-calc(100% - 50px);
+	width: calc(100% - 50px);
+	padding: 7px;
+	padding-left: 10px;
+	border: none;
+	font-weight: 300;
+	font-style: italic;
+	color: #393836;
+	font-size: 0.87em;
+	line-height: 2;
+	border-right: solid 2px #db3f2a;
+}
+
+.searchbtnhome {
+	border: none;
+	height: 42px;
+	width: 46px;
+	cursor: pointer;
+	background-color: #fff;
+	vertical-align: top;
+	background-image: url(<%= asset_path 'searchome.png' %>);
+}
+
+.hlink {
+	display: flex;
+    justify-content: space-between;
+}
+
+.hlink a {
+	color: #fff;
+	font-size: 0.8em;
+	padding: 5px 0;
+	font-weight: 400;
+}
+
+.hlbtn {
+	text-align: center;
+}
+
+.hlbtn a {
+	padding: 5px 10px;
+	text-align: center;
+	width: 130px;
+	background-color: #fff;
+	display: inline-block;
+	margin: 12px 14px 0 14px;
+}
+
+.fullcontainer h1 {
+	font-weight: 300;
+	letter-spacing: 1px;
+	color: #db3f2a;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 6px 0;
+	font-size: 1.75em;
 }
