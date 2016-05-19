@@ -54,6 +54,8 @@ header {
 	padding: 12px 34px;
 	display: flex;
     justify-content: space-between;
+    position: relative;
+    z-index: 1000;
 }
 
 header h1 {
@@ -95,6 +97,7 @@ footer {
     justify-content: space-between;
     position: absolute;
     bottom: 0;
+    z-index: 1000;
 }
 
 .humboldtft img, 
@@ -331,4 +334,45 @@ footer nav {
 	display: block;
 	float: right;
 	margin-top: -52px;
+}
+
+.allgraphs {
+	display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+.graphcont {
+	position: relative;
+	width: 140px;
+	text-align: center;
+	height: 180px;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.graph {
+	position: absolute;
+	z-index: 4;
+	display: block;
+}
+
+.graphcont img {
+	position: absolute;
+	z-index: 3;
+	top: 64px;
+	left: 31px;
+}
+
+.graphcont h3 {
+	font-size: 0.87em;
+	color: #1b3337;
+	font-weight: 300;
+}
+.graphcont h4 {
+	font-size: 0.87em;
+	color: #1b3337;
+	font-weight: 700;
 }
