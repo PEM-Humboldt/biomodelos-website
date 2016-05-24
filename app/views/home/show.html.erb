@@ -61,6 +61,7 @@
 			<%= image_tag("home_pla.png") %>
 		</div>
 	</div>
+	<div class="barhome" id="gruposbar" style="width: 800px; height: 30px;"></div>
 
 <!-- 	<div class="cajabase">
 		<div class="hcbase">
@@ -75,7 +76,7 @@
 </div>
 
 <script type="text/javascript">
-      google.charts.load("42", {packages:["corechart"]});
+      google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       google.charts.setOnLoadCallback(drawChart2);
       google.charts.setOnLoadCallback(drawChart3);
@@ -83,16 +84,16 @@
       google.charts.setOnLoadCallback(drawChart5);
       google.charts.setOnLoadCallback(drawChart6);
       google.charts.setOnLoadCallback(drawChart7);
+      google.charts.setOnLoadCallback(drawChart8);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Estado del modelo', 'Número de spp.'],
-          ['Sin Modelo',     400],
-          ['Modelo en desarrollo',      30],
-          ['Modelo validado',  5],
+          ['Sin Modelo', 400],
+          ['Modelo en desarrollo', 30],
+          ['Modelo validado', 100],
         ]);
 
         var options = {
-          title: 'Aves\n5800',
           titlePosition: 'none',
           pieHole: 0.7,
           backgroundColor: 'transparent',
@@ -104,6 +105,7 @@
           sliceVisibilityThreshold: '0',
           fontSize: '12',
           pieSliceText: 'none',
+          tooltip: {isHtml: true, textStyle: {color: '#fff'}},
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutmam'));
@@ -112,13 +114,12 @@
       function drawChart2() {
         var data = google.visualization.arrayToDataTable([
           ['Estado del modelo', 'Número de spp.'],
-          ['Sin Modelo',     1923],
-          ['Modelo en desarrollo',      500],
-          ['Modelo validado',  100],
+          ['Sin Modelo', 1923],
+          ['Modelo en desarrollo', 500],
+          ['Modelo validado', 100],
         ]);
 
         var options = {
-          title: 'Aves\n5800',
           titlePosition: 'none',
           pieHole: 0.7,
           backgroundColor: 'transparent',
@@ -130,6 +131,7 @@
           sliceVisibilityThreshold: '0',
           fontSize: '12',
           pieSliceText: 'none',
+          tooltip: {isHtml: true, textStyle: {color: '#fff'}},
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutave'));
@@ -138,13 +140,12 @@
       function drawChart3() {
         var data = google.visualization.arrayToDataTable([
           ['Estado del modelo', 'Número de spp.'],
-          ['Sin Modelo',     400],
-          ['Modelo en desarrollo',      30],
-          ['Modelo validado',  5],
+          ['Sin Modelo', 400],
+          ['Modelo en desarrollo', 30],
+          ['Modelo validado', 5],
         ]);
 
         var options = {
-          title: 'Aves\n5800',
           titlePosition: 'none',
           pieHole: 0.7,
           backgroundColor: 'transparent',
@@ -156,6 +157,7 @@
           sliceVisibilityThreshold: '0',
           fontSize: '12',
           pieSliceText: 'none',
+          tooltip: {isHtml: true, textStyle: {color: '#fff'}},
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutrep'));
@@ -164,13 +166,12 @@
       function drawChart4() {
         var data = google.visualization.arrayToDataTable([
           ['Estado del modelo', 'Número de spp.'],
-          ['Sin Modelo',     400],
-          ['Modelo en desarrollo',      30],
-          ['Modelo validado',  5],
+          ['Sin Modelo', 400],
+          ['Modelo en desarrollo', 30],
+          ['Modelo validado', 5],
         ]);
 
         var options = {
-          title: 'Aves\n5800',
           titlePosition: 'none',
           pieHole: 0.7,
           backgroundColor: 'transparent',
@@ -182,6 +183,7 @@
           sliceVisibilityThreshold: '0',
           fontSize: '12',
           pieSliceText: 'none',
+          tooltip: {isHtml: true, textStyle: {color: '#fff'}},
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutanf'));
@@ -190,13 +192,12 @@
       function drawChart5() {
         var data = google.visualization.arrayToDataTable([
           ['Estado del modelo', 'Número de spp.'],
-          ['Sin Modelo',     400],
-          ['Modelo en desarrollo',      30],
-          ['Modelo validado',  5],
+          ['Sin Modelo', 400],
+          ['Modelo en desarrollo', 30],
+          ['Modelo validado', 5],
         ]);
 
         var options = {
-          title: 'Aves\n5800',
           titlePosition: 'none',
           pieHole: 0.7,
           backgroundColor: 'transparent',
@@ -208,6 +209,7 @@
           sliceVisibilityThreshold: '0',
           fontSize: '12',
           pieSliceText: 'none',
+          tooltip: {isHtml: true, textStyle: {color: '#fff'}},
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutpec'));
@@ -216,13 +218,12 @@
       function drawChart6() {
         var data = google.visualization.arrayToDataTable([
           ['Estado del modelo', 'Número de spp.'],
-          ['Sin Modelo',     400],
-          ['Modelo en desarrollo',      30],
-          ['Modelo validado',  5],
+          ['Sin Modelo', 400],
+          ['Modelo en desarrollo', 30],
+          ['Modelo validado', 5],
         ]);
 
         var options = {
-          title: 'Aves\n5800',
           titlePosition: 'none',
           pieHole: 0.7,
           backgroundColor: 'transparent',
@@ -234,6 +235,7 @@
           sliceVisibilityThreshold: '0',
           fontSize: '12',
           pieSliceText: 'none',
+          tooltip: {isHtml: true, textStyle: {color: '#fff'}},
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutinv'));
@@ -242,13 +244,12 @@
       function drawChart7() {
         var data = google.visualization.arrayToDataTable([
           ['Estado del modelo', 'Número de spp.'],
-          ['Sin Modelo',     400],
-          ['Modelo en desarrollo',      30],
-          ['Modelo validado',  5],
+          ['Sin Modelo', 400],
+          ['Modelo en desarrollo', 30],
+          ['Modelo validado', 5],
         ]);
 
         var options = {
-          title: 'Aves\n5800',
           titlePosition: 'none',
           pieHole: 0.7,
           backgroundColor: 'transparent',
@@ -260,9 +261,31 @@
           sliceVisibilityThreshold: '0',
           fontSize: '12',
           pieSliceText: 'none',
+          tooltip: {isHtml: true, textStyle: {color: '#fff'}},
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutpla'));
         chart.draw(data, options);
       }
+	    function drawChart8() {
+	      var data = google.visualization.arrayToDataTable([
+	        ['Grupo', 'PLANTAS', 'AVES', 'ANFIBIOS', 'MAMÍFEROS',
+	         'INVERTEBRADOS', 'PECES', 'REPTILES' ],
+	        ['', 1571, 1613, 116, 172, 106, 106, 102],
+	          ]);
+
+	      var options = {
+	      	backgroundColor: 'transparent',
+	        legend: { position: 'none' },
+	        isStacked: 'percent',
+	        tooltip : { trigger: 'none' },
+	        chartArea : {width: '100%', height: '100%'},
+	        hAxis: { minValue: 0, ticks: [0, .5, 1], textPosition: 'none', gridlines: { color: 'transparent' }, baseline: { color: 'transparent' }},
+	        bar: {groupWidth: '95%'},
+	        colors: ['#0e5c5b', '#1b3337', '#0e5c5b', '#1b3337', '#0e5c5b', '#1b3337', '#0e5c5b'],
+	      };
+
+	      var chart = new google.visualization.BarChart(document.getElementById("gruposbar"));
+	      chart.draw(data, options);
+	  	}
     </script>
