@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html> <!-- ng-app="biomodelos" -->
+<html>
 	<head>
 		<meta charset="utf-8">
 		<meta name="google" content="notranslate">
@@ -15,15 +15,13 @@
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,900italic,700italic,700,900,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
 		<%= stylesheet_link_tag "application", media: "all" %>
 		<%= javascript_include_tag "application" %>
-		<!-- <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAz6sPnMLuIJrOWvNKnn6-PWYK56PDGa30&sensor=false'%>
-		<%= javascript_include_tag 'leaflet/Google.min.js' %>-->
 		<%= csrf_meta_tags %>
 	</head>
-	<body>
-	<!--{{angular}}
+	<body ng-app='biomodelos'>
+	{{angular}}
 		<% flash.each do |key, value| %>
   		<div class="alert alert-<%= key %>" id="flashm"><%= value %></div>
-		<% end %>-->
+		<% end %>
 		<div><%= render 'shared/header' %></div>
 		<%= yield %>
 		<div><%= render 'shared/footer' %></div>

@@ -5,9 +5,9 @@
 				<%= link_to 'Especie aleatoria', root_path %>
 				<%= link_to 'Busqueda avanzada', root_path %>
 			</div>
-			<%= form_tag({:controller => :home, :action => :show}, {:method => :get, :remote => true, :id => 'sp_search_form'})  do %>
-			<%= text_field_tag :query, '', :id => 'search_field', :placeholder => 'Consulta una especie por su nombre científico', :collection => 'get_species_name', :include_blank => false, :rel => 'autocomplete' %>
-			<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'species_src_btn' %>
+			<%= form_tag('', {:id => 'sp_search_form'})  do %>
+				<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Consulta una especie por su nombre científico', :include_blank => false %>
+				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'species_src_btn' %>
 			<% end %>
 			<div class="hlbtn">
 				<%= link_to 'CONSULTA', root_path %>
@@ -20,4 +20,3 @@
 	MEJORES MODELOS CON EL APOYO DE EXPERTOS
 	</h1>
 </div>
-
