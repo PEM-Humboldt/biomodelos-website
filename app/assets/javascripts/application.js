@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require angular/angular.min
+//= require typeahead.js/dist/typeahead.bundle.min.js
 //= require_tree .

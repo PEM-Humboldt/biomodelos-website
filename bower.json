@@ -1,0 +1,23 @@
+{
+  "name": "BioModelos.v2",
+  "homepage": "https://github.com/LBAB-Humboldt/BioModelos.v2",
+  "authors": [
+    "Daniel Lopez <dlopez@humboldt.org.co>"
+  ],
+  "description": "BioModelos Front-end libraries",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "typeahead.js": "^0.11.1"
+  }
+}
