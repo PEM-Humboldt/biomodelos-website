@@ -1,3 +1,131 @@
+@media screen and (max-width: 1150px) {
+    .wrap {
+        width:90%;
+    }
+}
+ 
+@media screen and (max-width: 780px) {
+    .menu {
+        position:relative;
+        display:inline-block;
+    }
+ 
+    .menu ul.active {
+        display:none;
+    }
+ 
+    .menu ul {
+        width:160px;
+        position:absolute;
+        top:120%;
+        right:0px;
+        padding:10px 18px;
+        box-shadow:0px 1px 1px rgba(0,0,0,0.15);
+        background:#124c5e;
+    }
+ 
+    .menu ul:after {
+        width:0px;
+        height:0px;
+        position:absolute;
+        top:0%;
+        left:130px;
+        content:'';
+        transform:translate(0%, -100%);
+        border-left:7px solid transparent;
+        border-right:7px solid transparent;
+        border-bottom:7px solid #124c5e;
+    }
+ 
+    .menu li {
+        margin:5px 0px 5px 0px;
+        float:none;
+        display:block;
+    }
+ 
+    .menu a {
+        display:block;
+        margin: 0;
+        padding: 10px;
+        text-align: right;
+    }
+ 
+    .toggle-nav {
+    	padding: 10px 5px 0;
+    	line-height: 0;
+        float:left;
+        display:inline-block;
+        border-radius:3px;
+        background:#1b3337;
+        color:#fff;
+        font-size:30px;
+        transition:color linear 0.15s;
+    }
+ 
+    .toggle-nav:hover, .toggle-nav.active {
+        text-decoration:none;
+        color:#18b4b1;
+    }
+
+    .homec {
+    	width: 97%;
+    }
+
+}
+
+@media only screen and (max-width : 720px) {
+
+	.cajabase {
+    	width: 97%;
+    	max-width: 710px;
+    	height: auto;
+    	padding-bottom: 20px;
+    }
+
+    .cajabase p {
+		width: -moz-calc(100% - 80px);
+		width: -webkit-calc(100% - 80px);
+		width: calc(100% - 80px);
+	}
+
+	.hcbase h1 {
+		width: -moz-calc(100% - 53px);
+		width: -webkit-calc(100% - 53px);
+		width: calc(100% - 53px);
+	}
+}
+@media only screen and (max-width : 535px) {
+
+/* footer */
+	footer {
+		padding: 20px 15px 15px;
+	}
+
+	footer li {
+		font-size: 0.6em;
+		text-align: right;
+	}
+
+}
+
+@media only screen and (max-width : 435px) {
+
+/* footer */
+	.lbabfooter {
+		display: none;
+	}
+
+	footer {
+		display: inline-block;
+		*display: inline;
+		*zoom: 1;
+		text-align: center;
+		padding: 20px 0 15px;
+	}
+
+}
+
+
 @media only screen and (min-width : 320px) {
 
 /* footer */

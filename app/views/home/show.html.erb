@@ -1,4 +1,4 @@
-<div class="fullcontainer">
+<div class="innercontainer">
 	<div class="homeline">
 		<div class="container homec">
 			<div class="hlink">
@@ -10,9 +10,9 @@
 				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'species_src_btn' %>
 			<% end %>
 			<div class="hlbtn">
-				<%= link_to 'CONSULTA', root_path %>
-				<%= link_to 'CONTRIBUYE', root_path %>
-				<%= link_to 'PUBLICA', root_path %>
+				<a ng-click="consulta=!consulta">CONSULTA</a>
+				<a ng-click="contribuye=!contribuye">CONTRIBUYE</a>
+				<a ng-click="publica=!publica">PUBLICA</a>
 			</div>
 		</div>
 	</div>
@@ -61,230 +61,44 @@
 			<%= image_tag("home_pla.png") %>
 		</div>
 	</div>
-	<div class="barhome" id="gruposbar" style="width: 800px; height: 30px;"></div>
-
-<!-- 	<div class="cajabase">
-		<div class="hcbase">
-			<h1>consulta</h1>
-			<a href="" class="closecb">x</a>
+<!-- 	<div class="barhome" id="gruposbar" style="width: 800px; height: 30px;"></div> -->
+	<div ng-show="consulta">
+		<div class="cajabase">
+			<div class="hcbase">
+				<h1>consulta</h1>
+				<a ng-click="consulta=!consulta" class="closecb">x</a>
+			</div>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
+			<h3>KDSFK SDFKSHDFLKL ASDF</h3>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
+			<%= link_to 'ir', root_path, class: 'botoncb' %>
 		</div>
-		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
-		<h3>KDSFK SDFKSHDFLKL ASDF</h3>
-		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
-		<%= link_to 'ir', root_path, class: 'botoncb' %>
-	</div> -->
+	</div>
+
+	<div ng-show="contribuye">
+		<div class="cajabase">
+			<div class="hcbase">
+				<h1>contribuye</h1>
+				<a ng-click="contribuye=!contribuye" class="closecb">x</a>
+			</div>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
+			<h3>KDSFK SDFKSHDFLKL ASDF</h3>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
+			<%= link_to 'ir', root_path, class: 'botoncb' %>
+		</div>
+	</div>
+
+	<div ng-show="publica">
+		<div class="cajabase">
+			<div class="hcbase">
+				<h1>publica</h1>
+				<a ng-click="publica=!publica" class="closecb">x</a>
+			</div>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
+			<h3>KDSFK SDFKSHDFLKL ASDF</h3>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
+			<%= link_to 'ir', root_path, class: 'botoncb' %>
+		</div>
+	</div>
 </div>
-<script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      google.charts.setOnLoadCallback(drawChart2);
-      google.charts.setOnLoadCallback(drawChart3);
-      google.charts.setOnLoadCallback(drawChart4);
-      google.charts.setOnLoadCallback(drawChart5);
-      google.charts.setOnLoadCallback(drawChart6);
-      google.charts.setOnLoadCallback(drawChart7);
-      google.charts.setOnLoadCallback(drawChart8);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Estado del modelo', 'Número de spp.'],
-          ['SIN MODELO', 400],
-          ['MODELO EN DESARROLLO', 30],
-          ['MODELO VALIDADO', 100],
-        ]);
 
-        var options = {
-          titlePosition: 'none',
-          pieHole: 0.7,
-          backgroundColor: 'transparent',
-          legend: {position: 'none'},
-          chartArea:{left:12,top:12,width:'120',height:'120'},
-          pieSliceBorderColor: 'none',
-          pieStartAngle: '65',
-          slices: {0: {color: '#25b19e'}, 1: {color: '#e3af24'}, 2: {color: '#db3f2a'}},
-          sliceVisibilityThreshold: '0',
-          fontSize: '12',
-          pieSliceText: 'none',
-          tooltip: {isHtml: true, textStyle: {fontName: 'Lato', fontSize: '12px', color: '#fff'}},
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('donutmam'));
-        chart.draw(data, options);
-      }
-      function drawChart2() {
-        var data = google.visualization.arrayToDataTable([
-          ['Estado del modelo', 'Número de spp.'],
-          ['SIN MODELO', 1923],
-          ['MODELO EN DESARROLLO', 500],
-          ['MODELO VALIDADO', 100],
-        ]);
-
-        var options = {
-          titlePosition: 'none',
-          pieHole: 0.7,
-          backgroundColor: 'transparent',
-          legend: {position: 'none'},
-          chartArea:{left:12,top:12,width:'120',height:'120'},
-          pieSliceBorderColor: 'none',
-          pieStartAngle: '65',
-          slices: {0: {color: '#25b19e'}, 1: {color: '#e3af24'}, 2: {color: '#db3f2a'}},
-          sliceVisibilityThreshold: '0',
-          fontSize: '12',
-          pieSliceText: 'none',
-          tooltip: {isHtml: true, textStyle: {fontName: 'Lato', fontSize: '12px', color: '#fff'}},
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('donutave'));
-        chart.draw(data, options);
-      }
-      function drawChart3() {
-        var data = google.visualization.arrayToDataTable([
-          ['Estado del modelo', 'Número de spp.'],
-          ['SIN MODELO', 400],
-          ['MODELO EN DESARROLLO', 30],
-          ['MODELO VALIDADO', 5],
-        ]);
-
-        var options = {
-          titlePosition: 'none',
-          pieHole: 0.7,
-          backgroundColor: 'transparent',
-          legend: {position: 'none'},
-          chartArea:{left:12,top:12,width:'120',height:'120'},
-          pieSliceBorderColor: 'none',
-          pieStartAngle: '65',
-          slices: {0: {color: '#25b19e'}, 1: {color: '#e3af24'}, 2: {color: '#db3f2a'}},
-          sliceVisibilityThreshold: '0',
-          fontSize: '12',
-          pieSliceText: 'none',
-          tooltip: {isHtml: true, textStyle: {fontName: 'Lato', fontSize: '12px', color: '#fff'}},
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('donutrep'));
-        chart.draw(data, options);
-      }
-      function drawChart4() {
-        var data = google.visualization.arrayToDataTable([
-          ['Estado del modelo', 'Número de spp.'],
-          ['SIN MODELO', 400],
-          ['MODELO EN DESARROLLO', 30],
-          ['MODELO VALIDADO', 5],
-        ]);
-
-        var options = {
-          titlePosition: 'none',
-          pieHole: 0.7,
-          backgroundColor: 'transparent',
-          legend: {position: 'none'},
-          chartArea:{left:12,top:12,width:'120',height:'120'},
-          pieSliceBorderColor: 'none',
-          pieStartAngle: '65',
-          slices: {0: {color: '#25b19e'}, 1: {color: '#e3af24'}, 2: {color: '#db3f2a'}},
-          sliceVisibilityThreshold: '0',
-          fontSize: '12',
-          pieSliceText: 'none',
-          tooltip: {isHtml: true, textStyle: {fontName: 'Lato', fontSize: '12px', color: '#fff'}},
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('donutanf'));
-        chart.draw(data, options);
-      }
-      function drawChart5() {
-        var data = google.visualization.arrayToDataTable([
-          ['Estado del modelo', 'Número de spp.'],
-          ['SIN MODELO', 400],
-          ['MODELO EN DESARROLLO', 30],
-          ['MODELO VALIDADO', 5],
-        ]);
-
-        var options = {
-          titlePosition: 'none',
-          pieHole: 0.7,
-          backgroundColor: 'transparent',
-          legend: {position: 'none'},
-          chartArea:{left:12,top:12,width:'120',height:'120'},
-          pieSliceBorderColor: 'none',
-          pieStartAngle: '65',
-          slices: {0: {color: '#25b19e'}, 1: {color: '#e3af24'}, 2: {color: '#db3f2a'}},
-          sliceVisibilityThreshold: '0',
-          fontSize: '12',
-          pieSliceText: 'none',
-          tooltip: {isHtml: true, textStyle: {fontName: 'Lato', fontSize: '12px', color: '#fff'}},
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('donutpec'));
-        chart.draw(data, options);
-      }
-      function drawChart6() {
-        var data = google.visualization.arrayToDataTable([
-          ['Estado del modelo', 'Número de spp.'],
-          ['SIN MODELO', 400],
-          ['MODELO EN DESARROLLO', 30],
-          ['MODELO VALIDADO', 5],
-        ]);
-
-        var options = {
-          titlePosition: 'none',
-          pieHole: 0.7,
-          backgroundColor: 'transparent',
-          legend: {position: 'none'},
-          chartArea:{left:12,top:12,width:'120',height:'120'},
-          pieSliceBorderColor: 'none',
-          pieStartAngle: '65',
-          slices: {0: {color: '#25b19e'}, 1: {color: '#e3af24'}, 2: {color: '#db3f2a'}},
-          sliceVisibilityThreshold: '0',
-          fontSize: '12',
-          pieSliceText: 'none',
-          tooltip: {isHtml: true, textStyle: {fontName: 'Lato', fontSize: '12px', color: '#fff'}},
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('donutinv'));
-        chart.draw(data, options);
-      }
-      function drawChart7() {
-        var data = google.visualization.arrayToDataTable([
-          ['Estado del modelo', 'Número de spp.'],
-          ['SIN MODELO', 400],
-          ['MODELO EN DESARROLLO', 30],
-          ['MODELO VALIDADO', 5],
-        ]);
-
-        var options = {
-          titlePosition: 'none',
-          pieHole: 0.7,
-          backgroundColor: 'transparent',
-          legend: {position: 'none'},
-          chartArea:{left:12,top:12,width:'120',height:'120'},
-          pieSliceBorderColor: 'none',
-          pieStartAngle: '65',
-          slices: {0: {color: '#25b19e'}, 1: {color: '#e3af24'}, 2: {color: '#db3f2a'}},
-          sliceVisibilityThreshold: '0',
-          fontSize: '12',
-          pieSliceText: 'none',
-          tooltip: {isHtml: true, textStyle: {fontName: 'Lato', fontSize: '12px', color: '#fff'}},
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('donutpla'));
-        chart.draw(data, options);
-      }
-	    function drawChart8() {
-	      var data = google.visualization.arrayToDataTable([
-	        ['Grupo', 'PLANTAS', 'AVES', 'ANFIBIOS', 'MAMÍFEROS',
-	         'INVERTEBRADOS', 'PECES', 'REPTILES' ],
-	        ['', 1571, 1613, 116, 172, 106, 106, 102],
-	          ]);
-
-	      var options = {
-	      	backgroundColor: 'transparent',
-	        legend: { position: 'none' },
-	        isStacked: 'percent',
-	        tooltip : { trigger: 'none' },
-	        chartArea : {width: '100%', height: '100%'},
-	        hAxis: { minValue: 0, ticks: [0, .5, 1], textPosition: 'none', gridlines: { color: 'transparent' }, baseline: { color: 'transparent' }},
-	        bar: {groupWidth: '95%'},
-	        colors: ['#0e5c5b', '#1b3337', '#0e5c5b', '#1b3337', '#0e5c5b', '#1b3337', '#0e5c5b'],
-	      };
-
-	      var chart = new google.visualization.BarChart(document.getElementById("gruposbar"));
-	      chart.draw(data, options);
-	  	}
-    </script>

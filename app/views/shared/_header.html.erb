@@ -1,10 +1,24 @@
 <header>
 	<h1>BioModelos</h1>
-	<nav>
-		<%= link_to 'Inicio', root_path, class: 'current' %>
-		<%= link_to 'Modelos', root_path %>
-		<%= link_to 'Grupos', root_path %>
-		<%= link_to 'Ingresar', root_path %>
-		<%= link_to 'Registrarse', root_path %>
+	<nav class="menu">
+		<ul class="active">
+			<li><%= link_to 'Inicio', root_path, class: 'current' %></li>
+			<li><%= link_to 'Modelos', root_path %></li>
+			<li><%= link_to 'Grupos', root_path %></li>
+			<li><%= link_to 'Ingresar', root_path %></li>
+			<li><%= link_to 'Registrarse', root_path %></li>
+		</ul>
+		<a class="toggle-nav" href="#">&#9776;</a>
 	</nav>
 </header>
+
+<script>
+	jQuery(document).ready(function() {
+    jQuery('.toggle-nav').click(function(e) {
+        jQuery(this).toggleClass('active');
+        jQuery('.menu ul').toggleClass('active');
+ 
+        e.preventDefault();
+    });
+});
+</script>
