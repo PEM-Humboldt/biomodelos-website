@@ -193,6 +193,11 @@ footer li a {
     background-repeat: no-repeat;
   	background-size: cover;
   	background-position: center;
+  	opacity: 1;
+    -webkit-transition: background 2s linear;
+    -moz-transition: background 2s linear;
+    -o-transition: background 2s linear;
+    transition: background 2s linear;
 }
 
 .homec {
@@ -427,4 +432,56 @@ div.google-visualization-tooltip > ul > li  {
 div.google-visualization-tooltip > ul > li:nth-child(2) {
 	margin-top: -10px;
 	letter-spacing: 1px;
+}
+
+/* when hiding the picture */
+.ng-hide-add         { animation: 0.5s lightSpeedOut linear; }
+
+/* when showing the picture */
+.ng-hide-remove      { animation: 0.5s flipInX linear; }
+
+/* ANIMATIONS (FROM ANIMATE.CSS) ======================== */
+/* flip in */
+@keyframes flipInX {
+  0% {
+    opacity: 0;
+  }
+
+
+  100% {
+	opacity: 1;
+	-webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+  }
+}
+
+/* light speed out */
+@keyframes lightSpeedOut {
+  0% {
+    opacity: 1;
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes lightSpeedOut {
+  0% {
+    opacity: 1;
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }

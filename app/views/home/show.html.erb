@@ -1,5 +1,5 @@
-<div class="innercontainer">
-	<div class="homeline">
+<div class="innercontainer" ng-controller="homeCtrl as hc">
+	<div class="homeline" ng-style="{'background-image': hc.slide}">
 		<div class="container homec">
 			<div class="hlink">
 				<%= link_to 'Especie aleatoria', root_path %>
@@ -101,4 +101,6 @@
 		</div>
 	</div>
 </div>
+
+<script>$('.cajabase').perfectScrollbar(); </script>
 
