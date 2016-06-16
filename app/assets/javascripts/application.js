@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular/angular.min
+//= require angular-animate/angular-animate.min
 //= require typeahead.js/dist/typeahead.bundle.min.js
 //= require leaflet/dist/leaflet-src
+//= require perfect-scrollbar/js/perfect-scrollbar.jquery.min
 //= require_tree .

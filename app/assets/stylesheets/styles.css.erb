@@ -7,6 +7,7 @@ html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  height: 100%;
 }
 
 *, *:before, *:after {
@@ -23,6 +24,7 @@ a {
 	text-decoration: none;
 	color: #db3f2a;
 	font-weight: 300;
+	cursor: pointer;
 }
 
 img {
@@ -34,6 +36,7 @@ body {
     font-size: 1em; 
     line-height: 1.2;
     background-color: #f2f2f2;
+    height: 100%;
 }
 
 .clearfix:after {
@@ -55,7 +58,7 @@ header {
 	display: flex;
     justify-content: space-between;
     position: relative;
-    z-index: 1000;
+    z-index: 5;
 }
 
 header h1 {
@@ -69,7 +72,14 @@ header nav {
 	margin-top: 6px;
 }
 
-header nav a {
+header nav li {
+	list-style: none;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;;
+}
+
+header nav li a {
 	text-transform: uppercase;
 	padding: 15px;
 	color: #fff;
@@ -87,6 +97,10 @@ header nav a:hover {
 	color: #18b4b1;
 }
 
+.toggle-nav {
+	display: none;
+}
+
 /* footer */
 
 footer {
@@ -95,9 +109,9 @@ footer {
 	padding: 20px 34px 15px;
 	display: flex;
     justify-content: space-between;
-    position: absolute;
+    position: static;
     bottom: 0;
-    z-index: 1000;
+    height: 130px;
 }
 
 .humboldtft img, 
@@ -158,13 +172,13 @@ footer li a {
 
 /* container */
 
-.fullcontainer {
-	position: absolute;
+.innercontainer {
 	width: 100%;
-	height: -moz-calc(100% - 187px);
-	height: -webkit-calc(100% - 187px);
-	height: calc(100% - 187px);
-	overflow: auto;
+	min-height: -moz-calc(100% - 190px);
+	min-height: -webkit-calc(100% - 190px);
+	min-height: calc(100% - 190px);
+	z-index: 2000;
+	padding-bottom: 30px;
 }
 
 .container {
@@ -174,11 +188,16 @@ footer li a {
 /*home*/
 
 .homeline {
-	height: 54%;
+	height: 400px;
 	background-image: url(<%= asset_path 'grillo.jpg' %>);
     background-repeat: no-repeat;
   	background-size: cover;
   	background-position: center;
+  	opacity: 1;
+    -webkit-transition: background 2s linear;
+    -moz-transition: background 2s linear;
+    -o-transition: background 2s linear;
+    transition: background 2s linear;
 }
 
 .homec {
@@ -190,15 +209,23 @@ footer li a {
 
 .homeline form {
 	margin: 0 auto;
-	width: 700px;
+	width: 100%;
 	padding: 5px;
 	background-color: #fff;
 }
 
-.homeline input[type=text] {
-	width: -moz-calc(100% - 50px);
-	width: -webkit-calc(100% - 50px);
-	width: calc(100% - 50px);
+.twitter-typeahead {
+		width: -moz-calc(100% - 50px);
+		width: -webkit-calc(100% - 50px);
+		width: calc(100% - 50px);
+}
+
+.tt-hint {
+	display: none;
+}
+
+.tt-input {
+	width: 100%;
 	padding: 7px;
 	padding-left: 10px;
 	border: none;
@@ -209,7 +236,14 @@ footer li a {
 	line-height: 2;
 	border-right: solid 2px #db3f2a;
 }
-
+.tt-menu {
+	background-color: #fff;
+	padding: 10px;
+	width: 98%;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	max-height: 300px;
+	overflow-y: auto; 
+}
 .searchbtnhome {
 	border: none;
 	height: 42px;
@@ -250,7 +284,7 @@ footer li a {
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-.fullcontainer h1 {
+.innercontainer h1 {
 	font-weight: 300;
 	letter-spacing: 1px;
 	color: #db3f2a;
@@ -258,6 +292,7 @@ footer li a {
 	text-align: center;
 	padding: 6px 0;
 	font-size: 1.75em;
+	margin-top: 10px;
 }
 
 .cajabase {
@@ -267,12 +302,14 @@ footer li a {
 	position: absolute;
 	width: 720px;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-	height: -moz-calc(100% - 24px);
-	height: -webkit-calc(100% - 24px);
-	height: calc(100% - 24px);
+	height: -moz-calc(100% - 210px);
+	height: -webkit-calc(100% - 210px);
+	height: calc(100% - 210px);
+	margin-top: 56px;
 	background-color: #fff;
 	overflow-y: auto;
 	padding: 12px 20px 12px 25px;
+	z-index: 6;
 }
 
 .hcbase h1 {
@@ -336,7 +373,7 @@ footer li a {
 .allgraphs {
     padding: 0 20px;
     max-width: 1300px;
-    margin: 0 auto;
+    margin: 15px auto;
     text-align: center;
 }
 
@@ -387,3 +424,64 @@ div.google-visualization-tooltip{
 	text-align: center;
 }
 
+div.google-visualization-tooltip > ul > li  {
+	padding:0 5px;
+	margin: 0;
+}
+
+div.google-visualization-tooltip > ul > li:nth-child(2) {
+	margin-top: -10px;
+	letter-spacing: 1px;
+}
+
+/* when hiding the picture */
+.ng-hide-add         { animation: 0.5s lightSpeedOut linear; }
+
+/* when showing the picture */
+.ng-hide-remove      { animation: 0.5s flipInX linear; }
+
+/* ANIMATIONS (FROM ANIMATE.CSS) ======================== */
+/* flip in */
+@keyframes flipInX {
+  0% {
+    opacity: 0;
+  }
+
+
+  100% {
+	opacity: 1;
+	-webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+  }
+}
+
+/* light speed out */
+@keyframes lightSpeedOut {
+  0% {
+    opacity: 1;
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes lightSpeedOut {
+  0% {
+    opacity: 1;
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

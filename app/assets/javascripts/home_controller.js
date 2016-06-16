@@ -34,7 +34,7 @@
     google.charts.setOnLoadCallback(drawChart5);
     google.charts.setOnLoadCallback(drawChart6);
     google.charts.setOnLoadCallback(drawChart7);
-    google.charts.setOnLoadCallback(drawChart8);
+    // google.charts.setOnLoadCallback(drawChart8);
 
     var options_chart = {
       titlePosition: 'none',
@@ -128,26 +128,27 @@
         var chart = new google.visualization.PieChart(document.getElementById('donutpla'));
         chart.draw(data, options_chart);
       }
-      function drawChart8() {
-        var data = google.visualization.arrayToDataTable([
-          ['Grupo', 'PLANTAS', 'AVES', 'ANFIBIOS', 'MAMÍFEROS',
-           'INVERTEBRADOS', 'PECES', 'REPTILES' ],
-          ['', 1571, 1613, 116, 172, 106, 106, 102],
-            ]);
 
-        var options = {
-          backgroundColor: 'transparent',
-          legend: { position: 'none' },
-          isStacked: 'percent',
-          tooltip : { trigger: 'none' },
-          chartArea : {width: '100%', height: '100%'},
-          hAxis: { minValue: 0, ticks: [0, .5, 1], textPosition: 'none', gridlines: { color: 'transparent' }, baseline: { color: 'transparent' }},
-          bar: {groupWidth: '95%'},
-          colors: ['#0e5c5b', '#1b3337', '#0e5c5b', '#1b3337', '#0e5c5b', '#1b3337', '#0e5c5b'],
-        };
+      // function drawChart8() {
+      //   var data = google.visualization.arrayToDataTable([
+      //     ['Grupo', 'PLANTAS', 'AVES', 'ANFIBIOS', 'MAMÍFEROS',
+      //      'INVERTEBRADOS', 'PECES', 'REPTILES' ],
+      //     ['', 1571, 1613, 116, 172, 106, 106, 102],
+      //       ]);
 
-        var chart = new google.visualization.BarChart(document.getElementById("gruposbar"));
-        chart.draw(data, options);
-      }
+      //   var options = {
+      //     backgroundColor: 'transparent',
+      //     legend: { position: 'none' },
+      //     isStacked: 'percent',
+      //     tooltip : { trigger: 'none' },
+      //     chartArea : {width: '100%', height: '100%'},
+      //     hAxis: { minValue: 0, ticks: [0, .5, 1], textPosition: 'none', gridlines: { color: 'transparent' }, baseline: { color: 'transparent' }},
+      //     bar: {groupWidth: '95%'},
+      //     colors: ['#0e5c5b', '#1b3337', '#0e5c5b', '#1b3337', '#0e5c5b', '#1b3337', '#0e5c5b'],
+      //   };
+
+      //   var chart = new google.visualization.BarChart(document.getElementById("gruposbar"));
+      //   chart.draw(data, options);
+      // }
     }();
 });

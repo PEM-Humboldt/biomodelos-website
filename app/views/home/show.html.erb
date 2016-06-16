@@ -1,5 +1,5 @@
-<div class="fullcontainer">
-	<div class="homeline">
+<div class="innercontainer" ng-controller="homeCtrl as hc">
+	<div class="homeline" ng-style="{'background-image': hc.slide}">
 		<div class="container homec">
 			<div class="hlink">
 				<%= link_to 'Especie aleatoria', root_path %>
@@ -10,9 +10,9 @@
 				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'species_src_btn' %>
 			<% end %>
 			<div class="hlbtn">
-				<%= link_to 'CONSULTA', root_path %>
-				<%= link_to 'CONTRIBUYE', root_path %>
-				<%= link_to 'PUBLICA', root_path %>
+				<a ng-click="consulta=!consulta">CONSULTA</a>
+				<a ng-click="contribuye=!contribuye">CONTRIBUYE</a>
+				<a ng-click="publica=!publica">PUBLICA</a>
 			</div>
 		</div>
 	</div>
@@ -61,19 +61,45 @@
 			<%= image_tag("home_pla.png") %>
 		</div>
 	</div>
-	<div class="barhome" id="gruposbar" style="width: 800px; height: 30px;"></div>
-
-<!-- 	<div class="cajabase">
-		<div class="hcbase">
-			<h1>consulta</h1>
-			<a href="" class="closecb">x</a>
+<!-- 	<div class="barhome" id="gruposbar" style="width: 800px; height: 30px;"></div> -->
+	<div ng-show="consulta">
+		<div class="cajabase">
+			<div class="hcbase">
+				<h1>consulta</h1>
+				<a ng-click="consulta=!consulta" class="closecb">x</a>
+			</div>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
+			<h3>KDSFK SDFKSHDFLKL ASDF</h3>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
+			<%= link_to 'ir', root_path, class: 'botoncb' %>
 		</div>
-		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
-		<h3>KDSFK SDFKSHDFLKL ASDF</h3>
-		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
-		<%= link_to 'ir', root_path, class: 'botoncb' %>
-	</div> -->
-</div>
-<script type="text/javascript">
+	</div>
 
-</script>
+	<div ng-show="contribuye">
+		<div class="cajabase">
+			<div class="hcbase">
+				<h1>contribuye</h1>
+				<a ng-click="contribuye=!contribuye" class="closecb">x</a>
+			</div>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
+			<h3>KDSFK SDFKSHDFLKL ASDF</h3>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
+			<%= link_to 'ir', root_path, class: 'botoncb' %>
+		</div>
+	</div>
+
+	<div ng-show="publica">
+		<div class="cajabase">
+			<div class="hcbase">
+				<h1>publica</h1>
+				<a ng-click="publica=!publica" class="closecb">x</a>
+			</div>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
+			<h3>KDSFK SDFKSHDFLKL ASDF</h3>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
+			<%= link_to 'ir', root_path, class: 'botoncb' %>
+		</div>
+	</div>
+</div>
+
+<script>$('.cajabase').perfectScrollbar(); </script>
