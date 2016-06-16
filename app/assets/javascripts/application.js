@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require angular/angular.min
 //= require typeahead.js/dist/typeahead.bundle.min.js
+//= require leaflet/dist/leaflet-src
 //= require_tree .
