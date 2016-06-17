@@ -17,7 +17,7 @@ html {
   }
 
 *:focus {
-    outline: 0;
+    outline: 0 none;
 }
 
 a {
@@ -58,7 +58,7 @@ header {
 	display: flex;
     justify-content: space-between;
     position: relative;
-    z-index: 5;
+    z-index: 12;
 }
 
 header h1 {
@@ -177,12 +177,27 @@ footer li a {
 	min-height: -moz-calc(100% - 190px);
 	min-height: -webkit-calc(100% - 190px);
 	min-height: calc(100% - 190px);
-	z-index: 2000;
+	z-index: 10;
 	padding-bottom: 30px;
 }
 
 .container {
 	margin: 0 auto;
+}
+
+.alert{
+	position: absolute;
+	left: 50%;
+	transform: translatex(-50%);
+	top: 150px;
+	background-color: #db3f2a;
+	color: #fff;
+	padding: 15px 30px;
+	display: block;
+	z-index: 11;
+	text-transform: uppercase;
+	font-weight: 300;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 /*home*/
@@ -432,6 +447,100 @@ div.google-visualization-tooltip > ul > li  {
 div.google-visualization-tooltip > ul > li:nth-child(2) {
 	margin-top: -10px;
 	letter-spacing: 1px;
+}
+
+/*log in */
+
+.fondoplumas {
+	background-image: url(<%= asset_path 'plumas.jpg' %>);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.loginbox {
+	top: 12px;
+	left: 50%;
+	transform: translatex(-50%);
+	position: absolute;
+	width: 500px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	height: auto;
+	max-height: -moz-calc(100% - 280px);
+	max-height: -webkit-calc(100% - 280px);
+	max-height: calc(100% - 280px);
+	margin-top: 120px;
+	background-color: #fff;
+	overflow-y: auto;
+	padding: 20px 30px;
+	z-index: 6;
+}
+
+.loginbox h2 {
+	text-transform: uppercase;
+	font-size: 2em;
+	letter-spacing: 2px;
+	font-weight: 300;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+	border-bottom: 1px solid #1b3337;
+	color: #1b3337;
+}
+
+#error_explanation h2 {
+	font-size: 1.6em;
+	color: #db3f2a;
+}
+
+.loginbox a {
+	padding: 15px;
+	float: left;
+	color: #18b4b1;
+}
+
+.loginbox input[type="email"],
+.loginbox input[type="password"] {
+	width: 100%;
+	padding: 5px;
+	margin-top: 5px;
+}
+
+.loginbox input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+	border-radius: none !important;
+	cursor: pointer;
+}
+
+.loginbox input[type="submit"] {
+	background: none;
+	padding: 10px 16px 10px;
+	font-weight: 300;
+	color: #db3f2a;
+	text-align: center;
+	border: solid 1px #db3f2a;
+	font-size: 1em;
+	font-family: 'lato', sans-serif;
+	cursor: pointer;
+	float: right;
+}
+
+.loginbox label {
+	color: #393836;
+	vertical-align: text-top;
+	letter-spacing: 0.5px;
+}
+
+.loginbox .field {
+	margin-top: 12px;
+}
+
+.loginbox .remembchk {
+	margin-bottom: 40px;
+	font-size: 0.87em;
+}
+.mb40 {
+	margin-bottom: 40px;
 }
 
 /* when hiding the picture */

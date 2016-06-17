@@ -1,4 +1,6 @@
-<h2>Sign up</h2>
+<div class="innercontainer fondoplumas">
+  <div class="loginbox">
+    <h2>Registrarse</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -9,21 +11,23 @@
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :clave %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(mínimo <%= @minimum_password_length %> caracteres)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
+  <div class="field mb40">
+    <%= f.label :confirmar_clave %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "REGISTRARSE" %>
   </div>
 <% end %>
-
+<div class="respclear"></div>
 <%= render "devise/shared/links" %>
+
+  </div>
+</div>
