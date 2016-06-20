@@ -27,3 +27,14 @@
 		<%= yield %>
 		<div><%= render 'shared/footer' %></div>
 	</body>
+
+<!-- desaparece las alertas despues de 4 seg-->
+<script type="text/javascript">
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#flashm').remove();
+  }, 3500);
+ });
+</script>
+
+</html>

@@ -1,0 +1,90 @@
+<div class="innercontainer bckperfil" ng-controller="perfilCtrl">
+<div class="perfilcont">
+	<div class="col2">
+		<h2>César Gutiérrez</h2>
+		<div class="perfilsub intgroups">Aves acuáticas, Mamíferos</div>
+		<div class="perfilsub">Instituto Alexander von Humboldt</div>
+		<div class="perfilsub">Bogotá</div>
+		<div class="perfilimg">
+			<%= image_tag("perfilprueba.jpg") %>
+		</div>
+		<div class="perflinks">
+			<a href="" class="mailto"></a>
+			<a href="" class="edituser"></a>
+		</div>
+		<div class="clearfix"></div>
+		<div class="perfilunder">Biografía</div>
+		<p class="">Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.
+		Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.</p>
+		<div class="perfilunder">Grupos</div>
+		<p class="groupuser"><a href="">Especie del Mes  ·  </a>23/02/2016</p>
+		<p class="groupuser"><a href="">Aves Acuáticas  ·  </a>15/02/2016</p>
+	</div>
+	<div class="col1">
+
+		<ul class="perfilnav">
+	       	<li ng-class="{ active: isSet(1) }">
+	          	<a href ng-click="setTab(1)">estadísticas</a>
+	       	</li>
+	       	<li ng-class="{ active: isSet(2) }">
+	          	<a href ng-click="setTab(2)">tareas</a>
+	       	</li>
+	       	<li ng-class="{ active: isSet(3) }">
+	          	<a href ng-click="setTab(3)">mis mapas</a>
+	       	</li>
+	       	<li ng-class="{ active: isSet(4) }">
+	          	<a href ng-click="setTab(4)">especies</a>
+	       	</li>
+	       	<li ng-class="{ active: isSet(5) }">
+	          	<a href ng-click="setTab(5)">actividad</a>
+	       	</li>
+	       	<li ng-class="{ active: isSet(6) }">
+	          	<a href ng-click="setTab(6)">notificaciones</a>
+	       	</li>
+	     </ul>
+
+		<div ng-show="isSet(1)" class="cajaperfil">
+				<h1>estadísticas</h1>
+				<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
+
+				<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
+		</div>
+		<div ng-show="isSet(2)" class="cajaperfil">
+				<h1>tareas</h1>
+				<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
+
+				<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
+		</div>
+		<div ng-show="isSet(3)" class="cajaperfil">
+				<h1>mis mapas</h1>
+				<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
+
+				<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
+		</div>
+		<div ng-show="isSet(4)" class="cajaperfil">
+				<h1>especies</h1>
+				<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
+
+				<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
+		</div>
+		<div ng-show="isSet(5)" class="cajaperfil">
+				<h1>actividad</h1>
+				<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
+
+				<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
+		</div>
+		<div ng-show="isSet(6)" class="cajaperfil">
+				<h1>notificaciones</h1>
+				<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
+
+				<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
+		</div>
+
+	</div>
+
+
+</div>
+</div>
+
+
+<script>$('.cajaperfil').perfectScrollbar(); </script>
