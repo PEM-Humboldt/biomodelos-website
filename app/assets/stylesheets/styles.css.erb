@@ -259,9 +259,9 @@ footer li a {
 }
 
 .twitter-typeahead {
-		width: -moz-calc(100% - 50px);
-		width: -webkit-calc(100% - 50px);
-		width: calc(100% - 50px);
+	width: -moz-calc(100% - 50px);
+	width: -webkit-calc(100% - 50px);
+	width: calc(100% - 50px);
 }
 
 .tt-hint {
@@ -577,11 +577,13 @@ div.google-visualization-tooltip > ul > li:nth-child(2) {
 
 /* perfil */
 .bckperfil  {
-background: linear-gradient(to bottom, #e45b2d 0%, #e45b2d 225px, #e45b2d 225px, transparent 225px, transparent 100%);
-padding-top: 45px;
+	background: -webkit-linear-gradient(#e45b2d 0%, #e45b2d 225px, #e45b2d 225px, transparent 225px, transparent 100%);
+	background: -o-linear-gradient(#e45b2d 0%, #e45b2d 225px, #e45b2d 225px, transparent 225px, transparent 100%);
+	background: linear-gradient(#e45b2d 0%, #e45b2d 225px, #e45b2d 225px, transparent 225px, transparent 100%);
+	padding-top: 45px;
 }
 .perfilcont {
-	width: 1100px;
+	width: 1024px;
 	margin: 0 auto;
 }
 
@@ -591,12 +593,12 @@ padding-top: 45px;
 	*display: inline;
 	*zoom: 1;
 	vertical-align: top;
-	margin-right: 33px;
+	margin-right: 29px;
 	float: left;
 }
 
 .col2 {
-	width: 375px;
+	width: 365px;
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
@@ -607,6 +609,7 @@ padding-top: 45px;
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
+	margin-bottom: 15px;
 }
 
 .perfilnav a {
@@ -626,10 +629,9 @@ padding-top: 45px;
 }
 
 .cajaperfil {
-	width: 630px;
+	width: 100%;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	height: 465px;
-	margin-top: 15px;
 	background-color: #fff;
 	overflow-y: auto;
 	padding: 17px;
@@ -736,14 +738,14 @@ p.groupuser {
 }
 
 
-/* when hiding the picture */
+/* when hiding the picture 
 .ng-hide-add         { animation: 0.5s lightSpeedOut linear; }
 
-/* when showing the picture */
+/* when showing the picture 
 .ng-hide-remove      { animation: 0.5s flipInX linear; }
 
-/* ANIMATIONS (FROM ANIMATE.CSS) ======================== */
-/* flip in */
+/* ANIMATIONS (FROM ANIMATE.CSS) ======================== 
+/* flip in 
 @keyframes flipInX {
   0% {
     opacity: 0;
@@ -759,7 +761,7 @@ p.groupuser {
   }
 }
 
-/* light speed out */
+/* light speed out 
 @keyframes lightSpeedOut {
   0% {
     opacity: 1;

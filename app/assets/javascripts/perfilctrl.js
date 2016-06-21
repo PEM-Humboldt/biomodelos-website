@@ -1,4 +1,4 @@
-angular.module('biomodelos', [])
+angular.module('biomodelos')
     .controller('perfilCtrl' , ['$scope', function($scope) {
     $scope.tab = 1;
 

@@ -1,4 +1,4 @@
-angular.module('biomodelos', ['ngAnimate'])
+angular.module('biomodelos')
     .controller('homeCtrl', function ($interval) { 
 
     var vm = this
