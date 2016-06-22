@@ -208,6 +208,7 @@ footer li a {
 	min-height: calc(100% - 190px);
 	z-index: 10;
 	padding-bottom: 30px;
+	position: relative;
 }
 
 .container {
@@ -298,7 +299,7 @@ footer li a {
 	background-image: url(<%= asset_path 'searchome.png' %>);
 }
 
-.hlink {
+.hlink, .spptit, .spp {
 	display: flex;
     justify-content: space-between;
 }
@@ -340,16 +341,13 @@ footer li a {
 }
 
 .cajabase {
-	top: 12px;
+	top: 5%;
 	left: 50%;
 	transform: translatex(-50%);
 	position: absolute;
 	width: 720px;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-	height: -moz-calc(100% - 210px);
-	height: -webkit-calc(100% - 210px);
-	height: calc(100% - 210px);
-	margin-top: 56px;
+	height: 90%;
 	background-color: #fff;
 	overflow-y: auto;
 	padding: 12px 20px 12px 25px;
@@ -636,6 +634,7 @@ div.google-visualization-tooltip > ul > li:nth-child(2) {
 	overflow-y: auto;
 	padding: 17px;
 	z-index: 6;
+	position: relative;
 }
 
 .cajaperfil h1 {
@@ -735,6 +734,154 @@ p.groupuser a {
 p.groupuser {
 	font-size: 0.714em;
 	margin-bottom: 0;
+}
+
+.estadbox {
+	width: 30%;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	border: 2px solid #1b3337;
+	margin: 1%;
+	height: 150px;
+	text-align: center;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.12);
+}
+
+.estadbox h2 {
+	text-transform: uppercase;
+	font-weight: 300;
+	line-height: 1;
+	height: 40%;
+	vertical-align: middle;
+	padding: 5px;
+	width: 90%;
+	border-bottom: 1px solid red;
+	margin: 0 auto;
+	font-size: 1.3em;
+	color: #5d5d5d;
+}
+
+.estadbox h6 {
+	width: 90%;
+	font-size: 2.3em;
+	display: block;
+	margin: 0 auto;
+	color: #1b3337;
+	margin-top: 5px;
+	padding: 15px;
+}
+
+.notif {
+	border-bottom: 1px solid #3e3e3e;
+	width: 98%;
+	margin-bottom: 15px;
+}
+
+.notif img {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	height: 35px;
+	width: 35px;
+}
+
+.fechanotif {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	padding: 10px;
+	font-size: 0.72em;
+	color: #376870;
+	vertical-align: top;
+	font-weight: 300;
+
+}
+
+.notif p {
+	margin: 0;
+	padding-bottom: 5px;
+}
+
+.spptit {
+	margin-top: 20px;
+	margin-bottom: 15px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #db3f2a;
+}
+.sppbox h2 {
+	color:#1b3337;
+	font-size: 1em;
+	margin-left: 5px;
+}
+
+.sppbox h3 {
+	color:#124c5e;
+	font-size: 1em;
+	font-weight: 300;
+	margin-right: 5px;
+}
+
+.spp:nth-child(odd) {
+	background-color: #f2f2f2;;
+}
+
+.spp a, .spp p {
+	padding: 10px;
+	margin: 0;
+}
+
+.spp a {
+	font-style: italic;
+	color:#9c9d36;
+}
+
+.leavesp {
+	height: 25px;
+	width: 25px;
+	line-height: 0;
+	margin: 8px 10px 0 0;
+	text-align: center;
+	font-weight: 400;
+	background: none !important;
+	border: 1px solid #db3f2a;
+	color: #db3f2a;
+	cursor: pointer;
+}
+
+.spp .fechanotif {
+	padding:14px 8px;
+	font-size: .68em;
+}
+
+.aporte {
+	margin: 0;
+	padding: 3px 10px;
+}
+
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mymap {
+	width: 185px;
+}
+
+.mymap a.spmapname {
+	font-size: 0.725em;
+	font-style: italic;
+	color:#87872f;
+}
+
+.fechamapa {
+	color:#5d5e5e;
+	font-size: 0.625em;
+	display: block;
+	border-bottom: 1px solid #c5c4c4;
+	padding-bottom: 3px;
+	margin-bottom: 5px;
 }
 
 
