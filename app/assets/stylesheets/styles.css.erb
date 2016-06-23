@@ -639,7 +639,7 @@ div.google-visualization-tooltip > ul > li:nth-child(2) {
 
 .cajaperfil h1 {
 	font-size: 1.286em;
-	margin: 0 0 20px;
+	margin: 0 0 15px;
 	padding: 0; 
 	text-align: left;
 	font-weight: 400;
@@ -809,7 +809,8 @@ p.groupuser {
 	padding-bottom: 5px;
 	border-bottom: 1px solid #db3f2a;
 }
-.sppbox h2 {
+
+.sppbox h2, .tabletit h2 {
 	color:#1b3337;
 	font-size: 1em;
 	margin-left: 5px;
@@ -859,14 +860,18 @@ p.groupuser {
 	padding: 3px 10px;
 }
 
-.Aligner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.aligner {
+	margin: 0 auto;
+	text-align: center;
 }
 
 .mymap {
 	width: 185px;
+	display: inline-block;
+	margin-right: 11px;
+	margin-bottom: 20px;
+	text-align: left;
+	vertical-align: top;
 }
 
 .mymap a.spmapname {
@@ -884,6 +889,111 @@ p.groupuser {
 	margin-bottom: 5px;
 }
 
+.mymap h4 {
+	font-size: 1.2em;
+	margin: 0;
+	border-bottom: 1px solid #c5c4c4;
+	padding: 7px 3px 5px;
+	font-weight: 300;
+	color: #1b3337;
+	margin-bottom: 5px;
+}
+
+.mmicon {
+	border-bottom: 1px solid #db3f2a;
+	padding-bottom: 5px;
+}
+
+.mmicon img {
+	float: left;
+	padding: 3px;
+}
+
+.mmicon .delicon {
+	float: right;
+}
+
+.mymapthumb {
+	width: 185px;
+	height: 230px;
+	border: 1px solid #c5c4c4;
+	border-top:none;
+	position: relative;
+}
+
+.mymapthumb img {
+	position: absolute;
+	margin: auto;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.colspp {
+	width: 48%;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	margin: 0;
+	vertical-align: top;
+}
+
+.coladv {
+	width: 13%;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	text-align: center;	
+	border-left: 1px solid #1b3337;
+	vertical-align: top;
+}
+
+.tabletit {
+	padding: 5px;
+	border-bottom: 1px solid #1b3337;
+	height: 35px;
+}
+
+.tabletit h3 {
+	font-size: 0.76em;
+	color:#1b3337;
+	text-overflow: ellipsis;
+	overflow: hidden;
+
+}
+
+.tareaspp input[type="checkbox"] {
+	height: 20px;
+	margin: 0 auto;
+}
+
+.tareaspp > * {
+	padding: 15px 7px 9px;
+}
+
+.tareaspp:nth-child(odd) {
+	background-color: #f2f2f2;;
+}
+
+.tareaspp a, .tareaspp p {
+	font-size: 0.87em;
+	line-height: 1;
+	vertical-align: top;
+}
+
+.tareaspp p {
+	text-align: center;
+	padding: 17px 0 18px;
+	margin-bottom: -2px;
+	color: #124c5e;
+	font-size: 0.7em;
+}
+
+.tareaspp a {
+	font-style: italic;
+	color:#9c9d36;
+}
 
 /* when hiding the picture 
 .ng-hide-add         { animation: 0.5s lightSpeedOut linear; }
