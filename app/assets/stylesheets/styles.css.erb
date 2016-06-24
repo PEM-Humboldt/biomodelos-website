@@ -187,7 +187,8 @@ footer li {
 	text-transform: uppercase;
 	font-size: 0.8em;
 	line-height: 1.8;
-}	
+	width: 105px;
+}
 
 footer li a {
 	color: #18b4b1;
@@ -196,6 +197,11 @@ footer li a {
 .smallnavli {
 	color: #fff;
 	text-transform: none;
+}
+
+.linehnav {
+	line-height: 1.3;
+	margin: 3px 0;	
 }
 
 
@@ -575,9 +581,9 @@ div.google-visualization-tooltip > ul > li:nth-child(2) {
 
 /* perfil */
 .bckperfil  {
-	background: -webkit-linear-gradient(#e45b2d 0%, #e45b2d 230px, #e45b2d 230px, transparent 230px, transparent 100%);
-	background: -o-linear-gradient(#e45b2d 0%, #e45b2d 230px, #e45b2d 230px, transparent 230px, transparent 100%);
-	background: linear-gradient(#e45b2d 0%, #e45b2d 230px, #e45b2d 230px, transparent 230px, transparent 100%);
+	background: -webkit-linear-gradient(#e45b2d 0%, #e45b2d 229px, #e45b2d 229px, transparent 229px, transparent 100%);
+	background: -o-linear-gradient(#e45b2d 0%, #e45b2d 229px, #e45b2d 229px, transparent 229px, transparent 100%);
+	background: linear-gradient(#e45b2d 0%, #e45b2d 229px, #e45b2d 229px, transparent 229px, transparent 100%);
 	padding-top: 45px;
 }
 .perfilcont {
@@ -696,7 +702,7 @@ div.google-visualization-tooltip > ul > li:nth-child(2) {
 	margin-left: 10px;
     float: left;
     margin-top: 8px;
-    width: 40px;
+    width: 70px;
     height: auto;
 }
 
@@ -708,21 +714,22 @@ div.google-visualization-tooltip > ul > li:nth-child(2) {
     background-repeat: no-repeat;
     vertical-align: text-bottom;
     float: left;
+    margin-top: 9px;
 }
 
 .edituser {
     background-image: url(<%= asset_path 'perfileditar.png' %>);
-    margin-top: 5px;
-    margin-left: 3px;
+    margin-top: 7px;
+    margin-left: 8px;
 }
 
 .rank {
 	height: 30px;
 	background: url(<%= asset_path 'perfilrank.png' %>) left no-repeat;
-	padding-left: 35px;
-	padding-top: 7px;
+	padding-left: 37px;
+	padding-top: 8px;
 	float: left;
-	margin-top: 5px;
+	margin-top: 3px;
 	font-size: 0.86em;
 	color:#1b3337;
 }
