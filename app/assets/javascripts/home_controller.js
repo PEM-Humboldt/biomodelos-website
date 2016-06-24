@@ -151,4 +151,6 @@
       //   chart.draw(data, options);
       // }
     }();
+
+    $('body').perfectScrollbar();
 });
