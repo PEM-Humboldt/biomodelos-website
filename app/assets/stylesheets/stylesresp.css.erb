@@ -17,6 +17,14 @@
         width: 70%;
     }
 
+    .groupnav {
+        width: 100%;
+    }
+
+    .groupnav li a {
+        padding: 3px 5px;
+    }
+
     .col2 {
         width: 33%;
     }
@@ -29,11 +37,31 @@
  
 @media screen and (max-width: 945px) { 
     .estadbox {
-        width: 45%;
+        width: 46%;
         height: 28%;
     }
 
 }
+
+@media screen and (max-width: 850px) { 
+    .tabletit h3 {
+        display:none;
+    }
+
+    .specialicon img {
+        display: inline;
+    }
+
+    .cajainners {
+        width: 98%;
+        position: relative;
+        left: 50%;
+        transform: translatex(-50%);
+        top: 10px;
+    }
+
+}
+
 @media screen and (max-width: 780px) {
     .menu {
         position:relative;
@@ -127,7 +155,7 @@
     	padding-bottom: 20px;
     }
 
-    .cajabase p {
+    .cajabase p, .cajainners p {
 		width: -moz-calc(100% - 80px);
 		width: -webkit-calc(100% - 80px);
 		width: calc(100% - 80px);
@@ -173,9 +201,21 @@
         border:1px #1b3337 solid;
     }
 
+    .groupnav a {
+        color: #207b99;
+    }
+
+    .groupnav > li.active > a {
+        border:1px #db3f2a solid;
+    }
+
     .estadbox {
         width: 30%;
         height: 150px;
+    }
+
+    .bckgroup .estadbox {
+        height: 120px;
     }
 
 }
@@ -183,7 +223,11 @@
 @media only screen and (max-width : 625px) {
 
     .estadbox {
-        width: 45%;
+        width: 46%;
+    }
+
+    .aligner2 {
+        text-align: center;
     }
 }
 
@@ -227,7 +271,7 @@
 		padding: 20px 0 15px;
 	}
 
-    .estadbox {
+    .estadbox, .bckgroup .estadbox {
         width: 90%;
     }
 

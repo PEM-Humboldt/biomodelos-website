@@ -1,0 +1,131 @@
+<div class="innercontainer fondoplumas" ng-controller="perfilCtrl">
+	<div class="cajainners">
+		<div class="hcbase">
+			<h1>grupos biomodelos</h1>
+			<%= link_to '', root_path, class: 'closecb' %>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.</p>
+			<a ng-click="newgroup=!newgroup; activeButton()" ng-class="{'btnact': isActive}" class="newgrbtn">Sugerir Grupo</a>
+			<div ng-show="newgroup" class="forms clearfix">
+				<p>Ingrese la información a continuación sobre el grupo que desea sugerir para que podamos contactarlo:</p>
+				<form action="">
+					<input type="text" placeholder="Nombre del grupo"></input>
+					<input type="text" placeholder="Posible moderador"></input>
+					<textarea name="" id="" cols="10" rows="6" maxlength="600"></textarea>
+					<input type="submit" value="Enviar"></input>
+				</form>
+			</div>
+
+			<div class="sugeridor">
+				<%= form_tag('', {:id => 'sp_search_form'})  do %>
+					<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Buscar grupo por nombre', :include_blank => false %>
+					<%= submit_tag 'Filtrar', :name => nil, :class => 'searchbtnspp', :id => 'species_src_btn' %>
+				<% end %>
+			</div>
+			<div class="mt20"></div>
+			<div class="aligner2">
+				<div class="groupcard">
+					<div class="groupthumb">
+						<%= image_tag("avacuaticas.jpg") %>
+					</div>
+					<div class="titgrcard">
+						Aves acuáticas de Colombia
+					</div>
+					<div class="subtgr"><b>Moderador</b></br>Norberto Lopez Alvarez</div>
+					<div class="colhalf subtgr lineright">
+						<b>Especies</b>
+						<h5>245</h5>
+					</div>
+					<div class="colhalf subtgr clearfix">
+						<b>Miembros</b>
+						<h5>45</h5>
+					</div>
+				</div>
+				<div class="groupcard">
+					<div class="groupthumb">
+						<%= image_tag("nogroupimg.jpg") %>
+					</div>
+					<div class="titgrcard">
+						Aves acuáticas de Colombia
+					</div>
+					<div class="subtgr"><b>Moderador</b></br>Norberto Lopez Alvarez</div>
+					<div class="colhalf subtgr lineright">
+						<b>Especies</b>
+						<h5>245</h5>
+					</div>
+					<div class="colhalf subtgr clearfix">
+						<b>Miembros</b>
+						<h5>45</h5>
+					</div>
+				</div>
+				<div class="groupcard">
+					<div class="groupthumb">
+						<%= image_tag("avacuaticas.jpg") %>
+					</div>
+					<div class="titgrcard">
+						Aves acuáticas de Colombia
+					</div>
+					<div class="subtgr"><b>Moderador</b></br>Norberto Lopez Alvarez</div>
+					<div class="colhalf subtgr lineright">
+						<b>Especies</b>
+						<h5>245</h5>
+					</div>
+					<div class="colhalf subtgr clearfix">
+						<b>Miembros</b>
+						<h5>45</h5>
+					</div>
+				</div>
+				<div class="groupcard">
+					<div class="groupthumb">
+						<%= image_tag("avacuaticas.jpg") %>
+					</div>
+					<div class="titgrcard">
+						Aves acuáticas de Colombia
+					</div>
+					<div class="subtgr"><b>Moderador</b></br>Norberto Lopez Alvarez</div>
+					<div class="colhalf subtgr lineright">
+						<b>Especies</b>
+						<h5>245</h5>
+					</div>
+					<div class="colhalf subtgr clearfix">
+						<b>Miembros</b>
+						<h5>45</h5>
+					</div>
+				</div>
+				<div class="groupcard">
+					<div class="groupthumb">
+						<%= image_tag("avacuaticas.jpg") %>
+					</div>
+					<div class="titgrcard">
+						Aves acuáticas de Colombia
+					</div>
+					<div class="subtgr"><b>Moderador</b></br>Norberto Lopez Alvarez</div>
+					<div class="colhalf subtgr lineright">
+						<b>Especies</b>
+						<h5>245</h5>
+					</div>
+					<div class="colhalf subtgr clearfix">
+						<b>Miembros</b>
+						<h5>45</h5>
+					</div>
+				</div>
+				<div class="groupcard">
+					<div class="groupthumb">
+						<%= image_tag("avacuaticas.jpg") %>
+					</div>
+					<div class="titgrcard">
+						Aves acuáticas de Colombia
+					</div>
+					<div class="subtgr"><b>Moderador</b></br>Norberto Lopez Alvarez</div>
+					<div class="colhalf subtgr lineright">
+						<b>Especies</b>
+						<h5>245</h5>
+					</div>
+					<div class="colhalf subtgr clearfix">
+						<b>Miembros</b>
+						<h5>45</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
