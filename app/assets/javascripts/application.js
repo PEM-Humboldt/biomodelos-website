@@ -17,4 +17,4 @@
 //= require typeahead.js/dist/typeahead.bundle.min.js
 //= require leaflet/dist/leaflet-src
 //= require perfect-scrollbar/js/perfect-scrollbar.jquery.min
-//= require_tree .
+// require_tree .
