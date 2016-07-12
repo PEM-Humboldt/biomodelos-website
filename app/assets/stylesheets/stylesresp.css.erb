@@ -197,6 +197,10 @@
         color: #e45b2d;
     }
 
+    .infonav a {
+        color: initial;
+    }
+
     .perfilnav > li.active > a {
         border:1px #1b3337 solid;
     }
@@ -254,25 +258,52 @@
         margin-bottom: 20px;
     } 
 
+    .subtabs li a {
+        padding: 5px 4px;
+        font-size: 0.74em;
+    }
+
+    .subtabact a {
+        padding: 8px 4px !important;
+    }
+
 }
 
 @media only screen and (max-width : 435px) {
 
 /* footer */
-	.lbabfooter {
-		display: none;
-	}
+    .lbabfooter {
+        display: none;
+    }
 
-	footer {
-		display: inline-block;
-		*display: inline;
-		*zoom: 1;
-		text-align: center;
-		padding: 20px 0 15px;
-	}
+    footer {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+        padding: 20px 0 15px;
+    }
 
     .estadbox, .bckgroup .estadbox {
         width: 90%;
+    }
+
+}
+
+
+@media only screen and (max-width : 380px) {
+
+    .tilted h1 {
+        display: none;
+    }
+
+    .subtabs li a {
+        padding: 5px 3px;
+        font-size: 0.7em;
+    }
+
+    .subtabact a {
+        padding: 8px 3px !important;
     }
 
 }
