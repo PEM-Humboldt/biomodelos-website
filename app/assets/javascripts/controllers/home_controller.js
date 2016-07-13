@@ -155,5 +155,4 @@
       }
     }();
 
-    $('body').perfectScrollbar();
 });
