@@ -1,12 +1,42 @@
-<style>
-	#map {
-	   width: 100%;
-	   height: -webkit-calc(100% - 130px);
-	   height: -moz-calc(100% - 130px);
-	   height: calc(100% - 130px);
-	}
-</style>
-<div id="map"></div>
+<div class="innercontainer pad0" id="map" ng-controller="visorCtrl">
+	<div class="spname">Tessmanniacanthus chlamydocardioides</div>
+	<div class="modelname">Modelo validado BioModelos</div>
+<div id="layerbtn"></div>
+<div ng-click="find=!find; activeButton()" ng-class="{'vbtnact': isActive}" class="visorbtn vbtnfind"></div>
+<div ng-click="info=!info; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtninfo"></div>
+<div ng-click="hipotesis=!hipotesis; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtnhipo"></div>
+<div ng-click="edit=!edit; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtnedit"></div>
+
+<div ng-show="find" class="cajavisor">a</div>
+<div ng-show="info" class="cajavisor">b</div>
+<div ng-show="hipotesis" class="cajavisor">c</div>
+<div ng-show="edit" class="cajavisor">d</div>
+</div>
+
 <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAz6sPnMLuIJrOWvNKnn6-PWYK56PDGa30'%>
 <%= javascript_include_tag 'Google.js' %>
 <%= javascript_include_tag 'biovisor' %>
+
+<script>
+$(document).ready(function(){
+ 	$(".leaflet-control-layers").removeClass("leaflet-control-layers-expanded");
+
+	$("#layerbtn").on("click",function(){
+
+	if($("#layerbtn").hasClass("vbtnact")){
+	 $("#layerbtn").removeClass("vbtnact");
+	 }
+	else {
+	 	$("#layerbtn").addClass("vbtnact");
+	}
+
+	if($(".leaflet-control-layers").hasClass("leaflet-control-layers-expanded")){
+	 $(".leaflet-control-layers").removeClass("leaflet-control-layers-expanded");
+	 }
+	else {
+	 	$(".leaflet-control-layers").addClass("leaflet-control-layers-expanded");
+	}
+	});
+
+});
+</script>
