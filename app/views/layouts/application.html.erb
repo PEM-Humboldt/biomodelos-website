@@ -19,13 +19,13 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body ng-app='biomodelos'>
-	{{angular}}
+	<!-- {{angular}} -->
 		<% flash.each do |key, value| %>
   		<div class="alert alert-<%= key %>" id="flashm"><%= value %></div>
 		<% end %>
-		<div><%= render 'shared/header' %></div>
+		<%= render 'shared/header' %>
 		<%= yield %>
-		<div><%= render 'shared/footer' %></div>
+		<%= render 'shared/footer' unless @skip_footer %>
 	</body>
 
 <!-- desaparece las alertas despues de 4 seg-->

@@ -6,7 +6,7 @@
 				<%= link_to 'Busqueda avanzada', root_path %>
 			</div>
 			<%= form_tag('', {:id => 'sp_search_form'})  do %>
-				<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Consulta una especie por su nombre científico', :include_blank => false %>
+				<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Consulta una especie por su nombre científico', :include_blank => false, :rel => 'autocomplete' %>
 				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'species_src_btn' %>
 			<% end %>
 			<div class="hlbtn">

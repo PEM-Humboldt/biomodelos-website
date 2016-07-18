@@ -1,21 +1,92 @@
-<div class="innercontainer pad0" id="map" ng-controller="visorCtrl">
-	<div class="spname">Tessmanniacanthus chlamydocardioides</div>
-	<div class="modelname">Modelo validado BioModelos</div>
-<div id="layerbtn"></div>
-<div ng-click="find=!find; activeButton()" ng-class="{'vbtnact': isActive}" class="visorbtn vbtnfind"></div>
-<div ng-click="info=!info; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtninfo"></div>
-<div ng-click="hipotesis=!hipotesis; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtnhipo"></div>
-<div ng-click="edit=!edit; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtnedit"></div>
+<div class="mapcontainer" id="map"></div>
+<div class="pad0" ng-controller="visorCtrl">
+		<div class="spname">Tessmanniacanthus chlamydocardioides</div>
+		<div class="modelname">Modelo validado BioModelos</div>
+	<div id="layerbtn"></div>
+	<div ng-click="find=!find; activeButton()" ng-class="{'vbtnact': isActive}" class="visorbtn vbtnfind"></div>
+	<div ng-click="info=!info; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtninfo"></div>
+	<div ng-click="hipotesis=!hipotesis; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtnhipo"></div>
+	<div ng-click="edit=!edit; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtnedit"></div>
 
-<div ng-show="find" class="cajavisor">a</div>
-<div ng-show="info" class="cajavisor">b</div>
-<div ng-show="hipotesis" class="cajavisor">c</div>
-<div ng-show="edit" class="cajavisor">d</div>
+	<div ng-show="find" class="cajavisor">
+		<div class="vcbase">
+			<h1>BUSCADOR DE ESPECIES</h1>
+			<a ng-click="find=!find" class="closevb">x</a>
+		</div>
+		<div class="cvcolumn">
+			<p>Activando nuestro sistema de filtros puedes reducir o aumentar el listado de especies hasta encontrar la especie deseada, o escribir su nombre directamente en el buscador. Ten en cuenta que no todas las especies tienen modelo de distribución, pero si opciones para avanzar en su desarrollo.</p>
+			<%= form_tag('', {:id => 'sp_search_form'})  do %>
+				<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Consulta una especie por su nombre científico', :include_blank => false, :rel => 'autocomplete' %>
+				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'species_src_btn' %>
+			<% end %>
+			<h2>FILTROS</h2>
+			<div class="sppbtn">
+				<button class="mamiferos"></button>
+				<button class="aves"></button>
+				<button class="reptiles"></button>
+				<button class="anfibios"></button>
+				<button class="peces"></button>
+				<button class="invertebrados"></button>
+				<button class="plantas"></button>
+			</div>
+			<div class="typebtn">
+				<button>endémicas</button>
+				<button>invasoras</button>
+				<button>amenazadas</button>
+				<button>validadas</button>
+				<button>sin modelo</button>
+			</div>
+			<section class="resultados">
+				Aburria aburri</br>
+				Aburria cumanensis</br>
+				Aburria pipile</br>
+				Accipiter bicolor</br>
+				Accipiter collaris</br>
+				Accipiter poliogaster</br>
+				Accipiter striatus</br>
+				Accipiter superciliosus</br>
+				Acropternis orthonyx</br>
+				Actitis macularius</br>
+				Adelomyia melanogenys</br>
+				Aeronautes montivagus</br>
+				Agamia agami</br>
+				Aglaeactis cupripennis</br>
+				Aglaiocercus coelestis</br>
+				Aglaiocercus kingii</br>
+				Agriornis montanus
+			</section>
+		</div>
+	</div>
+	<div ng-show="info" class="cajavisor">b</div>
+	<div ng-show="hipotesis" class="cajavisor">c</div>
+	<div ng-show="edit" class="cajavisor">d</div>
 </div>
 
 <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAz6sPnMLuIJrOWvNKnn6-PWYK56PDGa30'%>
 <%= javascript_include_tag 'Google.js' %>
 <%= javascript_include_tag 'biovisor' %>
+
+<div class="visorfooter">
+			<a href="http://www.humboldt.org.co" class="humboldtft" target="_blank">
+				<div class="humbname">
+					<h1>Instituto de Investigación de Recursos Biológicos</br>
+						Alexander von Humboldt</h1>
+				</div>
+			</a>
+			<nav>
+				<ul id="subnav">
+					<li>
+						<%= link_to 'Tutorial', root_path %>
+					</li>
+				</ul>
+				<ul id="subnav">
+					<li>
+						<%= link_to 'Info', root_path %>
+					</li>
+				</ul>
+				<%= image_tag("logolba.png") %>
+			</nav>
+</div>
 
 <script>
 $(document).ready(function(){
@@ -39,4 +110,6 @@ $(document).ready(function(){
 	});
 
 });
-</script>
+
+$('.cajavisor').perfectScrollbar();
+$('.resultados').perfectScrollbar(); </script>

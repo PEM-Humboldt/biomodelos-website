@@ -209,7 +209,7 @@ footer li {
 	width: 105px;
 }
 
-footer li a {
+footer li a, .visorfooter li a {
 	color: #18b4b1;
 }
 
@@ -223,6 +223,39 @@ footer li a {
 	margin: 3px 0;	
 }
 
+.visorfooter {
+	height: 46px;
+	width: 100%;
+	background-color: #393836;
+	display: flex;
+    justify-content: space-between;
+    position: static;
+    bottom: 0;
+    padding: 4px 34px 0;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.visorfooter nav ul {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: top;
+	width: 90px;
+}
+
+.visorfooter li {
+	list-style: none;
+	padding: 0 15px;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	line-height: 38px;
+}
+
+.visorfooter h1 {
+	margin-bottom: 0;
+	line-height: 1.3;
+}
 
 /* container */
 
@@ -296,9 +329,14 @@ footer li a {
 	padding: 10px;
 	width: 98%;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-	max-height: 300px;
-	overflow-y: auto; 
+	max-height: 350px;
+	z-index: 3000 !important;
 }
+
+.tt-suggestion {
+	cursor: pointer;
+}
+
 .searchbtnhome {
 	border: none;
 	height: 42px;
@@ -1937,8 +1975,25 @@ a.cajathumb p {
 
 /* visor */
 
+
+.mapcontainer {
+	width: 100%;
+	min-height: -moz-calc(100% - 106px);
+	min-height: -webkit-calc(100% - 106px);
+	min-height: calc(100% - 106px);
+	z-index: 10;
+	position: relative;
+}
+
 .pad0 {
 	padding: 0;
+	width: 100%;
+	top: 60px;
+	min-height: -moz-calc(100% - 106px);
+	min-height: -webkit-calc(100% - 106px);
+	min-height: calc(100% - 106px);
+	z-index: 10;
+	position: absolute;
 }
 
 .leaflet-top .leaflet-control {
@@ -1990,7 +2045,7 @@ a.cajathumb p {
 .spname, .modelname {
 	position: absolute;
 	top: 0;
-	left: 50px;
+	left: 52px;
 	width: 250px;
 	height: 25px;
 	background-color: #fff;
@@ -2000,7 +2055,7 @@ a.cajathumb p {
 }
 
 .modelname {
-	left: 300px;
+	left: 302px;
 	width: 200px;
 	border-left: 1px solid #8d8d8d;
 	color: #393836;
@@ -2095,58 +2150,153 @@ a.cajathumb p {
 	overflow-y: auto;
 	z-index: 1001;
 	right: 60px;
+	font: 14px/24px 'Lato', sans-serif;
 }
 
-
-
-/*
-.ng-hide-add         { animation: 0.5s lightSpeedOut linear; }
-
-/* when showing the picture 
-.ng-hide-remove      { animation: 0.5s flipInX linear; }
-
-/* ANIMATIONS (FROM ANIMATE.CSS) ======================== 
-/* flip in 
-@keyframes flipInX {
-  0% {
-    opacity: 0;
-  }
-
-
-  100% {
-	opacity: 1;
-	-webkit-transition: all 1s linear;
-    -moz-transition: all 1s linear;
-    -o-transition: all 1s linear;
-    transition: all 1s linear;
-  }
+.vcbase h1 {
+	padding: 0 0 13px 0;
+	margin-top: 0;
+	font-size: 1.8em;
+	text-align: left;
+	border-bottom: solid 1px #db3f2a;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	font-weight: 400;
+	width: -moz-calc(100% - 55px);
+	width: -webkit-calc(100% - 55px);
+	width: calc(100% - 55px);
+	text-transform: uppercase;
+	color:#db3f2a;
 }
 
-/* light speed out 
-@keyframes lightSpeedOut {
-  0% {
-    opacity: 1;
-    -webkit-transition: all 1s linear;
-    -moz-transition: all 1s linear;
-    -o-transition: all 1s linear;
-    transition: all 1s linear;
-  }
-
-  100% {
-    opacity: 0;
-  }
+.vcbase {
+	margin-bottom: 12px;
 }
 
-@keyframes lightSpeedOut {
-  0% {
-    opacity: 1;
-    -webkit-transition: all 1s linear;
-    -moz-transition: all 1s linear;
-    -o-transition: all 1s linear;
-    transition: all 1s linear;
-  }
+.closevb {
+	padding: 0 16px;
+	text-transform: uppercase;
+	font-size: 1em;
+	margin-left: 8px;
+	font-weight: 300;
+	color: #db3f2a !important;
+	text-align: center;
+	vertical-align: middle;
+	border: solid 1px #db3f2a;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	line-height: 40px;
+	height: 40px;
+	cursor: pointer;
+}
 
-  100% {
-    opacity: 0;
-  }
+.cajavisor p {
+	max-width: 500px;
+	line-height: 1.5;
+	font-size: 0.95em;
+	color: #393836;
+}
+
+.cvcolumn{
+	width: -moz-calc(100% - 55px);
+	width: -webkit-calc(100% - 55px);
+	width: calc(100% - 55px);
+}
+
+.cajavisor form {
+	border: solid 1px #db3f2a;
+	padding: 5px;
+	margin: 12px 0;
+	font-size: 1.2em;
+}
+
+.cajavisor h2 {
+	font-size: 1em;
+	text-transform: uppercase;
+	color: #db3f2a;
+	font-weight: 400;
+	border-bottom: 1px solid #db3f2a;
+	display: inline;
+}
+
+.sppbtn {
+	margin-bottom: 10px;
+	height: 30px;
+	margin-top: 5px;
+}
+
+.sppbtn button {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	border: none;
+	background-color: #c5c4c4;
+	width: 30px;
+	height: 30px;
+	margin-right: 5px;
+}
+
+.sppbtn button:hover,
+.sppbtn button:active {
+	background-color: #1b3337;
+}
+
+.mamiferos {
+background-image: url(<%= asset_path 'mambtn.png' %>);	
+}
+.aves {
+background-image: url(<%= asset_path 'avesbtn.png' %>);	
+}
+.reptiles {
+background-image: url(<%= asset_path 'repbtn.png' %>);	
+}
+.anfibios {
+background-image: url(<%= asset_path 'anfbtn.png' %>);	
+}
+.peces {
+background-image: url(<%= asset_path 'pecesbtn.png' %>);	
+}
+.invertebrados {
+background-image: url(<%= asset_path 'invbtn.png' %>);	
+}
+.plantas {
+background-image: url(<%= asset_path 'plantbtn.png' %>);	
+}
+
+.typebtn button {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	border: 2px solid #c5c4c4;
+	color: #c5c4c4;
+	text-transform: uppercase;
+	padding: 5px 7px;
+	margin-right: 5px;
+	background: none;
+	font-weight: 300;
+	letter-spacing: 0.5px;
+}
+
+.typebtn button:hover,
+.typebtn button:active {
+	border: 2px solid #1b3337;
+	color: #1b3337;
+	text-transform: uppercase;
+}
+
+.resultados {
+	width: 100%;
+	border: solid 1px #db3f2a;
+	font-style: italic;
+	color: #393836;
+	line-height: 1.5;
+	font-size: 0.95em;
+	margin-top: 25px;
+	padding: 10px 10px 15px;
+	min-height: 150px;
+	max-height: 500px;
+	position: relative;
+	margin-bottom: 10px;
 }
