@@ -6,4 +6,7 @@ class SpeciesController < ApplicationController
 	    end
 	    render json: result
   	end
+  	def visor
+	  @skip_footer = true
+	end
 end

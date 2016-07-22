@@ -181,7 +181,7 @@
 		</div>
 		<div ng-show="isSet(4)" class="cajaperfil sppbox">
 			<h1>especies</h1>
-			<a ng-click="sugeridor=!sugeridor" class="closecb">Sugerir Especie</a>
+			<a ng-click="sugeridor=!sugeridor; activeButton()" ng-class="{'btnact': isActive}" class="closecb">SUGERIR ESPECIE</a>
 			<div ng-show="sugeridor" class="sugeridor">
 			<%= form_tag('', {:id => 'sp_search_form'})  do %>
 				<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Busca especie por nombre científico', :include_blank => false %>

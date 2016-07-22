@@ -1,12 +1,382 @@
-<style>
-	#map {
-	   width: 100%;
-	   height: -webkit-calc(100% - 130px);
-	   height: -moz-calc(100% - 130px);
-	   height: calc(100% - 130px);
-	}
-</style>
-<div id="map"></div>
+<div class="mapcontainer" id="map"></div>
+<div class="pad0" ng-controller="visorCtrl">
+		<div class="spname">Tessmanniacanthus chlamydocardioides</div>
+		<div class="modelname">Modelo validado BioModelos</div>
+	<div id="layerbtn" class="visorbtn"></div>
+	<div ng-click="find=!find; activeButton()" ng-class="{'vbtnact': isActive}" class="visorbtn vbtnfind"></div>
+	<div ng-click="info=!info; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtninfo"></div>
+	<div ng-click="hipotesis=!hipotesis; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtnhipo"></div>
+	<div ng-click="edit=!edit; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtnedit"></div>
+
+	<div ng-show="find" class="cajavisor">
+		<div class="vcbase">
+			<h1>BUSCADOR DE ESPECIES</h1>
+			<a ng-click="find=!find" class="closevb">x</a>
+		</div>
+		<div class="cvcolumn">
+			<p>Activando nuestro sistema de filtros puedes reducir o aumentar el listado de especies hasta encontrar la especie deseada, o escribir su nombre directamente en el buscador. Ten en cuenta que no todas las especies tienen modelo de distribución, pero si opciones para avanzar en su desarrollo.</p>
+			<%= form_tag('', {:id => 'sp_search_form'})  do %>
+				<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Consulta una especie por su nombre científico', :include_blank => false, :rel => 'autocomplete' %>
+				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'species_src_btn' %>
+			<% end %>
+			<h2>FILTROS</h2>
+			<div class="sppbtn">
+				<button class="mamiferos"></button>
+				<button class="aves"></button>
+				<button class="reptiles"></button>
+				<button class="anfibios"></button>
+				<button class="peces"></button>
+				<button class="invertebrados"></button>
+				<button class="plantas"></button>
+			</div>
+			<div class="typebtn">
+				<button>endémicas</button>
+				<button>invasoras</button>
+				<button>amenazadas</button>
+				<button>validadas</button>
+				<button>sin modelo</button>
+			</div>
+			<section class="resultados">
+				Aburria aburri</br>
+				Aburria cumanensis</br>
+				Aburria pipile</br>
+				Accipiter bicolor</br>
+				Accipiter collaris</br>
+				Accipiter poliogaster</br>
+				Accipiter striatus</br>
+				Accipiter superciliosus</br>
+				Acropternis orthonyx</br>
+				Actitis macularius</br>
+				Adelomyia melanogenys</br>
+				Aeronautes montivagus</br>
+				Agamia agami</br>
+				Aglaeactis cupripennis</br>
+				Aglaiocercus coelestis</br>
+				Aglaiocercus kingii</br>
+				Agriornis montanus
+			</section>
+		</div>
+	</div>
+	<div ng-show="info" class="cajavisor">
+		<div class="vcbase">
+			<h1>acerca de <i>Aglaiocercus coelestis</i></h1>
+			<a ng-click="info=!info" class="closevb">x</a>
+		</div>
+		<div class="cvcolumn">
+			<div class="subinfo">
+				<h3 class="reg">NÚMERO DE REGISTROS<b>42</b></h3>
+				<h3 class="metreg"><a href="">METADATOS REGISTROS</a></h3>
+			</div>
+			<div class="infofollow">
+				<div class="sppcategories">
+					<div class="sppcateg">MIGRATORIA</div>
+					<div class="sppcateg">cites</div>
+				</div>
+				<div class="followstate">
+					<a href="" class="follow">seguir</a>
+					<div class="follow siguiendo invisible">siguiendo</div>
+				</div>
+			</div>
+			<p>Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo.</p>
+			<div class="databox">
+				<h2 class="infotitle" ng-click="extinfo=!extinfo">EXTENSIÓN DE OCURRENCIA</h2>
+				<div ng-show="extinfo" class="infobox">
+					<h2>extensión de ocurrencia</h2>
+					<a ng-click="extinfo=!extinfo" class="closevb">x</a>
+					<p>Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo.</p>
+				</div>
+				<div class="maindata">
+					<h4>100 km<b>2</b></h4>
+					<h5>Rango Geográfico</h5>
+				</div>
+				<div class="seconddata">
+					<h4>172 km<b>2</b></h4>
+					<h5>PMC sobre modelos</h5>
+				</div>
+				<div class="seconddata fdata">
+					<h4>82 km<b>2</b></h4>
+					<h5>PMC sobre registros</h5>
+				</div>
+			</div>
+			<div class="databox">
+				<h2 class="infotitle" ng-click="repinfo=!repinfo">REPRESENTATIVIDAD ÁREAS PROTEGIDAS</h2>
+				<div ng-show="repinfo" class="infobox">
+					<h2>REPRESENTATIVIDAD ÁREAS PROTEGIDAS</h2>
+					<a ng-click="repinfo=!repinfo" class="closevb">x</a>
+					<p>Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo.</p>
+				</div>
+				<div class="maindata 2ndpad">
+					<h4>15 %</h4>
+					<h5>Rango Geográfico</h5>
+				</div>
+				<div class="seconddata">
+					<h4>5 %</h4>
+					<h5>PNN</h5>
+				</div>
+				<div class="seconddata">
+					<h4>2 %</h4>
+					<h5>RSC</h5>
+				</div>
+				<div class="seconddata fdata">
+					<h4>8 %</h4>
+					<h5>otras figuras</h5>
+				</div>
+			</div>
+			<div class="databox">
+				<h2 class="infotitle dtab" ng-click="perinfo=!perinfo">PÉRDIDA DE HÁBITAT</h2>
+				<div ng-show="perinfo" class="infobox">
+					<h2>PÉRDIDA DE HÁBITAT</h2>
+					<a ng-click="perinfo=!perinfo" class="closevb">x</a>
+					<p>Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo.</p>
+				</div>
+				<div class="maindata dib">
+					<h4>15 %</h4>
+					<h5>Histórica</h5>
+				</div>
+				<div class="maindata dib">
+					<h4>5 %</h4>
+					<h5>10 años</h5>
+				</div>
+			</div>
+			<div class="databox">
+				<h2 class="infotitle" ng-click="cobinfo=!cobinfo">coberturas</h2>
+				<div ng-show="cobinfo" class="infobox">
+					<h2>coberturas</h2>
+					<a ng-click="cobinfo=!cobinfo" class="closevb">x</a>
+					<p>Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo.</p>
+				</div>
+				<div class="resdata">
+					Bosque de galería y ripario</br>
+					Bosque fragmentado
+				</div>
+			</div>
+			<div class="databox">
+				<h2 class="infotitle" ng-click="ameninfo=!ameninfo">amenazas</h2>
+				<div ng-show="ameninfo" class="infobox">
+					<h2>amenazas</h2>
+					<a ng-click="ameninfo=!ameninfo" class="closevb">x</a>
+					<p>Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo.</p>
+				</div>
+				<div class="resdata">
+					Bosque de galería y ripario</br>
+					Bosque fragmentado
+				</div>
+			</div>
+		</div>
+		<div class="cvcol40">
+			<button class="urllink"></button><div class="amenaza"><%= image_tag("caten.png") %></div>
+		</div>
+	</div>
+	<div ng-show="hipotesis" class="cajavisor hipotesis">
+		<div class="vcbase">
+			<h1>HIPÓTESIS DISPONIBLES</h1>
+			<a ng-click="hipotesis=!hipotesis" class="closevb">x</a>
+		</div>
+		<div class="cvcolumn">
+			<div class="followstate fright">
+				<a href="" class="follow invisible">seguir</a>
+				<div class="follow siguiendo">siguiendo</div>
+			</div>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.</p>
+
+			
+				<div class="maparea">
+					<div href="" class="mapthumb">
+						<div class="flipper">
+							<div class="front2"><%= image_tag("mapthumb.png") %></div>
+							<a class="back2">
+								<div class="titlethumb">
+									MODELO VALIDADO BIOMODELOS
+								</div>
+								<div class="infothumb">
+									Calificación promedio
+									<div class="calificacion">4.2 <b>(12 votos)</b></div>
+								</div>
+								<div class="infothumb">
+									Número descargas
+									<div class="calificacion">3</div>
+								</div>
+								<div class="citathumb">Gutiérrez, et.al, 2015</div>
+							</a>
+						</div>
+					</div>
+					<div class="mmicon clearfix">
+						<a href=""><%= image_tag("downicon.png") %></a>
+						<a href=""><%= image_tag("metaicon.png") %></a>
+						<a href="" class="delicon"><%= image_tag("delicon.png") %></a>
+					</div>
+				</div>
+				<div class="maparea">
+					<div href="" class="mapthumb">
+						<div class="flipper">
+							<div class="front2"><%= image_tag("mapthumb.png") %></div>
+							<a class="back2">
+								<div class="titlethumb">
+									MODELO VALIDADO BIOMODELOS
+								</div>
+								<div class="infothumb">
+									Calificación promedio
+									<div class="calificacion">4.2 <b>(12 votos)</b></div>
+								</div>
+								<div class="infothumb">
+									Número descargas
+									<div class="calificacion">3</div>
+								</div>
+								<div class="citathumb">Gutiérrez, et.al, 2015</div>
+							</a>
+						</div>
+					</div>
+					<div class="mmicon clearfix">
+						<a href=""><%= image_tag("downicon.png") %></a>
+						<a href=""><%= image_tag("metaicon.png") %></a>
+						<a href="" class="delicon"><%= image_tag("delicon.png") %></a>
+					</div>
+				</div>
+				<div class="maparea">
+					<div href="" class="mapthumb">
+						<div class="flipper">
+							<div class="front2"><%= image_tag("mapthumb.png") %></div>
+							<a class="back2">
+								<div class="titlethumb">
+									MODELO VALIDADO BIOMODELOS
+								</div>
+								<div class="infothumb">
+									Calificación promedio
+									<div class="calificacion">4.2 <b>(12 votos)</b></div>
+								</div>
+								<div class="infothumb">
+									Número descargas
+									<div class="calificacion">3</div>
+								</div>
+								<div class="citathumb">Gutiérrez, et.al, 2015</div>
+							</a>
+						</div>
+					</div>
+					<div class="mmicon clearfix">
+						<a href=""><%= image_tag("downicon.png") %></a>
+						<a href=""><%= image_tag("metaicon.png") %></a>
+						<a href="" class="delicon"><%= image_tag("delicon.png") %></a>
+					</div>
+				</div>
+				
+				<h3>FORO <i>Aglaiocercus coelestis</i></h3>
+				<form action="">
+					<textarea name="" id="" cols="30" rows="4" placeholder="Comentarios sobre esta especie"></textarea>
+				</form>
+				<input type="submit" value="COMENTAR"></input>
+				<div class="clearfix"></div>
+				<div class="notif">
+					<%= image_tag("nouserthumb.png") %>
+					<a class="foroname" href="">Victor Setina Liz</a>
+					<h6 class="fechanotif">18 · Jun · 2016 - 16:36</h6>
+					<p>Fue aceptado en el grupo <a href="">Mamíferos de Colombia</a></p>
+					<div class="foroactions">
+						<a href="">responder</a>
+						<a href="">editar</a>
+						<a href="">borrar</a>
+					</div>
+				</div>
+				<div class="notif reply">
+					<%= image_tag("userthumbp.png") %>
+					<a class="foroname" href="">César Gutiérrez</a>
+					<h6 class="fechanotif">18 · Jun · 2016 - 16:36</h6>
+					<p>Fue aceptado en el grupo <a href="">Mamíferos de Colombia</a></p>
+					<div class="foroactions">
+						<a href="">responder</a>
+						<a href="">borrar</a>
+					</div>
+				</div>
+
+		</div>
+	</div>
+	<div ng-show="edit" class="cajavisor editbox">
+		<div class="vcbase">
+				<h1>EDICIÓN Y CONTRIBUCIÓN</h1>
+				<a ng-click="hipotesis=!hipotesis" class="closevb">x</a>
+		</div>
+		<div class="cvcolumn">
+			<div class="followstate fright"><div class="follow siguiendo">siguiendo</div></div>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.</p>
+		</div>
+		<h2>DESARROLLO MODELO</h2>
+
+		<div class="steptitle">1. A partir de modelo estadístico</div>
+		<p class="estadistico">UMBRAL</p>
+		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi.</p>
+		<p class="estadistico edicon">EDICIÓN</p>
+		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi.
+		Proin suscipit luctus orci placerat fringilla. Derit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi.</p>
+		<p class="estadistico veicon">VARIABLES ECOLÓGICAS</p>
+		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi.</p>
+		<div class="editactions clearfix">
+			<a href=""><%= image_tag("mapicon.png") %></a>
+			<a href=""><%= image_tag("downicon.png") %></a>
+			<a href=""><%= image_tag("metaicon.png") %></a>
+			<button class="newgrbtn">editar</a>
+		</div>
+
+		<div class="steptitle">2. Crea tu mapa</div>
+		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.</p>
+		<div class="editactions clearfix">
+			<button class="newgrbtn">crear</a>
+		</div>
+
+		<div class="steptitle">3. Publica tu mapa</div>
+		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.</p>
+		<a href=""><%= image_tag("uploadicon.png") %></a>
+
+
+	</div>
+</div>
+
 <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAz6sPnMLuIJrOWvNKnn6-PWYK56PDGa30'%>
 <%= javascript_include_tag 'Google.js' %>
 <%= javascript_include_tag 'biovisor' %>
+
+<div class="visorfooter">
+			<a href="http://www.humboldt.org.co" class="humboldtft" target="_blank">
+				<div class="humbname">
+					<h1>Instituto de Investigación de Recursos Biológicos</br>
+						Alexander von Humboldt</h1>
+				</div>
+			</a>
+			<nav>
+				<ul id="subnav">
+					<li>
+						<%= link_to 'Tutorial', root_path %>
+					</li>
+				</ul>
+				<ul id="subnav">
+					<li>
+						<%= link_to 'Info', root_path %>
+					</li>
+				</ul>
+				<%= image_tag("logolba.png") %>
+			</nav>
+</div>
+
+<script>
+$(document).ready(function(){
+ 	$(".leaflet-control-layers").removeClass("leaflet-control-layers-expanded");
+
+	$("#layerbtn").on("click",function(){
+
+	if($("#layerbtn").hasClass("vbtnact")){
+	 $("#layerbtn").removeClass("vbtnact");
+	 }
+	else {
+	 	$("#layerbtn").addClass("vbtnact");
+	}
+
+	if($(".leaflet-control-layers").hasClass("leaflet-control-layers-expanded")){
+	 $(".leaflet-control-layers").removeClass("leaflet-control-layers-expanded");
+	 }
+	else {
+	 	$(".leaflet-control-layers").addClass("leaflet-control-layers-expanded");
+	}
+	});
+
+});
+
+$('.cajavisor').perfectScrollbar();
+$('.resultados').perfectScrollbar(); </script>

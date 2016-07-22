@@ -1,0 +1,224 @@
+<div class="innercontainer tilted">
+	<div class="contenedor" ng-controller="perfilCtrl">
+		<ul class="perfilnav infonav">
+	       	<li ng-class="{ active: isSet(1) }">
+	          	<a href ng-click="setTab(1)">blog</a>
+	       	</li>
+	       	<li ng-class="{ active: isSet(2) }">
+	          	<a href ng-click="setTab(2)">docs</a>
+	       	</li>
+	     </ul>
+	     <h1>info</h1>
+	    <div class="clearfix"></div>
+		<div ng-show="isSet(1)" class="cajainfo">
+ 			<ul class="subtabs">
+		       	<li class="subtabact">
+		          	<a href="">noticias</a>
+		       	</li><!-- 
+		     --><li >
+		          	<a href="">boletines</a>
+		       	</li><!-- 	
+		        --><li>
+		          	<a href="">publicaciones</a>
+		       	</li><!-- 
+		       	 --><li>
+		          	<a href="">conferencias</a>
+		       	</li>
+	     	</ul>
+	     	<div class="infocontainer">
+				<div class="blogg invisible">
+					<h4>Aviso: estamos en renovación</h4>
+					<p>Como parte de la implementación de la nueva estrategia de BioModelos (ver nuestro <a href="http://us9.campaign-archive2.com/?u=b418e8c5dfe3e2abd225ec166&id=dee402c50c" target="_blank">Boletín No. 3</a>), estamos trabajando en varios cambios al diseño y funcionamiento de nuestro sitio web así como a nuestro flujo de trabajo. Mientras la nueva versión de BioModelos está en línea con nuevos modelos de distribución podrás colaborar a mejorar el conocimiento de la distribución de las especies de Colombia en esta nueva etapa:</p>
+					<p class="blogg20">• Manifestando tu interés en colaborar al desarrollo de modelo de distribución de una o más especies escribiéndole (a través de la página) al moderador de tu(s) grupo. Tu contribución será reconocida en la citación del modelo resultante de esta colaboración y será incluida en una publicación con los aportes recibidos durante este año.</p>
+					<p class="blogg20">• Realizando aportes a la calidad de los registros mediante la herramienta “reportar error” <a href="/faq#faq">(ver FAQ)</a> sobre las especies de tu interés.</p>
+					<p class="blogg20">• Indicando el rango altitudinal y las coberturas terrestres de las especies de tu interés.</p>
+					<p class="blogg20">• Manifestando tu interés en publicar modelos que hayas desarrollado para especies de Colombia en BioModelos aquí: <a href="http://bit.ly/25zPPmE." target="_blank">http://bit.ly/25zPPmE.</a></p>
+				</div>
+
+				<div class="boletindex">
+					<div class="cardbol" ng-click="boletin3=!boletin3; activeButton()" ng-class="{'actbol': isActive}" ontouchstart="this.classList.toggle('hover');">
+						<div class="flipper">
+							<div class="front">
+								<h3>Boletín No. 3</h3>
+								<h6>Mayo de 2016</h6>
+								<%= image_tag("bol3thumb.jpg") %>
+							</div>
+							<div class="back">
+								<h3>Boletín No. 3</h3>
+								<p>Modelamiento aves acuáticas, magnolias y zamias</p>
+								<p>Nueva imagen y funcionalidad</p>
+								<p>Taller “Moderadores y modeladores de BioModelos”</p>
+								<p>Nuevos grupos - Herpetos, Aves, Primates -</p>
+							</div>
+						</div>
+					</div>
+					<div class="cardbol" ng-click="boletin2=!boletin2; activeButton()" ng-class="{'actbol': isActive}" ontouchstart="this.classList.toggle('hover');">
+						<div class="flipper">
+							<div class="front">
+								<h3>Boletín No. 2</h3>
+								<h6>Diciembre de 2015</h6>
+								<%= image_tag("bol2thumb.jpg") %>
+							</div>
+							<div class="back">
+								<h3>Boletín No. 2</h3>
+								<p>Modelos para 444 especies</p>
+								<p>Kit BioModelos para mayor actividad</p>
+								<p>Incorporación de aportes de expertos</p>
+								<p>Actualizaciones a aplicación BioModelos</p>
+							</div>
+						</div>
+					</div>
+					<div class="cardbol" ng-click="boletin1=!boletin1; activeButton()" ng-class="{'actbol': isActive}" ontouchstart="this.classList.toggle('hover');">
+						<div class="flipper">
+							<div class="front">
+								<h3>Boletín No. 1</h3>
+								<h6>Octubre de 2015</h6>
+								<%= image_tag("bol1thumb.jpg") %>
+							</div>
+							<div class="back">
+								<h3>Boletín No. 1</h3>
+								<p>Grupos temáticos en BioModelos</p>
+								<p>Campaña especie del Mes: Frailejón</p>
+								<p>Taller BioModelos: Zamias y Magnolias</p>
+							</div>
+						</div>
+					</div>
+				
+				</div>
+
+					<div ng-show="boletin3">
+						<div class="bolet"><a href="http://us9.campaign-archive2.com/?u=b418e8c5dfe3e2abd225ec166&id=dee402c50c" target="_blank">+ Boletín No.3</a></div>
+						<div class="clearfix"></div>
+						<div class="bolet">
+							<h4>Editorial</h4>
+							<h5>Publicado por <b>Jorge Velásquez</b> · <i>May 2016</i></h5>
+							<p>El 2016 empezó para el equipo BioModelos con un replanteamiento de la estrategia a partir de la cual buscamos convertirnos en el referente para la consulta de distribución de las especies en Colombia. Además de cerrar los ciclos de procesos de modelamiento con conjuntos de datos curados (aves acuáticas, magnolias y zamias), este año buscamos acelerar el desarrollo de modelos validados de distribución. Para lograrlo, estamos trabajando con los moderadores de grupos para elaborar el listado de especies que cada grupo está interesado en modelar así como en la identificación de los expertos que acompañarían dicho proceso. Adicionalmente, reconociendo los esfuerzos previos de mapeo y modelamiento de nuestra biodiversidad, iniciaremos una campaña para la publicación de modelos a través de BioModelos. Estimamos que mediante esta estrategia podríamos publicar durante este año modelos validados por expertos para más de 1000 especies.</p>
+							<p>La implementación de esta estrategia viene acompañada de una completa renovación de la imagen y funcionalidad de BioModelos. Se incorporarán nuevas herramientas para la curaduría de registros, la creación de mapas de expertos y la publicación de modelos. El proceso de desarrollo de modelos híbridos será considerablemente simplificado. Los perfiles de grupos y de expertos se modificarán para seguir mejor el avance de los grupos en los procesos de modelamiento, así como para visibilizar y visualizar mejor los aportes de cada experto, respectivamente. Todo esto vendrá acompañado de una nueva lógica de navegación y una amplia documentación que permitirá que el uso de la página sea más intuitivo. <b>Los invito a estar pendientes del lanzamiento de la versión 2.0 de BioModelos en el segundo semestre del año.</b></p>
+						</div>
+						<div class="bolet">
+							<h4>TALLER MODERADORES Y MODELADORES DE BIOMODELOS</h4>
+							<h5>Publicado por <b>Jorge Velásquez</b> · <i>May 2016</i></h5>
+							<div><%= image_tag("nwsl3_1.jpg") %></div>
+							<p>El 10 de marzo de 2016 se realizó el taller “Moderadores y modeladores de BioModelos” en la ciudad de Medellín, convocado por el Laboratorio de Biogeografía Aplicada del Instituto Humboldt. El taller contó con la participación de siete moderadores de los grupos conformados en BioModelos y seis modeladores, quienes aportaron valiosas ideas en la construcción de la agenda de modelamiento 2016. Los principales temas que se trataron en el taller fueron la definición de un flujo de trabajo para la curaduría de datos y los procesos de validación y publicación de modelos consenso o modelos realizados por modeladores externos. Con estos nuevos insumos, el equipo de BioModelos se concentrará en consolidar y ejecutar las agendas de trabajo para 2016, lo que permitirá publicar los modelos de distribución consenso de las especies priorizadas por cada uno de los grupos. Consulta <a href="http://biomodelos.humboldt.org.co/Memorias_TMMB.pdf" target="_blank">aquí</a> la memoria de la reunión.</p>
+						</div>
+						<div class="bolet">
+							<h4>ACTUALIDADES GRUPOS BIOMODELOS</h4>
+							<h5>Publicado por <b>Jorge Velásquez</b> · <i>May 2016</i></h5>
+							<h6>Herpetos de Colombia</h6>
+							<p>Este grupo será moderado por Juan M. Daza (Universidad de Antioquia) y Nicolás Urbina (Universidad Javeriana). Para el 2016, el grupo se enfocará en el desarrollo y validación de modelos de anfibios de páramo los cuales servirán como insumo para la evaluación de su riesgo de extinción.</p>
+							<h6>Aves de Colombia</h6>
+							<p>La agenda de modelamiento del grupo aves de Colombia incluye 57 especies, entre las cuales están todos los búhos de Colombia.</p>
+							<h6>Primates de Colombia</h6>
+							<p>El grupo Primates de Colombia actualmente trabaja en la compilación y curación de registros biológicos <a href="http://www.asoprimatologicacolombiana.org/modelos-de-distribucioacuten.html" target="_blank">(ver +)</a> de todos los primates colombianos para el desarrollo de modelos de distribución a partir del segundo semestre del 2016.</p>
+						</div>
+						<div class="bolet">
+							<h4>NOVEDADES</h4>
+							<h5>Publicado por <b>Jorge Velásquez</b> · <i>May 2016</i></h5>
+							<p>Nuestro equipo de trabajo está desarrollando un procedimiento para la publicación de modelos de distribución en BioModelos. Manifiesta tu interés en publicar tus modelos <a href="https://docs.google.com/a/humboldt.org.co/forms/d/1jiWMI-Gw_A731609IBwB8CvLMSsvOCAgP209v0PmTQw/edit#" target="_blank">aquí.</a></p>
+							<p>En el mes de Abril fue creado el grupo BioModelos <a href="http://biomodelos.humboldt.org.co/groups/18">Odonatos de Colombia</a> bajo la administración de Juan Camilo Lara. Este es el primer grupo sobre invertebrados en BioModelos. ¡Bienvenidos odonatólogos!</p>
+							<p><a href="http://biomodelos.humboldt.org.co/users/73">Oswaldo Cortés</a> (Bogotá Birding), quien registra un total de 36 aportes durante marzo en BioModelos, es el ganador del kit BioModelos de ese mes. Felicitaciones Oswaldo y gracias por tus aportes.</p>
+						</div>
+					</div>
+
+					<div ng-show="boletin2">
+						<div class="bolet"><a href="http://eepurl.com/bKZKXb" target="_blank">+ Boletin No.2</a></div>
+						<div class="clearfix"></div>
+						<div class="bolet">
+							<h4>Nuevos modelos publicados</h4>
+							<h5>Publicado por <b>Jorge Velásquez</b> · <i>Dic 2015</i></h5>
+							<div><%= image_tag("nwsl2_1.jpg") %></div>
+							<p><b>Contamos con una nueva generación de modelos</b> para 444 especies que han registrado actividad en BioModelos y para saber cuál hipótesis representa mejor su distribución necesitamos tu colaboración. Es muy sencillo (y toma menos de 1 minuto):</p>
+							<p>Consulta el <a href="http://biomodelos.humboldt.org.co/home/active_species" target="_blank">listado</a> de especies y utiliza las estrellas para calificar la hipótesis que mejor representa su distribución. Se considerará como el mejor modelo disponible aquel que tenga la mayor calificación, siempre y cuando ésta sea superior a 3. Los 10 expertos con mayor actividad registrada en BioModelos recibirán un kit BioModelos (mug, libro, caja de notas y afiche) por correo físico.</p>
+						</div>
+						<div class="bolet">
+							<h4>Incorporación de aportes de expertos A MODELOS DE DISTRIBUCIÓN</h4>
+							<h5>Publicado por <b>Jorge Velásquez</b> · <i>Dic 2015</i></h5>
+							<p>Desde la realización de las primeras pruebas de BioModelos con expertos, hemos recibido <b>432 reportes de errores</b> de identificación y/o georeferenciación (105 spp.), <b>347 nuevos registros</b> (144 spp.), <b>2967 calificaciones de modelos</b> (363 spp.), <b>1003 ediciones a modelos</b> (274 spp.) y <b>2953 registros sobre preferencias de hábitat</b> (238 spp.). En la nueva generación de modelos publicada en BioModelos, estos aportes han sido incorporados para las 444 especies que han registrado algún tipo de actividad:</p>
+							<p>(1) corriendo de nuevo los modelos usando tres métodos de modelamiento con las modificaciones sugeridas por expertos y usando también una descarga de bases de datos en línea reciente; (2) generando modelos híbridos para las especies que han tenido actividad de calificaciones y ediciones (visible en la pestaña “validación”) y (3) desarrollando modelos nivel 2 para aquellas especies que han registrado aportes sobre sus preferencias de hábitat en <b>BioModelos</b> (complementados con información secundaria).</p>
+						</div>
+						<div class="bolet">
+							<h4>Novedades BioModelos</h4>
+							<h5>Publicado por <b>Jorge Velásquez</b> · <i>Dic 2015</i></h5>
+							<div><%= image_tag("nwsl2_2.jpg") %></div>
+							<p>La nueva actualización de BioModelos incluye:</p>
+							<h6>Búsqueda</h6>
+							<p>La experiencia de usuario ha cambiado para disminuir la cantidad de pasos a seguir en el proceso de búsqueda de una especie. Ahora en la caja de búsqueda podrá <b>consultar directamente todas las especies</b> con modelos, o aplicar un filtro para buscar dentro de una categoría taxonómica específica.</p>
+							<h6>Calificación</h6>
+							<p>Ahora sólo es posible <b>calificar un modelo por pestaña</b> (Validación, Bioclim, BRT o Maxent). Esto simplifica el proceso de análisis de las calificaciones sometidas por expertos. Sin embargo, la calificación puede ser modificada o se puede elegir otro modelo de la misma pestaña una vez se haya eliminado la calificación anterior.</p>
+							<div><%= image_tag("nwsl2_3.jpg") %></div>
+							<h6>Navegación</h6>
+							<p><a href="http://biomodelos.humboldt.org.co/home/validated_models" target="_blank">Los nuevos modelos de distribución</a> cuentan con cuatro pestañas:</p>
+							<p>
+							<b>Validación</b></br>
+							Se muestran los modelos nivel 1 (clima) y 2 (clima y coberturas vegetales) desarrollados por el laboratorio de biogeografía aplicada usando validación estadística <b>(modelo inductivo)</b>, la versión BioModelos con los aportes realizados por expertos <b>(modelo híbrido)</b> y el mapa de expertos existente para cada especie <b>(modelo deductivo)</b>.</p>
+							<p>
+							<b>Bioclim, BRT y Maxent</b></br>
+							Se muestran 4 umbrales para cada método. Mediante la calificación de los mismos por expertos se desarrolla el <b>modelo híbrido</b>.</p>
+							<p>
+							<b>Descarga</b></br>
+							Dados los problemas presentados con la manipulación de archivos KMZ en software SIG, hemos dispuesto la descarga de la nueva generación de modelos.</p>
+						</div>
+					</div>
+
+					<div ng-show="boletin1">
+						<div class="bolet"><a href="http://eepurl.com/bDl3Tn" target="_blank">+ Boletin No.1</a></div>
+						<div class="clearfix"></div>
+						<div class="bolet">
+							<h4>Interactúa con la red BioModelos utilizando las nuevas funciones de grupos</h4>
+							<h5>Publicado por <b>Jorge Velásquez</b> · <i>OCT 2015</i></h5>
+							<p>Los usuarios de BioModelos ahora podrán interactuar entre si y recibir notificaciones de la actividad registrada en la plataforma sobre sus especies de interés, uniéndose a alguno de los <a href="http://biomodelos.humboldt.org.co/groups" target="_blank">grupos temáticos existentes en BioModelos</a> o <a href="mailto:biomodelos@humboldt.org.co">sugiriendo la creación de uno nuevo.</a></p>
+							<p>Cada grupo consta de moderadores y miembros. Los moderadores son expertos que se postulan de manera voluntaria o son elegidos por la comunidad y su función es revisar y aprobar el ingreso de nuevos miembros así como vincular especies al grupo. Asimismo pueden enviar comunicados a todos los usuarios, actualizar el perfil del grupo y servir de puente para transmitir solicitudes de los usuarios al equipo coordinador de BioModelos. Los miembros reciben notificaciones de la actividad sobre las especies del grupo, sugieren especies y pueden invitar a otros expertos a unirse al grupo.</p>
+							<p>Consulta el <a href="http://biomodelos.humboldt.org.co/groups" target="_blank">directorio de grupos</a> para unirte o sugerir un nuevo grupo. Además, actualizando tu perfil podrás escoger la frecuencia con que recibirás notificaciones de BioModelos y adicionar una imagen a tu perfil.</p>
+						</div>
+						<div class="bolet">
+							<h4>Campaña especie del mes</h4>
+							<h5>Publicado por <b>Jorge Velásquez</b> · <i>OCT 2015</i></h5>
+							<div><%= image_tag("frailejon.jpg") %></div>
+							<p><b>La campaña especie del mes busca acercar a expertos en distintos grupos taxonómicos a BioModelos mediante la generación de un modelo consenso de distribución.</b> Una de las campañas más exitosas se realizó durante los meses de abril y mayo con la Reinita del Canadá, en asocio con <a href="http://calidris.org.co/" target="_blank">Calidris</a>, líderes de la <a href="https://griffingroups.com/groups/profile/32315/canada-warbler-international-conservation-initiative" target="_blank">Iniciativa Internacional de Conservación de la Reinita de Canadá en Colombia.</a> Mediante esta campaña obtuvimos un total de 267 aportes de 23 expertos que permitieron la generación de un modelo consenso para la temporada de <a href="http://biomodelos.humboldt.org.co/models/visor?species_id=5091" target="_blank">paso</a> y de <a href="http://biomodelos.humboldt.org.co/models/visor?species_id=5090" target="_blank">invierno</a> de la reinita. Además se identificaron 48 registros con georeferencias dudosas e ingresaron 17 nuevos registros a la base de datos  que a futuro permitirán el desarrollo de mejores modelos para esta especie.</p>
+							<p>En enero iniciaremos la campaña <b>Especie del mes:</b> Frailejón (<i>Espeletia hartwegiana</i>). Entérate cómo participar siguiendo al Instituto Humboldt a través de redes sociales o suscribiéndote al boletín BioModelos. ¿Quieres proponer una especie? ¡Escríbenos a <a href="mailto:biomodelos@humboldt.org.co">biomodelos@humboldt.org.co!</a></p>
+						</div>
+						<div class="bolet">
+							<h4>Taller BioModelos:<br>Zamias y Magnolias</h4>
+							<h5>Publicado por <b>Jorge Velásquez</b> · <i>OCT 2015</i></h5>
+							<div><%= image_tag("zamiasym.jpg") %></div>
+							<p>El pasado 9 y 10 de septiembre, el Laboratorio de Biogeografía Aplicada y el Programa de Ciencias de la Biodiversidad del Instituto Humboldt ofrecieron el taller de BioModelos para expertos en Zamias y Magnolias. En este taller participaron botánicos pertenecientes a varias universidades, jardines botánicos CARs y ONGs del país quienes validaron la información base y los modelos de distribución generados para 54 especies pertenecientes a estos grupos. Como resultado de la activa participación de los expertos invitados, se generaron mapas de experto para 13 especies de Magnolias, se incorporaron 70 nuevos registros en la base de datos y se generó un mapa híbrido (modelo estadístico mejorado con opinión de expertos) para <i>Magnolia hernandezii.</i> Adicionalmente, durante el taller realizamos la primera prueba en campo de la nueva funcionalidad de grupos de BioModelos, con la constitución de los grupos <a href="http://biomodelos.humboldt.org.co/groups/1" target="_blank"><i>Zamias de Colombia</i></a> y <a href="http://biomodelos.humboldt.org.co/groups/3" target="_blank"><i>Magnolias de Colombia.</i></a></p>
+							<p>Visita BioModelos y conoce los nuevos modelos de Magnolias y Zamias de Colombia.</p>
+							<h6>Próximos eventos</h6>
+							<p><b>Taller Invasoras</b> – Enero 2016.</p>
+							</p>
+						</div>
+					</div>
+
+	     	</div>
+		</div>
+	
+		<div ng-show="isSet(2)" class="cajainfo">
+			<div class="infocontainer">
+				<a href="http://biomodelos.humboldt.org.co/usuario.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("usudocs.jpg") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("publidocs.jpg") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/moderadores.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("moderdocs.jpg") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/curaduria.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("regisdocs.jpg") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/expertos.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("experdocs.jpg") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/metodologia.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("metoddocs.jpg") %>
+					<p>+</p>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

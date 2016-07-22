@@ -33,6 +33,12 @@
         width: 65%;
         margin-right: 2%;
     }
+
+    .cajavisor {
+        width: -moz-calc(100% - 70px);
+        width: -webkit-calc(100% - 70px);
+        width: calc(100% - 70px);
+    }
 }
  
 @media screen and (max-width: 945px) { 
@@ -197,6 +203,10 @@
         color: #e45b2d;
     }
 
+    .infonav a {
+        color: initial;
+    }
+
     .perfilnav > li.active > a {
         border:1px #1b3337 solid;
     }
@@ -218,6 +228,52 @@
         height: 120px;
     }
 
+}
+
+@media only screen and (max-width : 699px) {
+
+    .visorbtn {
+        top: 25px !important;
+        width: 25% !important;
+        background-position: top center !important;
+        display: block;
+    }
+    .vbtnfind {
+        right: 75%;
+    }
+    .vbtninfo {
+        right: 50%;
+    }
+    .vbtnhipo {
+        right: 25%;
+    }
+    .vbtnedit {
+        display: none !important;
+    }
+    .modelname {
+        width: -moz-calc(100% - 302px);
+        width: -webkit-calc(100% - 302px);
+        width: calc(100% - 302px);
+    }
+    .vbtnact {
+        height: 50px !important;
+    }
+    .cajavisor {
+        width: 100%;
+        top: 75px;
+        right: 0;
+        height: auto;
+    }
+
+    .leaflet-control-layers-expanded {
+        right: 0 !important;
+        left: 0 !important;
+        top:75px;
+    }
+
+    .mapcontainer, .pad0 {
+        min-height: 1000px;
+    }
 }
 
 @media only screen and (max-width : 625px) {
@@ -254,25 +310,88 @@
         margin-bottom: 20px;
     } 
 
+    .subtabs li a {
+        padding: 5px 4px;
+        font-size: 0.74em;
+    }
+
+    .subtabact a {
+        padding: 8px 4px !important;
+    }
+
+    .subinfo {
+        display: block;
+    }
+
+    .metreg a {
+        text-align: left;
+        margin-top: 10px;
+        display: block;
+    }
+    
+    .spname {
+        width: -moz-calc(100% - 52px);
+        width: -webkit-calc(100% - 52px);
+        width: calc(100% - 52px);
+        border-bottom: 1px solid #8d8d8d;
+    }
+
+    .modelname {
+        width: 100%;
+        left: 0;
+        top:25px;
+        border: none;
+    }
+
+    .visorbtn {
+        top: 50px !important;
+    }
+
+    .cajavisor {
+        top: 100px;
+    }
+
+    .leaflet-control-layers-expanded {
+        top:100px;
+    }
+
 }
 
 @media only screen and (max-width : 435px) {
 
 /* footer */
-	.lbabfooter {
-		display: none;
-	}
+    .lbabfooter {
+        display: none;
+    }
 
-	footer {
-		display: inline-block;
-		*display: inline;
-		*zoom: 1;
-		text-align: center;
-		padding: 20px 0 15px;
-	}
+    footer {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+        padding: 20px 0 15px;
+    }
 
     .estadbox, .bckgroup .estadbox {
         width: 90%;
+    }
+
+}
+
+
+@media only screen and (max-width : 380px) {
+
+    .tilted h1 {
+        display: none;
+    }
+
+    .subtabs li a {
+        padding: 5px 3px;
+        font-size: 0.7em;
+    }
+
+    .subtabact a {
+        padding: 8px 3px !important;
     }
 
 }

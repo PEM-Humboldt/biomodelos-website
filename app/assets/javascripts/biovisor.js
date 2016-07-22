@@ -50,7 +50,7 @@ var _BioModelosVisorModule = function() {
         map.addLayer(googleTerrain);
 
 	    /* autoZIndex controls the layer order */
-	    layerControl = L.control.layers(baseLayers, overlays, {autoZIndex: true});
+	    layerControl = L.control.layers(baseLayers, overlays, {autoZIndex: true, collapsed: false});
 	    layerControl.addTo(map);
 
 	    // Elevation listener
