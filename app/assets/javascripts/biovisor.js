@@ -23,7 +23,16 @@ var _BioModelosVisorModule = function() {
             });
 
         /* Overlays */
-        //var fo
+        var paramos_humedales_fondo = new L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Proyecto_fondo_adaptacion/wms', {
+            format: 'image/png',
+            transparent: true,
+            layers: 'Proyecto_fondo_adaptacion:Limite_Paramo_2015'
+        }),
+        	ecosistemas_etter = L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Historicos/wms', {
+	            format: 'image/png',
+	            transparent: true,
+	            layers: 'Historicos:ecosistemas_generales_etter'
+        	}); 
 
 	    var	baseLayers = {
 	    		"Google Terrain": googleTerrain,
@@ -31,7 +40,10 @@ var _BioModelosVisorModule = function() {
 	        	"OpenStreetMap": osmBase,
 	    	},
 
-	    	overlays = {};
+	    	overlays = {
+	    		"Páramos y humedales fondo": paramos_humedales_fondo,
+	    		"Ecosistemas Etter" : ecosistemas_etter
+	    	};
 
         map = L.map('map', {crs: L.CRS.EPSG4326}).setView(latlng, zoom);
 
@@ -46,7 +58,7 @@ var _BioModelosVisorModule = function() {
 	    //      getLocationElevation(e.latlng, elevator);
 	    // });
 
-	    loadSpeciesPoints();
+	    //loadSpeciesPoints();
 	}
 
 	var getLocationElevation = function (location, elevator){
@@ -68,18 +80,36 @@ var _BioModelosVisorModule = function() {
 	}
 
 	var loadSpeciesPoints = function(){
-		var cluster = new L.MarkerClusterGroup({}).addTo(map);
 
-    		map.addLayer(cluster);
-    		layerControl.addOverlay(cluster,"Registros");
+			var geojsonMarkerOptions = {
+			    radius: 8,
+			    fillColor: "#ff7800",
+			    color: "#000",
+			    weight: 1,
+			    opacity: 1,
+			    fillOpacity: 0.8
+			};
 
-			L.layerJSON({
-			    url: "../test.json",
-			    propertyLoc: 'lat',
-			    caching: true,
-			    layerTarget: cluster // Option layerTarget
-			}).addTo(map);
+		  $.getJSON("/test.json",function(data){
+		    var points = L.geoJson(data,{
+		    	pointToLayer: function (feature, latlng) {
+    				return L.circleMarker(latlng, geojsonMarkerOptions);
+				},
+		 		onEachFeature: function (feature, layer) {
+					var popupcontent = [];
+					popupcontent .push('<b><div id="point_lon">'+ feature.geometry.coordinates[0]+'</div>, <div id="point_lat"> '+ feature.geometry.coordinates[1] + '</div></b><br /><br />');
+					for (var prop in feature.properties) {
+    					popupcontent.push(prop + ": " + feature.properties[prop]);
+						}
+						layer.bindPopup(popupcontent.join("<br />"));
 
+				}
+		    });
+		    var clusters = L.markerClusterGroup();
+		    clusters.addLayer(points);
+		    map.addLayer(clusters);
+		    layerControl.addOverlay(clusters,"Registros");
+		  });
 	}  
 	
 	return{
