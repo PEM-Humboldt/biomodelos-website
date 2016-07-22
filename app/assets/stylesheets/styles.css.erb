@@ -588,6 +588,7 @@ div.google-visualization-tooltip > ul > li:nth-child(2) {
 	vertical-align: middle;
 }
 
+.hipotesis input[type="submit"], 
 .loginbox input[type="submit"] {
 	background: none;
 	padding: 10px 16px 10px;
@@ -946,13 +947,14 @@ p.groupuser {
 	text-align: center;
 }
 
-.mymap {
+.mymap, .maparea {
 	width: 185px;
 	display: inline-block;
 	margin-right: 11px;
 	margin-bottom: 20px;
 	text-align: left;
 	vertical-align: top;
+	position: relative;
 }
 
 .mymap a.spmapname {
@@ -1981,8 +1983,6 @@ a.cajathumb p {
 	min-height: -moz-calc(100% - 106px);
 	min-height: -webkit-calc(100% - 106px);
 	min-height: calc(100% - 106px);
-	z-index: 10;
-	position: relative;
 }
 
 .pad0 {
@@ -1992,7 +1992,6 @@ a.cajathumb p {
 	min-height: -moz-calc(100% - 106px);
 	min-height: -webkit-calc(100% - 106px);
 	min-height: calc(100% - 106px);
-	z-index: 10;
 	position: absolute;
 }
 
@@ -2052,6 +2051,7 @@ a.cajathumb p {
 	padding: 3px 8px;
 	font-weight: 400;
 	font-size: 13px;
+	line-height: 1.5;
 }
 
 .modelname {
@@ -2174,6 +2174,11 @@ a.cajathumb p {
 	margin-bottom: 12px;
 }
 
+.vcbase h1 i {
+	text-transform: none;
+	font-weight: 300;
+}
+
 .closevb {
 	padding: 0 16px;
 	text-transform: uppercase;
@@ -2197,12 +2202,14 @@ a.cajathumb p {
 	line-height: 1.5;
 	font-size: 0.95em;
 	color: #393836;
+	margin-bottom: 10px;
 }
 
 .cvcolumn{
 	width: -moz-calc(100% - 55px);
 	width: -webkit-calc(100% - 55px);
 	width: calc(100% - 55px);
+	float: left;
 }
 
 .cajavisor form {
@@ -2213,17 +2220,16 @@ a.cajathumb p {
 }
 
 .cajavisor h2 {
-	font-size: 1em;
+	font-size: 1.2em;
 	text-transform: uppercase;
 	color: #db3f2a;
 	font-weight: 400;
 	border-bottom: 1px solid #db3f2a;
 	display: inline;
+	letter-spacing: 1px;
 }
 
 .sppbtn {
-	margin-bottom: 10px;
-	height: 30px;
 	margin-top: 5px;
 }
 
@@ -2236,6 +2242,7 @@ a.cajathumb p {
 	width: 30px;
 	height: 30px;
 	margin-right: 5px;
+	margin-bottom: 10px;
 }
 
 .sppbtn button:hover,
@@ -2277,6 +2284,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	background: none;
 	font-weight: 300;
 	letter-spacing: 0.5px;
+	margin-bottom: 10px;
 }
 
 .typebtn button:hover,
@@ -2293,10 +2301,390 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	color: #393836;
 	line-height: 1.5;
 	font-size: 0.95em;
-	margin-top: 25px;
+	margin-top: 15px;
 	padding: 10px 10px 15px;
 	min-height: 150px;
 	max-height: 500px;
 	position: relative;
 	margin-bottom: 10px;
+}
+
+.subinfo {
+	width: 100%;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #c5c4c4;
+	margin-bottom: 5px;
+	display: flex;
+    justify-content: space-between;
+}
+
+.subinfo h3, .subinfo a {
+	vertical-align: top;
+	color:#393836;
+	letter-spacing: 1px;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.subinfo h3 b {
+	color:#db3f2a;
+	font-size: 1.6em;
+	padding: 0 8px;
+	vertical-align: top;
+	font-weight: 400;
+}
+
+.subinfo .metreg {
+	text-align: right;
+}
+
+.sppcateg:after {
+	content:'\00a0 \00B7 \00a0';
+	letter-spacing: 1px;
+	color: #1b3337;
+}
+
+.sppcateg {
+	letter-spacing: 1px;
+	color: #1b3337;
+	text-transform: uppercase;
+	float: left;
+	padding-bottom: 3px;
+	border-bottom: 1px solid #1b3337;
+}
+
+.infofollow {
+	padding-bottom: 10px;
+	display: flex;
+    justify-content: space-between;
+}
+
+.followstate {
+	margin-top: 5px;
+	text-align: right;
+}
+
+.follow {
+	text-transform: uppercase;
+	border: solid 1px #db3f2a;
+	padding: 3px 10px;
+	font-size: 1em;
+	letter-spacing: 1px;
+	color:#db3f2a;
+}
+
+.siguiendo {
+	border: none;
+	color:#1b3337;
+	padding: 0;
+	line-height: 1;
+}
+
+.cvcol40{
+	width: 45px;
+	float: right;
+	padding-right: 5px;
+}
+.urllink{
+	width: 42px;
+	height: 30px;
+	border: none;
+	background: url(<%= asset_path 'linkicon.png' %>) no-repeat center;
+	cursor: pointer;
+}
+
+.amenaza {
+	width: 40px;
+	height: 40px;
+}
+
+.infotitle:after {
+	cursor: pointer;
+	padding-left:5px;
+	content:url(<%= asset_path 'infoicon.png' %>);
+}
+
+.infobox {
+	padding: 15px;
+	position: absolute;
+	background-color: #f2f2f2;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	margin-top: -25px;
+}
+
+.infobox a {
+	padding: 5px;
+	line-height: 1;
+	height: auto;
+	float: right;
+}
+
+.infobox p {
+	margin-top: 10px;
+}
+
+.cajavisor h5 {
+	color: #393836;
+	letter-spacing: 1px;
+	padding-top: 6px;
+	font-size: 0.9em;
+}
+
+.cajavisor h4 {
+	font-size: 2em;
+	color: #124c5e;
+	font-weight: 400;
+	line-height: 1;
+}
+
+.cajavisor h4 b {
+	font-size: 0.6em;
+	vertical-align: text-top;
+	font-weight: 400;
+	line-height: 1.2;
+}
+
+.maindata {
+	padding: 18px;
+	border: 1px solid #c5c4c4;
+	margin-bottom: 10px;
+	display: table;
+	text-align: center;
+	margin-top: 10px;
+	margin-right: 7px;
+}
+
+.seconddata {
+	text-align: center;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	padding: 8px 10px 10px;
+	border-right: 1px solid #c5c4c4;
+}
+
+.databox {
+	margin-bottom: 10px;
+}
+
+.databox .seconddata:last-child {
+	border: none;
+}
+
+.dib {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.dtab {
+	display: table !important;
+}
+
+.resdata {
+	margin: 5px;
+	font-size: 1em;
+	line-height:1.5;
+}
+
+.fright {
+	text-align: left;
+	margin-bottom: 5px;
+}
+
+.fright .siguiendo {
+	padding-bottom: 5px;
+	border-bottom: 1px solid #c5c4c4;
+	width: 100px;
+}
+
+.hipotesis .mapthumb {
+	border: 1px solid #c5c4c4;
+	border-bottom: 1px solid #db3f2a;
+	perspective: 1000px;
+	overflow: hidden;
+	width: 185px;
+	height: 230px;
+}
+
+.hipotesis .delicon {
+	text-align: left;
+	margin: 5px 0 0;
+}
+.hipotesis .delicon img {
+	width: 20px;
+}
+
+.hipotesis .mmicon {
+	padding-top: 5px;
+	border-bottom: 2px solid #c5c4c4;
+}
+
+.mapthumb:hover .flipper, .mapthumb.hover .flipper {
+	transform: rotateY(180deg);
+}
+
+.front2, .back2 {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.front2 {
+	z-index: 2;
+	transform: rotateY(0deg);
+	width: 185px;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 9px
+}
+
+.back2 {
+	transform: rotateY(180deg);
+	width: 185px;
+	height: 230px;
+}
+
+.titlethumb {
+	padding: 8px 10px;
+	background-color: #1b3337;
+	color: #fff;
+	text-transform: uppercase;
+	line-height: 1;
+
+}
+
+.infothumb {
+	margin: 0 auto;
+	width: 165px;
+	border-bottom: 1px solid #c5c4c4;
+	color: #393836;
+	font-weight: 400;
+}
+
+.infothumb .calificacion {
+	font-size: 1.8em;
+	color:#124c5e;
+	padding-bottom: 5px;
+}
+
+.infothumb .calificacion b {
+	font-size: 14px;
+	color:#5d5e5e;
+	font-weight: 400;
+	margin-left: 5px;
+}
+
+.citathumb {
+	padding: 5px 10px;
+	font-size: 0.87em;
+	color:#545350;
+}
+
+.cajavisor h3 {
+	font-weight: 400;
+	font-size: 1.2em;
+	color:#1b3337;
+	letter-spacing: 1px;
+}
+
+.hipotesis textarea {
+	width: 100%;
+	border: none;
+	font-size: 0.8em;
+	line-height: 1.3;
+	color: #5d5d5d;
+	font-family: 'Lato', sans-serif;
+	padding: 0 5px;
+}
+
+.hipotesis form {
+	border-top: none;
+}
+
+.foroname {
+	vertical-align: top;
+	text-transform: uppercase;
+	margin-left: 5px;
+	line-height: 1;
+}
+
+.hipotesis input[type='submit'] {
+	margin-bottom: 20px;
+}
+.hipotesis .fechanotif {
+	position: absolute;
+	left:63px;
+	margin-top: 10px;
+	border-bottom: 1px solid #1b3337;
+	padding: 0;
+	min-width: 185px;
+}
+
+.hipotesis .notif {
+	border-bottom: 1px solid #db3f2a;
+}
+
+.hipotesis .notif p {
+	margin: 0;
+	padding: 0;
+}
+
+.hipotesis .reply {
+	padding-left: 15px;
+}
+
+.hipotesis .reply .fechanotif {
+	left: 78px;
+}
+
+.foroactions a {
+	padding: 0 5px 3px;
+	text-transform: uppercase;
+	color: #1b3337;
+	font-size: 0.75em;
+	letter-spacing: 1px;
+}
+
+.steptitle {
+	color: #db3f2a;
+	padding: 5px 0;
+	font-size: 1.05em;
+	letter-spacing: 1px;
+}
+
+.editbox p {
+	max-width: 90% !important;
+}
+
+.estadistico {
+	margin-bottom: 0 !important;
+}
+
+.edicon, .veicon {
+	padding-left: 35px;
+	background: url(<%= asset_path 'edicon.png' %>) no-repeat left;
+	height: 30px;
+	vertical-align: middle;
+	line-height: 30px !important;
+}
+
+.veicon {
+	background: url(<%= asset_path 'veicon.png' %>) no-repeat left;
+}
+
+.editactions > * {
+	margin-right: 8px;
+	vertical-align: top;
+	letter-spacing: 1px;
+	font-size: 0.86em;
+}
+
+
+.editactions {
+	border-bottom: 1px solid #8d8d8d;
+	margin-bottom: 15px;
+	display: table;
+	padding-bottom: 10px;
 }
