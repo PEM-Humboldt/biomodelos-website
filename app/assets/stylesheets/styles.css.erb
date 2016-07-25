@@ -1985,16 +1985,6 @@ a.cajathumb p {
 	min-height: calc(100% - 106px);
 }
 
-.pad0 {
-	padding: 0;
-	width: 100%;
-	top: 60px;
-	min-height: -moz-calc(100% - 106px);
-	min-height: -webkit-calc(100% - 106px);
-	min-height: calc(100% - 106px);
-	position: absolute;
-}
-
 .leaflet-top .leaflet-control {
 	margin: 0;
 }
@@ -2043,7 +2033,7 @@ a.cajathumb p {
 
 .spname, .modelname {
 	position: absolute;
-	top: 0;
+	top: 60px;
 	left: 52px;
 	width: 250px;
 	height: 25px;
@@ -2066,6 +2056,12 @@ a.cajathumb p {
 	color: #db3f2a;
 }
 
+.menuright {
+	position: absolute;
+	right: 0;
+	top:60px;
+}
+
 #layerbtn {
     height: 45px;
     width: 45px;
@@ -2075,7 +2071,6 @@ a.cajathumb p {
     background-position: right;
     position: absolute;
     z-index:17;
-    top:0;
     right:0;
     cursor: pointer;
 }
@@ -2113,30 +2108,31 @@ a.cajathumb p {
     position: absolute;
     z-index:17;
     right:0;
+    top: 60px;
     cursor: pointer;
 }
 
 .vbtnfind {
 	background-image: url(<%= asset_path 'vbtnfind.png' %>);
-	top:45px;
+	top:105px;
 	background-color: #db3f2a;
 }
 
 .vbtninfo {
 	background-image: url(<%= asset_path 'vbtninfo.png' %>);
-	top:90px;
+	top:150px;
 	background-color: #124c5e;
 }
 
 .vbtnhipo {
 	background-image: url(<%= asset_path 'vbtnhipo.png' %>);
-	top:135px;
+	top:195px;
 	background-color: #e3af24;
 }
 
 .vbtnedit {
 	background-image: url(<%= asset_path 'vbtnedit.png' %>);
-	top:180px;
+	top:240px;
 	background-color: #9c9d36;
 }
 
@@ -2149,8 +2145,12 @@ a.cajathumb p {
 	background-color: #fff;
 	overflow-y: auto;
 	z-index: 1001;
+	top: 60px;
 	right: 60px;
 	font: 14px/24px 'Lato', sans-serif;
+	height: -moz-calc(100% - 106px);
+	height: -webkit-calc(100% - 106px);
+	height: calc(100% - 106px);
 }
 
 .vcbase h1 {

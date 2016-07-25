@@ -1,5 +1,5 @@
 <div class="mapcontainer" id="map"></div>
-<div class="pad0" ng-controller="visorCtrl">
+<div ng-controller="visorCtrl">
 		<div class="spname">Tessmanniacanthus chlamydocardioides</div>
 		<div class="modelname">Modelo validado BioModelos</div>
 	<div id="layerbtn" class="visorbtn"></div>
@@ -7,6 +7,7 @@
 	<div ng-click="info=!info; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtninfo"></div>
 	<div ng-click="hipotesis=!hipotesis; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtnhipo"></div>
 	<div ng-click="edit=!edit; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtnedit"></div>
+
 
 	<div ng-show="find" class="cajavisor">
 		<div class="vcbase">
