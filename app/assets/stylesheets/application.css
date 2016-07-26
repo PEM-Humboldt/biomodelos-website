@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require leaflet/dist/leaflet
+ *= require leaflet-draw/dist/leaflet.draw
  *= require_tree .
  *= require_self
  *= require perfect-scrollbar/css/perfect-scrollbar.min
