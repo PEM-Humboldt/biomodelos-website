@@ -348,24 +348,26 @@
 	</div>
 
 	<div ng-show="editar" class="cajitaeditar">
-		<div class="steptitle">Seleccionar Umbral</div>
-		<rzslider rz-slider-model="corteSlider" rz-slider-options="corteSlider.options" class="rzslider"></rzslider>
-		<div class="littleline"></div>
-		<div class="steptitle">Herramienta de polígono</div>
-		<div class="polibotons">
-			<button class="poliboton polig"></button>
-			<button class="poliboton edipoli"></button>
-			<button class="poliboton delpoli"></button>
+		<div class="p10">
+			<div class="steptitle">Seleccionar Umbral</div>
+			<rzslider rz-slider-model="corteSlider" rz-slider-options="corteSlider.options" class="rzslider"></rzslider>
+			<div class="littleline"></div>
+			<div class="steptitle">Herramienta de polígono</div>
+			<div class="polibotons">
+				<button class="poliboton polig"></button>
+				<button class="poliboton edipoli"></button>
+				<button class="poliboton delpoli"></button>
+			</div>
+			<div class="littleline"></div>
+			<div class="steptitle veicon2">Variables Ecológicas</div>
 		</div>
-		<div class="littleline"></div>
-		<div class="steptitle veicon2">Variables Ecológicas</div>
-		
+		<div class="accordionscroll">
         <v-accordion class="vAccordion--default">
         <v-pane>
 	        <v-pane-header title="Comprende las áreas de las ciudades y las poblaciones y, aquellas áreas periféricas que están siendo incorporadas a las zonas urbanas mediante un proceso gradual de urbanización o de cambio del uso del suelo hacia fines comerciales, industriales, de servicios y recreativos.">Territorios artificializados
 	      	</v-pane-header>
 	        <v-pane-content>
-                <v-accordion ng-if="pane.subpanes">
+                <v-accordion>
                     <v-pane>
 	                    <v-pane-header title="Las zonas urbanizadas incluyen los territorios cubiertos por infraestructura urbana y todos aquellos espacios verdes y redes de comunicación asociados con ellas, que configuran un tejido urbano.">Zonas urbanizadas
 	                	</v-pane-header>
@@ -572,6 +574,7 @@
         	</v-pane-content>
         </v-pane>
         </v-accordion>
+        </div>
 	<button class="btngen">pausar</button>
 	<button class="btngen">enviar</button>
 	</div>
@@ -629,6 +632,7 @@ $(document).ready(function(){
 
 $('.cajavisor').perfectScrollbar();
 $('.resultados').perfectScrollbar();
+$('.accordionscroll').perfectScrollbar();
 
 
 </script>

@@ -2820,9 +2820,12 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	background-color: #fff;
 	position: absolute;
 	z-index: 17;
-	padding: 5px 10px;
+	padding-bottom: 5px;
 }
 
+.p10 {
+	padding: 5px 10px 0;
+}
 .rzslider {
 	margin: 0 auto;
 }
@@ -2888,7 +2891,11 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	margin-top: 5px;
 	padding: 0;
 }
-
+.vAccordion--default {
+	max-height: 335px;
+	padding-right: 15px;
+	padding-left: 8px;
+}
 .vAccordion--default v-accordion {
   margin-top: 0 !important;
   padding-left: 5px !important; 
@@ -2947,4 +2954,9 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	letter-spacing: 1px;
 	font-size: 0.87em;
 	cursor: pointer;
+}
+
+.accordionscroll {
+	position: relative;
+	height: 100%;
 }
