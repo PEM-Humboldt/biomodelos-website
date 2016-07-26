@@ -8,7 +8,6 @@
 	<div ng-click="hipotesis=!hipotesis; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtnhipo"></div>
 	<div ng-click="edit=!edit; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtnedit"></div>
 
-
 	<div ng-show="find" class="cajavisor">
 		<div class="vcbase">
 			<h1>BUSCADOR DE ESPECIES</h1>
@@ -58,6 +57,7 @@
 			</section>
 		</div>
 	</div>
+
 	<div ng-show="info" class="cajavisor">
 		<div class="vcbase">
 			<h1>acerca de <i>Aglaiocercus coelestis</i></h1>
@@ -168,6 +168,7 @@
 			<button class="urllink"></button><div class="amenaza"><%= image_tag("caten.png") %></div>
 		</div>
 	</div>
+
 	<div ng-show="hipotesis" class="cajavisor hipotesis">
 		<div class="vcbase">
 			<h1>HIPÓTESIS DISPONIBLES</h1>
@@ -290,6 +291,7 @@
 
 		</div>
 	</div>
+
 	<div ng-show="edit" class="cajavisor editbox">
 		<div class="vcbase">
 				<h1>EDICIÓN Y CONTRIBUCIÓN</h1>
@@ -302,32 +304,278 @@
 		<h2>DESARROLLO MODELO</h2>
 
 		<div class="steptitle">1. A partir de modelo estadístico</div>
-		<p class="estadistico">UMBRAL</p>
-		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi.</p>
-		<p class="estadistico edicon">EDICIÓN</p>
-		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi.
-		Proin suscipit luctus orci placerat fringilla. Derit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi.</p>
-		<p class="estadistico veicon">VARIABLES ECOLÓGICAS</p>
-		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi.</p>
-		<div class="editactions clearfix">
-			<a href=""><%= image_tag("mapicon.png") %></a>
-			<a href=""><%= image_tag("downicon.png") %></a>
-			<a href=""><%= image_tag("metaicon.png") %></a>
-			<button class="newgrbtn">editar</a>
+		<div class="dinblock">
+			<div href="" class="editthumb">
+				<a href=""><%= image_tag("mapthumb.png") %></a>
+			</div>
+			<div class="editactions clearfix">
+				<a href=""><%= image_tag("downicon.png") %></a>
+				<a href=""><%= image_tag("metaicon.png") %></a>
+				<button class="newgrbtn">editar</a>
+			</div>
 		</div>
-
+		<div class="dinblock">
+			<p class="estadistico">UMBRAL</p>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi.</p>
+			<p class="estadistico edicon">EDICIÓN</p>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi.
+			Proin suscipit luctus orci placerat fringilla. Derit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi.</p>
+			<p class="estadistico veicon">VARIABLES ECOLÓGICAS</p>
+			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi.</p>
+		</div>
 		<div class="steptitle">2. Crea tu mapa</div>
 		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.</p>
 		<div class="editactions clearfix">
-			<button class="newgrbtn">crear</a>
+			<button class="newgrbtn">crear</button>
 		</div>
 
 		<div class="steptitle">3. Publica tu mapa</div>
 		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.</p>
 		<a href=""><%= image_tag("uploadicon.png") %></a>
-
-
 	</div>
+
+	<div ng-click="registros=!registros; activeButton()" ng-class="{'regactive': isActive}" class="btnregistros">registros y filtros</div>
+	<div ng-click="editar=!editar; activeButton()" ng-class="{'edactive': isActive}" class="btnedicion">edición</div>
+
+	<div ng-show="registros" class="cajaregistros">
+		<div class="steptitle fleft">Año</div>
+		<label for="checkboxna" class="yearchklb">NA</label>
+		<input type="checkbox" name="checkboxna" class="yearchk"></input>
+		<rzslider rz-slider-model="yearSlider.minValue"
+		          rz-slider-high="yearSlider.maxValue"
+		          rz-slider-options="yearSlider.options">
+		</rzslider>
+	</div>
+
+	<div ng-show="editar" class="cajitaeditar">
+		<div class="steptitle">Seleccionar Umbral</div>
+		<rzslider rz-slider-model="corteSlider" rz-slider-options="corteSlider.options" class="rzslider"></rzslider>
+		<div class="littleline"></div>
+		<div class="steptitle">Herramienta de polígono</div>
+		<div class="polibotons">
+			<button class="poliboton polig"></button>
+			<button class="poliboton edipoli"></button>
+			<button class="poliboton delpoli"></button>
+		</div>
+		<div class="littleline"></div>
+		<div class="steptitle veicon2">Variables Ecológicas</div>
+		
+        <v-accordion class="vAccordion--default">
+        <v-pane>
+	        <v-pane-header title="Comprende las áreas de las ciudades y las poblaciones y, aquellas áreas periféricas que están siendo incorporadas a las zonas urbanas mediante un proceso gradual de urbanización o de cambio del uso del suelo hacia fines comerciales, industriales, de servicios y recreativos.">Territorios artificializados
+	      	</v-pane-header>
+	        <v-pane-content>
+                <v-accordion ng-if="pane.subpanes">
+                    <v-pane>
+	                    <v-pane-header title="Las zonas urbanizadas incluyen los territorios cubiertos por infraestructura urbana y todos aquellos espacios verdes y redes de comunicación asociados con ellas, que configuran un tejido urbano.">Zonas urbanizadas
+	                	</v-pane-header>
+	                    <v-pane-content>
+	                        <div><input type="checkbox" name="2"></input><label title="Son espacios conformados por edificaciones y los espacios adyacentes a la infraestructura edificada. Las edificaciones, vías y superficies cubiertas artificialmente cubren más de 80% de la superficie del terreno. La vegetación y el suelo desnudo representan una baja proporción del área del tejido urbano.">Tejido urbano continuo</label></div>
+	                        <div><input type="checkbox" name="3"></input><label title="Son espacios conformados por edificaciones y zonas verdes. Las edificaciones, vías e infraestructura construida cubren la superficie del terreno de manera dispersa y discontinua, ya que el resto del área está cubierta por vegetación.">Tejido urbano discontinuo</label></div>
+	                    </v-pane-content>
+                    </v-pane>
+                </v-accordion>
+                <v-accordion>
+                    <v-pane>
+	                    <v-pane-header title="Comprende los territorios cubiertos por infraestructura de uso exclusivamente comercial, industrial, de servicios y comunicaciones.">Zonas industriales o comerciales y redes de comunicación
+	                    </v-pane-header>
+	                    <v-pane-content>
+	                        <div><input type="checkbox" name="5"></input><label title="Son las áreas cubiertas por infraestructura artificial (terrenos cimentados, alquitranados, asfaltados o estabilizados), sin presencia de áreas verdes dominantes, las cuales se utilizan también para actividades comerciales o industriales.">Zonas industriales o comerciales</label></div>
+	                        <div><input type="checkbox" name="6"></input><label title="Son espacios artificializados con infraestructuras de comunicaciones como carreteras, autopistas y vías férreas; se incluye la infraestructura conexa y las instalaciones asociadas tales como: estaciones de servicios, andenes, terraplenes y áreas verdes.">Red vial, ferroviaria y terrenos asociados</label></div>
+	                        <div><input type="checkbox" name="7"></input><label title="Son espacios cubiertos por la infraestructura de puertos, en los que se incluyen las áreas de muelles, parqueaderos, administración y almacenamiento.">Zonas portuarias</label></div>
+	                        <div><input type="checkbox" name="8"></input><label title="Comprende la infraestructura donde funciona una terminal aérea. Incluye las pistas de aterrizaje y carreteo, los edificios, las superficies libres, las zonas de amortiguación y la vegetación asociada.">Aeropuertos</label></div>
+	                        <div><input type="checkbox" name="9"></input><label title="Superficies que corresponden a construcciones consolidadas de carácter permanente, destinadas a instalaciones hidráulicas, y aquellas de pequeña magnitud, generalmente asociadas con infraestructura urbana, tales como acueductos, bocatomas, plantas de tratamiento y pequeñas presas.">Obras hidráulicas</label></div>
+	                    </v-pane-content>
+                    </v-pane>
+                </v-accordion>
+                <v-accordion>
+                    <v-pane>
+	                    <v-pane-header title="Comprende las áreas donde se extraen o acumulan materiales asociados con actividades mineras, de construcción, producción industrial y vertimiento de residuos de diferente origen.">Zonas de extracción mineras y escombreras
+	                    </v-pane-header>
+	                    <v-pane-content>
+	                        <div><input type="checkbox" name="11"></input><label title="Son áreas dedicadas a la extracción de materiales minerales a cielo abierto.">Zonas de extracción minera</label></div>
+	                        <div><input type="checkbox" name="12"></input><label title="Son espacios en los que se depositan restos de construcción, residuos urbanos, desechos industriales y material estéril de minas.">Zona de disposición de residuos</label></div>
+	                    </v-pane-content>
+                    </v-pane>
+                </v-accordion>
+                <v-accordion>
+                    <v-pane>
+	                    <v-pane-header title="Comprende las zonas verdes localizadas en las áreas urbanas, sobre las cuales se desarrollan actividades comerciales, recreacionales, de conservación y amortiguación, donde los diferentes usos del suelo no requieren de infraestructura construida apreciable.En general, estas zonas verdes son áreas resultantes de procesos de planificación urbana o áreas que por los procesos de urbanización quedaron embebidas en el perímetro de la ciudad.">Zonas verdes artificializadas, no agrícolas
+	                    </v-pane-header>
+	                    <v-pane-content>
+	                        <div><input type="checkbox" name="14"></input><label title="Comprende las zonas cubiertas por vegetación dentro del tejido urbano, incluyendo parques urbanos y cementerios.">Zonas verdes urbanas</label></div>
+	                        <div><input type="checkbox" name="15"></input><label title="Son los terrenos dedicados a las actividades de camping, deporte, parques de atracción, golf, hipódromos y otras actividades de recreación y esparcimiento, incluyendo los parques habilitados para esparcimiento, no incluidos dentro del tejido urbano.">Instalaciones recreativas</label></div>
+	                    </v-pane-content>
+                    </v-pane>
+                </v-accordion>
+            </v-pane-content>
+		</v-pane>
+		<v-pane>
+          	<v-pane-header title="Son los terrenos dedicados principalmente a la producción de alimentos, fibras y otras materias primas industriales, ya sea que se encuentren con cultivos, con pastos, en rotación y en descanso o barbecho. Comprende las áreas dedicadas a cultivos permanentes, transitorios, áreas de pastos y las zonas agrícolas heterogéneas, en las cuales también se pueden dar usos pecuarios además de los agrícolas.">Territorios agrícolas
+      		</v-pane-header>
+	        <v-pane-content>
+                <v-accordion>
+                    <v-pane>
+                    	<v-pane-header title="Comprende las áreas ocupadas con cultivos cuyo ciclo vegetativo es menor a un año, llegando incluso a ser de sólo unos pocos meses, como por ejemplo los cereales (maíz, trigo, cebada y arroz), los tubérculos (papa y yuca), las oleaginosas (el ajonjolí y el algodón), la mayor parte de las hortalizas y algunas especies de flores a cielo abierto. Tienen como característica fundamental, que después de la cosecha es necesario volver a sembrar o plantar para seguir produciendo.">Cultivos transitorios
+                    	</v-pane-header>
+	                    <v-pane-content>
+	                        <div><input type="checkbox" name="17"></input><label title="Son las tierras ocupadas por cultivos transitorios no incluidos en los grupos de cereales, oleaginosas, leguminosas, hortalizas y tubérculos considerados en esta leyenda.">Otros cultivos transitorios</label></div>
+	                        <div><input type="checkbox" name="18"></input><label title="Cobertura compuesta principalmente por cultivos transitorios de gramíneas como arroz, maíz, sorgo, cebada y trigo.">Cereales</label></div>
+	                        <div><input type="checkbox" name="19"></input><label title="Cobertura compuesta principalmente por cultivos transitorios de plantas para el consumo y la producción de aceite y almidón. Las oleaginosas se caracterizan por ser plantas cuyas semillas se consumen o utilizan para la extracción de aceite. Las tierras agrícolas cubiertas por las leguminosas abarcan una amplia variedad de productos, ricos en almidón.">Oleaginosas y leguminosas</label></div>
+	                        <div><input type="checkbox" name="20"></input><label title="Cobertura terrestre de manejo intensivo caracterizada por ser un conjunto de plantas herbáceas, cultivadas generalmente en huertas, que se consumen como alimento humano.">Hortalizas</label></div>
+	                        <div><input type="checkbox" name="21"></input><label title="Cobertura compuesta principalmente por cultivos transitorios de diferentes tipos de plantas que poseen tubérculos. Esta cobertura la componen principalmente cultivos de papa y yuca.">Tubérculos</label></div>
+						</v-pane-content>
+                    </v-pane>
+                </v-accordion>
+                <v-accordion>
+                    <v-pane>
+                    	<v-pane-header title="Comprende los territorios dedicados a cultivos cuyo ciclo vegetativo es mayor a un año, produciendo varias cosechas sin necesidad de volverse a plantar; se incluyen en esta categoría los cultivos de herbáceas como caña de azúcar, caña panelera, plátano y banano; los cultivos arbustivos como café y cacao; y los cultivos arbóreos como palma africana y árboles frutales.">Cultivos permanentes
+                    	</v-pane-header>
+	                    <v-pane-content>
+	                        <div><input type="checkbox" name="23"></input><label title="Cobertura compuesta principalmente por cultivos permanentes de hábito herbáceo como caña de azúcar y panelera, plátano, banano y tabaco.">Cultivos permanentes herbáceos</label></div>
+	                        <div><input type="checkbox" name="24"></input><label title="Coberturas permanentes ocupadas principalmente por cultivos de hábito arbustivo como café, cacao, coca y viñedos. Un arbusto es una planta perenne, con estructura de tallo leñoso, con una altura entre 0,5 y 5 m, fuertemente ramificado en la base y sin una copa definida (FAO, 2001).">Cultivos permanentes arbustivos</label></div>
+	                        <div><input type="checkbox" name="25"></input><label title="Cobertura principalmente ocupada por cultivos de hábito arbóreo, diferentes de plantaciones forestales maderables o de recuperación, como cítricos, palma, mango, etc.">Cultivos permanentes arbóreos</label></div>
+	                        <div><input type="checkbox" name="26"></input><label title="Zonas ocupadas por arreglos o combinaciones de cultivos de diferentes especies, con otros de hábitos herbáceos, arbustivos y arbóreos, donde la característica principal de la cobertura es que el aumento en el detalle no implica la subdivisión en unidades puras, porque éstas se encuentran combinadas en la misma área, alternadas por surcos o hileras de árboles con cultivos o de árboles con pastos. No incluye el café con sombrio.">Cultivos agroforestales</label></div>
+	                        <div><input type="checkbox" name="27"></input><label title="Comprenden las tierras ocupadas por cultivos bajo infraestructuras de invernaderos, principalmente dedicadas al cultivo de flores, frutales y hortalizas. Incluye toda aquella estructura cerrada cubierta por materiales transparentes, dentro de la cual es posible obtener unas condiciones artificiales de microclima, y con ello cultivar plantas en condiciones óptimas.">Cultivos confinados</label></div>
+						</v-pane-content>
+                    </v-pane>
+                </v-accordion>
+                <v-accordion>
+                    <v-pane>
+                    	<v-pane-header title="Comprende las tierras cubiertas con hierba densa de composición florística dominada principalmente por la familia Poaceae, dedicadas a pastoreo permanente por un período de dos o más años. Algunas de las categorías definidas pueden presentar anegamientos temporales o permanentes cuando están ubicadas en zonas bajas o en depresiones del terreno. Una característica de esta cobertura es que en un alto porcentaje su presencia se debe a la acción antrópica, referida especialmente a su plantación, con la introducción de especies no nativas principalmente, y en el manejo posterior que se le hace.">Pastos
+                    	</v-pane-header>
+	                    <v-pane-content>
+	                        <div><input type="checkbox" name="29"></input><label title="Esta cobertura comprende las tierras ocupadas por pastos limpios con un porcentaje de cubrimiento mayor a 70%; la realización de prácticas de manejo (limpieza, encalamiento y/o fertilización, etc.) y el nivel tecnológico utilizados impiden la presencia o el desarrollo de otras coberturas.">Pastos Limpios</label></div>
+	                        <div><input type="checkbox" name="30"></input><label title="Cobertura que incluye las tierras cubiertas con pastos, en las cuales se han estructurado potreros con presencia de árboles de altura superior a cinco metros, distribuidos en forma dispersa. La cobertura de árboles debe ser mayor a 30% y menor a 50% del área total de la unidad de pastos.">Pastos Arbolados</label></div>
+	                        <div><input type="checkbox" name="31"></input><label title="Son las coberturas representadas por tierras con pastos y malezas conformando asociaciones de vegetación secundaria, debido principalmente a la realización de escasas prácticas de manejo o la ocurrencia de procesos de abandono. En general, la altura de la vegetación secundaria es menor a 1,5 m.">Pastos Enmalezados</label></div>
+						</v-pane-content>
+                    </v-pane>
+                </v-accordion>
+                <v-accordion>
+                    <v-pane>
+                    	<v-pane-header title="Son unidades que reúnen dos o más clases de coberturas agrícolas y naturales, dispuestas en un patrón intrincado de mosaicos geométricos que hace difícil su separación en coberturas individuales; los arreglos geométricos están relacionados con el tamaño reducido de los predios, las condiciones locales de los suelos, las prácticas de manejo utilizadas y las formas locales de tenencia de la tierra.">Áreas agrícolas heterogéneas
+                    	</v-pane-header>
+	                    <v-pane-content>
+	                        <div><input type="checkbox" name="33"></input><label title="Incluye las tierras ocupadas con cultivos anuales, transitorios o permanentes, en los cuales el tamaño de las parcelas es muy pequeño (inferior a 25 ha) y el patrón de distribución de los lotes es demasiado intrincado para representarlos cartográficamente de manera individual.">Mosaico de Cultivos</label></div>
+	                        <div><input type="checkbox" name="34"></input><label title="Comprende las tierras ocupadas por pastos y cultivos, en los cuales el tamaño de las parcelas es muy pequeño (inferior a 25 ha) y el patrón de distribución de los lotes es demasiado intrincado para representarlos cartográficamente de manera individual.">Mosaico de Pastos y Cultivos</label></div>
+	                        <div><input type="checkbox" name="35"></input><label title="Comprende las superficies del territorio ocupadas principalmente por coberturas de cultivos y pastos en combinación con espacios naturales. En esta unidad, el patrón de distribución de las coberturas no puede ser representado individualmente, como parcelas con tamaño mayor a 25 hectáreas. Las áreas de cultivos y pastos ocupan entre 30% y 70% de la superficie total de la unidad.">Mosaico de Cultivos, Pastos y Espacios Naturales</label></div>
+	                        <div><input type="checkbox" name="36"></input><label title="Constituida por las superficies ocupadas principalmente por coberturas de pastos en combinación con espacios naturales. En esta unidad, el patrón de distribución de las zonas de pastos y de espacios naturales no puede ser representado individualmente y las parcelas de pastos presentan un área menor a 25 hectáreas. Las coberturas de pastos representan entre 30% y 70% de la superficie total del mosaico. Los espacios naturales están conformados por las áreas ocupadas por relictos de bosque natural, arbustales, bosque de galería o ripario, pantanos y otras áreas no intervenidas o poco transformadas y que debido a limitaciones de uso por sus características biofísicas permanecen en estado natural o casi natural.">Mosaico de Pastos y Espacios Naturales</label></div>
+	                        <div><input type="checkbox" name="37"></input><label title="Corresponde a las superficies ocupadas principalmente por cultivos en combinación con espacios naturales, donde el tamaño de las parcelas es muy pequeño y el patrón de distribución de los lotes es demasiado intrincado para representarlos cartográficamente de manera individual. En esta unidad, los espacios naturales se presentan como pequeños parches o relictos que se distribuyen en forma irregular y heterogénea, a veces entremezclada con las áreas de cultivos, dificultando su diferenciación. Las áreas de cultivos representan entre 30% y 70% de la superficie total de la unidad. Los parches y residuos de espacios naturales están conformados por aquellas áreas cubiertas por relictos de bosque, arbustales, bosque de galería y/o ripario, vegetación secundaria o en transición, zonas pantanosas u otras áreas no intervenidas o poco transformadas que permanecen en estado natural o casi natural.">Mosaico de Cultivos y Espacios Naturales</label></div>
+						</v-pane-content>
+                    </v-pane>
+                </v-accordion>
+			</v-pane-content>       
+        </v-pane>
+        <v-pane>
+          	<v-pane-header title="Comprende un grupo de coberturas vegetales de tipo boscoso, arbustivo y herbáceo, desarrolladas sobre diferentes sustratos y pisos altitudinales que son el resultado de procesos climáticos; también por aquellos territorios constituidos por suelos desnudos y afloramientos rocosos y arenosos, resultantes de la ocurrencia de procesos naturales o inducidos de degradación (Tabla 4). Para la leyenda de coberturas de la tierra de Colombia, en esta categoría se incluyen otras coberturas que son el resultado de un fuerte manejo antrópico, como son las plantaciones forestales y la vegetación secundaria o en transición.">Bosques y áreas seminaturales
+          	</v-pane-header>
+            <v-pane-content>
+                <v-accordion>
+                	<v-pane>
+	                    <v-pane-header title="Comprende las áreas naturales o seminaturales, constituidas principalmente por elementos arbóreos de especies nativas o exóticas. Los árboles son plantas leñosas perennes con un solo tronco principal, que tiene una copa más o menos definida. Esta cobertura comprende los bosques naturales y las plantaciones. Para la leyenda de coberturas de la tierra de Colombia, en esta categoría se incluyen otras formas biológicas naturales, tales como la palma y la guadua.">Bosques
+	                	</v-pane-header>
+	                    <v-pane-content>
+	                        <div><input type="checkbox" name="39"></input><label title="Cobertura constituida por una comunidad vegetal dominada por elementos típicamente arbóreos, los cuales forman un estrato de copas (dosel) más o menos continuo cuya área de cobertura arbórea representa más de 70% del área total de la unidad, y con altura del dosel superior a cinco metros. Estas formaciones vegetales no han sido intervenidas o su intervención ha sido selectiva y no ha alterado su estructura original y las características funcionales (IGAC, 1999). Se exceptúan de esta unidad los bosques fragmentados, los cuales se clasifican en la unidad 3.1.3.">Bosque denso</label></div>
+	                        <div><input type="checkbox" name="40"></input><label title="Cobertura constituida por una comunidad vegetal dominada por elementos típicamente arbóreos regularmente distribuidos, los cuales forman un estrato de copas (dosel) discontinuo, con altura del dosel superior a cinco metros y cuya área de cobertura arbórea representa entre 30% y 70% del área total de la unidad. Estas formaciones vegetales no han sido intervenidas o su intervención ha sido selectiva y no ha alterado su estructura original y las características funcionales. Se exceptúan de esta unidad los bosques fragmentados, los cuales se clasifican en la unidad 3.1.3.">Bosque abierto</label></div>
+	                        <div><input type="checkbox" name="41"></input><label title="Comprende los territorios cubiertos por bosques naturales densos o abiertos cuya continuidad horizontal está afectada por la inclusión de otros tipos de coberturas como pasto, cultivos o vegetación en transición, las cuales deben representar entre 5% y 30% del área total de la unidad de bosque natural. La distancia entre fragmentos de intervención no debe ser mayor a 250 metros.">Bosque fragmentado</label></div>
+	                        <div><input type="checkbox" name="42"></input><label title="Se refiere a las coberturas constituidas por vegetación arbórea ubicada en las márgenes de cursos de agua permanentes o temporales. Este tipo de cobertura está limitada por su amplitud, ya que bordea los cursos de agua y los drenajes naturales. Cuando la presencia de estas franjas de bosques ocurre en regiones de sabanas se conoce como bosque de galería o cañadas, las otras franjas de bosque en cursos de agua de zonas andinas son conocidas como bosque ripario.">Bosque de galería y ripario</label></div>
+	                        <div><input type="checkbox" name="43"></input><label title="Son coberturas constituidas por plantaciones de vegetación arbórea, realizada por la intervención directa del hombre con fines de manejo forestal. En este proceso se constituyen rodales forestales, establecidos mediante la plantación y/o la siembra durante el proceso de forestación o reforestación, para la producción de madera plantaciones comerciales) o de bienes y servicios ambientales (plantaciones protectoras).">Plantación forestal</label></div>
+	                    </v-pane-content>
+	                </v-pane>
+	            </v-accordion>
+				<v-accordion>
+                	<v-pane>
+	                    <v-pane-header title="Comprende un grupo de coberturas vegetales de tipo natural y producto de la sucesión natural, cuyo hábito de crecimiento es arbustivo y herbáceo, desarrolladas sobre diferentes sustratos y pisos altitudinales, con poca o ninguna intervención antrópica.&#013;
+						Para la leyenda de CORINE Land Cover adaptada para Colombia, en esta clase se incluyen otros tipos de cobertura tales como las áreas cubiertas por vegetación principalmente arbustiva con dosel irregular y presencia de arbustos, palmas, enredaderas y vegetación de bajo porte.">Áreas con vegetación herbácea y/o arbustiva
+						</v-pane-header>
+	                    <v-pane-content>
+	                        <div><input type="checkbox" name="45"></input><label title="Cobertura constituida por una comunidad vegetal dominada por elementos típicamente herbáceos desarrollados en forma natural en diferentes densidades y sustratos, los cuales forman una cobertura densa (>70% de ocupación) o abierta (30% - 70% de ocupación). Estas formaciones vegetales no han sido intervenidas o su intervención ha sido selectiva y no ha alterado su estructura original y las características funcionales. Comprende los territorios cubiertos por vegetación arbustiva desarrollados en forma natural en diferentes densidades y sustratos. Un arbusto es una planta perenne, con estructura de tallo leñoso, con una altura entre 0,5 y 5 m, fuertemente ramificado en la base y sin una copa definida. Incluye coberturas del paramo y subparamo.">Herbazal</label></div>
+	                        <div><input type="checkbox" name="46"></input><label title="Comprende los territorios cubiertos por vegetación arbustiva desarrollados en forma natural en diferentes densidades y sustratos. Un arbusto es una planta perenne, con estructura de tallo leñoso, con una altura entre 0,5 y 5 m, fuertemente ramificado en la base y sin una copa definida. Comprende los territorios cubiertos por vegetación arbustiva desarrollados en forma natural en diferentes densidades y sustratos. Un arbusto es una planta perenne, con estructura de tallo leñoso, con una altura entre 0,5 y 5 m, fuertemente ramificado en la base y sin una copa definida. Incluye coberturas del paramo y subparamo.">Arbustal</label></div>
+	                        <div><input type="checkbox" name="47"></input><label title="Son aquellas áreas cubiertas por vegetación principalmente arbustiva y herbácea con dosel irregular y  resencia ocasional de árboles y enredaderas, que corresponde a los estadios iniciales de la sucesión vegetal después de presentarse un proceso de deforestación de los bosques o aforestación de los pastizales. Se desarrolla posterior a la intervención original y, generalmente, están conformadas por comunidades de arbustos y herbáceas formadas por muchas especies.">Vegetación secundaria o en transición</label></div>
+	                    </v-pane-content>
+                	</v-pane>
+	            </v-accordion>
+				<v-accordion>
+                	<v-pane>
+	                    <v-pane-header title="Comprende aquellos territorios en los cuales la cobertura vegetal no existe o es escasa, compuesta principalmente por suelos desnudos y quemados, así como por coberturas arenosas y afloramientos rocosos, algunos de los cuales pueden estar cubiertos por hielo y nieve.">Áreas abiertas, sin o con poca vegetación
+	                	</v-pane-header>
+	                    <v-pane-content>
+	                        <div><input type="checkbox" name="49"></input><label title="Comprende aquellos territorios en los cuales la cobertura vegetal no existe o es escasa, compuesta principalmente por suelos desnudos y quemados, así como por coberturas arenosas y afloramientos rocosos, algunos de los cuales pueden estar cubiertos por hielo y nieve.">Zonas arenosas naturales</label></div>
+	                        <div><input type="checkbox" name="50"></input><label title="Son áreas en las cuales la superficie del terreno está constituida por capas de rocas expuestas, sin desarrollo de vegetación, generalmente dispuestas en laderas abruptas, formando escarpes y acantilados; así como zonas de rocas desnudas relacionadas con la actividad volcánica o glaciar. Asociados con los afloramientos rocosos se pueden encontrar depósitos de sedimentos finos y gruesos, de bloques o de cenizas.&#013;
+							Se localizan principalmente en las áreas de fuerte pendiente, donde predominan los sustratos de rocas duras y resistentes, asociadas con fallas y deformaciones geológicas, volcanes y glaciares de montaña, localizados en la región andina. Esta unidad también se puede encontrar en la Orinoquía y en la Amazonía asociada con los paisajes de serranías y afloramientos rocosos del Escudo Guayanés.">Afloramientos rocosos</label></div>
+	                        <div><input type="checkbox" name="51"></input><label title="Esta cobertura corresponde a las superficies de terreno desprovistas de vegetación o con escasa cobertura vegetal, debido a la ocurrencia de procesos tanto naturales como antrópicos de erosión y degradación extrema y/o condiciones climáticas extremas. Se incluyen las áreas donde se presentan tierras salinizadas, en proceso de desertificación o con intensos procesos de erosión que pueden llegar hasta la formación de cárcavas.&#013;
+							En Colombia, la unidad se localiza principalmente en las áreas planas de la región Caribe y en las planicies de los valles de los ríos Magdalena y Cauca, principalmente de los departamentos de Cesar, Guajira, Magdalena, Bolívar, Atlántico, Sucre, Tolima, Huila y Valle del Cauca.">Tierras desnudas y degradadas</label></div>
+	                        <div><input type="checkbox" name="52"></input><label title="Comprende las zonas afectadas por incendios recientes, donde los materiales carbonizados todavía están presentes. Estas zonas hacen referencia a los territorios afectados por incendios localizados tanto en áreas naturales como seminaturales, tales como bosques, cultivos, sabanas y arbustales.">Zonas quemadas</label></div>
+	                        <div><input type="checkbox" name="53"></input><label title="Áreas cubiertas por hielo en forma permanente y por nieve en forma ocasional. La cobertura de hielo se localiza en la cima y las laderas de algunas de las montañas más altas de los Andes colombianos, por encima de la cota de nivel de 4.900 msnm. Se caracteriza por presentar poca variación de su área en el tiempo, con tendencia a la lenta reducción debido al calentamiento de la atmósfera por el cambio climático, aunque eventos extremos como erupciones volcánicas pueden producir grandes pérdidas de las masas glaciares.">Zonas glaciares y nivales</label></div>
+                    	</v-pane-content>
+                    </v-pane>
+                </v-accordion>
+        	</v-pane-content>
+        </v-pane>
+        <v-pane>
+          	<v-pane-header title="Comprende aquellas coberturas constituidas por terrenos anegadizos, que pueden ser temporalmente inundados y estar parcialmente cubiertos por vegetación acuática, localizados en los bordes marinos y al interior del continente.">Áreas húmedas
+          	</v-pane-header>
+            <v-pane-content>
+                <v-accordion>
+                	<v-pane>
+	                    <v-pane-header title="Las áreas húmedas hacen referencia a los diferentes tipos de zonas inundables, pantanos y terrenos anegadizos en los cuales el nivel freático está a nivel del suelo en forma temporal o permanente.">Áreas húmedas continentales
+	                	</v-pane-header>
+	                    <v-pane-content>
+	                        <div><input type="checkbox" name="55"></input><label title="Esta cobertura comprende las tierras bajas, que generalmente permanecen inundadas durante la mayor parte del año, pueden estar constituidas por zonas de divagación de cursos de agua, llanuras de inundación, antiguas vegas de divagación y depresiones naturales donde la capa freática aflora de manera permanente o estacional. Comprenden hondonadas donde se recogen y naturalmente se detienen las aguas, con fondos más o menos cenagosos. Dentro de los pantanos se pueden encontrar cuerpos de agua, algunos con cobertura parcial de vegetación acuática, con tamaño menor a 25 ha, y que en total representan menos de 30% del área total del pantano.">Zonas Pantanosas</label></div>
+	                        <div><input type="checkbox" name="56"></input><label title="Son terrenos bajos de tipo pantanoso, de textura esponjosa, cuyo suelo está compuesto principalmente por musgos y materias vegetales descompuestas. Se encuentran frecuentemente en áreas andinas en terrenos situados por encima de los 3.200 msnm.">Turberas</label></div>
+	                        <div><input type="checkbox" name="57"></input><label title="Bajo esta categoría se clasifica toda aquella vegetación flotante que se encuentra establecida sobre cuerpos de agua, recubriéndolos en forma parcial o total.&#013;
+	                        Comprende vegetación biotipológicamente clasificada como Pleustophyta, Rizophyta y Haptophyta.&#013;
+	                        En Colombia, esta cobertura se encuentra asociada con lagos y lagunas andinos en proceso de eutrofización y en las zonas bajas asociada con cuerpos de agua localizados en las planicies de inundación o desborde.">Vegetación acuática sobre cuerpos de agua</label></div>
+	                    </v-pane-content>
+	                </v-pane>
+                </v-accordion>
+                <v-accordion>
+                	<v-pane>
+                    	<v-pane-header title="Sobre las zonas costeras se diferenciaron las zonas de pantanos litorales y las áreas que presentan procesos de inundación relacionados con la marea.">Áreas húmedas costeras
+                    	</v-pane-header>
+	                    <v-pane-content>
+	                        <div><input type="checkbox" name="59"></input><label title="Son áreas costeras bajas cubiertas por vegetación herbácea y arbustiva rala, adaptada a los ambientes salobres, las cuales están bajo la influencia de la marea. Se localizan en zonas asociadas con deltas, estuarios, lagunas costeras y planicies marinas de inundación, generalmente ocupando espacios cóncavos detrás de la barra de playa. Son susceptibles a la inundación durante períodos de nivel alto del mar, tormentas y oleaje fuerte. Se encuentran colonizadas por plantas halófilas1 diferentes al mangle.">Pantanos costeros</label></div>
+	                        <div><input type="checkbox" name="60"></input><label title="Esta cobertura comprende los territorios planos costeros donde se presenta la formación de depósitos de minerales evaporíticos en forma natural, los cuales por la acción del viento pueden estar acompañados de arcillas, limos, arenas y lodos, conformando costras que recubren el suelo, que pueden estar asociados a procesos de acumulación de sales por infiltración y evaporación, así como por ascenso por capilaridad. Estos terrenos se caracterizan por estar generalmente desprovistos de vegetación, presentando en raras ocasiones desarrollos de vegetación gramínea baja y rala. Generalmente están asociados con los bordes de las marismas costeras, terrazas marinas bajas y antiguos planos de inundación marina.">Salitral</label></div>
+	                        <div><input type="checkbox" name="61"></input><label title="Comprende las áreas constituidas por planicies litorales mareales que quedan descubiertas de agua durante los períodos de bajamar. Están compuestos por depósitos de lodo y cieno principalmente, pero también incluyen los bordes litorales compuestos por acumulaciones de arena y rocas. Estas superficies se caracterizan por estar desprovistas de vegetación o, en muy raras ocasiones, pueden presentar el desarrollo de pequeños parches de herbáceas. En Colombia, se encuentran principalmente en el litoral de la costa pacífica.">Sedimentos expuestos en bajamar</label></div>
+                    	</v-pane-content>
+                    </v-pane>
+                </v-accordion>
+        	</v-pane-content>
+        </v-pane>
+        <v-pane>
+          	<v-pane-header title="Son los cuerpos y cauces de aguas permanentes, intermitentes y estacionales, localizados en el interior del continente y los que bordean o se encuentran adyacentes a la línea de costa continental, como los mares. Se incluyen en esta clasificación los fondos asociados con los mares, cuya profundidad no supere los 12 metros.">Superficies de agua
+          	</v-pane-header>
+            <v-pane-content>
+				<v-accordion>
+                	<v-pane>
+                    	<v-pane-header title="Son cuerpos de aguas permanentes, intermitentes y estacionales que comprenden lagos, lagunas, ciénagas, depósitos y estanques naturales o artificiales de agua dulce (no salina), embalses y cuerpos de agua en movimiento, como los ríos y canales.">Aguas continentales
+                    	</v-pane-header>
+	                    <v-pane-content>
+	                        <div><input type="checkbox" name="63"></input><label title="Un río es una corriente natural de agua que fluye con continuidad, posee un caudal considerable y desemboca en el mar, en un lago o en otro río.">Ríos (50 m)</label></div>
+	                        <div><input type="checkbox" name="64"></input><label title="Superficies o depósitos de agua naturales de carácter abierto o cerrado, dulce o salobre, que pueden estar conectadas o no con un río o con el mar.">Lagunas, lagos y ciénagas naturales</label></div>
+	                        <div><input type="checkbox" name="65"></input><label title="Cauce artificial abierto que contiene agua en movimiento de forma permanente, que tiene un ancho mínimo de 50 m y que puede enlazar o no dos masas de agua. Comprende los canales de navegación y los de los distritos de riego.">Canales</label></div>
+	                        <div><input type="checkbox" name="66"></input><label title="Esta cobertura comprende los cuerpos de agua de carácter artificial, que fueron creados por el hombre para almacenar agua usualmente con el propósito de generación de electricidad y el abastecimiento de acueductos, aunque también para prestar otros servicios tales como control de caudales, inundaciones, abastecimiento de agua, riego y con fines turísticos y recreativos.">5Cuerpos de agua artificiales</label></div>
+	                    </v-pane-content>
+	                </v-pane>
+                </v-accordion>
+                <v-accordion>
+                	<v-pane>
+                    	<v-pane-header title="Esta cobertura comprende los cuerpos de agua natural salada y salobre asociada con mares u océanos que bordean el litoral.">Aguas marítimas
+                    	</v-pane-header>
+	                    <v-pane-content>
+	                        <div><input type="checkbox" name="68"></input><label title="Superficies de agua salada o salobre, separadas del mar por tierras sobresalientes u otras topografías similares. Pueden tener comunicación con el mar de manera permanente o temporal a través de canales, barras de arena y zonas de pantanos costeros.">Lagunas costeras</label></div>
+	                        <div><input type="checkbox" name="69"></input><label title="Comprende los cuerpos de agua salada que bordean la zona litoral y que se extienden a partir de la línea de costa en período de bajamar.">Mares y océanos</label></div>
+	                        <div><input type="checkbox" name="70"></input><label title="Cuerpos de agua artificial destinados a la cría de crustáceos y peces. Se ubican, generalmente, en las regiones adyacentes al mar.">Estanques para acuicultura marina</label></div>
+                    	</v-pane-content>
+                    </v-pane>
+                </v-accordion>
+        	</v-pane-content>
+        </v-pane>
+        </v-accordion>
+	<button class="btngen">pausar</button>
+	<button class="btngen">enviar</button>
+	</div>
+
 </div>
 
 <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAz6sPnMLuIJrOWvNKnn6-PWYK56PDGa30'%>
@@ -380,4 +628,7 @@ $(document).ready(function(){
 });
 
 $('.cajavisor').perfectScrollbar();
-$('.resultados').perfectScrollbar(); </script>
+$('.resultados').perfectScrollbar();
+
+
+</script>

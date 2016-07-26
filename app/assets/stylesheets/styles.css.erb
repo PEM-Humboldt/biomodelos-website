@@ -80,7 +80,7 @@ header {
 	display: flex;
     justify-content: space-between;
     position: relative;
-    z-index: 12;
+    z-index: 1003;
 }
 
 header h1 {
@@ -2658,6 +2658,10 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	max-width: 90% !important;
 }
 
+.dinblock p {
+	max-width: 520px !important;
+}
+
 .estadistico {
 	margin-bottom: 0 !important;
 }
@@ -2675,16 +2679,272 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 }
 
 .editactions > * {
-	margin-right: 8px;
+	margin-right: 5px;
 	vertical-align: top;
 	letter-spacing: 1px;
 	font-size: 0.86em;
+	margin-bottom: 15px;
 }
 
+.editthumb {
+	border: 1px solid #c5c4c4;
+	border-bottom: 1px solid #db3f2a;
+	padding: 8px;
+	margin-bottom: 8px;
+	margin-right: 10px;
+}
 
-.editactions {
-	border-bottom: 1px solid #8d8d8d;
-	margin-bottom: 15px;
-	display: table;
-	padding-bottom: 10px;
+.dinblock {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: top;
+}
+
+.rz-bar-wrapper {
+	padding-top: 3px!important;
+}
+
+.rz-bar {
+	height: 10px !important;
+	border-radius: 5px !important;
+	background-color: #c5c4c4 !important;
+}
+
+.rz-pointer {
+	height: 15px !important;
+	width: 15px !important;
+	top:-16px !important;
+	border-radius: 8px !important;
+	background-color: #1b3337 !important;
+}
+
+.rz-pointer:after {
+	display: none !important;
+}
+
+.rz-tick-value {
+	bottom:9px !important;
+	font-size: 0.6em;
+	color:#393836;
+}
+
+.rz-ticks {
+	padding: 0 !important;
+}
+
+.rz-tick {
+	background:none !important;
+}
+
+.rz-bar.rz-selection {
+	background-color:#124c5e !important;
+}
+
+.btnregistros {
+	position: absolute;
+	top: 90px;
+	padding: 0 5px;
+	width: 260px;
+	text-transform: uppercase;
+	color: #fff;
+	font-weight: 300;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	background: #1b3337 url(<%= asset_path 'downarroww.png' %>) right 10px center no-repeat;
+	cursor: pointer;
+	vertical-align: middle;
+	height: 25px;
+	line-height: 25px;
+	z-index: 18;
+}
+
+.regactive {
+	padding:0 8px;
+	letter-spacing: 1px;
+	font-size: 1.1em;
+	background-image: url(<%= asset_path 'uparroww.png' %>);
+	height: 45px;
+	line-height: 45px;
+}
+
+.regactive::before {
+	content: url(<%= asset_path 'regiconvisor.png' %>);
+	float: left;
+}
+
+.cajaregistros {
+	width: 260px;
+	top: 135px;
+	height: 300;
+	background-color: #fff;
+	position: absolute;
+	z-index: 19;
+	padding: 5px 10px;
+}
+
+.btnedicion {
+	position: absolute;
+	top: 120px;
+	padding: 0 5px;
+	width: 260px;
+	text-transform: uppercase;
+	color: #fff;
+	font-weight: 300;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	background: #1b3337 url(<%= asset_path 'downarroww.png' %>) right 10px center no-repeat;
+	cursor: pointer;
+	vertical-align: middle;
+	height: 25px;
+	line-height: 25px;
+	z-index: 16;
+}
+
+.edactive {
+	padding:0 8px;
+	letter-spacing: 1px;
+	font-size: 1.1em;
+	background-image: url(<%= asset_path 'uparroww.png' %>);
+	height: 45px;
+	line-height: 45px;
+}
+
+.edactive::before {
+	content: url(<%= asset_path 'editiconvisor.png' %>);
+	float: left;
+}
+
+.cajitaeditar {
+	width: 260px;
+	top: 165px;
+	height: 300;
+	background-color: #fff;
+	position: absolute;
+	z-index: 17;
+	padding: 5px 10px;
+}
+
+.rzslider {
+	margin: 0 auto;
+}
+
+.cajitaeditar .steptitle,
+.cajaregistros .steptitle {
+	letter-spacing: 0;
+}
+
+.fleft {
+	float: left;
+}
+
+.yearchk {
+	float: right;
+	vertical-align: middle;
+	margin: 9px 4px 0;
+}
+
+.yearchklb {
+	float: right;
+	font-size: 0.7em;
+	font-family: 'Lato', sans-serif;
+	color:#393836;
+	padding-top: 9px;
+}
+
+.littleline {
+	margin: 0 15px;
+	border-top: 2px solid #c5c4c4;
+}
+
+.polibotons {
+	width: 180px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.poliboton {
+	height: 25px;
+	width: 25px;
+	border: none;
+	background: none;
+	border: 1px solid #1b3337;
+	margin: 10px;
+}
+
+.polig {
+	background: url(<%= asset_path 'poligono.png' %>) center no-repeat;
+}
+.edipoli {
+	background: url(<%= asset_path 'editpolig.png' %>) center no-repeat;
+}
+.delpoli {
+	background: url(<%= asset_path 'delpolig.png' %>) center no-repeat;
+}
+
+.veicon2 {
+	line-height: 35px;
+	height: 35px;
+	width: 240px;
+	background: url(<%= asset_path 'veicon.png' %>) right center no-repeat;
+	margin-top: 5px;
+	padding: 0;
+}
+
+.vAccordion--default v-accordion {
+  margin-top: 0 !important;
+  padding-left: 5px !important; 
+}
+
+.vAccordion--default v-pane-content > div {
+  padding-bottom: 3px !important;
+ }
+
+.vAccordion--default v-pane-header {
+  padding: 2px 0 !important;
+  margin-bottom: 0 !important;
+  border-top: 2px solid #D8D8D8 !important;
+  border-bottom:none !important;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #5d5e5e;
+}
+
+.vAccordion--default v-pane.is-expanded > v-pane-header {
+    border-top: 1px solid #db3f2a !important; 
+}
+
+.vAccordion--default v-accordion v-pane-header {
+  border: none !important;
+  text-transform: none;
+  max-width: 225px;
+}
+
+.vAccordion--default v-accordion v-pane.is-expanded > v-pane-header {
+  border: none !important;
+}
+
+.vAccordion--default v-pane-header::after, .vAccordion--default v-pane-header::before {
+    background-color: #db3f2a !important;
+}
+
+.vAccordion--default v-pane-header:hover, .vAccordion--default v-pane-header:focus {
+    color: #db3f2a !important;
+}
+
+.vAccordion--default label {
+    color: #5d5e5e;
+    font-size: 12px;
+    padding-left: 4px;
+}
+
+.btngen {
+	padding: 5px 13px;
+	border: none;
+	background: none;
+	border: 1px solid #db3f2a;
+	color: #db3f2a;
+	margin: 10px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 0.87em;
+	cursor: pointer;
 }
