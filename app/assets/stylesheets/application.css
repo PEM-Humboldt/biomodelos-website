@@ -17,4 +17,6 @@
  *= require perfect-scrollbar/css/perfect-scrollbar.min
  *= require leaflet.markercluster/dist/MarkerCluster
  *= require leaflet.markercluster/dist/MarkerCluster.Default
+ *= require angularjs-slider/dist/rzslider.min
+ *= require v-accordion/dist/v-accordion.min
  */
