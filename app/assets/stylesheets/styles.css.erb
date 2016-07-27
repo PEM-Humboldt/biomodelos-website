@@ -1452,6 +1452,11 @@ p.groupuser {
   border: solid 1px #db3f2a;
 }
 
+.cajaregistros .select {
+	width: 100%;
+	height: 30px;
+}
+
 .select-styled {
   position: absolute;
   top: 0;
@@ -1477,6 +1482,14 @@ p.groupuser {
   right: 10px;
 }
 
+.cajaregistros .select-styled {
+	padding: 5px;
+}
+
+.cajaregistros .select-styled:after {
+	top:11px;
+}
+
 .select-styled:hover {
   background-color: #b83729;
   color:#fff;
@@ -1490,6 +1503,10 @@ p.groupuser {
 .select-styled:active:after, .select-styled.active:after {
   top: 9px;
   border-color: transparent transparent #fff transparent;
+}
+
+.cajaregistros .select-styled:active:after, .cajaregistros .select-styled.active:after {
+  top: 4px;
 }
 
 .select-options {
@@ -1515,6 +1532,10 @@ p.groupuser {
   -o-transition: all 0.15s ease-in;
   -webkit-transition: all 0.15s ease-in;
   transition: all 0.15s ease-in;
+}
+
+.cajaregistros .select-options li {
+	padding: 5px 0;
 }
 
 .select-options li:hover {
@@ -2197,7 +2218,7 @@ a.cajathumb p {
 	cursor: pointer;
 }
 
-.cajavisor p {
+.cajavisor p, .infobox p {
 	max-width: 500px;
 	line-height: 1.5;
 	font-size: 0.95em;
@@ -2219,7 +2240,7 @@ a.cajathumb p {
 	font-size: 1.2em;
 }
 
-.cajavisor h2 {
+.cajavisor h2, .infobox h2 {
 	font-size: 1.2em;
 	text-transform: uppercase;
 	color: #db3f2a;
@@ -2412,11 +2433,25 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	margin-top: -25px;
 }
 
+.cajaregistros .infobox {
+	width: 245px;
+	padding: 5px;
+}
+
 .infobox a {
 	padding: 5px;
 	line-height: 1;
 	height: auto;
 	float: right;
+}
+
+.cajaregistros .infobox a {
+	padding: 3px 5px;
+	margin-bottom: 5px;
+}
+
+.infobox h2 {
+	font-size: 1em;
 }
 
 .infobox p {
@@ -2701,6 +2736,10 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	vertical-align: top;
 }
 
+.rzslider {
+	margin: 35px 0 3px !important;
+}
+
 .rz-bar-wrapper {
 	padding-top: 3px!important;
 }
@@ -2775,11 +2814,15 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 .cajaregistros {
 	width: 260px;
 	top: 135px;
-	height: 300;
+	min-height: 385px;
 	background-color: #fff;
 	position: absolute;
 	z-index: 19;
-	padding: 5px 10px;
+	max-height: -moz-calc(100% - 181px);
+	max-height: -webkit-calc(100% - 181px);
+	max-height: calc(100% - 181px);
+	padding: 5px 15px 15px 8px;
+	overflow-y: auto;
 }
 
 .btnedicion {
@@ -2816,18 +2859,14 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 .cajitaeditar {
 	width: 260px;
 	top: 165px;
-	height: 300;
 	background-color: #fff;
 	position: absolute;
 	z-index: 17;
-	padding-bottom: 5px;
-}
-
-.p10 {
-	padding: 5px 10px 0;
-}
-.rzslider {
-	margin: 0 auto;
+	max-height: -moz-calc(100% - 211px);
+	max-height: -webkit-calc(100% - 211px);
+	max-height: calc(100% - 211px);
+	padding: 5px 15px 5px 8px;
+	overflow-y: auto;
 }
 
 .cajitaeditar .steptitle,
@@ -2853,6 +2892,39 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	padding-top: 9px;
 }
 
+.col4 {
+	width: 22%;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	margin-left: 2%;
+	margin-bottom: 5px;
+}
+
+.meschk{
+	vertical-align: middle;
+	float: left;
+	margin: 5px 5px 0 0;
+}
+
+.meslbl {
+	font-size: 0.7em;
+	font-family: 'Lato', sans-serif;
+	color:#393836;
+}
+
+.lblvisual {
+	padding: 0 5px;
+	color: #393836;
+	height: 21px;
+	line-height: 21px;	
+	vertical-align: middle;
+}
+
+.foreditors {
+	padding: 5px 0;
+}
+
 .littleline {
 	margin: 0 15px;
 	border-top: 2px solid #c5c4c4;
@@ -2864,7 +2936,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	text-align: center;
 }
 
-.poliboton {
+.poliboton, .taxbtn {
 	height: 25px;
 	width: 25px;
 	border: none;
@@ -2891,11 +2963,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	margin-top: 5px;
 	padding: 0;
 }
-.vAccordion--default {
-	max-height: 335px;
-	padding-right: 15px;
-	padding-left: 8px;
-}
+
 .vAccordion--default v-accordion {
   margin-top: 0 !important;
   padding-left: 5px !important; 
@@ -2956,7 +3024,20 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	cursor: pointer;
 }
 
-.accordionscroll {
-	position: relative;
-	height: 100%;
+.marbtnreg {
+	margin: 5px 0 7px 30px;
+}
+
+.taxbtn {
+	border-color: #db3f2a;
+	background: url(<%= asset_path 'poligonored.png' %>) center no-repeat; 
+	float: right;
+	cursor: pointer;
+}
+
+.lh25 {
+	float: left;
+	line-height: 25px;
+	height: 25px;
+	padding-top: 9px;
 }

@@ -1,5 +1,5 @@
 var _BioModelosVisorModule = function() {
-	var map;
+	var map, editableLayer;
 
 	//var setAltitude()
 
@@ -32,6 +32,11 @@ var _BioModelosVisorModule = function() {
 	            format: 'image/png',
 	            transparent: true,
 	            layers: 'Historicos:ecosistemas_generales_etter'
+        	});
+        	test_bio = L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Biomodelos/wms', {
+	            format: 'image/png',
+	            transparent: true,
+	            layers: 'Biomodelos:aburria_aburri'
         	}); 
 
 	    var	baseLayers = {
@@ -42,7 +47,8 @@ var _BioModelosVisorModule = function() {
 
 	    	overlays = {
 	    		"Páramos y humedales fondo": paramos_humedales_fondo,
-	    		"Ecosistemas Etter" : ecosistemas_etter
+	    		"Ecosistemas Etter" : ecosistemas_etter,
+	    		"Test BioModelos" : test_bio
 	    	};
 
         map = L.map('map', {crs: L.CRS.EPSG4326}).setView(latlng, zoom);
@@ -52,6 +58,15 @@ var _BioModelosVisorModule = function() {
 	    /* autoZIndex controls the layer order */
 	    layerControl = L.control.layers(baseLayers, overlays, {autoZIndex: true, collapsed: false});
 	    layerControl.addTo(map);
+
+	    editableLayer = new L.FeatureGroup(); //Capa editable
+	    map.addLayer(editableLayer);
+
+	    var drawControl = new L.Control.Draw({
+		    draw: false,
+		    edit: false
+		}).addTo(map);
+
 
 	    // Elevation listener
 	    // map.on('mouseover', function(e) {
@@ -110,10 +125,33 @@ var _BioModelosVisorModule = function() {
 		    map.addLayer(clusters);
 		    layerControl.addOverlay(clusters,"Registros");
 		  });
+	}
+
+	var drawPolygon = function (){
+
+		// Polygon handler
+		var polygonDrawer = new L.Draw.Polygon(map).enable();
+
+		// Add polygon layer to map
+		map.on('draw:created', function (e) {
+		    var type = e.layerType,
+		        layer = e.layer;
+
+		    // Do whatever you want with the layer.
+		    // e.type will be the type of layer that has been draw (polyline, marker, polygon, rectangle, circle)
+		    // E.g. add it to the map
+		    layer.addTo(editableLayer);
+		});
+
+	}
+
+	var editPolygon = function (){
+		
 	}  
 	
 	return{
-		init:init
+		init:init,
+		drawPolygon:drawPolygon
 	}
 }();
 

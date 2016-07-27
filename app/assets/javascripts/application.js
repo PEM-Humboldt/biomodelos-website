@@ -17,9 +17,9 @@
 //= require typeahead.js/dist/typeahead.bundle.min.js
 //= require leaflet/dist/leaflet-src
 //= require leaflet-draw/dist/leaflet.draw
-//= require perfect-scrollbar/js/perfect-scrollbar.jquery.min
 //= require leaflet.markercluster/dist/leaflet.markercluster
 //= require angularjs-slider/dist/rzslider.min
 //= require v-accordion/dist/v-accordion.min
+//= require jquery.nicescroll/dist/jquery.nicescroll.min
 //= require_tree ./angular
 //= require_tree ./controllers
