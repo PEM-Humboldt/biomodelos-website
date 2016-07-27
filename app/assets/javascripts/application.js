@@ -16,10 +16,10 @@
 //= require angular-animate/angular-animate.min
 //= require typeahead.js/dist/typeahead.bundle.min.js
 //= require leaflet/dist/leaflet-src
-//= require perfect-scrollbar/js/perfect-scrollbar.jquery.min
 //= require leaflet-layerjson/dist/leaflet-layerjson.min
 //= require leaflet.markercluster/dist/leaflet.markercluster
 //= require angularjs-slider/dist/rzslider.min
 //= require v-accordion/dist/v-accordion.min
+//= require jquery.nicescroll/dist/jquery.nicescroll.min
 //= require_tree ./angular
 //= require_tree ./controllers

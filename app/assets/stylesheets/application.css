@@ -13,7 +13,6 @@
  *= require leaflet/dist/leaflet
  *= require_tree .
  *= require_self
- *= require perfect-scrollbar/css/perfect-scrollbar.min
  *= require leaflet.markercluster/dist/MarkerCluster
  *= require leaflet.markercluster/dist/MarkerCluster.Default
  *= require angularjs-slider/dist/rzslider.min

@@ -22,7 +22,7 @@ angular.module('biomodelos', ['rzModule', 'vAccordion', 'ngAnimate'])
 
 	$scope.yearSlider = {
 	    minValue: '1980',
-	    maxValue: '2005',
+	    maxValue: 'Hoy',
 	    options: {
 	        floor: 0,
 	        ceil: 'Hoy',
