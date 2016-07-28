@@ -1,5 +1,5 @@
 var _BioModelosVisorModule = function() {
-	var map;
+	var map, editableLayer;
 
 	//var setAltitude()
 
@@ -23,7 +23,21 @@ var _BioModelosVisorModule = function() {
             });
 
         /* Overlays */
-        //var fo
+        var paramos_humedales_fondo = new L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Proyecto_fondo_adaptacion/wms', {
+            format: 'image/png',
+            transparent: true,
+            layers: 'Proyecto_fondo_adaptacion:Limite_Paramo_2015'
+        }),
+        	ecosistemas_etter = L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Historicos/wms', {
+	            format: 'image/png',
+	            transparent: true,
+	            layers: 'Historicos:ecosistemas_generales_etter'
+        	});
+        	test_bio = L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Biomodelos/wms', {
+	            format: 'image/png',
+	            transparent: true,
+	            layers: 'Biomodelos:aburria_aburri'
+        	}); 
 
 	    var	baseLayers = {
 	    		"Google Terrain": googleTerrain,
@@ -31,7 +45,11 @@ var _BioModelosVisorModule = function() {
 	        	"OpenStreetMap": osmBase,
 	    	},
 
-	    	overlays = {};
+	    	overlays = {
+	    		"Páramos y humedales fondo": paramos_humedales_fondo,
+	    		"Ecosistemas Etter" : ecosistemas_etter,
+	    		"Test BioModelos" : test_bio
+	    	};
 
         map = L.map('map', {crs: L.CRS.EPSG4326}).setView(latlng, zoom);
 
@@ -41,12 +59,21 @@ var _BioModelosVisorModule = function() {
 	    layerControl = L.control.layers(baseLayers, overlays, {autoZIndex: true, collapsed: false});
 	    layerControl.addTo(map);
 
+	    editableLayer = new L.FeatureGroup(); //Capa editable
+	    map.addLayer(editableLayer);
+
+	    var drawControl = new L.Control.Draw({
+		    draw: false,
+		    edit: false
+		}).addTo(map);
+
+
 	    // Elevation listener
 	    // map.on('mouseover', function(e) {
 	    //      getLocationElevation(e.latlng, elevator);
 	    // });
 
-	    loadSpeciesPoints();
+	    //loadSpeciesPoints();
 	}
 
 	var getLocationElevation = function (location, elevator){
@@ -68,22 +95,63 @@ var _BioModelosVisorModule = function() {
 	}
 
 	var loadSpeciesPoints = function(){
-		var cluster = new L.MarkerClusterGroup({}).addTo(map);
 
-    		map.addLayer(cluster);
-    		layerControl.addOverlay(cluster,"Registros");
+			var geojsonMarkerOptions = {
+			    radius: 8,
+			    fillColor: "#ff7800",
+			    color: "#000",
+			    weight: 1,
+			    opacity: 1,
+			    fillOpacity: 0.8
+			};
 
-			L.layerJSON({
-			    url: "../test.json",
-			    propertyLoc: 'lat',
-			    caching: true,
-			    layerTarget: cluster // Option layerTarget
-			}).addTo(map);
+		  $.getJSON("/test.json",function(data){
+		    var points = L.geoJson(data,{
+		    	pointToLayer: function (feature, latlng) {
+    				return L.circleMarker(latlng, geojsonMarkerOptions);
+				},
+		 		onEachFeature: function (feature, layer) {
+					var popupcontent = [];
+					popupcontent .push('<b><div id="point_lon">'+ feature.geometry.coordinates[0]+'</div>, <div id="point_lat"> '+ feature.geometry.coordinates[1] + '</div></b><br /><br />');
+					for (var prop in feature.properties) {
+    					popupcontent.push(prop + ": " + feature.properties[prop]);
+						}
+						layer.bindPopup(popupcontent.join("<br />"));
 
+				}
+		    });
+		    var clusters = L.markerClusterGroup();
+		    clusters.addLayer(points);
+		    map.addLayer(clusters);
+		    layerControl.addOverlay(clusters,"Registros");
+		  });
+	}
+
+	var drawPolygon = function (){
+
+		// Polygon handler
+		var polygonDrawer = new L.Draw.Polygon(map).enable();
+
+		// Add polygon layer to map
+		map.on('draw:created', function (e) {
+		    var type = e.layerType,
+		        layer = e.layer;
+
+		    // Do whatever you want with the layer.
+		    // e.type will be the type of layer that has been draw (polyline, marker, polygon, rectangle, circle)
+		    // E.g. add it to the map
+		    layer.addTo(editableLayer);
+		});
+
+	}
+
+	var editPolygon = function (){
+		
 	}  
 	
 	return{
-		init:init
+		init:init,
+		drawPolygon:drawPolygon
 	}
 }();
 

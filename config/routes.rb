@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get "species/autocomplete"
   get "species/visor"
   get "groups/show"
+  get "home/contact_us"
+  get "home/about_us"
+  get "home/publish"
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

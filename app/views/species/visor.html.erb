@@ -697,6 +697,12 @@ $(document).ready(function(){
 	}
 	});
 
+
+	$(".polig").click(function(e){
+		_BioModelosVisorModule.drawPolygon();
+		e.preventDefault();
+	})
+
 });
 
 $('.cajavisor').niceScroll({
