@@ -16,7 +16,7 @@
 //= require angular-animate/angular-animate.min
 //= require typeahead.js/dist/typeahead.bundle.min.js
 //= require leaflet/dist/leaflet-src
-//= require leaflet-layerjson/dist/leaflet-layerjson.min
+//= require leaflet-draw/dist/leaflet.draw
 //= require leaflet.markercluster/dist/leaflet.markercluster
 //= require angularjs-slider/dist/rzslider.min
 //= require v-accordion/dist/v-accordion.min
