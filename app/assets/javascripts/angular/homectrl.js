@@ -17,6 +17,6 @@ angular.module('biomodelos')
           vm.slide = slides[2];
       else 
       	vm.slide = slides[0];
-    }, 7000, 0);
+    }, 6000, 0);
 
 });

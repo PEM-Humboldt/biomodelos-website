@@ -1,4 +1,4 @@
-angular.module('biomodelos', ['rzModule', 'vAccordion', 'ngAnimate'])
+angular.module('biomodelos')
     .controller('visorCtrl' , ['$scope', function($scope) {
         
     $scope.isActive = false;

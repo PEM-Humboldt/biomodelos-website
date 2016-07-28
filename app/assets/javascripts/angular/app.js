@@ -1,1 +1,1 @@
-angular.module('biomodelos', []);
+angular.module('biomodelos', ['rzModule', 'vAccordion', 'ngAnimate']);
