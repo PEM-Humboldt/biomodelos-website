@@ -21,13 +21,13 @@
 			<% end %>
 			<h2>FILTROS</h2>
 			<div class="sppbtn">
-				<button class="mamiferos"></button>
-				<button class="aves"></button>
-				<button class="reptiles"></button>
-				<button class="anfibios"></button>
-				<button class="peces"></button>
-				<button class="invertebrados"></button>
-				<button class="plantas"></button>
+				<button class="mamiferos" title="Mamíferos" rel="tooltip"></button>
+				<button class="aves" title="Aves" rel="tooltip"></button>
+				<button class="reptiles" title="Reptiles" rel="tooltip"></button>
+				<button class="anfibios" title="Anfibios" rel="tooltip"></button>
+				<button class="peces" title="Peces" rel="tooltip"></button>
+				<button class="invertebrados" title="Invertebrados" rel="tooltip"></button>
+				<button class="plantas" title="Plantas" rel="tooltip"></button>
 			</div>
 			<div class="typebtn">
 				<button>endémicas</button>
@@ -165,7 +165,7 @@
 			</div>
 		</div>
 		<div class="cvcol40">
-			<button class="urllink"></button><div class="amenaza"><%= image_tag("caten.png") %></div>
+			<button class="urllink" title="Copiar URL" rel="tooltip"></button><div class="amenaza" title="Categoría de amenaza" rel="tooltip"><%= image_tag("caten.png") %></div>
 		</div>
 	</div>
 
@@ -203,9 +203,9 @@
 						</div>
 					</div>
 					<div class="mmicon clearfix">
-						<a href=""><%= image_tag("downicon.png") %></a>
-						<a href=""><%= image_tag("metaicon.png") %></a>
-						<a href="" class="delicon"><%= image_tag("delicon.png") %></a>
+						<a href="" title="Bajar el modelo" rel="tooltip"><%= image_tag("downicon.png") %></a>
+						<a href="" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
+						<a href="" title="Borrar calificación" rel="tooltip" class="delicon"><%= image_tag("delicon.png") %></a>
 					</div>
 				</div>
 				<div class="maparea">
@@ -229,9 +229,9 @@
 						</div>
 					</div>
 					<div class="mmicon clearfix">
-						<a href=""><%= image_tag("downicon.png") %></a>
-						<a href=""><%= image_tag("metaicon.png") %></a>
-						<a href="" class="delicon"><%= image_tag("delicon.png") %></a>
+						<a href="" title="Bajar el modelo" rel="tooltip"><%= image_tag("downicon.png") %></a>
+						<a href="" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
+						<a href="" title="Borrar calificación" rel="tooltip" class="delicon"><%= image_tag("delicon.png") %></a>
 					</div>
 				</div>
 				<div class="maparea">
@@ -255,9 +255,9 @@
 						</div>
 					</div>
 					<div class="mmicon clearfix">
-						<a href=""><%= image_tag("downicon.png") %></a>
-						<a href=""><%= image_tag("metaicon.png") %></a>
-						<a href="" class="delicon"><%= image_tag("delicon.png") %></a>
+						<a href="" title="Bajar el modelo" rel="tooltip"><%= image_tag("downicon.png") %></a>
+						<a href="" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
+						<a href="" title="Borrar calificación" rel="tooltip" class="delicon"><%= image_tag("delicon.png") %></a>
 					</div>
 				</div>
 				
@@ -309,8 +309,8 @@
 				<a href=""><%= image_tag("mapthumb.png") %></a>
 			</div>
 			<div class="editactions clearfix">
-				<a href=""><%= image_tag("downicon.png") %></a>
-				<a href=""><%= image_tag("metaicon.png") %></a>
+				<a href="" title="Bajar el modelo" rel="tooltip"><%= image_tag("downicon.png") %></a>
+				<a href="" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
 				<button class="newgrbtn">editar</a>
 			</div>
 		</div>
@@ -331,7 +331,7 @@
 
 		<div class="steptitle">3. Publica tu mapa</div>
 		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.</p>
-		<a href=""><%= image_tag("uploadicon.png") %></a>
+		<a href="" title="Publica tu modelo" rel="tooltip"><%= image_tag("uploadicon.png") %></a>
 	</div>
 
 	<div ng-click="registros=!registros; activeButton()" ng-class="{'regactive': isActive}" class="btnregistros">registros y filtros</div>
@@ -391,12 +391,7 @@
 				<option value="">Jorge Velasquez</option>
 				<option value="">Daniel Lopez</option>
 			</select>
-		<div class="infotitle steptitle" ng-click="visinfo=!visinfo">Visualizar</div>
-			<div ng-show="visinfo" class="infobox">
-				<h2>Visualizar</h2>
-				<a ng-click="visinfo=!visinfo" class="closevb">x</a>
-				<p>Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo.</p>
-			</div>
+		<div class="infotitle steptitle" title="Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo." rel="tooltip">Visualizar</div>
 			<input type="checkbox" name="visualrep" class="checkregistros"></input>
 			<label for="visualrep" class="lblvisual">Reportados</label></br>
 			<input type="checkbox" name="visualedit" class="checkregistros"></input>
@@ -411,12 +406,7 @@
 			<div class="steptitle">Agregar registro</div>
 				<button class="btngen marbtnreg">1</button>
 				<button class="btngen marbtnreg">conjunto</button>
-			<div class="infotitle steptitle lh25" ng-click="taxinfo=!taxinfo">Agregar taxonomía</div>
-				<div ng-show="taxinfo" class="infobox">
-					<h2>Agregar taxonomía</h2>
-					<a ng-click="taxinfo=!taxinfo" class="closevb">x</a>
-					<p>Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo.</p>
-				</div>
+			<div class="infotitle steptitle lh25" title="Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo." rel="tooltip">Actualizar taxonomía</div>
 				<button class="taxbtn"></button>
 		</div>
 	</div>
@@ -427,12 +417,12 @@
 		<div class="littleline"></div>
 		<div class="steptitle">Herramienta de polígono</div>
 		<div class="polibotons">
-			<button class="poliboton polig"></button>
-			<button class="poliboton edipoli"></button>
-			<button class="poliboton delpoli"></button>
+			<button class="poliboton polig" title="Dibujar polígono" rel="tooltip"></button>
+			<button class="poliboton edipoli" title="Editar polígono" rel="tooltip"></button>
+			<button class="poliboton delpoli" title="Borrar polígono" rel="tooltip"></button>
 		</div>
 		<div class="littleline"></div>
-		<div class="steptitle veicon2">Variables Ecológicas</div>
+		<div class="steptitle veicon2" title="IDEAM 2010. Leyenda Nacional de Coberturas de la Tierra. Metodología CORINE Land Cover adaptada para Colombia Escala 1:100.000. Instituto de Hidrología, Meteorología y Estudios Ambientales. Bogotá, D. C., 72p." rel="tooltip">Variables Ecológicas</div>
         <v-accordion class="vAccordion--default">
 	        <v-pane>
 		        <v-pane-header title="Comprende las áreas de las ciudades y las poblaciones y, aquellas áreas periféricas que están siendo incorporadas a las zonas urbanas mediante un proceso gradual de urbanización o de cambio del uso del suelo hacia fines comerciales, industriales, de servicios y recreativos." rel="tooltip">Territorios artificializados
