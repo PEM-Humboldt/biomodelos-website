@@ -1,0 +1,115 @@
+<div class="innercontainer fondoplumas" ng-controller="perfilCtrl">
+      <div class="cajainners">
+            <div class="hcbase publish">
+                  <%= simple_form_for :publication do |f| %>
+                  <%= f.error_notification %>
+                  <%= f.error :error, :class => "publierror" %>
+            	<h1>Publica tu mapa</h1>
+                  <%= link_to '', root_path, class: 'closecb' %>
+                  <h3>Para publicar un modelo de distribución en BioModelos, sigue los siguientes pasos</h3>
+
+                  <p><b>1.</b> Lee la <a href="/publicacion.pdf" target="_blank">guía de publicación</a></p>
+                  <p><b>2.</b> Selecciona una <a ng-click="licencia=!licencia; activeButton()" ng-class="{'anglnkact': isActive}">licencia de uso CC</a> para los modelos</p>
+                        <div ng-show="licencia" class="pubcontent clearfix">
+                              <h4>Tipo de licencia Creative Commons</h4>
+                        <div class="cclicenses">
+                              <%= image_tag("bylarge.png", :title => 'Reconocimiento') %>
+                              <p><b>Reconocimiento</b></br>Esta condición permite copiar, transmitir, reutilizar y adaptar la información. Si el usuario desea usar los datos o la información sin dar el debido crédito o con fines diferentes a los permitidos, debe obtener permiso previo del autor.</p></br>
+                              <%= image_tag("salarge.png", :title => 'Compartir Igual') %>
+                              <p><b>Compartir Igual</b></br>Esta condición permite copiar, transmitir, reutilizar y adaptar la información, siempre y cuando el resultado se comparta bajo una licencia igual, similar o compatible. Si el usuario desea compartir la información modificada bajo otros términos, debe obtener permiso previo del autor.</p></br>
+                              <%= image_tag("nclarge.png", :title => 'No Comercial') %>
+                              <p><b>No Comercial</b></br>Esta condición permite copiar, transmitir, reutilizar y adaptar la información, siempre y cuando no sea con fines comerciales. Para hacer uso comercial de la información, el usuario debe obtener permiso previo del autor.</p></br>
+                              <%= image_tag("zerolarge.png", :title => 'Dominio Público') %>
+                              <p><b>Dominio Público (CC0)</b></br>Utilice esta herramienta universal si usted es titular de los derechos de propiedad intelectual y desea renunciar a todos sus intereses sobre los datos e información. Permite a otros copiar, modificar, distribuir y reutilizar libremente el material sin solicitar permiso.</br>
+                              Es especialmente recomendada para datos científicos y es incentivada por editoriales como Pensoft y Nature. Aunque CC0 (“CC Cero”) no requiere legalmente que los usuarios citen la fuente de los datos, no los exime de la responsabilidad moral y ética de dar los créditos necesarios, como es habitual en la investigación científica.</p>
+                        </div>
+                        <h6>Selecciona un tipo de licencia</h6>
+                            <div id="cc_licenses">
+                                    <%= f.hidden_field :cc_license %>
+                              <div id="class_checker">
+                                    <label>
+                                    <%= check_box_tag :cclicense, "by"  %>
+                                    <%= image_tag("by.png", :title => 'Reconocimiento') %>
+                                    </label>
+                                    <label>
+                                    <%= check_box_tag :cclicense,"by-sa"  %>
+                                    <%= image_tag("by-sa.png", :title => 'Reconocimiento - Compartir Igual') %>
+                                    </label>
+                                    <label>
+                                    <%= check_box_tag :cclicense, "by-nc"  %>
+                                    <%= image_tag("by-nc.png", :title => 'Reconocimiento - No Comercial') %>
+                                    </label>
+                                    <label>
+                                    <%= check_box_tag :cclicense, "by-nc-sa"  %>
+                                    <%= image_tag("by-nc-sa.png", :title => 'Reconocimiento - No Comercial - Compartir Igual') %>
+                                    </label>
+                                    <label>
+                                    <%= check_box_tag :cclicense, "cc-zero"  %>
+                                    <%= image_tag("cc-zero.png", :title => 'Dominio Público') %>
+                                    </label>
+                              </div>
+                          </div>
+                        </div>
+                  <p><b>3.</b> Selecciona el <a ng-click="visual=!visual; activeButton()" ng-class="{'anglnkact': isActive}">tipo de visualización</a> de los registros en BioModelos</p>
+                        <div ng-show="visual" class="pubcontent clearfix">
+                        <h4>Permisos de visualización de registros</h4>
+                        <p>Escoge una de las siguientes opciones:</p>
+                        <%= f.collection_radio_buttons :records_vis, [['allusers', 'Todos los usuarios'] ,['regusers', 'Expertos registrados en el grupo de la especie']], :first, :last, { item_wrapper_tag: false, :checked => 'allusers', label: false } %>
+                        
+                        <div class="mt10"></div>
+                        <p>¿Deseas ser contactado por el SiB Colombia para la publicación de tu conjunto de datos?</p>
+                        <%= f.collection_radio_buttons :sib_contact, [['SI', 'Si'] ,['NO', 'No'],['NA', 'No aplica']], :first, :last, { item_wrapper_tag: false, :checked => 'SI', label: false } %>
+                        </div>
+                  <p><b>4.</b> <a href="http://biomodelos.humboldt.org.co/guia_documentacion_y_plantillas.zip" download>Descarga</a> y llena las plantillas para documentación de datos y metadatos de los modelos</p>
+                  <p><b>5.</b> Sube en un zip comprimido la metodología, las dos plantillas y los modelos</p>
+                  <div class="inputBtnSection">
+                  <input id="uploadFile" class="disableInputField" placeholder="Seleccionar Archivo" />
+                        <label class="fileUpload">
+                        <%= f.input :files, :as => :file, :required => true, label: false, error_html: {:class => 'publierror'}, :input_html => { :id => "uploadBtn", :class => "upload"} %>
+                        <span class="uploadBtn">SUBIR ZIP</span>
+                        </label>
+                  </div>
+                  <p><b>6.</b> Lee y acepta los <a ng-click="terminos=!terminos; activeButton()" ng-class="{'anglnkact': isActive}">términos y condiciones</a> de publicación</p>
+                  <div ng-show="terminos" class="pubcontent clearfix">
+                        <h4>términos y condiciones</h4>
+                        <p>La publicación de modelos en BioModelos se regirá por los siguientes términos y condiciones:</p>
+
+                        <h6>El publicador declara</h6>
+                         
+                        <p><b>1.</b> Que el/los modelo(s) que se suben a BioModelos son autoría de las personas listadas en el formulario de publicación de modelos (en adelante publicadores) o tienen la cesión de derechos vigente para tal fin.</p>
+                        <p><b>2.</b> Que todos los autores del modelo o conjunto de modelos aceptan o autorizan su publicación en BioModelos a partir del momento en que sube la información.</p>
+                        <p><b>3.</b> Que los registros biológicos que acompañan el modelo son de uso abierto, son propios o su uso exclusivamente para propósitos de visualización en BioModelos ha sido autorizado explícita o implícitamente (p. ej. a través de una licencia de Creative Commons) por los propietarios de la información o quienes tienen alguna cesión o autorización frente al particular.</p>
+                        <p><b>4.</b> Que los publicadores autorizan la descarga y uso de sus modelos por terceros a través de BioModelos bajo las condiciones provistas por la licencia Creative Commons señalada en el formulario de publicación de modelos.</p>
+                         
+                        <h6>El Laboratorio de Biogeografía Aplicada del Instituto de Investigación de Recursos Biológicos Alexander von Humboldt a través de la aplicación web Biomodelos</h6>
+
+                        <p><b>1.</b> Ofrecerá estadísticas de actividad (visualización y descarga) y perfil de uso a solicitud de los publicadores de la información.</p>
+                        <p><b>2.</b> Otorgará el crédito correspondiente a los publicadores de modelos en la página de BioModelos y en los metadatos que acompañan los modelos de su autoría, con base en la información registrada en el formulario de publicación.</p>
+                        <p><b>3.</b> Utilizará los registros biológicos que acompañan el modelo únicamente para la visualización en BioModelos bajo las condiciones determinadas por los publicadores en el formulario de publicación del modelo. En ningún caso su uso o descarga estará habilitada en BioModelos, a menos que esto sea expresamente autorizado en el formulario de publicación de modelos.</p>
+                        <p><b>4.</b> Se reserva el derecho de publicar los modelos así como de bajarlos en cualquier momento de la página.</p>
+                  </div>
+                  <div class="pubcontent">
+                        <%= f.input :terminos, label: false, :as => :boolean, :required => true, error_html: {:class => 'publierror'} %>He leído y acepto los términos y condiciones
+                        <div class="clearfix"></div>
+                        <%= f.input :atlas_agreement, label: false, :as => :boolean %>Deseo postular mi trabajo para publicación en el <a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank">Atlas de la Biodiversidad de Colombia</a>
+                  </div>
+                  <p>Cualquier inquietud escríbenos a <a mailto="biomodelos@humboldt.org.co">biomodelos@humboldt.org.co</a></p>
+                  <%= f.submit 'ENVIAR', class: "upzip uzcolor"%>
+                  <% end %>
+            </div>
+	</div>
+</div>
+
+<script>
+document.getElementById("uploadBtn").onchange = function () {
+    document.getElementById("uploadFile").value = this.value;
+};
+
+$('.cajainners').niceScroll({
+      cursorcolor: "#5d5e5e",
+      cursorwidth: "7px",
+      cursorborder: "none"
+});
+</script>
+
+<!-- @publication, :url => {:controller => "home", :action => "upload_model" } -->

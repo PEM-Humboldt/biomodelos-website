@@ -21,5 +21,6 @@
 //= require angularjs-slider/dist/rzslider.min
 //= require v-accordion/dist/v-accordion.min
 //= require jquery.nicescroll/dist/jquery.nicescroll.min
+//= require tooltip
 //= require_tree ./angular
 //= require_tree ./controllers
