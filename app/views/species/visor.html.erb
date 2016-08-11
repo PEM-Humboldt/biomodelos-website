@@ -423,7 +423,7 @@
 
 	<div ng-show="editar" class="cajitaeditar">
 		<div class="steptitle">Seleccionar Umbral</div>
-		<rzslider rz-slider-model="corteSlider" rz-slider-options="corteSlider.options" class="rzslider"></rzslider>
+		<rzslider rz-slider-model="corteSlider.value" rz-slider-options="corteSlider.options" class="rzslider"></rzslider>
 		<div class="littleline"></div>
 		<div class="steptitle">Herramienta de polígono</div>
 		<div class="polibotons">
@@ -432,6 +432,10 @@
 			<button class="poliboton delpoli"></button>
 		</div>
 		<div class="littleline"></div>
+		<div class="editbotones">
+			<button class="poliboton saveedit"></button>
+			<button class="poliboton canceledit"></button>
+		</div>
 		<div class="steptitle veicon2">Variables Ecológicas</div>
         <v-accordion class="vAccordion--default">
 	        <v-pane>
@@ -702,8 +706,26 @@ $(document).ready(function(){
 		_BioModelosVisorModule.drawPolygon();
 		e.preventDefault();
 	})
+	$(".edipoli").click(function(e){
+		_BioModelosVisorModule.editPolygon();
+		$(".editbotones").toggle();
+		e.preventDefault();
+	})
+	$(".saveedit").click(function(e){
+		_BioModelosVisorModule.saveEditPolygon();
+		e.preventDefault();
+	})
+	$(".canceledit").click(function(e){
+		_BioModelosVisorModule.cancelEditPolygon();
+		e.preventDefault();
+	})
 
+	$(".marbtnreg").click(function(e){
+		_BioModelosVisorModule.addSinglePoint();
+		e.preventDefault();
+	});
 });
+
 
 $('.cajavisor').niceScroll({
 	cursorcolor: "#5d5e5e",

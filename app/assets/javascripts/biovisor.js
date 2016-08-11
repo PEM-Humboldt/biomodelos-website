@@ -1,5 +1,5 @@
 var _BioModelosVisorModule = function() {
-	var map, editableLayer;
+	var map, editableLayer, polygonEditor, polygonDelete, thresholdLayers, thresholdC, threshold0, threshold10, threshold20, threshold30;
 
 	//var setAltitude()
 
@@ -67,12 +67,23 @@ var _BioModelosVisorModule = function() {
 		    edit: false
 		}).addTo(map);
 
+		//Polygon editor and delete handler
+		polygonEditor = new L.EditToolbar.Edit(map, {
+                featureGroup: editableLayer
+		});
+
+		polygonDelete = new L.EditToolbar.Edit(map, {
+                featureGroup: editableLayer
+		});
+
+		pointHandler = new L.Draw.Marker(map);
+
 
 	    // Elevation listener
 	    // map.on('mouseover', function(e) {
 	    //      getLocationElevation(e.latlng, elevator);
 	    // });
-
+		setLayers("../Aburria aburri_0.png", "../Aburria aburri_0.png", "../Aburria aburri_10.png", "../Aburria aburri_20.png", "../Aburria aburri_30.png");
 	    //loadSpeciesPoints();
 	}
 
@@ -105,7 +116,7 @@ var _BioModelosVisorModule = function() {
 			    fillOpacity: 0.8
 			};
 
-		  $.getJSON("/test.json",function(data){
+		  $.getJSON("http://192.168.11.81:3000/BioModelos/species/Aburria aburri",function(data){
 		    var points = L.geoJson(data,{
 		    	pointToLayer: function (feature, latlng) {
     				return L.circleMarker(latlng, geojsonMarkerOptions);
@@ -130,28 +141,149 @@ var _BioModelosVisorModule = function() {
 	var drawPolygon = function (){
 
 		// Polygon handler
-		var polygonDrawer = new L.Draw.Polygon(map).enable();
+		var polygonDrawer = new L.Draw.Polygon(map).enable(),
+			popUpForm = '<div class="commentForm">' +
+			'<input id="review_type" type="hidden">'+
+	       '<div class="row-fluid clearfix">' +
+	       '<label class="labelcom clearfix"><strong>Acción:</strong></label><input type="radio" name="EditType" value="Intersect" class="radiogaga">Agregar Área</input></br>' +
+ 	       '<input type="radio" name="EditType" value="Add" class="radiogaga">Sustraer Área</input></br>' +
+ 	       '<input type="radio" name="EditType" value="Cut" class="radiogaga">Recortar del Polígono</input></br>' +
+	       '<button class="btn2" id="saveBtn" type="button">guardar</button>' +
+           '<button class="btn2" id="popUpCancelBtn" type="button">cancelar</button>' +
+           '<a href="http://biomodelos.humboldt.org.co/faq#faq" target="_blank" title="Cómo utilizamos este aporte?" class="infolink" id="gotofaq"></a></div>';
 
 		// Add polygon layer to map
 		map.on('draw:created', function (e) {
 		    var type = e.layerType,
-		        layer = e.layer;
+		        layer = e.layer,
+		        popup = new L.Popup({
+		        	keepInView: true
+		        }).setContent(popUpForm);
 
 		    // Do whatever you want with the layer.
 		    // e.type will be the type of layer that has been draw (polyline, marker, polygon, rectangle, circle)
 		    // E.g. add it to the map
+		    layer.bindPopup(popup);
 		    layer.addTo(editableLayer);
+		    layer.openPopup();
+		});
+
+		map.on('popupclose', function(e) {
+    		e.popup.update();
 		});
 
 	}
 
 	var editPolygon = function (){
+		polygonEditor.enable();
+	}
+
+	var cancelEditPolygon = function(){
+		polygonEditor.revertLayers();
+		polygonEditor.disable();
+	}
+
+	var saveEditPolygon = function(){
+		polygonEditor.save();
+		polygonEditor.disable();
+	}
+
+	var deletePolygon = function(){
+		polygonDelete.enable();
+	}
+
+	var cancelDeletePolygon = function(){
+		polygonDelete.revertLayers();
+		polygonDelete.disable();
+	}
+
+	var saveDeletePolygon = function(){
+		polygonDelete.save();
+		polygonDelete.disable();
+	} 
+
+	var addSinglePoint = function(){
+		var pointDrawer = new L.Draw.Polygon(map).enable();
+	}
+
+	var clearLayer = function(layer){
+		if(map.hasLayer(layer)) {
+       		map.removeLayer(layer);
+       		//layerControl.removeLayer(layer);
+       	}
+	}
+
+	var setLayers = function(imgThresholdC, imgThreshold0, imgThreshold10, imgThreshold20, imgThreshold30){
+
+		var imageBounds = [[12.675, -60.48333], [-13.84166, -82.94999]];
+
+		thresholdC = new L.ImageOverlay(imgThresholdC, imageBounds, {opacity: 0.6});
+		threshold0 = new L.ImageOverlay(imgThreshold0, imageBounds, {opacity: 0.6});
+		threshold10 = new L.ImageOverlay(imgThreshold10, imageBounds, {opacity: 0.6});
+		threshold20 = new L.ImageOverlay(imgThreshold20, imageBounds, {opacity: 0.6});
+		threshold30 = new L.ImageOverlay(imgThreshold30, imageBounds, {opacity: 0.6});
+
+		thresholdLayers = new L.layerGroup();
+
+
 		
-	}  
+		// thresholdC = new L.ImageOverlay(imgThresholdC, imageBounds, {opacity: 0.6});
+		// threshold0 = new L.ImageOverlay(imgThreshold0, imageBounds, {opacity: 0.6});
+		// threshold10 = new L.ImageOverlay(imgThreshold10, imageBounds, {opacity: 0.6});
+		// threshold20 = new L.ImageOverlay(imgThreshold20, imageBounds, {opacity: 0.6});
+		// threshold30 = new L.ImageOverlay(imgThreshold30, imageBounds, {opacity: 0.6});
+
+		map.addLayer(thresholdLayers, true);
+	}
+
+	var changeThresholdLayer = function (threshold){
+		console.log(thresholdLayers.hasLayer(threshold0) +" 0");
+		console.log(thresholdLayers.hasLayer(threshold10)+" 10");
+		console.log(thresholdLayers.hasLayer(threshold20)+" 20");
+		console.log(thresholdLayers.hasLayer(threshold30)+" 30");
+		thresholdLayers.clearLayers();
+
+		switch (threshold) {
+				  // case 'C':
+				  // 	map.addLayer(thresholdC);
+				  // 	clearLayer(threshold0);
+				  // 	clearLayer(threshold10);
+				  // 	clearLayer(threshold20);
+				  // 	clearLayer(threshold30);
+				  //   break;
+				  case '0%':
+				    //Statements executed when the result of expression matches value2
+				    thresholdLayers.addLayer(threshold0);
+				    break;
+				  case '10%':
+				    //Statements executed when the result of expression matches valueN
+				    thresholdLayers.addLayer(threshold10);
+				    break;
+				  case '20%':
+				    //Statements executed when the result of expression matches valueN
+				    thresholdLayers.addLayer(threshold20);
+				    break;
+				  case '30%':
+				    //Statements executed when the result of expression matches valueN
+				    thresholdLayers.addLayer(threshold30);
+				    break;
+				  default:
+				    //Statements executed when none of the values match the value of the expression
+				    break;
+			}	    
+	}
 	
 	return{
 		init:init,
-		drawPolygon:drawPolygon
+		drawPolygon:drawPolygon,
+		editPolygon:editPolygon,
+		cancelEditPolygon: cancelEditPolygon,
+		saveEditPolygon: saveEditPolygon,
+		cancelDeletePolygon: cancelDeletePolygon,
+		saveDeletePolygon: saveDeletePolygon,
+		addSinglePoint: addSinglePoint,
+		setLayers: setLayers,
+		changeThresholdLayer:changeThresholdLayer
 	}
 }();
 
