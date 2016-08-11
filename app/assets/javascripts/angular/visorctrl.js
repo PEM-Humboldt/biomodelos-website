@@ -6,6 +6,7 @@ angular.module('biomodelos')
     	$scope.isActive = !$scope.isActive;
     };
 
+
     $scope.corteSlider = {
     	value : 5,
     	options: {
@@ -16,7 +17,15 @@ angular.module('biomodelos')
     		{value: '10%'},
     		{value: '20%'},
     		{value: '30%'}
-    		]
+    		],
+    		onStart: function(){
+    			// _BioModelosVisorModule.setLayers("../Abarema barbourian.png", "../Abarema barbouriana_0_mx.png", "../Abarema barbouriana_10_mx.png", "../Abarema barbouriana_20_mx.png", "../Abarema barbouriana_30_mx.png");
+
+    		},
+    		onChange: function() {
+    			_BioModelosVisorModule.changeThresholdLayer($scope.corteSlider.value);
+            	console.log('on change ' + $scope.corteSlider.value); // logs 'on change slider-id'
+        	}
     	}
 	};
 
@@ -41,6 +50,8 @@ angular.module('biomodelos')
 	    	]
 	    }
 	};
+
+
 
 
 }]);

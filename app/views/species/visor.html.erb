@@ -413,7 +413,7 @@
 
 	<div ng-show="editar" class="cajitaeditar">
 		<div class="steptitle">Seleccionar Umbral</div>
-		<rzslider rz-slider-model="corteSlider" rz-slider-options="corteSlider.options" class="rzslider"></rzslider>
+		<rzslider rz-slider-model="corteSlider.value" rz-slider-options="corteSlider.options" class="rzslider"></rzslider>
 		<div class="littleline"></div>
 		<div class="steptitle">Herramienta de polígono</div>
 		<div class="polibotons">
@@ -422,6 +422,10 @@
 			<button class="poliboton delpoli" title="Borrar polígono" rel="tooltip"></button>
 		</div>
 		<div class="littleline"></div>
+		<div class="editbotones">
+			<button class="poliboton saveedit"></button>
+			<button class="poliboton canceledit"></button>
+		</div>
 		<div class="steptitle veicon2" title="IDEAM 2010. Leyenda Nacional de Coberturas de la Tierra. Metodología CORINE Land Cover adaptada para Colombia Escala 1:100.000. Instituto de Hidrología, Meteorología y Estudios Ambientales. Bogotá, D. C., 72p." rel="tooltip">Variables Ecológicas</div>
         <v-accordion class="vAccordion--default">
 	        <v-pane>
@@ -692,8 +696,26 @@ $(document).ready(function(){
 		_BioModelosVisorModule.drawPolygon();
 		e.preventDefault();
 	})
+	$(".edipoli").click(function(e){
+		_BioModelosVisorModule.editPolygon();
+		$(".editbotones").toggle();
+		e.preventDefault();
+	})
+	$(".saveedit").click(function(e){
+		_BioModelosVisorModule.saveEditPolygon();
+		e.preventDefault();
+	})
+	$(".canceledit").click(function(e){
+		_BioModelosVisorModule.cancelEditPolygon();
+		e.preventDefault();
+	})
 
+	$(".marbtnreg").click(function(e){
+		_BioModelosVisorModule.addSinglePoint();
+		e.preventDefault();
+	});
 });
+
 
 $('.cajavisor').niceScroll({
 	cursorcolor: "#5d5e5e",
