@@ -144,20 +144,22 @@ var _BioModelosVisorModule = function() {
 		var polygonDrawer = new L.Draw.Polygon(map).enable(),
 			popUpForm = '<div class="commentForm">' +
 			'<input id="review_type" type="hidden">'+
-	       '<div class="row-fluid clearfix">' +
-	       '<label class="labelcom clearfix"><strong>Acción:</strong></label><input type="radio" name="EditType" value="Intersect" class="radiogaga">Agregar Área</input></br>' +
- 	       '<input type="radio" name="EditType" value="Add" class="radiogaga">Sustraer Área</input></br>' +
- 	       '<input type="radio" name="EditType" value="Cut" class="radiogaga">Recortar del Polígono</input></br>' +
-	       '<button class="btn2" id="saveBtn" type="button">guardar</button>' +
-           '<button class="btn2" id="popUpCancelBtn" type="button">cancelar</button>' +
-           '<a href="http://biomodelos.humboldt.org.co/faq#faq" target="_blank" title="Cómo utilizamos este aporte?" class="infolink" id="gotofaq"></a></div>';
+			'<div class="row-fluid clearfix">'+
+			'<div class="labelcom clearfix">Acción</div></br>'+
+			'<input type="radio" name="EditType" value="Intersect" class="radiogaga"></input><label for="Intersect">Agregar área</label></br>'+
+			'<input type="radio" name="EditType" value="Add" class="radiogaga"></input><label for="Add">Sustraer área</label></br>'+
+			'<input type="radio" name="EditType" value="Cut" class="radiogaga"></input><label for="Cut">Recortar del polígono</label></br>'+
+			'<button class="botonpopup" id="saveBtn" type="button">guardar</button>'+
+			'<button class="botonpopup ml0" id="popUpCancelBtn" type="button">cancelar</button>'+
+			'<a href="http://biomodelos.humboldt.org.co/faq#faq" target="_blank" title="Cómo utilizamos este aporte?" class="infolink" id="gotofaq"></a></div>';
 
 		// Add polygon layer to map
 		map.on('draw:created', function (e) {
 		    var type = e.layerType,
 		        layer = e.layer,
 		        popup = new L.Popup({
-		        	keepInView: true
+		        	keepInView: true,
+		        	closeButton: false
 		        }).setContent(popUpForm);
 
 		    // Do whatever you want with the layer.

@@ -2112,6 +2112,65 @@ a.cajathumb p {
 	background-color: #1b3337;
 }
 
+.leaflet-popup-content-wrapper {
+	border-radius: 0;
+	background-color: #1b3337;
+	box-shadow: none;
+	padding-top: 0;
+	padding-right:0;
+	padding-left:0;
+}
+
+.leaflet-popup-tip {
+	background-color: #1b3337;
+	box-shadow: none;
+}
+
+.leaflet-popup-content {
+	margin: 0;
+	padding: 0;
+}
+
+.labelcom {
+	background-color: #db3f2a;
+	color:#fff;
+	text-align: center;
+	font-size: 17px;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 5px 15px;
+}
+
+.leaflet-popup-content input[type="radio"] {
+	margin-bottom: 8px;
+	margin-left: 15px;
+}
+
+.leaflet-popup-content label {
+	color:#fff;
+	padding: 5px 15px 5px 8px;
+	letter-spacing: 1px;
+	font-weight: 300;
+}
+
+.botonpopup {
+	background: none;
+	border-radius: 0;
+	border: 1px solid #db3f2a;
+	padding: 5px 10px;
+	margin: 10px 15px;
+	color:#db3f2a;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 300;
+	cursor: pointer;
+}
+
+.ml0{
+	margin-left: 0 !important;
+}
+
 .spname, .modelname {
 	position: absolute;
 	top: 60px;
@@ -3013,6 +3072,10 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	cursor:pointer;
 }
 
+.poliboton:hover, .polibtnact {
+	background-color: #c5c4c4 !important;
+}
+
 .polig {
 	background: url(<%= asset_path 'poligono.png' %>) center no-repeat;
 }
@@ -3021,6 +3084,31 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 }
 .delpoli {
 	background: url(<%= asset_path 'delpolig.png' %>) center no-repeat;
+}
+
+.delbotones, .editbotones {
+	display: none;
+	text-align: center;
+}
+
+.actionbtn {
+	height: 25px;
+	line-height: 22px;
+	border: none;
+	background: none;
+	border: 1px solid #1b3337;
+	color: #1b3337;
+	font-weight: 300;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	padding: 0 13px;
+	margin: 10px;
+	cursor:pointer;
+}
+
+.actionbtn:hover {
+	background-color: #124c5e;
+	color:#fff;
 }
 
 .veicon2 {
@@ -3092,6 +3180,11 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	cursor: pointer;
 }
 
+.btngen:hover, .btngenact {
+	background-color: #db3f2a;
+	color:#fff;
+}
+
 .marbtnreg {
 	margin: 5px 0 7px 30px;
 }
@@ -3101,6 +3194,10 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	background: url(<%= asset_path 'poligonored.png' %>) center no-repeat; 
 	float: right;
 	cursor: pointer;
+}
+
+.taxbtn:hover, .taxbtnact {
+	background-color: #c5c4c4;
 }
 
 .lh25 {
