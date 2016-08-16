@@ -1,5 +1,5 @@
 var _BioModelosVisorModule = function() {
-	var map, editableLayer, polygonEditor, polygonDelete, thresholdLayers, thresholdC, threshold0, threshold10, threshold20, threshold30;
+	var map, editableLayer, polygonEditor, polygonDelete, thresholdLayers, thresholdC, threshold0, threshold10, threshold20, threshold30, records, recordsLayer;
 
 	//var setAltitude()
 
@@ -84,7 +84,7 @@ var _BioModelosVisorModule = function() {
 	    //      getLocationElevation(e.latlng, elevator);
 	    // });
 		setLayers("../Aburria aburri_0.png", "../Aburria aburri_0.png", "../Aburria aburri_10.png", "../Aburria aburri_20.png", "../Aburria aburri_30.png");
-	    //loadSpeciesPoints();
+	   	getSpeciesRecords();
 	}
 
 	var getLocationElevation = function (location, elevator){
@@ -105,37 +105,47 @@ var _BioModelosVisorModule = function() {
   	  });
 	}
 
-	var loadSpeciesPoints = function(){
+	var getSpeciesRecords = function(){
 
-			var geojsonMarkerOptions = {
-			    radius: 8,
-			    fillColor: "#ff7800",
-			    color: "#000",
-			    weight: 1,
-			    opacity: 1,
-			    fillOpacity: 0.8
-			};
+		var url = "http://192.168.205.197:3000/BioModelos/species/Aburria aburri";
 
-		  $.getJSON("http://192.168.11.81:3000/BioModelos/species/Aburria aburri",function(data){
-		    var points = L.geoJson(data,{
-		    	pointToLayer: function (feature, latlng) {
-    				return L.circleMarker(latlng, geojsonMarkerOptions);
-				},
+		$.getJSON(url,function(data){
+		    records = data;
+		    loadSpeciesRecords(data);
+		});
+
+		cluster = L.markerClusterGroup();
+		map.addLayer(cluster);
+		layerControl.addOverlay(cluster,"Registros");
+
+	}
+
+	var loadSpeciesRecords = function(sp_records){
+
+			if(cluster.hasLayer(recordsLayer)) {
+       			cluster.removeLayer(recordsLayer);
+       			//layerControl.removeLayer(layer);
+       		}
+
+		    recordsLayer = L.geoJson(sp_records,{
 		 		onEachFeature: function (feature, layer) {
-					var popupcontent = [];
-					popupcontent .push('<b><div id="point_lon">'+ feature.geometry.coordinates[0]+'</div>, <div id="point_lat"> '+ feature.geometry.coordinates[1] + '</div></b><br /><br />');
+		 			var popupcontent = [];
+					popupcontent .push('<div class="cajita"><b><div id="point_lon">'+ feature.geometry.coordinates[0]+'</div>, <div id="point_lat"> '+ feature.geometry.coordinates[1] + '</div></b><br /><br />');
 					for (var prop in feature.properties) {
-    					popupcontent.push(prop + ": " + feature.properties[prop]);
-						}
-						layer.bindPopup(popupcontent.join("<br />"));
-
+						if(prop === '_id')
+							popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
+						else
+							popupcontent.push('<b>'+ prop + ":</b><br />" + feature.properties[prop] + "<br />");
+							
+					}
+					popupcontent.push('<a href="/species/comment_point" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar Error</a></div>');
+					layer.bindPopup(popupcontent.join('<br />'));
 				}
 		    });
-		    var clusters = L.markerClusterGroup();
-		    clusters.addLayer(points);
-		    map.addLayer(clusters);
-		    layerControl.addOverlay(clusters,"Registros");
-		  });
+		    // cluster = L.markerClusterGroup();
+		    cluster.addLayer(recordsLayer);
+		    // map.addLayer(cluster);
+		    // layerControl.addOverlay(cluster,"Registros");
 	}
 
 	var drawPolygon = function (){
