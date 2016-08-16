@@ -130,7 +130,7 @@ var _BioModelosVisorModule = function() {
 		    recordsLayer = L.geoJson(sp_records,{
 		 		onEachFeature: function (feature, layer) {
 		 			var popupcontent = [];
-					popupcontent .push('<div class="cajita"><div id="point_lon">'+ feature.geometry.coordinates[0]+'</div><div id="point_lat"> '+ feature.geometry.coordinates[1] + '</div>');
+					popupcontent.push('<div class="cajita"><div id="point_lat">'+ feature.geometry.coordinates[1]+'</div><div id="point_lon"> '+ feature.geometry.coordinates[0] + '</div>');
 					for (var prop in feature.properties) {
 						if(prop === '_id')
 							popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
