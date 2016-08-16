@@ -3200,6 +3200,64 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	background-color: #c5c4c4;
 }
 
+.cajita {
+	padding: 10px 18px;
+	border-top: solid 7px #db3f2a;
+	color:#fff;
+	letter-spacing: 1px;
+	line-height: 1.2;
+}
+
+.cajita b {
+	font-weight: 400;
+	color: #db3f2a;
+}
+
+.leaflet-container a.leaflet-popup-close-button{
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	color: #db3f2a;
+	padding: 10px 6px 0 0;
+	height: auto;
+	width: auto;
+	font-size: 1.5em;
+}
+
+#point_lon::after {
+	content: ',';
+}
+#point_lon::before {
+	content: 'LON ';
+	color:#db3f2a;
+}
+#point_lat::before {
+	content: 'LAT ';
+	color:#db3f2a;
+}
+
+.cajita a {
+	padding: 7px 16px;
+	margin: 10px;
+	border: none;
+	background: none;
+	border: 1px solid #db3f2a;
+	color: #db3f2a;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 1.2em;
+	font-weight: 300;
+	cursor: pointer;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	text-align: center;
+}
+
+.cajita a:hover {
+	background-color: #db3f2a;
+	color: #fff;
+}
+
 .lh25 {
 	float: left;
 	line-height: 25px;
