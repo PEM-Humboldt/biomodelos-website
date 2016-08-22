@@ -146,16 +146,16 @@ var _BioModelosVisorModule = function() {
 	// 	    recordsLayer = L.geoJson(sp_records,{
 	// 	 		onEachFeature: function (feature, layer) {
 	// 	 			var popupcontent = [];
-	// 				popupcontent .push('<div class="cajita"><b><div id="point_lon">'+ feature.geometry.coordinates[0]+'</div>, <div id="point_lat"> '+ feature.geometry.coordinates[1] + '</div></b><br /><br />');
+	// 				popupcontent .push('<div class="cajita"><b><div id="point_lon">'+ feature.geometry.coordinates[0]+'</div>, <div id="point_lat"> '+ feature.geometry.coordinates[1] + '</div></b></br></br>');
 	// 				for (var prop in feature.properties) {
 	// 					if(prop === '_id')
 	// 						popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
 	// 					else
-	// 						popupcontent.push('<b>'+ prop + ":</b><br />" + feature.properties[prop] + "<br />");
+	// 						popupcontent.push('<b>'+ prop + ":</b></br>" + feature.properties[prop] + "</br>");
 							
 	// 				}
 	// 				popupcontent.push('<a href="/species/comment_point" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar Error</a></div>');
-	// 				layer.bindPopup(popupcontent.join('<br />'));
+	// 				layer.bindPopup(popupcontent.join('</br>'));
 	// 			}
 	// 	    });
 	// 	    // cluster = L.markerClusterGroup();
@@ -203,9 +203,9 @@ var _BioModelosVisorModule = function() {
 						if(prop === '_id')
 							popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
 						else
-							popupcontent.push('<b>'+ prop + "</b><br/>" + feature.properties[prop] + "<br/>");	
+							popupcontent.push('<b>'+ prop + "</b></br>" + feature.properties[prop] + "</br>");	
 					}
-					popupcontent.push('</div><a href="/species/comment_point" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Editar</a><a href="/species/comment_point" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar</a>');
+					popupcontent.push('</div><div class="centering"><a href="/species/comment_point" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Editar</a><a href="/species/comment_point" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar</a></div>');
 					layer.bindPopup(popupcontent.join('<div class="mt10"></div>'));
 				}
 				// pointToLayer: function (feature, latlng) {
@@ -257,27 +257,26 @@ var _BioModelosVisorModule = function() {
 				'<input type="radio" name="EditType" value="Intersect" class="radiogaga"></input><label for="Intersect">Agregar área</label></br>'+
 				'<input type="radio" name="EditType" value="Add" class="radiogaga"></input><label for="Add">Sustraer área</label></br>'+
 				'<input type="radio" name="EditType" value="Cut" class="radiogaga"></input><label for="Cut">Recortar del polígono</label></br>'+
-				'<button class="botonpopup" id="saveBtn" type="button">guardar</button>'+
-				'<button class="botonpopup ml0" id="popUpCancelBtn" type="button">cancelar</button>'+
+				'<div class="centering"><button class="botonpopup" id="saveBtn" type="button">guardar</button>'+
+				'<button class="botonpopup ml0" id="popUpCancelBtn" type="button">cancelar</button></div>'+
 				'<a href="http://biomodelos.humboldt.org.co/faq#faq" target="_blank" title="Cómo utilizamos este aporte?" class="infolink" id="gotofaq"></a></div>';
 		}
 		else{
 			var pointDrawer = new L.Draw.Marker(map, {icon: blueIcon}).enable(),
-				newPointForm = '<div class="commentForm">' +
+				newPointForm = '<div class="regform">' +
 		           '<input id="review_type" type="hidden">'+
-		           '<label class="tituloformas">Registro:</label><br />' +
-		           '<label>Lat: </label><input type="text" name="latitude" id="lat" size="7" class="inputforma wauto">'+
-		           '<label> Lng: </label><input type="text" name="longitude" id="lng" size="7" class="inputforma wauto"><br />' +
-			       '<label> Altura: </label><input type="text" name="altitude" id="sle" size="7" class="inputforma wauto"><br />' +
-			       '<input type="date" id="fecha_registro" name="fecha_registro" placeholder="Fecha de registro (mm/dd/aa)" class="inputforma w227"><br />' +
-			       '<input type="text" id="r_localidad" name="localidad" placeholder="Localidad" class="inputforma w227"><br />' +
-			       '<input type="text" name="tipo" id="r_tipo" placeholder="Tipo de registro" class="inputforma w227"><br />' +
-			       '<input type="text" name="colector" id="r_observador" placeholder="Observador" class="inputforma w227"><br />' +
-			       '<input type="text" name="cita" id="r_cita" placeholder="Cita" class="inputforma w227"><br />' +
-			       '<textarea rows="4" cols="30" placeholder="Ingrese una observación" id="comment" class="inputforma w227"></textarea>' +
-			       '<div class="row-fluid clearfix">' +
-			       '<button class="btn2" id="saveBtn" type="button">guardar</button>' +
-		           '<button class="btn2" id="popUpCancelBtn" type="button">cancelar</button></div>';
+		           '<div class="labelcom clearfix">nuevo Registro</div></br>'+
+		           '<label>Lat </label><input type="text" name="latitude" id="lat" size="7" class="smallinput"></input>'+
+		           '<label> Lng </label><input type="text" name="longitude" id="lng" size="7" class="smallinput"></input></br>' +
+			       '<label> Altura </label><input type="text" name="altitude" id="sle" size="7" class="smallinput"></input></br>' +
+			       '<input type="date" id="fecha_registro" name="fecha_registro" placeholder="Fecha de registro (mm/dd/aa)" class="inputforma"></input>' +
+			       '<input type="text" id="r_localidad" name="localidad" placeholder="Localidad" class="inputforma"></input>' +
+			       '<input type="text" name="tipo" id="r_tipo" placeholder="Tipo de registro" class="inputforma"></input>' +
+			       '<input type="text" name="colector" id="r_observador" placeholder="Observador" class="inputforma"></input>' +
+			       '<input type="text" name="cita" id="r_cita" placeholder="Cita" class="inputforma"></input>' +
+			       '<textarea rows="4" cols="30" placeholder="Ingrese una observación" id="comment" class="inputforma"></textarea>' +
+			       '<div class="centering"><button class="botonpopup" id="saveBtn" type="button">guardar</button>' +
+		           '<button class="botonpopup" id="popUpCancelBtn" type="button">cancelar</button></div></div>';
 		}	
 
 		// Add polygon layer to map
@@ -295,7 +294,7 @@ var _BioModelosVisorModule = function() {
     		}
     		else {
     			//popup.setContent($('.editControls').html());
-    			popup.setContent(commentForm);
+    			popup.setContent(popUpForm);
     		}
 
 		    // Do whatever you want with the layer.
