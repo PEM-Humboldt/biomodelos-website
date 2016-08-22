@@ -229,7 +229,7 @@
 						</div>
 					</div>
 					<div class="mmicon clearfix">
-						<a href="" title="Bajar el modelo" rel="tooltip"><%= image_tag("downicon.png") %></a>
+						<a href="" title="Descargar el modelo" rel="tooltip"><%= image_tag("downicon.png") %></a>
 						<a href="" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
 						<a href="" title="Borrar calificación" rel="tooltip" class="delicon"><%= image_tag("delicon.png") %></a>
 					</div>
@@ -255,7 +255,7 @@
 						</div>
 					</div>
 					<div class="mmicon clearfix">
-						<a href="" title="Bajar el modelo" rel="tooltip"><%= image_tag("downicon.png") %></a>
+						<a href="" title="Descargar modelo continuo" rel="tooltip"><%= image_tag("downicon.png") %></a>
 						<a href="" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
 						<a href="" title="Borrar calificación" rel="tooltip" class="delicon"><%= image_tag("delicon.png") %></a>
 					</div>
@@ -759,6 +759,16 @@ $('.cajaregistros').niceScroll({
 	cursorborder: "none"
 });
 
+// $('body').on('popupopen', '.regscroller', function(){
+// 	console.log("alertaaaaa");
+//   	$(".regscroller").niceScroll({
+// 		cursorcolor: "#fff",
+// 		cursorwidth: "7px",
+// 		cursorborder: "none"
+// 	});
+// });
+
+
 $('select').each(function(){
     var $this = $(this), numberOfOptions = $(this).children('option').length;
   
@@ -804,4 +814,5 @@ $('select').each(function(){
     });
 
 });
+
 </script>

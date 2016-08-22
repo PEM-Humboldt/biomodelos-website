@@ -2444,7 +2444,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	margin-top: 15px;
 	padding: 10px 10px 15px;
 	min-height: 150px;
-	max-height: 500px;
+	max-height: 375px;
 	position: relative;
 	margin-bottom: 10px;
 }
@@ -2808,6 +2808,10 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	letter-spacing: 1px;
 }
 
+.foroactions a:hover {
+	color:#9c9d36;
+}
+
 .steptitle {
 	color: #db3f2a;
 	padding: 5px 0;
@@ -2940,7 +2944,6 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 .cajaregistros {
 	width: 260px;
 	top: 135px;
-	min-height: 385px;
 	background-color: #fff;
 	position: absolute;
 	z-index: 19;
@@ -2948,7 +2951,6 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	max-height: -webkit-calc(100% - 181px);
 	max-height: calc(100% - 181px);
 	padding: 5px 15px 15px 8px;
-	overflow-y: auto;
 }
 
 .btnedicion {
@@ -2992,7 +2994,6 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	max-height: -webkit-calc(100% - 211px);
 	max-height: calc(100% - 211px);
 	padding: 5px 15px 5px 8px;
-	overflow-y: auto;
 }
 
 .cajitaeditar .steptitle,
@@ -3201,11 +3202,17 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 }
 
 .cajita {
-	padding: 10px 18px;
+	padding: 10px 15px;
 	border-top: solid 7px #db3f2a;
 	color:#fff;
 	letter-spacing: 1px;
 	line-height: 1.2;
+}
+
+.regscroller {
+	height: 280px;
+	overflow: auto;
+	position: relative;
 }
 
 .cajita b {
