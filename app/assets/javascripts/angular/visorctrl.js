@@ -30,7 +30,7 @@ angular.module('biomodelos')
 	};
 
 	$scope.yearSlider = {
-	    minValue: '1980',
+	    minValue: '0',
 	    maxValue: 'Hoy',
 	    options: {
 	        floor: 0,

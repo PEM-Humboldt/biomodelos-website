@@ -1,5 +1,5 @@
 var _BioModelosVisorModule = function() {
-	var map, editableLayer, polygonEditor, polygonDelete, thresholdLayers, thresholdC, threshold0, threshold10, threshold20, threshold30, records, recordsLayer;
+	var map, editableLayer, polygonEditor, polygonDelete, thresholdLayers, thresholdC, threshold0, threshold10, threshold20, threshold30, species_records, recordsLayer, cluster;
 
 	//var setAltitude()
 
@@ -107,30 +107,92 @@ var _BioModelosVisorModule = function() {
 
 	var getSpeciesRecords = function(){
 
+		clearLayer(cluster);
+
 		var url = "http://192.168.205.197:3000/BioModelos/species/Aburria aburri";
+		// var url = "http://192.168.11.81:3000/BioModelos/species/Aburria aburri";
 
 		$.getJSON(url,function(data){
-		    records = data;
-		    loadSpeciesRecords(data);
+			species_records = data
+		    filterRecords('', '');
+		    console.log(uniqueValues("Institucion"));
 		});
 
 		cluster = L.markerClusterGroup();
 		map.addLayer(cluster);
 		layerControl.addOverlay(cluster,"Registros");
-
 	}
 
-	var loadSpeciesRecords = function(sp_records){
+	// function foo(callback) {
 
-			if(cluster.hasLayer(recordsLayer)) {
-       			cluster.removeLayer(recordsLayer);
-       			//layerControl.removeLayer(layer);
-       		}
+	//    $.getJSON(url,function(data){
+	// 	    loadSpeciesRecords(data);
+	// 	});
+	// }
 
-		    recordsLayer = L.geoJson(sp_records,{
+	// var loadSpeciesRecords = function(sp_records){
+
+	// 		species_records = sp_records;
+
+	// 		if(cluster.hasLayer(recordsLayer)) {
+ //       			cluster.removeLayer(recordsLayer);
+ //       			//layerControl.removeLayer(layer);
+ //       		}
+
+	// 	    recordsLayer = L.geoJson(sp_records,{
+	// 	 		onEachFeature: function (feature, layer) {
+	// 	 			var popupcontent = [];
+	// 				popupcontent .push('<div class="cajita"><b><div id="point_lon">'+ feature.geometry.coordinates[0]+'</div>, <div id="point_lat"> '+ feature.geometry.coordinates[1] + '</div></b><br /><br />');
+	// 				for (var prop in feature.properties) {
+	// 					if(prop === '_id')
+	// 						popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
+	// 					else
+	// 						popupcontent.push('<b>'+ prop + ":</b><br />" + feature.properties[prop] + "<br />");
+							
+	// 				}
+	// 				popupcontent.push('<a href="/species/comment_point" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar Error</a></div>');
+	// 				layer.bindPopup(popupcontent.join('<br />'));
+	// 			}
+	// 	    });
+	// 	    // cluster = L.markerClusterGroup();
+	// 	    cluster.addLayer(recordsLayer);
+	// 	    // map.addLayer(cluster);
+	// 	    // layerControl.addOverlay(cluster,"Registros");
+	// }
+
+	var filterRecords = function(filter, val){
+
+		cluster.clearLayers();
+       	recordsLayer = L.geoJson(species_records,{
+       			pointToLayer: function(feature, latlng) {
+       			  var redIcon = new L.Icon({iconUrl: '/assets/marcador.png'});
+   			      switch (feature.properties.Institucion) {
+			        case "IAvH":
+			          return new L.Marker(latlng, {
+			            icon: redIcon
+			          });
+			        default:
+			          return new L.Marker(latlng);
+			      }
+			    },
+       			filter: function(feature, layer) {
+					switch (filter) {
+					  case 'Evidencia':
+					    return feature.properties.Evidencia === val;
+					  case 'Fuente':
+					    return feature.properties.Fuente === val;
+					  case 'Institucion'
+					  :
+					  	return feature.properties.Institucion === val;
+					  case '':
+					    return true;
+					  default:
+					    return true;
+					}
+   				},	
 		 		onEachFeature: function (feature, layer) {
 		 			var popupcontent = [];
-					popupcontent .push('<div class="cajita"><b><div id="point_lon">'+ feature.geometry.coordinates[0]+'</div>, <div id="point_lat"> '+ feature.geometry.coordinates[1] + '</div></b><br /><br />');
+					popupcontent.push('<div class="cajita"><b><div id="point_lon">'+ feature.geometry.coordinates[0]+'</div>, <div id="point_lat"> '+ feature.geometry.coordinates[1] + '</div></b><br /><br />');
 					for (var prop in feature.properties) {
 						if(prop === '_id')
 							popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
@@ -141,36 +203,95 @@ var _BioModelosVisorModule = function() {
 					popupcontent.push('<a href="/species/comment_point" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar Error</a></div>');
 					layer.bindPopup(popupcontent.join('<br />'));
 				}
-		    });
-		    // cluster = L.markerClusterGroup();
-		    cluster.addLayer(recordsLayer);
-		    // map.addLayer(cluster);
-		    // layerControl.addOverlay(cluster,"Registros");
+				// pointToLayer: function (feature, latlng) {
+				// 	console.log(feature);
+				// 	// var geojsonMarkerOptions = {
+				// 	//     radius: 8,
+				// 	//     fillColor: "#ff7800",
+				// 	//     color: "#000",
+				// 	//     weight: 1,
+				// 	//     opacity: 1,
+				// 	//     fillOpacity: 0.8
+				// 	// };
+				// 	// if (feature.properties.Institucion === 'IAvH') return L.circleMarker(latlng, geojsonMarkerOptions);
+				// }		
+		});
+		cluster.addLayer(recordsLayer);
 	}
 
-	var drawPolygon = function (){
+	var uniqueValues = function(filterType){
+		
+		var lookup = {};
+		var items = species_records.features;
+		var result = [];
+		console.log(items);
+		for (var item, i = 0; item = items[i++];) {
+		  var name = item.properties.Institucion;
+		  console.log("Item: " + item);
+
+		  if (!(name in lookup)) {
+		    lookup[name] = 1;
+		    result.push(name);
+		  }
+		}
+
+		return result;
+
+	}
+
+
+	var drawObject = function (actionType){
 
 		// Polygon handler
-		var polygonDrawer = new L.Draw.Polygon(map).enable(),
-			popUpForm = '<div class="commentForm">' +
-			'<input id="review_type" type="hidden">'+
-			'<div class="row-fluid clearfix">'+
-			'<div class="labelcom clearfix">Acción</div></br>'+
-			'<input type="radio" name="EditType" value="Intersect" class="radiogaga"></input><label for="Intersect">Agregar área</label></br>'+
-			'<input type="radio" name="EditType" value="Add" class="radiogaga"></input><label for="Add">Sustraer área</label></br>'+
-			'<input type="radio" name="EditType" value="Cut" class="radiogaga"></input><label for="Cut">Recortar del polígono</label></br>'+
-			'<button class="botonpopup" id="saveBtn" type="button">guardar</button>'+
-			'<button class="botonpopup ml0" id="popUpCancelBtn" type="button">cancelar</button>'+
-			'<a href="http://biomodelos.humboldt.org.co/faq#faq" target="_blank" title="Cómo utilizamos este aporte?" class="infolink" id="gotofaq"></a></div>';
+		if (actionType === 'Polygon'){
+			var polygonDrawer = new L.Draw.Polygon(map).enable(),
+				popUpForm = '<div class="commentForm">' +
+				'<input id="review_type" type="hidden">'+
+				'<div class="row-fluid clearfix">'+
+				'<div class="labelcom clearfix">Acción</div></br>'+
+				'<input type="radio" name="EditType" value="Intersect" class="radiogaga"></input><label for="Intersect">Agregar área</label></br>'+
+				'<input type="radio" name="EditType" value="Add" class="radiogaga"></input><label for="Add">Sustraer área</label></br>'+
+				'<input type="radio" name="EditType" value="Cut" class="radiogaga"></input><label for="Cut">Recortar del polígono</label></br>'+
+				'<button class="botonpopup" id="saveBtn" type="button">guardar</button>'+
+				'<button class="botonpopup ml0" id="popUpCancelBtn" type="button">cancelar</button>'+
+				'<a href="http://biomodelos.humboldt.org.co/faq#faq" target="_blank" title="Cómo utilizamos este aporte?" class="infolink" id="gotofaq"></a></div>';
+		}
+		else{
+			var pointDrawer = new L.Draw.Marker(map).enable(),
+				newPointForm = '<div class="commentForm">' +
+		           '<input id="review_type" type="hidden">'+
+		           '<label class="tituloformas">Registro:</label><br />' +
+		           '<label>Lat: </label><input type="text" name="latitude" id="lat" size="7" class="inputforma wauto">'+
+		           '<label> Lng: </label><input type="text" name="longitude" id="lng" size="7" class="inputforma wauto"><br />' +
+			       '<label> Altura: </label><input type="text" name="altitude" id="sle" size="7" class="inputforma wauto"><br />' +
+			       '<input type="date" id="fecha_registro" name="fecha_registro" placeholder="Fecha de registro (mm/dd/aa)" class="inputforma w227"><br />' +
+			       '<input type="text" id="r_localidad" name="localidad" placeholder="Localidad" class="inputforma w227"><br />' +
+			       '<input type="text" name="tipo" id="r_tipo" placeholder="Tipo de registro" class="inputforma w227"><br />' +
+			       '<input type="text" name="colector" id="r_observador" placeholder="Observador" class="inputforma w227"><br />' +
+			       '<input type="text" name="cita" id="r_cita" placeholder="Cita" class="inputforma w227"><br />' +
+			       '<textarea rows="4" cols="30" placeholder="Ingrese una observación" id="comment" class="inputforma w227"></textarea>' +
+			       '<div class="row-fluid clearfix">' +
+			       '<button class="btn2" id="saveBtn" type="button">guardar</button>' +
+		           '<button class="btn2" id="popUpCancelBtn" type="button">cancelar</button></div>';
+		}	
 
 		// Add polygon layer to map
 		map.on('draw:created', function (e) {
 		    var type = e.layerType,
 		        layer = e.layer,
+
 		        popup = new L.Popup({
 		        	keepInView: true,
 		        	closeButton: false
 		        }).setContent(popUpForm);
+
+		    if (type === 'marker') {
+    			popup.setContent(newPointForm);	
+    		}
+    		else {
+    			//popup.setContent($('.editControls').html());
+    			popup.setContent(commentForm);
+    		}
 
 		    // Do whatever you want with the layer.
 		    // e.type will be the type of layer that has been draw (polyline, marker, polygon, rectangle, circle)
@@ -183,7 +304,10 @@ var _BioModelosVisorModule = function() {
 		map.on('popupclose', function(e) {
     		e.popup.update();
 		});
+	}
 
+	var drawPolygon = function(){
+		drawObject('Polygon');
 	}
 
 	var editPolygon = function (){
@@ -214,8 +338,8 @@ var _BioModelosVisorModule = function() {
 		polygonDelete.disable();
 	} 
 
-	var addSinglePoint = function(){
-		var pointDrawer = new L.Draw.Polygon(map).enable();
+	var drawSinglePoint = function(){
+		drawObject('Marker');
 	}
 
 	var clearLayer = function(layer){
@@ -293,9 +417,10 @@ var _BioModelosVisorModule = function() {
 		saveEditPolygon: saveEditPolygon,
 		cancelDeletePolygon: cancelDeletePolygon,
 		saveDeletePolygon: saveDeletePolygon,
-		addSinglePoint: addSinglePoint,
+		drawSinglePoint: drawSinglePoint,
 		setLayers: setLayers,
-		changeThresholdLayer:changeThresholdLayer
+		changeThresholdLayer:changeThresholdLayer,
+		filterRecords:filterRecords
 	}
 }();
 
