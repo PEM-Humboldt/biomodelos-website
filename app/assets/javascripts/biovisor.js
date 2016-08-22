@@ -1,5 +1,9 @@
 var _BioModelosVisorModule = function() {
 	var map, editableLayer, polygonEditor, polygonDelete, thresholdLayers, thresholdC, threshold0, threshold10, threshold20, threshold30, species_records, recordsLayer, cluster;
+	var redIcon = new L.Icon({	iconUrl: '/assets/redmarker.png',
+       							shadowUrl: "/assets/marker-shadow.png"}),
+       	blueIcon = new L.Icon({	iconUrl: '/assets/marker-icon.png',
+       			  				shadowUrl: "/assets/marker-shadow.png"});
 
 	//var setAltitude()
 
@@ -165,14 +169,16 @@ var _BioModelosVisorModule = function() {
 		cluster.clearLayers();
        	recordsLayer = L.geoJson(species_records,{
        			pointToLayer: function(feature, latlng) {
-       			  var redIcon = new L.Icon({iconUrl: '/assets/marcador.png'});
+
    			      switch (feature.properties.Institucion) {
 			        case "IAvH":
 			          return new L.Marker(latlng, {
-			            icon: redIcon
+			            icon: redIcon        
 			          });
 			        default:
-			          return new L.Marker(latlng);
+			          return new L.Marker(latlng, {
+			          	icon: blueIcon
+			          });
 			      }
 			    },
        			filter: function(feature, layer) {
@@ -256,7 +262,7 @@ var _BioModelosVisorModule = function() {
 				'<a href="http://biomodelos.humboldt.org.co/faq#faq" target="_blank" title="Cómo utilizamos este aporte?" class="infolink" id="gotofaq"></a></div>';
 		}
 		else{
-			var pointDrawer = new L.Draw.Marker(map).enable(),
+			var pointDrawer = new L.Draw.Marker(map, {icon: blueIcon}).enable(),
 				newPointForm = '<div class="commentForm">' +
 		           '<input id="review_type" type="hidden">'+
 		           '<label class="tituloformas">Registro:</label><br />' +
