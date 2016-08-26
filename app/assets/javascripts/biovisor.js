@@ -222,6 +222,13 @@ var _BioModelosVisorModule = function() {
 				// }		
 		});
 		cluster.addLayer(recordsLayer);
+		map.on('popupopen', function(e) {
+    		$('.regscroller').niceScroll({
+				cursorcolor: "<div id="124c5e"></div>",
+				cursorwidth: "7px",
+				cursorborder: "none"
+			});
+		});
 	}
 
 	var uniqueValues = function(filterType){
