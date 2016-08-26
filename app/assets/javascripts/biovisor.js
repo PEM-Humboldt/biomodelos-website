@@ -1,9 +1,19 @@
 var _BioModelosVisorModule = function() {
-	var map, editableLayer, polygonEditor, polygonDelete, thresholdLayers, thresholdC, threshold0, threshold10, threshold20, threshold30, species_records, recordsLayer, cluster;
+	var map, editableLayer, polygonEditor, polygonDelete, thresholdLayers, thresholdC, threshold0, threshold10, threshold20, threshold30, species_records, recordsLayer, cluster, currentPopupID;
 	var redIcon = new L.Icon({	iconUrl: '/assets/redmarker.png',
-       							shadowUrl: "/assets/marker-shadow.png"}),
+       							shadowUrl: "/assets/marker-shadow.png",
+	       						iconSize:    [25, 41],
+								iconAnchor:  [12, 41],
+								popupAnchor: [1, -34],
+								tooltipAnchor: [16, -28],
+								shadowSize:  [41, 41]}),
        	blueIcon = new L.Icon({	iconUrl: '/assets/marker-icon.png',
-       			  				shadowUrl: "/assets/marker-shadow.png"});
+       			  				shadowUrl: "/assets/marker-shadow.png",
+       			  				iconSize:    [25, 41],
+								iconAnchor:  [12, 41],
+								popupAnchor: [1, -34],
+								tooltipAnchor: [16, -28],
+								shadowSize:  [41, 41]});
 
 	//var setAltitude()
 
@@ -203,25 +213,66 @@ var _BioModelosVisorModule = function() {
 						if(prop === '_id')
 							popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
 						else
-							popupcontent.push('<b>'+ prop + "</b><br/>" + feature.properties[prop] + "<br/>");	
+							popupcontent.push('<b>'+ prop + "</b><br/><div id="+ prop + ">" + feature.properties[prop] + "</div><br/>");	
 					}
-					popupcontent.push('</div><a href="/species/comment_point" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Editar</a><a href="/species/comment_point" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar</a>');
+					popupcontent.push('</div><a href="" class="wrongbtn" id="editRecordBtn">Editar</a><a href="/species/comment_point" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar</a>');
 					layer.bindPopup(popupcontent.join('<div class="mt10"></div>'));
-				}
-				// pointToLayer: function (feature, latlng) {
-				// 	console.log(feature);
-				// 	// var geojsonMarkerOptions = {
-				// 	//     radius: 8,
-				// 	//     fillColor: "#ff7800",
-				// 	//     color: "#000",
-				// 	//     weight: 1,
-				// 	//     opacity: 1,
-				// 	//     fillOpacity: 0.8
-				// 	// };
-				// 	// if (feature.properties.Institucion === 'IAvH') return L.circleMarker(latlng, geojsonMarkerOptions);
-				// }		
+				}	
 		});
 		cluster.addLayer(recordsLayer);
+
+		map.on('popupopen', function(e) {
+		   currentPopupID = e.popup._leaflet_id;
+		});
+
+	}
+
+	var editRecord = function(){
+
+		var editableLayer;
+
+		recordsLayer.eachLayer(function(layer) {
+	            if (layer._popup._leaflet_id === currentPopupID) {
+	                editableLayer = layer;
+	        	}
+	    });
+
+		console.log(editableLayer);
+
+	    var editableForm = [];
+	    editableForm.push('<div class="cajita"><div class="regscroller"><div id="point_lat"><input type="text" value="'+ editableLayer.feature.geometry.coordinates[1] +'"/></div><div id="point_lon"><input type="text" value="'+ editableLayer.feature.geometry.coordinates[0] + '"/></div>');
+					for (var prop in editableLayer.feature.properties) {
+						if(prop === '_id')
+							editableForm.push("<input id='bm_db_id' type='hidden' value='" + editableLayer.feature.properties[prop] + "'>");
+						else if(prop === 'Especie_Original')
+							editableForm.push('<b>'+ prop + '</b><br/><input type="text" id="originalSpecies" value="' + editableLayer.feature.properties[prop] +'"/></div><br/>');
+						else if(prop === 'Localidad')
+							editableForm.push('<b>'+ prop + '</b><br/><input type="text" id="localidad" value="' + editableLayer.feature.properties[prop] +'"/></div><br/>');
+						else if(prop === 'Fecha')
+							editableForm.push('<b>'+ prop + '</b><br/><input type="text" id="fecha" value="' + editableLayer.feature.properties[prop] +'"/></div><br/>');
+						else if(prop === 'Colector')
+							editableForm.push('<b>'+ prop + '</b><br/><input type="text" id="colector" value="' + editableLayer.feature.properties[prop] +'"/></div><br/>');
+						else
+							editableForm.push('<b>'+ prop + "</b><br/><div id="+ prop + ">" + editableLayer.feature.properties[prop] + "</div><br/>");	
+					}
+					editableForm.push('</div><a href="" class="wrongbtn">Enviar</a><a href="" class="wrongbtn" id="cancelRecordEdition">Cancelar</a>');
+					// editableLayer.bindPopup(editableForm.join('<div class="mt10"></div>'));
+					var oldContent = editableLayer._popup.getContent();
+					console.log(oldContent);
+					editableLayer.setPopupContent(editableForm.join('<div class="mt10"></div>'));
+
+		// Set the old content back when the popup closes.
+		map.on('popupclose', function(e) {
+		   editableLayer.setPopupContent(oldContent);
+		});
+		//Set the old content back when cancel button is pressed.
+		$( "#cancelRecordEdition" ).on( "click", function(e) {
+  			e.preventDefault();
+			editableLayer.setPopupContent(oldContent);
+		});
+
+	    console.log(editableLayer);
+
 	}
 
 	var uniqueValues = function(filterType){
@@ -295,7 +346,7 @@ var _BioModelosVisorModule = function() {
     		}
     		else {
     			//popup.setContent($('.editControls').html());
-    			popup.setContent(commentForm);
+    			popup.setContent(popUpForm);
     		}
 
 		    // Do whatever you want with the layer.
@@ -425,10 +476,15 @@ var _BioModelosVisorModule = function() {
 		drawSinglePoint: drawSinglePoint,
 		setLayers: setLayers,
 		changeThresholdLayer:changeThresholdLayer,
-		filterRecords:filterRecords
+		filterRecords:filterRecords,
+		editRecord: editRecord
 	}
 }();
 
 $(document).ready(function() {
 	_BioModelosVisorModule.init();
+	$("body").on("click","#editRecordBtn",function(e){
+        e.preventDefault();
+		_BioModelosVisorModule.editRecord();
+  	});
 });

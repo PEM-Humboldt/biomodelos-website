@@ -1,0 +1,71 @@
+<div class="steptitle fleft">Año</div>
+			<label for="checkboxna" class="yearchklb">NA</label>
+			<input type="checkbox" name="checkboxna" class="yearchk"></input>
+			<rzslider rz-slider-model="yearSlider.minValue"
+			          rz-slider-high="yearSlider.maxValue"
+			          rz-slider-options="yearSlider.options">
+			</rzslider>
+		<div class="steptitle">Mes</div>
+			<div class="col4">
+				<label for="ene" class="meslbl">Ene</label>
+				<input type="checkbox" name="ene" class="meschk"></input>
+				<label for="may" class="meslbl">May</label>
+				<input type="checkbox" name="may" class="meschk"></input>
+				<label for="sep" class="meslbl">Sep</label>
+				<input type="checkbox" name="sep" class="meschk"></input>
+			</div>
+			<div class="col4">
+				<label for="feb" class="meslbl">Feb</label>
+				<input type="checkbox" name="feb" class="meschk"></input>
+				<label for="jun" class="meslbl">Jun</label>
+				<input type="checkbox" name="jun" class="meschk"></input>
+				<label for="oct" class="meslbl">Oct</label>
+				<input type="checkbox" name="oct" class="meschk"></input>
+			</div>
+			<div class="col4">
+				<label for="mar" class="meslbl">Mar</label>
+				<input type="checkbox" name="mar" class="meschk"></input>
+				<label for="jul" class="meslbl">Jul</label>
+				<input type="checkbox" name="jul" class="meschk"></input>
+				<label for="nov" class="meslbl">Nov</label>
+				<input type="checkbox" name="nov" class="meschk"></input>
+			</div>
+			<div class="col4">
+				<label for="abr" class="meslbl">Abr</label>
+				<input type="checkbox" name="abr" class="meschk"></input>
+				<label for="ago" class="meslbl">Ago</label>
+				<input type="checkbox" name="ago" class="meschk"></input>
+				<label for="dic" class="meslbl">Dic</label>
+				<input type="checkbox" name="dic" class="meschk"></input>
+			</div>
+		<div class="steptitle">Buscar por</div>
+			<select name="" id="Filtroregistro">
+				<option value="hide">- Tipo de filtro -</option>
+				<option value="">Usuario</option>
+				<option value="">Id</option>
+				<option value="">Whatever</option>
+			</select>
+			<select name="" id="resultadofiltro">
+				<option value="hide">- Categoria -</option>
+				<option value="">Cesar Gutierrez</option>
+				<option value="">Jorge Velasquez</option>
+				<option value="">Daniel Lopez</option>
+			</select>
+		<div class="infotitle steptitle" title="Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo." rel="tooltip">Visualizar</div>
+			<input type="checkbox" name="visualrep" class="checkregistros"></input>
+			<label for="visualrep" class="lblvisual">Reportados</label></br>
+			<input type="checkbox" name="visualedit" class="checkregistros"></input>
+			<label for="visualedit" class="lblvisual">Editados</label></br>
+			<input type="checkbox" name="visualadd" class="checkregistros"></input>
+			<label for="visualadd" class="lblvisual">Agregados</label></br>
+		<button class="btngen">limpiar</button>
+		<button class="btngen">filtrar</button>
+
+		<div class="foreditors">
+			<div class="littleline"></div>
+			<div class="steptitle">Agregar registro</div>
+				<button class="btngen marbtnreg">1</button>
+				<button class="btngen marbtnreg">conjunto</button>
+			<div class="infotitle steptitle lh25" title="Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo." rel="tooltip">Actualizar taxonomía</div>
+				<button class="taxbtn"></button>
+		</div>
