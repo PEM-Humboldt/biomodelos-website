@@ -224,7 +224,7 @@ var _BioModelosVisorModule = function() {
 		map.on('popupopen', function(e) {
 		   currentPopupID = e.popup._leaflet_id;
 		   $('.regscroller').niceScroll({
-				cursorcolor: "<div id='124c5e'></div>",
+				cursorcolor: "#124c5e",
 				cursorwidth: "7px",
 				cursorborder: "none"
 			});
@@ -245,22 +245,22 @@ var _BioModelosVisorModule = function() {
 		console.log(editableLayer);
 
 	    var editableForm = [];
-	    editableForm.push('<div class="cajita"><div class="regscroller"><div id="point_lat"><input type="text" value="'+ editableLayer.feature.geometry.coordinates[1] +'"/></div><div id="point_lon"><input type="text" value="'+ editableLayer.feature.geometry.coordinates[0] + '"/></div>');
+	    editableForm.push('<div class="cajita"><div class="regscroller"><div id="point_lat"><input type="text" value="'+ editableLayer.feature.geometry.coordinates[1] +'"/input></div><div id="point_lon"><input type="text" value="'+ editableLayer.feature.geometry.coordinates[0] + '"/input></div>');
 					for (var prop in editableLayer.feature.properties) {
 						if(prop === '_id')
 							editableForm.push("<input id='bm_db_id' type='hidden' value='" + editableLayer.feature.properties[prop] + "'>");
 						else if(prop === 'Especie_Original')
-							editableForm.push('<b>'+ prop + '</b><br/><input type="text" id="originalSpecies" value="' + editableLayer.feature.properties[prop] +'"/></div><br/>');
+							editableForm.push('<b>'+ prop + '</b></br><input type="text" id="originalSpecies" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
 						else if(prop === 'Localidad')
-							editableForm.push('<b>'+ prop + '</b><br/><input type="text" id="localidad" value="' + editableLayer.feature.properties[prop] +'"/></div><br/>');
+							editableForm.push('<b>'+ prop + '</b></br><input type="text" id="localidad" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
 						else if(prop === 'Fecha')
-							editableForm.push('<b>'+ prop + '</b><br/><input type="text" id="fecha" value="' + editableLayer.feature.properties[prop] +'"/></div><br/>');
+							editableForm.push('<b>'+ prop + '</b></br><input type="text" id="fecha" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
 						else if(prop === 'Colector')
-							editableForm.push('<b>'+ prop + '</b><br/><input type="text" id="colector" value="' + editableLayer.feature.properties[prop] +'"/></div><br/>');
+							editableForm.push('<b>'+ prop + '</b></br><input type="text" id="colector" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
 						else
-							editableForm.push('<b>'+ prop + "</b><br/><div id="+ prop + ">" + editableLayer.feature.properties[prop] + "</div><br/>");	
+							editableForm.push('<b>'+ prop + "</b></br>" + editableLayer.feature.properties[prop] + "</br>");	
 					}
-					editableForm.push('</div><a href="" class="wrongbtn">Enviar</a><a href="" class="wrongbtn" id="cancelRecordEdition">Cancelar</a>');
+					editableForm.push('</div><div class="centering"><a href="" class="wrongbtn">Enviar</a><a href="" class="wrongbtn" id="cancelRecordEdition">Cancelar</a></div>');
 					// editableLayer.bindPopup(editableForm.join('<div class="mt10"></div>'));
 					var oldContent = editableLayer._popup.getContent();
 					console.log(oldContent);
