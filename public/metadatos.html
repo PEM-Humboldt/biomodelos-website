@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Modelo de distribución de Inserte especie</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,900italic,700italic,700,900,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
+  
+  <style>
+  * {
+    margin:0;
+    padding:0;
+  }
+
+  body, html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  body {
+    padding: 30px 10px;
+    background: -webkit-linear-gradient(#fff 0%, #fff 20%, #fff 20%, #f2f2f2 20%, #f2f2f2 100%);
+    background: -o-linear-gradient(#fff 0%, #fff 20%, #fff 20%, #f2f2f2 20%, #f2f2f2 100%);
+    background: linear-gradient(#fff 0%, #fff 20%, #fff 20%, #f2f2f2 20%, #f2f2f2 100%);
+    font: 14px/24px 'Lato', sans-serif;
+    font-size: 1em; 
+  }
+
+  .dialog {
+    max-width: 900px;
+    height: 92%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px 20px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    overflow-y: scroll;
+  }
+
+  .dialog h1 {
+    font-size: 2em; 
+    font-weight: 300;
+    color: #db3f2a;
+    border-bottom: 1px solid #1b3337;
+    padding-bottom: 20px;
+    line-height: 1;
+  }
+
+  .dialog p {
+    color: #393836;
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    font-weight: 300;
+  }
+
+h2 { 
+   font-size:1.6em;
+   margin: 20px 0 5px;
+   padding: 8px 15px;
+   display: inline-block;
+   background-color: #fff;
+   letter-spacing: 1px;
+   color: #fff;
+   background-color: #1b3337;
+   font-weight: 300;
+   text-transform: uppercase;
+}
+
+h3 { 
+   font-size:1.3em;
+   margin:15px 0 5px;
+   padding-left: 10px;
+   letter-spacing: 1px;
+   color: #1b3337;
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a {
+  text-decoration: none;
+  color: #c12a26;
+}
+a:visited {
+   color: #e45b2d;
+}
+
+blockquote {
+   color:#666666;
+   margin:10px;
+   padding-left: 1em;
+   border-left: 0.5em #db3f2a solid;
+}
+
+blockquote:last-child {
+  margin-bottom: 30px;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+</style>
+
+</head>
+  <body>
+    <div class="dialog">
+      <h1>Modelo de distribución de <em>Aburria aburri</em></h1>
+
+      <h2>Fuentes de datos de distribución</h2>
+
+      <p>eBird (<a href="http://ebird.org%29/">http://ebird.org):</a> 62 registros<br>
+      GBIF (<a href="http://data.gbif.org%29/">http://data.gbif.org):</a> 2 registros<br>
+      SIB Colombia (<a href="http://data.sibcolombia.net%29/">http://data.sibcolombia.net):</a> 21 registros<br>
+      speciesLink (<a href="http://splink.cria.org.br/%29:">http://splink.cria.org.br/):</a> 2 registros<br>
+      VertNet (<a href="http://portal.vertnet.org/%29:">http://portal.vertnet.org/):</a> 0 registros<br>
+      xeno-canto (<a href="http://www.xeno-canto.org/%29:">http://www.xeno-canto.org/):</a> 0 registros<br>
+      Recursos privados: 0 registros</p>
+
+      <p><b>Total registros únicos:</b> 87</p>
+
+      <h2>Datos ambientales</h2>
+
+      <p><b>Tomados de <a href="http://worldclim.org/">WorldClim</a></b></p>
+
+      <p>BIO1 = Temperatura media anual<br>
+      BIO2 = Rango de temperatura diurna promedio anual<br>
+      BIO3 = Isotermalidad (BIO2/BIO7 * 100)<br>
+      BIO4 = Estacionalidad de la temperatura (desviación estandard * 100)<br>
+      BIO5 = Máxima temperatura del mes más cálido<br>
+      BIO6 = Mínima temperatura del mes más frío<br>
+      BIO7 = Rango de temperatura anual (BIO5-BIO6)<br>
+      BIO8 = Temperatura promedio del trimestre más húmedo<br>
+      BIO9 = Temperatura promedio del trimestre más seco<br>
+      BIO10 = Temperatura promedio del trimestre más cálido<br>
+      BIO11 = Temperatura promedio del trimestre más frío<br>
+      BIO12 = Precipitación anual<br>
+      BIO13 = Precipitación del mes más húmedo<br>
+      BIO14 = Precipitación del mes más seco<br>
+      BIO15 = Estacionalidad de la precipitación (coeficiente de variación)<br>
+      BIO16 = Precipitación del trimestre más húmedo<br>
+      BIO17 = Precipitación del trimestre más seco<br>
+      BIO18 = Precipitación del trimestre más cálido<br>
+      BIO19 = Precipitación del trimestre más frío      </p>
+
+      <p><b>Número promedio de parametros usados en el modelo (contando transformaciones de datos)</b>: 16</p>
+
+      <h2>Parámetros de modelamiento</h2>
+
+      <p><b>Método de modelamiento:</b> MAXENT 3.3.3k (Phillips et al. 2006)</br>
+      <b>Background:</b> 10000 puntos aleatorios.</p>
+
+      <h3>Configuración</h3>
+
+      <p>Linear = TRUE<br>
+      Quadratic = TRUE<br>
+      Hinge = TRUE<br>
+      Product = FALSE<br>
+      Threshold = FALSE<br>
+      Auto = FALSE<br>
+      Extrapolate = FALSE<br>
+      Clamp = TRUE<br>
+      betamultiplier = 1</p>
+
+      <h2>Créditos</h2>
+
+      <p><b>Instituciones publicadoras de datos</b></p>
+
+      <p><strong>Colectores/Observadores:</strong> , “León-Martínez, Carlos; 
+      Chaparro, E.”, Alexandra Class, Andrés M. Cuervo, Andres Vasquez, Andrew
+       Farnsworth, Andrew Spencer, Anne Sammis, Antonio  GarcÃ­a-Bravo, Avery 
+      Bartels, Bejarano-Cerrejon-Co, Ben  Winger, Ben Schweinhart, Benjamin 
+      Freeman, Bill Crins, Blair Bernson, Bob Packard, Caleb  Gordon, Carol 
+      Beardmore, Celeste Paiva, Charles  Hesse, Christopher Siddle, David 
+      Beadle, Douglas Stotz, Eugene Keferl, Fabrice Schmitt, Glenn Seeholzer, 
+      Guillaume PÃ©ron, Howard  Youth, James Lubitz, James Sipiora, Javier 
+      Barrio, Jeffrey Cheney, John C. Mittermeier, John Kvarnback, Jose 
+      Gustavo Leon, Justin Hite, Luis GermÃ¡n Naranjo, Markus Tellkamp, Martha
+       Vandervoort, Mauricio Álvarez Rebolledo, Michael Harvey, Nicholas 
+      Block, Nick Bayly (SELVA), Observador desconocido, Orlando Lagos Ch, 
+      Ottavio Janni, Paul van Els, Rafael Campos-RamÃ­rez, Rich Hoyer, Rohan 
+      van Twest, SAO Sociedad Antioqueña de Ornitologia, Scott Winton, Sergio 
+      Córdoba Córdoba, Steve Lombardi, Steve Summers, William Deegan</p>
+
+      <p><b>Modelo desarrollado por</b></p>
+
+      <blockquote>
+      <p>Jorge Velásquez-Tibatá<br>
+      Laboratorio de Biogeografía Aplicada y Bioacústica (LBAB)<br>
+      Instituto Alexander von Humboldt<br>
+      Bogotá, Colombia<br>
+      (<a href="mailto:jvelasquez@humboldt.org.co">jvelasquez@humboldt.org.co</a>)</p>
+      </blockquote>
+
+      <p><b>Fecha desarrollo:</b> 2014-08-06</p>
+
+      <p><b>Cómo citar un modelo</b></p>
+
+      <blockquote>
+      <p>Laboratorio de Biogeografía Aplicada y Bioacústica. 2014. Modelo de distribución de <em>Aburria aburri</em>. Instituto Alexander von Humboldt. <a href="http://biomodelos.humboldt.org.co/">http://biomodelos.humboldt.org.co</a>.</p>
+      </blockquote>
+
+      <p><b>Cómo citar un conjunto de modelos</b></p>
+
+      <blockquote>
+      <p>Laboratorio de Biogeografía Aplicada y Bioacústica. 2014. Biomodelos. Instituto Alexander von Humboldt. <a href="http://biomodelos.humboldt.org.co/">http://biomodelos.humboldt.org.co</a>.</p>
+      </blockquote>
+
+      <p><b>Contacto</b></p>
+
+      <blockquote>
+      <p>Maria C. Londoño
+      <a href="mailto:mlondono@humboldt.org.co">mlondono@humboldt.org.co</a></p>
+      </blockquote>
+    </div>
+  </body>
+</html>
