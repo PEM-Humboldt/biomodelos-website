@@ -229,7 +229,6 @@ var _BioModelosVisorModule = function() {
 				cursorborder: "none"
 			});
 		});
-
 	}
 
 	var editRecord = function(){

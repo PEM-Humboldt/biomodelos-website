@@ -1,67 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The change you wanted was rejected (422)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <title>422 - El cambio que querías fue rechazado</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,900italic,700italic,700,900,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
+  
   <style>
+
+  body, html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
+  }
+
   body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
+    padding: 4%;
+    background: -webkit-linear-gradient(#1b3337 0%, #1b3337 20%, #1b3337 20%, #f2f2f2 20%, #f2f2f2 100%);
+    background: -o-linear-gradient(#1b3337 0%, #1b3337 20%, #1b3337 20%, #f2f2f2 20%, #f2f2f2 100%);
+    background: linear-gradient(#1b3337 0%, #1b3337 20%, #1b3337 20%, #f2f2f2 20%, #f2f2f2 100%);
     text-align: center;
-    font-family: arial, sans-serif;
+    font-family: 'Lato', sans-serif;
     margin: 0;
   }
 
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
+  .dialog {
+    height: 92%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
 
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  .dialog h1 {
+    font-size: 9em; 
+    color: #1b3337;
+    border-bottom: 1px solid #1b3337;
+    padding-bottom: 20px;
+    display: inline-block;
+    line-height: 0px;
+    height: 60px;
+    margin-bottom: 0;
   }
 
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+  .dialog p {
+    color: #c12a26;
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    font-weight: 300;
+    text-transform: uppercase;
   }
 
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  .img422 {
+    background-image: url('../assets/422.png');
+    width: 235px;
+    height: 235px;
+    margin: 20px auto 0;
   }
   </style>
 </head>
 
 <body>
-  <!-- This file lives in public/422.html -->
+  <!-- This file lives in public/404.html -->
   <div class="dialog">
-    <div>
-      <h1>The change you wanted was rejected.</h1>
-      <p>Maybe you tried to change something you didn't have access to.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <div class="img422"></div>
+    <h1>422</h1>
+    <p>El cambio que querías fue rechazado!</p>
+    <p>Querías cambiar algo a lo que no tenías acceso?</p>
+    <p>Lo sentimos pero no fue posible</p>
   </div>
 </body>
 </html>
