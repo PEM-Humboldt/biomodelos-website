@@ -36,6 +36,22 @@
 				</div>
 
 				<div class="boletindex">
+					<div class="cardbol" ng-click="boletin4=!boletin4; activeButton()" ng-class="{'actbol': isActive}" ontouchstart="this.classList.toggle('hover');">
+						<div class="flipper">
+							<div class="front">
+								<h3>Boletín No. 4</h3>
+								<h6>Agosto de 2016</h6>
+								<%= image_tag("bol4thumb.jpg") %>
+							</div>
+							<div class="back">
+								<h3>Boletín No. 4</h3>
+								<p>Versión 2 de BioModelos</p>
+								<p>Becas participación en modelatones</p>
+								<p>Publica tus modelos de distribución</p>
+								<p>Nuevos grupos - Peces, Orquídeas, Mariposas -</p>
+							</div>
+						</div>
+					</div>
 					<div class="cardbol" ng-click="boletin3=!boletin3; activeButton()" ng-class="{'actbol': isActive}" ontouchstart="this.classList.toggle('hover');">
 						<div class="flipper">
 							<div class="front">
@@ -86,6 +102,59 @@
 				
 				</div>
 
+					<div ng-show="boletin4">
+						<div class="bolet"><a href="http://us9.campaign-archive1.com/?u=b418e8c5dfe3e2abd225ec166&id=6548a6bbee" target="_blank">+ Boletín No.4</a></div>
+						<div class="clearfix"></div>
+						<div class="bolet">
+							<h4>Editorial</h4>
+							<h5>Publicado por <b>César Gutiérrez</b> · <i>Ago 2016</i></h5>
+							<p>El 2 diciembre de 2014 se realizó el lanzamiento de la primera versión de <b>BioModelos.</b> Con el reto claro de documentar la distribución de la biodiversidad del país, pero sin saber muy bien cómo hacerlo, asumimos la tarea de probar distintas metodologías de modelamiento y manejo de información, tecnologías de desarrollo, diseños y modelos operativos, con el fin de condensar nuestra visión: construir una red de expertos que con sus aportes contribuya a construir y mejorar el conocimiento sobre la distribución de las especies del país. En resumen: “mejores modelos con el apoyo de expertos”.</p>
+
+							<p>Ahora, año y medio después, nos lanzamos a un nuevo reto: “una mejor herramienta con la ayuda de expertos”. Gracias a su realimentación sobre los distintos aspectos que componen BioModelos, nos disponemos a lanzar una nueva versión que esperamos refleje lo aprendido con ustedes en este tiempo.</p>
+
+							<p>Reconstruida completamente, con cambios en su diseño, navegabilidad y funcionalidad, la nueva versión cuenta con un sistema mejorado de búsqueda, curación de registros y desarrollo colaborativo de mapas. Además, se agregan desarrollos en el componente de red social de BioModelos, entre ellos notificaciones, directorios y herramientas para el seguimiento de la actividad de grupos y expertos. Por último, esta versión cuenta con varios documentos y ayudas para entender y manejar mejor la herramienta.</p>
+
+							<p>He acá una pequeña muestra de BioModelos Versión 2. <b>Gracias por acompañarnos este tiempo y esperamos seguir contando con ustedes.</b></p>
+							<div><%= image_tag("bol4_1.png") %></div>
+						</div>
+						<div class="bolet">
+							<h4>Becas para la participación en modelatones</h4><h5></h5>
+							<p>El equipo de BioModelos en conjunto con los moderadores de los grupos de aves, aves acuáticas y herpetos realizará una modelatón en el <a href="http://vcongresocolombianodeornitologia.org/" target="_blank">V Congreso Colombiano de Ornitología</a> (7 de Noviembre) y en el <a href="http://www.acherpetologia.org/1cch" target="_blank">I Congreso Colombiano de Herpetología</a> (19 de Noviembre). La principal actividad de cada modelatón consistirá en el desarrollo colaborativo de modelos de distribución de un conjunto preseleccionado de especies, los cuales serán publicados tanto en BioModelos como en la publicación electrónica “Atlas de la Biodiversidad de Colombia”, con la autoría de quienes participen de la actividad.</p>
+
+							<p>Los interesados en participar de cualquiera de las dos modelatones deberán manifestar su interés <a href="https://docs.google.com/a/humboldt.org.co/forms/d/e/1FAIpQLScoiDHV7emz-AoHgqxMszHg2GQ7o0MfjE-3XPxBYgjcgisGDQ/viewform" target="_blank">aquí.</a> Se otorgará un máximo de 15 medias becas por evento a estudiantes de pregrado o postgrado, especialmente a asistentes con ponencias sometidas al congreso, aplicaciones de socios ACO/ACH y usuarios registrados en BioModelos en los grupos de Aves de Colombia, Aves Acuáticas de Colombia y Herpetos de Colombia (el <a href="http://biomodelos.humboldt.org.co/users/sign_up" target="_blank">registro</a> es libre).</p>
+
+							<p>Los asistentes deberán llevar un computador portátil (no debe ser tableta o teléfono inteligente) para el desarrollo de la actividad. La fecha límite para la recepción de aplicaciones a la modelatón del congreso de ornitología es el 22 de agosto de 2016 y del congreso de herpetología el 5 de septiembre.</p>
+						</div>
+						<div class="bolet">
+							<h4>publica tus modelos de distribución en BioModelos</h4><h5></h5>
+							<div><%= image_tag("bol4_2.jpg") %></div>
+							<p>Cada vez existen más profesionales que desarrollan modelos de distribución como parte de distintas investigaciones en el país. Reconociendo el importante aporte de estos ejercicios de modelamiento al entendimiento sobre las distribuciones de las especies del país, BioModelos abre el espacio “Publica tu mapa”. Allí investigadores en el área de modelamiento de distribución podrán facilitar la consulta y descarga de sus modelos, así como recibir retroalimentación sobre los mismos. Entérate más sobre este nuevo espacio y sus beneficios consultando la <a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank">guía de publicación de modelos</a> y contribuye a través del <a href="http://biomodelos.humboldt.org.co/home/publish" target="_blank">formulario de publicación</a> (requiere inicio de sesión).</p>
+						</div>
+						<div class="bolet">
+							<h4>ACTUALIDADES GRUPOS BIOMODELOS</h4><h5></h5>
+							<h6>Peces dulceacuícolas</h6>
+							<p>Moderado por Carlos DoNascimiento quien actualmente se desempeña como curador de la colección de peces de agua dulce del Instituto Humboldt.</p>
+
+							<h6>Orquídeas de Colombia</h6>
+							<p>Iniciativa de los estudiantes Samuel Monsalve Correa (Universidad de Antioquia) y Jairo Santiago García Revelo (Universidad del Valle) quienes se encargarán de consolidar el grupo de moderadores, convocar especialistas por grupo taxonómico y realizar una selección de géneros y especies a trabajar.</p>
+
+							<h6>Mariposas de Colombia</h6>
+							<p>Grupo moderado por la entomóloga Blanca Huertas, curadora principal de la Colección de Mariposas del <a href="http://www.nhm.ac.uk/" target="_blank">Museo Británico de Historia Natural</a> en Londres y miembro de los comités directivos del grupo especialista en mariposas de la IUCN, <a href="http://butterfly-int.wixsite.com/international" target="_blank">Butterfly International Network</a> y el <a href="http://www.naba.org/" target="_blank">North American Butterflies Association.</a></p>
+							
+							<p>Si quieres proponer un nuevo grupo o colaborar como moderador, puedes leer la <a href="http://biomodelos.humboldt.org.co/moderadores.pdf" target="_blank">guía para moderadores</a> de grupo en BioModelos y escribirnos a <a href="mailto:biomodelos@humboldt.org.co" target="_blank">biomodelos@humboldt.org.co.</a></p>
+						</div>
+						<div class="bolet">
+							<h4>NOVEDADES</h4><h5></h5>
+							<p>BioModelos participará el último día del <a href="https://s3.amazonaws.com/sib-resources/Docs/II-taller-calidad-de-datos.pdf" target="_blank">II Taller de calidad de datos</a> del SiB Colombia con una charla sobre cómo se usan los registros biológicos en el desarrollo de modelos de distribución de especies.</p>
+
+			                <p>Atendiendo la invitación del grupo de trabajo de GEO-BON sobre distribuciones de especies, Jorge Velásquez presentó BioModelos en el GEO-BON Open Science Conference & All Hands Meeting, destacando su carácter de construcción colaborativa de conocimiento como un mecanismo para llenar el vacío de Wallace en países altamente diversos pero con información biológica escasa y sesgada. El resumen de la conferencia y la presentación se encuentran en este <a href="http://conf2016.geobon.org/geo-bon-open-science-conference" target="_blank">enlace.</a></p>
+
+			                <p>En el mes de octubre se realizará un taller BioModelos de especies endémicas y amenazadas de bosque seco, junto con el programa de ciencias de la biodiversidad del Instituto Humboldt.</p>
+						</div>
+					</div>	
+
+
+
 					<div ng-show="boletin3">
 						<div class="bolet"><a href="http://us9.campaign-archive2.com/?u=b418e8c5dfe3e2abd225ec166&id=dee402c50c" target="_blank">+ Boletín No.3</a></div>
 						<div class="clearfix"></div>
@@ -121,7 +190,7 @@
 					</div>
 
 					<div ng-show="boletin2">
-						<div class="bolet"><a href="http://eepurl.com/bKZKXb" target="_blank">+ Boletin No.2</a></div>
+						<div class="bolet"><a href="http://eepurl.com/bKZKXb" target="_blank">+ Boletín No.2</a></div>
 						<div class="clearfix"></div>
 						<div class="bolet">
 							<h4>Nuevos modelos publicados</h4>
@@ -161,7 +230,7 @@
 					</div>
 
 					<div ng-show="boletin1">
-						<div class="bolet"><a href="http://eepurl.com/bDl3Tn" target="_blank">+ Boletin No.1</a></div>
+						<div class="bolet"><a href="http://eepurl.com/bDl3Tn" target="_blank">+ Boletín No.1</a></div>
 						<div class="clearfix"></div>
 						<div class="bolet">
 							<h4>Interactúa con la red BioModelos utilizando las nuevas funciones de grupos</h4>
