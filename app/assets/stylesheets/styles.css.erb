@@ -572,6 +572,39 @@ div.google-visualization-tooltip > ul > li:nth-child(2) {
 	letter-spacing: 1px;
 }
 
+
+#extchart {
+	margin-top: 15px;
+	margin-bottom: 0;
+}
+.convenciones {
+	text-align: center;
+	max-width: 500px;
+	margin-bottom: 5px;
+}
+.convenciones p {
+	display: inline-block;
+	margin: 0 8px 5px;
+	height: 20px;
+	line-height: 20;
+	vertical-align: middle;
+}
+.convenciones p::before {
+	width: 25px;
+	height: 3px;
+	background-color: #124c5e;
+	content: "";
+	margin-right: 7px;
+	vertical-align: middle;
+	display: inline-block;
+}
+p.yellsq::before {
+	background-color: #e3af24;
+}
+p.redsq::before	{
+	background-color: #c12a26;
+}
+
 /*log in */
 
 .fondoplumas {
@@ -2650,6 +2683,9 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	margin: 5px;
 	font-size: 1em;
 	line-height:1.5;
+	border: 1px solid #d0d2d0;
+	padding: 5px;
+	max-width: 300px;
 }
 
 .fright {
@@ -3106,7 +3142,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	font-weight: 300;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	padding: 0 13px;
+	padding: 0 11px;
 	margin: 10px;
 	cursor:pointer;
 }
