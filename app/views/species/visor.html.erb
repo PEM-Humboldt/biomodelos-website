@@ -1,12 +1,20 @@
+<% if !params[:search].blank? && params[:search] == "1" %>
+      <script>
+          $(document).ready(function(){
+          	console.log(<%= params[:search] %>);
+          	$(".vbtnfind").click();
+          });
+      </script>
+<% end %>
 <div class="mapcontainer" id="map"></div>
 <div ng-controller="visorCtrl">
 	<div class="spname">Tessmanniacanthus chlamydocardioides</div>
 	<div class="modelname">Modelo validado BioModelos</div>
 	<div id="layerbtn" class="visorbtn"></div>
-	<div ng-click="find=!find; activeButton()" ng-class="{'vbtnact': isActive}" class="visorbtn vbtnfind"></div>
-	<div ng-click="info=!info; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtninfo"></div>
-	<div ng-click="hipotesis=!hipotesis; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtnhipo"></div>
-	<div ng-click="edit=!edit; activeButton()" ng-class="{'vbtnact': isActive}"  class="visorbtn vbtnedit"></div>
+	<div ng-click="find=!find" class="visorbtn vbtnfind" selectable></div>
+	<div ng-click="info=!info" class="visorbtn vbtninfo" selectable></div>
+	<div ng-click="hipotesis=!hipotesis" class="visorbtn vbtnhipo" selectable></div>
+	<div ng-click="edit=!edit" class="visorbtn vbtnedit" selectable></div>
 
 	<div ng-show="find" class="cajavisor">
 		<%= render 'species/species_browser' %>
@@ -24,16 +32,17 @@
 		<%= render 'species/species_contributions' %>
 	</div>
 
-	<div ng-click="registros=!registros; activeButton()" ng-class="{'regactive': isActive}" class="btnregistros">registros y filtros</div>
-	<div ng-click="editar=!editar; activeButton()" ng-class="{'edactive': isActive}" class="btnedicion">edición</div>
+	<div ng-click="registros=!registros" class="btnregistros" selectable>registros y filtros</div>
+	<div ng-click="editar=!editar" class="btnedicion" selectable>edición</div>
 
-	<div ng-show="registros" class="cajaregistros">
+	<div ng-show="registros" class="cajaregistros" id="registros_div">
 		<%= render 'species/species_records' %>
 	</div>
 
 	<div ng-show="editar" class="cajitaeditar">
 		<%= render 'species/species_edition' %>
 	</div>
+
 </div>
 
 <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAz6sPnMLuIJrOWvNKnn6-PWYK56PDGa30'%>
@@ -64,6 +73,12 @@
 
 <script>
 $(document).ready(function(){
+
+	$('#cities').change(function(){
+	    var home_city =$("#cities option:selected").val();
+	    console.log(home_city);
+	});
+
  	$(".leaflet-control-layers").removeClass("leaflet-control-layers-expanded");
 
 	$("#layerbtn").on("click",function(){
@@ -76,44 +91,11 @@ $(document).ready(function(){
 	}
 
 	if($(".leaflet-control-layers").hasClass("leaflet-control-layers-expanded")){
-	 $(".leaflet-control-layers").removeClass("leaflet-control-layers-expanded");
-	 }
+	 	$(".leaflet-control-layers").removeClass("leaflet-control-layers-expanded");
+	}
 	else {
 	 	$(".leaflet-control-layers").addClass("leaflet-control-layers-expanded");
 	}
-	});
-
-
-	$(".polig").click(function(e){
-		_BioModelosVisorModule.drawPolygon();
-		$(this).toggleClass("polibtnact");
-		e.preventDefault();
-	})
-	$(".edipoli").click(function(e){
-		_BioModelosVisorModule.editPolygon();
-		$(this).toggleClass("polibtnact");
-		$(".editbotones").toggle();
-		e.preventDefault();
-	})
-	$(".delpoli").click(function(e){
-		_BioModelosVisorModule.editPolygon();
-		$(this).toggleClass("polibtnact");
-		$(".delbotones").toggle();
-		e.preventDefault();
-	})
-	$(".saveedit").click(function(e){
-		_BioModelosVisorModule.saveEditPolygon();
-		e.preventDefault();
-	})
-	$(".canceledit").click(function(e){
-		_BioModelosVisorModule.cancelEditPolygon();
-		e.preventDefault();
-	})
-
-	$(".marbtnreg").click(function(e){
-		_BioModelosVisorModule.drawSinglePoint();
-		$(this).toggleClass("btngenact");
-		e.preventDefault();
 	});
 
 	$(".taxbtn").click(function(e){
@@ -145,62 +127,6 @@ $('.cajaregistros').niceScroll({
 	cursorcolor: "#5d5e5e",
 	cursorwidth: "7px",
 	cursorborder: "none"
-});
-
-// $('body').on('popupopen', '.regscroller', function(){
-// 	console.log("alertaaaaa");
-//   	$(".regscroller").niceScroll({
-// 		cursorcolor: "#fff",
-// 		cursorwidth: "7px",
-// 		cursorborder: "none"
-// 	});
-// });
-
-
-$('select').each(function(){
-    var $this = $(this), numberOfOptions = $(this).children('option').length;
-  
-    $this.addClass('select-hidden'); 
-    $this.wrap('<div class="select"></div>');
-    $this.after('<div class="select-styled"></div>');
-
-    var $styledSelect = $this.next('div.select-styled');
-    $styledSelect.text($this.children('option').eq(0).text());
-  
-    var $list = $('<ul />', {
-        'class': 'select-options'
-    }).insertAfter($styledSelect);
-  
-    for (var i = 0; i < numberOfOptions; i++) {
-        $('<li />', {
-            text: $this.children('option').eq(i).text(),
-            rel: $this.children('option').eq(i).val()
-        }).appendTo($list);
-    }
-  
-    var $listItems = $list.children('li');
-  
-    $styledSelect.click(function(e) {
-        e.stopPropagation();
-        $('div.select-styled.active').each(function(){
-            $(this).removeClass('active').next('ul.select-options').hide();
-        });
-        $(this).toggleClass('active').next('ul.select-options').toggle();
-    });
-  
-    $listItems.click(function(e) {
-        e.stopPropagation();
-        $styledSelect.text($(this).text()).removeClass('active');
-        $this.val($(this).attr('rel'));
-        $list.hide();
-        //console.log($this.val());
-    });
-  
-    $(document).click(function() {
-        $styledSelect.removeClass('active');
-        $list.hide();
-    });
-
 });
 
 </script>

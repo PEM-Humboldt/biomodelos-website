@@ -39,33 +39,36 @@
 				<input type="checkbox" name="dic" class="meschk"></input>
 			</div>
 		<div class="steptitle">Buscar por</div>
-			<select name="" id="Filtroregistro">
+			<select name="dropdownFiltros" id="filtroRegistro">
 				<option value="hide">- Tipo de filtro -</option>
-				<option value="">Usuario</option>
-				<option value="">Id</option>
-				<option value="">Whatever</option>
+				<option value="evidencia">Evidencia</option>
+				<option value="fuente">Fuente</option>
+				<option value="institucion">Institución</option>
 			</select>
-			<select name="" id="resultadofiltro">
+			<select name="dropdownValores" id="resultadoFiltro">
 				<option value="hide">- Categoria -</option>
-				<option value="">Cesar Gutierrez</option>
-				<option value="">Jorge Velasquez</option>
-				<option value="">Daniel Lopez</option>
 			</select>
 		<div class="infotitle steptitle" title="Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo." rel="tooltip">Visualizar</div>
+		<div id="chkBoxFilters">
 			<input type="checkbox" name="visualrep" class="checkregistros"></input>
 			<label for="visualrep" class="lblvisual">Reportados</label></br>
 			<input type="checkbox" name="visualedit" class="checkregistros"></input>
 			<label for="visualedit" class="lblvisual">Editados</label></br>
 			<input type="checkbox" name="visualadd" class="checkregistros"></input>
 			<label for="visualadd" class="lblvisual">Agregados</label></br>
+		</div>
 		<button class="btngen">limpiar</button>
-		<button class="btngen">filtrar</button>
+		<button class="btngen" id="filtrarBtn">filtrar</button>
 
 		<div class="foreditors">
 			<div class="littleline"></div>
 			<div class="steptitle">Agregar registro</div>
-				<button class="btngen marbtnreg">1</button>
+				<button class="btngen marbtnreg" id="btnAddSingleRecord">1</button>
 				<button class="btngen marbtnreg">conjunto</button>
 			<div class="infotitle steptitle lh25" title="Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo." rel="tooltip">Actualizar taxonomía</div>
 				<button class="taxbtn"></button>
 		</div>
+
+<script type="text/javascript">
+
+</script>

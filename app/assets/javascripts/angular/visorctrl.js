@@ -55,3 +55,38 @@ angular.module('biomodelos')
 
 
 }]);
+
+angular.module('biomodelos').directive('selectable', function(){ 
+  console.log("Entre selectable");
+  var select = function(element) {
+  	if(element.hasClass('visorbtn')){
+  		if(element.hasClass('vbtnact'))
+  			element.removeClass('vbtnact');
+  		else
+  			element.addClass('vbtnact');
+	}
+  	else if(element.hasClass('btnregistros')){
+  		console.log("Boton registros");
+  		if(element.hasClass('regactive'))
+  			element.removeClass('regactive');
+  		else
+  			element.addClass('regactive');
+  	}
+  	else if(element.hasClass('btnedicion')){
+  		if(element.hasClass('edactive'))
+  			element.removeClass('edactive');
+  		else
+  			element.addClass('edactive');
+  	}	    
+  }
+  return {
+    
+    link : function(scope, element, attrs){
+      
+       element.on('click', function(){
+         select(element);
+       });
+       
+    }
+  }
+});

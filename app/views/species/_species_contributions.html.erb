@@ -1,6 +1,6 @@
 <div class="vcbase">
 				<h1>EDICIÓN Y CONTRIBUCIÓN</h1>
-				<a ng-click="edit=!edit" class="closevb">x</a>
+				<a ng-click="edit=!edit" class="closevb" id="clsEditBox">x</a>
 		</div>
 		<div class="cvcolumn">
 			<div class="followstate fright"><div class="follow siguiendo">siguiendo</div></div>
@@ -16,7 +16,7 @@
 			<div class="editactions clearfix">
 				<a href="" title="Bajar el modelo" rel="tooltip"><%= image_tag("downicon.png") %></a>
 				<a href="" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
-				<button class="newgrbtn">editar</a>
+				<button class="newgrbtn" id="cbt_editBtn">editar</a>
 			</div>
 		</div>
 		<div class="dinblock">
@@ -31,7 +31,7 @@
 		<div class="steptitle">2. Crea tu mapa</div>
 		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.</p>
 		<div class="editactions clearfix">
-			<button class="newgrbtn">crear</button>
+			<button class="newgrbtn" id="cbt_crearBtn">crear</button>
 		</div>
 
 		<div class="steptitle">3. Publica tu mapa</div>

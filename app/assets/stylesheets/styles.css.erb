@@ -3018,6 +3018,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	height: 25px;
 	line-height: 25px;
 	z-index: 16;
+	display: none;
 }
 
 .edactive {
@@ -3142,6 +3143,11 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	text-align: center;
 }
 
+.opacitybtn {
+	opacity: 0.5;
+    filter: alpha(opacity=50); 
+}
+
 .actionbtn {
 	height: 25px;
 	line-height: 22px;
@@ -3149,12 +3155,14 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	background: none;
 	border: 1px solid #1b3337;
 	color: #1b3337;
-	font-weight: 300;
+	font-weight: 400;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	padding: 0 11px;
 	margin: 10px;
 	cursor:pointer;
+	font-family: 'Lato', sans-serif;
+	font-size: 11px;
 }
 
 .actionbtn:hover {
