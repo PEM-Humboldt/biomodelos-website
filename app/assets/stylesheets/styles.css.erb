@@ -394,7 +394,7 @@ footer li a, .visorfooter li a {
 	background-image: url(<%= asset_path 'searchome.png' %>);
 }
 
-.hlink, .spptit, .spp, .top5, .top5users {
+.hlink, .spptit, .spp, .top5, .top5users, .cobert {
 	display: flex;
     justify-content: space-between;
 }
@@ -2587,6 +2587,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	background-color: #f2f2f2;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 	margin-top: -25px;
+	z-index: 1010;
 }
 
 .cajaregistros .infobox {
@@ -2686,6 +2687,15 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	border: 1px solid #d0d2d0;
 	padding: 5px;
 	max-width: 300px;
+}
+
+.resdata p {
+	margin-bottom: 0;
+}
+.percent {
+	text-align: right;
+	font-weight: 600;
+	color: #124c5e;
 }
 
 .fright {
