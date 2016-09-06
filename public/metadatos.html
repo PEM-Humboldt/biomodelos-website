@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Modelo de distribución de Inserte especie</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"></link>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,900italic,700italic,700,900,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'></link>
+  
+  <style>
+  * {
+    margin:0;
+    padding:0;
+  }
+
+  body, html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  body {
+    padding: 30px 10px;
+    background: -webkit-linear-gradient(#fff 0%, #fff 20%, #fff 20%, #f2f2f2 20%, #f2f2f2 100%);
+    background: -o-linear-gradient(#fff 0%, #fff 20%, #fff 20%, #f2f2f2 20%, #f2f2f2 100%);
+    background: linear-gradient(#fff 0%, #fff 20%, #fff 20%, #f2f2f2 20%, #f2f2f2 100%);
+    font: 14px/24px 'Lato', sans-serif;
+    font-size: 1em; 
+  }
+
+  .dialog {
+    max-width: 900px;
+    height: 92%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px 20px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    overflow-y: scroll;
+  }
+
+  .dialog h1 {
+    font-size: 2em; 
+    font-weight: 300;
+    color: #db3f2a;
+    border-bottom: 1px solid #1b3337;
+    padding-bottom: 20px;
+    line-height: 1;
+  }
+
+  .dialog p {
+    color: #393836;
+    font-size:18px;
+    display: block;
+    margin: 0 auto;
+    padding: 5px 10px;
+    font-weight: 300;
+  }
+
+h2 { 
+   font-size:1.6em;
+   margin: 20px 0 5px;
+   padding: 8px 15px;
+   background-color: #fff;
+   letter-spacing: 1px;
+   color: #fff;
+   background-color: #1b3337;
+   font-weight: 300;
+   text-transform: uppercase;
+   display: inline-block;
+}
+
+
+h3 { 
+   font-size:1.3em;
+   margin:15px 5px;
+   padding: 10px;
+   letter-spacing: 1px;
+   color: #1b3337;
+   border: 1px solid #d0d2d0;
+   display: block;
+}
+
+h3 b{
+    font-size: 1em;
+    color: #393836;
+    font-weight: 300;
+    border-bottom: none;
+}
+
+.infocontent {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: #c12a26;
+}
+a:visited {
+   color: #e45b2d;
+}
+
+blockquote {
+   color:#666666;
+   margin:10px;
+   padding-left: 1em;
+   border-left: 0.5em #db3f2a solid;
+}
+
+.overf{
+    overflow: hidden;
+    text-overflow: elipsis;
+    width: 90%;
+    white-space: nowrap;
+    padding-left: 10px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+blockquote:last-child {
+  margin-bottom: 30px;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+</style>
+
+</head>
+  <body>
+    <div class="dialog">
+      <h1>Metadatos modelo <em>Aburria aburri</em></h1>
+
+      <p><b>ID del Modelo:</b> xxxxxxx</p>
+      <p><b>Número de registros:</b> 87</p>
+      <p><b>Fecha desarrollo:</b> 2014-08-06</p>
+
+      <h2>Info</h2>
+      <div class="infocontent">
+      <h3>Método <b>Maxent</b></h3>
+      <h3>Continuo <b>Si</b></h3>
+      <h3>Tipo validación <b>ufoldor whatever</b></h3>
+      <h3>Perf Stac Type <b>AUC</b></h3>
+      <h3>Nivel <b>Climático · Coberturas</b></h3>
+      <h3>Documentación <a href="http://biomodelos.humboldt.org.co/" class="overf">+ enlace a PDF</a></h3>
+      </div>
+
+      <h2>Cita</h2>
+      <blockquote>
+      <p>Velásquez, Jorge - Gutiérrez, César. 2014. Modelo de distribución de <em>Aburria aburri</em> ID xxxxxx. Laboratorio de Biogeografía Aplicada y Bioacústica. Instituto Alexander von Humboldt.</p><div class="overf"><a href="http://biomodelos.humboldt.org.co/">http://biomodelos.humboldt.org.co/dirmodelo</a>.</div>
+      </blockquote>
+      
+
+
+      <h2>Contacto</h2>
+
+      <p>Maria C. Londoño
+      <a href="mailto:mlondono@humboldt.org.co" class="overf">mlondono@humboldt.org.co</a></p>
+    </div>
+  </body>
+</html>

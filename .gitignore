@@ -33,5 +33,3 @@ doc/
 #Ignore bower components
 /vendor/assets/bower_components
 
-#Archivos publicos
-/public

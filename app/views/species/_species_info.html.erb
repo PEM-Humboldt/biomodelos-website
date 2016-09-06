@@ -69,15 +69,21 @@
 			<a ng-click="perinfo=!perinfo" class="closevb">x</a>
 			<p>Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo.</p>
 		</div>
-		<div class="maindata dib">
+		 <div id="extchart"></div>
+		<!--<div class="maindata dib">
 			<h4>15 %</h4>
 			<h5>Histórica</h5>
 		</div>
 		<div class="maindata dib">
 			<h4>5 %</h4>
 			<h5>10 años</h5>
-		</div>
+		</div> -->
 	</div>
+		<div class="convenciones clearfix">
+		 	<p class="bluesq">Actual</p>
+      		<p class="redsq">Extractivista</p>
+      		<p class="yellsq">Industrializada</p>
+		 </div>
 	<div class="databox">
 		<h2 class="infotitle" ng-click="cobinfo=!cobinfo">coberturas</h2>
 		<div ng-show="cobinfo" class="infobox">
@@ -106,3 +112,50 @@
 <div class="cvcol40">
 	<button class="urllink" title="Copiar URL" rel="tooltip"></button><div class="amenaza" title="Categoría de amenaza" rel="tooltip"><%= image_tag("caten.png") %></div>
 </div>
+
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart8);
+
+    function drawChart8() {
+
+    var data = new google.visualization.DataTable();
+      data.addColumn('date', 'Año');
+      data.addColumn('number', 'Actual');
+      data.addColumn('number', 'Extractivista');
+      data.addColumn('number', 'Industrializada');
+
+      data.addRows([
+          [new Date(1990,0,1), 25684, , ,],
+          [new Date(2000,0,1), 35958, , ,],
+          [new Date(2005,0,1), 41095, , ,],
+          [new Date(2010,0,1), 46232, , ,],
+          [new Date(2012,0,1), 51369, 51369, 51369],
+          [new Date(2030,0,1), 36542, 86043, 33721]
+        ]);
+
+      var options = {
+        chart: {
+          title: '',
+          subtitle: ''
+        },
+        width: 500,
+        height: 300,
+        legend: { position: 'none' },
+        hAxis: {
+            format: 'yy'
+          },
+        chartArea: {left:100, width: 400},
+        colors: ['#124c5e','#c12a26', '#e3af24']
+      };
+
+      var date_formatter = new google.visualization.DateFormat({ 
+	    pattern: "yyyy"
+		}); 
+		date_formatter.format(data, 0);
+
+      var chart = new google.charts.Line(document.getElementById('extchart'));
+
+      chart.draw(data, options);
+    }
+  </script>
