@@ -3,7 +3,7 @@
 		<div class="container homec">
 			<div class="hlink">
 				<%= link_to 'Especie aleatoria', root_path %>
-				<%= link_to 'Busqueda avanzada', root_path %>
+				<%= link_to 'Busqueda avanzada', species_visor_path(:search => "1") %>
 			</div>
 			<%= form_tag('', {:id => 'sp_search_form'})  do %>
 				<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Consulta una especie por su nombre científico', :include_blank => false, :rel => 'autocomplete' %>

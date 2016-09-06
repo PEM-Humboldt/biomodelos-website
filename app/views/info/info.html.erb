@@ -1,0 +1,17 @@
+<select name="cities" id="cities">
+			<option value="Basel" selected="selected">Basel</option>
+			<option value="Bern">Bern</option>
+			<option value="Fribourg">Fribourg</option>
+			<option value="Geneva">Geneva</option>
+			<option value="Lugano">Lugano</option>
+			<option value="Zurich">Zurich</option>
+</select>
+
+<script>
+$(document).ready(function(){
+	$('#cities').change(function(){
+	    var home_city =$("#cities option:selected").val();
+	    console.log(home_city);
+	});
+});
+</script>
