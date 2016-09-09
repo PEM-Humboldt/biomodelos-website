@@ -73,14 +73,15 @@ body {
 
 #tooltip
 {
-    text-align: center;
+    text-align: left;
     color: #fff;
-    background: #1b3337;
+    background: #124c5e;
     position: absolute;
     z-index: 1004;
     padding: 10px;
     font-weight: 300;
     font-size: 0.87em;
+    white-space: pre-line;
 }
  
     #tooltip:after /* triangle decoration */
@@ -89,7 +90,7 @@ body {
         height: 0;
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
-        border-top: 10px solid #1b3337;
+        border-top: 10px solid #124c5e;
         content: '';
         position: absolute;
         left: 50%;
@@ -100,7 +101,7 @@ body {
         #tooltip.top:after
         {
             border-top-color: transparent;
-            border-bottom: 10px solid #1b3337;
+            border-bottom: 10px solid #124c5e;
             top: -20px;
             bottom: auto;
         }
@@ -1647,6 +1648,11 @@ p.groupuser {
 	background: none;
 }
 
+.newgrbtn:hover {
+	background-color: #db3f2a;
+	color: #fff;
+}
+
 .btnact {
 	border:none;
 	background-color: #db3f2a;
@@ -2382,6 +2388,12 @@ a.cajathumb p {
 	margin-bottom: 10px;
 }
 
+.figtxt {
+	font-size: 10px;
+	max-width: 500px;
+	line-height: 1;
+}
+
 .cvcolumn{
 	width: -moz-calc(100% - 55px);
 	width: -webkit-calc(100% - 55px);
@@ -2899,6 +2911,10 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	letter-spacing: 1px;
 	font-size: 0.86em;
 	margin-bottom: 15px;
+}
+
+.editactions .newgrbtn {
+	width: 103px;
 }
 
 .editthumb {
