@@ -1,0 +1,81 @@
+/**
+ * Default Look and Feel
+ */
+.alertify,
+.alertify-log {
+	font-family: 'Lato', sans-serif;
+}
+.alertify {
+	background: #FFF;
+	border: 1px solid #124c5e; /* browsers that don't support rgba */
+	border: 1px solid rgba(18,76,94,.7);
+	box-shadow: 0 3px 3px rgba(0,0,0,.3);
+	color: #393836;
+	-webkit-background-clip: padding;     /* Safari 4? Chrome 6? */
+	   -moz-background-clip: padding;     /* Firefox 3.6 */
+	        background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
+}
+	.alertify-text {
+		border: 1px solid #CCC;
+		padding: 10px;
+		border-radius: 4px;
+	}
+	.alertify-button {
+		color: #FFF;
+		letter-spacing: 1px;
+		font-weight: 300;
+		padding: 5px 10px !important;
+		text-decoration: none;
+		margin: 10px;
+		float: right;
+		line-height: 1;
+	}
+	.alertify-button:hover,
+	.alertify-button:focus {
+		color: #fff;
+	}
+	.alertify-button:focus,
+	.alertify-button:active {
+		line-height: 1;
+	}
+		.alertify-button-cancel{
+			background-color: #fff;
+			border: 1px solid #c12a26;
+			color: #c12a26;
+		}
+		.alertify-button-ok {
+			background-color: #fff;
+			border: 1px solid #1b3337;
+			color:#1b3337;
+		}		
+		.alertify-button-cancel:hover,
+		.alertify-button-cancel:focus {
+			background-color: #c12a26;
+			border: 1px solid #c12a26;
+			color:#fff;
+		}
+		.alertify-button-ok:hover,
+		.alertify-button-ok:focus {
+			background-color: #1b3337;
+			border: 1px solid #1b3337;
+			color:#fff;
+		}
+.alertify-message {
+	margin: 0;
+	margin-bottom: 20px;
+}
+.alertify-log {
+	background: #124c5e;
+	background: rgba(18,76,94,.9);
+	padding: 15px;
+	color: #FFF;
+	text-shadow: -1px -1px 0 rgba(0,0,0,.5);
+}
+	.alertify-log-error {
+		background: #FE1A00;
+		background: rgba(193,42,38,.9);
+	}
+	.alertify-log-success {
+		background: #1b3337;
+		background: rgba(27,51,55,.9);
+	}

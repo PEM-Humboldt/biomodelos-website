@@ -18,4 +18,6 @@
  *= require leaflet.markercluster/dist/MarkerCluster.Default
  *= require angularjs-slider/dist/rzslider.min
  *= require v-accordion/dist/v-accordion.min
+ *= require alertify.core
+ *= require alertify.default
  */

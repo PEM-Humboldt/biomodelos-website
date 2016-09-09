@@ -25,6 +25,7 @@
     "leaflet-draw": "0.3.1",
     "angularjs-slider": "^5.4.1",
     "v-accordion": "^1.6.0",
-    "jquery.nicescroll": "nicescroll#^3.6.8"
+    "jquery.nicescroll": "nicescroll#^3.6.8",
+    "alertify": "^0.3.10"
   }
 }
