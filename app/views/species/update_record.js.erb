@@ -1,0 +1,98 @@
+$(document).ready(function(){
+	console.log("send");
+	validate.extend(validate.validators.datetime, {
+		parse: function(value, options) {
+			return +moment.utc(value);
+		},
+	  // Input is a unix timestamp
+	  format: function(value, options) {
+	  	var format = options.dateOnly ? "YYYY-MM-DD" : "YYYY-MM-DD hh:mm:ss";
+	  	return moment.utc(value).format(format);
+	  }
+	});
+	console.log("1");
+	validate.validators.presence.message = "no puede estar vacío";
+
+	// Validación de los campos editables de un registro.
+	var latRecordEdition = $("#txtLatEdit").val(),
+		lonRecordEdition = $("#txtLonEdit").val(),
+		speRecordEdition = $("#txtSpeciesEdit").val(),
+		locRecordEdition = $("#txtLocEdit").val(),
+		dateRecordEdition = $("#txtDateEdit").val(),
+		colRecordEdition = $("#txtColectorEdit").val();
+
+	var varsToValidate = {},
+	constraints = {},
+	data = {userId_bm: "11"};
+	console.log("2");
+	if (latRecordEdition != $("#oldLatEdit").val()){
+		varsToValidate.lat = latRecordEdition;
+		constraints.lat = {};
+		constraints.lat.numericality = {};
+		constraints.lat.presence = true;
+		constraints.lat.numericality.greaterThanOrEqualTo = -90;
+		constraints.lat.numericality.lessThanOrEqualTo = 90;
+		data.lat = latRecordEdition;
+		console.log("2.1");
+	}
+	if (lonRecordEdition != $("#oldLonEdit").val()){
+		varsToValidate.lon = lonRecordEdition;
+		constraints.lon = {};
+		constraints.lon.numericality = {};
+		constraints.lon.presence = true;
+		constraints.lon.numericality.greaterThanOrEqualTo = -180;
+		constraints.lon.numericality.lessThanOrEqualTo = 180;
+		data.lon = lonRecordEdition;
+		console.log("2.2");
+	}
+	if(speRecordEdition != $("#oldSpeciesEdit").val()){
+		varsToValidate.speciesOriginal = speRecordEdition; 
+		data.speciesOriginal = speRecordEdition;
+		console.log("2.3");
+	}
+	if (locRecordEdition != $("#oldLocEdit").val()){
+		varsToValidate.localidad = locRecordEdition;
+		constraints.localidad = {};
+		constraints.localidad.presence = true;
+		data.locality = locRecordEdition;
+		console.log("2.4");
+	}
+	if (dateRecordEdition != $("#oldDateEdit").val()){
+		varsToValidate.fecha = dateRecordEdition;
+		constraints.fecha = {};
+		constraints.fecha.datetime = {};
+		constraints.fecha.format = {};
+		constraints.fecha.format.pattern =  /^\d{4}\-\d{2}\-\d{2}$/;
+		constraints.fecha.format.message = "El formato de fecha debe ser YYYY-MM-DD";
+		constraints.fecha.datetime.dateOnly = true;
+		constraints.fecha.datetime.latest = moment.utc();
+		constraints.fecha.datetime.tooLate = "No se admiten fechas mayores a la actual";
+		constraints.fecha.datetime.earliest = "1800-01-01";
+		constraints.fecha.datetime.tooEarly = "No se admiten fechas antes de 1800";
+		constraints.fecha.datetime.notValid = "La fecha no es válida";
+		data.earliestDateCollected = dateRecordEdition;
+		console.log("2.5");
+	}
+	// if (colRecordEdition != $("#oldColectorEdit").val()){
+	// 	varsToValidate.push("colector:" + colRecordEdition);
+	// 	console.log("2.6");
+	// }
+	console.log("3");
+	var valResponse = validate(varsToValidate, constraints, {format: "flat"});
+
+	if (valResponse){
+		alert(valResponse);
+	}
+	else{
+		$.ajax({
+		    type: 'PUT',
+		    dataType: 'json',
+		    url: "http://192.168.205.197:3000/BioModelos/records/" + $("#bm_db_id").val(),
+		    data: data,
+		    success: function(){
+		    	_BioModelosVisorModule.getSpeciesRecords();
+		    }
+		});
+		console.log(data);
+	}
+});

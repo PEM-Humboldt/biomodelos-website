@@ -5,48 +5,50 @@
 			          rz-slider-high="yearSlider.maxValue"
 			          rz-slider-options="yearSlider.options">
 			</rzslider>
+		<input type="hidden" ng-value="yearSlider.minValue" id="sliYearMin" />
+		<input type="hidden" ng-value="yearSlider.maxValue" id="sliYearMax" />
 		<div class="steptitle">Mes</div>
 			<div class="col4">
 				<label for="ene" class="meslbl">Ene</label>
-				<input type="checkbox" name="ene" class="meschk"></input>
+				<input type="checkbox" name="1" class="meschk"></input>
 				<label for="may" class="meslbl">May</label>
-				<input type="checkbox" name="may" class="meschk"></input>
+				<input type="checkbox" name="5" class="meschk"></input>
 				<label for="sep" class="meslbl">Sep</label>
-				<input type="checkbox" name="sep" class="meschk"></input>
+				<input type="checkbox" name="9" class="meschk"></input>
 			</div>
 			<div class="col4">
 				<label for="feb" class="meslbl">Feb</label>
-				<input type="checkbox" name="feb" class="meschk"></input>
+				<input type="checkbox" name="2" class="meschk"></input>
 				<label for="jun" class="meslbl">Jun</label>
-				<input type="checkbox" name="jun" class="meschk"></input>
+				<input type="checkbox" name="6" class="meschk"></input>
 				<label for="oct" class="meslbl">Oct</label>
-				<input type="checkbox" name="oct" class="meschk"></input>
+				<input type="checkbox" name="10" class="meschk"></input>
 			</div>
 			<div class="col4">
 				<label for="mar" class="meslbl">Mar</label>
-				<input type="checkbox" name="mar" class="meschk"></input>
+				<input type="checkbox" name="3" class="meschk"></input>
 				<label for="jul" class="meslbl">Jul</label>
-				<input type="checkbox" name="jul" class="meschk"></input>
+				<input type="checkbox" name="7" class="meschk"></input>
 				<label for="nov" class="meslbl">Nov</label>
-				<input type="checkbox" name="nov" class="meschk"></input>
+				<input type="checkbox" name="11" class="meschk"></input>
 			</div>
 			<div class="col4">
 				<label for="abr" class="meslbl">Abr</label>
-				<input type="checkbox" name="abr" class="meschk"></input>
+				<input type="checkbox" name="4" class="meschk"></input>
 				<label for="ago" class="meslbl">Ago</label>
-				<input type="checkbox" name="ago" class="meschk"></input>
+				<input type="checkbox" name="8" class="meschk"></input>
 				<label for="dic" class="meslbl">Dic</label>
-				<input type="checkbox" name="dic" class="meschk"></input>
+				<input type="checkbox" name="12" class="meschk"></input>
 			</div>
 		<div class="steptitle">Buscar por</div>
 			<select name="dropdownFiltros" id="filtroRegistro">
-				<option value="hide">- Tipo de filtro -</option>
+				<option value="">- Tipo de filtro -</option>
 				<option value="evidencia">Evidencia</option>
 				<option value="fuente">Fuente</option>
 				<option value="institucion">Institución</option>
 			</select>
 			<select name="dropdownValores" id="resultadoFiltro">
-				<option value="hide">- Categoria -</option>
+				<option value="">- Categoria -</option>
 			</select>
 		<div class="infotitle steptitle" title="Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo." rel="tooltip">Visualizar</div>
 		<div id="chkBoxFilters">
@@ -57,7 +59,7 @@
 			<input type="checkbox" name="visualadd" class="checkregistros"></input>
 			<label for="visualadd" class="lblvisual">Agregados</label></br>
 		</div>
-		<button class="btngen">limpiar</button>
+		<button class="btngen" id="limpiarBtn">limpiar</button>
 		<button class="btngen" id="filtrarBtn">filtrar</button>
 
 		<div class="foreditors">

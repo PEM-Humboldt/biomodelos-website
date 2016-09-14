@@ -22,5 +22,7 @@
 //= require v-accordion/dist/v-accordion.min
 //= require jquery.nicescroll/dist/jquery.nicescroll.min
 //= require tooltip
+//= require moment/min/moment.min
+//= require validate/validate.min
 //= require_tree ./angular
 //= require_tree ./controllers

@@ -6,7 +6,15 @@ class SpeciesController < ApplicationController
 	    end
 	    render json: result
   	end
+
   	def visor
 	  @skip_footer = true
 	end
+
+	def update_record
+		respond_to do |format|
+      		format.js
+    	end
+	end
+
 end

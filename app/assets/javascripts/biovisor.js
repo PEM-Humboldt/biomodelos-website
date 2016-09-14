@@ -32,6 +32,14 @@ var _BioModelosVisorModule = function() {
 								tooltipAnchor: [16, -28],
 								shadowSize:  [41, 41]});
 
+	var addNiceScroll = function(){
+		$('.regscroller').niceScroll({
+				cursorcolor: "#124c5e",
+				cursorwidth: "7px",
+				cursorborder: "none"
+		});
+	}
+
 	var init = function(){
 		var latlng = new L.LatLng(4, -72),
         	zoom = 6,
@@ -143,12 +151,12 @@ var _BioModelosVisorModule = function() {
 
 		clearLayer(cluster);
 
-		var url = "http://192.168.205.197:3000/BioModelos/species/Zamia tolimensis";
+		var url = "http://192.168.205.197:3000/BioModelos/species/Zamia amplifolia";
 		// var url = "http://192.168.11.81:3000/BioModelos/species/Aburria aburri";
 
 		$.getJSON(url,function(data){
-			species_records = data
-		    filterRecords('', '', ["","",""], ["",""], ["", ""]);
+			species_records = data;
+		    filterRecords(["",""], ["","",""], [], []);
 		});
 
 		cluster = L.markerClusterGroup();
@@ -156,7 +164,20 @@ var _BioModelosVisorModule = function() {
 		layerControl.addOverlay(cluster,"Registros");
 	}
 
-	var filterRecords = function(filter, val, visFilters, yearFilters, monthFilters){
+	var includesValue = function(val, arr){
+		for(var i=0; i<arr.length; i++){
+       		if (val == arr[i])
+       			return true;
+       	}
+       	return false;
+	}
+
+	/*
+	* Función que permite filtrar los registros
+	* filter
+	* val
+	*/
+	var filterRecords = function(selectFilters, visFilters, yearFilters, monthFilters){
 		cluster.clearLayers();
        	recordsLayer = L.geoJson(species_records,{
        			pointToLayer: function(feature, latlng) {
@@ -186,24 +207,24 @@ var _BioModelosVisorModule = function() {
        					monthFilter = true,
        					dataFilter = true;
 
-       				// if(feature.properties.Year < yearFilters[0] && feature.properties.Year > yearFilters[1]){
-       				// 	yearFilter = false;	
-       				// }
-       					
-       				// for(var i=0; i<monthFilters.length; i++){
-       				// 	if (feature.properties.Month != monthFilters[i]){
-       				// 		monthFilter = false;
-       				// 	}
-       				// }
-					switch (filter) {
+       				console.log(yearFilters);
+       				if(yearFilters != ""){
+       					if(feature.properties.Año < yearFilters[0] || feature.properties.Año > yearFilters[1]){
+       						yearFilter = false;	
+       					}
+       				}
+       				if(monthFilters != ""){
+       					monthFilter = includesValue(feature.properties.Mes, monthFilters);
+       				}
+					switch (selectFilters[0]){
 					  case 'Evidencia':
-					    dataFilter = feature.properties.Evidencia === val;
+					    dataFilter = feature.properties.Evidencia === selectFilters[1];
 					    break;
 					  case 'Fuente':
-					    dataFilter = feature.properties.Fuente === val;
+					    dataFilter = feature.properties.Fuente === selectFilters[1];
 					    break;
 					  case 'Institución':
-					  	dataFilter = feature.properties.Institucion === val;
+					  	dataFilter = feature.properties.Institucion === selectFilters[1];
 					  	break;
 					  case '':
 					    dataFilter = true;
@@ -213,7 +234,6 @@ var _BioModelosVisorModule = function() {
 					    break;
 					}
 					return yearFilter && monthFilter && dataFilter;
-
    				},	
 		 		onEachFeature: function (feature, layer) {
 		 			var popupcontent = [];
@@ -232,11 +252,7 @@ var _BioModelosVisorModule = function() {
 
 		map.on('popupopen', function(e) {
 		   currentPopupID = e.popup._leaflet_id;
-		   $('.regscroller').niceScroll({
-				cursorcolor: "#124c5e",
-				cursorwidth: "7px",
-				cursorborder: "none"
-			});
+		   addNiceScroll();
 		});
 	}
 
@@ -248,28 +264,36 @@ var _BioModelosVisorModule = function() {
 	        }
 	    });
 
-		console.log(editableLayer);
-
 	    var editableForm = [];
-	    editableForm.push('<div class="cajita"><div class="regscroller"><div id="point_lat"><input type="text" value="'+ editableLayer.feature.geometry.coordinates[1] +'"/input></div><div id="point_lon"><input type="text" value="'+ editableLayer.feature.geometry.coordinates[0] + '"/input></div>');
+	    editableForm.push('<div class="cajita"><div class="regscroller"><div id="point_lat"><input type="text" id="txtLatEdit" value="'+ editableLayer.feature.geometry.coordinates[1] +'"/input></div><div id="point_lon"><input type="text" id="txtLonEdit" value="'+ editableLayer.feature.geometry.coordinates[0] + '"/input></div>');
+		editableForm.push('<input type="hidden" id="oldLatEdit" value="'+ editableLayer.feature.geometry.coordinates[1] +'"/input><input type="hidden" id="oldLonEdit" value="'+ editableLayer.feature.geometry.coordinates[0] + '"/input>');
 					for (var prop in editableLayer.feature.properties) {
 						if(prop === '_id')
 							editableForm.push("<input id='bm_db_id' type='hidden' value='" + editableLayer.feature.properties[prop] + "'>");
-						else if(prop === 'Especie_Original')
-							editableForm.push('<b>'+ prop + '</b></br><input type="text" id="originalSpecies" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
-						else if(prop === 'Localidad')
-							editableForm.push('<b>'+ prop + '</b></br><input type="text" id="localidad" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
-						else if(prop === 'Fecha')
-							editableForm.push('<b>'+ prop + '</b></br><input type="text" id="fecha" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
-						else if(prop === 'Colector')
-							editableForm.push('<b>'+ prop + '</b></br><input type="text" id="colector" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
+						else if(prop === 'Especie_Original'){
+							editableForm.push('<b>'+ prop + '</b></br><input type="text" id="txtSpeciesEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
+							editableForm.push('<input type="hidden" id="oldSpeciesEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
+						}
+						else if(prop === 'Localidad'){
+							editableForm.push('<b>'+ prop + '</b></br><input type="text" id="txtLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
+							editableForm.push('<input type="hidden" id="oldLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
+						}
+						else if(prop === 'Fecha'){
+							editableForm.push('<b>'+ prop + '</b></br><input type="text" id="txtDateEdit" placeholder="YYYY/MM/DD" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
+							editableForm.push('<input type="hidden" id="oldDateEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
+
+						}
+						else if(prop === 'Colector'){
+							editableForm.push('<b>'+ prop + '</b></br><input type="text" id="txtColectorEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
+							editableForm.push('<input type="hidden" id="oldColectorEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
+
+						}
 						else
 							editableForm.push('<b>'+ prop + "</b></br>" + editableLayer.feature.properties[prop] + "</br>");	
 					}
-					editableForm.push('</div><div class="centering"><a href="" class="wrongbtn">Enviar</a><a href="" class="wrongbtn" id="cancelRecordEdition">Cancelar</a></div>');
+					editableForm.push('</div><div class="centering"><a href="" class="wrongbtn" id="sendRecordEdition">Enviar</a><a href="" class="wrongbtn" id="cancelRecordEdition">Cancelar</a></div>');
 					// editableLayer.bindPopup(editableForm.join('<div class="mt10"></div>'));
 					var oldContent = editableLayer._popup.getContent();
-					console.log(oldContent);
 					editableLayer.setPopupContent(editableForm.join('<div class="mt10"></div>'));
 
 		// Set the old content back when the popup closes.
@@ -280,9 +304,10 @@ var _BioModelosVisorModule = function() {
 		$( "#cancelRecordEdition" ).on( "click", function(e) {
   			e.preventDefault();
 			editableLayer.setPopupContent(oldContent);
+			addNiceScroll();
 		});
 
-	    console.log(editableLayer);
+		addNiceScroll();
 	}
 
 	var uniqueValues = function(filterName){
@@ -312,7 +337,6 @@ var _BioModelosVisorModule = function() {
 		    result.push(name);
 		  }
 		}
-
 		return result;
 	}
 
@@ -612,7 +636,8 @@ var _BioModelosVisorModule = function() {
 		uniqueValues: uniqueValues,
 		cancelAddPoint: cancelAddPoint,
 		deletePolygon: deletePolygon,
-		deactivateDraw: deactivateDraw
+		deactivateDraw: deactivateDraw,
+		getSpeciesRecords: getSpeciesRecords
 	}
 }();
 
@@ -626,5 +651,4 @@ $(document).ready(function() {
         e.preventDefault();
 		_BioModelosVisorModule.addActionToPolygon(e);
   	});
-
 });

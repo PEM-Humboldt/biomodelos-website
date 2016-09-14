@@ -1,11 +1,10 @@
 angular.module('biomodelos')
-    .controller('visorCtrl' , ['$scope', function($scope) {
+    .controller('visorCtrl' , ['$scope','$timeout', function($scope, $timeout) {
         
     $scope.isActive = false;
     $scope.activeButton = function() {
     	$scope.isActive = !$scope.isActive;
     };
-
 
     $scope.corteSlider = {
     	value : 5,
@@ -18,10 +17,6 @@ angular.module('biomodelos')
     		{value: '20%'},
     		{value: '30%'}
     		],
-    		onStart: function(){
-    			// _BioModelosVisorModule.setLayers("../Abarema barbourian.png", "../Abarema barbouriana_0_mx.png", "../Abarema barbouriana_10_mx.png", "../Abarema barbouriana_20_mx.png", "../Abarema barbouriana_30_mx.png");
-
-    		},
     		onChange: function() {
     			_BioModelosVisorModule.changeThresholdLayer($scope.corteSlider.value);
             	console.log('on change ' + $scope.corteSlider.value); // logs 'on change slider-id'
@@ -51,9 +46,14 @@ angular.module('biomodelos')
 	    }
 	};
 
-
-
-
+	$scope.resetSlider = function () {
+		$scope.yearSlider.minValue = '0';
+		$scope.yearSlider.maxValue = 'Hoy';
+		//Refresh the slider
+	    $timeout(function () {
+	      $scope.$broadcast('rzSliderForceRender');
+	    });
+ 	};
 }]);
 
 angular.module('biomodelos').directive('selectable', function(){ 

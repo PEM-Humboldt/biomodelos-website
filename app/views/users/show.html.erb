@@ -1,10 +1,10 @@
 <div class="innercontainer bckperfil" ng-controller="perfilCtrl">
 <div class="perfilcont">
 	<div class="col2">
-		<h2>César Gutiérrez</h2>
+		<h2><%= @user.name %></h2>
 		<div class="perfilsub intgroups">Aves acuáticas, Mamíferos</div>
-		<div class="perfilsub">Instituto Alexander von Humboldt</div>
-		<div class="perfilsub">Bogotá</div>
+		<div class="perfilsub"><%= @user.organization %></div>
+		<div class="perfilsub"><%= @user.location %></div>
 		<div class="perfilimg">
 			<%= image_tag("perfilprueba.jpg") %>
 		</div>
@@ -16,8 +16,7 @@
 
 		<div class="clearfix"></div>
 		<div class="perfilunder">Biografía</div>
-		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.
-		Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.</p>
+		<p><%= @user.bio %></p>
 		<div class="perfilunder">Grupos</div>
 		<p class="groupuser"><a href="">Especie del Mes  ·  </a>23/02/2016</p>
 		<p class="groupuser"><a href="">Aves Acuáticas  ·  </a>15/02/2016</p>
@@ -46,240 +45,23 @@
 	     </ul>
 
 		<div ng-show="isSet(1)" class="cajaperfil scrollp">
-			<h1>estadísticas</h1>
-			<div class="estadbox">
-				<h2>aportes realizados</h2>
-				<h6>29</h6>
-			</div>
-			<div class="estadbox">
-				<h2>registrados reportados</h2>
-				<h6>24</h6>
-			</div>
-			<div class="estadbox">
-				<h2>especies que trabaja</h2>
-				<h6>04</h6>
-			</div>
-			<div class="estadbox">
-				<h2>especies que sigue</h2>
-				<h6>15</h6>
-			</div>
-			<div class="estadbox">
-				<h2>grupos que pertenece</h2>
-				<h6>02</h6>
-			</div>
-			<div class="estadbox">
-				<h2>mapas publicados</h2>
-				<h6>01</h6>
-			</div>
+			<%= render 'users/users_statistics' %>
 		</div>
 		<div ng-show="isSet(2)" class="cajaperfil">
-			<h1>tareas</h1>
-				<div class="colspp tabletit">
-					<h2>Especie</h2>
-				</div><!-- 
-			 --><div class="coladv tabletit">
-					<%= image_tag("regperfil.png") %>
-				</div><!-- 
-			 --><div class="coladv tabletit">
-					<%= image_tag("penperfil.png") %>
-				</div><!-- 
-			 --><div class="coladv tabletit specialicon">
-					<h3>Aprobado</h3>
-					<%= image_tag("aprobicon.png") %>
-				</div><!-- 
-			 --><div class="coladv tabletit specialicon">
-					<h3>%Avance</h3>
-					<%= image_tag("percicon.png") %>
-				</div>
-				<div class="tareaspp"><!-- 
-				--><a class="colspp">Wingardium leviosa</a><!-- 
-				--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
-				--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
-				--><div class="coladv"><input type="checkbox" ></input></div><!-- 
-				--><p class="coladv">50%</p>
-				</div>
-				<div class="tareaspp"><!-- 
-				--><a class="colspp">Wingardium leviosa</a><!-- 
-				--><div class="coladv"><input type="checkbox" ></input></div><!-- 
-				--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
-				--><div class="coladv"><input type="checkbox" ></input></div><!-- 
-				--><p class="coladv">50%</p>
-				</div>
-				<div class="tareaspp"><!-- 
-				--><a class="colspp">Wingardium leviosa</a><!-- 
-				--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
-				--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
-				--><div class="coladv"><input type="checkbox" ></input></div><!-- 
-				--><p class="coladv">100%</p>
-				</div>
-				<div class="tareaspp"><!-- 
-				--><a class="colspp">Wingardium leviosa</a><!-- 
-				--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
-				--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
-				--><div class="coladv"><input type="checkbox" ></input></div><!-- 
-				--><p class="coladv">50%</p>
-				</div>
+			<%= render 'users/users_tasks' %>
 		</div>
 		<div ng-show="isSet(3)" class="cajaperfil">
-			<h1>mis mapas</h1>
-			<div class="aligner">
-				<div class="mymap">
-					<h4>En desarrollo</h4>
-					<div class="mmicon clearfix">
-						<%= image_tag("downiconf.png") %>
-						<%= image_tag("metaiconf.png") %>
-						<%= image_tag("linkiconf.png") %>
-						<%= image_tag("deliconf.png", :class => 'delicon') %>
-					</div>
-					<div class="mymapthumb"><%= image_tag("nomap.png") %></div>
-				</div>
-				<div class="mymap">
-					<a class="spmapname">Tessmanniacanthus chlamydocardioides</a>
-					<h6 class="fechamapa">18 · Jun · 2016 - 16:36</h6>
-					<div class="mmicon clearfix">
-						<a href=""><%= image_tag("downicon.png") %></a>
-						<a href=""><%= image_tag("metaicon.png") %></a>
-						<a href=""><%= image_tag("linkicon.png") %></a>
-						<a href="" class="delicon"><%= image_tag("delicon.png") %></a>
-					</div>
-					<a href="">
-						<div class="mymapthumb"><%= image_tag("mapthumb.png") %></div>
-					</a>
-				</div>
-				<div class="mymap">
-					<a class="spmapname">Aburria aburri</a>
-					<h6 class="fechamapa">18 · Jun · 2016 - 16:36</h6>
-					<div class="mmicon clearfix">
-						<a href=""><%= image_tag("downicon.png") %></a>
-						<a href=""><%= image_tag("metaicon.png") %></a>
-						<a href=""><%= image_tag("linkicon.png") %></a>
-						<a href="" class="delicon"><%= image_tag("delicon.png") %></a>
-					</div>
-					<a href="">
-						<div class="mymapthumb"><%= image_tag("mapthumb.png") %></div>
-					</a>
-				</div>
-
-			</div>
+			<%= render 'users/users_maps' %>
 		</div>
 		<div ng-show="isSet(4)" class="cajaperfil sppbox">
-			<h1>especies</h1>
-			<div class="spptit">
-				<h2>Especies que trabaja</h2>
-				<h3>% Avance</h3>
-			</div>
-			<div class="spp">
-				<a>Wingardium leviosa</a>
-				<p class="spperc">100%</p>
-			</div>
-			<div class="spp">
-				<a>Wingardium leviosa</a>
-				<p class="spperc">50%</p>
-			</div>
-			<div class="spp">
-				<a>Tessmanniacanthus chlamydocardioides</a>
-				<p class="spperc">25%</p>
-			</div>
-			<div class="spp">
-				<a>Wingardium leviosa</a>
-				<p class="spperc">70%</p>
-			</div>
-
-
-			<div class="spptit">
-				<h2>Especies que sigue</h2>
-				<h3>Dejar</h3>
-			</div>
-			<div class="spp">
-				<a>Wingardium leviosa</a>
-				<button class="leavesp">X</button>
-			</div>
-			<div class="spp">
-				<a>Wingardium leviosa</a>
-				<button class="leavesp">X</button>
-			</div>
+			<%= render 'users/users_species' %>
 		</div>
 		<div ng-show="isSet(5)" class="cajaperfil">
-			<h1>actividad</h1>
-			<div class="notif">
-				<div class="spp">
-					<a>Wingardium leviosa</a>
-					<h6 class="fechanotif">18 · Jun · 2016 - 16:36</h6>
-				</div>
-				<p class="aporte">Aporte de edición</p>
-			</div>
-			<div class="notif">
-				<div class="spp">
-					<a>Tessmanniacanthus chlamydocardioides</a>
-					<h6 class="fechanotif">18 · Jun · 2016 - 16:36</h6>
-				</div>
-				<p class="aporte">Curación de registros</p>
-			</div>
-			<div class="notif">
-				<div class="spp">
-					<a>Wingardium leviosa</a>
-					<h6 class="fechanotif">18 · Jun · 2016 - 16:36</h6>
-				</div>
-				<p class="aporte">Variables ecológicas</p>
-			</div>
-			<div class="notif">
-				<div class="spp">
-					<a>Wingardium leviosa</a>
-					<h6 class="fechanotif">18 · Jun · 2016 - 16:36</h6>
-				</div>
-				<p class="aporte">Aporte de edición</p>
-			</div>
-			<div class="notif">
-				<div class="spp">
-					<a>Wingardium leviosa</a>
-					<h6 class="fechanotif">18 · Jun · 2016 - 16:36</h6>
-				</div>
-				<p class="aporte">Aporte de edición</p>
-			</div>
-			<div class="notif">
-				<div class="spp">
-					<a>Wingardium leviosa</a>
-					<h6 class="fechanotif">18 · Jun · 2016 - 16:36</h6>
-				</div>
-				<p class="aporte">Aporte de edición</p>
-			</div>
+			<%= render 'users/users_activity' %>
 		</div>
 		<div ng-show="isSet(6)" class="cajaperfil">
-			<h1>notificaciones</h1>
-			<div class="notif">
-				<%= image_tag("nouserthumb.png") %>
-				<h6 class="fechanotif">18 · Jun · 2016 - 16:36</h6>
-				<p><a href="">Victor Setina Liz</a> fue aceptado en el grupo <a href="">Mamíferos de Colombia</a></p>
-			</div>
-			<div class="notif">
-				<%= image_tag("userthumbp.png") %>
-				<h6 class="fechanotif">18 · Jun · 2016 - 16:35</h6>
-				<p><a href="">Ricardo Reyes Jiménez</a> fue aceptado en el grupo <a href="">Mamíferos de Colombia</a></p>
-			</div>
-			<div class="notif">
-				<%= image_tag("nouserthumb.png") %>
-				<h6 class="fechanotif">18 · Jun · 2016 - 16:35</h6>
-				<p><a href="">Pável Tovar Lizcano</a> fue aceptado en el grupo <a href="">Mamíferos de Colombia</a></p>
-			</div>
-			<div class="notif">
-				<%= image_tag("userthumbp.png") %>
-				<h6 class="fechanotif">21 · May · 2016 - 08:41</h6>
-				<p><a href="">juan salvador mendoza</a> fue aceptado en el grupo <a href="">Herpetos de Colombia</a></p>
-			</div>
+			<%= render 'users/users_notifications' %>
 		</div>
-
 	</div>
-
-
 </div>
 </div>
-
-<script>
-
-$('.cajaperfil').niceScroll({
-	cursorcolor: "#5d5e5e",
-	cursorwidth: "7px",
-	cursorborder: "none"
-});
-$( ".tareaspp:odd" ).css( "background-color", "#f2f2f2" );
-</script>

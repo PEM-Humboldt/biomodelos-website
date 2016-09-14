@@ -27,7 +27,6 @@ $(document).ready(function(){
 	/*
 	*	Funcionalidad de los botones de edición de polígonos y agregación de registros.
 	*/
-
 	function deactivateEdition(){
 		$(".polig").removeClass("opacitybtn");
 		$(".polig").prop('disabled', false);
@@ -124,13 +123,15 @@ $(document).ready(function(){
 	customSelect();
 	$("#filtroRegistro").change(function(){
 		var filterValues = _BioModelosVisorModule.uniqueValues($('#filtroRegistro option:selected').text());
-		$('#resultadoFiltro').html('');
-		$.each(filterValues, function (index, value) {
-    		$('#resultadoFiltro').append($('<option/>', { 
-        		value: value,
-        		text : value 
-    		}));
-		});
+		$('#resultadoFiltro').html('<option value="">- Categoria -</option>');
+		if(filterValues != ""){
+			$.each(filterValues, function (index, value) {
+	    		$('#resultadoFiltro').append($('<option/>', { 
+	        		value: value,
+	        		text : value 
+	    		}));
+			});
+		}
 		var $customSelectBox = $('#resultadoFiltro').parent().find(".select-styled"),
 			$customSelectOptions = $('#resultadoFiltro').parent().find(".select-options");
 		
@@ -213,21 +214,52 @@ $(document).ready(function(){
 		        $styledSelect.removeClass('active');
 		        $list.hide();
 		    });
-
 		});
 	}
 
 	/* Boton de filtrar registros */
 	$("#filtrarBtn").click(function(e){
-		var sThisVal = [];
-		$('#chkBoxFilters input:checkbox').each(function () {
-       		sThisVal.push(this.checked ? $(this).attr('name') : "");
+		var selectFilters = [],
+			yearFilters = [],
+			monthFilters = [];
+
+		// Almacena el tipo de filtro y el valor
+		selectFilters[0] = $("#filtroRegistro option:selected").text();
+		selectFilters[1] = $("#resultadoFiltro option:selected").text();
+  		// Guarda el rango de los años en un arreglo
+  		yearFilters[0] = $("#sliYearMin").val();
+  		yearFilters[1] = $("#sliYearMax").val();
+  		if(yearFilters[0] === 'Hoy')
+  			yearFilters[0] = moment().format("YYYY");
+  		if(yearFilters[1] === 'Hoy')
+  			yearFilters[1] = moment().format("YYYY");
+  		// Guarda los meses seleccionados en un arreglo
+  		$('input[type="checkbox"].meschk').each(function () {
+  			if(this.checked)
+  				monthFilters.push($(this).attr('name'));
   		});
-  		var visFilters = ["", "visualedit",""],
-  			yearFilters = ["", ""],
-  			monthFilters = ["", ""];
-		_BioModelosVisorModule.filterRecords($("#filtroRegistro option:selected").text(), $("#resultadoFiltro option:selected").text(), visFilters, yearFilters, monthFilters);
+  		var visFilters = ["", "visualedit",""];
+
+  		console.log(yearFilters + " " + monthFilters);
+		_BioModelosVisorModule.filterRecords(selectFilters, visFilters, yearFilters, monthFilters);
 	})
+
+	/* Botón Limpiar filtros
+		1. Reset DOM (año, mes, select, filtros)
+	*/
+	$("#limpiarBtn").click(function(e){
+		//Reset slider Año
+		angular.element($("#visCntrl")).scope().resetSlider();
+		//Reset meses
+		$('input:checkbox.meschk').removeAttr('checked');
+		//Reset filters
+		$(".select-options li:contains('Tipo de filtro')").click();
+		//Reset visualizar filters
+		$('#chkBoxFilters input:checkbox').removeAttr('checked');
+		//Reset data
+		_BioModelosVisorModule.getSpeciesRecords();
+	});
+
 
 	/* Botón para activar menú de edición */
 	$("#cbt_editBtn").click(function(e){
@@ -257,7 +289,6 @@ $(document).ready(function(){
 		$(".btnedicion").show();
 		$("#regMenu_slider").hide();
 		$(".btnedicion").click();
-
 	});
 
 	$(".vbtnedit").click(function(e){
@@ -267,10 +298,17 @@ $(document).ready(function(){
 		if($(".cajitaeditar").is(":visible")){
 			$(".btnedicion").click();
 		}
-
 	});
 
 
+	/* Botón enviar edición de registro */
+	$("body").on("click","#sendRecordEdition",function(e){
+        e.preventDefault();
+		$.ajax({
+		    type: 'POST', 
+		    url: "/species/update_record"
+		});
+	});
 });
 
 

@@ -32,4 +32,4 @@ doc/
 
 #Ignore bower components
 /vendor/assets/bower_components
-
+/public
