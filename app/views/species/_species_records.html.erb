@@ -1,13 +1,14 @@
-<div class="steptitle fleft">Año</div>
-			<label for="checkboxna" class="yearchklb">NA</label>
-			<input type="checkbox" name="checkboxna" class="yearchk"></input>
+<div class="steptitle fleft" title="Advertencia: este filtro sólo funciona en los registros que tienen el campo fecha con el formato adecuado. Debido a errores de las fuentes, no es posible reconocer el año de todos los registros." rel="tooltip">Año</div>
+<!-- 			<label for="checkboxna" class="yearchklb">NA</label>
+			<input type="checkbox" name="checkboxna" class="yearchk"></input> -->
 			<rzslider rz-slider-model="yearSlider.minValue"
 			          rz-slider-high="yearSlider.maxValue"
 			          rz-slider-options="yearSlider.options">
 			</rzslider>
+
 		<input type="hidden" ng-value="yearSlider.minValue" id="sliYearMin" />
 		<input type="hidden" ng-value="yearSlider.maxValue" id="sliYearMax" />
-		<div class="steptitle">Mes</div>
+		<div class="steptitle" title="Si deseas filtrar los registros de la especie para algunos meses en particular selecciona las casillas correspondientes a estos." rel="tooltip">Mes</div>
 			<div class="col4">
 				<label for="ene" class="meslbl">Ene</label>
 				<input type="checkbox" name="1" class="meschk"></input>
@@ -40,7 +41,7 @@
 				<label for="dic" class="meslbl">Dic</label>
 				<input type="checkbox" name="12" class="meschk"></input>
 			</div>
-		<div class="steptitle">Buscar por</div>
+		<div class="steptitle" title="Puedes filtrar los registros por tipo de evidencia, fuente de los registros o institución. Una vez seleccionado el campo, encontrarás solamente los valores de dicho campo en la siguiente casilla." rel="tooltip">Buscar por</div>
 			<select name="dropdownFiltros" id="filtroRegistro">
 				<option value="">- Tipo de filtro -</option>
 				<option value="evidencia">Evidencia</option>
@@ -50,7 +51,10 @@
 			<select name="dropdownValores" id="resultadoFiltro">
 				<option value="">- Categoria -</option>
 			</select>
-		<div class="infotitle steptitle" title="Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo." rel="tooltip">Visualizar</div>
+		<div class="infotitle steptitle" title="En esta sección podrás resaltar los registros por:&#013;&#013;
+• Registro extremo: aplica para observaciones que son válidas pero que corresponden a eventos aislados que pueden sesgar un modelo.&#013; 
+• Reportados: aquellos registros que han tenido un reporte de error previo en BioModelos.&#013; 
+• Agregados: aquellos registros que los expertos han contribuido a través de BioModelos." rel="tooltip">Visualizar</div>
 		<div id="chkBoxFilters">
 			<input type="checkbox" name="visualrep" class="checkregistros"></input>
 			<label for="visualrep" class="lblvisual">Reportados</label></br>
@@ -64,11 +68,11 @@
 
 		<div class="foreditors">
 			<div class="littleline"></div>
-			<div class="steptitle">Agregar registro</div>
+			<div class="steptitle" title="1: Las coordenadas del visor geográfico permiten agregar un registro para la especie, después podrás cambiarlas y llenar los demás campos de documentación." rel="tooltip">Agregar registro</div>
 				<button class="btngen marbtnreg" id="btnAddSingleRecord">1</button>
-				<button class="btngen marbtnreg">conjunto</button>
+				<!-- <button class="btngen marbtnreg">conjunto</button>
 			<div class="infotitle steptitle lh25" title="Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo." rel="tooltip">Actualizar taxonomía</div>
-				<button class="taxbtn"></button>
+				<button class="taxbtn"></button> -->
 		</div>
 
 <script type="text/javascript">

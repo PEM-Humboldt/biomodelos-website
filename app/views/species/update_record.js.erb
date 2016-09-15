@@ -10,7 +10,6 @@ $(document).ready(function(){
 	  	return moment.utc(value).format(format);
 	  }
 	});
-	console.log("1");
 	validate.validators.presence.message = "no puede estar vacío";
 
 	// Validación de los campos editables de un registro.
@@ -24,7 +23,6 @@ $(document).ready(function(){
 	var varsToValidate = {},
 	constraints = {},
 	data = {userId_bm: "11"};
-	console.log("2");
 	if (latRecordEdition != $("#oldLatEdit").val()){
 		varsToValidate.lat = latRecordEdition;
 		constraints.lat = {};
@@ -33,7 +31,6 @@ $(document).ready(function(){
 		constraints.lat.numericality.greaterThanOrEqualTo = -90;
 		constraints.lat.numericality.lessThanOrEqualTo = 90;
 		data.lat = latRecordEdition;
-		console.log("2.1");
 	}
 	if (lonRecordEdition != $("#oldLonEdit").val()){
 		varsToValidate.lon = lonRecordEdition;
@@ -43,19 +40,16 @@ $(document).ready(function(){
 		constraints.lon.numericality.greaterThanOrEqualTo = -180;
 		constraints.lon.numericality.lessThanOrEqualTo = 180;
 		data.lon = lonRecordEdition;
-		console.log("2.2");
 	}
 	if(speRecordEdition != $("#oldSpeciesEdit").val()){
 		varsToValidate.speciesOriginal = speRecordEdition; 
 		data.speciesOriginal = speRecordEdition;
-		console.log("2.3");
 	}
 	if (locRecordEdition != $("#oldLocEdit").val()){
 		varsToValidate.localidad = locRecordEdition;
 		constraints.localidad = {};
 		constraints.localidad.presence = true;
 		data.locality = locRecordEdition;
-		console.log("2.4");
 	}
 	if (dateRecordEdition != $("#oldDateEdit").val()){
 		varsToValidate.fecha = dateRecordEdition;
@@ -71,17 +65,15 @@ $(document).ready(function(){
 		constraints.fecha.datetime.tooEarly = "No se admiten fechas antes de 1800";
 		constraints.fecha.datetime.notValid = "La fecha no es válida";
 		data.earliestDateCollected = dateRecordEdition;
-		console.log("2.5");
 	}
 	// if (colRecordEdition != $("#oldColectorEdit").val()){
 	// 	varsToValidate.push("colector:" + colRecordEdition);
 	// 	console.log("2.6");
 	// }
-	console.log("3");
 	var valResponse = validate(varsToValidate, constraints, {format: "flat"});
 
 	if (valResponse){
-		alert(valResponse);
+		alertify.alert(valResponse);
 	}
 	else{
 		$.ajax({

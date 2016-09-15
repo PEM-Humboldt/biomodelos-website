@@ -11,7 +11,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616180140) do
+ActiveRecord::Schema.define(version: 20160914203500) do
+
+  create_table "group_states", force: :cascade do |t|
+    t.string   "name",       limit: 100, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name",           limit: 100, null: false
+    t.text     "message",        limit: 500
+    t.string   "logo",           limit: 255
+    t.integer  "group_state_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groups", ["group_state_id"], name: "index_groups_on_group_state_id"
+
+  create_table "groups_species", force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "species_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groups_species", ["group_id"], name: "index_groups_species_on_group_id"
+  add_index "groups_species", ["species_id"], name: "index_groups_species_on_species_id"
+
+  create_table "groups_users", force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.integer  "groups_users_state_id"
+    t.boolean  "is_admin",              null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groups_users", ["group_id"], name: "index_groups_users_on_group_id"
+  add_index "groups_users", ["groups_users_state_id"], name: "index_groups_users_on_groups_users_state_id"
+  add_index "groups_users", ["user_id"], name: "index_groups_users_on_user_id"
+
+  create_table "groups_users_states", force: :cascade do |t|
+    t.string   "name",       limit: 100, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "species", force: :cascade do |t|
     t.string   "sci_name"
@@ -20,6 +66,28 @@ ActiveRecord::Schema.define(version: 20160616180140) do
   end
 
   add_index "species", ["sci_name"], name: "index_species_on_sci_name", unique: true
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer  "species_id"
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.integer  "task_type_id"
+    t.boolean  "complete",     default: false, null: false
+    t.boolean  "active",       default: true,  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tasks", ["group_id"], name: "index_tasks_on_group_id"
+  add_index "tasks", ["species_id"], name: "index_tasks_on_species_id"
+  add_index "tasks", ["task_type_id"], name: "index_tasks_on_task_type_id"
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
+
+  create_table "tasks_types", force: :cascade do |t|
+    t.string   "name",       limit: 255, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 100,              null: false

@@ -209,12 +209,12 @@ var _BioModelosVisorModule = function() {
 
        				console.log(yearFilters);
        				if(yearFilters != ""){
-       					if(feature.properties.Año < yearFilters[0] || feature.properties.Año > yearFilters[1]){
+       					if(feature.properties.Año_colectado < yearFilters[0] || feature.properties.Año_colectado > yearFilters[1]){
        						yearFilter = false;	
        					}
        				}
        				if(monthFilters != ""){
-       					monthFilter = includesValue(feature.properties.Mes, monthFilters);
+       					monthFilter = includesValue(feature.properties.Mes_colectado, monthFilters);
        				}
 					switch (selectFilters[0]){
 					  case 'Evidencia':

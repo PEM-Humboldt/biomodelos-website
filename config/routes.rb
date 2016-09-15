@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   get "species/autocomplete"
   get "species/visor"
-  get "groups/show"
   get "home/contact_us"
   get "home/about_us"
   get "home/publish"
@@ -24,7 +23,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :users, :only => [:index, :show]
-  resources :groups, :only => [:index]
+  resources :groups, :only => [:index, :show]
   resources :info, :only => [:index]
   # Example resource route with options:
   #   resources :products do

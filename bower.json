@@ -27,6 +27,7 @@
     "v-accordion": "^1.6.0",
     "jquery.nicescroll": "nicescroll#^3.6.8",
     "validate": "validate.js#^0.10.0",
-    "moment": "^2.14.1"
+    "moment": "^2.14.1",
+    "alertify": "^0.3.10"
   }
 }

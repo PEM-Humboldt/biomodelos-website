@@ -1,7 +1,7 @@
 <div class="innercontainer bckgroup" ng-controller="perfilCtrl">
 <div class="perfilcont">
 	<div class="col2">
-		<h2>Magnolias de Colombia</h2>
+		<h2><%= @group.name %></h2>
 		<div class="groupimg">
 			<%= image_tag("gruposprueba.jpg") %>
 		</div>
@@ -15,7 +15,7 @@
 		<div class="perfilsub modertext">Moderador(es)</div>
 		<p>Norberto Lopez Alvarez</p>
 		<div class="groupunder">Mensaje al grupo</div>
-		<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.</p>
+		<p><%= @group.message %>.</p>
 		<div class="groupunder">Última Actividad</div>
 		<p class="actvspp"><a>Wingardium leviosa</a> · Aporte de Edición</p>
 		<p class="actuser"><a>Norberto Lopez Alvarez</a> · 15/02/2016</p>
