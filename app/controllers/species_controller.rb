@@ -8,10 +8,24 @@ class SpeciesController < ApplicationController
   	end
 
   	def visor
-	  @skip_footer = true
+	  	@skip_footer = true
+	end
+
+	def set_species
+		@species = Species.find_name(params[:species_id])
+
+		respond_to do |format|
+      		format.js
+    	end
 	end
 
 	def update_record
+		respond_to do |format|
+      		format.js
+    	end
+	end
+
+	def report_record
 		respond_to do |format|
       		format.js
     	end

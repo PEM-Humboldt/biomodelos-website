@@ -4,8 +4,9 @@
 		</div>
 		<div class="cvcolumn">
 			<p>Activando nuestro sistema de filtros puedes reducir o aumentar el listado de especies hasta encontrar la especie deseada, o escribir su nombre directamente en el buscador. Ten en cuenta que no todas las especies tienen modelo de distribución, pero si opciones para avanzar en su desarrollo.</p>
-			<%= form_tag('', {:id => 'sp_search_form'})  do %>
+			<%= form_tag({:controller => 'species', :action => 'set_species'}, {:method => 'post', :remote => true,:id => 'sp_search_form'})  do %>
 				<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Consulta una especie por su nombre científico', :include_blank => false, :rel => 'autocomplete' %>
+				<%= hidden_field_tag 'species_id' %>
 				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'species_src_btn' %>
 			<% end %>
 			<h2>FILTROS</h2>

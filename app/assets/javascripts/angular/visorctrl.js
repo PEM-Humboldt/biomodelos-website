@@ -6,6 +6,11 @@ angular.module('biomodelos')
     	$scope.isActive = !$scope.isActive;
     };
 
+    $scope.changeLayer = function (){
+      _BioModelosVisorModule.changeThresholdLayer($scope.corteSlider.value);
+      console.log('on change ' + $scope.corteSlider.value); // logs 'on change slider-id'
+    }
+
     $scope.corteSlider = {
     	value : 5,
     	options: {
@@ -17,10 +22,7 @@ angular.module('biomodelos')
     		{value: '20%'},
     		{value: '30%'}
     		],
-    		onChange: function() {
-    			_BioModelosVisorModule.changeThresholdLayer($scope.corteSlider.value);
-            	console.log('on change ' + $scope.corteSlider.value); // logs 'on change slider-id'
-        	}
+    		onChange: $scope.changeLayer
     	}
 	};
 
@@ -54,6 +56,17 @@ angular.module('biomodelos')
 	      $scope.$broadcast('rzSliderForceRender');
 	    });
  	};
+
+  $scope.changeThreshold = function (threshold){
+      $scope.corteSlider.value = threshold;
+      //Refresh the slider
+      $timeout(function () {
+        $scope.$broadcast('rzSliderForceRender');
+      });
+      $scope.changeLayer();
+  }
+
+
 }]);
 
 angular.module('biomodelos').directive('selectable', function(){ 

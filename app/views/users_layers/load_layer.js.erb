@@ -1,0 +1,14 @@
+/* Carga una capa preexistente en BioModelos */
+<%if @layer.blank? %>
+	$("#layer_id_field").val("");
+<% else %>
+	_BioModelosVisorModule.loadUserLayer("<%= @layer.geoJSON %>".replace(/&quot;/g,'"'));
+	$("#layer_id_field").val(<%= @layer.id %>);
+	<% if !@layer.newModel %>
+		//Carga los umbrales del modelo
+		_BioModelosVisorModule.setLayers($("#continuous_t_url").val(), $("#zero_t_url").val(), $("#ten_t_url").val(), $("#twenty_t_url").val(), $("#thirty_t_url").val());
+		// Selecciona el umbral sobre el que había trabajado el usuario.
+		angular.element($("#visCntrl")).scope().changeThreshold("<%= @layer.threshold %>");
+	<% end %>
+<% end %>
+		

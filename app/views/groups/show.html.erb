@@ -13,7 +13,9 @@
 
 		<div class="clearfix"></div>
 		<div class="perfilsub modertext">Moderador(es)</div>
-		<p>Norberto Lopez Alvarez</p>
+		<% @group_members.select{|x| x.is_admin == true}.each do |admin| %>
+			<p><%= admin.user.name %></p>
+		<% end %>
 		<div class="groupunder">Mensaje al grupo</div>
 		<p><%= @group.message %>.</p>
 		<div class="groupunder">Última Actividad</div>

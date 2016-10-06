@@ -1,0 +1,17 @@
+<%= simple_form_for :point_comment, :url => species_report_record_path, :method => :post, :remote => true, :html => {:class => "pointcomm" } do |f| %>
+	<%= f.input :user_id, :as => :hidden, :input_html => {:value => current_user.id} %>
+	<%= f.input :recordId, :as => :hidden %>
+	<%= f.input :dataBaseId, :as => :hidden %>
+	<%= f.input :species_id, :as => :hidden %>
+	<%= f.input :lat, :as => :hidden %>
+	<%= f.input :lon, :as => :hidden %>
+	<%= f.input :isOutlier, :as => :boolean, inline_label:"Outlier geográfico", :name => "badid", :label => false %>
+	<%= f.input :geoIssue, :as => :boolean, inline_label:"Georreferenciación dudosa", :name => "badid", :label => false %>
+	<%= f.input :idIssue, :as => :boolean, inline_label:"Identificación dudosa", :name => "badid", :label => false %>
+	<%= f.input :oldTaxonomy, :as => :boolean, inline_label:"Nombre desactualizado", :name => "doubtgeo", :label => false %>
+	<%= f.input :inCaptivity, :as => :boolean, inline_label:"Individuo introducido", :name => "doubtgeo", :label => false %>
+	<%= f.input :otherIssues, :as => :boolean, inline_label:"Otros (comentar)", :name => "doubtgeo", :label => false %>
+	<%= f.input :comment, :as => :text, :placeholder => "Comentario", :input_html => {:class => "commeinput2", :maxlength => 1200, :cols => "50", :rows => "5"}, label: false %>
+	<%= f.button :submit, :value => "guardar", :class => 'xtrpad btn2'%>
+	<%= link_to "cancelar", '', {:id => 'cancel-point-cmt', :class => "btn2"} %>
+<% end %>

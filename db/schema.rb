@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160914203500) do
+ActiveRecord::Schema.define(version: 20160922164217) do
+
+  create_table "eco_variables", force: :cascade do |t|
+    t.string   "name",       limit: 150, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "eco_variables_species", force: :cascade do |t|
+    t.integer  "eco_variable_id"
+    t.integer  "user_id"
+    t.integer  "species_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "eco_variables_species", ["eco_variable_id"], name: "index_eco_variables_species_on_eco_variable_id"
+  add_index "eco_variables_species", ["species_id"], name: "index_eco_variables_species_on_species_id"
+  add_index "eco_variables_species", ["user_id"], name: "index_eco_variables_species_on_user_id"
 
   create_table "group_states", force: :cascade do |t|
     t.string   "name",       limit: 100, null: false
@@ -113,5 +131,19 @@ ActiveRecord::Schema.define(version: 20160914203500) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["name"], name: "index_users_on_name"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "users_layers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "species_id"
+    t.string   "threshold"
+    t.boolean  "newModel",   default: false
+    t.boolean  "final",      default: false
+    t.text     "geoJSON",                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users_layers", ["species_id"], name: "index_users_layers_on_species_id"
+  add_index "users_layers", ["user_id"], name: "index_users_layers_on_user_id"
 
 end

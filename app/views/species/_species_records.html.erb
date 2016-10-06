@@ -68,11 +68,13 @@
 
 		<div class="foreditors">
 			<div class="littleline"></div>
-			<div class="steptitle" title="1: Las coordenadas del visor geográfico permiten agregar un registro para la especie, después podrás cambiarlas y llenar los demás campos de documentación." rel="tooltip">Agregar registro</div>
+			<% if user_signed_in? %>
+				<div class="steptitle" title="1: Las coordenadas del visor geográfico permiten agregar un registro para la especie, después podrás cambiarlas y llenar los demás campos de documentación." rel="tooltip">Agregar registro</div>
 				<button class="btngen marbtnreg" id="btnAddSingleRecord">1</button>
-				<!-- <button class="btngen marbtnreg">conjunto</button>
-			<div class="infotitle steptitle lh25" title="Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo." rel="tooltip">Actualizar taxonomía</div>
-				<button class="taxbtn"></button> -->
+					<!-- <button class="btngen marbtnreg">conjunto</button>
+				<div class="infotitle steptitle lh25" title="Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo." rel="tooltip">Actualizar taxonomía</div>
+					<button class="taxbtn"></button> -->
+			<% end %>
 		</div>
 
 <script type="text/javascript">

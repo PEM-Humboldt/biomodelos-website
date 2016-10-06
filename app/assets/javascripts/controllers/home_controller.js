@@ -3,10 +3,14 @@
   var typeahead_f = function(){
       // instantiate the bloodhound suggestion engine
       var species_search = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('sci_name'),
+        datumTokenizer: function (d) {
+            //console.log("datumTokenizer: " + d)
+            return Bloodhound.tokenizers.whitespace(d.species);
+        },
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         remote: {
-          url:'/species/autocomplete.json?query=%QUERY',
+          //url:'http://192.168.11.81:3000/BioModelos/species/search/%QUERY',
+          url: 'http://192.168.205.197:3000/BioModelos/species/search/%QUERY',
           wildcard:'%QUERY'
         },
       });
@@ -20,13 +24,18 @@
           highlight: true
       }, 
       {
-        displayKey: 'sci_name',
+        displayKey: function (species) {
+            return species.species;
+        },
         source: species_search.ttAdapter()
+      }).bind('typeahead:select', function(ev, datum) {
+          $("#species_id_home").val(datum.taxID);
+          $("#species_id").val(datum.taxID);
       });
   }();
 
   var google_charts_f = function(){
-    // Check if allgraphs class exists to draw the charts. Avoids container errors.
+    // Check if allgraphs class exists to Draw the charts. Avoids container errors.
     if($(".allgraphs").length){    
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
@@ -130,29 +139,14 @@
           var chart = new google.visualization.PieChart(document.getElementById('donutpla'));
           chart.draw(data, options_chart);
         }
-
-        // function drawChart8() {
-        //   var data = google.visualization.arrayToDataTable([
-        //     ['Grupo', 'PLANTAS', 'AVES', 'ANFIBIOS', 'MAMÍFEROS',
-        //      'INVERTEBRADOS', 'PECES', 'REPTILES' ],
-        //     ['', 1571, 1613, 116, 172, 106, 106, 102],
-        //       ]);
-
-        //   var options = {
-        //     backgroundColor: 'transparent',
-        //     legend: { position: 'none' },
-        //     isStacked: 'percent',
-        //     tooltip : { trigger: 'none' },
-        //     chartArea : {width: '100%', height: '100%'},
-        //     hAxis: { minValue: 0, ticks: [0, .5, 1], textPosition: 'none', gridlines: { color: 'transparent' }, baseline: { color: 'transparent' }},
-        //     bar: {groupWidth: '95%'},
-        //     colors: ['#0e5c5b', '#1b3337', '#0e5c5b', '#1b3337', '#0e5c5b', '#1b3337', '#0e5c5b'],
-        //   };
-
-        //   var chart = new google.visualization.BarChart(document.getElementById("gruposbar"));
-        //   chart.draw(data, options);
-        // }
       }
     }();
+
+    $("#searchBtnHome").click(function(e){
+        e.preventDefault();
+        window.location.href = "/species/visor?species_id=" + $("#species_id_home").val();
+    });
+
+
 
 });
