@@ -1,14 +1,35 @@
-<h1>tareas</h1>
+<h1 class="tasks">tareas</h1> 
+<div class="newtask" ng-click="taskbox=!taskbox" rel="tooltip" title="Agregar nueva tarea"><%= image_tag("newtask.png") %></div>
+<div class="clearfix"></div>
+<div class="addtask" ng-show="taskbox">
+	<p>Agregar nueva tarea</p>
+			<select name="" id="Filtrousuario">
+				<option value="hide">- Buscar Usuario -</option>
+				<option value="xx">Cesar Gutierrez</option>
+			</select>
+			<select name="" id="Filtroespecie">
+				<option value="hide">- Buscar Especie -</option>
+				<option value="xxx">Anulus vavis</option>
+			</select>
+			<div id="chkBoxTask">
+				<input type="checkbox" name="regvalid" checked></input>
+				<label for="visualrep" class="lblvisual">Curar registros</label>
+				<input type="checkbox" name="editvalid" checked></input>
+				<label for="visualedit" class="lblvisual">Edición modelo</label>
+			<button class="btngen" id="sendtask">Agregar</button>
+			</div>
+</div>
+<div class="clearfix"></div>
 		<div class="colspp tabletit">
 			<h2>Especie</h2>
 		</div><!-- 
-	 --><div class="coladv tabletit">
+	 --><div class="coladv tabletit" rel="tooltip" title="Curación de registros">
 			<%= image_tag("regperfil.png") %>
 		</div><!-- 
-	 --><div class="coladv tabletit">
+	 --><div class="coladv tabletit" rel="tooltip" title="Edición de modelos">
 			<%= image_tag("penperfil.png") %>
 		</div><!-- 
-	 --><div class="coladv tabletit specialicon">
+	 --><div class="coladv tabletit specialicon" rel="tooltip" title="Curación de registros">
 			<h3>Aprobado</h3>
 			<%= image_tag("aprobicon.png") %>
 		</div><!-- 
