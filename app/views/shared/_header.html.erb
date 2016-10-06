@@ -4,7 +4,7 @@
 		<ul class="active">
 			<li><%= link_to 'Inicio', root_path, class: 'current' %></li>
 			<li><%= link_to 'Modelos', species_visor_path %></li>
-			<li><%= link_to 'Grupos', root_path %></li>
+			<li><%= link_to 'Grupos', groups_path %></li>
 			<% if user_signed_in? %>
 			  <div class="usuario">
 			    <%= link_to current_user.email, user_path(:id => current_user.id), :title=>'Perfil' %>

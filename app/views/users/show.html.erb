@@ -18,8 +18,9 @@
 		<div class="perfilunder">Biografía</div>
 		<p><%= @user.bio %></p>
 		<div class="perfilunder">Grupos</div>
-		<p class="groupuser"><a href="">Especie del Mes  ·  </a>23/02/2016</p>
-		<p class="groupuser"><a href="">Aves Acuáticas  ·  </a>15/02/2016</p>
+		<% @user_groups.each do |group| %>
+			<p class="groupuser"><a href="/groups/<%= group.group_id %>"><%= group.group.name %>  ·  </a><%= group.updated_at.to_time.strftime("%F") %></p>
+		<% end %>
 	</div>
 	<div class="col1">
 

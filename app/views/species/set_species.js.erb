@@ -1,0 +1,21 @@
+<% if !params[:species_id].blank? && is_integer_num(params[:species_id]) %>
+	$("#species_id_field").val("<%= params[:species_id] %>");
+	$(".spname").html("<%= @species %>");
+	/* Clear layers */
+	_BioModelosVisorModule.unloadEditionLayer();
+	// _BioModelosVisorModule.unloadThresholdLayer();
+	_BioModelosVisorModule.getSpeciesRecords(<%= params[:species_id] %>);
+	$(".vbtninfo").show();
+	$(".vbtnhipo").show();
+	$(".vbtnedit").show();
+	$("#clsSearchBox").click();
+	$(".btnedicion").hide();
+	if($(".cajitaeditar").is(":visible")){
+		$(".btnedicion").click();
+	}
+	$(".btnregistros").show();
+	$(".spname").show();
+	if($(".cajasearch").is(":visible"))
+		$("#clsSearchBox").click();
+<% end %>
+

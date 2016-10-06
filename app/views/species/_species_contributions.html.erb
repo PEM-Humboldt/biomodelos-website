@@ -1,7 +1,3 @@
-<div class="vcbase">
-				<h1>EDICIÓN Y CONTRIBUCIÓN</h1>
-				<a ng-click="edit=!edit" class="closevb" id="clsEditBox">x</a>
-		</div>
 		<div class="cvcolumn">
 			<div class="followstate fright"><div class="follow siguiendo">siguiendo</div></div>
 			<p>BioModelos te ofrece tres opciones para contribuir a documentar las distribuciones de especies: editando sobre el modelo estadístico desarrollado por BioModelos, creando un mapa de experto en la aplicación o publicando un modelo que hayas desarrollado.</p>
@@ -11,11 +7,18 @@
 		<div class="steptitle">1. A partir de modelo estadístico</div>
 		<div class="dinblock">
 			<div href="" class="editthumb">
-				<a href=""><%= image_tag("mapthumb.png") %></a>
+				<a href=""><%= image_tag(continuous_t.thumbUrl) %></a>
 			</div>
 			<div class="editactions clearfix">
-				<a href="" title="Bajar el modelo" rel="tooltip"><%= image_tag("downicon.png") %></a>
+				<%= link_to models_download_model_path(:thumb_url => continuous_t.tifUrl), {:class => 'download', :remote => true, :title => "Bajar el modelo", :rel => "tooltip"} do %>
+					<%= image_tag("downicon.png") %>
+				<% end %>
 				<a href="" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
+				<%= hidden_field_tag 'continuous_t_url', continuous_t.pngUrl %>
+				<%= hidden_field_tag 'zero_t_url', zero_t.pngUrl %>
+				<%= hidden_field_tag 'ten_t_url', ten_t.pngUrl %>
+				<%= hidden_field_tag 'twenty_t_url', twenty_t.pngUrl %>
+				<%= hidden_field_tag 'thirty_t_url', thirty_t.pngUrl %>
 				<button class="newgrbtn" id="cbt_editBtn">editar</a>
 			</div>
 		</div>

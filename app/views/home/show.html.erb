@@ -5,10 +5,12 @@
 				<%= link_to 'Especie aleatoria', root_path %>
 				<%= link_to 'Busqueda avanzada', species_visor_path(:search => "1") %>
 			</div>
-			<%= form_tag('', {:id => 'sp_search_form'})  do %>
+			<%= form_tag({}, {:id => 'search_form_home'})  do %>
 				<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Consulta una especie por su nombre científico', :include_blank => false, :rel => 'autocomplete' %>
-				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'species_src_btn' %>
+				<%= hidden_field_tag 'species_id_home' %>
+				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'searchBtnHome' %>
 			<% end %>
+			
 			<div class="hlbtn">
 				<a ng-click="consulta=!consulta">CONSULTA</a>
 				<a ng-click="contribuye=!contribuye">CONTRIBUYE</a>

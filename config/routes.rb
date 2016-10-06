@@ -14,8 +14,16 @@ Rails.application.routes.draw do
   get "home/contact_us"
   get "home/about_us"
   get "home/publish"
-  get "info/info"
+  post "users_layers/load_layer"
+  post "users_layers/pause_layer"
+  post "users_layers/send_layer"
   post "species/update_record"
+  post "species/set_species"
+  post "species/report_record"
+  post "models/get_thresholds"
+  post "models/get_models"
+  post "models/download_model"
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

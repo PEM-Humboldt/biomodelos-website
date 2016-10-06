@@ -16,31 +16,12 @@
 					<h3>%Avance</h3>
 					<%= image_tag("percicon.png") %>
 				</div>
-				<div class="tareaspp"><!-- 
-				--><a class="colspp">Wingardium leviosa</a><!-- 
-				--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
-				--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
-				--><div class="coladv"><input type="checkbox" ></input></div><!-- 
-				--><p class="coladv">50%</p>
-				</div>
-				<div class="tareaspp"><!-- 
-				--><a class="colspp">Wingardium leviosa</a><!-- 
-				--><div class="coladv"><input type="checkbox" ></input></div><!-- 
-				--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
-				--><div class="coladv"><input type="checkbox" ></input></div><!-- 
-				--><p class="coladv">50%</p>
-				</div>
-				<div class="tareaspp"><!-- 
-				--><a class="colspp">Wingardium leviosa</a><!-- 
-				--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
-				--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
-				--><div class="coladv"><input type="checkbox" ></input></div><!-- 
-				--><p class="coladv">100%</p>
-				</div>
-				<div class="tareaspp"><!-- 
-				--><a class="colspp">Wingardium leviosa</a><!-- 
-				--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
-				--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
-				--><div class="coladv"><input type="checkbox" ></input></div><!-- 
-				--><p class="coladv">50%</p>
-				</div>
+				<% @tasks.each do |task| %>
+					<div class="tareaspp"><!-- 
+					--><a class="colspp"><%= task.species.sci_name %></a><!-- 
+					--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
+					--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
+					--><div class="coladv"><input type="checkbox" ></input></div><!-- 
+					--><p class="coladv">50%</p>
+					</div>
+				<% end %>
