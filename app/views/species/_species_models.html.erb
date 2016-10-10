@@ -23,14 +23,12 @@
 		</div>
 	</div>
 	<div class="mmicon clearfix">
-		<a href="" title="Descargar el modelo" rel="tooltip"><%= image_tag("downicon.png") %></a>
-		<a href="" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
+		<a href="" title="Descargar el modelo" rel="tooltip" class="pad3"><%= image_tag("downicon.png") %></a>
+		<a href="" title="Ver metadatos del modelo" rel="tooltip" class="pad3"><%= image_tag("metaicon.png") %></a>
 		<% if user_signed_in?%>
-		<div class="user_star">
-
-		</div>
+			<div class="user_star">
+			</div>
 		<% end %>
-		<a href="" title="Borrar calificación" rel="tooltip" class="delicon"><%= image_tag("delicon.png") %></a>
 	</div>
 </div>
 <% end %>

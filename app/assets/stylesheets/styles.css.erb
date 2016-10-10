@@ -1075,11 +1075,23 @@ p.groupuser {
 
 .mmicon img {
 	float: left;
-	padding: 3px;
+	padding: 7px 1px 0;
+}
+
+.pad3 img {
+	padding: 3px 7px 3px 0;
+}
+
+.raty-cancel {
+	margin-right: 3px;
 }
 
 .mmicon .delicon {
 	float: right;
+}
+
+.user_star {
+	width: 192px;
 }
 
 .mymapthumb {
@@ -3816,4 +3828,106 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 
 .mb30 {
 	margin-bottom: 30px;
+}
+
+/* Metadatos */
+
+.metad {
+	padding: 30px 10px;
+    background: -webkit-linear-gradient(#fff 0%, #fff 20%, #fff 20%, #f2f2f2 20%, #f2f2f2 100%);
+    background: -o-linear-gradient(#fff 0%, #fff 20%, #fff 20%, #f2f2f2 20%, #f2f2f2 100%);
+    background: linear-gradient(#fff 0%, #fff 20%, #fff 20%, #f2f2f2 20%, #f2f2f2 100%);
+}
+
+.dialog {
+max-width: 900px;
+height: 92%;
+margin: 0 auto;
+background-color: #fff;
+padding: 30px 20px;
+box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+overflow-y: scroll;
+}
+
+.dialog h1 {
+font-size: 2em; 
+font-weight: 300;
+color: #db3f2a;
+border-bottom: 1px solid #1b3337;
+padding-bottom: 20px;
+line-height: 1;
+text-align: left;
+}
+
+.dialog p {
+color: #393836;
+font-size:18px;
+display: block;
+margin: 0 auto;
+padding: 5px 10px;
+font-weight: 300;
+}
+
+.dialog h2 { 
+   font-size:1.6em;
+   margin: 20px 0 5px;
+   padding: 8px 15px;
+   background-color: #fff;
+   letter-spacing: 1px;
+   color: #fff;
+   background-color: #1b3337;
+   font-weight: 300;
+   text-transform: uppercase;
+   display: inline-block;
+}
+
+
+.dialog h3 { 
+   font-size:1.3em;
+   margin:15px 5px;
+   padding: 10px;
+   letter-spacing: 1px;
+   color: #1b3337;
+   border: 1px solid #d0d2d0;
+   display: block;
+}
+
+.dialog h3 b {
+    font-size: 1em;
+    color: #393836;
+    font-weight: 300;
+    border-bottom: none;
+}
+
+.dialog .infocontent {
+  display: block;
+}
+
+.dialog a {
+  text-decoration: none;
+  color: #c12a26;
+}
+.dialog a:visited {
+   color: #e45b2d;
+}
+
+.dialog blockquote {
+   color:#666666;
+   margin:10px;
+   padding-left: 0.8em;
+   border-left: 0.5em #db3f2a solid;
+}
+
+.dialog .overf{
+    overflow: hidden;
+    text-overflow: elipsis;
+    width: 90%;
+    white-space: nowrap;
+    padding-left: 10px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.dialog blockquote:last-child {
+  margin-bottom: 30px;
 }
