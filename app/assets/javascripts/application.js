@@ -25,5 +25,6 @@
 //= require moment/min/moment.min
 //= require validate/validate.min
 //= require alertify/alertify.min
+//= require raty/lib/jquery.raty
 //= require_tree ./angular
 //= require_tree ./controllers

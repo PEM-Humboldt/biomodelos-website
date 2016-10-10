@@ -12,8 +12,8 @@ class SpeciesController < ApplicationController
 	end
 
 	def set_species
-		@species = Species.find_name(params[:species_id])
-
+		@species_name = Species.find_name(params[:species_id])
+		@records_number = Species.records_number(params[:species_id])
 		respond_to do |format|
       		format.js
     	end
@@ -29,6 +29,20 @@ class SpeciesController < ApplicationController
 		respond_to do |format|
       		format.js
     	end
+	end
+
+	def species_info
+		@eoo = Model.eoo(params[:species_id])
+		@rpa = Model.rpa(params[:species_id])
+		@forest_loss = Model.forest_loss(params[:species_id])
+		@covers = Model.covers(params[:species_id])
+		respond_to do |format|
+      		format.js
+    	end
+	end
+
+	def records_metadata
+		
 	end
 
 end

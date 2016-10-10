@@ -15,7 +15,8 @@ var _BioModelosVisorModule = function() {
 		cluster, 
 		currentPopupID,
 		pointDrawer,
-		polygonDrawer;
+		polygonDrawer,
+		modelLayer;
 
 	var redIcon = new L.Icon({	iconUrl: '/assets/redmarker.png',
        							shadowUrl: "/assets/marker-shadow.png",
@@ -48,6 +49,8 @@ var _BioModelosVisorModule = function() {
 						"mm":"Mes",
 						"dd":"Día"
 					};
+
+	var imageBounds = [[12.675, -60.48333], [-13.84166, -82.94999]];
 
 	var addNiceScroll = function(){
 		$('.regscroller').niceScroll({
@@ -181,9 +184,9 @@ var _BioModelosVisorModule = function() {
        		layerControl.removeLayer(cluster);
        	}	
 		
-		var url = "http://192.168.205.197:3000/BioModelos/records/" + species_id;
+		// var url = "http://192.168.205.197:3000/BioModelos/records/" + species_id;
 
-		// var url = "http://192.168.11.81:3000/BioModelos/species/Aburria aburri";
+		var url = "http://192.168.11.81:3000/BioModelos/records/" + species_id;
 
 		$.getJSON(url,function(data){
 			species_records = data;
@@ -639,8 +642,6 @@ var _BioModelosVisorModule = function() {
 
 	var setLayers = function(imgThresholdC, imgThreshold0, imgThreshold10, imgThreshold20, imgThreshold30){
 
-		var imageBounds = [[12.675, -60.48333], [-13.84166, -82.94999]];
-
 		thresholdC = new L.ImageOverlay(imgThresholdC, imageBounds, {opacity: 0.6});
 		threshold0 = new L.ImageOverlay(imgThreshold0, imageBounds, {opacity: 0.6});
 		threshold10 = new L.ImageOverlay(imgThreshold10, imageBounds, {opacity: 0.6});
@@ -673,6 +674,24 @@ var _BioModelosVisorModule = function() {
 				    //Statements executed when none of the values match the value of the expression
 				    break;
 			}	    
+	}
+
+	var loadModel = function (modelUrl, name) {
+
+       /* Dispose older model if it exists */
+        unloadModel();
+       	
+	    modelLayer = new L.ImageOverlay(modelUrl, imageBounds, {opacity: 0.6});
+	    
+	    map.addLayer(modelLayer, true);
+	    layerControl.addOverlay(modelLayer, "Modelo" + name);
+	};
+
+	var unloadModel = function() {
+		if(map.hasLayer(modelLayer)) {
+       		map.removeLayer(modelLayer);
+       		layerControl.removeLayer(modelLayer);
+       }
 	}
 
 	var loadUserLayer = function (userLayer) {
@@ -754,7 +773,9 @@ var _BioModelosVisorModule = function() {
 		loadEditionLayer: loadEditionLayer,
 		unloadEditionLayer: unloadEditionLayer,
 		loadThresholdLayer: loadThresholdLayer,
-		unloadThresholdLayer: unloadThresholdLayer
+		unloadThresholdLayer: unloadThresholdLayer,
+		loadModel: loadModel,
+		unloadModel: unloadModel
 	}
 }();
 

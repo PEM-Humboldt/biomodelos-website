@@ -1,0 +1,4 @@
+$('#eoo_info').html('<%=j render partial: 'species/species_info_eoo', locals: { :eoo => @eoo } %>');
+$('#rpa_info').html('<%=j render partial: 'species/species_info_rpa', locals: { :rpa => @rpa } %>');
+$('#forest_info').html('<%=j render partial: 'species/species_info_forest', locals: {:forest_loss => @forest_loss } %>');
+$('#covers_info').html('<%=j render partial: 'species/species_info_covers', locals: {:covers => @covers } %>');

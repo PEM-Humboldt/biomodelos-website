@@ -155,6 +155,25 @@ $(document).ready(function(){
 		});
 	});
 
+	$("#btnEnvEdition").click(function(e){
+		e.preventDefault();
+		alertify.confirm('Confirm Message', function(){ console.log("Enviado.")});
+		// if(alertify.confirm("¿Está seguro de enviar esta edición como su versión final?")){
+			// $.ajax({
+		 //    	type: 'POST',
+		 //    	url: "/users_layers/send_layer",
+		 //    	data: {
+		 //    		id: $("#layer_id_field").val(),
+		 //    		species_id: $("#species_id_field").val(),
+		 //    		threshold: angular.element($("#visCntrl")).scope().corteSlider.value,
+		 //    		geoJSON: _BioModelosVisorModule.getGeojsonLayer($("#newModel_field").val()),
+		 //    		newModel: $("#newModel_field").val()
+		 //    	}
+			// });
+		// 	console.log("Enviado.")
+		// }	
+	});
+
 	/* 
 	 * Funcionalidad para seleccionar los valores de los filtros de manera dinámica.
 	 */
@@ -378,6 +397,31 @@ $(document).ready(function(){
 		    	species_id: $("#species_id_field").val(),
 		    }
 		});
+	});
+
+	$(".vbtninfo").click(function(e){
+		/* TODO clean layers */
+		$.ajax({
+		    type: 'POST',
+		    url: "/species/species_info",
+		    data: {
+		    	species_id: $("#species_id_field").val(),
+		    }
+		});
+	});
+
+	$("#visCntrl").on("click",".sp_model_link",function(e){
+        e.preventDefault();
+        $("#clsModelsBox").click();
+        $(".btnedicion").hide();
+		if($(".cajitaeditar").is(":visible")){
+			$(".btnedicion").click();
+		}
+        _BioModelosVisorModule.unloadModel();
+        _BioModelosVisorModule.unloadEditionLayer();
+        _BioModelosVisorModule.unloadThresholdLayer();
+		_BioModelosVisorModule.loadModel($(this).find('#imgsrc_model').val(), $('.titlethumb').val());
+
 	});
 
 

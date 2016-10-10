@@ -29,6 +29,9 @@ class ModelsController < ApplicationController
 	    end
 	end
 
+	def metadata
+	end
+
 	def download_model
 	    respond_to do |format|
 	      #format.js {}

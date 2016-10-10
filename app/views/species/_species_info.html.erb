@@ -1,57 +1,10 @@
-
-<script type="text/javascript">
-      google.charts.load('current', {'packages':['line']});
-      google.charts.setOnLoadCallback(drawChart8);
-
-    function drawChart8() {
-
-    var data = new google.visualization.DataTable();
-      data.addColumn('date', 'Año');
-      data.addColumn('number', 'Actual');
-      data.addColumn('number', 'Extractivista');
-      data.addColumn('number', 'Industrializada');
-
-      data.addRows([
-          [new Date(1990,0,1), 25684, , ,],
-          [new Date(2000,0,1), 35958, , ,],
-          [new Date(2005,0,1), 41095, , ,],
-          [new Date(2010,0,1), 46232, , ,],
-          [new Date(2012,0,1), 51369, 51369, 51369],
-          [new Date(2030,0,1), 36542, 86043, 33721]
-        ]);
-
-      var options = {
-        chart: {
-          title: '',
-          subtitle: ''
-        },
-        width: 500,
-        height: 300,
-        legend: { position: 'none' },
-        hAxis: {
-            format: 'yy'
-          },
-        chartArea: {left:100, width: 400},
-        colors: ['#124c5e','#c12a26', '#e3af24']
-      };
-
-      var date_formatter = new google.visualization.DateFormat({ 
-	    pattern: "yyyy"
-		}); 
-		date_formatter.format(data, 0);
-
-      var chart = new google.charts.Line(document.getElementById('extchart'));
-
-      chart.draw(data, options);
-    }
-  </script>
-  <div class="vcbase">
-	<h1>acerca de <i>Aglaiocercus coelestis</i></h1>
-	<a ng-click="info=!info" class="closevb" id="clsInfoBox">x</a>
+<div class="vcbase">
+			<h1>acerca de <i id="info_species_name"></i></h1>
+			<a ng-click="info=!info" class="closevb" id="clsInfoBox">x</a>
 </div>
 <div class="cvcolumn">
 	<div class="subinfo">
-		<h3 class="reg" title="Registros de presencia de la especie utilizados en el desarrollo del modelo." rel="tooltip">NÚMERO DE REGISTROS<b>42</b></h3>
+		<h3 class="reg" title="Registros de presencia de la especie utilizados en el desarrollo del modelo." rel="tooltip">NÚMERO DE REGISTROS<b id="info_records_number"></b></h3>
 		<h3 class="metreg" title="Información sobre los registros usados en el modelamiento y el proceso de curaduría de los mismos." rel="tooltip"><a href="">METADATOS REGISTROS</a></h3>
 	</div>
 	<div class="infofollow">
@@ -78,18 +31,7 @@
 			<%= image_tag("fig2.png") %>
 			<div class="figtxt">Figura 2. Representación del cálculo de un polígono mínimo convexo.</div>
 		</div>
-		<div class="maindata">
-			<h4>100 km<b>2</b></h4>
-			<h5>Rango Geográfico</h5>
-		</div>
-		<div class="seconddata">
-			<h4>172 km<b>2</b></h4>
-			<h5>PMC sobre modelos</h5>
-		</div>
-		<div class="seconddata fdata">
-			<h4>82 km<b>2</b></h4>
-			<h5>PMC sobre registros</h5>
-		</div>
+		<div id="eoo_info"></div>
 	</div>
 	<div class="databox">
 		<h2 class="infotitle" ng-click="repinfo=!repinfo">REPRESENTATIVIDAD EN ÁREAS PROTEGIDAS</h2>
@@ -98,22 +40,7 @@
 			<a ng-click="repinfo=!repinfo" class="closevb">x</a>
 			<p>Corresponde al porcentaje de área de la distribución de las especie en el total de las áreas protegidas del país, y discriminado por los Parques Nacionales Naturales (PNN), Reservas de la Sociedad Civil (RSC) y las otras figuras (Reservas Forestales Protectoras, Parques Naturales Regionales, Distritos de Manejo Integrado, Distritos de Conservación de Suelos y Áreas de Recreación). El porcentaje total de las áreas protegidas puede no coincidir con la suma de las áreas de PNN, RSC y otras, dado que alguna áreas portegidas se encuentran dentro del área de otras.</p>
 		</div>
-		<div class="maindata 2ndpad">
-			<h4>15 %</h4>
-			<h5>Rango Geográfico</h5>
-		</div>
-		<div class="seconddata">
-			<h4>5 %</h4>
-			<h5>PNN</h5>
-		</div>
-		<div class="seconddata">
-			<h4>2 %</h4>
-			<h5>RSC</h5>
-		</div>
-		<div class="seconddata fdata">
-			<h4>8 %</h4>
-			<h5>otras figuras</h5>
-		</div>
+		<div id="rpa_info"></div>
 	</div>
 	<div class="databox">
 		<h2 class="infotitle dtab" ng-click="perinfo=!perinfo">PÉRDIDA DE BOSQUE</h2>
@@ -123,21 +50,8 @@
 			<p>Esta gráfica describe la variación del porcentaje del área de la distribución de la especie en áreas de bosque del país, de acuerdo a los mapas de deforestación desarrollados por el IDEAM y a los escenarios de deforestación propuestos por Etter y Arévalo (2014) (proyectado al 2030).</p>
 			<div class="figtxt">Etter, A. y Arévalo, P. (2014). Escenarios futuros de la cobertura forestal en Colombia. En: Bello et al. (ed). Biodiversidad 2014. Estado y tendencia de la biodiversidad continental en Colombia. Instituto Alexander von Humboldt. Bogotá, D.C., Colombia.</div>
 		</div>
-		 <div id="extchart"></div>
-		<!--<div class="maindata dib">
-			<h4>15 %</h4>
-			<h5>Histórica</h5>
-		</div>
-		<div class="maindata dib">
-			<h4>5 %</h4>
-			<h5>10 años</h5>
-		</div> -->
+		<div id="forest_info"></div>
 	</div>
-		<div class="convenciones clearfix">
-		 	<p class="bluesq">Actual</p>
-      		<p class="redsq">Extractivista</p>
-      		<p class="yellsq">Industrializada</p>
-		 </div>
 	<div class="databox">
 		<h2 class="infotitle" ng-click="cobinfo=!cobinfo">coberturas</h2>
 		<div ng-show="cobinfo" class="infobox">
@@ -145,10 +59,7 @@
 			<a ng-click="cobinfo=!cobinfo" class="closevb">x</a>
 			<p>Listado de las coberturas seleccionadas por los expertos para la especie en la sección variables ecológicas, con el correspondiente porcentaje de área de la distribución de la especie que se encuentra en cada una de ellas. Deberiamos tener el porcentaje de área de coberturas no apropiadas.</p>
 		</div>
-		<div class="resdata">
-			<div class="cobert"><p>Bosque de galería y ripario</p><div class="percent">45%</div></div>
-			<div class="cobert"><p>Bosque fragmentado</p><div class="percent">35%</div></div>
-		</div>
+		<div id="covers_info"></div>
 	</div>
 <!-- 	<div class="databox">
 		<h2 class="infotitle" ng-click="ameninfo=!ameninfo">amenazas</h2>
@@ -166,3 +77,4 @@
 <div class="cvcol40">
 	<button class="urllink" title="Copiar URL" rel="tooltip"></button><div class="amenaza" title="Categoría de amenaza" rel="tooltip"><%= image_tag("caten.png") %></div>
 </div>
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160922164217) do
+ActiveRecord::Schema.define(version: 20161006204315) do
 
   create_table "eco_variables", force: :cascade do |t|
     t.string   "name",       limit: 150, null: false
@@ -73,6 +73,15 @@ ActiveRecord::Schema.define(version: 20160922164217) do
 
   create_table "groups_users_states", force: :cascade do |t|
     t.string   "name",       limit: 100, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "model_id"
+    t.integer  "species_id"
+    t.integer  "score",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

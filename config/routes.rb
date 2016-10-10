@@ -20,9 +20,12 @@ Rails.application.routes.draw do
   post "species/update_record"
   post "species/set_species"
   post "species/report_record"
+  post "species/species_info"
   post "models/get_thresholds"
   post "models/get_models"
   post "models/download_model"
+  get "models/metadata"
+  get "species/records_metadata"
 
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

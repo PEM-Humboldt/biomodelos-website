@@ -42,7 +42,13 @@
 			<h1>HIPÓTESIS DISPONIBLES</h1>
 			<a ng-click="hipotesis=!hipotesis" class="closevb" id="clsModelsBox">x</a>
 		</div>
-		<div id="hipotesisbox_content"></div>
+		<div class="cvcolumn">
+			<div class="followstate fright">
+				<a href="" class="follow invisible">seguir</a>
+				<div class="follow siguiendo">siguiendo</div>
+			</div>
+			<div id="hipotesisbox_content"></div>
+		</div>
 	</div>
 	
 	<% if user_signed_in? %>
