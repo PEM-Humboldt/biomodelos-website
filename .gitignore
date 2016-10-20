@@ -26,6 +26,7 @@ doc/
 .DS_Store
 .idea
 .secret
+secrets.yml
 .sass-cache/
 *.sql
 *.csv

@@ -110,8 +110,8 @@ var _BioModelosVisorModule = function() {
 	    	},
 
 	    	overlays = {
-	    		"Páramos y humedales fondo": paramos_humedales_fondo,
-	    		"Ecosistemas Etter" : ecosistemas_etter,
+	    		"Páramos y humedales": paramos_humedales_fondo,
+	    		"Ecosistemas Generales (Etter)" : ecosistemas_etter,
 	    		"Test BioModelos" : test_bio,
 	    		"IUCN" : iucn
 	    	};
@@ -191,7 +191,9 @@ var _BioModelosVisorModule = function() {
 		$.getJSON(url,function(data){
 			species_records = data;
 		    filterRecords(["",""], ["","",""], [], []);
-		});
+		}).fail(function(jqxhr, textStatus, error) {
+    		alertify.alert("Ha ocurrido un error al cargar los registros");
+  		});
 
 		cluster = L.markerClusterGroup();
 		map.addLayer(cluster);
@@ -316,16 +318,6 @@ var _BioModelosVisorModule = function() {
 						else if(prop === 'locality'){
 							editableForm.push('<b>Localidad:</b></br><input type="text" id="txtLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
 							editableForm.push('<input type="hidden" id="oldLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input>');
-						}
-						else if(prop === 'yyyy'){
-							editableForm.push('<b>Año:</b></br><input type="text" id="txtDateEdit" placeholder="YYYY/MM/DD" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
-							editableForm.push('<input type="hidden" id="oldDateEdit" value="' + editableLayer.feature.properties[prop] +'"/input>');
-
-						}
-						else if(prop === 'colector'){
-							editableForm.push('<b>Colector:</b></br><input type="text" id="txtColectorEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
-							editableForm.push('<input type="hidden" id="oldColectorEdit" value="' + editableLayer.feature.properties[prop] +'"/input>');
-
 						}
 						else if(prop != "taxID" && prop != "reportado_bm" && prop != "corregido_bm")
 							editableForm.push('<b>'+ headers[prop] + "</b></br>" + editableLayer.feature.properties[prop] + "</br>");	
@@ -724,6 +716,7 @@ var _BioModelosVisorModule = function() {
    }
 
    var unloadEditionLayer = function(){
+   		console.log("Has editableLayer: " + map.hasLayer(editableLayer));
    		if(map.hasLayer(editableLayer)) {
    			editableLayer.clearLayers();
        		map.removeLayer(editableLayer);

@@ -12,11 +12,15 @@ class SpeciesController < ApplicationController
 	end
 
 	def set_species
-		@species_name = Species.find_name(params[:species_id])
-		@records_number = Species.records_number(params[:species_id])
-		respond_to do |format|
-      		format.js
-    	end
+		begin
+			@species_name = Species.find_name(params[:species_id])
+			@records_number = Species.records_number(params[:species_id])
+			respond_to do |format|
+	      		format.js
+	    	end
+	    rescue => e
+	    	render :js => "alertify.alert('Ha ocurrido un error en la conexión con la base de datos');"
+	    end
 	end
 
 	def update_record
@@ -26,6 +30,12 @@ class SpeciesController < ApplicationController
 	end
 
 	def report_record
+		respond_to do |format|
+      		format.js
+    	end
+	end
+
+	def send_record_report
 		respond_to do |format|
       		format.js
     	end

@@ -1,1 +1,12 @@
-$('.reportBox').html('<%=j render partial: 'species/report_record', locals: { :point_comment => @point_comment } %>');
+$(".reportBox").html(""); //Clear div before rendering again
+<% if user_signed_in? %>
+	$(".reportBox").html('<%=j render partial: 'species/report_record', locals: { :point_comment => @point_comment } %>');
+	$("#point_comment_recordId").val($("#bm_db_id").val());
+	/* Cancel button */
+	$("#cancel-point-cmt").click(function(e){
+		e.preventDefault();
+		$(".reportBox").html("");
+	});
+<% else %>
+	alertify.alert("Debe estar registrado para poder reportar un registro");
+<% end %>

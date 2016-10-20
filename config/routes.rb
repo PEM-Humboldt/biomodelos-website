@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post "species/set_species"
   post "species/report_record"
   post "species/species_info"
+  post "species/send_report_record"
   post "models/get_thresholds"
   post "models/get_models"
   post "models/download_model"

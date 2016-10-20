@@ -1,28 +1,17 @@
 $(document).ready(function(){
 	console.log("send");
-	validate.extend(validate.validators.datetime, {
-		parse: function(value, options) {
-			return +moment.utc(value);
-		},
-	  // Input is a unix timestamp
-	  format: function(value, options) {
-	  	var format = options.dateOnly ? "YYYY-MM-DD" : "YYYY-MM-DD hh:mm:ss";
-	  	return moment.utc(value).format(format);
-	  }
-	});
 	validate.validators.presence.message = "no puede estar vacío";
 
 	// Validación de los campos editables de un registro.
 	var latRecordEdition = $("#txtLatEdit").val(),
 		lonRecordEdition = $("#txtLonEdit").val(),
 		speRecordEdition = $("#txtSpeciesEdit").val(),
-		locRecordEdition = $("#txtLocEdit").val(),
-		dateRecordEdition = $("#txtDateEdit").val(),
-		colRecordEdition = $("#txtColectorEdit").val();
+		locRecordEdition = $("#txtLocEdit").val();
 
 	var varsToValidate = {},
 	constraints = {},
-	data = {userId_bm: "11"};
+	data = {userId_bm: <%= current_user.id %>};
+
 	if (latRecordEdition != $("#oldLatEdit").val()){
 		varsToValidate.lat = latRecordEdition;
 		constraints.lat = {};
@@ -51,40 +40,31 @@ $(document).ready(function(){
 		constraints.localidad.presence = true;
 		data.locality = locRecordEdition;
 	}
-	if (dateRecordEdition != $("#oldDateEdit").val()){
-		varsToValidate.fecha = dateRecordEdition;
-		constraints.fecha = {};
-		constraints.fecha.datetime = {};
-		constraints.fecha.format = {};
-		constraints.fecha.format.pattern =  /^\d{4}\-\d{2}\-\d{2}$/;
-		constraints.fecha.format.message = "El formato de fecha debe ser YYYY-MM-DD";
-		constraints.fecha.datetime.dateOnly = true;
-		constraints.fecha.datetime.latest = moment.utc();
-		constraints.fecha.datetime.tooLate = "No se admiten fechas mayores a la actual";
-		constraints.fecha.datetime.earliest = "1800-01-01";
-		constraints.fecha.datetime.tooEarly = "No se admiten fechas antes de 1800";
-		constraints.fecha.datetime.notValid = "La fecha no es válida";
-		data.earliestDateCollected = dateRecordEdition;
-	}
-	// if (colRecordEdition != $("#oldColectorEdit").val()){
-	// 	varsToValidate.push("colector:" + colRecordEdition);
-	// 	console.log("2.6");
-	// }
 	var valResponse = validate(varsToValidate, constraints, {format: "flat"});
-
-	if (valResponse){
-		alertify.alert(valResponse);
+	console.log(valResponse);
+	if(valResponse){
+		var response = "";
+		for(var i=0; i<valResponse.length; i++){
+			response += valResponse[i] + "\n";
+		}
+		console.log(response);
+		alertify.alert(response);
 	}
 	else{
+		console.log("Sin respuesta");
+		console.log(data);
 		$.ajax({
 		    type: 'PUT',
 		    dataType: 'json',
-		    url: "http://192.168.205.197:3000/BioModelos/records/" + $("#bm_db_id").val(),
+		    url: "http://192.168.11.81:3000/BioModelos/records/" + $("#bm_db_id").val(),
 		    data: data,
 		    success: function(){
-		    	_BioModelosVisorModule.getSpeciesRecords();
-		    }
+				_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val());
+				alertify.alert("Su edición se ha realizado con éxito");
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				alertify.alert("Ha ocurrido un error al editar el registro: " + textStatus);
+			}
 		});
-		console.log(data);
 	}
 });
