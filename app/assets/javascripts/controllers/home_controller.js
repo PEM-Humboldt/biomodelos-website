@@ -10,7 +10,7 @@
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         remote: {
           //url:'http://192.168.11.81:3000/BioModelos/species/search/%QUERY',
-          url: 'http://192.168.11.81:3000/BioModelos/species/search/%QUERY',
+          url:'http://192.168.11.81:3000/BioModelos/species/search/%QUERY',
           wildcard:'%QUERY'
         },
       });

@@ -16,7 +16,7 @@ class Species
 	end
 
 	def self.find_name(taxID)
-		JSON.parse(get('/' + taxID).body)[0]["species"]
+   		JSON.parse(get('/' + taxID).body)[0]["species"]	
 	end
 
 	def self.records_number(taxID)

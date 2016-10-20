@@ -157,21 +157,21 @@ $(document).ready(function(){
 
 	$("#btnEnvEdition").click(function(e){
 		e.preventDefault();
-		alertify.confirm('Confirm Message', function(){ console.log("Enviado.")});
-		// if(alertify.confirm("¿Está seguro de enviar esta edición como su versión final?")){
-			// $.ajax({
-		 //    	type: 'POST',
-		 //    	url: "/users_layers/send_layer",
-		 //    	data: {
-		 //    		id: $("#layer_id_field").val(),
-		 //    		species_id: $("#species_id_field").val(),
-		 //    		threshold: angular.element($("#visCntrl")).scope().corteSlider.value,
-		 //    		geoJSON: _BioModelosVisorModule.getGeojsonLayer($("#newModel_field").val()),
-		 //    		newModel: $("#newModel_field").val()
-		 //    	}
-			// });
-		// 	console.log("Enviado.")
-		// }	
+		alertify.confirm('¿Desea enviar esta como su versión final?', function(e){ 
+			if(e){
+				$.ajax({
+		    		type: 'POST',
+		    		url: "/users_layers/send_layer",
+		    		data: {
+		    			id: $("#layer_id_field").val(),
+		    			species_id: $("#species_id_field").val(),
+		    			threshold: angular.element($("#visCntrl")).scope().corteSlider.value,
+		    			geoJSON: _BioModelosVisorModule.getGeojsonLayer($("#newModel_field").val()),
+		    			newModel: $("#newModel_field").val()
+		    		}	
+				});
+			}
+		});
 	});
 
 	/* 
@@ -295,9 +295,13 @@ $(document).ready(function(){
   			if(this.checked)
   				monthFilters.push($(this).attr('name'));
   		});
-  		var visFilters = ["", "visualedit",""];
 
-  		console.log(yearFilters + " " + monthFilters);
+  		var visFilters = [];
+  		$('input[type="checkbox"].checkregistros').each(function () {
+  			if(this.checked)
+  				visFilters.push($(this).attr('name'));
+  		});
+
 		_BioModelosVisorModule.filterRecords(selectFilters, visFilters, yearFilters, monthFilters);
 	})
 
