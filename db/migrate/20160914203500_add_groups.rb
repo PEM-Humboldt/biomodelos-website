@@ -1,4 +1,4 @@
-class AddGroupsAndTasks < ActiveRecord::Migration
+class AddGroups < ActiveRecord::Migration
 	def change
 		create_table :group_states do |t|
 			t.string :name, limit: 100, null: false
@@ -26,24 +26,9 @@ class AddGroupsAndTasks < ActiveRecord::Migration
 			t.timestamps
 		end
 
-		create_table :groups_species do |t|
-			t.belongs_to :group, index: true
+		create_table :species_groups do |t|
 			t.integer :species_id, index: true
-			t.timestamps
-		end
-
-		create_table :tasks_types do |t|
-			t.string :name, limit: 255, null: false
-			t.timestamps
-		end
-
-		create_table :tasks do |t|
-			t.integer :species_id, index: true
-			t.belongs_to :user, index: true
 			t.belongs_to :group, index: true
-			t.belongs_to :task_type, index: true
-			t.boolean :complete, default: false, null: false
-			t.boolean :active, default: true, null: false
 			t.timestamps
 		end
 	end

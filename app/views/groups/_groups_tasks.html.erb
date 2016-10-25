@@ -3,13 +3,17 @@
 <div class="clearfix"></div>
 <div class="addtask" ng-show="taskbox">
 	<p>Agregar nueva tarea</p>
-			<select name="" id="Filtrousuario">
+			<select name="" id="Filtrousuario_task">
 				<option value="hide">- Buscar Usuario -</option>
-				<option value="xx">Cesar Gutierrez</option>
+				<% @group_members.each do |member| %>
+					<option value=<%= member.user_id %>><%= member.user.name %></option>
+				<% end %>
 			</select>
-			<select name="" id="Filtroespecie">
+			<select name="" id="Filtroespecie_task">
 				<option value="hide">- Buscar Especie -</option>
-				<option value="xxx">Anulus vavis</option>
+				<% @group_species.each do |species| %>
+					<option value=<%= species[1] %>><%= species[0] %></option>
+				<% end %>
 			</select>
 			<div id="chkBoxTask">
 				<input type="checkbox" name="regvalid" checked></input>

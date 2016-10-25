@@ -16,6 +16,7 @@
  *= require_self
  *= require leaflet.markercluster/dist/MarkerCluster
  *= require leaflet.markercluster/dist/MarkerCluster.Default
+ *= require Leaflet.Coordinates/dist/Leaflet.Coordinates-0.1.5
  *= require angularjs-slider/dist/rzslider.min
  *= require v-accordion/dist/v-accordion.min
  *= require alertify.core

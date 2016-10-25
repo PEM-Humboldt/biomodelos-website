@@ -41,6 +41,12 @@ class SpeciesController < ApplicationController
     	end
 	end
 
+	def new_record
+		respond_to do |format|
+      		format.js
+    	end
+	end
+
 	def species_info
 		@eoo = Model.eoo(params[:species_id])
 		@rpa = Model.rpa(params[:species_id])

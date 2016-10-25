@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   post "species/report_record"
   post "species/species_info"
   post "species/send_report_record"
+  post "species/new_record"
   post "models/get_thresholds"
   post "models/get_models"
   post "models/download_model"
@@ -37,6 +38,7 @@ Rails.application.routes.draw do
   resources :users, :only => [:index, :show]
   resources :groups, :only => [:index, :show]
   resources :info, :only => [:index]
+  resources :species_groups, :only => [:index, :create]
   # Example resource route with options:
   #   resources :products do
   #     member do

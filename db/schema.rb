@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006204315) do
+ActiveRecord::Schema.define(version: 20161025201051) do
 
   create_table "eco_variables", force: :cascade do |t|
     t.string   "name",       limit: 150, null: false
@@ -47,16 +47,6 @@ ActiveRecord::Schema.define(version: 20161006204315) do
   end
 
   add_index "groups", ["group_state_id"], name: "index_groups_on_group_state_id"
-
-  create_table "groups_species", force: :cascade do |t|
-    t.integer  "group_id"
-    t.integer  "species_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "groups_species", ["group_id"], name: "index_groups_species_on_group_id"
-  add_index "groups_species", ["species_id"], name: "index_groups_species_on_species_id"
 
   create_table "groups_users", force: :cascade do |t|
     t.integer  "group_id"
@@ -94,27 +84,47 @@ ActiveRecord::Schema.define(version: 20161006204315) do
 
   add_index "species", ["sci_name"], name: "index_species_on_sci_name", unique: true
 
+  create_table "species_groups", force: :cascade do |t|
+    t.integer  "species_id"
+    t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "species_groups", ["group_id"], name: "index_species_groups_on_group_id"
+  add_index "species_groups", ["species_id"], name: "index_species_groups_on_species_id"
+
+  create_table "task_states", force: :cascade do |t|
+    t.string   "name",       limit: 100, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "task_types", force: :cascade do |t|
+    t.string   "name",       limit: 255, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.integer  "species_id"
     t.integer  "user_id"
     t.integer  "group_id"
     t.integer  "task_type_id"
-    t.boolean  "complete",     default: false, null: false
-    t.boolean  "active",       default: true,  null: false
+    t.integer  "created_by"
+    t.integer  "completed_by"
+    t.integer  "task_state_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "tasks", ["completed_by"], name: "index_tasks_on_completed_by"
+  add_index "tasks", ["created_by"], name: "index_tasks_on_created_by"
   add_index "tasks", ["group_id"], name: "index_tasks_on_group_id"
   add_index "tasks", ["species_id"], name: "index_tasks_on_species_id"
+  add_index "tasks", ["task_state_id"], name: "index_tasks_on_task_state_id"
   add_index "tasks", ["task_type_id"], name: "index_tasks_on_task_type_id"
   add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
-
-  create_table "tasks_types", force: :cascade do |t|
-    t.string   "name",       limit: 255, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 100,              null: false

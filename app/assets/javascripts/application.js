@@ -15,9 +15,11 @@
 //= require angular/angular.min
 //= require angular-animate/angular-animate.min
 //= require typeahead.js/dist/typeahead.bundle.min.js
+//= require custom_select
 //= require leaflet/dist/leaflet-src
 //= require leaflet-draw/dist/leaflet.draw
 //= require leaflet.markercluster/dist/leaflet.markercluster
+//= require Leaflet.Coordinates/dist/Leaflet.Coordinates-0.1.5.min
 //= require angularjs-slider/dist/rzslider.min
 //= require v-accordion/dist/v-accordion.min
 //= require jquery.nicescroll/dist/jquery.nicescroll.min

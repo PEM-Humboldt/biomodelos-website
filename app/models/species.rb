@@ -1,8 +1,7 @@
 class Species
 	include HTTParty
   	format :json
-  	#base_uri 'http://192.168.205.197:3000/BioModelos'
-  	base_uri '192.168.11.81:3000/BioModelos/species'
+  	base_uri BASE_URI + '/species'
 	# has_many :tasks
 
 	# def self.search(options)

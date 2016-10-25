@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	console.log("send");
 	validate.validators.presence.message = "no puede estar vacío";
 
 	// Validación de los campos editables de un registro.
@@ -47,7 +46,6 @@ $(document).ready(function(){
 		for(var i=0; i<valResponse.length; i++){
 			response += valResponse[i] + "\n";
 		}
-		console.log(response);
 		alertify.alert(response);
 	}
 	else{
@@ -59,7 +57,7 @@ $(document).ready(function(){
 		    url: "http://192.168.11.81:3000/BioModelos/records/" + $("#bm_db_id").val(),
 		    data: data,
 		    success: function(){
-				_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val());
+				_BioModelosVisorModule.getSpeciesRecords("<%= BASE_URI %>/records/" + $("#species_id_field").val());
 				alertify.alert("Su edición se ha realizado con éxito");
 			},
 			error: function(jqXHR, textStatus, errorThrown){

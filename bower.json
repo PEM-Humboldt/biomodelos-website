@@ -29,6 +29,7 @@
     "validate": "validate.js#^0.10.0",
     "alertify": "^0.3.10",
     "raty": "^2.7.1",
-    "moment": "^2.15.1"
+    "moment": "^2.15.1",
+    "Leaflet.Coordinates": "^0.1.5"
   }
 }

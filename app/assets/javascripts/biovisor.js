@@ -151,6 +151,17 @@ var _BioModelosVisorModule = function() {
 		//Threshold layers
 		thresholdLayers = new L.layerGroup();
 
+		L.control.coordinates({
+    		position:"bottomright", //optional default "bootomright"
+		    decimals:2, //optional default 4
+		    decimalSeperator:".", //optional default "."
+		    labelTemplateLat:"Latitud: {y}", //optional default "Lat: {y}"
+		    labelTemplateLng:"Longitud: {x}", //optional default "Lng: {x}"
+		    enableUserInput:false, //optional default true
+		    useDMS:false, //optional default false
+		    useLatLngOrder: true //ordering of labels, default false-> lng-lat
+		}).addTo(map);
+
 	    // Elevation listener
 	    // map.on('mouseover', function(e) {
 	    //      getLocationElevation(e.latlng, elevator);
@@ -177,18 +188,14 @@ var _BioModelosVisorModule = function() {
   	  });
 	}
 
-	var getSpeciesRecords = function(species_id){
+	var getSpeciesRecords = function(records_url){
 
 		if(map.hasLayer(cluster)) {
 			clearLayer(cluster);
        		layerControl.removeLayer(cluster);
        	}	
-		
-		// var url = "http://192.168.205.197:3000/BioModelos/records/" + species_id;
 
-		var url = "http://192.168.11.81:3000/BioModelos/records/" + species_id;
-
-		$.getJSON(url,function(data){
+		$.getJSON("http://" + records_url,function(data){
 			species_records = data;
 		    filterRecords(["",""], ["","",""], [], []);
 		}).fail(function(jqxhr, textStatus, error) {
@@ -221,13 +228,15 @@ var _BioModelosVisorModule = function() {
        			pointToLayer: function(feature, latlng) {
        				var filtered = false;
 
-	       			if(visFilters[0] === 'visualrep')
+	       			if(visFilters[0] === 'visualrep'){
 	       				filtered = feature.properties.reportado_bm === true;
-	       			if(visFilters[1] === 'visualedit')
+	       			}
+	       			if(visFilters[1] === 'visualedit'){
 	       				filtered = filtered || feature.properties.corregido_bm === true;
-	       			if(visFilters[2] === 'visualadd')
+	       			}
+	       			if(visFilters[2] === 'visualadd'){
 	       				filtered = filtered || feature.properties.source === 'BioModelos';
-
+	       			}
 	   			    if (filtered){
 	   			    	return new L.Marker(latlng, {
 				            icon: redIcon        
@@ -281,7 +290,7 @@ var _BioModelosVisorModule = function() {
 					for (var prop in feature.properties) {
 						if(prop === '_id')
 							popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
-						else if (prop != "taxID" && prop != "reportado_bm" && prop != "corregido_bm")
+						else if (prop != "taxID" && prop != "reportado_bm" && prop != "corregido_bm" && prop != "ID")
 							popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + feature.properties[prop] + "</br>");
 								
 					}
@@ -346,32 +355,34 @@ var _BioModelosVisorModule = function() {
 	*/
 	var uniqueValues = function(filterName){
 		console.log(filterName);
-		var lookup = {},
-			items = species_records.features,
-			result = [],
-			name;
+		var result = [];
+		if(species_records){
+			var lookup = {},
+				items = species_records.features,
+				name;
 
-		for (var item, i = 0; item = items[i++];) {
-		  switch(filterName){
-		  	case "Evidencia":
-		  		name = item.properties.Evidencia;
-		  		break;
-		  	case "Fuente":
-		  		name = item.properties.Fuente;
-		  		break;
-		  	case "Institución":
-		  		name = item.properties.Institucion;
-		  		break;
-		  	default:
-		  		break;	
-		  }
+			for (var item, i = 0; item = items[i++];) {
+			  switch(filterName){
+			  	case "Evidencia":
+			  		name = item.properties.basisOfRecord;
+			  		break;
+			  	case "Fuente":
+			  		name = item.properties["source"];
+			  		break;
+			  	case "Institución":
+			  		name = item.properties.institution;
+			  		break;
+			  	default:
+			  		break;	
+			  }
 
-		  if (!(name in lookup)) {
-		    lookup[name] = 1;
-		    result.push(name);
-		  }
+			  if (!(name in lookup)) {
+			    lookup[name] = 1;
+			    result.push(name);
+			  }
+			}
 		}
-		return result;
+		return result;		
 	}
 
 	/*
@@ -403,15 +414,17 @@ var _BioModelosVisorModule = function() {
 		           '<input id="review_type" type="hidden">'+
 		           '<div class="labelcom clearfix">nuevo Registro</div></br>'+
 		           '<label>Lat </label><input type="text" name="latitude" id="txtNewRecordLat" size="7" class="smallinput"></input>'+
-		           '<label> Lng </label><input type="text" name="longitude" id="txtNewRecordLng" size="7" class="smallinput"></input></br>' +
-			       '<label> Altura </label><input type="text" name="altitude" id="sle" size="7" class="smallinput"></input></br>' +
-			       '<input type="date" id="fecha_registro" name="fecha_registro" placeholder="Fecha de registro (mm/dd/aa)" class="inputforma"></input>' +
+		           '<label> Lon </label><input type="text" name="longitude" id="txtNewRecordLon" size="7" class="smallinput"></input></br>' +
+			       '<label> Altura </label><input type="text" name="altitude" id="r_altitude" size="7" class="smallinput"></input></br>' +
+			       '<label> Fecha </label><input type="text" id="year_registro" name="year_registro" placeholder="YYYY" class="smallinput" size="4"></input><input type="text" id="month_registro" name="month_registro" placeholder="MM" class="smallinput" size="2"></input><input type="text" id="day_registro" name="day_registro" placeholder="DD" class="smallinput" size="2"></input>' +
+			       '<input type="text" id="r_departamento" name="departamento" placeholder="Departamento" class="inputforma"></input>' +
+			       '<input type="text" id="r_municipio" name="municipio" placeholder="Municipio" class="inputforma"></input>' +
 			       '<input type="text" id="r_localidad" name="localidad" placeholder="Localidad" class="inputforma"></input>' +
 			       '<input type="text" name="tipo" id="r_tipo" placeholder="Tipo de registro" class="inputforma"></input>' +
 			       '<input type="text" name="colector" id="r_observador" placeholder="Observador" class="inputforma"></input>' +
 			       '<input type="text" name="cita" id="r_cita" placeholder="Cita" class="inputforma"></input>' +
-			       '<textarea rows="4" cols="30" placeholder="Ingrese una observación" id="comment" class="inputforma"></textarea>' +
-			       '<div class="centering"><button class="botonpopup" id="saveBtn" type="button">guardar</button>' +
+			       '<textarea rows="4" cols="30" placeholder="Ingrese una observación" id="r_comment" class="inputforma"></textarea>' +
+			       '<div class="centering"><button class="botonpopup" id="r_saveBtn" type="button">guardar</button>' +
 		           '<button class="botonpopup" id="popUpCancelBtn" type="button">cancelar</button></div></div>';
 		}	
 
@@ -426,6 +439,7 @@ var _BioModelosVisorModule = function() {
 		        });
 
 		    if (type === 'marker') {
+		    	var pLatLng = layer.getLatLng();
     			popup.setContent(newPointForm);	
     			layer.bindPopup(popup);
 		    	layer.addTo(newRecordsLayer);
@@ -441,6 +455,10 @@ var _BioModelosVisorModule = function() {
     		$(".polig").removeClass("polibtnact");
     		if(!newModel){
 		    	layer.openPopup();
+		    	if(type === 'marker') {
+		    		$('#txtNewRecordLat').val(L.NumberFormatter.round(pLatLng.lat, 2, "."));
+		        	$('#txtNewRecordLon').val(L.NumberFormatter.round(pLatLng.lng, 2, "."));
+		        }
 		    	currentPopupID = layer._popup._leaflet_id;
 		    }
 		});
@@ -639,33 +657,29 @@ var _BioModelosVisorModule = function() {
 		threshold10 = new L.ImageOverlay(imgThreshold10, imageBounds, {opacity: 0.6});
 		threshold20 = new L.ImageOverlay(imgThreshold20, imageBounds, {opacity: 0.6});
 		threshold30 = new L.ImageOverlay(imgThreshold30, imageBounds, {opacity: 0.6});
-
 	}
 
 	var changeThresholdLayer = function (threshold){
 		thresholdLayers.clearLayers();
-
 		switch (threshold) {
+				  case 'C':
+				    thresholdLayers.addLayer(thresholdC);
+				    break;
 				  case '0%':
-				    //Statements executed when the result of expression matches value2
 				    thresholdLayers.addLayer(threshold0);
 				    break;
 				  case '10%':
-				    //Statements executed when the result of expression matches valueN
 				    thresholdLayers.addLayer(threshold10);
 				    break;
 				  case '20%':
-				    //Statements executed when the result of expression matches valueN
 				    thresholdLayers.addLayer(threshold20);
 				    break;
 				  case '30%':
-				    //Statements executed when the result of expression matches valueN
 				    thresholdLayers.addLayer(threshold30);
 				    break;
 				  default:
-				    //Statements executed when none of the values match the value of the expression
 				    break;
-			}	    
+		}	    
 	}
 
 	var loadModel = function (modelUrl, name) {
@@ -781,5 +795,9 @@ $(document).ready(function() {
   	$("body").on("click","#savePolBtn",function(e){
         e.preventDefault();
 		_BioModelosVisorModule.addActionToPolygon(e);
+  	});
+  	$("body").on("click","#popUpCancelBtn",function(e){
+        e.preventDefault();
+		_BioModelosVisorModule.cancelAddPoint();
   	});
 });

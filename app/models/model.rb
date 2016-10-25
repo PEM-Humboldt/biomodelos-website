@@ -1,8 +1,7 @@
 class Model
 	include HTTParty
   	format :json
-  	base_uri '192.168.11.81:3000/BioModelos/models'
-    #base_uri '192.168.205.197:3000/BioModelos'
+  	base_uri BASE_URI + '/models'
 
   	attr_accessor :modelID, :modelStatus, :pngUrl, :tifUrl, :thumbUrl, :threshold
 

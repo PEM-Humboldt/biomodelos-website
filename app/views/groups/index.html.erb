@@ -23,97 +23,31 @@
 			</div>
 			<div class="mt10"></div>
 			<div class="aligner2">
-				<div class="groupcard">
-					<div class="groupthumb">
-						<%= image_tag("avacuaticas.jpg") %>
+				<% @groups.each do |group| %>
+					<div class="groupcard">
+						<div class="groupthumb">
+							<%= image_tag("avacuaticas.jpg") %>
+						</div>
+						<%= link_to group, :class => 'titgrcard' do%>
+							<%= group.name %>
+						<% end %>
+						<div class="subtgr"><b>Moderador</b></br>Norberto Lopez Alvarez</div>
+						<div class="colhalf subtgr lineright">
+							<b>Especies</b>
+							<h5><%= SpeciesGroup.where(:group_id => group.id).count %></h5>
+						</div>
+						<div class="colhalf subtgr clearfix">
+							<b>Miembros</b>
+							<h5><%= GroupsUser.where(:group_id => group.id).count %></h5>
+						</div>
 					</div>
-					<a class="titgrcard">
-						Aves acuáticas de Colombia
-					</a>
-					<div class="subtgr"><b>Moderador</b></br>Norberto Lopez Alvarez</div>
-					<div class="colhalf subtgr lineright">
-						<b>Especies</b>
-						<h5>245</h5>
-					</div>
-					<div class="colhalf subtgr clearfix">
-						<b>Miembros</b>
-						<h5>45</h5>
-					</div>
-				</div>
+				<% end %>
 				<div class="groupcard">
 					<div class="groupthumb">
 						<%= image_tag("nogroupimg.jpg") %>
 					</div>
 					<a class="titgrcard">
 						Herpetos
-					</a>
-					<div class="subtgr"><b>Moderador</b></br>Norberto Lopez Alvarez</div>
-					<div class="colhalf subtgr lineright">
-						<b>Especies</b>
-						<h5>245</h5>
-					</div>
-					<div class="colhalf subtgr clearfix">
-						<b>Miembros</b>
-						<h5>45</h5>
-					</div>
-				</div>
-				<div class="groupcard">
-					<div class="groupthumb">
-						<%= image_tag("avacuaticas.jpg") %>
-					</div>
-					<a class="titgrcard">
-						Aves acuáticas de Colombia
-					</a>
-					<div class="subtgr"><b>Moderador</b></br>Norberto Lopez Alvarez</div>
-					<div class="colhalf subtgr lineright">
-						<b>Especies</b>
-						<h5>245</h5>
-					</div>
-					<div class="colhalf subtgr clearfix">
-						<b>Miembros</b>
-						<h5>45</h5>
-					</div>
-				</div>
-				<div class="groupcard">
-					<div class="groupthumb">
-						<%= image_tag("avacuaticas.jpg") %>
-					</div>
-					<a class="titgrcard">
-						Aves acuáticas de Colombia
-					</a>
-					<div class="subtgr"><b>Moderador</b></br>Norberto Lopez Alvarez</div>
-					<div class="colhalf subtgr lineright">
-						<b>Especies</b>
-						<h5>245</h5>
-					</div>
-					<div class="colhalf subtgr clearfix">
-						<b>Miembros</b>
-						<h5>45</h5>
-					</div>
-				</div>
-				<div class="groupcard">
-					<div class="groupthumb">
-						<%= image_tag("avacuaticas.jpg") %>
-					</div>
-					<a class="titgrcard">
-						Aves acuáticas de Colombia
-					</a>
-					<div class="subtgr"><b>Moderador</b></br>Norberto Lopez Alvarez</div>
-					<div class="colhalf subtgr lineright">
-						<b>Especies</b>
-						<h5>245</h5>
-					</div>
-					<div class="colhalf subtgr clearfix">
-						<b>Miembros</b>
-						<h5>45</h5>
-					</div>
-				</div>
-				<div class="groupcard">
-					<div class="groupthumb">
-						<%= image_tag("avacuaticas.jpg") %>
-					</div>
-					<a class="titgrcard">
-						Aves acuáticas de Colombia
 					</a>
 					<div class="subtgr"><b>Moderador</b></br>Norberto Lopez Alvarez</div>
 					<div class="colhalf subtgr lineright">

@@ -7,7 +7,7 @@
 	_BioModelosVisorModule.unloadModel();
 	_BioModelosVisorModule.unloadEditionLayer();
 	_BioModelosVisorModule.unloadThresholdLayer();
-	_BioModelosVisorModule.getSpeciesRecords(<%= params[:species_id] %>);
+	_BioModelosVisorModule.getSpeciesRecords("<%= BASE_URI %>/records/<%= params[:species_id] %>");
 	$(".vbtninfo").show();
 	$(".vbtnhipo").show();
 	$(".vbtnedit").show();
