@@ -612,20 +612,17 @@ p.redsq::before	{
 	background-image: url(<%= asset_path 'plumas.jpg' %>);
 	background-repeat: no-repeat;
 	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .loginbox {
 	top: 12px;
-	left: 50%;
-	transform: translatex(-50%);
-	position: absolute;
+	position: relative;
 	width: 500px;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	height: auto;
-	max-height: -moz-calc(100% - 280px);
-	max-height: -webkit-calc(100% - 280px);
-	max-height: calc(100% - 280px);
-	margin-top: 120px;
 	background-color: #fff;
 	overflow-y: auto;
 	padding: 20px 30px;
