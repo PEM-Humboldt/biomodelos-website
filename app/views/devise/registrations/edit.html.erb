@@ -1,43 +1,75 @@
 <div class="innercontainer fondoplumas">
   <div class="loginbox">
-    <h2>Editar <%= resource_name.to_s.humanize %></h2>
+    <h2>Editar mi usuario</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+      
+      <%= @user.email %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+      <div class="field">
+        <%= f.label :nombre %><br />
+        <%= f.text_field :name, autofocus: "off" %>
+      </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-  <div class="field">
-    <%= f.label :nueva_clave %> <i>(solo si va a cambiarla)</i>
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+      <div class="field">
+        <%= f.label :Grupos_de_interes %>
+        <%= f.text_field :expertise, autocomplete: "off" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :confirmar_clave %>
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+      <div class="field">
+        <%= f.label :organizacion %>
+        <%= f.text_field :organization, autocomplete: "off" %>
+      </div>
 
-  <div class="field mb40">
-    <%= f.label :clave_actual %> <i>(Necesaria para hacer cambios)</i>
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+      <div class="field">
+        <%= f.label :ciudad %>
+        <%= f.text_field :location, autocomplete: "off" %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "ACTUALIZAR" %>
-  </div>
-<% end %>
+      <div class="field mb40">
+        <%= f.label :Biografia %>
+        <%= f.text_area :bio, autocomplete: "off" %>
+      </div>
 
-<h3>Cancelar mi cuenta</h3>
+      <div class="inputBtnSection ml0">
+        <input id="uploadFile" class="disableInputField w203" placeholder="Seleccionar Archivo" />
+          <label class="fileUpload">
+            <%= f.file_field :files, :required => true, label: false, error_html: {:class => 'publierror'}, :input_html => { :id => "uploadBtn", :class => "upload"} %>
+            <span class="uploadBtn">CAMBIAR FOTO</span>
+          </label>
+      </div>
 
-<p>Nos abandona? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Está seguro?" }, method: :delete %></p>
+      <div class="field">
+        <%= f.label :nueva_clave %> <i>(solo si va a cambiarla)</i>
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
 
-<%= link_to "Volver", :back %>
+      <div class="field">
+        <%= f.label :confirmar_clave %>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+      <div class="field mb40">
+        <%= f.label :clave_actual %> <i>(Necesaria para hacer cambios)</i>
+        <%= f.password_field :current_password, autocomplete: "off" %>
+      </div>
+
+        <%= f.submit "ACTUALIZAR", :class => "ml20" %>
+    <% end %>
+
+   <%= button_to "CERRAR CUENTA", registration_path(resource_name), data: { confirm: "Está seguro?" }, method: :delete %>
+
+   <%= link_to "Volver", :back %>
   </div>
 </div>
+
+<script>
+document.getElementById("uploadBtn").onchange = function () {
+    document.getElementById("uploadFile").value = this.value;
+};
+</script>

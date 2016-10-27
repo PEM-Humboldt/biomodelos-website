@@ -3,13 +3,33 @@
 	<div class="col2">
 		<h2><%= @group.name %></h2>
 		<%= hidden_field_tag 'group_id_field', @group.id %>
+		<div ng-show="editgroup" class="editgroupform">
+			<h2>Editar Grupo</h2>
+			<%= simple_form_for :test do |f| %>
+				<h3>Nombre de grupo</h3>
+				<%= f.input :name, :maxlength => 50, :placeholder => "Nombre anterior", :name => "nombre", label: false%>
+				<h3>Mensaje al grupo</h3>
+				<%= f.input :content, :as => :text, :placeholder => "Mensaje anterior", :input_html => {:maxlength => 300, :cols => "20", :rows => "4"}, :name => "cuerpo", label: false %>
+				<h3>Cambiar imagen</h3>
+				<div class="inputBtnSection ml0">
+	                  <input id="uploadFile" class="disableInputField w203" placeholder="Seleccionar Archivo" />
+	                        <label class="fileUpload">
+	                        <%= f.input :files, :as => :file, :required => true, label: false, error_html: {:class => 'publierror'}, :input_html => { :id => "uploadBtn", :class => "upload"} %>
+	                        <span class="uploadBtn">SUBIR FOTO</span>
+	                        </label>
+	                  </div>
+	            <div class="clearfix"></div>
+	            <%= f.submit 'GUARDAR', class: "btngen ml0"%>
+	            <a class="closeedit" ng-click="editgroup=!editgroup">X</a>
+			<% end %>
+		</div>
 		<div class="groupimg">
 			<%= image_tag("gruposprueba.jpg") %>
 		</div>
 		<div class="perflinks">
 			<a href="" class="mailto"></a>
 			<a href="" class="joingroup"></a>
-			<a href="" class="edituser"></a>
+			<a href="" class="edituser" ng-click="editgroup=!editgroup"></a>
 		</div>
 
 		<div class="clearfix"></div>
@@ -22,12 +42,6 @@
 		<div class="groupunder">Última Actividad</div>
 		<p class="actvspp"><a>Wingardium leviosa</a> · Aporte de Edición</p>
 		<p class="actuser"><a>Norberto Lopez Alvarez</a> · 15/02/2016</p>
-		<div>
-		<%= simple_form_for :test do |f| %>
-			<%= f.input :name, :maxlength => 50, :placeholder => "Nombre o Institución", :name => "nombre", label: false%>
-			<%= f.input :place, :maxlength => 50, :placeholder => "Nombre o Institución", :name => "nombre", label: false%>
-		<% end %>
-	</div>
 	</div>
 
 	<div class="col1">
@@ -73,6 +87,11 @@
 </div>
 
 <script>
+
+document.getElementById("uploadBtn").onchange = function () {
+    document.getElementById("uploadFile").value = this.value;
+};
+
 $('.cajaperfil').niceScroll({
 	cursorcolor: "#5d5e5e",
 	cursorwidth: "7px",
