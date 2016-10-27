@@ -16,9 +16,9 @@
 					<h3>%Avance</h3>
 					<%= image_tag("percicon.png") %>
 				</div>
-				<% @tasks.each do |task| %>
+				<% @species_with_tasks.each do |species| %>
 					<div class="tareaspp"><!-- 
-					--><a class="colspp"><%= task.species.sci_name %></a><!-- 
+					--><a class="colspp"><%= species[0] %></a><!-- 
 					--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
 					--><div class="coladv"><%= image_tag("check.png") %></div><!-- 
 					--><div class="coladv"><input type="checkbox" ></input></div><!-- 

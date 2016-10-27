@@ -2,6 +2,7 @@
 <div class="perfilcont">
 	<div class="col2">
 		<h2><%= @group.name %></h2>
+		<%= hidden_field_tag 'group_id_field', @group.id %>
 		<div class="groupimg">
 			<%= image_tag("gruposprueba.jpg") %>
 		</div>
@@ -21,7 +22,14 @@
 		<div class="groupunder">Última Actividad</div>
 		<p class="actvspp"><a>Wingardium leviosa</a> · Aporte de Edición</p>
 		<p class="actuser"><a>Norberto Lopez Alvarez</a> · 15/02/2016</p>
+		<div>
+		<%= simple_form_for :test do |f| %>
+			<%= f.input :name, :maxlength => 50, :placeholder => "Nombre o Institución", :name => "nombre", label: false%>
+			<%= f.input :place, :maxlength => 50, :placeholder => "Nombre o Institución", :name => "nombre", label: false%>
+		<% end %>
 	</div>
+	</div>
+
 	<div class="col1">
 
 		<ul class="perfilnav groupnav">
