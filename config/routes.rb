@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   resources :groups, :only => [:index, :show]
   resources :info, :only => [:index]
   resources :species_groups, :only => [:index, :create]
+  resources :tasks, :only => [:index, :create]
   # Example resource route with options:
   #   resources :products do
   #     member do
