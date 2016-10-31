@@ -6,20 +6,43 @@
 
 		<div class="steptitle">1. A partir de modelo estadístico</div>
 		<div class="dinblock">
-			<div href="" class="editthumb">
-				<a href=""><%= image_tag(continuous_t.thumbUrl) %></a>
-			</div>
+			<% if continuous_t %> 
+				<div href="" class="editthumb">
+					<a href=""><%= image_tag(continuous_t.thumbUrl) %></a>
+				</div>
 			<div class="editactions clearfix">
-				<%= link_to models_download_model_path(:thumb_url => continuous_t.tifUrl), {:class => 'download', :remote => true, :title => "Bajar el modelo", :rel => "tooltip"} do %>
-					<%= image_tag("downicon.png") %>
-				<% end %>
-				<a href="" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
-				<%= hidden_field_tag 'continuous_t_url', continuous_t.pngUrl %>
+					<%= link_to models_download_model_path(:thumb_url => continuous_t.tifUrl), {:class => 'download', :remote => true, :title => "Bajar el modelo", :rel => "tooltip"} do %>
+						<%= image_tag("downicon.png") %>
+					<% end %>
+					<a href="" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
+					<%= hidden_field_tag 'continuous_t_url', continuous_t.pngUrl %>
+					<button class="newgrbtn" id="cbt_editBtn">editar</a>
+			<% else %>
+				<div href="" class="editthumb">
+					<a href=""><%= image_tag("nomap.png") %></a>
+				</div>
+				<div class="editactions clearfix">
+			<% end %>
+			<% if zero_t %>
 				<%= hidden_field_tag 'zero_t_url', zero_t.pngUrl %>
+			<% else %>
+				<%= hidden_field_tag 'zero_t_url' %>
+			<% end %>
+			<% if ten_t %>
 				<%= hidden_field_tag 'ten_t_url', ten_t.pngUrl %>
+			<% else %>
+				<%= hidden_field_tag 'ten_t_url' %>
+			<% end %>
+			<% if twenty_t %>
 				<%= hidden_field_tag 'twenty_t_url', twenty_t.pngUrl %>
+			<% else %>
+				<%= hidden_field_tag 'twenty_t_url' %>
+			<% end %>
+			<% if thirty_t %>
 				<%= hidden_field_tag 'thirty_t_url', thirty_t.pngUrl %>
-				<button class="newgrbtn" id="cbt_editBtn">editar</a>
+			<% else %>
+				<%= hidden_field_tag 'thirty_t_url' %>
+			<% end %>
 			</div>
 		</div>
 		<div class="dinblock">

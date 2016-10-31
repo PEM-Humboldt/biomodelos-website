@@ -1,2 +1,42 @@
 $('#editbox_content').html('<%=j render partial: 'species/species_contributions', locals: { :continuous_t => @continuous_t, :zero_t => @zero_t, :ten_t => @ten_t, :twenty_t => @twenty_t, :thirty_t => @thirty_t } %>');
 _BioModelosVisorModule.unloadModel();
+
+/* Carga de variables ecológicas */
+$.ajax({
+          'type': "GET",
+          'global': false,
+          'dataType': 'json',
+          url: "/eco_variables/eco_variables_search",
+          data: {species_id: $("#species_id_field").val()},
+          'success': function (data) {
+				var ecoVars;
+
+			  	  //Get the variable from the array
+				  function getEcoVariable(key){
+				   for (var i in ecoVars) {
+				      if(ecoVars[i].eco_id == key)
+				        return ecoVars[i];
+				    }
+				  } 
+
+	              ecoVars = data;
+
+	              $('#eco_var_accordion input[type=checkbox]').each(function(e){
+			        var $this = $(this),
+			            ecoVar,
+			            box_val = false;
+
+			        ecoVar = getEcoVariable($(this).attr('name'));
+
+			        if (ecoVar != undefined)
+			            box_val = ecoVar["eco_selected"];
+
+			        if (box_val)
+			            $this.prop("checked", true);
+			      });
+          },
+          error: function( jqXHR, textStatus ) {
+              isError = true;
+              alertify.alert( "Ha ocurrido un error: " + textStatus );
+          }
+});

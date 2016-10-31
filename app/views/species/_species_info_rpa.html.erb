@@ -1,16 +1,18 @@
-<div class="maindata 2ndpad">
-			<h4><%= '%.2f' % (@rpa[0]["statRepPA"] * 100) %> %</h4>
-			<h5>Rango Geográfico</h5>
-		</div>
-		<div class="seconddata">
-			<h4><%= '%.2f' % (@rpa[0]["statRepPA1"] * 100) %> %</h4>
-			<h5>PNN</h5>
-		</div>
-		<div class="seconddata">
-			<h4><%= '%.2f' % (@rpa[0]["statRepPA2"] * 100) %> %</h4>
-			<h5>RSC</h5>
-		</div>
-		<div class="seconddata fdata">
-			<h4><%= '%.2f' % (@rpa[0]["statRepPA3"] * 100) %> %</h4>
-			<h5>otras figuras</h5>
-		</div>
+<% if @rpa || !@rpa.blank? %>
+	<div class="maindata 2ndpad">
+		<h4><%= '%.2f' % (@rpa[0]["statRepPA"] * 100) %> %</h4>
+		<h5>Rango Geográfico</h5>
+	</div>
+	<div class="seconddata">
+		<h4><%= '%.2f' % (@rpa[0]["statRepPA1"] * 100) %> %</h4>
+		<h5>PNN</h5>
+	</div>
+	<div class="seconddata">
+		<h4><%= '%.2f' % (@rpa[0]["statRepPA2"] * 100) %> %</h4>
+		<h5>RSC</h5>
+	</div>
+	<div class="seconddata fdata">
+		<h4><%= '%.2f' % (@rpa[0]["statRepPA3"] * 100) %> %</h4>
+		<h5>otras figuras</h5>
+	</div>
+<% end %>

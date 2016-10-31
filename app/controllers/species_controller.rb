@@ -48,13 +48,18 @@ class SpeciesController < ApplicationController
 	end
 
 	def species_info
-		@eoo = Model.eoo(params[:species_id])
-		@rpa = Model.rpa(params[:species_id])
-		@forest_loss = Model.forest_loss(params[:species_id])
-		@covers = Model.covers(params[:species_id])
-		respond_to do |format|
-      		format.js
-    	end
+		begin
+			@eoo = Model.eoo(params[:species_id])
+			@rpa = Model.rpa(params[:species_id])
+			@forest_loss = Model.forest_loss(params[:species_id])
+			@covers = Model.covers(params[:species_id])
+
+			respond_to do |format|
+	      		format.js
+	    	end
+	    rescue => e
+	    	render :js => "alertify.alert('Ha ocurrido un error en la conexión con la base de datos' + #{e.message} + ' ' + #{e.backtrace});"
+	    end
 	end
 
 	def records_metadata

@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   post "models/download_model"
   get "models/metadata"
   get "species/records_metadata"
+  post "ratings/rate_model"
+  get "eco_variables/eco_variables_search"
+  post "eco_variables/add_ecological_variable"
 
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
@@ -40,6 +43,7 @@ Rails.application.routes.draw do
   resources :info, :only => [:index]
   resources :species_groups, :only => [:index, :create]
   resources :tasks, :only => [:index, :create]
+  resources :ratings, :only => [:destroy]
   # Example resource route with options:
   #   resources :products do
   #     member do

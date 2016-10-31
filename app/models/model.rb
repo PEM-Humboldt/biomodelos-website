@@ -14,16 +14,30 @@ class Model
 	    self.threshold = threshold
   	end
 
-  	def self.get_models(species_id)
+  	def self.get_approved_models(species_id)
   		response = JSON.parse(get('/' + species_id).body)
   		models_array = []
     		response.each do |threshold|
-    			t = Model.new(threshold["Modelo"], threshold["ModelStatus"], threshold["Ruta_Mapa"], threshold["Ruta_Tif"], threshold["Ruta_Miniatura"], threshold["Umbral"])
-    			models_array.push(t)
-  		end
+          if threshold["ModelStatus"] == "approved"
+    			 t = Model.new(threshold["Modelo"], threshold["ModelStatus"], threshold["Ruta_Mapa"], threshold["Ruta_Tif"], threshold["Ruta_Miniatura"], threshold["Umbral"])
+    			 models_array.push(t)
+          end
+  		  end
 
 		  return models_array
   	end
+
+    def self.get_continous_model(species_id)
+      response = JSON.parse(get('/' + species_id).body)
+      continuous_model = nil
+        response.each do |threshold|
+          if threshold["Umbral"] == "Continuous"
+            continuous_model = Model.new(threshold["Modelo"], threshold["ModelStatus"], threshold["Ruta_Mapa"], threshold["Ruta_Tif"], threshold["Ruta_Miniatura"], threshold["Umbral"])
+          end
+        end
+
+      return continuous_model
+    end
 
     def self.eoo(species_id)
       JSON.parse(get('/approved/eoo/' + species_id).body)

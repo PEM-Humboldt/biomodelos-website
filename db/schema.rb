@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20161025201051) do
 
   create_table "eco_variables", force: :cascade do |t|
-    t.string   "name",       limit: 150, null: false
+    t.string   "name",       limit: 255, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20161025201051) do
     t.integer  "eco_variable_id"
     t.integer  "user_id"
     t.integer  "species_id"
+    t.boolean  "selected",        default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -154,7 +155,7 @@ ActiveRecord::Schema.define(version: 20161025201051) do
   create_table "users_layers", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "species_id"
-    t.string   "threshold"
+    t.string   "threshold",                  null: false
     t.boolean  "newModel",   default: false
     t.boolean  "final",      default: false
     t.text     "geoJSON",                    null: false
