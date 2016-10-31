@@ -50,7 +50,7 @@ var _BioModelosVisorModule = function() {
 						"dd":"Día"
 					};
 
-	var imageBounds = [[12.675, -60.48333], [-13.84166, -82.94999]];
+	var imageBounds = [[13,-60],[-14, -83]];
 
 	var addNiceScroll = function(){
 		$('.regscroller').niceScroll({
@@ -199,7 +199,7 @@ var _BioModelosVisorModule = function() {
 			species_records = data;
 		    filterRecords(["",""], ["","",""], [], []);
 		}).fail(function(jqxhr, textStatus, error) {
-    		alertify.alert("Ha ocurrido un error al cargar los registros");
+    		alertify.alert("Ha ocurrido un error al cargar los registros" + error);
   		});
 
 		cluster = L.markerClusterGroup();

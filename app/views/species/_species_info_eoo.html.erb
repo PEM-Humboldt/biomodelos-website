@@ -1,12 +1,14 @@
-<div class="maindata">
-				<h4><%= '%.2f' % @eoo[0]["statRangeSize"] %> km<b>2</b></h4>
-				<h5>Rango Geográfico</h5>
-			</div>
-			<div class="seconddata">
-				<h4><%= '%.2f' % @eoo[0]["statModelEOO"] %> km<b>2</b></h4>
-				<h5>PMC sobre modelos</h5>
-			</div>
-			<div class="seconddata fdata">
-				<h4><%= '%.2f' % @eoo[0]["statRecsEOO"] %> km<b>2</b></h4>
-				<h5>PMC sobre registros</h5>
-			</div>
+<% if @eoo || !@eoo.blank? %>
+	<div class="maindata">
+		<h4><%= '%.2f' % @eoo[0]["statRangeSize"] %> km<b>2</b></h4>
+		<h5>Rango Geográfico</h5>
+	</div>
+	<div class="seconddata">
+		<h4><%= '%.2f' % @eoo[0]["statModelEOO"] %> km<b>2</b></h4>
+		<h5>PMC sobre modelos</h5>
+	</div>
+	<div class="seconddata fdata">
+		<h4><%= '%.2f' % @eoo[0]["statRecsEOO"] %> km<b>2</b></h4>
+		<h5>PMC sobre registros</h5>
+	</div>
+<% end %>

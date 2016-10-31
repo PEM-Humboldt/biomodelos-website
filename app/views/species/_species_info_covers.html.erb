@@ -1,7 +1,9 @@
 <div class="resdata">
-	<% @covers[0].each do |c| %>
-		<% if c[0] != 'Modelo_ID' %>
-			<div class="cobert"><p><%= c[0] %></p><div class="percent"><%= '%.2f' % (c[1] * 100) %>%</div></div>
+	<% if @covers || !@covers.blank? %>
+		<% @covers[0].each do |c| %>
+			<% if c[0] != 'Modelo_ID' %>
+				<div class="cobert"><p><%= c[0] %></p><div class="percent"><%= '%.2f' % (c[1] * 100) %>%</div></div>
+			<% end %>
 		<% end %>
 	<% end %>
-		</div>
+</div>

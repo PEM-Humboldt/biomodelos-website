@@ -1,37 +1,57 @@
-<p>Estas hipótesis corresponden al modelo aprobado en BioModelos, mapas de expertos o modelos publicados. Pueden ser calificadas por los miembros del grupo al que pertenece esta especie. Aquella con mayor calificación es la que se muestra por defecto. Puedes realizar la descarga de los modelos y consultar sus metadatos. </p>
-
-<% @models.each_with_index do |model, i| %>
-<div class="maparea">
-	<div href="" class="mapthumb">
-		<div class="flipper">
-			<div class="front2"><%= image_tag(model.thumbUrl) %></div>
-			<a class="back2 sp_model_link">
-				<%= hidden_field_tag('imgsrc_model', model.pngUrl) %>
-				<div class="titlethumb">
-					<%= model_title_thumb(model.modelStatus) %>
+<% if @models && !@models.blank? %>
+	<p>Estas hipótesis corresponden al modelo aprobado en BioModelos, mapas de expertos o modelos publicados. Pueden ser calificadas por los miembros del grupo al que pertenece esta especie. Aquella con mayor calificación es la que se muestra por defecto. Puedes realizar la descarga de los modelos y consultar sus metadatos. </p>
+	<% @models.each_with_index do |model, i| %>
+		<div class="maparea">
+			<div href="" class="mapthumb">
+				<div class="flipper">
+					<div class="front2"><%= image_tag(model.thumbUrl) %></div>
+					<a class="back2 sp_model_link">
+						<%= hidden_field_tag('imgsrc_model', model.pngUrl) %>
+						<div class="titlethumb">
+							<%= model_title_thumb(model.modelStatus) %>
+						</div>
+						<div class="infothumb">
+							Calificación promedio
+							<div class="calificacion">4.2 <b>(12 votos)</b></div>
+						</div>
+						<div class="infothumb">
+							Número descargas
+							<div class="calificacion">3</div>
+						</div>
+						<div class="citathumb">Gutiérrez, et.al, 2015</div>
+					</a>
 				</div>
-				<div class="infothumb">
-					Calificación promedio
-					<div class="calificacion">4.2 <b>(12 votos)</b></div>
-				</div>
-				<div class="infothumb">
-					Número descargas
-					<div class="calificacion">3</div>
-				</div>
-				<div class="citathumb">Gutiérrez, et.al, 2015</div>
-			</a>
-		</div>
-	</div>
-	<div class="mmicon clearfix">
-		<a href="" title="Descargar el modelo" rel="tooltip" class="pad3"><%= image_tag("downicon.png") %></a>
-		<a href="" title="Ver metadatos del modelo" rel="tooltip" class="pad3"><%= image_tag("metaicon.png") %></a>
-		<% if user_signed_in?%>
-			<div class="user_star">
 			</div>
-		<% end %>
-	</div>
-</div>
+			<div class="mmicon clearfix">
+				<a href="" title="Descargar el modelo" rel="tooltip" class="pad3"><%= image_tag("downicon.png") %></a>
+				<a href="" title="Ver metadatos del modelo" rel="tooltip" class="pad3"><%= image_tag("metaicon.png") %></a>
+				<% if user_signed_in?%>
+					<div class="user_star">
+						<%= hidden_field_tag('myscore', ratings[model.modelID], :class => 'myscore') %>
+						<%= hidden_field_tag('model', model.modelID, :class => 'model_id' )  %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+<% else %>
+	<p>Estas hipótesis corresponden al modelo aprobado en BioModelos, mapas de expertos o modelos publicados. Pueden ser calificadas por los miembros del grupo al que pertenece esta especie. Aquella con mayor calificación es la que se muestra por defecto. Puedes realizar la descarga de los modelos y consultar sus metadatos. </p>
+	<div class="maparea">
+			<div href="" class="mapthumb">
+				<div class="flipper">
+					<div class="front2"><%= image_tag("nomap.png") %></div>
+					<div class="back2">
+						<div class="titlethumb">
+							SIN MODELO
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mmicon clearfix">
+			</div>
+		</div>
 <% end %>
+
 
 <h3>FORO <i>Aglaiocercus coelestis</i></h3>
 <form action="">
@@ -71,45 +91,28 @@ $('.user_star').raty({
 		return $(this).find('.myscore').val();
 	},
 	click: function(score, evt) {
-		model_clicked_id = $(this).find('.mid').val();
+		model_clicked_id = $(this).find('.model_id').val();
 		if(evt.currentTarget.className === "raty-cancel")
 		{
 			if(<%= user_signed_in? %>){
 				$.ajax({
 					type: "DELETE",
 					url: "/ratings/destroy",
-					data: { mid: $(this).find('.mid').val(), uid: $('#bio_user_id').val()}
+					data: { model_id: $(this).find('.model_id').val(), uid: $('#bio_user_id').val()}
 				});
 			}
 		}
 		else{
 
 			$.ajax({
-				url: "/ratings/exists_rating",
-				datatype: "json",
-				contenType: "application/json; charset=utf-8",
 				type: "POST",
-				data:{
-					'mid': $(this).find('.mid').val(),
-					'lvl': $(this).find('.lvl').val()
-				},
+				url: "/ratings/rate_model",
+				data: { model_id: $(".model_id[value='"+model_clicked_id+"']").val(), species_id: $("#species_id_field").val(), score: score,},
 				success: function(data){                
-					if(data)
-					{
-						alert("¡Sólo puede calificar un modelo por pestaña!");
-						$(".mid[value='"+model_clicked_id+"']").parent().raty('cancel');
-					}   
-					else
-					{
-						$.ajax({
-							type: "POST",
-							url: "/ratings/rate_model",
-							data: { mid: $(".mid[value='"+model_clicked_id+"']").val(), score: score, lvl: $(".mid[value='"+model_clicked_id+"']").parent().find('.lvl').val()}
-						});                          
-					}
+					
 				},
 				error: function(data){
-					alert("Something went wrong");
+					alertify.alert("Ha ocurrido un error al guardar la calificación");
 				}
 			});
 

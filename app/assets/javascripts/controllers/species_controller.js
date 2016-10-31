@@ -218,7 +218,7 @@ $(document).ready(function(){
 		1. Reset DOM (año, mes, select, filtros)
 	*/
 	$("#limpiarBtn").click(function(e){
-		var uri = "http://192.168.11.81:3000/BioModelos/records/" + $("#species_id_field").val();
+		var uri = "192.168.11.81:3000/BioModelos/records/" + $("#species_id_field").val();
 		//Reset slider Año
 		angular.element($("#visCntrl")).scope().resetSlider();
 		//Reset meses
@@ -355,6 +355,25 @@ $(document).ready(function(){
 		    url: "/species/new_record"
 		});
 	});
+
+	/* Save or updates ecological variables */
+	$("body").on("change", "#eco_var_accordion input[type=checkbox]", function () {
+	    var box_id = $(this).attr('name'),
+	        eco_var_val = false;
+
+	    if ($(this).prop("checked"))
+	        eco_var_val = true;
+
+      	$.ajax({
+          type: "POST",
+          url: "/eco_variables/add_ecological_variable",
+          data: { species_id: $("#species_id_field").val(), eco_variable_id: box_id, selected: eco_var_val },
+          error: function( jqXHR, textStatus, error ) {
+            isError = true;
+            alertify.alert( "Ha ocurrido un error al guardar la variable ecológica" );
+          } 	
+     });
+  });
 
 	
 });

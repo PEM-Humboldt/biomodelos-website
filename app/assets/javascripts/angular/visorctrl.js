@@ -7,6 +7,15 @@ angular.module('biomodelos')
     };
 
     $scope.changeLayer = function (){
+      if($scope.corteSlider.value == 'C'){
+        if(!$(".modelname").hasClass("gradient"))
+          $(".modelname").addClass("gradient");
+      }
+      else{
+        if($(".modelname").hasClass("gradient"))
+          $(".modelname").removeClass("gradient");
+      }
+
       _BioModelosVisorModule.changeThresholdLayer($scope.corteSlider.value);
       console.log('on change ' + $scope.corteSlider.value); // logs 'on change slider-id'
     }

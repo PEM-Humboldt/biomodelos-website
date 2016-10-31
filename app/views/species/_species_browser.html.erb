@@ -11,22 +11,65 @@
 			<% end %>
 			<h2>FILTROS</h2>
 			<div class="sppbtn">
-				<button class="mamiferos" title="Mamíferos" rel="tooltip"></button>
+				<label>
+		            <input type="checkbox" name="taxon" value="1"/>
+		            <%= image_tag("mambtn.png", :title => 'Mamiferos') %>
+		        </label>
+		        <label>
+		            <input type="checkbox" name="taxon" value="2" />
+		            <%= image_tag("avesbtn.png", :title => 'Aves') %>
+		        </label>
+		        <label>
+		            <input type="checkbox" name="taxon" value="3" />
+		            <%= image_tag("repbtn.png", :title => 'Reptiles') %>
+		        </label>
+		        <label>
+		            <input type="checkbox" name="taxon" value="4" />
+		            <%= image_tag("anfbtn.png", :title => 'Anfibios') %>
+		        </label>
+		        <label>
+		            <input type="checkbox" name="taxon" value="5" />
+		            <%= image_tag("pecesbtn.png", :title => 'Peces') %>
+		        </label>
+		        <label>
+		            <input type="checkbox" name="taxon" value="6" />
+		            <%= image_tag("invbtn.png", :title => 'Invertebrados') %>
+		        </label>
+		        <label>
+		            <input type="checkbox" name="taxon" value="7" />
+		            <%= image_tag("plantbtn.png", :title => 'Plantas') %>
+		        </label>
+<!-- 				<button class="mamiferos" title="Mamíferos" rel="tooltip"></button>
 				<button class="aves" title="Aves" rel="tooltip"></button>
 				<button class="reptiles" title="Reptiles" rel="tooltip"></button>
 				<button class="anfibios" title="Anfibios" rel="tooltip"></button>
 				<button class="peces" title="Peces" rel="tooltip"></button>
 				<button class="invertebrados" title="Invertebrados" rel="tooltip"></button>
-				<button class="plantas" title="Plantas" rel="tooltip"></button>
+				<button class="plantas" title="Plantas" rel="tooltip"></button> -->
 			</div>
 			<div class="typebtn">
-				<button>endémicas</button>
-				<button>invasoras</button>
-				<button>amenazadas</button>
-				<button>validadas</button>
-				<button>con modelo</button>
+				<label>
+		            <input type="checkbox" name="taxon" value="1" />
+		            endémicas
+		        </label>
+				<label>
+		            <input type="checkbox" name="taxon" value="2" />
+		            invasoras
+		        </label>
+				<label>
+		            <input type="checkbox" name="taxon" value="3" />
+		            amenazadas
+		        </label>
+				<label>
+		            <input type="checkbox" name="taxon" value="4" />
+		            validadas
+		        </label>
+				<label>
+		            <input type="checkbox" name="taxon" value="5" />
+		            con modelo
+		        </label>
 			</div>
-			<section class="resultados">
+			<!-- <section class="resultados">
 				Aburria aburri</br>
 				Aburria cumanensis</br>
 				Aburria pipile</br>
@@ -44,5 +87,5 @@
 				Aglaiocercus coelestis</br>
 				Aglaiocercus kingii</br>
 				Agriornis montanus
-			</section>
+			</section> -->
 		</div>

@@ -12,6 +12,9 @@ class GroupsController < ApplicationController
 		@members_with_tasks = @tasks.map{|t| [t.user.name]}.uniq
 		@group_members = GroupsUser.where(:group_id => @group.id, :groups_users_state_id => 1).joins(:user).order('users.name')
 		@species_group = SpeciesGroup.new
-
+		@current_group_user = false
+		if user_signed_in?
+        	@current_group_user = GroupsUser.find_by_group_id_and_user_id(@group.id, current_user.id)
+        end
 	end
 end

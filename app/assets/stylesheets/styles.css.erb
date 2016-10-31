@@ -2515,7 +2515,7 @@ a.cajathumb p {
 	margin-top: 5px;
 }
 
-.sppbtn button {
+.sppbtn label {
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
@@ -2527,9 +2527,19 @@ a.cajathumb p {
 	margin-bottom: 10px;
 }
 
-.sppbtn button:hover,
-.sppbtn button:active {
-	background-color: #1b3337;
+.sppbtn label > input,
+.typebtn label > input {
+    display:none;
+      }
+ 
+.sppbtn label > input + img,
+.typebtn label > input {
+     cursor:pointer;
+ }
+
+.sppbtn label > input:checked + img,
+.sppbtn label:hover { 
+ 	background-color: #1b3337;
 }
 
 .mamiferos {
@@ -2554,7 +2564,7 @@ background-image: url(<%= asset_path 'invbtn.png' %>);
 background-image: url(<%= asset_path 'plantbtn.png' %>);	
 }
 
-.typebtn button {
+.typebtn label {
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
@@ -2569,8 +2579,8 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	margin-bottom: 10px;
 }
 
-.typebtn button:hover,
-.typebtn button:active {
+.typebtn label > input:checked,
+.typebtn label:hover {
 	border: 2px solid #1b3337;
 	color: #1b3337;
 	text-transform: uppercase;

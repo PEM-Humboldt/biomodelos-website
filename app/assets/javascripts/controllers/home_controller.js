@@ -10,8 +10,38 @@
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         remote: {
           //url:'http://192.168.11.81:3000/BioModelos/species/search/%QUERY',
-          url:'http://192.168.11.81:3000/BioModelos/species/search/%QUERY',
-          wildcard:'%QUERY'
+          url:'http://192.168.11.81:3000/BioModelos/species/search/%QUERY?',
+          replace:
+              function(url, query) {
+
+                  $('.sppbtn input[type="checkbox"]').each(function () {
+                    if (this.checked && this.value == 1)
+                      url += '&bmClass1=Anfibios';
+                    if (this.checked && this.value == 2)
+                      url += '&bmClass2=Aves';
+                    if (this.checked && this.value == 3)
+                      url += '&bmClass3=Invertebrados';
+                    if (this.checked && this.value == 4)
+                      url += '&bmClass4=Mamiferos';
+                    if (this.checked && this.value == 5)
+                      url += '&bmClass5=Peces';
+                    if (this.checked && this.value == 6)
+                      url += '&bmClass6=Reptiles';
+                    if (this.checked && this.value == 7)
+                      url += '&bmClass7=Plantas';
+                  });
+
+                  $('.typebtn input[type="checkbox"]').each(function () {
+                    if (this.checked && this.value == 1)
+                      url += '&endemic=1';
+                    if (this.checked && this.value == 2)
+                      url += '&invasive=1';
+                    if (this.checked && this.value == 3)
+                      url += '&enPeligro=1';
+                  });
+                  
+                  return url.replace('%QUERY', query);
+          }
         },
       });
 
