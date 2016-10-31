@@ -658,6 +658,16 @@ p.redsq::before	{
 	margin-top: 5px;
 }
 
+.loginbox textarea {
+	width: 100%;
+	padding: 5px;
+	margin-top: 5px;
+	border: 1px solid #cfcfce;
+	font-family: 'lato', sans-serif;
+	height: 85px;
+	font-size: 12px;
+}
+
 .loginbox input[type="checkbox"] {
 	width: 20px;
 	height: 20px;
@@ -684,7 +694,7 @@ p.redsq::before	{
 .loginbox label {
 	color: #393836;
 	letter-spacing: 0.5px;
-	vertical-align: middle;
+	vertical-align: bottom;
 }
 
 .loginbox .field {
@@ -703,7 +713,10 @@ p.redsq::before	{
 
 }
 .mb40 {
-	margin-bottom: 40px;
+	margin-bottom: 20px;
+}
+.ml20 {
+	margin-left: 20px;
 }
 
 /* perfil */
@@ -734,6 +747,7 @@ p.redsq::before	{
 	*display: inline;
 	*zoom: 1;
 	vertical-align: top;
+	position: relative;
 }
 
 .perfilnav li {
@@ -1286,6 +1300,29 @@ p.groupuser {
 	color: #124c5e;
 }
 
+.editgroupform {
+	width: 100%;
+	background-color: #fff;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.12);
+	padding: 15px 10px;
+	position: absolute;
+	z-index:200;
+	margin-top: 7px;
+}
+
+.editgroupform h3 {
+	font-size: 0.86em;
+	padding: 5px 0;
+	font-weight: 400;
+	color: #1b3337;
+}
+
+.closeedit {
+	position: absolute;
+	right: 10px;
+	top: 5px;
+}
+
 .top5 {
 	padding-bottom: 5px;
 	border-bottom: 1px solid #db3f2a;
@@ -1330,6 +1367,12 @@ p.groupuser {
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
 	font-size: 0.86em;
+}
+
+.bigplus {
+	font-size: 32px;
+	line-height: 38px;
+	font-weight: 600;
 }
 
 .sppbox .closecb {
@@ -1704,7 +1747,9 @@ p.groupuser {
 
 .forms input[type=email],
 .forms input[type=text],
-.forms textarea {
+.forms textarea,
+.editgroupform input[type=text],
+.editgroupform textarea  {
 	width: 100%;
 	padding: 10px;
 	border: 1px solid #124c5e;
@@ -2193,6 +2238,19 @@ a.cajathumb p {
 	padding-top: 0;
 	padding-right:0;
 	padding-left:0;
+}
+
+.leaflet-control-coordinates {
+	color:#fff;
+	font-family: 'Lato', sans-serif !important;
+	letter-spacing: 1px;
+}
+
+.leaflet-control-coordinates .uiElement {
+	border-radius:0;
+	background-color: #1b3337;
+	margin: 0 !important;
+	padding: 3px 10px !important;
 }
 
 .report {
@@ -2800,8 +2858,10 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	font-size: 1em;
 	line-height:1.5;
 	border: 1px solid #d0d2d0;
-	padding: 5px;
+	padding: 5px 15px 5px 5px;
 	max-width: 300px;
+	max-height: 218px;
+	overflow-y: auto;
 }
 
 .resdata p {
@@ -3633,6 +3693,12 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
     width: 230px;
 }
 
+.w203 {
+	width: 203px !important;
+	font-size: 12px;
+	padding-left: 10px;
+}
+
 .fileUpload {
     overflow: hidden;
     border:solid 1px gray;
@@ -3647,14 +3713,14 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
     font-size:16px;
     padding:0 13px;
     height:25px;
-    line-height:25px;
+    line-height:24px;
     border: 1px solid #124c5e;
     color:#124c5e;
     letter-spacing: 1px;
     cursor: pointer;
 }
 
-.fileUpload input.upload {
+.fileUpload input {
     position: absolute;
     top: 0;
     right: 0;

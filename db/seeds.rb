@@ -18,8 +18,8 @@ TaskType.create(:id => 1, :name => "Curaduría de registros")
 TaskType.create(:id => 2, :name => "Edición")
 
 GroupsUser.create(:group_id => 2, :user_id => 1, :groups_users_state_id => 1, :is_admin => true)
-GroupsUser.create(:group_id => 2, :user_id => 2, :groups_users_state_id => 1, :is_admin => false)
-GroupsUser.create(:group_id => 2, :user_id => 3, :groups_users_state_id => 1, :is_admin => false)
+# GroupsUser.create(:group_id => 2, :user_id => 2, :groups_users_state_id => 1, :is_admin => false)
+# GroupsUser.create(:group_id => 2, :user_id => 3, :groups_users_state_id => 1, :is_admin => false)
 
 TaskState.create(:id => 1, :name => "En desarrollo")
 TaskState.create(:id => 2, :name => "Completada")
