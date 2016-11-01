@@ -2,7 +2,7 @@
 	<h1>BioModelos</h1>
 	<nav class="menu">
 		<ul class="active">
-			<li><%= link_to 'Inicio', root_path, class: 'current' %></li>
+			<li><%= link_to 'Inicio', root_path %></li>
 			<li><%= link_to 'Modelos', species_visor_path %></li>
 			<li><%= link_to 'Grupos', groups_path %></li>
 			<% if user_signed_in? %>
@@ -21,12 +21,10 @@
 </header>
 
 <script>
-	jQuery(document).ready(function() {
-    jQuery('.toggle-nav').click(function(e) {
-        jQuery(this).toggleClass('active');
-        jQuery('.menu ul').toggleClass('active');
- 
-        e.preventDefault();
+	$(document).ready(function(){
+    $('.active a').each(function(index) {
+        if(this.href.trim() == window.location)
+            $(this).addClass("current");
     });
 });
-</script>
+</script>	
