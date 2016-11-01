@@ -70,10 +70,10 @@
 				<h1>consulta</h1>
 				<a ng-click="consulta=!consulta" class="closecb">x</a>
 			</div>
-			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
-			<h3>KDSFK SDFKSHDFLKL ASDF</h3>
-			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
-			<%= link_to 'ir', root_path, class: 'botoncb' %>
+			<p>Ingresa directamente al buscador de BioModelos sin necesidad de registrarte en la plataforma para consultar el modelo de distribución disponible para tu especie de interés. Solamente ingresa el nombre científico de la especie para desplegar el mapa en el visor. Allí podrás consultar si existen más hipótesis de distribución disponibles para la especie y que calificación les han dado otros usuarios, así como algunas estadísticas e información básica de la especie.</p></br>
+			<%= link_to 'IR', species_visor_path(:search => "1"),  class: 'botoncb' %>
+			<p>Si deseas descargar el mapa o hacer aportes al conocimiento de la distribución de alguna especie, debes dirigirte a la sección de registro, llenar el formulario e ingresar a la plataforma con tu usuario y contraseña.</p>
+			
 		</div>
 	</div>
 
@@ -83,10 +83,20 @@
 				<h1>contribuye</h1>
 				<a ng-click="contribuye=!contribuye" class="closecb">x</a>
 			</div>
-			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
-			<h3>KDSFK SDFKSHDFLKL ASDF</h3>
-			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
-			<%= link_to 'ir', root_path, class: 'botoncb' %>
+			<p>Para contribuir en BioModelos debes ser un usuario registrado y pertenecer a uno de los grupos de la plataforma.</p></br>
+			<%= link_to 'REGISTRO', new_user_registration_path, class: 'botoncb' %>
+			<h3>TIPOS DE APORTES</h3>
+			<p>Tus aportes para mejorar el conocimiento sobre la distribución geográfica de una especie pueden estar asociadas a las siguientes actividades:</br>
+			- Curaduría de registros biológicos de la especie.</br>
+			- Edición de los modelos estadísticos desarrollados por el Laboratorio de Biogeografía Aplicada, aporte de información sobre variables eclógicas de la especie o generación de mapas de experto para aquellas especies que cuenten con muy pocos o ningún registro biológico.</br>
+			- Participación en el foro de la especie para compartir opiniones con otros expertos y calificar la mejor hipótesis de distribución geográfica para la especie.</br></br>
+			Los aportes que realices a una especie se verán reflejadas en tu perfil y serán reconocidas con tu nombre en la citación del mapa.</p>
+			<% if user_signed_in? %>
+			    <%= link_to 'PERFIL', user_path(:id => current_user.id), class: 'botoncb' %>
+			    <%= hidden_field_tag 'user_name', current_user.name %>
+			<% else %>
+			    <%= link_to 'INGRESAR', new_user_session_path, class: 'botoncb' %>
+			<% end %>
 		</div>
 	</div>
 
@@ -96,10 +106,9 @@
 				<h1>publica</h1>
 				<a ng-click="publica=!publica" class="closecb">x</a>
 			</div>
-			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.</p>
-			<h3>KDSFK SDFKSHDFLKL ASDF</h3>
-			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem.</p>
-			<%= link_to 'ir', root_path, class: 'botoncb' %>
+			<p>Si has desarrollado modelos de distribución para una o un conjunto de especies, los puedes publicar a través de BioModelos. Al hacerlo, la plataforma te permitirá hacer una mayor difusión de tu trabajo, recibir aportes por parte de otros expertos y compartirlo con un amplio público, dentro del cual se incluyen tomadores de decisiones.</br></br>
+			Sólo debes ser un usuario registrado en BioModelos, ingresar al link “Publica” y seguir las instrucciones.</p>
+			<%= link_to 'PUBLICA', home_publish_path, class: 'botoncb' %>
 		</div>
 	</div>
 </div>

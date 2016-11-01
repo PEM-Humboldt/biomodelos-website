@@ -35,11 +35,17 @@
 		</div>
 	<% end %>
 <% else %>
-	<p>Estas hipótesis corresponden al modelo aprobado en BioModelos, mapas de expertos o modelos publicados. Pueden ser calificadas por los miembros del grupo al que pertenece esta especie. Aquella con mayor calificación es la que se muestra por defecto. Puedes realizar la descarga de los modelos y consultar sus metadatos. </p>
+	<p>Esta especie no cuenta con una hipótesis de distribución.</br>
+		<b>Razones Posibles:</b></br>
+		1)	Se encuentra en desarrollo.</br>
+		2)	No hay suficientes registros para poder desarrollar un modelo.</br>
+		3)	No contamos con expertos para esta especie.</br>
+		4)	En revisión ej. por cambio taxonómico.</br>
+	</p>
 	<div class="maparea">
 			<div href="" class="mapthumb">
 				<div class="flipper">
-					<div class="front2"><%= image_tag("nomap.png") %></div>
+					<div class="front2"><%= image_tag("nomap2.png") %></div>
 					<div class="back2">
 						<div class="titlethumb">
 							SIN MODELO

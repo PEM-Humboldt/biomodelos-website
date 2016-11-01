@@ -501,7 +501,7 @@ footer li a, .visorfooter li a {
 	text-align: center;
 	border: solid 1px #db3f2a;
 	line-height: 1;
-	width: 76px !important;
+	min-width: 76px !important;
 	height: 42px;
 	display: block;
 	float: right;
@@ -2591,7 +2591,7 @@ a.cajathumb p {
       }
  
 .sppbtn label > input + img,
-.typebtn label > input {
+.typebtn label > input + p {
      cursor:pointer;
  }
 
@@ -2622,7 +2622,7 @@ background-image: url(<%= asset_path 'invbtn.png' %>);
 background-image: url(<%= asset_path 'plantbtn.png' %>);	
 }
 
-.typebtn label {
+.typebtn label > p {
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
@@ -2637,8 +2637,8 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	margin-bottom: 10px;
 }
 
-.typebtn label > input:checked,
-.typebtn label:hover {
+.typebtn label > input:checked + p,
+.typebtn label > p:hover {
 	border: 2px solid #1b3337;
 	color: #1b3337;
 	text-transform: uppercase;
