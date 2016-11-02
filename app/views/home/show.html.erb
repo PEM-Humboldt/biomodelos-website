@@ -70,9 +70,9 @@
 				<h1>consulta</h1>
 				<a ng-click="consulta=!consulta" class="closecb">x</a>
 			</div>
-			<p>Ingresa directamente al buscador de BioModelos sin necesidad de registrarte en la plataforma para consultar el modelo de distribución disponible para tu especie de interés. Solamente ingresa el nombre científico de la especie para desplegar el mapa en el visor. Allí podrás consultar si existen más hipótesis de distribución disponibles para la especie y que calificación les han dado otros usuarios, así como algunas estadísticas e información básica de la especie.</p></br>
+			<p>Ingresa directamente al buscador de BioModelos el nombre científico de la especie de tu interés para consultar su mapa de distribución en el visor. Allí podrás consultar las hipótesis de distribución disponibles para la especie y que calificación les han dado otros usuarios, así como algunas estadísticas sobre el rango de la especie.</p></br>
 			<%= link_to 'IR', species_visor_path(:search => "1"),  class: 'botoncb' %>
-			<p>Si deseas descargar el mapa o hacer aportes al conocimiento de la distribución de alguna especie, debes dirigirte a la sección de registro, llenar el formulario e ingresar a la plataforma con tu usuario y contraseña.</p>
+			<p>Si deseas descargar el mapa deberás dirigirte a la sección de registro, llenar el formulario e ingresar a la plataforma con tu usuario y contraseña. Para hacer aportes al conocimiento de la distribución de alguna especie, revisa la sección “contribuye”.</p>
 			
 		</div>
 	</div>
@@ -86,11 +86,14 @@
 			<p>Para contribuir en BioModelos debes ser un usuario registrado y pertenecer a uno de los grupos de la plataforma.</p></br>
 			<%= link_to 'REGISTRO', new_user_registration_path, class: 'botoncb' %>
 			<h3>TIPOS DE APORTES</h3>
-			<p>Tus aportes para mejorar el conocimiento sobre la distribución geográfica de una especie pueden estar asociadas a las siguientes actividades:</br>
-			- Curaduría de registros biológicos de la especie.</br>
-			- Edición de los modelos estadísticos desarrollados por el Laboratorio de Biogeografía Aplicada, aporte de información sobre variables eclógicas de la especie o generación de mapas de experto para aquellas especies que cuenten con muy pocos o ningún registro biológico.</br>
-			- Participación en el foro de la especie para compartir opiniones con otros expertos y calificar la mejor hipótesis de distribución geográfica para la especie.</br></br>
-			Los aportes que realices a una especie se verán reflejadas en tu perfil y serán reconocidas con tu nombre en la citación del mapa.</p>
+			<p>Puedes aportar a mejorar el conocimiento sobre la distribución geográfica de las especies a través de las siguientes actividades:</br>
+			- Curación de registros biológicos.</br>
+			- Edición de los modelos estadísticos desarrollados por el Laboratorio de Biogeografía Aplicada.</br>
+			- Documentando las coberturas terrestres idóneas para las especie.</br>
+			- Desarrollando mapas de experto , especialmente para especies que cuentan con muy pocos o ningún registro biológico.</br>
+			- Participando en el foro de la especie para compartir opiniones con otros expertos.</br>
+			- Calificando las hipótesis de distribución geográfica disponibles para la especie.</br></br>
+			Los aportes que realices a una especie se verán reflejados en tu perfil y serán reconocidos en la citación del mapa.</p>
 			<% if user_signed_in? %>
 			    <%= link_to 'PERFIL', user_path(:id => current_user.id), class: 'botoncb' %>
 			    <%= hidden_field_tag 'user_name', current_user.name %>
@@ -106,7 +109,7 @@
 				<h1>publica</h1>
 				<a ng-click="publica=!publica" class="closecb">x</a>
 			</div>
-			<p>Si has desarrollado modelos de distribución para una o un conjunto de especies, los puedes publicar a través de BioModelos. Al hacerlo, la plataforma te permitirá hacer una mayor difusión de tu trabajo, recibir aportes por parte de otros expertos y compartirlo con un amplio público, dentro del cual se incluyen tomadores de decisiones.</br></br>
+			<p>Si has desarrollado modelos de distribución para una o más especies, los puedes publicar a través de BioModelos. Así podrás visibilizar tu trabajo y facilitar su uso por otros investigadores así como recibir la retroalimentación de expertos sobre el desempeño de tus modelos. <a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank">Entérate más.</a></br></br>
 			Sólo debes ser un usuario registrado en BioModelos, ingresar al link “Publica” y seguir las instrucciones.</p>
 			<%= link_to 'PUBLICA', home_publish_path, class: 'botoncb' %>
 		</div>
