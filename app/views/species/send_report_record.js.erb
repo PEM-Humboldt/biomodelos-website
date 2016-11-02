@@ -13,7 +13,7 @@ $.ajax({
 		comments_bm: "<%= params[:point_comment][:comment] %>"
 	},
 	success: function(){
-		_BioModelosVisorModule.getSpeciesRecords("<%= BASE_URI %>/records/" + $("#species_id_field").val());
+		_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val());
 		alertify.alert("Su reporte se ha realizado con éxito");
 		$('.reportBox').html("");
 	},

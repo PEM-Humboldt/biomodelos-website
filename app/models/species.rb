@@ -15,12 +15,49 @@ class Species
 	end
 
 	def self.find_name(taxID)
-   		JSON.parse(get('/' + taxID).body)[0]["species"]	
+   		JSON.parse(get('/' + taxID.to_s).body)[0]["species"]	
 	end
 
 	def self.records_number(taxID)
-		JSON.parse(get('/' + taxID).body)[0]["total"]
+		JSON.parse(get('/' + taxID.to_s).body)[0]["totalRecords"]
 	end
 
-
+	def self.search(params)
+		url = "/search"
+		if params[:query]
+			url += "/" + params[:query] + "?"
+		end
+		if params[:bmClass1]
+			url += "&bmClass1=" + params[:bmClass1]
+		end
+		if params[:bmClass2]
+			url += "&bmClass2=" + params[:bmClass2]
+		end
+		if params[:bmClass3]
+			url += "&bmClass3=" + params[:bmClass3]
+		end
+		if params[:bmClass4]
+			url += "&bmClass4=" + params[:bmClass4]
+		end
+		if params[:bmClass5]
+			url += "&bmClass5=" + params[:bmClass5]
+		end
+		if params[:bmClass6]
+			url += "&bmClass6=" + params[:bmClass6]
+		end
+		if params[:bmClass7]
+			url += "&bmClass7=" + params[:bmClass7]
+		end
+		if params[:endemic]
+			url += "&endemic=" + params[:endemic]
+		end
+		if params[:invasive]
+			url += "&invasive=" + params[:invasive]
+		end
+		if params[:enPeligro]
+			url += "&enPeligro=" + params[:enPeligro]
+		end
+		puts url
+		JSON.parse(get(url).body)
+	end
 end

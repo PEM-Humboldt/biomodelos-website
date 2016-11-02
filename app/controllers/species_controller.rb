@@ -11,6 +11,15 @@ class SpeciesController < ApplicationController
 	  	@skip_footer = true
 	end
 
+	def search
+		begin
+			species = Species.search(params)
+			render json: species
+		rescue => e
+	    	render :js => "alertify.alert('Ha ocurrido un error en la conexión con la base de datos: Búsqueda');"
+	    end
+	end
+
 	def set_species
 		begin
 			@species_name = Species.find_name(params[:species_id])
@@ -19,7 +28,16 @@ class SpeciesController < ApplicationController
 	      		format.js
 	    	end
 	    rescue => e
-	    	render :js => "alertify.alert('Ha ocurrido un error en la conexión con la base de datos');"
+	    	render :js => "alertify.alert('Ha ocurrido un error en la conexión con la base de datos: Especies');"
+	    end
+	end
+
+	def get_species_records
+		begin
+			records = Record.find(params[:id])
+			render json: records
+		rescue => e
+	    	render :js => "alertify.alert('Ha ocurrido un error en la conexión con la base de datos: Registros');"
 	    end
 	end
 
@@ -49,6 +67,7 @@ class SpeciesController < ApplicationController
 
 	def species_info
 		begin
+			@approved_model = Model.get_approved_models(params[:species_id])
 			@eoo = Model.eoo(params[:species_id])
 			@rpa = Model.rpa(params[:species_id])
 			@forest_loss = Model.forest_loss(params[:species_id])

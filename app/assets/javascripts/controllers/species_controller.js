@@ -218,7 +218,6 @@ $(document).ready(function(){
 		1. Reset DOM (año, mes, select, filtros)
 	*/
 	$("#limpiarBtn").click(function(e){
-		var uri = "192.168.11.81:3000/BioModelos/records/" + $("#species_id_field").val();
 		//Reset slider Año
 		angular.element($("#visCntrl")).scope().resetSlider();
 		//Reset meses
@@ -228,7 +227,7 @@ $(document).ready(function(){
 		//Reset visualizar filters
 		$('#chkBoxFilters input:checkbox').removeAttr('checked');
 		//Reset data
-		_BioModelosVisorModule.getSpeciesRecords(uri);
+		_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val());
 	});
 
 

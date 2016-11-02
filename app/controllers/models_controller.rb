@@ -1,4 +1,5 @@
 class ModelsController < ApplicationController
+	#protect_from_forgery except: :metadata
 	def get_thresholds
 		begin
 			@continuous_t = Model.get_continous_model(params[:species_id])
@@ -50,6 +51,13 @@ class ModelsController < ApplicationController
 	end
 
 	def metadata
+		begin
+			@metadata = Model.get_metadata(params[:id])
+			@species_name = Species.find_name(@metadata[0]["taxID"])
+			@records_number = Species.records_number(@metadata[0]["taxID"])
+		rescue => e
+			render :js => "alertify.alert('Se ha producido un error al obtener los metadatos del modelo.  #{e.message} + #{e.backtrace}');"
+		end
 	end
 
 	def download_model

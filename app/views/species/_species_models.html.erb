@@ -24,7 +24,7 @@
 			</div>
 			<div class="mmicon clearfix">
 				<a href="" title="Descargar el modelo" rel="tooltip" class="pad3"><%= image_tag("downicon.png") %></a>
-				<a href="" title="Ver metadatos del modelo" rel="tooltip" class="pad3"><%= image_tag("metaicon.png") %></a>
+				<a target="_blank" href="/models/<%= model.modelID %>/metadata" title="Ver metadatos del modelo" rel="tooltip" class="pad3"><%= image_tag("metaicon.png") %></a>
 				<% if user_signed_in?%>
 					<div class="user_star">
 						<%= hidden_field_tag('myscore', ratings[model.modelID], :class => 'myscore') %>

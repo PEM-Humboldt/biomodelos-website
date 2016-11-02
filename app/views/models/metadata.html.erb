@@ -1,31 +1,36 @@
   <div class="innercontainer metad">
     <div class="dialog">
-      <h1>Metadatos modelo <em>Aburria aburri</em></h1>
+      <h1>Metadatos modelo <em><%= @species_name %></em></h1>
 
-      <p><b>ID del Modelo:</b> xxxxxxx</p>
-      <p><b>Número de registros:</b> 87</p>
-      <p><b>Fecha desarrollo:</b> 2014-08-06</p>
+      <p><b>ID del Modelo: </b><%= @metadata[0]["Modelo_ID"] %></p>
+      <p><b>Número de registros: </b><%= @records_number %></p>
+      <p><b>Fecha desarrollo: </b><%= @metadata[0]["Año_corrida"] %>-<%= @metadata[0]["Mes_corrida"] %>-<%= @metadata[0]["Día_corrida"] %></p>
 
       <h2>Info</h2>
       <div class="infocontent">
-      <h3>Método <b>Maxent</b></h3>
-      <h3>Continuo <b>Si</b></h3>
-      <h3>Tipo validación <b>ufoldor whatever</b></h3>
-      <h3>Perf Stac Type <b>AUC</b></h3>
-      <h3>Nivel <b>Climático · Coberturas</b></h3>
-      <h3>Documentación <a href="http://biomodelos.humboldt.org.co/" class="overf">+ enlace a PDF</a></h3>
+      <h3>Método <b><%= @metadata[0]["Metodo"] %></b></h3>
+      <h3>Umbral <b><%= @metadata[0]["Umbral"] %></b></h3>
+      <h3>Tipo validación <b><%= @metadata[0]["Validación"] %></b></h3>
+      <h3><%= @metadata[0]["Estadístico_Tipo"] %> <b><%= @metadata[0]["Estadístico_Promedio"] %></b></h3>
+      <h3>Nivel <b>
+        <% if @metadata[0]["Nivel"] == 1 %> 
+          Climático
+        <% else %>
+          Coberturas
+        <% end %></b></h3>
+      <h3>Documentación <b>NA</b></h3>
       </div>
 
       <h2>Cita</h2>
       <blockquote>
-      <p>Velásquez, Jorge - Gutiérrez, César. 2014. Modelo de distribución de <em>Aburria aburri</em> ID xxxxxx. Laboratorio de Biogeografía Aplicada y Bioacústica. Instituto Alexander von Humboldt.</p><div class="overf"><a href="http://biomodelos.humboldt.org.co/">http://biomodelos.humboldt.org.co/dirmodelo</a>.</div>
+      <p><%=  @metadata[0]["Autores"] %>. <%= @metadata[0]["Año_corrida"] %>. Modelo de distribución de <em>Aburria aburri</em> ID <%= @metadata[0]["Modelo_ID"] %>. Laboratorio de Biogeografía Aplicada. Instituto Alexander von Humboldt.</p><div class="overf"><a href="http://biomodelos.humboldt.org.co/">http://betabiomodelos.humboldt.org.co/models/visor?species_id=<%= @metadata[0]["taxID"] %></a>.</div>
       </blockquote>
       
 
 
       <h2>Contacto</h2>
 
-      <p>Maria C. Londoño
-      <a href="mailto:mlondono@humboldt.org.co" class="overf">mlondono@humboldt.org.co</a></p>
+      <p>BioModelos - Laboratorio de Biogeografía Aplicada
+      <a href="mailto:biomodelos@humboldt.org.co" class="overf">biomodelos@humboldt.org.co</a></p>
     </div>
   </div>

@@ -1,6 +1,5 @@
 angular.module('biomodelos')
-    .controller('homeCtrl', function ($interval) { 
-
+    .controller('homeCtrl', ['$interval', function ($interval) { 
     var vm = this
 
     var slides = [
@@ -19,4 +18,4 @@ angular.module('biomodelos')
       	vm.slide = slides[0];
     }, 6000, 0);
 
-});
+}]);

@@ -55,4 +55,8 @@ class Model
       JSON.parse(get('/approved/covers/' + species_id).body)
     end
 
+    def self.get_metadata(model_id)
+      JSON.parse(get('/metadata/' + model_id.to_s).body)
+    end
+
 end

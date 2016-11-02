@@ -188,18 +188,19 @@ var _BioModelosVisorModule = function() {
   	  });
 	}
 
-	var getSpeciesRecords = function(records_url){
+	var getSpeciesRecords = function(species_id){
 
 		if(map.hasLayer(cluster)) {
 			clearLayer(cluster);
        		layerControl.removeLayer(cluster);
        	}	
 
-		$.getJSON("http://" + records_url,function(data){
+		$.getJSON("/species/" + species_id + "/get_species_records",function(data){
+			console.log(data);
 			species_records = data;
 		    filterRecords(["",""], ["","",""], [], []);
 		}).fail(function(jqxhr, textStatus, error) {
-    		alertify.alert("Ha ocurrido un error al cargar los registros" + error);
+    		alertify.alert("Ha ocurrido un error al cargar los registros: " + error);
   		});
 
 		cluster = L.markerClusterGroup();

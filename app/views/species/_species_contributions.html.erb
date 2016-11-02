@@ -14,7 +14,7 @@
 					<%= link_to models_download_model_path(:thumb_url => continuous_t.tifUrl), {:class => 'download', :remote => true, :title => "Bajar el modelo", :rel => "tooltip"} do %>
 						<%= image_tag("downicon.png") %>
 					<% end %>
-					<a href="" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
+					<a target="_blank" href="/models/<%= continuous_t.modelID %>/metadata" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
 					<%= hidden_field_tag 'continuous_t_url', continuous_t.pngUrl %>
 					<button class="newgrbtn" id="cbt_editBtn">editar</a>
 			<% else %>
