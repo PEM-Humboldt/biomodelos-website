@@ -1,0 +1,84 @@
+<div class="innercontainer bckapi">
+	<div class="contenedor" ng-controller="perfilCtrl">
+		<ul class="perfilnav infonav">
+	       	<li ng-class="{ active: isSet(1) }">
+	          	<a href ng-click="setTab(1)">api</a>
+	       	</li>
+	       	<li ng-class="{ active: isSet(2) }">
+	          	<a href ng-click="setTab(2)">especies</a>
+	       	</li>
+	       	<li ng-class="{ active: isSet(3) }">
+	          	<a href ng-click="setTab(3)">registros</a>
+	       	</li>
+	       	<li ng-class="{ active: isSet(4) }">
+	          	<a href ng-click="setTab(4)">modelos</a>
+	       	</li>
+	     </ul>
+	    <div class="clearfix"></div>
+		<div ng-show="isSet(1)" class="cajainfo">
+
+	     	<div class="apicont">
+				<div class="blogg">
+					<h4>Como funciona nuetro API</h4>
+					<p>Como parte de la implementación de la nueva estrategia de BioModelos (ver nuestro <a href="http://us9.campaign-archive2.com/?u=b418e8c5dfe3e2abd225ec166&id=dee402c50c" target="_blank">Boletín No. 3</a>), estamos trabajando en varios cambios al diseño y funcionamiento de nuestro sitio web así como a nuestro flujo de trabajo. Mientras la nueva versión de BioModelos está en línea con nuevos modelos de distribución podrás colaborar a mejorar el conocimiento de la distribución de las especies de Colombia en esta nueva etapa:</p>
+					<p class="blogg20">Manifestando tu interés en colaborar al desarrollo de modelo de distribución de una o más especies escribiéndole (a través de la página) al moderador de tu(s) grupo. Tu contribución será reconocida en la citación del modelo resultante de esta colaboración y será incluida en una publicación con los aportes recibidos durante este año.</p>
+					<p class="blogg20">Realizando aportes a la calidad de los registros mediante la herramienta “reportar error” <a href="/faq#faq">(ver FAQ)</a> sobre las especies de tu interés.</p>
+					<p class="blogg20">Indicando el rango altitudinal y las coberturas terrestres de las especies de tu interés.</p>
+					<p class="blogg20">Manifestando tu interés en publicar modelos que hayas desarrollado para especies de Colombia en BioModelos aquí: <a href="http://bit.ly/25zPPmE." target="_blank">http://bit.ly/25zPPmE.</a></p>
+				</div>
+
+	     	</div>
+		</div>
+	
+		<div ng-show="isSet(2)" class="cajainfo">
+			<div class="apicont mb30">
+				<div class="blogg">
+					<h4>api de especies</h4>
+					<p>Como parte de la implementación de la nueva estrategia de BioModelos (ver nuestro <a href="http://us9.campaign-archive2.com/?u=b418e8c5dfe3e2abd225ec166&id=dee402c50c" target="_blank">Boletín No. 3</a>), estamos trabajando en varios cambios al diseño y funcionamiento de nuestro sitio web así como a nuestro flujo de trabajo. Mientras la nueva versión de BioModelos está en línea con nuevos modelos de distribución podrás colaborar a mejorar el conocimiento de la distribución de las especies de Colombia en esta nueva etapa:</p>
+				</div>
+			</div>
+			
+			<div class="apicont">
+				<div class="blogg">
+					<h5><b>1</b>Registros de ocurrencia</h5>
+					<p>Como parte de la implementación de la nueva estrategia de BioModelos, estamos trabajando en varios cambios al diseño y funcionamiento de nuestro sitio web así como a nuestro flujo de trabajo. Mientras la nueva versión de BioModelos está en línea con nuevos modelos de distribución podrás colaborar a mejorar el conocimiento de la distribución de las especies de Colombia en esta nueva etapa.</p>
+					<p>Como parte de la implementación de la nueva estrategia de BioModelos, estamos trabajando en varios cambios al diseño y funcionamiento de nuestro sitio web así como a nuestro flujo de trabajo. Mientras la nueva versión de BioModelos está en línea con nuevos modelos de distribución podrás colaborar a mejorar el conocimiento de la distribución de las especies de Colombia en esta nueva etapa.</p>
+					<div class="subblogg">URL</div>
+					<h6>/species/...</h6>
+					<div class="subblogg">método</div>
+					<h6>Get</h6>
+					<div class="subblogg">parametros</div>
+					<h6 class="blogglist">Akjdfjf</h6>
+					<h6 class="blogglist">Kkasdk ksad</h6>
+					<h6 class="blogglist">Jklks klsd askh</h6>
+					<h6 class="blogglist">JK skdfnkl ksdfka sjh f</h6>
+					<div class="subblogg">respuesta</div>
+					<h6><b>ej.</b> <i>Astronitus pelogutis.</i> LK aslkdf llsdj  lfjk as. ask;df aslkj . sdf;jalsdj fasldf. 2011.</h6>
+				</div>
+			</div>
+
+		</div>	
+
+		<div ng-show="isSet(3)" class="cajainfo">
+			<div class="apicont">
+
+
+			</div>
+		</div>	
+
+		<div ng-show="isSet(4)" class="cajainfo">
+			<div class="apicont">
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$('.cajainfo').niceScroll({
+	cursorcolor: "#5d5e5e",
+	cursorwidth: "7px",
+	cursorborder: "none"
+});
+</script>
