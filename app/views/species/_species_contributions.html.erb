@@ -7,19 +7,19 @@
 		<div class="steptitle">1. A partir de modelo estadístico</div>
 		<div class="dinblock">
 			<% if continuous_t %> 
-				<div href="" class="editthumb">
-					<a href=""><%= image_tag(continuous_t.thumbUrl) %></a>
+				<div class="editthumb">
+					<%= image_tag(continuous_t.thumbUrl) %>
 				</div>
 			<div class="editactions clearfix">
-					<%= link_to models_download_model_path(:thumb_url => continuous_t.tifUrl), {:class => 'download', :remote => true, :title => "Bajar el modelo", :rel => "tooltip"} do %>
+					<%= link_to models_download_model_path(:zip_url => continuous_t.zipUrl), {:class => 'download', :title => "Bajar el modelo", :rel => "tooltip"} do %>
 						<%= image_tag("downicon.png") %>
 					<% end %>
 					<a target="_blank" href="/models/<%= continuous_t.modelID %>/metadata" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
 					<%= hidden_field_tag 'continuous_t_url', continuous_t.pngUrl %>
 					<button class="newgrbtn" id="cbt_editBtn">editar</a>
 			<% else %>
-				<div href="" class="editthumb">
-					<a href=""><%= image_tag("nomap.png") %></a>
+				<div class="editthumb">
+					<%= image_tag("nomap.png") %>
 				</div>
 				<div class="editactions clearfix">
 			<% end %>

@@ -168,7 +168,14 @@ $(document).ready(function(){
 		    			threshold: angular.element($("#visCntrl")).scope().corteSlider.value,
 		    			geoJSON: _BioModelosVisorModule.getGeojsonLayer($("#newModel_field").val()),
 		    			newModel: $("#newModel_field").val()
-		    		}	
+		    		},
+		    		success: function(){
+				    	/* TODO CANCELAR EDICION */
+						alertify.alert("El registro ha sido agregado con éxito");
+					},
+					error: function(jqXHR, textStatus, errorThrown){
+						alertify.alert("Ha ocurrido un error al enviar las ediciones: " + textStatus);
+					}	
 				});
 			}
 		});
@@ -340,19 +347,186 @@ $(document).ready(function(){
 	/* Botón enviar edición de registro */
 	$("body").on("click","#sendRecordEdition",function(e){
         e.preventDefault();
-		$.ajax({
-		    type: 'POST', 
-		    url: "/species/update_record"
-		});
+        validate.validators.presence.message = "no puede estar vacío";
+
+		// Validación de los campos editables de un registro.
+		var latRecordEdition = $("#txtLatEdit").val(),
+			lonRecordEdition = $("#txtLonEdit").val(),
+			speRecordEdition = $("#txtSpeciesEdit").val(),
+			locRecordEdition = $("#txtLocEdit").val();
+
+		var varsToValidate = {},
+		constraints = {},
+		data = {userId_bm: $("#user_id_field").val(),
+				recordId: $("#bm_db_id").val()};
+
+		if (latRecordEdition != $("#oldLatEdit").val()){
+			varsToValidate.lat = latRecordEdition;
+			constraints.lat = {};
+			constraints.lat.numericality = {};
+			constraints.lat.presence = true;
+			constraints.lat.numericality.greaterThanOrEqualTo = -90;
+			constraints.lat.numericality.lessThanOrEqualTo = 90;
+			data.lat = latRecordEdition;
+		}
+		if (lonRecordEdition != $("#oldLonEdit").val()){
+			varsToValidate.lon = lonRecordEdition;
+			constraints.lon = {};
+			constraints.lon.numericality = {};
+			constraints.lon.presence = true;
+			constraints.lon.numericality.greaterThanOrEqualTo = -180;
+			constraints.lon.numericality.lessThanOrEqualTo = 180;
+			data.lon = lonRecordEdition;
+		}
+		if(speRecordEdition != $("#oldSpeciesEdit").val()){
+			varsToValidate.speciesOriginal = speRecordEdition; 
+			data.speciesOriginal = speRecordEdition;
+		}
+		if (locRecordEdition != $("#oldLocEdit").val()){
+			varsToValidate.localidad = locRecordEdition;
+			constraints.localidad = {};
+			constraints.localidad.presence = true;
+			data.locality = locRecordEdition;
+		}
+		var valResponse = validate(varsToValidate, constraints, {format: "flat"});
+		console.log(valResponse);
+		if(valResponse){
+			var response = "";
+			for(var i=0; i<valResponse.length; i++){
+				response += valResponse[i] + "\n";
+			}
+			alertify.alert(response);
+		}
+		else{
+			console.log(data);
+			$.ajax({
+			    type: 'POST',
+			    url: "/records/update_record",
+			    data: data,
+			    success: function(){
+					_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val());
+					alertify.alert("Su edición se ha realizado con éxito");
+				},
+				error: function(jqXHR, textStatus, errorThrown){
+					alertify.alert("Ha ocurrido un error al editar el registro: " + textStatus);
+				}
+			});
+		}
 	});
 
 	/* Botón enviar nuevo registro */
 	$("body").on("click","#r_saveBtn",function(e){
         e.preventDefault();
-		$.ajax({
-		    type: 'POST', 
-		    url: "/species/new_record"
-		});
+		validate.validators.presence.message = "no puede estar vacío";
+
+		// Validación de los campos editables de un registro.
+		var latNewRecord = $("#txtNewRecordLat").val(),
+			lonNewRecord = $("#txtNewRecordLon").val(),
+			altNewRecord = $("#r_altitude").val(),
+			yearNewRecord = $("#year_registro").val(),
+			monthNewRecord = $("#month_registro").val(),
+			dayNewRecord = $("#day_registro").val(),
+			depNewRecord = $("#r_departamento").val(),
+			munNewRecord = $("#r_municipio").val(),
+			locNewRecord = $("#r_localidad").val(),
+			tipoNewRecord = $("#r_tipo").val(),
+			colNewRecord = $("#r_observador").val(),
+			commentNewRecord = $("#r_comment").val();
+
+
+		var varsToValidate = {},
+		constraints = {},
+		data = {taxID: $("#species_id_field").val()};
+		
+		varsToValidate.lat = latNewRecord;
+		constraints.lat = {};
+		constraints.lat.numericality = {};
+		constraints.lat.presence = true;
+		constraints.lat.numericality.greaterThanOrEqualTo = -90;
+		constraints.lat.numericality.lessThanOrEqualTo = 90;
+		data.lat = latNewRecord;
+
+		varsToValidate.lon = lonNewRecord;
+		constraints.lon = {};
+		constraints.lon.numericality = {};
+		constraints.lon.presence = true;
+		constraints.lon.numericality.greaterThanOrEqualTo = -180;
+		constraints.lon.numericality.lessThanOrEqualTo = 180;
+		data.lon = lonNewRecord;
+
+		varsToValidate.localidad = locNewRecord;
+		constraints.localidad = {};
+		constraints.localidad.presence = true;
+		data.locality = locNewRecord;
+
+		if(altNewRecord != ""){
+			varsToValidate.altura = altNewRecord;
+			constraints.altura = {};
+			constraints.altura.numericality = {};
+			constraints.altura.numericality.greaterThanOrEqualTo = 0;
+			constraints.altura.numericality.lessThanOrEqualTo = 10000;
+			data["alt"] = altNewRecord;
+		}
+
+		if(yearNewRecord != ""){
+			varsToValidate.yyyy = yearNewRecord;
+			constraints.yyyy = {};
+			constraints.yyyy.numericality = {};
+			constraints.yyyy.numericality.greaterThanOrEqualTo = 1800;
+			constraints.yyyy.numericality.lessThanOrEqualTo = moment.utc().year();
+			data.yyyy = yearNewRecord;
+		}
+		if(monthNewRecord != ""){
+			varsToValidate.mm = monthNewRecord;
+			constraints.mm = {};
+			constraints.mm.numericality = {};
+			constraints.mm.numericality.greaterThanOrEqualTo = 1;
+			constraints.mm.numericality.lessThanOrEqualTo = 12;
+			data.mm = monthNewRecord;
+		}
+		if(dayNewRecord != ""){
+			varsToValidate.dd = dayNewRecord;
+			constraints.dd = {};
+			constraints.dd.numericality = {};
+			constraints.dd.numericality.greaterThanOrEqualTo = 1;
+			constraints.dd.numericality.lessThanOrEqualTo = 31;
+			data.dd = dayNewRecord;
+		}
+		if(depNewRecord != "")
+			data.adm1 = depNewRecord;
+		if(munNewRecord != "")
+			data.adm2 = munNewRecord;
+		if(tipoNewRecord != "")
+			data.basisOfRecord = tipoNewRecord;
+		if(colNewRecord != "")
+			data.collector = colNewRecord;
+		if(commentNewRecord != "")
+			data.citation_bm = commentNewRecord;
+
+		var valResponse = validate(varsToValidate, constraints, {format: "flat"});
+		console.log(valResponse);
+		if(valResponse){
+			var response = "";
+			for(var i=0; i<valResponse.length; i++){
+				response += valResponse[i] + "\n";
+			}
+			alertify.alert(response);
+		}
+		else{
+			$.ajax({
+			    type: 'POST',
+			    url: "/records/new_record",
+			    data: data,
+			    success: function(){
+			    	_BioModelosVisorModule.cancelAddPoint();
+					_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val());
+					alertify.alert("El registro ha sido agregado con éxito");
+				},
+				error: function(jqXHR, textStatus, errorThrown){
+					alertify.alert("Ha ocurrido un error al agregar el registro: " + errorThrown);
+				}
+			});
+		}
 	});
 
 	/* Save or updates ecological variables */
@@ -369,7 +543,7 @@ $(document).ready(function(){
           data: { species_id: $("#species_id_field").val(), eco_variable_id: box_id, selected: eco_var_val },
           error: function( jqXHR, textStatus, error ) {
             isError = true;
-            alertify.alert( "Ha ocurrido un error al guardar la variable ecológica" );
+            alertify.alert( "Ha ocurrido un error al guardar la variable ecológica: " + error );
           } 	
      });
   });

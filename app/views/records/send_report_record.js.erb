@@ -1,8 +1,8 @@
 $.ajax({
 	type: 'POST',
-	dataType: 'json',
-	url: "http://192.168.11.81:3000/BioModelos/records/<%= params[:point_comment][:recordId] %>",
+	url: "/records/new_report",
 	data:{
+		recordId: "<%= params[:point_comment][:recordId] %>",
 		userId_bm: <%= current_user.id %>,
 		isOutlier_bm: <%= params[:point_comment][:isOutlier] %>,
 		geoIssue_bm: <%= params[:point_comment][:geoIssue] %>,
@@ -18,6 +18,6 @@ $.ajax({
 		$('.reportBox').html("");
 	},
 	error: function(jqXHR, textStatus, errorThrown){
-		alertify.alert("Ha ocurrido un error al reportar el registro: ");
+		alertify.alert("Ha ocurrido un error al reportar el registro: " + errorThrown);
 	}
 });

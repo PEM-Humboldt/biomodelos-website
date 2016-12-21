@@ -18,9 +18,9 @@
 		</div>
 	</div>
 	<% if @approved_model && !@approved_model.blank? %>
-		<p>Esta información corresponde al modelo validado por los expertos en BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie.</p>
+	<p>Esta información corresponde al modelo validado por los expertos en BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie.</p>
 	<% else %>
-		<p>Esta información corresponde al modelo validado por los expertos en BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie.</p>
+	<p>Dado que esta especie aún no tiene una hipótesis de distribución disponible, no es posible calcular la información que normalmente se presenta a continuación.</p>
 	<% end %>
 	<div class="databox">
 		<h2 class="infotitle" ng-click="extinfo=!extinfo">EXTENSIÓN DE OCURRENCIA</h2>

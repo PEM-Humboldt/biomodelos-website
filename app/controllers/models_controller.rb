@@ -63,7 +63,7 @@ class ModelsController < ApplicationController
 	def download_model
 	    respond_to do |format|
 	      #format.js {}
-	      format.html { send_file Rails.root.join(params[:tif_url]), :type => 'image/tiff', :disposition => 'attachment' }
+	      format.html { send_file Rails.root.join("public" + params[:zip_url]), :type => 'application/zip', :disposition => 'attachment' }
 	    end
   	end
 

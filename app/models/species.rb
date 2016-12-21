@@ -22,6 +22,14 @@ class Species
 		JSON.parse(get('/' + taxID.to_s).body)[0]["totalRecords"]
 	end
 
+	def self.info(taxID)
+		JSON.parse(get('/' + taxID.to_s).body)
+	end
+
+	def self.records(taxID)
+		JSON.parse(get('/records/' + taxID.to_s).body)
+	end
+
 	def self.search(params)
 		url = "/search"
 		if params[:query]
@@ -57,7 +65,7 @@ class Species
 		if params[:enPeligro]
 			url += "&enPeligro=" + params[:enPeligro]
 		end
-		puts url
-		JSON.parse(get(url).body)
+
+		JSON.parse(get(URI.escape(url)).body)
 	end
 end

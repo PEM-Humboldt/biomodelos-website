@@ -196,7 +196,6 @@ var _BioModelosVisorModule = function() {
        	}	
 
 		$.getJSON("/species/" + species_id + "/get_species_records",function(data){
-			console.log(data);
 			species_records = data;
 		    filterRecords(["",""], ["","",""], [], []);
 		}).fail(function(jqxhr, textStatus, error) {
@@ -230,10 +229,10 @@ var _BioModelosVisorModule = function() {
        				var filtered = false;
 
 	       			if(visFilters[0] === 'visualrep'){
-	       				filtered = feature.properties.reportado_bm === true;
+	       				filtered = feature.properties.reported === true;
 	       			}
 	       			if(visFilters[1] === 'visualedit'){
-	       				filtered = filtered || feature.properties.corregido_bm === true;
+	       				filtered = filtered || feature.properties.updated === true;
 	       			}
 	       			if(visFilters[2] === 'visualadd'){
 	       				filtered = filtered || feature.properties.source === 'BioModelos';
@@ -251,12 +250,19 @@ var _BioModelosVisorModule = function() {
 			    },
        			filter: function(feature, layer) {
 
+       				console.log(yearFilters[0] + " " + yearFilters[1]);
+
        				var yearFilter = true, 
        					monthFilter = true,
        					dataFilter = true;
 
        				if(yearFilters != ""){
-       					if(feature.properties.yyyy < yearFilters[0] || feature.properties.yyyy > yearFilters[1]){
+
+       					var yearValue = feature.properties.yyyy;
+       					if(yearValue == -9999){
+       						yearValue = 0;
+       					}
+       					if(yearValue < yearFilters[0] || feature.properties.yyyy > yearFilters[1]){
        						yearFilter = false;	
        					}
        				}
@@ -284,18 +290,18 @@ var _BioModelosVisorModule = function() {
    				},	
 		 		onEachFeature: function (feature, layer) {
 
-		 			var no_show_fields = ["taxID","reportado_bm","corregido_bm"];
+		 			var no_show_fields = ["taxID","reported","updated"];
 
 		 			var popupcontent = [];
 					popupcontent.push('<div class="cajita"><div class="regscroller"><div id="point_lat">'+ feature.geometry.coordinates[1]+'</div><div id="point_lon"> '+ feature.geometry.coordinates[0] + '</div>');
 					for (var prop in feature.properties) {
 						if(prop === '_id')
 							popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
-						else if (prop != "taxID" && prop != "reportado_bm" && prop != "corregido_bm" && prop != "ID")
+						else if (prop != "taxID" && prop != "reported" && prop != "updated" && prop != "ID")
 							popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + feature.properties[prop] + "</br>");
 								
 					}
-					popupcontent.push('</div><div class="centering"><a href="" class="wrongbtn" id="editRecordBtn">Editar</a><a href="/species/report_record" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar</a></div>');
+					popupcontent.push('</div><div class="centering"><a href="" class="wrongbtn" id="editRecordBtn">Editar</a><a href="/records/report_record" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar</a></div>');
 					layer.bindPopup(popupcontent.join('<div class="mt10"></div>'));
 				}	
 		});
@@ -329,7 +335,7 @@ var _BioModelosVisorModule = function() {
 							editableForm.push('<b>Localidad:</b></br><input type="text" id="txtLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
 							editableForm.push('<input type="hidden" id="oldLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input>');
 						}
-						else if(prop != "taxID" && prop != "reportado_bm" && prop != "corregido_bm")
+						else if(prop != "taxID" && prop != "reported" && prop != "updated")
 							editableForm.push('<b>'+ headers[prop] + "</b></br>" + editableLayer.feature.properties[prop] + "</br>");	
 					}
 					editableForm.push('</div><div class="centering"><a href="" class="wrongbtn" id="sendRecordEdition">Enviar</a><a href="" class="wrongbtn" id="cancelRecordEdition">Cancelar</a></div>');
@@ -561,8 +567,6 @@ var _BioModelosVisorModule = function() {
 				action: valueProp
 			}
 		}
-		
-
 	}
 
 	var getCurrentEditableLayer = function(popupId){

@@ -1,1 +1,2 @@
-BASE_URI = "192.168.11.81:3000/BioModelos";
+#BASE_URI = "192.168.11.81:3000/BioModelos";
+BASE_URI = "192.168.205.199:3000/BioModelos";

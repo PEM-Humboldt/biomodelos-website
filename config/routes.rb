@@ -17,22 +17,24 @@ Rails.application.routes.draw do
   post "users_layers/load_layer"
   post "users_layers/pause_layer"
   post "users_layers/send_layer"
-  post "species/update_record"
+  post "reports/update_record"
   post "species/set_species"
-  post "species/report_record"
+  post "records/report_record"
   post "species/species_info"
-  post "species/send_report_record"
-  post "species/new_record"
+  post "records/send_report_record"
   post "models/get_thresholds"
   post "models/get_models"
-  post "models/download_model"
+  get "models/download_model"
   get "models/metadata"
-  get "species/records_metadata"
+  get "records/records_metadata"
   get "species/search"
   post "ratings/rate_model"
   get "eco_variables/eco_variables_search"
   post "eco_variables/add_ecological_variable"
   get "species/:id/get_species_records" => "species#get_species_records"
+  post "records/new_record"
+  post "records/new_report"
+  post "records/update_record"
   # get "models/metadata/:id"
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
@@ -51,6 +53,15 @@ Rails.application.routes.draw do
     end
   end
 
+  #BioModelos API routes
+  constraints :subdomain => 'api' do
+    scope module: "api", defaults: {format: 'json'} do
+      namespace :v1 do
+        get "species/:id" => "species#show"
+        get "species/records/:id"  => "species#records"
+      end
+    end
+  end
 
   # Example resource route with options:
   #   resources :products do

@@ -3,15 +3,16 @@ class Model
   	format :json
   	base_uri BASE_URI + '/models'
 
-  	attr_accessor :modelID, :modelStatus, :pngUrl, :tifUrl, :thumbUrl, :threshold
+  	attr_accessor :modelID, :modelStatus, :pngUrl, :tifUrl, :thumbUrl, :threshold, :zipUrl
 
-  	def initialize(modelID, modelStatus, pngUrl, tifUrl, thumbUrl, threshold)
+  	def initialize(modelID, modelStatus, pngUrl, tifUrl, thumbUrl, threshold, zipUrl)
   		self.modelID = modelID
       self.modelStatus = modelStatus
 	    self.pngUrl = pngUrl
 	    self.tifUrl = tifUrl
 	    self.thumbUrl = thumbUrl
 	    self.threshold = threshold
+      self.zipUrl = zipUrl
   	end
 
   	def self.get_approved_models(species_id)
@@ -19,7 +20,7 @@ class Model
   		models_array = []
     		response.each do |threshold|
           if threshold["ModelStatus"] == "approved"
-    			 t = Model.new(threshold["Modelo"], threshold["ModelStatus"], threshold["Ruta_Mapa"], threshold["Ruta_Tif"], threshold["Ruta_Miniatura"], threshold["Umbral"])
+    			 t = Model.new(threshold["Modelo"], threshold["ModelStatus"], threshold["Ruta_Mapa"], threshold["Ruta_Tif"], threshold["Ruta_Miniatura"], threshold["Umbral"], threshold["Ruta_Zip"])
     			 models_array.push(t)
           end
   		  end
@@ -32,7 +33,7 @@ class Model
       continuous_model = nil
         response.each do |threshold|
           if threshold["Umbral"] == "Continuous"
-            continuous_model = Model.new(threshold["Modelo"], threshold["ModelStatus"], threshold["Ruta_Mapa"], threshold["Ruta_Tif"], threshold["Ruta_Miniatura"], threshold["Umbral"])
+            continuous_model = Model.new(threshold["Modelo"], threshold["ModelStatus"], threshold["Ruta_Mapa"], threshold["Ruta_Tif"], threshold["Ruta_Miniatura"], threshold["Umbral"], threshold["Ruta_Zip"])
           end
         end
 

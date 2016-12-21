@@ -1,6 +1,6 @@
 <div class="report">
 	<h2>REPORTAR REGISTRO</h2>
-	<%= simple_form_for :point_comment, :url => species_send_report_record_path, :method => :post, :remote => true, :html => {:class => "pointcomm" } do |f| %>
+	<%= simple_form_for :point_comment, :url => records_send_report_record_path, :method => :post, :remote => true, :html => {:class => "pointcomm" } do |f| %>
 		<%= f.input :user_id, :as => :hidden, :input_html => {:value => current_user.id} %>
 		<%= f.input :recordId, :as => :hidden %>
 		<%= f.input :dataBaseId, :as => :hidden %>
