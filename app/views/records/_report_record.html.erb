@@ -1,0 +1,18 @@
+<div class="report">
+	<h2>REPORTAR REGISTRO</h2>
+	<%= simple_form_for :point_comment, :url => records_send_report_record_path, :method => :post, :remote => true, :html => {:class => "pointcomm" } do |f| %>
+		<%= f.input :user_id, :as => :hidden, :input_html => {:value => current_user.id} %>
+		<%= f.input :recordId, :as => :hidden %>
+		<%= f.input :dataBaseId, :as => :hidden %>
+		<%= f.input :species_id, :as => :hidden %>
+		<%= f.input :isOutlier, :as => :boolean, label:"Outlier geográfico", :name => "badid" %>
+		<%= f.input :geoIssue, :as => :boolean, label:"Georreferenciación dudosa", :name => "badid" %>
+		<%= f.input :idIssue, :as => :boolean, label:"Identificación dudosa", :name => "badid" %>
+		<%= f.input :oldTaxonomy, :as => :boolean, label:"Nombre desactualizado", :name => "doubtgeo" %>
+		<%= f.input :inCaptivity, :as => :boolean, label:"Individuo introducido", :name => "doubtgeo" %>
+		<%= f.input :otherIssues, :as => :boolean, label:"Otros (comentar)", :name => "doubtgeo" %>
+		<%= f.input :comment, :as => :text, :placeholder => "Comentario", :input_html => {:class =>"repteztarea",:maxlength => 1200,:cols => "50",:rows => "5"}, label: false %>
+		<%= f.button :submit, :value => "guardar", :class => 'botonpopup'%>
+		<%= link_to "cancelar", '', {:id => 'cancel-point-cmt', :class => "botonpopup"} %>
+	<% end %>
+</div>

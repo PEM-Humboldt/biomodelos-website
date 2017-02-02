@@ -11,6 +11,15 @@ class SpeciesController < ApplicationController
 	  	@skip_footer = true
 	end
 
+	def search
+		begin
+			species = Species.search(params)
+			render json: species
+		rescue => e
+	    	render :js => "alertify.alert('Ha ocurrido un error en la conexión con la base de datos: Búsqueda + #{e.message}');"
+	    end
+	end
+
 	def set_species
 		begin
 			@species_name = Species.find_name(params[:species_id])
@@ -19,32 +28,17 @@ class SpeciesController < ApplicationController
 	      		format.js
 	    	end
 	    rescue => e
-	    	render :js => "alertify.alert('Ha ocurrido un error en la conexión con la base de datos');"
+	    	render :js => "alertify.alert('Ha ocurrido un error en la conexión con la base de datos: Especies #{e.message}');"
 	    end
 	end
 
-	def update_record
-		respond_to do |format|
-      		format.js
-    	end
-	end
-
-	def report_record
-		respond_to do |format|
-      		format.js
-    	end
-	end
-
-	def send_record_report
-		respond_to do |format|
-      		format.js
-    	end
-	end
-
-	def new_record
-		respond_to do |format|
-      		format.js
-    	end
+	def get_species_records
+		begin
+			records = Species.records(params[:id])
+			render json: records
+		rescue => e
+	    	render :js => "alertify.alert('Ha ocurrido un error en la conexión con la base de datos: Registros');"
+	    end
 	end
 
 	def species_info
@@ -64,7 +58,13 @@ class SpeciesController < ApplicationController
 	end
 
 	def records_metadata
-		
+		begin
+			# @metadata = .get_metadata(params[:id])
+			# @species_name = Species.find_name(@metadata[0]["taxID"])
+			# @records_number = Species.records_number(@metadata[0]["taxID"])
+		rescue => e
+			render :js => "alertify.alert('Se ha producido un error al obtener los metadatos del modelo.  #{e.message} + #{e.backtrace}');"
+		end	
 	end
 
 end

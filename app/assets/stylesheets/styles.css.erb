@@ -39,6 +39,8 @@ body {
     height: 100%;
 }
 
+svg > g > g:last-child { pointer-events: none } /* flickering de google charts */
+div.google-visualization-tooltip { pointer-events: none } /* flickering de google charts */
 
 .clearfix:before,
 .clearfix:after {
@@ -326,7 +328,7 @@ footer li a, .visorfooter li a {
 
 .homeline {
 	height: 400px;
-	background-image: url(<%= asset_path 'grillo.jpg' %>);
+	background-image: url(<%= asset_path 'bg4.jpg' %>);
     background-repeat: no-repeat;
   	background-size: cover;
   	background-position: center;
@@ -617,7 +619,30 @@ p.redsq::before	{
 	align-items: center;
 	justify-content: center;
 }
-
+.nbg1 {
+	background-image: url(<%= asset_path 'bg2.jpg' %>);
+}
+.nbg2 {
+	background-image: url(<%= asset_path 'bg5.jpg' %>);
+}
+.nbg3 {
+	background-image: url(<%= asset_path 'bg6.jpg' %>);
+}
+.nbg4 {
+	background-image: url(<%= asset_path 'bg8.jpg' %>);
+}
+.nbg5 {
+	background-image: url(<%= asset_path 'bg9.jpg' %>);
+}
+.nbg6 {
+	background-image: url(<%= asset_path 'bg1.jpg' %>);
+}
+.nbg7 {
+	background-image: url(<%= asset_path 'grillo.jpg' %>);
+}
+.nbg8 {
+	background-image: url(<%= asset_path 'rana.jpg' %>);
+}
 .loginbox {
 	top: 12px;
 	position: relative;
@@ -695,7 +720,8 @@ p.redsq::before	{
 .loginbox label {
 	color: #393836;
 	letter-spacing: 0.5px;
-	vertical-align: bottom;
+	padding-top: 5px;
+    vertical-align: middle;
 }
 
 .loginbox .field {
@@ -2585,6 +2611,10 @@ a.cajathumb p {
 	cursor: pointer;
 }
 
+.vatop {
+	vertical-align: top;
+}
+
 .cajavisor p, .infobox p {
 	max-width: 500px;
 	line-height: 1.5;
@@ -2718,8 +2748,6 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	padding-bottom: 10px;
 	border-bottom: 1px solid #c5c4c4;
 	margin-bottom: 5px;
-	display: flex;
-    justify-content: space-between;
 }
 
 .subinfo h3, .subinfo a {
@@ -2728,6 +2756,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	letter-spacing: 1px;
 	font-size: 18px;
 	font-weight: 400;
+	display: inline;
 }
 
 .subinfo h3 b {
@@ -2738,8 +2767,8 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	font-weight: 400;
 }
 
-.subinfo .metreg {
-	text-align: right;
+.subinfo .reg {
+	margin-right: 20px;
 }
 
 .sppcateg:after {
@@ -2788,6 +2817,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	width: 45px;
 	float: right;
 	padding-right: 5px;
+	margin-top: -10px;
 }
 .urllink{
 	width: 42px;
@@ -2800,6 +2830,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 .amenaza {
 	width: 40px;
 	height: 40px;
+	margin-top: 5px;
 }
 
 .infotitle:after {
@@ -4065,3 +4096,4 @@ font-weight: 300;
 .dialog blockquote:last-child {
   margin-bottom: 30px;
 }
+

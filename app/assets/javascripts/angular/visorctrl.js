@@ -79,7 +79,6 @@ angular.module('biomodelos')
 }]);
 
 angular.module('biomodelos').directive('selectable', function(){ 
-  console.log("Entre selectable");
   var select = function(element) {
   	if(element.hasClass('visorbtn')){
   		if(element.hasClass('vbtnact'))
@@ -88,7 +87,6 @@ angular.module('biomodelos').directive('selectable', function(){
   			element.addClass('vbtnact');
 	}
   	else if(element.hasClass('btnregistros')){
-  		console.log("Boton registros");
   		if(element.hasClass('regactive'))
   			element.removeClass('regactive');
   		else

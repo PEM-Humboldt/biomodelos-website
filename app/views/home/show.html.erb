@@ -8,11 +8,11 @@
 			<%= form_tag({}, {:id => 'search_form_home'})  do %>
 				<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Consulta una especie por su nombre científico', :include_blank => false, :rel => 'autocomplete' %>
 				<%= hidden_field_tag 'species_id_home' %>
-				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'searchBtnHome' %>
+				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'searchBtnHome', :title => 'Ir a especie', :rel => "tooltip" %>
 			<% end %>
 			
 			<div class="hlbtn">
-				<a ng-click="consulta=!consulta">CONSULTA</a>
+				<a ng-click="consulta=!consulta">MODELOS</a>
 				<a ng-click="contribuye=!contribuye">CONTRIBUYE</a>
 				<a ng-click="publica=!publica">PUBLICA</a>
 			</div>
@@ -22,43 +22,43 @@
 	<div class="allgraphs">
 		<div class="graphcont">
 			<h3>MAMÍFEROS</h3>
-			<h4>4800</h4>
+			<h4>865</h4>
 			<div class="graph" id="donutmam" style="width: 140px; height: 180px;"></div>
 			<%= image_tag("home_mam.png") %>
 		</div>
 		<div class="graphcont">
 			<h3>AVES</h3>
-			<h4>4800</h4>
+			<h4>2930</h4>
 			<div class="graph" id="donutave" style="width: 140px; height: 180px;"></div>
 			<%= image_tag("home_ave.png") %>
 		</div>
 		<div class="graphcont">
 			<h3>REPTILES</h3>
-			<h4>4800</h4>
+			<h4>1002</h4>
 			<div class="graph" id="donutrep" style="width: 140px; height: 180px;"></div>
 			<%= image_tag("home_rep.png") %>
 		</div>
 		<div class="graphcont">
 			<h3>ANFIBIOS</h3>
-			<h4>4800</h4>
+			<h4>1300</h4>
 			<div class="graph" id="donutanf" style="width: 140px; height: 180px;"></div>
 			<%= image_tag("home_anf.png") %>
 		</div>
 		<div class="graphcont">
 			<h3>PECES</h3>
-			<h4>4800</h4>
+			<h4>5309</h4>
 			<div class="graph" id="donutpec" style="width: 140px; height: 180px;"></div>
 			<%= image_tag("home_pec.png") %>
 		</div>
 		<div class="graphcont">
 			<h3>INVERTEBRADOS</h3>
-			<h4>4800</h4>
+			<h4>17366</h4>
 			<div class="graph" id="donutinv" style="width: 140px; height: 180px;"></div>
 			<%= image_tag("home_inv.png") %>
 		</div>
 		<div class="graphcont">
 			<h3>PLANTAS</h3>
-			<h4>4800</h4>
+			<h4>46719</h4>
 			<div class="graph" id="donutpla" style="width: 140px; height: 180px;"></div>
 			<%= image_tag("home_pla.png") %>
 		</div>
@@ -67,7 +67,7 @@
 	<div ng-show="consulta">
 		<div class="cajabase">
 			<div class="hcbase">
-				<h1>consulta</h1>
+				<h1>modelos</h1>
 				<a ng-click="consulta=!consulta" class="closecb">x</a>
 			</div>
 			<p>Ingresa directamente al buscador de BioModelos el nombre científico de la especie de tu interés para consultar su mapa de distribución en el visor. Allí podrás consultar las hipótesis de distribución disponibles para la especie y que calificación les han dado otros usuarios, así como algunas estadísticas sobre el rango de la especie.</p></br>

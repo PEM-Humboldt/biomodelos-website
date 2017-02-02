@@ -1,12 +1,11 @@
 angular.module('biomodelos')
-    .controller('homeCtrl', function ($interval) { 
-
+    .controller('homeCtrl', ['$interval', function ($interval) { 
     var vm = this
 
     var slides = [
-       "url(/assets/grillo.jpg)",
-       "url(/assets/rana.jpg)",
-       "url(/assets/orquidea.jpg)"
+       "url(/assets/bg4.jpg)",
+       "url(/assets/bg3.jpg)",
+       "url(/assets/bg7.jpg)"
     ];
 
     vm.slide = slides[0]; 
@@ -19,4 +18,4 @@ angular.module('biomodelos')
       	vm.slide = slides[0];
     }, 6000, 0);
 
-});
+}]);
