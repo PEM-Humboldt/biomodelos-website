@@ -18,11 +18,16 @@
 		</select>
 		<div id="chkBoxTask">
 			<input type="checkbox" name="regvalid" checked></input>
-			<label for="visualrep" class="lblvisual">Curar registros</label>
+			<label for="visualrep" class="lblvisual" rel="tooltip" title="Curación de registros"><%= image_tag("regperfil.png") %></label>
 			<input type="checkbox" name="editvalid" checked></input>
-			<label for="visualedit" class="lblvisual">Edición modelo</label>
+			<label for="visualedit" class="lblvisual" rel="tooltip" title="Edición de modelos"><%= image_tag("penperfil.png") %></label>
+			<input type="checkbox" name="vevalid" checked></input>
+			<label for="visualrep" class="lblvisual" rel="tooltip" title="Variables ecológicas"><%= image_tag("veicon2.png") %></label>
+			<input type="checkbox" name="modelvalid" checked></input>
+			<label for="visualedit" class="lblvisual" rel="tooltip" title="Modelo aprobado"><%= image_tag("aprobicon.png") %></label>
 			<button class="btngen" id="addNewTask">Agregar</button>
 		</div>
+		
 	</div>
 <% end %>
 <div class="clearfix"></div>
@@ -32,20 +37,22 @@
 	 --><div class="coladv tabletit" rel="tooltip" title="Curación de registros">
 			<%= image_tag("regperfil.png") %>
 		</div><!-- 
-	 --><div class="coladv tabletit" rel="tooltip" title="Edición de modelos y variables ecológicas">
+	 --><div class="coladv tabletit" rel="tooltip" title="Edición de modelos">
 			<%= image_tag("penperfil.png") %>
+		</div><!--  
+	 --><div class="coladv tabletit" rel="tooltip" title="Variables ecológicas">
+			<%= image_tag("veicon2.png") %>
 		</div><!-- 
-	 --><div class="coladv tabletit specialicon" rel="tooltip" title="Curación de registros">
-			<h3>Aprobado</h3>
+	 --><div class="coladv tabletit" rel="tooltip" title="Modelo aprobado">
 			<%= image_tag("aprobicon.png") %>
 		</div><!-- 
-	 --><div class="coladv tabletit specialicon" rel="tooltip" title="Porcentaje de avance">
-			<h3>%Avance</h3>
+	 --><div class="coladv tabletit" rel="tooltip" title="Porcentaje de avance">
 			<%= image_tag("percicon.png") %>
 		</div>
 	<% @species_with_tasks.each_with_index do |species, i| %>
 		<div class="tareaspp"><!-- 
 		--><div class="colspp"><a><%= species[0] %></a><button ng-click="expertlist<%= i %>=!expertlist<%= i %>" class="arrrowsm" arrow></button></a></div><!-- 
+		--><p class="coladv">%</p><!-- 
 		--><p class="coladv">%</p><!-- 
 		--><p class="coladv">%</p><!-- 
 		--><p class="coladv">%</p><!-- 
@@ -78,7 +85,8 @@
 					<% end %>
 				</div><!-- 
 				--><div class="coladv"><input type="checkbox" ></input></div><!-- 
-				--><p class="coladv"></p>
+				--><div class="coladv"></div><!--
+				--><div class="coladv"></div>
 				</div>
 			<% end %>
 		</div>

@@ -37,7 +37,7 @@
 		<% @group_members.select{|x| x.is_admin == true}.each do |admin| %>
 			<p><%= admin.user.name %></p>
 		<% end %>
-		<div class="groupunder">Mensaje del moderador</div>
+		<div class="groupunder">Mensaje moderador</div>
 		<p><%= @group.message %>.</p>
 		<div class="groupunder">Última Actividad</div>
 		<p class="actvspp"><a>Wingardium leviosa</a> · Aporte de Edición</p>
