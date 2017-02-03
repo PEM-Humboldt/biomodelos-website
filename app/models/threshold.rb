@@ -18,7 +18,7 @@ class Threshold
   		response = JSON.parse(get('/' + species_id).body)
 		  thresholds_array = []
   		response.each do |threshold|
-  			t = Threshold.new(threshold["Modelo"], threshold["Ruta_Mapa"], threshold["Ruta_Tif"], threshold["Ruta_Miniatura"], threshold["Umbral"])
+  			t = Threshold.new(threshold["modelID"], threshold["pngPath"], threshold["tifPath"], threshold["thumbPath"], threshold["thresholdType"])
   			thresholds_array.push(t)
 		end
 

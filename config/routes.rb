@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "home/contact_us"
   get "home/about_us"
   get "home/publish"
+  get "home/api"
   post "users_layers/load_layer"
   post "users_layers/pause_layer"
   post "users_layers/send_layer"

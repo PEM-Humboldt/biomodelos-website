@@ -1876,6 +1876,12 @@ p.groupuser {
 	background: linear-gradient(#e9ebee 0%, #e9ebee 40%, #e9ebee 40%, #f2f2f2 40%, #f2f2f2 100%);
 }
 
+.bckapi {
+	background: -webkit-linear-gradient(#e3af24 0%, #e3af24 225px, #e3af24 225px, transparent 225px, transparent 100%);
+	background: -o-linear-gradient(#e3af24 0%, #e3af24 225px, #e3af24 225px, transparent 225px, transparent 100%);
+	background: linear-gradient(#e3af24 0%, #e3af24 225px, #e3af24 225px, transparent 225px, transparent 100%);
+}
+
 .cajainfo {
 	width: 100%;
 	padding: 10px 6px;
@@ -1898,7 +1904,7 @@ p.groupuser {
 
 .infonav a {
 	font-size: 1.6em;
-	padding: 10px 30px;
+	padding: 10px 25px;
 	color:#1b3337;
 	border:1px #1b3337 solid;
 	margin-right: 0;
@@ -1957,6 +1963,15 @@ p.groupuser {
 	z-index: 6;
 }
 
+.apicont {
+	width: 100%;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	background-color: #fff;
+	overflow-y: auto;
+	padding: 30px 20px 12px 25px;
+	z-index: 6;
+}
+
 .blogg {
 	max-width: 700px;
 	font-size: 0.87em;
@@ -1975,14 +1990,52 @@ p.groupuser {
 	margin-bottom: 20px;
 }
 
+.blogg h5 {
+	font-size: 1.5em;
+	letter-spacing: 1px;
+	margin-bottom: 20px;
+	color: #124c5e;
+}
+
+.blogg h5 b {
+	padding: 0 9px;
+	margin-right: 10px;
+	font-size: 1.51em;
+	border: 2px solid #124c5e;
+}
+
+.blogg h6 {
+	color: #424242;
+	padding: 5px;
+	font-size: 1.1em;
+	font-weight: 400;
+}
+
 .blogg p {
 	color:#5d5d5d;
 	line-height: 1.5;
+	margin-bottom: 5px;
 }
 
 .blogg20 {
   margin-left: 25px;
-  margin-top: 5px;
+}
+
+.blogg20::before, 
+.blogglist::before {
+  content: '• ';
+}
+
+.subblogg {
+	padding: 3px 7px;
+	margin: 10px 5px 5px 0;
+	display: inline-block;
+	background-color: #124c5e;
+	color: #fff;
+	font-size: 1.23em;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 }
 
 .bolet {
