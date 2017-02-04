@@ -10,7 +10,6 @@
         },
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         remote: {
-          //url:'http://192.168.11.81:3000/BioModelos/species/search/%QUERY',
           url:'/species/search?query=%QUERY',
           replace:
             /* Function to add filter parameters to the URL depending on the checkboxes selected */

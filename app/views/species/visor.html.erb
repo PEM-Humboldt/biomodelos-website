@@ -22,12 +22,12 @@
 	<div class="modelname"> <!-- agregar en Continuo class: gradient -->
 		Continuo
 	</div>
-	<div id="layerbtn" class="visorbtn"></div>
-	<div ng-click="find=!find" class="visorbtn vbtnfind" selectable></div>
-	<div ng-click="info=!info" class="visorbtn vbtninfo" selectable></div>
-	<div ng-click="hipotesis=!hipotesis" class="visorbtn vbtnhipo" selectable></div>
+	<div id="layerbtn" title="Capas geográficas" rel="tooltip" class="visorbtn"></div>
+	<div ng-click="find=!find" title="Búsqueda Avanzada" rel="tooltip" class="visorbtn vbtnfind" selectable></div>
+	<div ng-click="info=!info" title="Información de la especie" rel="tooltip" class="visorbtn vbtninfo" selectable></div>
+	<div ng-click="hipotesis=!hipotesis" title="Hipótesis de distribución" rel="tooltip" class="visorbtn vbtnhipo" selectable></div>
 	<% if user_signed_in? %>
-		<div ng-click="edit=!edit" class="visorbtn vbtnedit" selectable></div>
+		<div ng-click="edit=!edit" title="Editar modelo" rel="tooltip" class="visorbtn vbtnedit" selectable></div>
 	<% end %>
 
 	<div ng-show="find" class="cajavisor cajasearch">

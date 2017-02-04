@@ -7,37 +7,37 @@
 			<%= form_tag({:controller => 'species', :action => 'set_species'}, {:method => 'post', :remote => true,:id => 'sp_search_form'})  do %>
 				<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Consulta una especie por su nombre científico', :include_blank => false, :rel => 'autocomplete' %>
 				<%= hidden_field_tag 'species_id' %>
-				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'species_src_btn' %>
+				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'species_src_btn', :title => 'Ir a especie', :rel => "tooltip" %>
 			<% end %>
 			<h2>FILTROS</h2>
 			<div class="sppbtn">
 				<label>
 		            <input type="checkbox" name="taxon" value="1"/>
-		            <%= image_tag("mambtn.png", :title => 'Mamiferos') %>
+		            <%= image_tag("mambtn.png", :title => 'Mamiferos', :rel => "tooltip") %>
 		        </label>
 		        <label>
 		            <input type="checkbox" name="taxon" value="2" />
-		            <%= image_tag("avesbtn.png", :title => 'Aves') %>
+		            <%= image_tag("avesbtn.png", :title => 'Aves', :rel => "tooltip") %>
 		        </label>
 		        <label>
 		            <input type="checkbox" name="taxon" value="3" />
-		            <%= image_tag("repbtn.png", :title => 'Reptiles') %>
+		            <%= image_tag("repbtn.png", :title => 'Reptiles', :rel => "tooltip") %>
 		        </label>
 		        <label>
 		            <input type="checkbox" name="taxon" value="4" />
-		            <%= image_tag("anfbtn.png", :title => 'Anfibios') %>
+		            <%= image_tag("anfbtn.png", :title => 'Anfibios', :rel => "tooltip") %>
 		        </label>
 		        <label>
 		            <input type="checkbox" name="taxon" value="5" />
-		            <%= image_tag("pecesbtn.png", :title => 'Peces') %>
+		            <%= image_tag("pecesbtn.png", :title => 'Peces', :rel => "tooltip") %>
 		        </label>
 		        <label>
 		            <input type="checkbox" name="taxon" value="6" />
-		            <%= image_tag("invbtn.png", :title => 'Invertebrados') %>
+		            <%= image_tag("invbtn.png", :title => 'Invertebrados', :rel => "tooltip") %>
 		        </label>
 		        <label>
 		            <input type="checkbox" name="taxon" value="7" />
-		            <%= image_tag("plantbtn.png", :title => 'Plantas') %>
+		            <%= image_tag("plantbtn.png", :title => 'Plantas', :rel => "tooltip") %>
 		        </label>
 <!-- 				<button class="mamiferos" title="Mamíferos" rel="tooltip"></button>
 				<button class="aves" title="Aves" rel="tooltip"></button>

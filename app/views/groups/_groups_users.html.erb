@@ -1,4 +1,14 @@
-<h1>miembros</h1>
+<h1>expertos</h1>
+<a ng-click="invitador=!invitador; activeButton()" ng-class="{'btnact': isActive}" class="closecb">INVITAR EXPERTO</a>
+<div ng-show="invitador" class="forms">
+	<%= simple_form_for :message do |f| %>
+         <%= f.error_notification %>
+         <%= f.input :email, :maxlength => 50, :placeholder => "E-mail", :name => "email", label: false %>
+         <%= f.input :content, :as => :text, :input_html => {:maxlength => 1200, :cols => "20", :rows => "6"}, :name => "cuerpo", label: false %>
+         <%= f.button :submit, :value => "ENVIAR", :class => 'boton1'%>
+   <% end %>
+</div>
+<div class="clearfix mb20"></div>
 <% @group_members.each do |member| %>
 	<div class="expindex groupexindex">
 		<div class="expcard"><%= image_tag("perfilprueba.jpg") %></div>

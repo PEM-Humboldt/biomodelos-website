@@ -1,5 +1,9 @@
 var _CustomSelectModule = function() {
 
+	/**
+ 	* Init the custom select elements.
+	* Taken from: http://jsfiddle.net/tovic/ZTHkQ/
+	*/
 	var init = function() {
 		$('select').each(function(){
 			// Cache the number of options
@@ -58,12 +62,12 @@ var _CustomSelectModule = function() {
 		});
 	}
 
-	/* 
-		Función que permite cargar valores y realizar la selección de valores en los custom select
-		@auxObject: String con el id del objeto del DOM que corresponde al select
-		@filterValuesArr: Array con los valores que se pasarán al select
+	/**
+ 	* Allows to load an array into a custom select element.
+	* @param {string} auxSelect - ID of the auxiliary element of the custom select.
+	* @param {array} filterValuesArr - Array with the values to be loaded.
 	*/
-	var selectValues = function(auxObject, filterValuesArr){
+	var selectValues = function(auxSelect, filterValuesArr){
 			var filterValues = filterValuesArr;
 			$(auxObject).html('<option value="">- Categoria -</option>');
 			if(filterValues != ""){

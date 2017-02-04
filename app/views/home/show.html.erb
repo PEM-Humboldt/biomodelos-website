@@ -8,11 +8,11 @@
 			<%= form_tag({}, {:id => 'search_form_home'})  do %>
 				<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Consulta una especie por su nombre científico', :include_blank => false, :rel => 'autocomplete' %>
 				<%= hidden_field_tag 'species_id_home' %>
-				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'searchBtnHome' %>
+				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'searchBtnHome', :title => 'Ir a especie', :rel => "tooltip" %>
 			<% end %>
 			
 			<div class="hlbtn">
-				<a ng-click="consulta=!consulta">CONSULTA</a>
+				<a ng-click="consulta=!consulta">MODELOS</a>
 				<a ng-click="contribuye=!contribuye">CONTRIBUYE</a>
 				<a ng-click="publica=!publica">PUBLICA</a>
 			</div>
@@ -67,7 +67,7 @@
 	<div ng-show="consulta">
 		<div class="cajabase">
 			<div class="hcbase">
-				<h1>consulta</h1>
+				<h1>modelos</h1>
 				<a ng-click="consulta=!consulta" class="closecb">x</a>
 			</div>
 			<p>Ingresa directamente al buscador de BioModelos el nombre científico de la especie de tu interés para consultar su mapa de distribución en el visor. Allí podrás consultar las hipótesis de distribución disponibles para la especie y que calificación les han dado otros usuarios, así como algunas estadísticas sobre el rango de la especie.</p></br>

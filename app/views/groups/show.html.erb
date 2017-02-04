@@ -8,7 +8,7 @@
 			<%= simple_form_for :test do |f| %>
 				<h3>Nombre de grupo</h3>
 				<%= f.input :name, :maxlength => 50, :placeholder => "Nombre anterior", :name => "nombre", label: false%>
-				<h3>Mensaje al grupo</h3>
+				<h3>Mensaje del moderador</h3>
 				<%= f.input :content, :as => :text, :placeholder => "Mensaje anterior", :input_html => {:maxlength => 300, :cols => "20", :rows => "4"}, :name => "cuerpo", label: false %>
 				<h3>Cambiar imagen</h3>
 				<div class="inputBtnSection ml0">
@@ -27,9 +27,9 @@
 			<%= image_tag("gruposprueba.jpg") %>
 		</div>
 		<div class="perflinks">
-			<a href="" class="mailto"></a>
-			<a href="" class="joingroup"></a>
-			<a href="" class="edituser" ng-click="editgroup=!editgroup"></a>
+			<a href="" title="Mensaje a miembros del grupo" rel="tooltip" class="mailto"></a>
+			<a href="" title="Solicitar unirse a este grupo" rel="tooltip"  class="joingroup"></a>
+			<a href="" title="Editar información del grupo" rel="tooltip" class="edituser" ng-click="editgroup=!editgroup"></a>
 		</div>
 
 		<div class="clearfix"></div>
@@ -37,7 +37,7 @@
 		<% @group_members.select{|x| x.is_admin == true}.each do |admin| %>
 			<p><%= admin.user.name %></p>
 		<% end %>
-		<div class="groupunder">Mensaje al grupo</div>
+		<div class="groupunder">Mensaje moderador</div>
 		<p><%= @group.message %>.</p>
 		<div class="groupunder">Última Actividad</div>
 		<p class="actvspp"><a>Wingardium leviosa</a> · Aporte de Edición</p>
@@ -60,7 +60,7 @@
 	          	<a href ng-click="setTab(4)">especies</a>
 	       	</li>
 	       	<li ng-class="{ active: isSet(5) }">
-	          	<a href ng-click="setTab(5)">miembros</a>
+	          	<a href ng-click="setTab(5)">expertos</a>
 	       	</li>
 	     </ul>
 
