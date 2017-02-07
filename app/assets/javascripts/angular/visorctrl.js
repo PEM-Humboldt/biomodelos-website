@@ -36,14 +36,14 @@ angular.module('biomodelos')
 	};
 
 	$scope.yearSlider = {
-	    minValue: '0',
+	    minValue: 'NA',
 	    maxValue: 'Hoy',
 	    options: {
 	        floor: 0,
 	        ceil: 'Hoy',
 	        showTicksValues: true,
 	        stepsArray : [
-	    		{value: '0'},
+	    		{value: 'NA'},
 	    		{value: '1900'},
 	    		{value: '1950'},
 	    		{value: '1970'},
@@ -58,7 +58,7 @@ angular.module('biomodelos')
 	};
 
 	$scope.resetSlider = function () {
-		$scope.yearSlider.minValue = '0';
+		$scope.yearSlider.minValue = 'NA';
 		$scope.yearSlider.maxValue = 'Hoy';
 		//Refresh the slider
 	    $timeout(function () {

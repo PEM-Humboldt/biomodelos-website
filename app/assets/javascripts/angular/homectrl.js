@@ -4,7 +4,7 @@ angular.module('biomodelos')
 
     var slides = [
        "url(/assets/bg4.jpg)",
-       "url(/assets/bg3.jpg)",
+       "url(/assets/bg2.jpg)",
        "url(/assets/bg7.jpg)"
     ];
 

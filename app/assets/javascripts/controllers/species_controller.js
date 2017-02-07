@@ -189,36 +189,50 @@ $(document).ready(function(){
 	});
 
 
-	/* Boton de filtrar registros */
+	/**
+ 	* Records filter action
+	* On click action that initializes arrays with the actual values of each type of filter 
+	* (Año, Mes, Buscar por, Visualizar) and passes them to a function.
+	*/
 	$("#filtrarBtn").click(function(e){
-		var selectFilters = [],
+		var findByFilters = [],
 			yearFilters = [],
-			monthFilters = [];
+			monthFilters = [],
+			visualizeFilters = [],
+			yearNotApplicableValue = 0,
+			yearTodayValue = moment().format("YYYY");
 
-		// Almacena el tipo de filtro y el valor
-		selectFilters[0] = $("#filtroRegistro option:selected").text();
-		selectFilters[1] = $("#resultadoFiltro option:selected").text();
-  		// Guarda el rango de los años en un arreglo
+		findByFilters[0] = $("#filtroRegistro option:selected").text();
+		findByFilters[1] = $("#resultadoFiltro option:selected").text();
+
   		yearFilters[0] = $("#sliYearMin").val();
   		yearFilters[1] = $("#sliYearMax").val();
+
+  		//Set default values to non-numeric options of the Year slider.
   		if(yearFilters[0] === 'Hoy')
-  			yearFilters[0] = moment().format("YYYY");
+  			yearFilters[0] = yearTodayValue;
+  		else if (yearFilters[0] === 'NA')
+  			yearFilters[0] = yearNotApplicableValue;
   		if(yearFilters[1] === 'Hoy')
-  			yearFilters[1] = moment().format("YYYY");
-  		// Guarda los meses seleccionados en un arreglo
+  			yearFilters[1] = yearTodayValue;
+  		else if (yearFilters[1] === 'NA')
+  			yearFilters[1] = yearNotApplicableValue;
+
+  		//Goes through every month checkbox and stores the attribute name of the checked ones.
   		$('input[type="checkbox"].meschk').each(function () {
   			if(this.checked)
   				monthFilters.push($(this).attr('name'));
   		});
-
-  		var visFilters = [];
+  		/*Goes through every visualize checkbox and stores the attribute name of the checked ones.
+  		* If the option is not checked, it stores an empty string */
   		$('input[type="checkbox"].checkregistros').each(function () {
   			if(this.checked)
-  				visFilters.push($(this).attr('name'));
+  				visualizeFilters.push($(this).attr('name'));
   			else
-  				visFilters.push("");
+  				visualizeFilters.push("");
   		});
-		_BioModelosVisorModule.filterRecords(selectFilters, visFilters, yearFilters, monthFilters);
+
+		_BioModelosVisorModule.filterRecords(findByFilters, visualizeFilters, yearFilters, monthFilters);
 	})
 
 	/* Botón Limpiar filtros
