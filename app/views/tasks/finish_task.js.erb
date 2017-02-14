@@ -1,0 +1,5 @@
+$.ajax({
+    type: "POST",
+    url: "/tasks/tasks_by_group",
+    data: { id: <%= @task.group_id %>}
+});

@@ -3,92 +3,26 @@
 	<div class="newtask" ng-click="taskbox=!taskbox" rel="tooltip" title="Agregar nueva tarea"><%= image_tag("newtask.png") %></div>
 	<div class="clearfix"></div>
 	<div class="addtask" ng-show="taskbox">
-		<p>Agregar nueva tarea</p>
-		<select name="" id="Filtrousuario_task">
-			<option value="hide">- Buscar Usuario -</option>
-			<% @group_members.each do |member| %>
-			<option value=<%= member.user_id %>><%= member.user.name %></option>
-			<% end %>
-		</select>
-		<select name="" id="Filtroespecie_task">
-			<option value="hide">- Buscar Especie -</option>
-			<% @group_species.each do |species| %>
-			<option value=<%= species[1] %>><%= species[0] %></option>
-			<% end %>
-		</select>
-		<p class="tarea">Selecciona tareas a realizar</p>
-		<div id="chkBoxTask">
-			<input type="checkbox" name="regvalid" checked></input>
-			<label for="visualrep" class="lblvisual" rel="tooltip" title="Curación de registros"><%= image_tag("regperfil.png") %></label>
-			<input type="checkbox" name="editvalid" checked></input>
-			<label for="visualedit" class="lblvisual" rel="tooltip" title="Edición de modelos"><%= image_tag("penperfil.png") %></label>
-			<input type="checkbox" name="vevalid" checked></input>
-			<label for="visualrep" class="lblvisual" rel="tooltip" title="Variables ecológicas"><%= image_tag("veicon2.png") %></label>
-			<input type="checkbox" name="modelvalid" checked></input>
-			<label for="visualedit" class="lblvisual" rel="tooltip" title="Modelo aprobado"><%= image_tag("aprobicon.png") %></label>
-			<button class="btngen" id="addNewTask">Agregar</button>
-		</div>
-		
+		<%= render partial:'tasks/new_tasks_form', locals: {task: @task, group: @group, group_members: @group_members, group_species: @group_species} %>	
 	</div>
 <% end %>
 <div class="clearfix"></div>
-		<div class="colspp tabletit">
-			<h2>Especie</h2>
-		</div><!-- 
-	 --><div class="coladv tabletit" rel="tooltip" title="Curación de registros">
-			<%= image_tag("regperfil.png") %>
-		</div><!-- 
-	 --><div class="coladv tabletit" rel="tooltip" title="Edición de modelos">
-			<%= image_tag("penperfil.png") %>
-		</div><!--  
-	 --><div class="coladv tabletit" rel="tooltip" title="Variables ecológicas">
-			<%= image_tag("veicon2.png") %>
-		</div><!-- 
-	 --><div class="coladv tabletit" rel="tooltip" title="Modelo aprobado">
-			<%= image_tag("aprobicon.png") %>
-		</div><!-- 
-	 --><div class="coladv tabletit" rel="tooltip" title="Porcentaje de avance">
-			<%= image_tag("percicon.png") %>
-		</div>
-	<% @species_with_tasks.each_with_index do |species, i| %>
-		<div class="tareaspp"><!-- 
-		--><div class="colspp"><a><%= species[0] %></a><button ng-click="expertlist<%= i %>=!expertlist<%= i %>" class="arrrowsm" arrow></button></a></div><!-- 
-		--><p class="coladv">%</p><!-- 
-		--><p class="coladv">%</p><!-- 
-		--><p class="coladv">%</p><!-- 
-		--><p class="coladv">%</p><!-- 
-		--><p class="coladv">%</p>
-		</div>
-		<div ng-show="expertlist<%= i %>">
-			<% @tasks.select{|x| x.species_id == species[1]}.each do |task| %>
-				<div class="userspp"><!--
-				--><a class="colspp"><%= task.user.name %></a><!-- 
-				--><div class="coladv">
-				<% if task.task_type_id == 1 %>
-					<%if task.task_state_id == 2 %>
-						<%= image_tag("check.png") %>
-					<% else %>
-						<% if @current_group_user && @current_group_user.is_admin %>
-							<input type="checkbox" \>
-						<% end %>
-					<% end %>
-				<% end %>
-					</div><!-- 
-				--><div class="coladv">
-					<% if task.task_type_id == 2 %>
-						<% if task.task_state_id == 2 %>
-							<%= image_tag("check.png") %>
-						<% else %>
-							<% if @current_group_user && @current_group_user.is_admin %>
-								<input type="checkbox" \>
-							<% end %>
-						<% end %>
-					<% end %>
-				</div><!-- 
-				--><div class="coladv"><input type="checkbox" ></input></div><!-- 
-				--><div class="coladv"></div><!--
-				--><div class="coladv"></div>
-				</div>
-			<% end %>
-		</div>
-	<% end %>
+<div class="colspp tabletit">
+	<h2>Especie</h2>
+</div><!-- 
+--><div class="coladv tabletit" rel="tooltip" title="Curación de registros">
+	<%= image_tag("regperfil.png") %>
+</div><!-- 
+--><div class="coladv tabletit" rel="tooltip" title="Edición de modelos">
+	<%= image_tag("penperfil.png") %>
+</div><!--  
+--><div class="coladv tabletit" rel="tooltip" title="Variables ecológicas">
+	<%= image_tag("veicon2.png") %>
+</div><!-- 
+--><div class="coladv tabletit" rel="tooltip" title="Modelo aprobado">
+	<%= image_tag("aprobicon.png") %>
+</div><!-- 
+--><div class="coladv tabletit" rel="tooltip" title="Porcentaje de avance">
+	<%= image_tag("percicon.png") %>
+</div>
+<div id="group_tasks_table"></div>
