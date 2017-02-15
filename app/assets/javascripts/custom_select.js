@@ -1,5 +1,9 @@
 var _CustomSelectModule = function() {
 
+	/**
+ 	* Init the custom select elements.
+	* Taken from: http://jsfiddle.net/tovic/ZTHkQ/
+	*/
 	var init = function() {
 		$('select').each(function(){
 			// Cache the number of options
@@ -58,39 +62,38 @@ var _CustomSelectModule = function() {
 		});
 	}
 
-	/* 
-		Función que permite cargar valores y realizar la selección de valores en los custom select
-		@auxObject: String con el id del objeto del DOM que corresponde al select
-		@filterValuesArr: Array con los valores que se pasarán al select
+	/**
+ 	* Allows to load an array into a custom select element.
+	* @param {string} auxSelect - ID of the auxiliary element of the custom select.
+	* @param {array} filterValues - Array with the values to be loaded.
 	*/
-	var selectValues = function(auxObject, filterValuesArr){
-			var filterValues = filterValuesArr;
-			$(auxObject).html('<option value="">- Categoria -</option>');
+	var selectValues = function(auxSelect, filterValues){
+			$(auxSelect).html('<option value="">- Categoria -</option>');
 			if(filterValues != ""){
 				$.each(filterValues, function (index, value) {
-		    		$(auxObject).append($('<option/>', { 
+		    		$(auxSelect).append($('<option/>', { 
 		        		value: value,
 		        		text : value 
 		    		}));
 				});
 			}
-			var $customSelectBox = $(auxObject).parent().find(".select-styled"),
-				$customSelectOptions = $(auxObject).parent().find(".select-options");
+			var $customSelectBox = $(auxSelect).parent().find(".select-styled"),
+				$customSelectOptions = $(auxSelect).parent().find(".select-options");
 			
-			$customSelectBox.text($(auxObject).children('option').eq(0).text());
+			$customSelectBox.text($(auxSelect).children('option').eq(0).text());
 			$customSelectOptions.html("");
-			for (var i = 0; i < $(auxObject).children('option').length; i++) {
+			for (var i = 0; i < $(auxSelect).children('option').length; i++) {
 			        $('<li />', {
-			            text: $(auxObject).children('option').eq(i).text(),
-			            rel: $(auxObject).children('option').eq(i).val()
+			            text: $(auxSelect).children('option').eq(i).text(),
+			            rel: $(auxSelect).children('option').eq(i).val()
 			        }).appendTo($customSelectOptions);
 			}
 			$customSelectOptions.children('li').click(function(e) {
 			        e.stopPropagation();
 			        $customSelectBox.text($(this).text()).removeClass('active');
-			        $(auxObject).val($(this).attr('rel'));
+			        $(auxSelect).val($(this).attr('rel'));
 			        $customSelectOptions.hide();
-			        $(auxObject).trigger('change'); //Change the hidden select
+			        $(auxSelect).trigger('change'); //Change the hidden select
 			});
 			$(document).click(function() {
 			        $customSelectBox.removeClass('active');

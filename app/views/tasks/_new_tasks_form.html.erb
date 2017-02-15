@@ -1,0 +1,27 @@
+<%= simple_form_for @task, :url => {:controller => "tasks", :action => "add_tasks"}, :method => :post, :remote => true do |f| %>
+		<%= f.error_notification %>
+		<%= f.hidden_field :group_id, value: @group.id %>
+		<p>Agregar nueva tarea</p>
+		<%= f.select :user_id, options_from_collection_for_select(@group_members, 'user_id', 'user_name'), include_blank: 'Seleccionar experto *'  %>
+		<%= f.select :species_id, options_for_select(@group_species), :include_blank => 'Seleccionar especie *' %>
+		<p class="tarea">Selecciona tareas a realizar</p>
+		<div id="chkBoxTask">
+                <label class="lblvisual" rel="tooltip" title="Curación de registros">
+                <%= check_box_tag :records_task,  1 %>
+                <%= image_tag("regperfil.png") %>
+                </label>
+                <label class="lblvisual" rel="tooltip" title="Edición de modelos">
+                <%= check_box_tag :edition_task,  2 %>
+                <%= image_tag("penperfil.png") %>
+                </label>
+                <label class="lblvisual" rel="tooltip" title="Variables ecológicas">
+                <%= check_box_tag :eco_task,  3 %>
+                <%= image_tag("veicon2.png") %>
+                </label>
+                <label class="lblvisual" rel="tooltip" title="Aprobación de modelo">
+                <%= check_box_tag :approval_task,  4 %>
+                <%= image_tag("aprobicon.png") %>
+                </label>
+                <%= f.button :submit, :value => "Agregar", :class => 'btngen'%>
+		</div>
+<% end %>

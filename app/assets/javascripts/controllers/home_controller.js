@@ -1,17 +1,18 @@
  $(document).ready(function(){
 
+  /*
+  * Autocomplete function using typeahead.js library
+  */
   var typeahead_f = function(){
-      // instantiate the bloodhound suggestion engine
       var species_search = new Bloodhound({
         datumTokenizer: function (d) {
-            //console.log("datumTokenizer: " + d)
             return Bloodhound.tokenizers.whitespace(d.species);
         },
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         remote: {
-          //url:'http://192.168.11.81:3000/BioModelos/species/search/%QUERY',
           url:'/species/search?query=%QUERY',
           replace:
+            /* Function to add filter parameters to the URL depending on the checkboxes selected */
               function(url, query) {
 
                   $('.sppbtn input[type="checkbox"]').each(function () {
@@ -75,7 +76,6 @@
       google.charts.setOnLoadCallback(drawChart5);
       google.charts.setOnLoadCallback(drawChart6);
       google.charts.setOnLoadCallback(drawChart7);
-      // google.charts.setOnLoadCallback(drawChart8);
 
       var options_chart = {
         titlePosition: 'none',
@@ -172,6 +172,7 @@
       }
     }();
 
+    /* Action to go to a species URL from home */
     $("#searchBtnHome").click(function(e){
         e.preventDefault();
         window.location.href = "/species/visor?species_id=" + $("#species_id_home").val();

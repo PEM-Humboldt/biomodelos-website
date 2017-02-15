@@ -16,6 +16,8 @@ Group.create(:name => "Mamiferos de Colombia", :message => "Bienvenidos al grupo
 
 TaskType.create(:id => 1, :name => "Curaduría de registros")
 TaskType.create(:id => 2, :name => "Edición")
+TaskType.create(:id => 3, :name => "Variables Ecológicas")
+TaskType.create(:id => 4, :name => "Aprobación")
 
 GroupsUser.create(:group_id => 2, :user_id => 1, :groups_users_state_id => 1, :is_admin => true)
 # GroupsUser.create(:group_id => 2, :user_id => 2, :groups_users_state_id => 1, :is_admin => false)

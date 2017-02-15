@@ -33,27 +33,72 @@
 		<div ng-show="isSet(2)" class="cajainfo">
 			<div class="apicont mb30">
 				<div class="blogg">
-					<h4>api de especies</h4>
-					<p>Como parte de la implementación de la nueva estrategia de BioModelos (ver nuestro <a href="http://us9.campaign-archive2.com/?u=b418e8c5dfe3e2abd225ec166&id=dee402c50c" target="_blank">Boletín No. 3</a>), estamos trabajando en varios cambios al diseño y funcionamiento de nuestro sitio web así como a nuestro flujo de trabajo. Mientras la nueva versión de BioModelos está en línea con nuevos modelos de distribución podrás colaborar a mejorar el conocimiento de la distribución de las especies de Colombia en esta nueva etapa:</p>
+					<h4>Especies</h4>
+					<p>Información relacionada con las especies que se encuentran disponibles para consulta en BioModelos:</p>
 				</div>
 			</div>
 			
-			<div class="apicont">
+			<div class="apicont mb30">
 				<div class="blogg">
 					<h5><b>1</b>Registros de ocurrencia</h5>
-					<p>Como parte de la implementación de la nueva estrategia de BioModelos, estamos trabajando en varios cambios al diseño y funcionamiento de nuestro sitio web así como a nuestro flujo de trabajo. Mientras la nueva versión de BioModelos está en línea con nuevos modelos de distribución podrás colaborar a mejorar el conocimiento de la distribución de las especies de Colombia en esta nueva etapa.</p>
-					<p>Como parte de la implementación de la nueva estrategia de BioModelos, estamos trabajando en varios cambios al diseño y funcionamiento de nuestro sitio web así como a nuestro flujo de trabajo. Mientras la nueva versión de BioModelos está en línea con nuevos modelos de distribución podrás colaborar a mejorar el conocimiento de la distribución de las especies de Colombia en esta nueva etapa.</p>
+					<p>Permite consultar los registros de ocurrencia de una especie utilizados por BioModelos para la generación de modelos de distribución. Los registros de ocurrencia retornan en formato <a href="https://tools.ietf.org/html/rfc7946" target="_blank">GeoJSON</a>.</p>
 					<div class="subblogg">URL</div>
-					<h6>/species/...</h6>
+					<h6>/species/records/{speciesID}</h6>
 					<div class="subblogg">método</div>
-					<h6>Get</h6>
-					<div class="subblogg">parametros</div>
-					<h6 class="blogglist">Akjdfjf</h6>
-					<h6 class="blogglist">Kkasdk ksad</h6>
-					<h6 class="blogglist">Jklks klsd askh</h6>
-					<h6 class="blogglist">JK skdfnkl ksdfka sjh f</h6>
+					<h6>GET</h6>
+					<div class="subblogg">parámetros</div>
+					<h6 class="blogglist">NA</h6>
 					<div class="subblogg">respuesta</div>
-					<h6><b>ej.</b> <i>Astronitus pelogutis.</i> LK aslkdf llsdj  lfjk as. ask;df aslkj . sdf;jalsdj fasldf. 2011.</h6>
+					<h6><b>ej.</b></h6> 
+						<code>{<br \>
+						"type": "FeatureCollection",<br \>
+							"features": [{<br \>
+								"type": "Feature",<br \>
+								"geometry": {<br \>
+									"type": "Point",<br \>
+									"coordinates": [-77.3860833, 8.5831667]<br \>
+								},<br \>
+								"properties": {<br \>
+									"_id": "5824a333e21cc54c32cb6472",<br \>
+									"acceptedNameUsage": "Sabinaria magnifica",<br \>
+									"source": "palmas",<br \>
+									"speciesOriginal": "Sabinaria magnifica",<br \>
+									"adm1": "Chocó",<br \>
+									"adm2": "Acandí",<br \>
+									"locality": "Quebrada El Brillante; 8 km al Occidente de Capurganá",
+									"alt": 130,
+									"institution": "Herbario Universidad Tecnológica del Chocó",
+									"catalogNumber": 12,
+									"basisOfRecord": "Espécimen Preservado",
+									"collector": "Galeano Gloria; R. Bernal; S. Hoyos; N. Echavarría",
+									"yyyy": 2013,
+									"mm": 8,
+									"dd": 29,
+									"taxID": 102,
+									"reported": false,
+									"updated": false
+								}
+							}]
+						}
+						</code>
+				</div>
+			</div>
+
+			<div class="apicont mb30">
+				<div class="blogg">
+					<h5><b>2</b>Información de especie</h5>
+					<p>Retorna la información general de una especie. Se accede utilizando el ID de la especie.</p>
+					<div class="subblogg">URL</div>
+					<h6>/species/{speciesID}</h6>
+					<div class="subblogg">método</div>
+					<h6>GET</h6>
+					<div class="subblogg">parametros</div>
+					<h6 class="blogglist">NA</h6>
+					<div class="subblogg">respuesta</div>
+					<h6><b>ej.</b></h6>
+					<code>
+					[{"totalRecords":2,"species":"Sabinaria magnifica","kingdom":"Plantae","phylum":"Angiospermae","class":"Equisetopsida","order":"Arecales","family":"Arecaceae"}]
+					</code>
 				</div>
 			</div>
 
