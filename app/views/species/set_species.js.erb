@@ -1,21 +1,55 @@
+/**
+* Compiles dynamic code that contains Angular directives from outside 
+* Angular.
+* Based on this code https://gist.github.com/umidjons/1fb8ae674df4c71f85cf
+* @param {Object} domObj - DOM that will contain the new code.
+* @param {htmlString} task_id - HTML code that will be inserted.
+*/
+function _compileDynamicAngularContent(domObj, htmlString){
+	angular.element("#visCntrl").injector().invoke(function($compile){
+            var obj=domObj; // get wrapper
+            var scope=obj.scope(); // get scope
+            // generate dynamic content
+            obj.html(htmlString);
+            // compile!!!
+            $compile(obj.contents())(scope);
+    });
+}
+
 <% if !params[:species_id].blank? && is_integer_num(params[:species_id]) %>
+	<% is_editable = can_edit(current_user.id, params[:species_id]) %>
 	$("#species_id_field").val("<%= params[:species_id] %>");
 	$(".spname").html("<%= @species_name %>");
 	$("#info_species_name").html("<%= @species_name %>");
 	$("#info_records_number").html("<%= @records_number %>")
-	/* Clear layers */
+	/* Clears layers */
 	_BioModelosVisorModule.unloadModel();
 	_BioModelosVisorModule.unloadEditionLayer();
 	_BioModelosVisorModule.unloadThresholdLayer();
-	_BioModelosVisorModule.getSpeciesRecords("<%= params[:species_id] %>");
-	$(".vbtninfo").show();
-	$(".vbtnhipo").show();
-	$(".vbtnedit").show();
+	/* Clears edition tools */
 	$(".btnedicion").hide();
 	if($(".cajitaeditar").is(":visible")){
-		$(".btnedicion").click();
+			$(".btnedicion").click();
 	}
+	/* Loads records */
+	_BioModelosVisorModule.getSpeciesRecords("<%= params[:species_id] %>", <%= is_editable %>);
 	$(".btnregistros").show();
+	/* Shows main toolbar buttons */
+	$(".vbtninfo").show();
+	$(".vbtnhipo").show();
+	/* Dynamically loads the edition tools if the user can edit */
+	<% if user_signed_in? && is_editable %>
+		_compileDynamicAngularContent($('#edit_model_btn'), '<div ng-click="edit=!edit" title="Editar modelo" rel="tooltip" class="visorbtn vbtnedit" selectable></div>');
+		$(".vbtnedit").show();
+		_compileDynamicAngularContent($("#edit_box_btn"),'<div ng-click="editar=!editar" class="btnedicion" selectable>edición</div>');
+		_compileDynamicAngularContent($("#edit_tools_box"), '<div ng-show="editar" class="cajitaeditar"><%=j render 'species/species_edition' %></div>');
+		$('#add_records_box').html('<%=j render partial: 'species_edition_new_records' %>');
+	<% else %>
+		$('#edit_model_btn').html('');
+		$("#edit_box_btn").html('');
+		$("#edit_tools_box").html('');
+		$('#add_records_box').html('');
+	<% end %>
 	$(".spname").show();
 	if($(".cajasearch").is(":visible"))
 		$("#clsSearchBox").click();

@@ -22,6 +22,7 @@ class SpeciesController < ApplicationController
 
 	def set_species
 		begin
+			@species_id = params[:species_id]
 			@species_name = Species.find_name(params[:species_id])
 			@records_number = Species.records_number(params[:species_id])
 			respond_to do |format|

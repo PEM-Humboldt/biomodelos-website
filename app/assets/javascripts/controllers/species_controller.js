@@ -50,7 +50,7 @@ $(document).ready(function(){
 		$(".delpoli").removeClass("polibtnact");
 	}
 
-	$(".polig").click(function(e){
+	$("#edit_tools_box").on("click",".polig",function(e){
 		if($(this).hasClass("polibtnact")){
 			_BioModelosVisorModule.deactivateDraw();
 			$(this).removeClass("polibtnact");
@@ -66,7 +66,7 @@ $(document).ready(function(){
 		}
 		e.preventDefault();
 	});
-	$(".edipoli").click(function(e){
+	$("#edit_tools_box").on("click",".edipoli",function(e){
 		_BioModelosVisorModule.deactivateDraw();
 		_BioModelosVisorModule.editPolygon();
 		$(".polig").addClass("opacitybtn");
@@ -79,7 +79,7 @@ $(document).ready(function(){
 		}
 		e.preventDefault();
 	});
-	$(".delpoli").click(function(e){
+	$("#edit_tools_box").on("click",".delpoli",function(e){
 		_BioModelosVisorModule.deactivateDraw();
 		_BioModelosVisorModule.deletePolygon();
 		$(".polig").addClass("opacitybtn");
@@ -99,22 +99,22 @@ $(document).ready(function(){
 		deactivateDeletion();			
 	} 
 
-	$(".saveedit").click(function(e){
+	$("#edit_tools_box").on("click",".saveedit",function(e){
 		_BioModelosVisorModule.saveEditPolygon();
 		deactivateEdition();
 		e.preventDefault();
 	});
-	$(".canceledit").click(function(e){
+	$("#edit_tools_box").on("click",".canceledit",function(e){
 		_BioModelosVisorModule.cancelEditPolygon();
 		deactivateEdition();
 		e.preventDefault();
 	});
-	$(".savedel").click(function(e){
+	$("#edit_tools_box").on("click",".savedel",function(e){
 		_BioModelosVisorModule.saveDeletePolygon();
 		deactivateDeletion();
 		e.preventDefault();
 	});
-	$(".canceldel").click(function(e){
+	$("#edit_tools_box").on("click",".canceldel",function(e){
 		_BioModelosVisorModule.cancelDeletePolygon();
 		deactivateDeletion();
 		e.preventDefault();
@@ -140,7 +140,7 @@ $(document).ready(function(){
 			$(this).removeClass("polibtnact");
 	});
 
-	$("#btnPauseEdition").click(function(e){
+	$("#edit_tools_box").on("click","#btnPauseEdition",function(e){
 		e.preventDefault();
 		$.ajax({
 		    type: 'POST',
@@ -155,7 +155,7 @@ $(document).ready(function(){
 		});
 	});
 
-	$("#btnEnvEdition").click(function(e){
+	$("#edit_tools_box").on("click","#btnEnvEdition",function(e){
 		e.preventDefault();
 		alertify.confirm('¿Desea enviar esta como su versión final?', function(e){ 
 			if(e){
@@ -231,9 +231,12 @@ $(document).ready(function(){
   			else
   				visualizeFilters.push("");
   		});
+  		$.post( "/records/edit_record", { species_id: $("#species_id_field").val()}).done(function(data) {
+    		_BioModelosVisorModule.filterRecords(findByFilters, visualizeFilters, yearFilters, monthFilters, data);
+  		});
 
-		_BioModelosVisorModule.filterRecords(findByFilters, visualizeFilters, yearFilters, monthFilters);
-	})
+		
+	});
 
 	/* Botón Limpiar filtros
 		1. Reset DOM (año, mes, select, filtros)
@@ -248,7 +251,9 @@ $(document).ready(function(){
 		//Reset visualizar filters
 		$('#chkBoxFilters input:checkbox').removeAttr('checked');
 		//Reset data
-		_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val());
+		$.post( "/records/edit_record", { species_id: $("#species_id_field").val()}).done(function(data) {
+    		_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val(), data);
+  		});
 	});
 
 
@@ -306,7 +311,7 @@ $(document).ready(function(){
 		$("#newModel_field").val(true);
 	});
 
-	$(".vbtnedit").click(function(e){
+	$("#visCntrl").on("click",".vbtnedit", function(e){
 		/* TODO clean layers */
 		$("#regMenu_slider").show();
 		$(".btnedicion").hide();
@@ -357,6 +362,17 @@ $(document).ready(function(){
 		_BioModelosVisorModule.loadModel($(this).find('#imgsrc_model').val(), $('.titlethumb').val());
 
 	});
+
+	$("body").on("click","#editRecordBtn",function(e){
+        e.preventDefault();
+		_BioModelosVisorModule.editRecord();
+  	});
+
+  	function _refreshSpeciesRecords(){
+  		$.post( "/records/edit_record", { species_id: $("#species_id_field").val()}).done(function(data) {
+  			_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val(), data);
+  		});
+  	}
 
 	/* Botón enviar edición de registro */
 	$("body").on("click","#sendRecordEdition",function(e){
@@ -418,7 +434,7 @@ $(document).ready(function(){
 			    url: "/records/update_record",
 			    data: data,
 			    success: function(){
-					_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val());
+					_refreshSpeciesRecords();
 					alertify.alert("Su edición se ha realizado con éxito");
 				},
 				error: function(jqXHR, textStatus, errorThrown){
@@ -518,7 +534,7 @@ $(document).ready(function(){
 			data.citation_bm = commentNewRecord;
 
 		var valResponse = validate(varsToValidate, constraints, {format: "flat"});
-		console.log(valResponse);
+
 		if(valResponse){
 			var response = "";
 			for(var i=0; i<valResponse.length; i++){
@@ -533,7 +549,7 @@ $(document).ready(function(){
 			    data: data,
 			    success: function(){
 			    	_BioModelosVisorModule.cancelAddPoint();
-					_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val());
+					_refreshSpeciesRecords();
 					alertify.alert("El registro ha sido agregado con éxito");
 				},
 				error: function(jqXHR, textStatus, errorThrown){
@@ -561,8 +577,6 @@ $(document).ready(function(){
           } 	
      });
   });
-
-	
 });
 
 

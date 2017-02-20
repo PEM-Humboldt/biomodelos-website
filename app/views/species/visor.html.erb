@@ -26,9 +26,7 @@
 	<div ng-click="find=!find" title="Búsqueda Avanzada" rel="tooltip" class="visorbtn vbtnfind" selectable></div>
 	<div ng-click="info=!info" title="Información de la especie" rel="tooltip" class="visorbtn vbtninfo" selectable></div>
 	<div ng-click="hipotesis=!hipotesis" title="Hipótesis de distribución" rel="tooltip" class="visorbtn vbtnhipo" selectable></div>
-	<% if user_signed_in? %>
-		<div ng-click="edit=!edit" title="Editar modelo" rel="tooltip" class="visorbtn vbtnedit" selectable></div>
-	<% end %>
+	<div id="edit_model_btn"></div>
 
 	<div ng-show="find" class="cajavisor cajasearch">
 		<%= render 'species/species_browser' %>
@@ -60,26 +58,23 @@
 				<a ng-click="edit=!edit" class="closevb" id="clsEditBox">x</a>
 			</div>
 			<div id="editbox_content"></div>
-		</div>
+			</div>
 	<% end %>
 
 	<div ng-click="registros=!registros" class="btnregistros" selectable>registros y filtros</div>
-	
-	<% if user_signed_in? %>
-		<div ng-click="editar=!editar" class="btnedicion" selectable>edición</div>
-	<% end %>
 
 	<div ng-show="registros" class="cajaregistros" id="registros_div">
-		<%= render 'species/species_records' %>
+		<%= render partial: 'species/species_records' %>
+		<div class="littleline"></div>
+		<div class="foreditors" id="add_records_box"></div>
 	</div>
 
 	<% if user_signed_in? %>
-		<div ng-show="editar" class="cajitaeditar">
-			<%= render 'species/species_edition' %>
-		</div>
-		<%= hidden_field_tag 'user_id_field', current_user.id %>
-		<%= hidden_field_tag 'newModel_field', false %>
-		<%= hidden_field_tag 'layer_id_field' %>
+			<div id="edit_box_btn"></div>
+	<% end %>
+
+	<% if user_signed_in? %>
+		<div id="edit_tools_box"></div>
 	<% end %>
 </div>
 

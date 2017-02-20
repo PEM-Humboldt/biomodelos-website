@@ -22,3 +22,6 @@
         <%= render 'species/species_eco_variables' %>
 		<button class="btngen" id="btnPauseEdition">pausar</button>
 		<button class="btngen" id="btnEnvEdition">enviar</button>
+		<%= hidden_field_tag "user_id_field", current_user.id %>
+		<%= hidden_field_tag "newModel_field", false %>
+		<%= hidden_field_tag "layer_id_field" %>

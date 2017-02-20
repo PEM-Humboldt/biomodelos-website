@@ -188,7 +188,7 @@ var _BioModelosVisorModule = function() {
   	  });
 	}
 
-	var getSpeciesRecords = function(species_id){
+	var getSpeciesRecords = function(species_id, isEditable){
 
 		if(map.hasLayer(cluster)) {
 			clearLayer(cluster);
@@ -197,7 +197,7 @@ var _BioModelosVisorModule = function() {
 
 		$.getJSON("/species/" + species_id + "/get_species_records",function(data){
 			species_records = data;
-		    filterRecords(["",""], ["","",""], [], []);
+		    filterRecords(["",""], ["","",""], [], [], isEditable);
 		}).fail(function(jqxhr, textStatus, error) {
     		alertify.alert("Ha ocurrido un error al cargar los registros: " + error);
   		});
@@ -222,7 +222,7 @@ var _BioModelosVisorModule = function() {
 	* @yearFilters: Array con 2 valores [año mínimo, año máximo].
 	* @monthFilters: Array con máximo 12 valores que incluye un valor negativo o positivo para los meses.
 	*/
-	var filterRecords = function(selectFilters, visFilters, yearFilters, monthFilters){
+	var filterRecords = function(selectFilters, visFilters, yearFilters, monthFilters, isEditable){
 		cluster.clearLayers();
        	recordsLayer = L.geoJson(species_records,{
        			pointToLayer: function(feature, latlng) {
@@ -289,8 +289,8 @@ var _BioModelosVisorModule = function() {
 					return yearFilter && monthFilter && dataFilter;
    				},	
 		 		onEachFeature: function (feature, layer) {
-
-		 			var no_show_fields = ["taxID","reported","updated"];
+		 			var no_show_fields = ["taxID","reported","updated"],
+		 				taxID_field = 0;
 
 		 			var popupcontent = [];
 					popupcontent.push('<div class="cajita"><div class="regscroller"><div id="point_lat">'+ feature.geometry.coordinates[1]+'</div><div id="point_lon"> '+ feature.geometry.coordinates[0] + '</div>');
@@ -299,9 +299,12 @@ var _BioModelosVisorModule = function() {
 							popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
 						else if (prop != "taxID" && prop != "reported" && prop != "updated" && prop != "ID")
 							popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + feature.properties[prop] + "</br>");
-								
+		
 					}
-					popupcontent.push('</div><div class="centering"><a href="" class="wrongbtn" id="editRecordBtn">Editar</a><a href="/records/report_record" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar</a></div>');
+					if(isEditable)
+						popupcontent.push('</div><div class="centering"><a href="" class="wrongbtn" id="editRecordBtn">Editar</a><a href="/records/report_record" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar</a></div>');
+					else
+						popupcontent.push('</div>');
 					layer.bindPopup(popupcontent.join('<div class="mt10"></div>'));
 				}	
 		});
@@ -793,10 +796,6 @@ var _BioModelosVisorModule = function() {
 
 $(document).ready(function() {
 	_BioModelosVisorModule.init();
-	$("body").on("click","#editRecordBtn",function(e){
-        e.preventDefault();
-		_BioModelosVisorModule.editRecord();
-  	});
   	$("body").on("click","#savePolBtn",function(e){
         e.preventDefault();
 		_BioModelosVisorModule.addActionToPolygon(e);
