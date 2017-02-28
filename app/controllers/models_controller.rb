@@ -3,7 +3,7 @@ class ModelsController < ApplicationController
 	def get_thresholds
 		begin
 			@continuous_t = Model.get_continous_model(params[:species_id])
-			@thresholds = Threshold.get_thresholds(params[:species_id])
+			@thresholds = Model.get_thresholds(params[:species_id])
 
 			if @thresholds
 				@thresholds.each do |t|
@@ -21,10 +21,12 @@ class ModelsController < ApplicationController
 	    	end
 
 		    respond_to do |format|
-		      		format.js
+		      	format.js
 		    end
 		rescue => e
-			render :js => "alertify.alert('Se ha producido un error al consultar los umbrales:' + #{e.message} + ' ' + #{e.backtrace});"
+			logger.error "#{e.message} #{e.backtrace}"
+			err_msg = e.message.tr(?',?").delete("\n")
+			render :js => "alertify.alert('Se ha producido un error al consultar los umbrales. #{err_msg}');"
 		end
 	end
 
@@ -45,7 +47,9 @@ class ModelsController < ApplicationController
 		      format.js
 		    end
 		rescue => e
-			render :js => "alertify.alert('Se ha producido un error al consultar los modelos. + #{e.backtrace}');"
+			logger.error "#{e.message} #{e.backtrace}"
+			err_msg = e.message.tr(?',?").delete("\n")
+			render :js => "alertify.alert('Se ha producido un error al consultar los modelos. #{err_msg}');"
 		end
 		
 	end
@@ -56,7 +60,9 @@ class ModelsController < ApplicationController
 			@species_name = Species.find_name(@metadata[0]["taxID"])
 			@records_number = Species.records_number(@metadata[0]["taxID"])
 		rescue => e
-			render :js => "alertify.alert('Se ha producido un error al obtener los metadatos del modelo.  #{e.message} + #{e.backtrace}');"
+			logger.error "#{e.message} #{e.backtrace}"
+			err_msg = e.message.tr(?',?").delete("\n")
+			render :js => "alertify.alert('Se ha producido un error al obtener los metadatos del modelo.  #{err_msg}');"
 		end
 	end
 

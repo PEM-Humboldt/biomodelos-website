@@ -15,7 +15,7 @@ class Species
 	end
 
 	def self.find_name(taxID)
-   		JSON.parse(get('/' + taxID.to_s).body)[0]["species"]	
+   		JSON.parse(get('/' + taxID.to_s).body)[0]["acceptedNameUsage"]	
 	end
 
 	def self.records_number(taxID)
@@ -62,8 +62,8 @@ class Species
 		if params[:invasive]
 			url += "&invasive=" + params[:invasive]
 		end
-		if params[:enPeligro]
-			url += "&enPeligro=" + params[:enPeligro]
+		if params[:endangered]
+			url += "&endangered=" + params[:endangered]
 		end
 
 		JSON.parse(get(URI.escape(url)).body)

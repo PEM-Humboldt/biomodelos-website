@@ -37,8 +37,8 @@ var _BioModelosVisorModule = function() {
     					"acceptedNameUsage":"Nombre aceptado",
 						"speciesOriginal":"Especie original",
 						"source":"Fuente",
-						"adm1":"Departamento",
-						"adm2":"Municipio",
+						"suggestedStateProvince":"Departamento",
+						"suggestedCounty":"Municipio",
 						"locality":"Localidad",
 						"alt":"Altitud",
 						"institution":"Institución",
@@ -47,7 +47,8 @@ var _BioModelosVisorModule = function() {
 						"collector":"Recolector",
 						"yyyy":"Año",
 						"mm":"Mes",
-						"dd":"Día"
+						"dd":"Día",
+						"url":"Url"
 					};
 
 	var imageBounds = [[13,-60],[-14, -83]];
@@ -259,7 +260,7 @@ var _BioModelosVisorModule = function() {
        				if(yearFilters != ""){
 
        					var yearValue = feature.properties.yyyy;
-       					if(yearValue == -9999){
+       					if(yearValue == null){
        						yearValue = 0;
        					}
        					if(yearValue < yearFilters[0] || feature.properties.yyyy > yearFilters[1]){
@@ -289,15 +290,12 @@ var _BioModelosVisorModule = function() {
 					return yearFilter && monthFilter && dataFilter;
    				},	
 		 		onEachFeature: function (feature, layer) {
-		 			var no_show_fields = ["taxID","reported","updated"],
-		 				taxID_field = 0;
-
 		 			var popupcontent = [];
 					popupcontent.push('<div class="cajita"><div class="regscroller"><div id="point_lat">'+ feature.geometry.coordinates[1]+'</div><div id="point_lon"> '+ feature.geometry.coordinates[0] + '</div>');
 					for (var prop in feature.properties) {
 						if(prop === '_id')
 							popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
-						else if (prop != "taxID" && prop != "reported" && prop != "updated" && prop != "ID")
+						else if (prop != "taxID" && prop != "species" && prop != "reported" && prop != "updated")
 							popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + feature.properties[prop] + "</br>");
 		
 					}
@@ -338,7 +336,7 @@ var _BioModelosVisorModule = function() {
 							editableForm.push('<b>Localidad:</b></br><input type="text" id="txtLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
 							editableForm.push('<input type="hidden" id="oldLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input>');
 						}
-						else if(prop != "taxID" && prop != "reported" && prop != "updated")
+						else if(prop != "taxID" && prop != "species" && prop != "reported" && prop != "updated")
 							editableForm.push('<b>'+ headers[prop] + "</b></br>" + editableLayer.feature.properties[prop] + "</br>");	
 					}
 					editableForm.push('</div><div class="centering"><a href="" class="wrongbtn" id="sendRecordEdition">Enviar</a><a href="" class="wrongbtn" id="cancelRecordEdition">Cancelar</a></div>');
@@ -731,7 +729,6 @@ var _BioModelosVisorModule = function() {
 
    var loadEditionLayer = function(){
    		if(!map.hasLayer(editableLayer)) {
-   			editableLayer.clearLayers();
        		map.addLayer(editableLayer);
        		layerControl.addOverlay(editableLayer, 'Edición');
        }
@@ -748,7 +745,6 @@ var _BioModelosVisorModule = function() {
 
    var loadThresholdLayer = function(){
    	   	if(!map.hasLayer(thresholdLayers)) {
-   			thresholdLayers.clearLayers();
        		map.addLayer(thresholdLayers);
        		layerControl.addOverlay(thresholdLayers, 'Umbrales');
        }

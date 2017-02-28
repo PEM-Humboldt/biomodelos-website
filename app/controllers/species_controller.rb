@@ -16,7 +16,9 @@ class SpeciesController < ApplicationController
 			species = Species.search(params)
 			render json: species
 		rescue => e
-	    	render :js => "alertify.alert('Ha ocurrido un error en la conexión con la base de datos: Búsqueda + #{e.message}');"
+			logger.error "#{e.message} #{e.backtrace}"
+			err_msg = e.message.tr(?',?").delete("\n")
+	    	render :js => "alert('Ha ocurrido un error en la búsqueda. #{err_msg}');"
 	    end
 	end
 
@@ -29,7 +31,9 @@ class SpeciesController < ApplicationController
 	      		format.js
 	    	end
 	    rescue => e
-	    	render :js => "alertify.alert('Ha ocurrido un error en la conexión con la base de datos: Especies #{e.message}');"
+	    	logger.error "#{e.message} #{e.backtrace}"
+			err_msg = e.message.tr(?',?").delete("\n")
+	    	render :js => "alertify.alert('Ha ocurrido un error cosultando la especie. #{err_msg}');"
 	    end
 	end
 
@@ -38,7 +42,9 @@ class SpeciesController < ApplicationController
 			records = Species.records(params[:id])
 			render json: records
 		rescue => e
-	    	render :js => "alertify.alert('Ha ocurrido un error en la conexión con la base de datos: Registros');"
+			logger.error "#{e.message} #{e.backtrace}"
+			err_msg = e.message.tr(?',?").delete("\n")
+	    	render :js => "alertify.alert('Ha ocurrido consultando los registros. #{err_msg}');"
 	    end
 	end
 

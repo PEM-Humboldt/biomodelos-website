@@ -119,14 +119,13 @@ $(document).ready(function(){
 		deactivateDeletion();
 		e.preventDefault();
 	});
-	$("#btnAddSingleRecord").click(function(e){
+	$("#add_records_box").on("click","#btnAddSingleRecord",function(e){
 		_BioModelosVisorModule.deactivateDraw();
 		_BioModelosVisorModule.drawSinglePoint();
 		if(!$(this).hasClass("btngenact"))
 			$(this).addClass("btngenact");
 		e.preventDefault();
 	});
-
 	$("body").on("click", "#popUpCancelBtn", function(e){
   		e.preventDefault();
 		_BioModelosVisorModule.cancelAddPoint();
@@ -461,12 +460,15 @@ $(document).ready(function(){
 			locNewRecord = $("#r_localidad").val(),
 			tipoNewRecord = $("#r_tipo").val(),
 			colNewRecord = $("#r_observador").val(),
+			citaNewRecord = $("#r_cita").val(),
 			commentNewRecord = $("#r_comment").val();
 
 
 		var varsToValidate = {},
 		constraints = {},
-		data = {taxID: $("#species_id_field").val()};
+		data = {taxID: $("#species_id_field").val(),
+				acceptedNameUsage: $(".spname").html(),
+				userId_bm: $("#user_id_field").val()};
 		
 		varsToValidate.lat = latNewRecord;
 		constraints.lat = {};
@@ -530,8 +532,10 @@ $(document).ready(function(){
 			data.basisOfRecord = tipoNewRecord;
 		if(colNewRecord != "")
 			data.collector = colNewRecord;
+		if(citaNewRecord != "")
+			data.citation_bm = citaNewRecord;
 		if(commentNewRecord != "")
-			data.citation_bm = commentNewRecord;
+			data.comments_bm = commentNewRecord;
 
 		var valResponse = validate(varsToValidate, constraints, {format: "flat"});
 
