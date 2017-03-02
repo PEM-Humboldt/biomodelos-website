@@ -1,0 +1,8 @@
+<% if @init_model %>
+	_BioModelosVisorModule.loadModel("<%= @init_model.pngUrl %>", "<%= @init_model.modelStatus %>");
+	<% if !@popup_content.blank? %>
+		alertify.alert("<%= @popup_content %>");
+	<% end %>
+<% else %>
+	alertify.alert("Esta especie aun no cuenta con modelo de distribución. Para contribuir a su desarrollo, registrate en el grupo de expertos de la especie.");
+<% end %>

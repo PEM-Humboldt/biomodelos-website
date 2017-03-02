@@ -28,15 +28,19 @@ class Model
       return thresholds_array
     end
 
+    # Gets an array of a species models pending of validation via API.  
+    #
+    # @param species_id [Number] ID of the species.
+    # @return [Array] Model objects pending of validation.
   	def self.get_hypotheses(species_id)
   		response = JSON.parse(get('/' + species_id + '?type=Hypothesis').body)
   		hypotheses_array = []
     	response.each do |hypothesis|
-    		t = Model.new(threshold["Modelo"], threshold["ModelStatus"], threshold["Ruta_Mapa"], threshold["Ruta_Tif"], threshold["Ruta_Miniatura"], threshold["Umbral"])
-    		models_array.push(t)
+    		t = Model.new(hypothesis["modelID"], hypothesis["modelStatus"], hypothesis["pngPath"], hypothesis["zipPath"], hypothesis["thumbPath"], hypothesis["thresholdType"])
+    		hypotheses_array.push(t)
       end
 
-		  return models_array
+		  return hypotheses_array
   	end
 
     # Gets a species continuous model developed by BioModelos via API.  
@@ -58,8 +62,8 @@ class Model
     #
     # @param species_id [Number] ID of the species.
     # @return [Object] Valid model object.
-    def self.get_valid_model
-      response = JSON.parse(get('/' + species_id + '?tipo=Valid').body)
+    def self.get_valid_model(species_id)
+      response = JSON.parse(get('/' + species_id + '?type=Valid').body)
       if response.size > 0
         valid_model = Model.new(response[0]["modelID"], response[0]["modelStatus"], response[0]["pngPath"], response[0]["zipPath"], response[0]["thumbPath"], response[0]["thresholdType"])
       else

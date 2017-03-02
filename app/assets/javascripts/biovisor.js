@@ -758,6 +758,12 @@ var _BioModelosVisorModule = function() {
        }
    }
 
+   var unloadAllLayers = function(){
+   		unloadModel();
+        unloadEditionLayer();
+        unloadThresholdLayer();
+   }
+
 	
 	return{
 		init:init,
@@ -786,7 +792,8 @@ var _BioModelosVisorModule = function() {
 		loadThresholdLayer: loadThresholdLayer,
 		unloadThresholdLayer: unloadThresholdLayer,
 		loadModel: loadModel,
-		unloadModel: unloadModel
+		unloadModel: unloadModel,
+		unloadAllLayers: unloadAllLayers
 	}
 }();
 

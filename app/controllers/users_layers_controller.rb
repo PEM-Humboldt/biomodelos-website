@@ -36,12 +36,8 @@ class UsersLayersController < ApplicationController
 	end
 
 	def load_layer
-		if params[:new_map]
-			@layer = UsersLayer.where(:user_id => current_user.id, :species_id => params[:species_id], :final => false, :newModel => true).first
-		else
-			@layer = UsersLayer.where(:user_id => current_user.id, :species_id => params[:species_id], :final => false, :newModel => false).first
-		end
-		
+		new_model = params[:new_map] == "true" ? true : false
+		@layer = UsersLayer.where(:user_id => current_user.id, :species_id => params[:species_id], :final => false, :newModel => new_model).first
 		respond_to do |format|
 	        format.js
 	    end

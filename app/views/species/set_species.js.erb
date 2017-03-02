@@ -23,9 +23,7 @@ function _compileDynamicAngularContent(domObj, htmlString){
 	$("#info_species_name").html("<%= @species_name %>");
 	$("#info_records_number").html("<%= @records_number %>")
 	/* Clears layers */
-	_BioModelosVisorModule.unloadModel();
-	_BioModelosVisorModule.unloadEditionLayer();
-	_BioModelosVisorModule.unloadThresholdLayer();
+	_BioModelosVisorModule.unloadAllLayers();
 	/* Clears edition tools */
 	$(".btnedicion").hide();
 	if($(".cajitaeditar").is(":visible")){
@@ -37,6 +35,8 @@ function _compileDynamicAngularContent(domObj, htmlString){
 	/* Shows main toolbar buttons */
 	$(".vbtninfo").show();
 	$(".vbtnhipo").show();
+	/* Loads initial model */
+	$.post( "/models/load_initial_model", { species_id: <%= params[:species_id] %>});
 	/* Dynamically loads the edition tools if the user can edit */
 	<% if user_signed_in? && is_editable %>
 		_compileDynamicAngularContent($('#edit_model_btn'), '<div ng-click="edit=!edit" title="Editar modelo" rel="tooltip" class="visorbtn vbtnedit" selectable></div>');
