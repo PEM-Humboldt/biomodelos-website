@@ -260,7 +260,7 @@ $(document).ready(function(){
  	* Shows the edition menu for editing an existing model or creating a new one. 
  	* 
 	* @param {Boolean} event.data.IsNewMap - True if it's activating the create a new map edition 
-	* menu or False if it's the model edition menu. Value is part of the data property of the event method.
+	* menu or False if it's the model edition menu.
 	*/
 	function _activateEditionMenu(event){
 		//Cierra menú edición
@@ -290,10 +290,10 @@ $(document).ready(function(){
 		$("#newModel_field").val(event.data.isNewMap);
 	}
 
-	/* Botón para activar menú de edición */
+	/* Edition Menu button */
 	$("#visCntrl").on("click", "#cbt_editBtn", { isNewMap: false }, _activateEditionMenu);
 	
-	/* Botón crea tu mapa */
+	/* Create your map button */
 	$("#visCntrl").on("click", "#cbt_crearBtn", { isNewMap: true }, _activateEditionMenu);
 
 	$("#visCntrl").on("click",".vbtnedit", function(e){

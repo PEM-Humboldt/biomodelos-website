@@ -39,7 +39,6 @@ class Model
     		t = Model.new(hypothesis["modelID"], hypothesis["modelStatus"], hypothesis["pngPath"], hypothesis["zipPath"], hypothesis["thumbPath"], hypothesis["thresholdType"])
     		hypotheses_array.push(t)
       end
-
 		  return hypotheses_array
   	end
 
@@ -69,12 +68,7 @@ class Model
       else
         valid_model = nil
       end
-
       return valid_model
-    end
-
-    def self.eoo(species_id)
-      JSON.parse(get('/approved/eoo/' + species_id).body)
     end
 
     def self.rpa(species_id)
@@ -93,4 +87,21 @@ class Model
       JSON.parse(get('/metadata/' + model_id.to_s).body)
     end
 
+    # Gets the best model hypothesis based on rating.  
+    #
+    # @param hypotheses [Array] Array of Model objects.
+    # @return [Object] Best hypothesis model object.
+    def self.get_best_hypothesis(hypotheses)
+      best_hypothesis = nil
+      best_rating = -1
+      actual_rating = 0
+      hypotheses.each do |hypothesis| 
+        actual_rating = Rating.average_rating(hypothesis.modelID)
+        if actual_rating > best_rating
+          best_hypothesis = hypothesis
+          best_rating = actual_rating
+        end
+      end
+      return best_hypothesis
+    end
 end

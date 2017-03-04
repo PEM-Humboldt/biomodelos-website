@@ -1,7 +1,6 @@
 class ModelsController < ApplicationController
 	#protect_from_forgery except: :metadata
-	
-	
+		
 	def load_initial_model
 		@init_model = nil
 		@popup_content = ""
@@ -19,7 +18,8 @@ class ModelsController < ApplicationController
 				@init_model = @hypotheses[0]
 				@popup_content = "Esta hipótesis de distribución está pendiente de aprobación por expertos."
 			else
-				#Todo Function to calculate hypothesis
+				@init_model = Model.get_best_hypothesis(@hypotheses)
+				@popup_content = "Esta es una de las hipótesis de distribución disponibles pendientes de aprobación por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución pendientes de aprobación disponibles para esta especie."
 			end
 		elsif @continuous_model
 			@init_model = @continuous_model
@@ -27,7 +27,7 @@ class ModelsController < ApplicationController
 		end
 
 		respond_to do |format|
-		      	format.js
+		    format.js
 		end
 	end
 
