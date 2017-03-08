@@ -1,6 +1,13 @@
 class ModelsController < ApplicationController
-	#protect_from_forgery except: :metadata
 		
+	# Sets the initial model to be loaded and the pop-up content based on:
+	# 1. There's only a valid model.
+	# 2. There's a valid model and one or more hypotheses waiting for approval
+    # 3. There's no valid model and just one hypothesis waiting for approval
+    # 4. There are multiple hypotheses waiting for approval and no valid model
+    # 5. There is no valid model, no hypotheses and just the BioModelos continuous model
+    # 6. There is no distribution model for the species yet.
+    #
 	def load_initial_model
 		@init_model = nil
 		@popup_content = ""
@@ -96,6 +103,8 @@ class ModelsController < ApplicationController
 		
 	end
 
+	# Sets the metadata information for a model, along with the species name and number of records
+	# 
 	def metadata
 		begin
 			@metadata = Model.get_metadata(params[:id])
@@ -104,7 +113,7 @@ class ModelsController < ApplicationController
 		rescue => e
 			logger.error "#{e.message} #{e.backtrace}"
 			err_msg = e.message.tr(?',?").delete("\n")
-			render :js => "alertify.alert('Se ha producido un error al obtener los metadatos del modelo.  #{err_msg}');"
+			redirect_to species_visor_path, notice: 'Se ha producido un error al obtener los metadatos del modelo.'
 		end
 	end
 
