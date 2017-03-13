@@ -4,9 +4,9 @@
 		<div class="maparea">
 			<div href="" class="mapthumb">
 				<div class="flipper">
-					<div class="front2"><%= image_tag(model.thumbUrl) %></div>
+					<div class="front2"><%= image_tag(set_path(model.thumbUrl, "thumb")) %></div>
 					<a class="back2 sp_model_link">
-						<%= hidden_field_tag('imgsrc_model', model.pngUrl) %>
+						<%= hidden_field_tag('imgsrc_model', set_path(model.pngUrl, "model")) %>
 						<div class="titlethumb">
 							<%= model_title_thumb(model.modelStatus) %>
 						</div>

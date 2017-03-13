@@ -30,4 +30,22 @@ module ModelsHelper
 		  return level
 		end	
 	end
+
+	# Sets the full file path for the models, thumbnails and downloadable zip files. 
+	#
+	# @param method [String] File name.
+	# @param method [String] Type of file "model", "thumb" and "zip".
+	# @return [String] Full file path.
+	def set_path(fileName, fileType)
+		case fileType 
+		when "model"
+		  return "/models/#{fileName}"
+		when "thumb"
+		  return "/thumbs/#{fileName}"
+		when "zip"
+		  return "/zip/#{fileName}"  
+		else
+		  return fileName
+		end		
+	end
 end

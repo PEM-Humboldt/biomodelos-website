@@ -34,7 +34,7 @@
 						<div class="subtgr"><b>Moderador</b></br>Norberto Lopez Alvarez</div>
 						<div class="colhalf subtgr lineright">
 							<b>Especies</b>
-							<h5><%= SpeciesGroup.where(:group_id => group.id).count %></h5>
+							<h5><%= GroupsSpecies.where(:group_id => group.id).count %></h5>
 						</div>
 						<div class="colhalf subtgr clearfix">
 							<b>Miembros</b>

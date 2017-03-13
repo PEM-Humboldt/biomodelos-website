@@ -12,12 +12,12 @@ class AddTasks < ActiveRecord::Migration
 
 		create_table :tasks do |t|
 			t.integer :species_id, index: true
-			t.belongs_to :user, index: true
-			t.belongs_to :group, index: true
-			t.belongs_to :task_type, index: true
-			t.integer :created_by, index: true
-			t.integer :completed_by, index: true
-			t.belongs_to :task_state, index: true, null: false
+			t.belongs_to :user
+			t.belongs_to :group
+			t.belongs_to :task_type
+			t.integer :created_by
+			t.integer :completed_by
+			t.belongs_to :task_state, null: false
 			t.timestamps
 		end
   end

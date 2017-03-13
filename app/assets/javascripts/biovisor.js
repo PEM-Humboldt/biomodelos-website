@@ -696,7 +696,7 @@ var _BioModelosVisorModule = function() {
 	    modelLayer = new L.ImageOverlay(modelUrl, imageBounds, {opacity: 0.6});
 	    
 	    map.addLayer(modelLayer, true);
-	    layerControl.addOverlay(modelLayer, "Modelo" + name);
+	    layerControl.addOverlay(modelLayer, "Modelo " + name);
 	};
 
 	var unloadModel = function() {

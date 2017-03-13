@@ -13,7 +13,7 @@
         <h3>Tipo validación <b><%= @metadata[0]["validationType"] %></b></h3>
         <h3><%= @metadata[0]["perfStatType"] %> <b><%= @metadata[0]["perfStatValue"] %></b></h3>
         <h3>Nivel <b><%= map_level_name(@metadata[0]["modelLevel"]) %></b></h3>
-        <h3>Documentación <b><%= @metadata[0]["methodFile"].blank? ? "NA" : @metadata[0]["methodFile"] %></b></h3>
+        <h3>Documentación <b><%= @metadata[0]["methodFile"].blank? ? "NA" : link_to(@metadata[0]["methodFile"], @metadata[0]["methodFile"]) %></b></h3>
         </div>
 
         <h2>Cita</h2>

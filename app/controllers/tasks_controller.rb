@@ -1,18 +1,18 @@
 class TasksController < ApplicationController
 	
 	def tasks_by_group
-			@group = Group.find(params[:id])
-			@tasks = Task.where(:group_id =>  @group.id).group(:species_id, :user_id, :task_type_id, :group_id)
-			@species_with_tasks = @tasks.map{|t| [Species.find_name(t.species_id.to_s),t.species_id]}.uniq
-			@members_with_tasks = @tasks.map{|t| [t.user.id]}.uniq
-			@current_group_user = false
-			if user_signed_in?
-	        	@current_group_user = GroupsUser.find_by_group_id_and_user_id(@group.id, current_user.id)
-	        end
+		@group = Group.find(params[:id])
+		@tasks = Task.where(:group_id =>  @group.id).group(:species_id, :user_id, :task_type_id, :group_id)
+		@species_with_tasks = @tasks.map{|t| [Species.find_name(t.species_id.to_s),t.species_id]}.uniq
+		@members_with_tasks = @tasks.map{|t| [t.user.id]}.uniq
+		@current_group_user = false
+		if user_signed_in?
+	        @current_group_user = GroupsUser.find_by_group_id_and_user_id(@group.id, current_user.id)
+	    end
 
-	        respond_to do |format|
-				format.js
-			end
+	    respond_to do |format|
+			format.js
+		end
 	end
 
 	def finish_task

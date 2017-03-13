@@ -22,7 +22,7 @@ class Model
       response = JSON.parse(get('/' + species_id + '?type=Thresholds').body)
       thresholds_array = []
       response.each do |threshold|
-        t = Model.new(threshold["modelID"], threshold["modelStatus"], threshold["pngPath"], threshold["zipPath"], threshold["thumbPath"], threshold["thresholdType"])
+        t = Model.new(threshold["modelID"], threshold["modelStatus"], threshold["png"], threshold["zip"], threshold["thumb"], threshold["thresholdType"])
         thresholds_array.push(t)
       end
       return thresholds_array
@@ -36,7 +36,7 @@ class Model
   		response = JSON.parse(get('/' + species_id + '?type=Hypothesis').body)
   		hypotheses_array = []
     	response.each do |hypothesis|
-    		t = Model.new(hypothesis["modelID"], hypothesis["modelStatus"], hypothesis["pngPath"], hypothesis["zipPath"], hypothesis["thumbPath"], hypothesis["thresholdType"])
+    		t = Model.new(hypothesis["modelID"], hypothesis["modelStatus"], hypothesis["png"], hypothesis["zip"], hypothesis["thumb"], hypothesis["thresholdType"])
     		hypotheses_array.push(t)
       end
 		  return hypotheses_array
@@ -49,7 +49,7 @@ class Model
     def self.get_continous_model(species_id)
       response = JSON.parse(get('/' + species_id + '?type=Continuous').body)
       if response.size > 0
-        continuous_model = Model.new(response[0]["modelID"], response[0]["modelStatus"], response[0]["pngPath"], response[0]["zipPath"], response[0]["thumbPath"], response[0]["thresholdType"])
+        continuous_model = Model.new(response[0]["modelID"], response[0]["modelStatus"], response[0]["png"], response[0]["zip"], response[0]["thumb"], response[0]["thresholdType"])
       else
         continuous_model = nil
       end
@@ -64,11 +64,15 @@ class Model
     def self.get_valid_model(species_id)
       response = JSON.parse(get('/' + species_id + '?type=Valid').body)
       if response.size > 0
-        valid_model = Model.new(response[0]["modelID"], response[0]["modelStatus"], response[0]["pngPath"], response[0]["zipPath"], response[0]["thumbPath"], response[0]["thresholdType"])
+        valid_model = Model.new(response[0]["modelID"], response[0]["modelStatus"], response[0]["png"], response[0]["zip"], response[0]["thumb"], response[0]["thresholdType"])
       else
         valid_model = nil
       end
       return valid_model
+    end
+
+    def self.eoo(species_id)
+      JSON.parse(get('/approved/eoo/' + species_id).body)
     end
 
     def self.rpa(species_id)

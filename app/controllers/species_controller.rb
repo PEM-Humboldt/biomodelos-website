@@ -50,7 +50,7 @@ class SpeciesController < ApplicationController
 
 	def species_info
 		begin
-			@approved_model = Model.get_approved_models(params[:species_id])
+			@approved_model = Model.get_valid_model(params[:species_id])
 			@eoo = Model.eoo(params[:species_id])
 			@rpa = Model.rpa(params[:species_id])
 			@forest_loss = Model.forest_loss(params[:species_id])
