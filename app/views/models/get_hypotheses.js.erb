@@ -1,3 +1,3 @@
-$('#hipotesisbox_content').html('<%=j render partial: 'species/species_models', locals: { :models => @models, :ratings => @ratings} %>');
+$('#hipotesisbox_content').html('<%=j render partial: 'species/species_models', locals: { :models => @models, :ratings => @ratings, :can_edit => @can_edit} %>');
 _BioModelosVisorModule.unloadThresholdLayer();
 _BioModelosVisorModule.unloadEditionLayer();

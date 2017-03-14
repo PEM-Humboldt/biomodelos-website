@@ -2,7 +2,10 @@ class RecordsController < ApplicationController
 	include UsersHelper
 
 	def edit_record
-		@can_edit = can_edit(current_user.id, params[:species_id])
+		@can_edit = false
+		if user_signed_in?
+			@can_edit = can_edit(current_user.id, params[:species_id])
+		end
 		respond_to do |format|
       		format.json { render :json => @can_edit }
     	end

@@ -50,7 +50,7 @@ Rails.application.routes.draw do
   resources :users, :only => [:index, :show]
   resources :groups, :only => [:index, :show]
   resources :info, :only => [:index]
-  resources :species_groups, :only => [:index, :create]
+  resources :groups_species, :only => [:index, :create]
   resources :tasks, :only => [:index, :create]
   resources :ratings, :only => [:destroy]
   resources :models do

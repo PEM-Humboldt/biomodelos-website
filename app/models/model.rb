@@ -94,7 +94,7 @@ class Model
     # Gets the best model hypothesis based on rating.  
     #
     # @param hypotheses [Array] Array of Model objects.
-    # @return [Object] Best hypothesis model object.
+    # @return [Object] Best hypothesis Model object.
     def self.get_best_hypothesis(hypotheses)
       best_hypothesis = nil
       best_rating = -1

@@ -1,4 +1,5 @@
 class ModelsController < ApplicationController
+	include UsersHelper
 		
 	# Sets the initial model to be loaded and the pop-up content based on:
 	# 1. There's only a valid model.
@@ -71,7 +72,7 @@ class ModelsController < ApplicationController
 	end
 
 	# Gets the model information of the valid model and each of the hypotheses, along with the rating for 
-	# each one.
+	# each one in case the user is signed in and can edit.
 	#    
 	def get_hypotheses
 		@ratings = Hash.new
@@ -79,17 +80,22 @@ class ModelsController < ApplicationController
 		begin
 			@valid_model = Model.get_valid_model(params[:species_id])
 			@models = Model.get_hypotheses(params[:species_id])
+			@can_edit = false
+
 			
 			# If there's a valid model, adds it first to the array.
 			if @valid_model
 				@models.unshift(@valid_model)
 			end
-
+			# If the user is signed in and can edit the species, it gets and sets the user ratings for each model.
 			if user_signed_in?
-				@models.each do |m|
-	          		@rating = Rating.where(model_id: m.modelID, user_id: current_user.id).first
-	          		@ratings[m.modelID] = @rating.blank? ? 0 : @rating.score
-	        	end
+				@can_edit = can_edit(current_user.id, params[:species_id])
+				if @can_edit
+					@models.each do |m|
+		          		@rating = Rating.where(model_id: m.modelID, user_id: current_user.id).first
+		          		@ratings[m.modelID] = @rating.blank? ? 0 : @rating.score
+		        	end
+		        end
 	        end
 
 			respond_to do |format|
