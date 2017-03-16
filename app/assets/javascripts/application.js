@@ -28,5 +28,6 @@
 //= require validate/validate.min
 //= require alertify/alertify.min
 //= require raty/lib/jquery.raty
+//= require clipboard/dist/clipboard.min.js
 //= require_tree ./angular
 //= require_tree ./controllers

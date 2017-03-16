@@ -602,6 +602,12 @@ div.google-visualization-tooltip > ul > li:nth-child(2) {
 	vertical-align: middle;
 	display: inline-block;
 }
+p.removeline::before {
+	width: 0;
+}
+p.orangesq::before {
+	background-color: #18b4b1;
+}
 p.yellsq::before {
 	background-color: #e3af24;
 }
@@ -2945,7 +2951,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	line-height:1.5;
 	border: 1px solid #d0d2d0;
 	padding: 5px 15px 5px 5px;
-	max-width: 300px;
+	max-width: 400px;
 	max-height: 218px;
 	overflow-y: auto;
 }
@@ -4103,3 +4109,10 @@ font-weight: 300;
   margin-bottom: 30px;
 }
 
+/* Leaflet 0.7.x fix for image layers moving and disappearing when zooming in */
+.leaflet-container .leaflet-overlay-pane svg,
+.leaflet-container .leaflet-marker-pane img,
+.leaflet-container .leaflet-tile-pane img,
+.leaflet-container img.leaflet-image-layer {
+	max-width: none !important;
+}

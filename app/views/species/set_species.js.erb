@@ -18,7 +18,6 @@ $(document).ready(function(){
 	}
 
 	<% if !params[:species_id].blank? && is_integer_num(params[:species_id]) %>
-		<% is_editable = can_edit(current_user.id, params[:species_id]) %>
 		$("#species_id_field").val("<%= params[:species_id] %>");
 		$(".spname").html("<%= @species_name %>");
 		$("#info_species_name").html("<%= @species_name %>");
@@ -31,7 +30,7 @@ $(document).ready(function(){
 				$(".btnedicion").click();
 		}
 		/* Loads records */
-		_BioModelosVisorModule.getSpeciesRecords("<%= params[:species_id] %>", <%= is_editable %>);
+		_BioModelosVisorModule.getSpeciesRecords("<%= params[:species_id] %>", <%= @can_edit %>);
 		$(".btnregistros").show();
 		/* Shows main toolbar buttons */
 		$(".vbtninfo").show();
@@ -39,7 +38,7 @@ $(document).ready(function(){
 		/* Loads initial model */
 		$.post( "/models/load_initial_model", { species_id: <%= params[:species_id] %>});
 		/* Dynamically loads the edition tools if the user can edit */
-		<% if user_signed_in? && is_editable %>
+		<% if user_signed_in? && @can_edit %>
 			_compileDynamicAngularContent($('#edit_model_btn'), '<div ng-click="edit=!edit" title="Editar modelo" rel="tooltip" class="visorbtn vbtnedit" selectable></div>');
 			$(".vbtnedit").show();
 			_compileDynamicAngularContent($("#edit_box_btn"),'<div ng-click="editar=!editar" class="btnedicion" selectable>edición</div>');

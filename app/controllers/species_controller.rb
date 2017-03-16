@@ -1,4 +1,6 @@
 class SpeciesController < ApplicationController
+	include UsersHelper
+
 	def autocomplete
 	    species = Species.search(query: params[:query])
 	    result = species.collect do |t|
@@ -24,6 +26,10 @@ class SpeciesController < ApplicationController
 
 	def set_species
 		begin
+			@can_edit = false
+			if user_signed_in?
+				@can_edit = can_edit(current_user.id, params[:species_id])
+			end
 			@species_id = params[:species_id]
 			@species_name = Species.find_name(params[:species_id])
 			@records_number = Species.records_number(params[:species_id])
@@ -48,19 +54,25 @@ class SpeciesController < ApplicationController
 	    end
 	end
 
+	# Sets the statistics info for the species, sorting and filtering the cover's data
+    #
 	def species_info
 		begin
 			@approved_model = Model.get_valid_model(params[:species_id])
 			@eoo = Model.eoo(params[:species_id])
 			@rpa = Model.rpa(params[:species_id])
 			@forest_loss = Model.forest_loss(params[:species_id])
-			@covers = Model.covers(params[:species_id])
+			@all_covers = Model.covers(params[:species_id])
+			# Sort the covers by value
+			@covers =  Hash[@all_covers[0].select{|k, v| v && v!= 0 && k != "modelID"}.sort_by{ |k, v| v }.reverse]
 
 			respond_to do |format|
 	      		format.js
 	    	end
 	    rescue => e
-	    	render :js => "alertify.alert('Ha ocurrido un error en la conexión con la base de datos' + #{e.message} + ' ' + #{e.backtrace});"
+	    	logger.error "#{e.message} #{e.backtrace}"
+			err_msg = e.message.tr(?',?").delete("\n")
+			render :js => "alertify.alert('Se ha producido un error al consultar las estadísticas. #{err_msg}');"
 	    end
 	end
 
