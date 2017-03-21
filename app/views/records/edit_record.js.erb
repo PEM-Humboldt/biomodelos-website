@@ -1,3 +1,0 @@
-<% if user_signed_in? %>
-	console.log("Especie es: "<%= @species_id %>);
-		<% if can_edit(current_user.id, @species_id) %>

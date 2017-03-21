@@ -32,6 +32,10 @@ $(document).ready(function(){
 		/* Loads records */
 		_BioModelosVisorModule.getSpeciesRecords("<%= params[:species_id] %>", <%= @can_edit %>);
 		$(".btnregistros").show();
+		if(!$(".cajaregistros").is(":visible")){
+			$(".btnregistros").click();
+		}
+		_speciesFunctionsModule.resetRecordsFilters();
 		/* Shows main toolbar buttons */
 		$(".vbtninfo").show();
 		$(".vbtnhipo").show();

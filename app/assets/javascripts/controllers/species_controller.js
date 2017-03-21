@@ -1,3 +1,25 @@
+var _speciesFunctionsModule = function(){
+	/**
+ 	* Reset the filter controls (año, mes, select, filtros) to the 
+ 	* default values. 
+	*/
+	function resetRecordsFilters(){
+		//Reset slider Año
+		angular.element($("#visCntrl")).scope().resetSlider();
+		//Reset meses
+		$('input:checkbox.meschk').removeAttr('checked');
+		//Reset filters
+		$(".select-options li:contains('Tipo de filtro')").click();
+		//Reset visualizar filters
+		$('#chkBoxFilters input:checkbox').removeAttr('checked');
+		//Activate the default checkbox
+		$('#chkBoxFilters input:checkbox[name="visualadd"]').prop('checked', true);
+	}
+	return{
+		resetRecordsFilters:resetRecordsFilters
+	}
+}();
+
 $(document).ready(function(){
 
 	/* 
@@ -237,18 +259,13 @@ $(document).ready(function(){
 		
 	});
 
+	
+
 	/* Botón Limpiar filtros
-		1. Reset DOM (año, mes, select, filtros)
+	*
 	*/
 	$("#limpiarBtn").click(function(e){
-		//Reset slider Año
-		angular.element($("#visCntrl")).scope().resetSlider();
-		//Reset meses
-		$('input:checkbox.meschk').removeAttr('checked');
-		//Reset filters
-		$(".select-options li:contains('Tipo de filtro')").click();
-		//Reset visualizar filters
-		$('#chkBoxFilters input:checkbox').removeAttr('checked');
+		_speciesFunctionsModule.resetRecordsFilters();
 		//Reset data
 		$.post( "/records/edit_record", { species_id: $("#species_id_field").val()}).done(function(data) {
     		_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val(), data);
@@ -284,6 +301,9 @@ $(document).ready(function(){
 		});
 		//Visibiliza y muestra el menú de edición
 		resetPolygonButtons();
+		if($(".cajaregistros").is(":visible")){
+			$(".btnregistros").click();
+		}
 		$(".btnedicion").show();
 		$(".btnedicion").click();
 		//Set newModel value

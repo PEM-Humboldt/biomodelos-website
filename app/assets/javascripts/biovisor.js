@@ -189,23 +189,18 @@ var _BioModelosVisorModule = function() {
   	  });
 	}
 
+	/**
+ 	* Gets the GeoJSON records of a species using AJAX. .
+	* @param {integer} species_id - ID of the species.
+	* @param {boolean} isEditable - True if the user can edit this species information.
+	*/
 	var getSpeciesRecords = function(species_id, isEditable){
-
-		if(map.hasLayer(cluster)) {
-			clearLayer(cluster);
-       		layerControl.removeLayer(cluster);
-       	}	
-
 		$.getJSON("/species/" + species_id + "/get_species_records",function(data){
 			species_records = data;
-		    filterRecords(["",""], ["","",""], [], [], isEditable);
+		    filterRecords(["",""], ["","","visualadd"], [], [], isEditable);
 		}).fail(function(jqxhr, textStatus, error) {
     		alertify.alert("Ha ocurrido un error al cargar los registros: " + error);
   		});
-
-		cluster = L.markerClusterGroup();
-		map.addLayer(cluster);
-		layerControl.addOverlay(cluster,"Registros");
 	}
 
 	var includesValue = function(val, arr){
@@ -216,15 +211,19 @@ var _BioModelosVisorModule = function() {
        	return false;
 	}
 
-	/*
-	* Función que permite filtrar los registros
-	* @selectFilters: Array de la selección 
-	* @visFilters: Array con 3 valores que cambian el color del registro según la cantidad de opciones activas.
-	* @yearFilters: Array con 2 valores [año mínimo, año máximo].
-	* @monthFilters: Array con máximo 12 valores que incluye un valor negativo o positivo para los meses.
+	/**
+ 	* Filters out the species records based on year, month, fields and visualization parameters.
+	* @param {array} selectFilters - Array with 2 string values cointaining the name of the filter ("Evidencia", "Fuente" and "Institución") and the value.
+	* @param {array} visFilters - Array with 3 string values of the visualization options ('visualrep', 'visualedit', 'visualadd' or '').
+	* @param {array} yearFilters - Array with 2 values: Minimum year and Maximum year.
+	* @param {array} monthFilters - Array with a maximum of 12 numeric values (1 to 12) for each month of the year.
+	* @param {boolean} isEditable - True if the user can edit this species information.
 	*/
 	var filterRecords = function(selectFilters, visFilters, yearFilters, monthFilters, isEditable){
-		cluster.clearLayers();
+		if(map.hasLayer(recordsLayer)) {
+			clearLayer(recordsLayer);
+       		layerControl.removeLayer(recordsLayer);
+       	}	
        	recordsLayer = L.geoJson(species_records,{
        			pointToLayer: function(feature, latlng) {
        				var filtered = false;
@@ -236,7 +235,7 @@ var _BioModelosVisorModule = function() {
 	       				filtered = filtered || feature.properties.updated === true;
 	       			}
 	       			if(visFilters[2] === 'visualadd'){
-	       				filtered = filtered || feature.properties.source === 'BioModelos';
+	       				filtered = filtered || feature.properties.environmentalOutlier === true;
 	       			}
 	   			    if (filtered){
 	   			    	return new L.Marker(latlng, {
@@ -250,8 +249,6 @@ var _BioModelosVisorModule = function() {
 	   			    }
 			    },
        			filter: function(feature, layer) {
-
-       				console.log(yearFilters[0] + " " + yearFilters[1]);
 
        				var yearFilter = true, 
        					monthFilter = true,
@@ -295,7 +292,7 @@ var _BioModelosVisorModule = function() {
 					for (var prop in feature.properties) {
 						if(prop === '_id')
 							popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
-						else if (prop != "taxID" && prop != "species" && prop != "reported" && prop != "updated")
+						else if (prop != "taxID" && prop != "species" && prop != "reported" && prop != "updated" && prop != "environmentalOutlier")
 							popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + feature.properties[prop] + "</br>");
 		
 					}
@@ -306,8 +303,7 @@ var _BioModelosVisorModule = function() {
 					layer.bindPopup(popupcontent.join('<div class="mt10"></div>'));
 				}	
 		});
-		cluster.addLayer(recordsLayer);
-
+		map.addLayer(recordsLayer);
 		map.on('popupopen', function(e) {
 		   currentPopupID = e.popup._leaflet_id;
 		   addNiceScroll();
@@ -336,7 +332,7 @@ var _BioModelosVisorModule = function() {
 							editableForm.push('<b>Localidad:</b></br><input type="text" id="txtLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
 							editableForm.push('<input type="hidden" id="oldLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input>');
 						}
-						else if(prop != "taxID" && prop != "species" && prop != "reported" && prop != "updated")
+						else if(prop != "taxID" && prop != "species" && prop != "reported" && prop != "updated" && prop != "environmentalOutlier")
 							editableForm.push('<b>'+ headers[prop] + "</b></br>" + editableLayer.feature.properties[prop] + "</br>");	
 					}
 					editableForm.push('</div><div class="centering"><a href="" class="wrongbtn" id="sendRecordEdition">Enviar</a><a href="" class="wrongbtn" id="cancelRecordEdition">Cancelar</a></div>');
