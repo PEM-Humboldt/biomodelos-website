@@ -22,4 +22,18 @@ class GroupsController < ApplicationController
 	    	render :js => "alertify.alert('Ha ocurrido un error en la conexión con la base de datos' + #{e.message} + ' ' + #{e.backtrace});"
 	    end
 	end
+
+	def update
+		group_params = params[:group]
+	    @group = Group.find(params[:id])
+	    @group.name=group_params[:name]
+	    @group.message=group_params[:message]
+	    @group.logo=group_params[:logo]
+	    if @group.save
+	      @message = "El perfil de grupo ha sido actualizado con éxito."
+	    else
+	      @message = "Ha ocurrido un error actualizando el pefil de grupo."
+	    end
+		redirect_to group_path(id:params[:id])
+	end
 end
