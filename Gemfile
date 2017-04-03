@@ -24,8 +24,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 4.1.1'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
-
-gem 'httparty', '~> 0.14.0'
+gem 'httparty', '~> 0.14.0' #HTTP Requests
+gem 'carrierwave', '~> 0.11.2' #Uploader
+gem 'mini_magick', '~> 4.5', '>= 4.5.1' #Manipulates images
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

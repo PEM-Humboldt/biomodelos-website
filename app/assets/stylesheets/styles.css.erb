@@ -602,6 +602,12 @@ div.google-visualization-tooltip > ul > li:nth-child(2) {
 	vertical-align: middle;
 	display: inline-block;
 }
+p.removeline::before {
+	width: 0;
+}
+p.orangesq::before {
+	background-color: #18b4b1;
+}
 p.yellsq::before {
 	background-color: #e3af24;
 }
@@ -1015,6 +1021,12 @@ p.groupuser {
 	border-bottom: 1px solid #db3f2a;
 }
 
+.fz1em {
+	font-size: 0.67em;
+	padding-left: 5px;
+	margin-top: 30px;
+}
+
 .sppbox h2, .tabletit h2, .top5 h2 {
 	color:#1b3337;
 	font-size: 1em;
@@ -1043,6 +1055,16 @@ p.groupuser {
 	color:#9c9d36;
 }
 
+.noitalic a {
+	font-style: normal;
+	color: #6c6c6c;
+}
+
+.expaprobar {
+	padding-bottom: 15px;
+	border-bottom: 1px solid #e1e1e1;
+}
+
 .leavesp {
 	height: 25px;
 	width: 25px;
@@ -1059,6 +1081,14 @@ p.groupuser {
 .spp .fechanotif {
 	padding:14px 8px;
 	font-size: .68em;
+}
+
+.acceptbuttons a {
+	padding: 0 3px;
+}
+
+.acceptbuttons {
+	margin-top: 7px;
 }
 
 .aporte {
@@ -2945,7 +2975,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	line-height:1.5;
 	border: 1px solid #d0d2d0;
 	padding: 5px 15px 5px 5px;
-	max-width: 300px;
+	max-width: 400px;
 	max-height: 218px;
 	overflow-y: auto;
 }
@@ -3781,13 +3811,12 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 
 .w203 {
 	width: 203px !important;
-	font-size: 12px;
+	font-size: 13px;
 	padding-left: 10px;
 }
 
 .fileUpload {
     overflow: hidden;
-    border:solid 1px gray;
     display:inline-block;
     vertical-align:top;
 }
@@ -3798,7 +3827,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
     text-transform: uppercase;
     font-size:16px;
     padding:0 13px;
-    height:25px;
+    height:27px;
     line-height:24px;
     border: 1px solid #124c5e;
     color:#124c5e;
@@ -3808,7 +3837,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 
 .fileUpload input {
     position: absolute;
-    top: 0;
+    top: 230px;
     right: 0;
     margin: 0;
     padding: 0;
@@ -3816,6 +3845,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
     cursor: pointer;
     opacity: 0;
     filter: alpha(opacity=0);
+    display: none;
 }
 
 .pubcontent {
@@ -3968,6 +3998,11 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	margin: auto;
 }
 
+.member b {
+	font-size: 1.2em;
+	margin-top: 15px;	
+}
+
 .equipo {
     width: 90%;
     text-align: center;
@@ -4098,3 +4133,10 @@ font-weight: 300;
   margin-bottom: 30px;
 }
 
+/* Leaflet 0.7.x fix for image layers moving and disappearing when zooming in */
+.leaflet-container .leaflet-overlay-pane svg,
+.leaflet-container .leaflet-marker-pane img,
+.leaflet-container .leaflet-tile-pane img,
+.leaflet-container img.leaflet-image-layer {
+	max-width: none !important;
+}

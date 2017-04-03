@@ -6,15 +6,15 @@ class AddUserLayersAndEcoVars < ActiveRecord::Migration
 		end
 
 		create_table :eco_variables_species do |t|
-			t.belongs_to :eco_variable, index: true
-			t.belongs_to :user, index: true
-			t.integer :species_id, index: true
+			t.belongs_to :eco_variable
+			t.belongs_to :user
+			t.integer :species_id
 			t.boolean :selected, default: true, null: false
 			t.timestamps
 		end
 
 		create_table :users_layers do |t|
-			t.belongs_to :user, index: true
+			t.belongs_to :user
 			t.integer :species_id, index: true
 			t.string  :threshold, null: false
 			t.boolean :newModel, default: false

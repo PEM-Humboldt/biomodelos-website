@@ -39,7 +39,7 @@ angular.module('biomodelos')
 	    minValue: 'NA',
 	    maxValue: 'Hoy',
 	    options: {
-	        floor: 0,
+	        floor: 'NA',
 	        ceil: 'Hoy',
 	        showTicksValues: true,
 	        stepsArray : [

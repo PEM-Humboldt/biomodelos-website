@@ -1,0 +1,27 @@
+<h2>Editar Grupo</h2>
+<%= simple_form_for @group do |f| %>
+	<h3>Nombre de grupo</h3>
+	<%= f.input :name, :maxlength => 50, :placeholder => "Nombre anterior", :name => "nombre", label: false%>
+	<h3>Mensaje del moderador</h3>
+	<%= f.input :message, :as => :text, :placeholder => "Mensaje anterior", :input_html => {:maxlength => 300, :cols => "20", :rows => "4"}, :name => "cuerpo", label: false %>
+	<h3>Cambiar imagen</h3>
+	<div class="inputBtnSection ml0">
+        <input id="uploadFile" class="disableInputField w203" placeholder="Seleccionar Archivo" />
+	    <label class="fileUpload">
+		    <%= f.input :logo, :as => :file, :required => true, label: false, error_html: {:class => 'publierror'}, :input_html => { :id => "uploadBtn", :class => "upload"} %>
+		    <span class="uploadBtn">SUBIR FOTO</span>
+	    </label>
+    </div>
+    <div class="clearfix"></div>
+    <%= f.submit 'GUARDAR', class: "btngen ml0"%>
+    <div id="clsEditGroupBtn"></div>
+<% end %>
+<script type="text/javascript">
+	$(document).ready(function(){
+		_utils_bio_module.compileDynamicAngularContent("#perfilCntrl", $("#clsEditGroupBtn"), '<a class="closeedit" ng-click="editgroup=!editgroup">X</a>');
+		
+		document.getElementById("uploadBtn").onchange = function () {
+          document.getElementById("uploadFile").value = this.value;
+      	};
+	});
+</script>

@@ -8,13 +8,11 @@ module SpeciesHelper
     end
 
     def model_title_thumb(modelStatus)
-    	case modelStatus # a_variable is the variable we want to compare
-		when 'Developing'    #compare to 1
-		  return 'MODELO EN DESARROLLO'
-		when 'Approved'   #compare to 2
-		  return 'MODELO VALIDADO BIOMODELOS'
-		when 'Published'
-		  return 'MODELO PUBLICADO'
+    	case modelStatus 
+		when 'pendingValidation'
+		  return 'HIPÓTESIS'
+		when 'Valid'
+		  return 'MODELO VALIDADO'
 		else
 		  return "MODELO"
 		end	

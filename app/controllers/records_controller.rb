@@ -1,4 +1,15 @@
 class RecordsController < ApplicationController
+	include UsersHelper
+
+	def edit_record
+		@can_edit = false
+		if user_signed_in?
+			@can_edit = can_edit(current_user.id, params[:species_id])
+		end
+		respond_to do |format|
+      		format.json { render :json => @can_edit }
+    	end
+	end
 
 	def update_record
 		Record.update_record(params)
@@ -24,6 +35,7 @@ class RecordsController < ApplicationController
 		respond_to do |format|
       		format.js
     	end
+    	
 	end
 
 	def new_record

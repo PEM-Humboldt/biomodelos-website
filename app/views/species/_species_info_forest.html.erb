@@ -1,52 +1,46 @@
 <% if @forest_loss || !@forest_loss.blank? %>
 	<div id="extchart"></div>
-			<!--<div class="maindata dib">
-				<h4>15 %</h4>
-				<h5>Histórica</h5>
-			</div>
-			<div class="maindata dib">
-				<h4>5 %</h4>
-				<h5>10 años</h5>
-			</div> -->
-
 	<div class="convenciones clearfix">
-		<p class="bluesq">Actual</p>
+		<p class="bluesq">Histórico</p></br>
+		<p class="removeline">TENDENCIA</p>
+		<p class="orangesq">Actual</p>
 		<p class="redsq">Extractivista</p>
-		p class="yellsq">Industrializada</p>
+		<p class="yellsq">Industrializada</p>
 	</div>
 	<script type="text/javascript">
 			google.charts.load('current', {'packages':['line']});
-			google.charts.setOnLoadCallback(drawChart8);
+			google.charts.setOnLoadCallback(drawForestLossChart);
 
-			function drawChart8() {
+			function drawForestLossChart() {
 
 				var data = new google.visualization.DataTable();
 				data.addColumn('date', 'Año');
-				data.addColumn('number', 'Actual');
-				data.addColumn('number', 'Extractivista');
-				data.addColumn('number', 'Industrializada');
+				data.addColumn('number', 'Histórico');
+				data.addColumn('number', 'Tendencia Actual');
+				data.addColumn('number', 'Tendencia Extractivista');
+				data.addColumn('number', 'Tendencia Industrializada');
 
 				data.addRows([
-					[new Date(1990,0,1), <%= @forest_loss[0]["statForestLoss90"] %>, , ,],
-					[new Date(2000,0,1), <%= @forest_loss[0]["statForestLoss00"] %>, , ,],
-					[new Date(2010,0,1), <%= @forest_loss[0]["statForestLoss10"] %>, , ,],
-					[new Date(2012,0,1), <%= @forest_loss[0]["statForestLoss12"] %>, <%= @forest_loss[0]["statForestLoss12"] %>, <%= @forest_loss[0]["statForestLoss12"] %>,],
-					[new Date(2030,0,1), <%= @forest_loss[0]["statFutureForest30h"] %>, <%= @forest_loss[0]["statFutureForest30d"] %>, <%= @forest_loss[0]["statFutureForest30c"] %>,]
+					[new Date(1990,0,1), <%= @forest_loss[0]["statForestLoss90"] %>, , , ,],
+					[new Date(2000,0,1), <%= @forest_loss[0]["statForestLoss00"] %>, , , ,],
+					[new Date(2005,0,1), <%= @forest_loss[0]["statForestLoss05"] %>, , , ,],
+					[new Date(2010,0,1), <%= @forest_loss[0]["statForestLoss10"] %>, , , ,],
+					[new Date(2012,0,1), <%= @forest_loss[0]["statForestLoss12"] %>, <%= @forest_loss[0]["statForestLoss12"] %>, <%= @forest_loss[0]["statForestLoss12"] %>, <%= @forest_loss[0]["statForestLoss12"] %>,],
+					[new Date(2030,0,1), , <%= @forest_loss[0]["statFutureForest30h"] %>, <%= @forest_loss[0]["statFutureForest30d"] %>, <%= @forest_loss[0]["statFutureForest30c"] %>]
 					]);
 
 				var options = {
-					chart: {
-						title: '',
-						subtitle: ''
-					},
 					width: 500,
 					height: 300,
 					legend: { position: 'none' },
 					hAxis: {
-						format: 'yy'
+						format: 'yyyy'
 					},
-					chartArea: {left:100, width: 400},
-					colors: ['#124c5e','#c12a26', '#e3af24']
+					vAxis: {
+						title: 'Área (miles de km²)'
+					},
+					chartArea: {left:50, right:50, width: 400},
+					colors: ['#124c5e','#18b4b1','#c12a26', '#e3af24']
 				};
 
 				var date_formatter = new google.visualization.DateFormat({ 
@@ -56,7 +50,7 @@
 
 				var chart = new google.charts.Line(document.getElementById('extchart'));
 
-				chart.draw(data, options);
+				chart.draw(data, google.charts.Line.convertOptions(options));
 			}
 	</script>
-<% end %>		
+<% end %>

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	/**
- 	* Ask for a confirmation of the finish task action. If it's positive, 
+ 	* Asks for a confirmation of the finish task action. If it's positive, 
  	* sends an ajax request to finish the task.
 	* @param {string} task_id - ID of the task to be marked as finished.
 	*/

@@ -8,8 +8,8 @@ class Record
 	end
 
 	def self.new_record(data)
-		puts data.to_json
-		puts JSON.parse(post('', :body => data).body)
+		puts data
+		JSON.parse(post('', :body => data).body)
 	end
 
 	def self.update_record(data)

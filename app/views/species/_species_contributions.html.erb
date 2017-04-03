@@ -8,14 +8,14 @@
 		<div class="dinblock">
 			<% if continuous_t %> 
 				<div class="editthumb">
-					<%= image_tag(continuous_t.thumbUrl) %>
+					<%= image_tag(set_path(continuous_t.thumbUrl, "thumb")) %>
 				</div>
 			<div class="editactions clearfix">
-					<%= link_to models_download_model_path(:zip_url => continuous_t.zipUrl), {:class => 'download', :title => "Bajar el modelo", :rel => "tooltip"} do %>
+					<%= link_to models_download_model_path(:zip_url => set_path(continuous_t.zipUrl, "zip")), {:class => 'download', :title => "Bajar el modelo", :rel => "tooltip"} do %>
 						<%= image_tag("downicon.png") %>
 					<% end %>
 					<a target="_blank" href="/models/<%= continuous_t.modelID %>/metadata" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
-					<%= hidden_field_tag 'continuous_t_url', continuous_t.pngUrl %>
+					<%= hidden_field_tag 'continuous_t_url', set_path(continuous_t.pngUrl, "model") %>
 					<button class="newgrbtn" id="cbt_editBtn">editar</a>
 			<% else %>
 				<div class="editthumb">
@@ -24,22 +24,22 @@
 				<div class="editactions clearfix">
 			<% end %>
 			<% if zero_t %>
-				<%= hidden_field_tag 'zero_t_url', zero_t.pngUrl %>
+				<%= hidden_field_tag 'zero_t_url', set_path(zero_t.pngUrl, "model") %>
 			<% else %>
 				<%= hidden_field_tag 'zero_t_url' %>
 			<% end %>
 			<% if ten_t %>
-				<%= hidden_field_tag 'ten_t_url', ten_t.pngUrl %>
+				<%= hidden_field_tag 'ten_t_url', set_path(ten_t.pngUrl, "model") %>
 			<% else %>
 				<%= hidden_field_tag 'ten_t_url' %>
 			<% end %>
 			<% if twenty_t %>
-				<%= hidden_field_tag 'twenty_t_url', twenty_t.pngUrl %>
+				<%= hidden_field_tag 'twenty_t_url', set_path(twenty_t.pngUrl, "model") %>
 			<% else %>
 				<%= hidden_field_tag 'twenty_t_url' %>
 			<% end %>
 			<% if thirty_t %>
-				<%= hidden_field_tag 'thirty_t_url', thirty_t.pngUrl %>
+				<%= hidden_field_tag 'thirty_t_url', set_path(thirty_t.pngUrl, "model") %>
 			<% else %>
 				<%= hidden_field_tag 'thirty_t_url' %>
 			<% end %>

@@ -1,35 +1,17 @@
 class TasksController < ApplicationController
 	
 	def tasks_by_group
-			@group = Group.find(params[:id])
-			@tasks = Task.where(:group_id =>  @group.id).group(:species_id, :user_id, :task_type_id, :group_id)
-			@species_with_tasks = @tasks.map{|t| [Species.find_name(t.species_id.to_s),t.species_id]}.uniq
-			@members_with_tasks = @tasks.map{|t| [t.user.id]}.uniq
-			@current_group_user = false
-			if user_signed_in?
-	        	@current_group_user = GroupsUser.find_by_group_id_and_user_id(@group.id, current_user.id)
-	        end
+		@group = Group.find(params[:id])
+		@tasks = Task.where(:group_id =>  @group.id).group(:species_id, :user_id, :task_type_id, :group_id)
+		@species_with_tasks = @tasks.map{|t| [Species.find_name(t.species_id.to_s),t.species_id]}.uniq
+		@members_with_tasks = @tasks.map{|t| [t.user.id]}.uniq
+		@current_group_user = false
+		if user_signed_in?
+	        @current_group_user = GroupsUser.find_by_group_id_and_user_id(@group.id, current_user.id)
+	    end
 
-	        respond_to do |format|
-				format.js
-			end
-	end
-
-	def create
-		@task = Task.find_by(species_id: params[:species_id], user_id: params[:user_id], task_type_id: params[:task_type_id], :task_state_id => 1)
-
-		if @task.nil?
-			@task = current_user.tasks_created.new(task_params)
-
-	    	if @task.save
-	    		respond_to do |format|
-					format.js
-				end 
-	    	else
-      			render :js => "alertify.alert('Ha ocurrido un error en la creación de la tarea.');"
-   			end
-		else
-			render :js => "alertify.alert('La tarea de " + @task.task_type.description + " que está tratando de crear ya existe.');"
+	    respond_to do |format|
+			format.js
 		end
 	end
 
@@ -47,24 +29,76 @@ class TasksController < ApplicationController
 	end
 
 	def add_tasks
-		if(params[:records_task] == "1")
-			Task.create({:species_id => params[:task][:species_id], :user_id => params[:task][:user_id], :group_id => params[:task][:group_id], :task_type_id => params[:records_task], :created_by => current_user.id, :task_state_id => 1})
-		end
-		if(params[:edition_task] == "2")
-			Task.create({:species_id => params[:task][:species_id], :user_id => params[:task][:user_id], :group_id => params[:task][:group_id], :task_type_id => params[:edition_task], :created_by => current_user.id, :task_state_id => 1})
-		end
-		if(params[:eco_task] == "3")
-			Task.create({:species_id => params[:task][:species_id], :user_id => params[:task][:user_id], :group_id => params[:task][:group_id], :task_type_id => params[:eco_task], :created_by => current_user.id, :task_state_id => 1})
-		end
-		if(params[:approval_task] == "4")
-			Task.create({:species_id => params[:task][:species_id], :user_id => params[:task][:user_id], :group_id => params[:task][:group_id], :task_type_id => params[:approval_task], :created_by => current_user.id, :task_state_id => 1})
-		end
+		@tasks = []
+		duplicate_error_counter = 0
+		validation_errors = [false, false]
 
-		respond_to do |format|
-			format.js
+		if(params[:records_task].blank? && params[:edition_task].blank? && params[:eco_task].blank? && params[:approval_task].blank?)
+			validation_errors[0] = true
+		end
+		if(params[:task][:species_id].blank? && params[:task][:user_id].blank?)
+			validation_errors[1] = true
+		end
+		
+		if validation_errors[0] || validation_errors[1] 
+			render :js => "alertify.alert('Error: Debe elegir una especie, un experto y al menos un tipo de tarea a asignar.');"
+		else
+			if(params[:records_task] == "1")
+				@task_records = Task.new(:species_id => params[:task][:species_id], :user_id => params[:task][:user_id], :group_id => params[:task][:group_id], :task_type_id => params[:records_task], :created_by => current_user.id, :task_state_id => 1)
+				if @task_records.valid?
+					@tasks.push(@task_records)
+				else
+					if @task_records.errors.size == 1 && @task_records.errors.messages[:user_id][0] == "Tarea duplicada"
+						duplicate_error_counter += 1
+					end
+				end
+			end
+			if(params[:edition_task] == "2")
+				@task_edition = Task.new(:species_id => params[:task][:species_id], :user_id => params[:task][:user_id], :group_id => params[:task][:group_id], :task_type_id => params[:edition_task], :created_by => current_user.id, :task_state_id => 1)
+				if @task_edition.valid?
+					@tasks.push(@task_edition)
+				else
+					if @task_edition.errors.size == 1 && @task_edition.errors.messages[:user_id][0] == "Tarea duplicada"
+						duplicate_error_counter += 1
+					end
+				end	
+			end
+			if(params[:eco_task] == "3")
+				@task_eco = Task.new(:species_id => params[:task][:species_id], :user_id => params[:task][:user_id], :group_id => params[:task][:group_id], :task_type_id => params[:eco_task], :created_by => current_user.id, :task_state_id => 1)
+				if @task_eco.valid?
+					@tasks.push(@task_eco)
+				else
+					if @task_eco.errors.size == 1 && @task_eco.errors.messages[:user_id][0] == "Tarea duplicada"
+						duplicate_error_counter += 1
+					end
+				end
+			end
+			if(params[:approval_task] == "4")
+				@task_approval = Task.new(:species_id => params[:task][:species_id], :user_id => params[:task][:user_id], :group_id => params[:task][:group_id], :task_type_id => params[:approval_task], :created_by => current_user.id, :task_state_id => 1)
+				if @task_approval.valid?
+					@tasks.push(@task_approval)
+				else
+					if @task_approval.errors.size == 1 && @task_approval.errors.messages[:user_id][0] == "Tarea duplicada"
+						duplicate_error_counter += 1
+					end
+				end
+			end
+
+			if duplicate_error_counter > 0
+				render :js => "alertify.alert('Error: #{duplicate_error_counter} de las tareas que quiere asignar se encuentran duplicadas.');"
+			else
+				if @tasks
+					@tasks.each do |t|
+						t.save
+					end
+					respond_to do |format|
+						format.js
+					end
+				end
+			end			
 		end 
 	end
-
+	
 	private
 		def task_params
 			params.require(:task).permit(:species_id, :user_id, :group_id, :task_type_id, :created_by, :completed_by, :task_state_id)

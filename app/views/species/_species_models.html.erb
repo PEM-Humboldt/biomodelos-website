@@ -4,15 +4,15 @@
 		<div class="maparea">
 			<div href="" class="mapthumb">
 				<div class="flipper">
-					<div class="front2"><%= image_tag(model.thumbUrl) %></div>
+					<div class="front2"><%= image_tag(set_path(model.thumbUrl, "thumb")) %></div>
 					<a class="back2 sp_model_link">
-						<%= hidden_field_tag('imgsrc_model', model.pngUrl) %>
+						<%= hidden_field_tag('imgsrc_model', set_path(model.pngUrl, "model")) %>
 						<div class="titlethumb">
 							<%= model_title_thumb(model.modelStatus) %>
 						</div>
 						<div class="infothumb">
 							Calificación promedio
-							<div class="calificacion">4.2 <b>(12 votos)</b></div>
+							<div class="calificacion"><%= Rating.average_rating(model.modelID) %> <b>(12 votos)</b></div>
 						</div>
 						<div class="infothumb">
 							Número descargas
@@ -25,7 +25,7 @@
 			<div class="mmicon clearfix">
 				<a href="" title="Descargar el modelo" rel="tooltip" class="pad3"><%= image_tag("downicon.png") %></a>
 				<a target="_blank" href="/models/<%= model.modelID %>/metadata" title="Ver metadatos del modelo" rel="tooltip" class="pad3"><%= image_tag("metaicon.png") %></a>
-				<% if user_signed_in?%>
+				<% if user_signed_in? && can_edit %>
 					<div class="user_star">
 						<%= hidden_field_tag('myscore', ratings[model.modelID], :class => 'myscore') %>
 						<%= hidden_field_tag('model', model.modelID, :class => 'model_id' )  %>

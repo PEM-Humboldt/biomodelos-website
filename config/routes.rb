@@ -21,10 +21,12 @@ Rails.application.routes.draw do
   post "reports/update_record"
   post "species/set_species"
   post "records/report_record"
+  post "records/edit_record"
   post "species/species_info"
   post "records/send_report_record"
+  post "models/load_initial_model"
   post "models/get_thresholds"
-  post "models/get_models"
+  post "models/get_hypotheses"
   get "models/download_model"
   get "models/metadata"
   get "records/records_metadata"
@@ -46,9 +48,9 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :users, :only => [:index, :show]
-  resources :groups, :only => [:index, :show]
+  resources :groups, :only => [:index, :show, :update]
   resources :info, :only => [:index]
-  resources :species_groups, :only => [:index, :create]
+  resources :groups_species, :only => [:index, :create]
   resources :tasks, :only => [:index, :create]
   resources :ratings, :only => [:destroy]
   resources :models do

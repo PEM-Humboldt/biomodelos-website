@@ -8,6 +8,20 @@
          <%= f.button :submit, :value => "ENVIAR", :class => 'boton1'%>
    <% end %>
 </div>
+
+<div class="spptit fz1em">
+	<h2>Expertos por aprobar</h2>
+</div>
+<div class="expaprobar">
+	<div class="spp noitalic">
+		<a>César Gutiérrez</a>
+		<div class="acceptbuttons">
+		<a href=""><%= image_tag("delicon.png", :title => 'No Aprobar', :rel => "tooltip") %></a>
+		<a href=""><%= image_tag("aprobicon.png", :title => 'Aprobar experto', :rel => "tooltip") %></a>
+		</div>
+	</div>
+</div>
+
 <div class="clearfix mb20"></div>
 <% @group_members.each do |member| %>
 	<div class="expindex groupexindex">

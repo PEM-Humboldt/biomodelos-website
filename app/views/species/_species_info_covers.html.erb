@@ -1,8 +1,8 @@
 <div class="resdata">
 	<% if @covers || !@covers.blank? %>
-		<% @covers[0].each do |c| %>
-			<% if c[0] != 'Modelo_ID' %>
-				<div class="cobert"><p><%= c[0] %></p><div class="percent"><%= '%.2f' % (c[1] * 100) %>%</div></div>
+		<% @covers.each do |c| %>
+			<% if c[1] %>
+					<div class="cobert"><p><%= get_cover_name(c[0]) %></p><div class="percent"><%= '%.2f%' % c[1] %></div></div>
 			<% end %>
 		<% end %>
 	<% end %>

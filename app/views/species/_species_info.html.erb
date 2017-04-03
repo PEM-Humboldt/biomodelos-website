@@ -9,13 +9,10 @@
 	</div>
 	<div class="infofollow">
 		<div class="sppcategories">
-			<div class="sppcateg">MIGRATORIA</div>
-			<div class="sppcateg">cites</div>
+			<!-- <div class="sppcateg">MIGRATORIA</div>
+			<div class="sppcateg">cites</div> -->
 		</div>
-		<div class="followstate">
-			<a href="" class="follow">seguir</a>
-			<div class="follow siguiendo invisible">siguiendo</div>
-		</div>
+		<div class="followstate"></div>
 	</div>
 	<% if @approved_model && !@approved_model.blank? %>
 	<p>Esta información corresponde al modelo validado por los expertos en BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie.</p>
@@ -80,6 +77,13 @@
 </div>
 <div class="cvcol40">
 	<button class="urllink" title="Copiar URL de la especie" rel="tooltip"></button>
-	<div class="amenaza" title="Categoría de amenaza" rel="tooltip"><%= image_tag("caten.png") %></div>
+	<!-- <div class="amenaza" title="Categoría de amenaza" rel="tooltip"><%= image_tag("caten.png") %></div> -->
 </div>
+<script>
+    var clipboard = new Clipboard('.urllink', {
+    	text: function() {
+            return 'http://biomodelos.humboldt.org.co/species/visor?species_id=' + $("#species_id_field").val();
+        }
+    });
+</script>
 

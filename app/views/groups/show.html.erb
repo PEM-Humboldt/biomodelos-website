@@ -1,97 +1,83 @@
-<div class="innercontainer bckgroup" ng-controller="perfilCtrl">
-<div class="perfilcont">
-	<div class="col2">
-		<h2><%= @group.name %></h2>
-		<%= hidden_field_tag 'group_id_field', @group.id %>
-		<div ng-show="editgroup" class="editgroupform">
-			<h2>Editar Grupo</h2>
-			<%= simple_form_for :test do |f| %>
-				<h3>Nombre de grupo</h3>
-				<%= f.input :name, :maxlength => 50, :placeholder => "Nombre anterior", :name => "nombre", label: false%>
-				<h3>Mensaje del moderador</h3>
-				<%= f.input :content, :as => :text, :placeholder => "Mensaje anterior", :input_html => {:maxlength => 300, :cols => "20", :rows => "4"}, :name => "cuerpo", label: false %>
-				<h3>Cambiar imagen</h3>
-				<div class="inputBtnSection ml0">
-	                  <input id="uploadFile" class="disableInputField w203" placeholder="Seleccionar Archivo" />
-	                        <label class="fileUpload">
-	                        <%= f.input :files, :as => :file, :required => true, label: false, error_html: {:class => 'publierror'}, :input_html => { :id => "uploadBtn", :class => "upload"} %>
-	                        <span class="uploadBtn">SUBIR FOTO</span>
-	                        </label>
-	                  </div>
-	            <div class="clearfix"></div>
-	            <%= f.submit 'GUARDAR', class: "btngen ml0"%>
-	            <a class="closeedit" ng-click="editgroup=!editgroup">X</a>
+<div id="perfilCntrl" ng-controller="perfilCtrl" class="innercontainer bckgroup">
+	<div class="perfilcont">
+		<div class="col2">
+			<h2><%= @group.name %></h2>
+			<%= hidden_field_tag 'group_id_field', @group.id %>
+			<% if @current_group_user && @current_group_user.is_admin%>
+				<div ng-show="editgroup" class="editgroupform">
+					<%= render 'groups/edit_group' %>
+				</div>
+				<div class="editgroupform" ng-show="messagebox">
+				<h2>Mensaje al Grupo</h2>
+				<%= simple_form_for @group do |f| %>
+					<%= f.input :message, :as => :text, :placeholder => "Mensaje anterior", :input_html => {:maxlength => 300, :cols => "20", :rows => "8"}, :name => "cuerpo", label: false %>
+				    <div class="clearfix"></div>
+				    <%= f.submit 'ENVIAR', class: "btngen ml0"%>
+				    <a class="closeedit" ng-click="messagebox=!messagebox">X</a>
+				<% end %>
+				</div>
 			<% end %>
-		</div>
-		<div class="groupimg">
-			<%= image_tag("gruposprueba.jpg") %>
-		</div>
-		<div class="perflinks">
-			<a href="" title="Mensaje a miembros del grupo" rel="tooltip" class="mailto"></a>
-			<a href="" title="Solicitar unirse a este grupo" rel="tooltip"  class="joingroup"></a>
-			<a href="" title="Editar información del grupo" rel="tooltip" class="edituser" ng-click="editgroup=!editgroup"></a>
-		</div>
+			<div class="groupimg">
+				<%= image_tag(@group.logo.url(:profile).to_s) %>
+			</div>
+			<div class="perflinks">
+				<a href="" title="Mensaje a miembros del grupo" rel="tooltip" class="mailto" ng-click="messagebox=!messagebox"></a>
+				<a href="" title="Solicitar unirse a este grupo" rel="tooltip"  class="joingroup"></a>
+				<% if @current_group_user && @current_group_user.is_admin%>
+					<a href="" title="Editar información del grupo" rel="tooltip" class="edituser" ng-click="editgroup=!editgroup"></a>
+				<% end %>
+			</div>
 
-		<div class="clearfix"></div>
-		<div class="perfilsub modertext">Moderador(es)</div>
-		<% @group_members.select{|x| x.is_admin == true}.each do |admin| %>
-			<p><%= admin.user.name %></p>
-		<% end %>
-		<div class="groupunder">Mensaje moderador</div>
-		<p><%= @group.message %>.</p>
-		<div class="groupunder">Última Actividad</div>
-		<p class="actvspp"><a>Wingardium leviosa</a> · Aporte de Edición</p>
-		<p class="actuser"><a>Norberto Lopez Alvarez</a> · 15/02/2016</p>
+			<div class="clearfix"></div>
+			<div class="perfilsub modertext">Moderador(es)</div>
+			<% @group_members.select{|x| x.is_admin == true}.each do |admin| %>
+				<p><%= admin.user.name %></p>
+			<% end %>
+			<div class="groupunder">Mensaje moderador</div>
+			<p><%= @group.message %>.</p>
+			<div class="groupunder">Última Actividad</div>
+			<p class="actvspp"><a>Wingardium leviosa</a> · Aporte de Edición</p>
+			<p class="actuser"><a>Norberto Lopez Alvarez</a> · 15/02/2016</p>
+		</div>
+		<div class="col1">
+
+			<ul class="perfilnav groupnav">
+		       	<li ng-class="{ active: isSet(1) }">
+		          	<a href ng-click="setTab(1)">estadísticas</a>
+		       	</li>
+		       	<li ng-class="{ active: isSet(2) }">
+		          	<a href ng-click="setTab(2)" class="group_tasks_tab">tareas</a>
+		       	</li>
+		       	<li ng-class="{ active: isSet(3) }">
+		          	<a href ng-click="setTab(3)">actividad</a>
+		       	</li>
+		       	<li ng-class="{ active: isSet(4) }">
+		          	<a href ng-click="setTab(4)">especies</a>
+		       	</li>
+		       	<li ng-class="{ active: isSet(5) }">
+		          	<a href ng-click="setTab(5)">expertos</a>
+		       	</li>
+		     </ul>
+
+			<div ng-show="isSet(1)" class="cajaperfil scrollp">
+				<%= render 'groups/groups_statistics' %>
+			</div>
+			<div ng-show="isSet(2)" class="cajaperfil group_tasks_box">
+				<%= render 'groups/groups_tasks' %>
+			</div>
+			<div ng-show="isSet(3)" class="cajaperfil">
+				<%= render 'groups/groups_activity' %>
+			</div>
+			<div ng-show="isSet(4)" class="cajaperfil sppbox">
+				<%= render 'groups/groups_species' %>
+			</div>
+			<div ng-show="isSet(5)" class="cajaperfil">
+				<%= render 'groups/groups_users' %>
+			</div>
+		</div>
 	</div>
-
-	<div class="col1">
-
-		<ul class="perfilnav groupnav">
-	       	<li ng-class="{ active: isSet(1) }">
-	          	<a href ng-click="setTab(1)">estadísticas</a>
-	       	</li>
-	       	<li ng-class="{ active: isSet(2) }">
-	          	<a href ng-click="setTab(2)" class="group_tasks_tab">tareas</a>
-	       	</li>
-	       	<li ng-class="{ active: isSet(3) }">
-	          	<a href ng-click="setTab(3)">actividad</a>
-	       	</li>
-	       	<li ng-class="{ active: isSet(4) }">
-	          	<a href ng-click="setTab(4)">especies</a>
-	       	</li>
-	       	<li ng-class="{ active: isSet(5) }">
-	          	<a href ng-click="setTab(5)">expertos</a>
-	       	</li>
-	     </ul>
-
-		<div ng-show="isSet(1)" class="cajaperfil scrollp">
-			<%= render 'groups/groups_statistics' %>
-		</div>
-		<div ng-show="isSet(2)" class="cajaperfil group_tasks_box">
-			<%= render 'groups/groups_tasks' %>
-		</div>
-		<div ng-show="isSet(3)" class="cajaperfil">
-			<%= render 'groups/groups_activity' %>
-		</div>
-		<div ng-show="isSet(4)" class="cajaperfil sppbox">
-			<%= render 'groups/groups_species' %>
-		</div>
-		<div ng-show="isSet(5)" class="cajaperfil">
-			<%= render 'groups/groups_users' %>
-		</div>
-
-	</div>
-
-
 </div>
-</div>
-
 <script>
-
-document.getElementById("uploadBtn").onchange = function () {
-    document.getElementById("uploadFile").value = this.value;
-};
-
 $('.cajaperfil').niceScroll({
 	cursorcolor: "#5d5e5e",
 	cursorwidth: "7px",
