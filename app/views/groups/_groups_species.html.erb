@@ -1,13 +1,16 @@
 <h1>especies</h1>
-<a ng-click="sugeridor=!sugeridor; activeButton()" ng-class="{'btnact': isActive}" class="closecb">SUGERIR ESPECIE</a>
-<div ng-show="sugeridor" class="sugeridor">
-	<%= simple_form_for @groups_species do |f| %>
-		<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Consulta una especie por su nombre científico', :include_blank => false, :rel => 'autocomplete' %>
-		<%= f.hidden_field :species_id, :id => "species_id_home" %>
-		<%= f.hidden_field :group_id, :id => "group_id_home", :value => @group.id %>
-		<%= f.submit "+", :class=> "searchbtnspp bigplus" %>
-	<% end %>
-</div>
+<% if @current_group_user %>
+	<a ng-click="sugeridor=!sugeridor; activeButton()" ng-class="{'btnact': isActive}" class="closecb">SUGERIR ESPECIE</a>
+	<div ng-show="sugeridor" class="sugeridor">
+		<%= simple_form_for @groups_species, :remote => true do |f| %>
+			<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Consulta una especie por su nombre científico', :include_blank => false, :rel => 'autocomplete' %>
+			<%= f.hidden_field :groups_species_state_id, :value => 2 %>
+			<%= f.hidden_field :species_id, :id => "species_id_home" %>
+			<%= f.hidden_field :group_id, :id => "group_id_home", :value => @group.id %>
+			<%= f.submit "+", :class=> "searchbtnspp bigplus" %>
+		<% end %>
+	</div>
+<% end %>
 <div class="spptit">
 	<h2>Nombre de la especie</h2>
 	<h3>% Avance</h3>
