@@ -12,24 +12,4 @@
 	</div>
 <% end %>
 
-<div class="spptit">
-	<h2>Especies sugerida</h2>
-</div>
-<div class="spp">
-	<a>wingardium leviosa</a>
-	<div class="acceptbuttons">
-	<a href=""><%= image_tag("delicon.png", :title => 'No Aprobar', :rel => "tooltip") %></a>
-	<a href=""><%= image_tag("aprobicon.png", :title => 'Aprobar especie', :rel => "tooltip") %></a>
-	</div>
-</div>
-
-<div class="spptit">
-	<h2>Nombre de la especie</h2>
-	<h3>% Avance</h3>
-</div>
-<% @group_species.each do |species| %>
-	<div class="spp">
-		<a><%= species[0] %></a>
-		<p class="spperc">100%</p>
-	</div>
-<% end %>
+<div id="group_species_tables"></div>

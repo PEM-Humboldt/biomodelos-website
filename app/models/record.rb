@@ -8,7 +8,6 @@ class Record
 	end
 
 	def self.new_record(data)
-		puts data
 		JSON.parse(post('', :body => data).body)
 	end
 
