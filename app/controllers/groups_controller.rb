@@ -36,4 +36,17 @@ class GroupsController < ApplicationController
 	      redirect_to group_path(id:params[:id]), :flash => { :error => "Ha ocurrido un error actualizando el pefil de grupo" }
 	    end
 	end
+
+	# Sends an email to every active member of a group.
+	# 
+	def bulk_group_email
+	    mails = []
+	    group = Group.find(params[:message][:group_id])
+	    group_users = GroupsUser.where(:group_id => group.id, :groups_users_state_id => 1)
+	    group_users.each do |f|
+	      mails.push(f.user.email)
+	    end
+	    GroupMailer.bulk_email_group(params[:message][:message], mails, group.name, current_user.name).deliver_now
+	    redirect_to group_path(id: group.id), :flash => { :notice => "El mensaje ha sido enviado a los miembros del grupo." }	
+	end
 end

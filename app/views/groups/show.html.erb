@@ -9,8 +9,9 @@
 				</div>
 				<div class="editgroupform" ng-show="messagebox">
 				<h2>Mensaje al Grupo</h2>
-				<%= simple_form_for @group do |f| %>
-					<%= f.input :message, :as => :text, :placeholder => "Mensaje anterior", :input_html => {:maxlength => 300, :cols => "20", :rows => "8"}, :name => "cuerpo", label: false %>
+				<%= simple_form_for :message, :url =>  groups_bulk_group_email_path, :method => :post do |f|  %>
+					<%= f.input :message, :as => :text, :placeholder => "máximo 500 caracteres", :input_html => {:maxlength => 500, :cols => "20", :rows => "8"}, :name => "cuerpo", label: false %>
+					<%= f.hidden_field :group_id, :value => @group.id %>
 				    <div class="clearfix"></div>
 				    <%= f.submit 'ENVIAR', class: "btngen ml0"%>
 				    <a class="closeedit" ng-click="messagebox=!messagebox">X</a>
@@ -21,10 +22,12 @@
 				<%= image_tag(@group.logo.url(:profile).to_s) %>
 			</div>
 			<div class="perflinks">
-				<a href="" title="Mensaje a miembros del grupo" rel="tooltip" class="mailto" ng-click="messagebox=!messagebox"></a>
-				<a href="" title="Solicitar unirse a este grupo" rel="tooltip"  class="joingroup"></a>
 				<% if @current_group_user && @current_group_user.is_admin%>
+					<a href="" title="Mensaje a miembros del grupo" rel="tooltip" class="mailto" ng-click="messagebox=!messagebox"></a>
 					<a href="" title="Editar información del grupo" rel="tooltip" class="edituser" ng-click="editgroup=!editgroup"></a>
+				<% end %>
+				<% if user_signed_in? %>
+					<a href="" title="Solicitar unirse a este grupo" rel="tooltip"  class="joingroup"></a>
 				<% end %>
 			</div>
 
