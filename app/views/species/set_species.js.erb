@@ -3,7 +3,8 @@ $(document).ready(function(){
 		$("#species_id_field").val("<%= params[:species_id] %>");
 		$(".spname").html("<%= @species_name %>");
 		$("#info_species_name").html("<%= @species_name %>");
-		$("#info_records_number").html("<%= @records_number %>")
+		$("#info_records_number").html("<%= @records_number %>");
+		$("#info_records_metadata").html('<%= link_to "METADATOS REGISTROS", records_metadata_path(:id => params[:species_id]), target: "_blank" %>');
 		/* Clears layers */
 		_BioModelosVisorModule.unloadAllLayers();
 		/* Clears edition tools */

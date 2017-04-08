@@ -45,4 +45,20 @@ class RecordsController < ApplicationController
     	end
 	end
 
+	def records_metadata
+		begin
+			@institutions = Record.records_institutions(params[:id])
+			@collectors = Record.records_collectors(params[:id])
+			@sources = Record.records_sources(params[:id])
+			@collaborators = Record.records_collaborators(params[:id])
+			@latest_date = Record.records_latest_date(params[:id])["maxDate"]
+			@species_name = Species.find_name(params[:id])
+			@records_number = Species.records_number(params[:id])
+	    rescue => e
+	    	logger.error "#{e.message} #{e.backtrace}"
+			err_msg = e.message.tr(?',?").delete("\n")
+			redirect_to root_path, :flash => { :error => "Error intentando obtener los metadatos de registro: #{err_msg}" }
+	    end
+	end
+
 end

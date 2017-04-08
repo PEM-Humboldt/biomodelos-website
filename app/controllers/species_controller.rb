@@ -75,15 +75,4 @@ class SpeciesController < ApplicationController
 			render :js => "alertify.alert('Se ha producido un error al consultar las estadísticas. #{err_msg}');"
 	    end
 	end
-
-	def records_metadata
-		begin
-			# @metadata = .get_metadata(params[:id])
-			# @species_name = Species.find_name(@metadata[0]["taxID"])
-			# @records_number = Species.records_number(@metadata[0]["taxID"])
-		rescue => e
-			render :js => "alertify.alert('Se ha producido un error al obtener los metadatos del modelo.  #{e.message} + #{e.backtrace}');"
-		end	
-	end
-
 end
