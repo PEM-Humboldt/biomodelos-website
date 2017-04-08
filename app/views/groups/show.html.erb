@@ -3,7 +3,7 @@
 		<div class="col2">
 			<h2><%= @group.name %></h2>
 			<%= hidden_field_tag 'group_id_field', @group.id %>
-			<% if @current_group_user && @current_group_user.is_admin%>
+			<% if @current_group_user && @current_group_user.is_admin %>
 				<div ng-show="editgroup" class="editgroupform">
 					<%= render 'groups/edit_group' %>
 				</div>
@@ -27,7 +27,15 @@
 					<a href="" title="Editar información del grupo" rel="tooltip" class="edituser" ng-click="editgroup=!editgroup"></a>
 				<% end %>
 				<% if user_signed_in? %>
-					<a href="" title="Solicitar unirse a este grupo" rel="tooltip"  class="joingroup"></a>
+				 	<% if @user_group && @user_group.groups_users_state_id == 2 %>
+						<%= image_tag "groupjoin2", :title=>"En espera de aprobación", :rel=>"tooltip" %>
+					<% elsif  !@current_group_user %>
+						<%= simple_form_for @groups_users do |f| %>
+		                  <%= f.hidden_field :group_id, :value =>  @group.id %>
+		                  <%= f.hidden_field :groups_users_state_id, :value => 2 %>
+		                  <%= f.submit "", :class=> "joingroup", :title=>"Solicitar unirse a este grupo", :rel=>"tooltip" %>
+		                <% end %>
+		            <% end %>
 				<% end %>
 			</div>
 
@@ -58,7 +66,7 @@
 		          	<a href ng-click="setTab(4)" class="group_species_tab">especies</a>
 		       	</li>
 		       	<li ng-class="{ active: isSet(5) }">
-		          	<a href ng-click="setTab(5)">expertos</a>
+		          	<a href ng-click="setTab(5)" class="group_users_tab">expertos</a>
 		       	</li>
 		     </ul>
 
@@ -74,7 +82,7 @@
 			<div ng-show="isSet(4)" class="cajaperfil sppbox">
 				<%= render 'groups/groups_species' %>
 			</div>
-			<div ng-show="isSet(5)" class="cajaperfil">
+			<div ng-show="isSet(5)" class="cajaperfil usrbox">
 				<%= render 'groups/groups_users' %>
 			</div>
 		</div>

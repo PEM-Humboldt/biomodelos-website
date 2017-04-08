@@ -13,9 +13,12 @@ class GroupsController < ApplicationController
 			@group_members = GroupsUser.where(:group_id => @group.id, :groups_users_state_id => 1).joins(:user).order('users.name')
 			@groups_species = GroupsSpecies.new
 			@current_group_user = false
+			@user_group = nil
+			@groups_users = GroupsUser.new
 			@task = Task.new
 			if user_signed_in?
-	        	@current_group_user = GroupsUser.find_by_group_id_and_user_id(@group.id, current_user.id)
+				@user_group = GroupsUser.find_by(group_id: @group.id, user_id: current_user.id)
+	        	@current_group_user = GroupsUser.find_by(group_id: @group.id, user_id: current_user.id, groups_users_state_id: 1)
 	        end
 	    rescue => e
 			logger.error "#{e.message} #{e.backtrace}"

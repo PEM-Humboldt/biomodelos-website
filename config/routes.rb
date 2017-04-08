@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   post "groups_species/species_by_group"
   post "groups_species/update_groups_species"
   post "groups/bulk_group_email"
+  post "groups_users/users_by_group"
+  post "groups_users/update_groups_user"
   # get "models/metadata/:id"
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
@@ -54,6 +56,7 @@ Rails.application.routes.draw do
   resources :groups, :only => [:index, :show, :update]
   resources :info, :only => [:index]
   resources :groups_species, :only => [:index, :create]
+  resources :groups_users, :only => [:index, :create]
   resources :tasks, :only => [:index, :create]
   resources :ratings, :only => [:destroy]
   resources :models do

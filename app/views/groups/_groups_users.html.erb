@@ -1,33 +1,15 @@
 <h1>expertos</h1>
-<a ng-click="invitador=!invitador; activeButton()" ng-class="{'btnact': isActive}" class="closecb">INVITAR EXPERTO</a>
-<div ng-show="invitador" class="forms">
-	<%= simple_form_for :message do |f| %>
-         <%= f.error_notification %>
-         <%= f.input :email, :maxlength => 50, :placeholder => "E-mail", :name => "email", label: false %>
-         <%= f.input :content, :as => :text, :input_html => {:maxlength => 1200, :cols => "20", :rows => "6"}, :name => "cuerpo", label: false %>
-         <%= f.button :submit, :value => "ENVIAR", :class => 'boton1'%>
-   <% end %>
-</div>
-
-<div class="spptit fz1em">
-	<h2>Expertos por aprobar</h2>
-</div>
-<div class="expaprobar">
-	<div class="spp noitalic">
-		<a>César Gutiérrez</a>
-		<div class="acceptbuttons">
-		<a href=""><%= image_tag("delicon.png", :title => 'No Aprobar', :rel => "tooltip") %></a>
-		<a href=""><%= image_tag("aprobicon.png", :title => 'Aprobar experto', :rel => "tooltip") %></a>
-		</div>
-	</div>
-</div>
-
-<div class="clearfix mb20"></div>
-<% @group_members.each do |member| %>
-	<div class="expindex groupexindex">
-		<div class="expcard"><%= image_tag("perfilprueba.jpg") %></div>
-		<div href="" class="rankblue"></div>
-		<h2 class="clearfix"><b>Ranking</b></br>400</h2>
-		<h5><a href="/users/<%= member.user_id %>"><%= member.user.name %></a></h5>
+<% if @current_group_user %>
+	<a ng-click="invitador=!invitador; activeButton()" ng-class="{'btnact': isActive}" class="closecb">INVITAR EXPERTO</a>
+	<div ng-show="invitador" class="forms">
+		<%= simple_form_for :message do |f| %>
+	         <%= f.error_notification %>
+	         <%= f.input :email, :maxlength => 50, :placeholder => "E-mail", :name => "email", label: false %>
+	         <%= f.input :content, :as => :text, :input_html => {:maxlength => 1200, :cols => "20", :rows => "6"}, :name => "cuerpo", label: false %>
+	         <%= f.button :submit, :value => "ENVIAR", :class => 'boton1'%>
+	   <% end %>
 	</div>
 <% end %>
+
+<div id="group_users_tables"></div>
+

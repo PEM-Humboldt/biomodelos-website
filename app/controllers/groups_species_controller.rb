@@ -3,7 +3,7 @@ class GroupsSpeciesController < ApplicationController
 	def create
 		@current_group_user = false
 		if user_signed_in?
-	        @current_group_user = GroupsUser.find_by_group_id_and_user_id(params[:groups_species][:group_id], current_user.id)
+	        @current_group_user = GroupsUser.find_by(group_id: params[:groups_species][:group_id], user_id: current_user.id, groups_users_state_id: 1)
 	    end
 		@groups_species = GroupsSpecies.find_by_species_id(params[:groups_species][:species_id])
 		if !@groups_species.blank?
@@ -41,7 +41,7 @@ class GroupsSpeciesController < ApplicationController
 		@groups_species = GroupsSpecies.new
 		@current_group_user = false
 		if user_signed_in?
-	        @current_group_user = GroupsUser.find_by_group_id_and_user_id(@group.id, current_user.id)
+	        @current_group_user = GroupsUser.find_by(group_id: @group.id, user_id: current_user.id, groups_users_state_id: 1)
 	    end
 
 	    respond_to do |format|
@@ -61,7 +61,7 @@ class GroupsSpeciesController < ApplicationController
 				format.js
 			end	
 		else
-			redirect_to groups_path, :flash => { :error => "No existe la especie a actualizar." }
+			redirect_to group_path(id: @group_species.group_id), :flash => { :error => "No existe la especie a actualizar." }
 		end
 	end
 
