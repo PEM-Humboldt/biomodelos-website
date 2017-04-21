@@ -225,7 +225,7 @@ footer {
 	font-size: 12px;
 	color: #fff;
 	font-weight: 400;
-	margin-bottom: 20px;
+	margin-bottom: 37px;
 	font-size: 0.87em;
 	letter-spacing: 0.5px;
 }
@@ -1543,12 +1543,21 @@ p.groupuser {
 }
 
 .groupexindex {
-	height: 110px;
+	height: auto;
 }
 
-.groupexindex h5 {
+.groupexindex a {
 	margin-left: 3px;
 	border-bottom: none;
+	font-size: 15px;
+	color: #1b3337;
+	display: block;
+	border-bottom: 1px solid #c5c4c4;
+	padding: 5px;
+}
+
+.groupexindex:nth-child(odd) {
+	background-color: #f2f2f2;
 }
 
 .userspp {
@@ -2788,7 +2797,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	vertical-align: top;
 	color:#393836;
 	letter-spacing: 1px;
-	font-size: 18px;
+	font-size: 18px !important;
 	font-weight: 400;
 	display: inline;
 }
@@ -2803,6 +2812,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 
 .subinfo .reg {
 	margin-right: 20px;
+	margin-bottom: 15px;
 }
 
 .sppcateg:after {

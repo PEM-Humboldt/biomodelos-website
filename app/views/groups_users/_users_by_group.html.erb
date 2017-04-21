@@ -16,10 +16,7 @@
 <% end %>
 <div class="clearfix mb20"></div>
 <% @group_members.each do |member| %>
-	<div class="expindex groupexindex">
-		<div class="expcard"><%= image_tag("perfilprueba.jpg") %></div>
-		<div href="" class="rankblue"></div>
-		<h2 class="clearfix"><b>Ranking</b></br>400</h2>
-		<h5><a href="/users/<%= member.user_id %>"><%= member.user.name %></a></h5>
+	<div class="groupexindex">
+		<a href="/users/<%= member.user_id %>"><b><%= member.user.name %></b> · <%= member.user.organization %></a>
 	</div>
 <% end %>

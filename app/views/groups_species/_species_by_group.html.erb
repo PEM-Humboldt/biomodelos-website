@@ -15,13 +15,13 @@
 <% end %>
 <div class="spptit">
 	<h2>Nombre de la especie</h2>
-	<h3>% Avance</h3>
+	<h3></h3>
 </div>
 <div id="grp_spe_box">
 	<% @actual_species.each do |species| %>
 		<div class="spp">
 			<a><%= species[0] %><%= hidden_field_tag('', species[1], :class => 'a_sp_id') %></a>
-			<p class="spperc">100%</p>
+			<p class="spperc"></p>
 		</div>
 	<% end %>
 </div>

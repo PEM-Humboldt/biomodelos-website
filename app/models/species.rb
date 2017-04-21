@@ -4,16 +4,6 @@ class Species
   	base_uri BASE_URI + '/species'
 	# has_many :tasks
 
-	# def self.search(options)
-	# 	if options[:query]
- 	#      		where("sci_name like ?", "%#{options[:query]}%").limit(10)
- 	#    	end
-	# end
-
-	def initialize
-
-	end
-
 	def self.find_name(taxID)
    		JSON.parse(get('/' + taxID.to_s).body)[0]["acceptedNameUsage"]	
 	end

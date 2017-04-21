@@ -62,6 +62,9 @@
       }).bind('typeahead:select', function(ev, datum) {
           $("#species_id_home").val(datum.taxID);
           $("#species_id").val(datum.taxID);
+      }).bind('typeahead:active', function(ev) {
+            $("#species_id_home").val(0);
+            $("#species_id").val(0);
       });
   }();
 

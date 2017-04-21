@@ -15,12 +15,7 @@
 				</form>
 			</div>
 
-			<div class="sugeridor">
-				<%= form_tag('', {:id => 'sp_search_form'})  do %>
-					<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Buscar grupo por nombre', :include_blank => false %>
-					<%= submit_tag 'Filtrar', :name => nil, :class => 'searchbtnspp', :id => 'species_src_btn' %>
-				<% end %>
-			</div>
+			<div class="sugeridor"></div>
 			<div class="mt10"></div>
 			<div class="aligner2">
 				<% @groups.each do |group| %>

@@ -319,6 +319,9 @@ $(document).ready(function(){
 	$("#visCntrl").on("click",".vbtnedit", function(e){
 		/* TODO clean layers */
 		$("#regMenu_slider").show();
+		$(".modelname").html("");
+		if($(".modelname").hasClass("gradient"))
+          $(".modelname").removeClass("gradient");
 		$(".btnedicion").hide();
 		if($(".cajitaeditar").is(":visible")){
 			$(".btnedicion").click();
@@ -365,6 +368,7 @@ $(document).ready(function(){
 		if($(".cajitaeditar").is(":visible")){
 			$(".btnedicion").click();
 		}
+		$(".modelname").html($("#txt_model_status").val());
         _BioModelosVisorModule.unloadAllLayers();
 		_BioModelosVisorModule.loadModel($(this).find('#imgsrc_model').val(), $('.titlethumb').val());
 

@@ -81,40 +81,32 @@ var _BioModelosVisorModule = function() {
             });
 
         /* Overlays */
-        var paramos_humedales_fondo = new L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Proyecto_fondo_adaptacion/wms', {
+        var paramos_fondo_2016 = new L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Proyecto_fondo_adaptacion/wms', {
             format: 'image/png',
             transparent: true,
-            layers: 'Proyecto_fondo_adaptacion:Limite_Paramo_2015'
+            layers: 'Proyecto_fondo_adaptacion:Limites24Paramos_25K_2016'
         }),
-        	ecosistemas_etter = L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Historicos/wms', {
+        ecosistemas_etter = L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Historicos/wms', {
 	            format: 'image/png',
 	            transparent: true,
 	            layers: 'Historicos:ecosistemas_generales_etter'
-        	}),
-        	test_bio = L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Biomodelos/wms', {
+        });
+        bosque_seco = L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Historicos/wms', {
 	            format: 'image/png',
 	            transparent: true,
-	            //opacity: 0.6,
-	            layers: 'Biomodelos:Cebus_apella'
+	            layers: 'Historicos:bosque_seco_tropical'
         	});
-        	iucn = L.tileLayer.wms('http://mapservices.iucnredlist.org/arcgis/services/icunwms/SpeciesRangeWMS/MapServer/WMSServer?&token=lFiIlLaUaaMzZxxMEB7OfKRnxIf8I4YmaMV8SMw88d0htqW3Jgd26pOzlF4vn0hGHtc6Lz__EZ1Z8T70G_wgckX_w09hXS0zuF26_HlUh5I.&layerDefs=0%3AID_NO%3D42189',{
-        		format: 'image/png',
-	            transparent: true,
-	            //opacity: 0.6,
-	            layers: 'show:0'
-        	}); 
 
 	    var	baseLayers = {
 	    		"Google Terrain": googleTerrain,
 	    		"Google Satellite": googleSatellite,
-	        	"OpenStreetMap": osmBase,
+	        	"OpenStreetMap": osmBase
 	    	},
 
 	    	overlays = {
-	    		"Páramos y humedales": paramos_humedales_fondo,
-	    		"Ecosistemas Generales (Etter)" : ecosistemas_etter,
-	    		"Test BioModelos" : test_bio,
-	    		"IUCN" : iucn
+	    		"Páramos (2016)": paramos_fondo_2016,
+	    		"Ecosistemas generales (Etter)" : ecosistemas_etter,
+	    		"Bosque seco tropical" : bosque_seco
 	    	};
 
         map = L.map('map', {crs: L.CRS.EPSG4326}).setView(latlng, zoom);

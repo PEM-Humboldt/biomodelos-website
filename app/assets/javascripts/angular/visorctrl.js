@@ -8,10 +8,12 @@ angular.module('biomodelos')
 
     $scope.changeLayer = function (){
       if($scope.corteSlider.value == 'C'){
+        $(".modelname").html("Continuo");
         if(!$(".modelname").hasClass("gradient"))
           $(".modelname").addClass("gradient");
       }
       else{
+        $(".modelname").html("Umbral: " + $scope.corteSlider.value);
         if($(".modelname").hasClass("gradient"))
           $(".modelname").removeClass("gradient");
       }

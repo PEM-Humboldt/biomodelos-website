@@ -16,6 +16,9 @@ class SpeciesController < ApplicationController
 	def search
 		begin
 			species = Species.search(params)
+			if species.blank?
+				species = { species: "Not found", taxID: 0 }
+			end
 			render json: species
 		rescue => e
 			logger.error "#{e.message} #{e.backtrace}"
@@ -27,15 +30,20 @@ class SpeciesController < ApplicationController
 	def set_species
 		begin
 			@can_edit = false
-			if user_signed_in?
-				@can_edit = can_edit(current_user.id, params[:species_id])
+			if params[:species_id] == "0"
+				render :js => "alertify.alert('La especie #{params[:query]} no está disponible.');"
+			else
+				if user_signed_in?
+					@can_edit = can_edit(current_user.id, params[:species_id])
+				end
+				#TO DO: get species and find if it's empty (id doesn't exist) or not.
+				@species_id = params[:species_id]
+				@species_name = Species.find_name(params[:species_id])
+				@records_number = Species.records_number(params[:species_id])
+				respond_to do |format|
+	      			format.js
+	    		end
 			end
-			@species_id = params[:species_id]
-			@species_name = Species.find_name(params[:species_id])
-			@records_number = Species.records_number(params[:species_id])
-			respond_to do |format|
-	      		format.js
-	    	end
 	    rescue => e
 	    	logger.error "#{e.message} #{e.backtrace}"
 			err_msg = e.message.tr(?',?").delete("\n")

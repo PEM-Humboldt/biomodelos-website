@@ -9,6 +9,7 @@
 						<%= hidden_field_tag('imgsrc_model', set_path(model.pngUrl, "model")) %>
 						<div class="titlethumb">
 							<%= model_title_thumb(model.modelStatus) %>
+							<%= hidden_field_tag 'txt_model_status', model.modelStatus %>
 						</div>
 						<div class="infothumb">
 							Calificación promedio
@@ -59,7 +60,7 @@
 <% end %>
 
 
-<h3>FORO <i>Aglaiocercus coelestis</i></h3>
+<!-- <h3>FORO <i>Aglaiocercus coelestis</i></h3>
 <form action="">
 	<textarea name="" id="" cols="30" rows="4" placeholder="Foro exclusivo para comentar las hipótesis de distribución disponibles para esta especie."></textarea>
 </form>
@@ -85,7 +86,7 @@
 		<a href="">responder</a>
 		<a href="">borrar</a>
 	</div>
-</div>
+</div> -->
 <script type="text/javascript">
 /* Rating */
 $('.user_star').raty({ 

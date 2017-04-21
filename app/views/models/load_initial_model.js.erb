@@ -1,5 +1,6 @@
 <% if @init_model %>
 	_BioModelosVisorModule.loadModel("<%= set_path(@init_model.pngUrl, 'model') %>", "<%= @init_model.modelStatus %>");
+	$(".modelname").html("<%= @init_model.modelStatus %>");
 	<% if !@popup_content.blank? %>
 		alertify.alert("<%= @popup_content %>");
 	<% end %>
