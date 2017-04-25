@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class GroupLogoUploader < CarrierWave::Uploader::Base
+class UserAvatarUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -25,7 +25,7 @@ class GroupLogoUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
   def default_url
-    "noimageperfilg.png"
+    "noperfil.jpg"
   end
 
   # Process files as they are uploaded:
@@ -37,11 +37,11 @@ class GroupLogoUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_limit => [185, 100]
+    process :resize_to_limit => [50, 50]
   end
 
   version :profile do
-    process :resize_to_limit => [200, 200]
+    process :resize_to_limit => [120, 120]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

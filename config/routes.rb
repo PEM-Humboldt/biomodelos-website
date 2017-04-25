@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   post "groups/bulk_group_email"
   post "groups_users/users_by_group"
   post "groups_users/update_groups_user"
+  post "users/send_message_to_user"
   # get "models/metadata/:id"
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
