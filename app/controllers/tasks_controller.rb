@@ -9,7 +9,16 @@ class TasksController < ApplicationController
 		if user_signed_in?
 	        @current_group_user = GroupsUser.find_by_group_id_and_user_id(@group.id, current_user.id)
 	    end
+	    respond_to do |format|
+			format.js
+		end
+	end
 
+	def tasks_by_user
+		@user= User.find(params[:user_id])
+		@tasks = Task.where(:user_id =>  @user.id).group(:species_id, :user_id, :task_type_id)
+		@species_with_tasks = @tasks.map{|t| [Species.find_name(t.species_id.to_s),t.species_id]}.uniq
+		@current_group_user = false
 	    respond_to do |format|
 			format.js
 		end

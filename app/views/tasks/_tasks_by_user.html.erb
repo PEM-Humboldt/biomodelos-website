@@ -1,0 +1,76 @@
+<% @species_with_tasks.each do |species| %>
+		<% total_tasks = 0 %>
+		<% tasks_done = 0 %>
+		<div class="tareaspp"><!-- 
+		--><a class="colspp"><%= species[0] %></a><!-- 
+		--><div class="coladv"><% task = @tasks.select{|x| x.task_type_id == 1 && x.species_id == species[1]}.uniq %>
+			<% if task.size > 0 %>
+				<% total_tasks = total_tasks + 1 %>
+				<%if task[0].task_state_id == 2 %>
+					<%= image_tag("check.png", title: "¡Hecho!", rel: "tooltip") %>
+					<% tasks_done = tasks_done + 1 %>
+				<% else %>
+					<% if user_signed_in? && task[0].user_id == current_user.id %>
+						<%= check_box_tag "task_active_#{task[0].id}",  task[0].id %>
+					<% else %>
+						<%= image_tag("develop.png", title: "En desarrollo", rel: "tooltip") %>
+					<% end %>
+				<% end %>
+			<% else %>
+					<%= image_tag("notask.png", title: "No asignada", rel: "tooltip") %>
+			<% end %>
+		</div><!-- 
+		--><div class="coladv"><% task = @tasks.select{|x| x.task_type_id == 2}.uniq %>
+			<% if task.size > 0 %>
+				<% total_tasks = total_tasks + 1 %>
+				<%if task[0].task_state_id == 2 %>
+						<%= image_tag("check.png", title: "¡Hecho!", rel: "tooltip") %>
+						<% tasks_done = tasks_done + 1 %>
+				<% else %>
+					<% if user_signed_in? && task[0].user_id == current_user.id %>
+						<%= check_box_tag "task_active_#{task[0].id}",  task[0].id %>
+					<% else %>
+						<%= image_tag("develop.png", title: "En desarrollo", rel: "tooltip") %>
+					<% end %>
+				<% end %>
+			<% else %>
+					<%= image_tag("notask.png", title: "No asignada", rel: "tooltip") %>
+			<% end %>
+			</div><!-- 
+		--><div class="coladv"><% task = @tasks.select{|x| x.task_type_id == 3}.uniq %>
+			<% if task.size > 0 %>
+				<% total_tasks = total_tasks + 1 %>
+				<%if task[0].task_state_id == 2 %>
+						<%= image_tag("check.png", title: "¡Hecho!", rel: "tooltip") %>
+						<% tasks_done = tasks_done + 1 %>
+				<% else %>
+					<% if user_signed_in? && task[0].user_id == current_user.id %>
+						<%= check_box_tag "task_active_#{task[0].id}",  task[0].id %>
+					<% else %>
+						<%= image_tag("develop.png", title: "En desarrollo", rel: "tooltip") %>
+					<% end %>
+				<% end %>
+			<% else %>
+					<%= image_tag("notask.png", title: "No asignada", rel: "tooltip") %>
+			<% end %>
+		</div><!-- 
+		--><div class="coladv"><% task = @tasks.select{|x| x.task_type_id == 4}.uniq %>
+			<% if task.size > 0 %>
+				<% total_tasks = total_tasks + 1 %>
+				<%if task[0].task_state_id == 2 %>
+						<%= image_tag("check.png", title: "¡Hecho!", rel: "tooltip") %>
+						<% tasks_done = tasks_done + 1 %>
+				<% else %>
+					<% if user_signed_in? && task[0].user_id == current_user.id %>
+						<%= check_box_tag "task_active_#{task[0].id}",  task[0].id %>
+					<% else %>
+						<%= image_tag("develop.png", title: "En desarrollo", rel: "tooltip") %>
+					<% end %>
+				<% end %>
+			<% else %>
+					<%= image_tag("notask.png", title: "No asignada", rel: "tooltip") %>
+			<% end %>
+		</div><!--  
+		--><p class="coladv"><%= ((tasks_done.to_f/total_tasks.to_f)*100).round %>%</p>
+		</div>
+<% end %>

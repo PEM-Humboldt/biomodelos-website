@@ -1,22 +1,27 @@
 <% @species_with_tasks.each_with_index do |species, i| %>
 	<div class="tareaspp"><!-- 
 	--><div class="colspp"><a><%= species[0] %></a><button id="<%= i %>" ng-click="expertlist<%= i %>=!expertlist<%= i %>" class="arrrowsm" arrow></button></a></div><!-- 
-	--><p class="coladv">%</p><!-- 
-	--><p class="coladv">%</p><!-- 
-	--><p class="coladv">%</p><!-- 
-	--><p class="coladv">%</p><!-- 
-	--><p class="coladv">%</p>
+	--><p class="coladv"></p><!-- 
+	--><p class="coladv"></p><!-- 
+	--><p class="coladv"></p><!-- 
+	--><p class="coladv"></p><!-- 
+	--><p class="coladv"><% task_by_species = @tasks.select{|x| x.species_id == species[1]} %>
+	<% task_by_species_done = @tasks.select{|x| x.species_id == species[1] && x.task_state_id == 2} %>
+	<%= ((task_by_species_done.size.to_f/task_by_species.size.to_f)*100).round %>%</p>
 	</div>
 	<div ng-show="expertlist<%= i %>" id="expertlist<%= i %>" style="display:none;">
-		<% task_by_species = @tasks.select{|x| x.species_id == species[1]} %>
 		<% user_by_species = task_by_species.map{|t| [t.user.id, t.user.name]}.uniq.each do |member| %>
+			<% total_tasks = 0 %>
+			<% tasks_done = 0 %>
 			<% tasks_by_user = task_by_species.select{|x| x.user_id == member[0]}.uniq %>
 			<div class="userspp"><!--
 			--><a class="colspp"><%= member[1] %></a><!--
 			--><div class="coladv"><% task = tasks_by_user.select{|x| x.task_type_id == 1}.uniq %>
 				<% if task.size > 0 %>
+					<% total_tasks = total_tasks + 1 %>
 						<%if task[0].task_state_id == 2 %>
 							<%= image_tag("check.png", title: "¡Hecho!", rel: "tooltip") %>
+							<% tasks_done = tasks_done + 1 %>
 						<% else %>
 							<% if @current_group_user && (@current_group_user.is_admin || task[0].user_id == current_user.id) %>
 								<%= check_box_tag "task_active_#{task[0].id}",  task[0].id %>
@@ -30,8 +35,10 @@
 			</div><!-- 
 			--><div class="coladv"><% task = tasks_by_user.select{|x| x.task_type_id == 2}.uniq %>
 				<% if task.size > 0 %>
+					<% total_tasks = total_tasks + 1 %>
 					<% if task[0].task_state_id == 2 %>
 						<%= image_tag("check.png", title: "¡Hecho!", rel: "tooltip") %>
+						<% tasks_done = tasks_done + 1 %>
 					<% else %>
 						<% if @current_group_user && (@current_group_user.is_admin || task[0].user_id == current_user.id) %>
 							<%= check_box_tag "task_active_#{task[0].id}",  task[0].id %>
@@ -45,8 +52,10 @@
 			</div><!-- 
 			--><div class="coladv"><% task = tasks_by_user.select{|x| x.task_type_id == 3}.uniq %>
 				<% if task.size > 0 %>
+					<% total_tasks = total_tasks + 1 %>
 					<%if task[0].task_state_id == 2 %>
 						<%= image_tag("check.png", title: "¡Hecho!", rel: "tooltip") %>
+						<% tasks_done = tasks_done + 1 %>
 					<% else %>
 						<% if @current_group_user && (@current_group_user.is_admin || task[0].user_id == current_user.id) %>
 							<%= check_box_tag "task_active_#{task[0].id}",  task[0].id %>
@@ -60,8 +69,10 @@
 			</div><!-- 
 			--><div class="coladv"><% task = tasks_by_user.select{|x| x.task_type_id == 4}.uniq %>
 				<% if task.size > 0 %>
+					<% total_tasks = total_tasks + 1 %>
 					<%if task[0].task_state_id == 2 %>
 						<%= image_tag("check.png", title: "¡Hecho!", rel: "tooltip") %>
+						<% tasks_done = tasks_done + 1 %>
 					<% else %>
 						<% if @current_group_user && (@current_group_user.is_admin || task[0].user_id == current_user.id) %>
 							<%= check_box_tag "task_active_#{task[0].id}",  task[0].id %>
@@ -73,7 +84,7 @@
 					<%= image_tag("notask.png", title: "No asignada", rel: "tooltip") %>
 				<% end %>
 			</div><!--
-			--><div class="coladv"></div>
+			--><div class="coladv"><%= ((tasks_done.to_f/total_tasks.to_f)*100).round %>%</div>
 			</div>
 		<% end %>
 	</div>

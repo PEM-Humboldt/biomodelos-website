@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   post "tasks/add_tasks"
   post "tasks/finish_task"
   post "tasks/tasks_by_group"
+  post "tasks/tasks_by_user"
   post "groups_species/species_by_group"
   post "groups_species/update_groups_species"
   post "groups/bulk_group_email"

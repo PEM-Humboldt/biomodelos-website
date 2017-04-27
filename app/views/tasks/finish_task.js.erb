@@ -1,5 +1,5 @@
-$.ajax({
-    type: "POST",
-    url: "/tasks/tasks_by_group",
-    data: { id: <%= @task.group_id %>}
-});
+<% if params[:origin] == "group" %>
+	$.post( "/tasks/tasks_by_group", { id: <%= @task.group_id %>});
+<% elsif params[:origin] == "user" %>
+	$.post( "/tasks/tasks_by_user", { user_id: <%= @task.user_id %>});
+<% end %>

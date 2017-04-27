@@ -2,7 +2,7 @@
 	<% if @covers || !@covers.blank? %>
 		<% @covers.each do |c| %>
 			<% if c[1] %>
-					<div class="cobert"><p><%= get_cover_name(c[0]) %></p><div class="percent"><%= '%.2f' % c[1] %></div></div>
+					<div class="cobert"><p><%= get_cover_name(c[0]) %></p><div class="percent"><%= '%.2f%' % c[1] %></div></div>
 			<% end %>
 		<% end %>
 	<% end %>
