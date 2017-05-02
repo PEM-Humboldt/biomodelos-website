@@ -14,4 +14,13 @@ class GroupMailer < ApplicationMailer
 	    @admin_name = admin_name
 	    mail bcc: group_emails,  subject: "BioModelos: Mensaje del moderador del grupo " + group_name
   	end
+
+  	# Sets an email message to every group admin when a new user wants to join
+  	def user_wants_to_join(user, group, admin)
+    	@user = user
+    	@group = group
+    	@datetime = DateTime.now
+    	@admin = admin
+    	mail to: @admin.email, bcc: "biomodelos@humboldt.org.co", subject: "BioModelos: Un usuario quiere unirse a tu grupo " + @group.name 
+  	end
 end

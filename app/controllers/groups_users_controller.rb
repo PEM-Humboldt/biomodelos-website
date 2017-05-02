@@ -17,6 +17,10 @@ class GroupsUsersController < ApplicationController
 		@groups_user = GroupsUser.new(groups_users_params.merge(user_id: current_user.id, is_admin: false))
 
 		if @groups_user.save
+			group_admins = GroupsUser.where(:group_id => @groups_user.group_id, :is_admin => true, :groups_users_state_id => 1)
+			group_admins.each do |admin|
+				GroupMailer.user_wants_to_join(@groups_user.user, @groups_user.group, admin.user).deliver_now
+			end
 			redirect_to group_path(id: @groups_user.group_id), :flash => { :notice => "La solicitud para unirse al grupo ha sido enviada." }
 		else
 			redirect_to group_path(id: @groups_user.group_id), :flash => { :error => "Ha ocurrido un error mientras se realizaba la solicitud." }
