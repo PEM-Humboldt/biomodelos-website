@@ -42,7 +42,7 @@
 			<div class="clearfix"></div>
 			<div class="perfilsub modertext">Moderador(es)</div>
 			<% @group_members.select{|x| x.is_admin == true}.each do |admin| %>
-				<p><a href="/users/<%= admin.user_id %>"><%= admin.user.name %></a></p>
+				<p class="moderlink"><a href="/users/<%= admin.user_id %>" class="moderlink"><%= admin.user.name %></a></p>
 			<% end %>
 			<div class="groupunder">Mensaje moderador</div>
 			<p><%= @group.message %>.</p>

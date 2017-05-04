@@ -84,7 +84,7 @@
 					<%= image_tag("notask.png", title: "No asignada", rel: "tooltip") %>
 				<% end %>
 			</div><!--
-			--><div class="coladv"><%= ((tasks_done.to_f/total_tasks.to_f)*100).round %>%</div>
+			--><p class="coladv"><%= ((tasks_done.to_f/total_tasks.to_f)*100).round %>%</p>
 			</div>
 		<% end %>
 	</div>
