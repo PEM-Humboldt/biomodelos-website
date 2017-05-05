@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta name="author" content="BioModelos - biomodelos@humboldt.org.co">
-    <title>Mensaje administrador</title>
+    <title>Experto aceptado</title>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic' rel='stylesheet' type='text/css'>
 <style>
 * {
@@ -59,15 +59,18 @@ h3 span {
 <body>
 <div class="linewidth"></div>
 <div class ="contenido">
-	<h3>Saludos <%= @user.name %>,<br/> 
-	Ha recibido un mensaje de <i><a href="http://biomodelos.humboldt.org.co/users/<%= @sender.id %>" target="_blank"><%= @sender.name %></a>,</i> desde <span>BioModelos:</span></h3>
-	Hora de recepción: <%= @datetime.strftime("%F %r") %><br/>
+	<h3>Saludos <%= @admin.name %>, moderador del grupo <b><%= @group.name %></b></h3>
+	Ha recibido una solicitud por parte del usuario <a href="http://biomodelos.humboldt.org.co/users/<%= @user.id %>"><%= @user.name %></a> para unirse al grupo.<br/><br/>
+	Solicitud recibida: <%= @datetime.strftime("%F %R") %><br/>
 	<br/>
-	Mensaje:<br/>
-	<p><%= @message %></p>
+	Puede revisar el perfil del usuario, y en caso de requerir más información puede contactarlo al correo <%= @user.email %><br/>
 	<br/>
+	Para realizar alguna acción sobre esta solicitud, ingrese al perfil del <a href="http://biomodelos.humboldt.org.co/groups/<%= @group.id %>">grupo</a> y en la pestaña "Expertos" podrá consultar las solicitudes pendientes en la sección "Expertos por aprobar".<br/>
 	<br/>
-	Este mensaje ha sido generado de forma automática por lo cual le agradecemos no responder este correo. Ante cualquier inquietud puede comunicarse con nosotros al correo electrónico biomodelos@humboldt.org.co o desde la forma de contacto en <a href="http://biomodelos.humboldt.org.co/home/feedback">BioModelos</a>
+	Atentamente,<br/><br/>
+	Equipo BioModelos
+	<h3><a href="http://biomodelos.humboldt.org.co">biomodelos.humboldt.org.co</a><br/>
+	biomodelos@humboldt.org.co</h3>
 </div>
 </body>
 </html>

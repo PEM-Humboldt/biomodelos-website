@@ -1,6 +1,6 @@
 <% @species_with_tasks.each_with_index do |species, i| %>
 	<div class="tareaspp"><!-- 
-	--><div class="colspp"><a><%= species[0] %></a><button id="<%= i %>" ng-click="expertlist<%= i %>=!expertlist<%= i %>" class="arrrowsm" arrow></button></a></div><!-- 
+	--><div class="colspp"><a href="/species/visor?species_id=<%= species[1] %>"><%= species[0] %></a><button id="<%= i %>" ng-click="expertlist<%= i %>=!expertlist<%= i %>" class="arrrowsm" arrow></button></a></div><!-- 
 	--><p class="coladv"></p><!-- 
 	--><p class="coladv"></p><!-- 
 	--><p class="coladv"></p><!-- 
@@ -15,7 +15,7 @@
 			<% tasks_done = 0 %>
 			<% tasks_by_user = task_by_species.select{|x| x.user_id == member[0]}.uniq %>
 			<div class="userspp"><!--
-			--><a class="colspp"><%= member[1] %></a><!--
+			--><a class="colspp" href="/users/<%= member[0] %>"><%= member[1] %></a><!--
 			--><div class="coladv"><% task = tasks_by_user.select{|x| x.task_type_id == 1}.uniq %>
 				<% if task.size > 0 %>
 					<% total_tasks = total_tasks + 1 %>
@@ -84,7 +84,7 @@
 					<%= image_tag("notask.png", title: "No asignada", rel: "tooltip") %>
 				<% end %>
 			</div><!--
-			--><div class="coladv"><%= ((tasks_done.to_f/total_tasks.to_f)*100).round %>%</div>
+			--><p class="coladv"><%= ((tasks_done.to_f/total_tasks.to_f)*100).round %>%</p>
 			</div>
 		<% end %>
 	</div>

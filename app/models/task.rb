@@ -7,4 +7,5 @@ class Task < ActiveRecord::Base
 
 	validates :user_id, uniqueness: { scope: [:species_id, :group_id, :task_type_id],
    		message: "Tarea duplicada"}
+
 end

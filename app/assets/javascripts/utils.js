@@ -8,14 +8,14 @@ var _utils_bio_module = function() {
 	* @param {String} htmlStr - HTML code that will be inserted.
 	*/
 	function compileDynamicAngularContent(elementStr, domObj, htmlStr){
-		angular.element(elementStr).injector().invoke(function($compile){
+		angular.element(elementStr).injector().invoke(['$compile', function($compile){
 	            var obj=domObj; // get wrapper
 	            var scope=obj.scope(); // get scope
 	            // generate dynamic content
 	            obj.html(htmlStr);
 	            // compile!!!
 	            $compile(obj.contents())(scope);
-	    });
+	    }]);
 	}
 	return{
 		compileDynamicAngularContent:compileDynamicAngularContent

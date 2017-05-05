@@ -22,13 +22,11 @@
 				<%= image_tag(@group.logo.url(:profile).to_s) %>
 			</div>
 			<div class="perflinks">
-				<% if @current_group_user && @current_group_user.is_admin%>
-					<a href="" title="Mensaje a miembros del grupo" rel="tooltip" class="mailto" ng-click="messagebox=!messagebox"></a>
-					<a href="" title="Editar información del grupo" rel="tooltip" class="edituser" ng-click="editgroup=!editgroup"></a>
-				<% end %>
 				<% if user_signed_in? %>
 				 	<% if @user_group && @user_group.groups_users_state_id == 2 %>
 						<%= image_tag "groupjoin2", :title=>"En espera de aprobación", :rel=>"tooltip" %>
+					<% elsif @user_group && @user_group.groups_users_state_id == 1 %>
+						<%= image_tag "member", :title=>"Miembro del grupo", :rel=>"tooltip" %>
 					<% elsif  !@current_group_user %>
 						<%= simple_form_for @groups_users do |f| %>
 		                  <%= f.hidden_field :group_id, :value =>  @group.id %>
@@ -37,12 +35,16 @@
 		                <% end %>
 		            <% end %>
 				<% end %>
+				<% if @current_group_user && @current_group_user.is_admin%>
+					<a href="" title="Mensaje a miembros del grupo" rel="tooltip" class="mailto" ng-click="messagebox=!messagebox"></a>
+					<a href="" title="Editar información del grupo" rel="tooltip" class="edituser" ng-click="editgroup=!editgroup"></a>
+				<% end %>
 			</div>
 
 			<div class="clearfix"></div>
 			<div class="perfilsub modertext">Moderador(es)</div>
 			<% @group_members.select{|x| x.is_admin == true}.each do |admin| %>
-				<p><%= admin.user.name %></p>
+				<p class="moderlink"><a href="/users/<%= admin.user_id %>" class="moderlink"><%= admin.user.name %></a></p>
 			<% end %>
 			<div class="groupunder">Mensaje moderador</div>
 			<p><%= @group.message %>.</p>
@@ -60,7 +62,7 @@
 		          	<a href ng-click="setTab(2)" class="group_tasks_tab">tareas</a>
 		       	</li>
 		       	<li ng-class="{ active: isSet(3) }">
-		          	<a href ng-click="setTab(3)">actividad</a>
+		          	<a href ng-click="setTab(3)" class="group_activity_tab">actividad</a>
 		       	</li>
 		       	<li ng-class="{ active: isSet(4) }">
 		          	<a href ng-click="setTab(4)" class="group_species_tab">especies</a>
@@ -77,7 +79,7 @@
 				<%= render 'groups/groups_tasks' %>
 			</div>
 			<div ng-show="isSet(3)" class="cajaperfil">
-				<%= render 'groups/groups_activity' %>
+				<div id="group_activity_table"></div>
 			</div>
 			<div ng-show="isSet(4)" class="cajaperfil sppbox">
 				<%= render 'groups/groups_species' %>
