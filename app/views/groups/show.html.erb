@@ -22,13 +22,11 @@
 				<%= image_tag(@group.logo.url(:profile).to_s) %>
 			</div>
 			<div class="perflinks">
-				<% if @current_group_user && @current_group_user.is_admin%>
-					<a href="" title="Mensaje a miembros del grupo" rel="tooltip" class="mailto" ng-click="messagebox=!messagebox"></a>
-					<a href="" title="Editar información del grupo" rel="tooltip" class="edituser" ng-click="editgroup=!editgroup"></a>
-				<% end %>
 				<% if user_signed_in? %>
 				 	<% if @user_group && @user_group.groups_users_state_id == 2 %>
 						<%= image_tag "groupjoin2", :title=>"En espera de aprobación", :rel=>"tooltip" %>
+					<% elsif @user_group && @user_group.groups_users_state_id == 1 %>
+						<%= image_tag "member", :title=>"Miembro del grupo", :rel=>"tooltip" %>
 					<% elsif  !@current_group_user %>
 						<%= simple_form_for @groups_users do |f| %>
 		                  <%= f.hidden_field :group_id, :value =>  @group.id %>
@@ -36,6 +34,10 @@
 		                  <%= f.submit "", :class=> "joingroup", :title=>"Solicitar unirse a este grupo", :rel=>"tooltip" %>
 		                <% end %>
 		            <% end %>
+				<% end %>
+				<% if @current_group_user && @current_group_user.is_admin%>
+					<a href="" title="Mensaje a miembros del grupo" rel="tooltip" class="mailto" ng-click="messagebox=!messagebox"></a>
+					<a href="" title="Editar información del grupo" rel="tooltip" class="edituser" ng-click="editgroup=!editgroup"></a>
 				<% end %>
 			</div>
 
