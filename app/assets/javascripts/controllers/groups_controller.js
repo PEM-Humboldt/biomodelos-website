@@ -18,6 +18,10 @@ $(document).ready(function(){
 		$.post( "/groups_users/users_by_group", { id: $("#group_id_field").val()});
 	});
 
+	$(".group_activity_tab").click(function(e){
+		$.post( "/groups/group_activity", { id: $("#group_id_field").val()});
+	});
+
 	/**
  	* Updates the status of a pending species in a group. 
  	* 

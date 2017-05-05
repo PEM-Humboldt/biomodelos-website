@@ -49,6 +49,13 @@ class GroupsController < ApplicationController
 	    end
 	end
 
+	def group_activity
+		@group = Group.find(params[:id])
+		respond_to do |format|
+			format.js
+		end	
+	end
+
 	# Sends an email to every active member of a group.
 	# 
 	def bulk_group_email
