@@ -54,6 +54,7 @@ class RecordsController < ApplicationController
 			@latest_date = Record.records_latest_date(params[:id])["maxDate"]
 			@species_name = Species.find_name(params[:id])
 			@records_number = Species.records_number(params[:id])
+			@collections = Record.records_collections(params[:id])
 	    rescue => e
 	    	logger.error "#{e.message} #{e.backtrace}"
 			err_msg = e.message.tr(?',?").delete("\n")

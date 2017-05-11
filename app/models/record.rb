@@ -31,6 +31,10 @@ class Record
 		JSON.parse(get('/metadata/collaborators/' + taxID.to_s).body)
 	end
 
+	def self.records_collections(taxID)
+		JSON.parse(get('/metadata/collection/' + taxID.to_s).body)
+	end
+
 	def self.records_latest_date(taxID)
 		JSON.parse(get('/metadata/latest_date/' + taxID.to_s).body)
 	end

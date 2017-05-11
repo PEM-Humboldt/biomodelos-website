@@ -21,20 +21,29 @@
           <% if @institutions[0]["institution"].length == 1 && @institutions[0]["institution"][0].blank? %>
             No hay información disponible.
           <% else %>
-            <% @institutions[0]["institution"].each_with_index do |institution, i| %><%= institution %>
-              <% if i < @institutions[0]["institution"].length - 1 %>, <% else %>.<% end %>
+            <% @institutions[0]["institution"].each_with_index do |institution, i| %><%= institution %><% if i < @institutions[0]["institution"].length - 1 %>, <% else %>.<% end %>
             <% end %>
           <% end %>
         </p> 
-      </blockquote>      
+      </blockquote>
+      <h2>Colecciones</h2>
+       <blockquote>
+        <p>
+          <% if @collections[0]["colection"].length == 1 && @collections[0]["colection"][0].blank? %>
+            No hay información disponible.
+          <% else %>
+            <% @collections[0]["colection"].each_with_index do |colection, i| %><%= colection %><% if i < @collections[0]["colection"].length - 1 %>, <% else %>.<% end %>
+            <% end %>
+          <% end %>
+        </p> 
+      </blockquote>          
       <h2>Colectores</h2>
        <blockquote>
         <p>
           <% if @collectors[0]["collector"].length == 1 && @collectors[0]["collector"][0].blank? %>
               No hay información disponible.
             <% else %>
-              <% @collectors[0]["collector"].each_with_index do |collector, i| %><%= collector %>
-                <% if i < @collectors[0]["collector"].length - 1 %>, <% else %>.<% end %>
+              <% @collectors[0]["collector"].each_with_index do |collector, i| %><%= collector %><% if i < @collectors[0]["collector"].length - 1 %>, <% else %>.<% end %>
               <% end %>
             <% end %>
         </p>
@@ -45,8 +54,7 @@
           <% if @collaborators["collaborators"].length == 0 %>
               No hay información disponible.
             <% else %>
-              <% @collaborators["collaborators"].each_with_index do |collaborator, i| %><%= collaborator %>
-                <% if i < @collaborators["collaborators"].length - 1 %>, <% else %>.<% end %>
+              <% @collaborators["collaborators"].each_with_index do |collaborator, i| %><%= collaborator %><% if i < @collaborators["collaborators"].length - 1 %>, <% else %>.<% end %>
               <% end %>
             <% end %>
         </p>
