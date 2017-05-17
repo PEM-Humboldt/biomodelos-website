@@ -1,8 +1,7 @@
 <div class="innercontainer fondoplumas nbg2" ng-controller="perfilCtrl">
       <div class="cajainners">
             <div class="hcbase publish">
-                  <%= simple_form_for :publication do |f| %>
-                  <%= f.error_notification %>
+                  <%= simple_form_for @publication, :url => {:controller => "home", :action => "upload_model" } do |f| %>
                   <%= f.error :error, :class => "publierror" %>
             	<h1>Publica tu mapa</h1>
                   <%= link_to '', root_path, class: 'closecb' %>
@@ -25,7 +24,7 @@
                         </div>
                         <h6>Selecciona un tipo de licencia</h6>
                             <div id="cc_licenses">
-                                    <%= f.hidden_field :cc_license %>
+                                    <%= f.input :cc_license, :as => :hidden, error_html: {:class => 'publierror'} %>
                               <div id="class_checker">
                                     <label>
                                     <%= check_box_tag :cclicense, "by"  %>
@@ -61,14 +60,15 @@
                         <%= f.collection_radio_buttons :sib_contact, [['SI', 'Si'] ,['NO', 'No'],['NA', 'No aplica']], :first, :last, { item_wrapper_tag: false, :checked => 'SI', label: false } %>
                         </div>
                   <p><b>4.</b> <a href="http://biomodelos.humboldt.org.co/guia_documentacion_y_plantillas.zip" download>Descarga</a> y llena las plantillas para documentación de datos y metadatos de los modelos</p>
-                  <p><b>5.</b> Sube en un zip comprimido la metodología, las dos plantillas y los modelos</p>
+                  <p><b>5.</b> Sube en un archivo comprimido la metodología, las dos plantillas y los modelos</p>
                   <div class="inputBtnSection">
                   <input id="uploadFile" class="disableInputField" placeholder="Seleccionar Archivo" />
                         <label class="fileUpload">
                         <%= f.input :files, :as => :file, :required => true, label: false, error_html: {:class => 'publierror'}, :input_html => { :id => "uploadBtn", :class => "upload"} %>
-                        <span class="uploadBtn">SUBIR ZIP</span>
+                        <span class="uploadBtn">BUSCAR</span>
                         </label>
                   </div>
+                  <h5 class="mininota">* Se aceptan 3 tipos de formatos (zip, rar, 7zip) con un tamaño máximo de 25 MB.</h5>
                   <p><b>6.</b> Lee y acepta los <a ng-click="terminos=!terminos; activeButton()" ng-class="{'anglnkact': isActive}">términos y condiciones</a> de publicación</p>
                   <div ng-show="terminos" class="pubcontent clearfix">
                         <h4>términos y condiciones</h4>
@@ -101,15 +101,17 @@
 </div>
 
 <script>
-document.getElementById("uploadBtn").onchange = function () {
-    document.getElementById("uploadFile").value = this.value;
-};
+      $( document ).ready(function() {
+            $("#cclicense").click();
 
-$('.cajainners').niceScroll({
-      cursorcolor: "#5d5e5e",
-      cursorwidth: "7px",
-      cursorborder: "none"
-});
+            document.getElementById("uploadBtn").onchange = function () {
+                document.getElementById("uploadFile").value = this.value;
+            };
+
+            $('.cajainners').niceScroll({
+                  cursorcolor: "#5d5e5e",
+                  cursorwidth: "7px",
+                  cursorborder: "none"
+            });
+      });
 </script>
-
-<!-- @publication, :url => {:controller => "home", :action => "upload_model" } -->

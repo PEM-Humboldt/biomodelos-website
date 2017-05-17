@@ -68,6 +68,33 @@
       });
   }();
 
+  /* Add or remove class to show the selected element on license type */
+  $("#class_checker input:checkbox").on('click', function() {
+    var $box = $(this),
+        box_val = "";
+    if ($box.is(":checked")) {
+      // the name of the box is retrieved using the .attr() method
+      // as it is assumed and expected to be immutable
+      var group = "input:checkbox[name='" + $box.attr("name") + "']";
+      // the checked state of the group/box on the other hand will change
+      // and the current value is retrieved using .prop() method
+      $(group).prop("checked", false);
+      $box.prop("checked", true);
+      box_val = $box.val();
+      $("#class_checker label").addClass("nonchecked");
+      $box.parent().removeClass("nonchecked");
+    }
+  });
+
+   /* License selection checkbox */
+    $("#cc_licenses input:checkbox").on('click', function() {
+        var $box = $(this);
+        if ($box.is(":checked")) {
+            $("#publication_cc_license").val($box.val());
+        } 
+    });
+
+
   var google_charts_f = function(){
     // Check if allgraphs class exists to Draw the charts. Avoids container errors.
     if($(".allgraphs").length){    
@@ -180,7 +207,4 @@
         e.preventDefault();
         window.location.href = "/species/visor?species_id=" + $("#species_id_home").val();
     });
-
-
-
 });
