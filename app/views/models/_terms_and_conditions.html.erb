@@ -1,0 +1,11 @@
+<form class="terminos">
+    <h1>Términos y condiciones: descarga de modelos de distribución potencial de especies en BioModelo</h1>
+    <p><b>BioModelos</b> es un espacio para la discusión y evaluación científica de modelos de distribución geográfica de especies. En este sentido, la información descargable representa HIPÓTESIS de la probable distribución geográfica de las especies, que si bien pueden contener errores y sesgos asociados a los datos y el modelamiento estadístico, hace un esfuerzo por disminuir el impacto de dichos factores al incorporar el conocimiento experto para producir mapas validados.</br></br> 
+    La información que está a punto de descargar NO es información oficial para Colombia y por tal motivo su uso lo debe realizar bajo su propia responsabilidad.</br></br>
+    El <b>Instituto Alexander von Humboldt,</b> los patrocinadores de BioModelos y demás colaboradores no garantizan que los resultados derivados de usar la información descargada cumplan con sus requerimientos particulares. Así mismo, el uso o productos derivados de la información que usted va a descargar serán monitoreados y deben ser única y exclusivamente para fines de carácter educativo, de investigación, y sin fines de lucro. Finalmente, la información descargada, debe ir acompañada de la correcta citación de los modelos, la cual se encuentra en la sección “metadatos del modelo” (Hipótesis disponibles).</p>
+    <input type="checkbox" name="aceptoterms" value="terms" id="acepto-chk" />
+        <label  class="checkboxterm">He leído y acepto los términos y condiciones</label></br>
+    </input>
+    <%= link_to 'X', '', {:id => 'cancelo-trm-btn', :class=> 'btngen'} %>
+    <div id='download-btn'><%= link_to 'ACEPTO', models_download_model_path(:zip_url => params[:zip_url], :box => params[:box]), {:class => 'btngen', :id => 'acepto-btn'} %></div>
+</form>

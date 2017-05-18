@@ -1,0 +1,23 @@
+var $box;
+if(<%= params[:box] %> == 1)
+	$box = $('.termbox');
+else
+	$box = $('.termbox2');
+
+$box.html('<%=j render partial: 'models/terms_and_conditions' %>');
+$("#acepto-btn").click(function(e){
+	if($("#acepto-chk").is(':checked'))
+	{
+		$box.hide();
+	}
+	else{
+		e.preventDefault();
+		alertify.alert("Debe leer y aceptar los términos y condiciones para continuar con la descarga.");
+	}
+	
+});
+$("#cancelo-trm-btn").click(function(e){
+	e.preventDefault();
+	$box.hide();
+});
+$box.show('slow');

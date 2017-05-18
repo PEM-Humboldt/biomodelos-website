@@ -24,7 +24,9 @@
 				</div>
 			</div>
 			<div class="mmicon clearfix">
-				<a href="" title="Descargar el modelo" rel="tooltip" class="pad3"><%= image_tag("downicon.png") %></a>
+				<%= link_to models_download_model_path(:zip_url => set_path(model.zipUrl, "zip"), :box => 2), {:class => 'pad3', :title => "Descargar el modelo", :rel => "tooltip", :remote => true} do %>
+						<%= image_tag("downicon.png") %>
+					<% end %>
 				<a target="_blank" href="/models/<%= model.modelID %>/metadata" title="Ver metadatos del modelo" rel="tooltip" class="pad3"><%= image_tag("metaicon.png") %></a>
 				<% if user_signed_in? && can_edit %>
 					<div class="user_star">
@@ -58,7 +60,7 @@
 			</div>
 		</div>
 <% end %>
-
+<div class ="termbox2"></div>
 
 <!-- <h3>FORO <i>Aglaiocercus coelestis</i></h3>
 <form action="">
