@@ -96,7 +96,7 @@ es:
       second: Segundos
       year: Año
   errors: &errors
-    format: ! '%{attribute} %{message}'
+    format: ! '%{message}'
     messages:
       accepted: debe ser aceptado
       blank: no puede estar en blanco

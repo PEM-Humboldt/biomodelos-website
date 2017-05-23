@@ -4,7 +4,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+  <!-- <%= flash[:recaptcha_error] %> -->
   <div class="field">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true %>
@@ -23,16 +23,21 @@
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <div class="field mb40">
+  <div class="field">
     <%= f.label :confirmar_clave %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+  <%= f.check_box :terms_of_service, {:class => "mb40"} %>
+  <label  class="checkboxterm"><a class="linkterminos" href="">He leído y acepto los términos y condiciones</a></label></br>
+    <!-- <input type="checkbox" name="aceptoterms" value="terms" id="acepto-chk" class="mb40" />
+        <label  class="checkboxterm"><a class="linkterminos" href="">He leído y acepto los términos y condiciones</a></label></br>
+    </input> -->
+  <%= recaptcha_tags %>
   <div class="actions">
     <%= f.submit "REGISTRARSE" %>
   </div>
 <% end %>
 <div class="respclear"></div>
 <%= render "devise/shared/links" %>
-
   </div>
 </div>
