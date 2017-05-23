@@ -27,6 +27,9 @@ class HomeController < ApplicationController
 	def api
 	end
 
+	def terms
+	end
+
 	private
 
 	    def message_params
