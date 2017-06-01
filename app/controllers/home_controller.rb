@@ -13,10 +13,9 @@ class HomeController < ApplicationController
 		@publication = Publication.new(upload_params)
 
 	    if @publication.save
-	      # AdministratorsMailer.model_uploaded(current_user, @publication).deliver_now
+	      AdministratorsMailer.model_uploaded(current_user, @publication).deliver_now
 	      redirect_to home_publish_path, notice: 'La publicación se ha realizado con éxito.'
 	    else
-	      puts @publication.errors.inspect
 	      render 'publish'
 	    end
   	end

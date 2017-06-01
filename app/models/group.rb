@@ -1,8 +1,10 @@
 class Group < ActiveRecord::Base
 	has_many :groups_users
-  	has_many :users, through: :groups_users
-
-  	mount_uploader :logo, GroupLogoUploader
+  has_many :users, through: :groups_users
+  #has_many :admin, through: :game_users, ->  where(is_admin: true)
+  has_many :admin, -> { where is_admin: true }, class_name: 'GroupsUser'
+  
+  mount_uploader :logo, GroupLogoUploader
 
   	def activity
   		Group.find_by_sql(

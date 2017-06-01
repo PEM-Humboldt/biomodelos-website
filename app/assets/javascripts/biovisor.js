@@ -20,18 +20,20 @@ var _BioModelosVisorModule = function() {
 
 	var redIcon = new L.Icon({	iconUrl: '/assets/redmarker.png',
        							shadowUrl: "/assets/marker-shadow.png",
-	       						iconSize:    [25, 41],
-								iconAnchor:  [12, 41],
-								popupAnchor: [1, -34],
+	       						iconSize:    [25, 25],
+								iconAnchor:  [12, 25],
+								popupAnchor: [1, -25],
 								tooltipAnchor: [16, -28],
-								shadowSize:  [41, 41]}),
-       	blueIcon = new L.Icon({	iconUrl: '/assets/marker-icon.png',
+								shadowAnchor: [7, 25],
+								shadowSize:  [25, 25]}),
+       	blueIcon = new L.Icon({	iconUrl: '/assets/regperfil.png',
        			  				shadowUrl: "/assets/marker-shadow.png",
-       			  				iconSize:    [25, 41],
-								iconAnchor:  [12, 41],
-								popupAnchor: [1, -34],
+       			  				iconSize:    [25, 25],
+								iconAnchor:  [12, 25],
+								popupAnchor: [1, -25],
 								tooltipAnchor: [16, -28],
-								shadowSize:  [41, 41]});
+								shadowAnchor: [7, 25],
+								shadowSize:  [25, 25]});
 
     var headers = {
     					"acceptedNameUsage":"Nombre aceptado",

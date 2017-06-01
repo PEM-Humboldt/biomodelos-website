@@ -43,6 +43,7 @@ class ModelsController < ApplicationController
     #
 	def get_thresholds
 		begin
+			@species_id = params[:species_id]
 			@continuous_t = Model.get_continous_model(params[:species_id])
 			@thresholds = Model.get_thresholds(params[:species_id])
 
@@ -78,6 +79,7 @@ class ModelsController < ApplicationController
 		@ratings = Hash.new
 
 		begin
+			@species_id = params[:species_id]
 			@valid_model = Model.get_valid_model(params[:species_id])
 			@models = Model.get_hypotheses(params[:species_id])
 			@can_edit = false
@@ -96,6 +98,7 @@ class ModelsController < ApplicationController
 		          		@ratings[m.modelID] = @rating.blank? ? 0 : @rating.score
 		        	end
 		        end
+		        @download = Download.new
 	        end
 
 			respond_to do |format|
@@ -123,10 +126,25 @@ class ModelsController < ApplicationController
 		end
 	end
 
+	def download_terms
+		@download = Download.new
+		respond_to do |format|
+		    format.js
+		end
+	end
+
 	def download_model
-	    respond_to do |format|
-	      format.js{}
-	      format.html { send_file Rails.root.join("public" + params[:zip_url]), :type => 'application/zip', :disposition => 'attachment' }
+		@download = Download.new(download_params.merge(user_id: current_user.id))
+		if @download.save
+	      	send_file Rails.root.join("public" + params[:download][:zip_url]), :type => 'application/zip', :disposition => 'attachment' 
+	    else
+			redirect_to species_visor_path, :flash => { :error => "Debe seleccionar el uso y aceptar los términos y condiciones para descargar un modelo." }
 	    end
   	end
+
+  	private
+
+    	def download_params
+      		params.require(:download).permit(:user_id, :model_id, :species_id, :model_use_id, :terminos)
+    	end
 end

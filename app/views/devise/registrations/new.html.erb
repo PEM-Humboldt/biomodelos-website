@@ -27,11 +27,13 @@
     <%= f.label :confirmar_clave %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+  <div class="field2">
   <%= f.check_box :terms_of_service, {:class => "mb40"} %>
-  <label  class="checkboxterm"><a class="linkterminos" href="">He leído y acepto los términos y condiciones</a></label></br>
+  <label class="checkboxterm"><%= link_to 'He leído y acepto los términos y condiciones', home_terms_path, {class: 'linkterminos', target: '_blank'} %></label></br>
     <!-- <input type="checkbox" name="aceptoterms" value="terms" id="acepto-chk" class="mb40" />
         <label  class="checkboxterm"><a class="linkterminos" href="">He leído y acepto los términos y condiciones</a></label></br>
     </input> -->
+  </div>
   <%= recaptcha_tags %>
   <div class="actions">
     <%= f.submit "REGISTRARSE" %>

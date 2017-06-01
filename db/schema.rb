@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512203834) do
+ActiveRecord::Schema.define(version: 20170523193938) do
+
+  create_table "downloads", force: :cascade do |t|
+    t.integer  "user_id",      null: false
+    t.string   "model_id",     null: false
+    t.integer  "species_id",   null: false
+    t.integer  "model_use_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "downloads", ["model_id"], name: "index_downloads_on_model_id"
 
   create_table "eco_variables", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
@@ -70,6 +81,12 @@ ActiveRecord::Schema.define(version: 20170512203834) do
 
   create_table "groups_users_states", force: :cascade do |t|
     t.string   "name",       limit: 100, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "model_uses", force: :cascade do |t|
+    t.string   "description", limit: 300, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
