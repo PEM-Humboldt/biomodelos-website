@@ -19,7 +19,7 @@ angular.module('biomodelos')
       }
 
       _BioModelosVisorModule.changeThresholdLayer($scope.corteSlider.value);
-      console.log('on change ' + $scope.corteSlider.value); // logs 'on change slider-id'
+      //console.log('on change ' + $scope.corteSlider.value); // logs 'on change slider-id'
     }
 
     $scope.corteSlider = {

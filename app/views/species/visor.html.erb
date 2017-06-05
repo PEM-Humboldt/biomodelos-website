@@ -30,7 +30,7 @@
 		<%= render 'species/species_browser' %>
 	</div>
 
-	<div ng-show="info" class="cajavisor">
+	<div ng-show="info" class="cajavisor infocaja">
 		<%= render 'species/species_info' %>
 	</div>
 
@@ -104,11 +104,6 @@
 
 <script>
 $(document).ready(function(){
-
-	$('#cities').change(function(){
-	    var home_city =$("#cities option:selected").val();
-	    console.log(home_city);
-	});
 
  	$(".leaflet-control-layers").removeClass("leaflet-control-layers-expanded");
 

@@ -254,12 +254,8 @@ $(document).ready(function(){
   		});
   		$.post( "/records/edit_record", { species_id: $("#species_id_field").val()}).done(function(data) {
     		_BioModelosVisorModule.filterRecords(findByFilters, visualizeFilters, yearFilters, monthFilters, data);
-  		});
-
-		
+  		});	
 	});
-
-	
 
 	/* Botón Limpiar filtros
 	*
@@ -317,6 +313,9 @@ $(document).ready(function(){
 	$("#visCntrl").on("click", "#cbt_crearBtn", { isNewMap: true }, _activateEditionMenu);
 
 	$("#visCntrl").on("click",".vbtnedit", function(e){
+		if ($(".cajasearch").is(":visible")) $("#clsSearchBox").click();
+		if ($(".hipotesis").is(":visible")) $("#clsModelsBox").click();
+		if ($(".infocaja").is(":visible")) $("#clsInfoBox").click();
 		/* TODO clean layers */
 		$("#regMenu_slider").show();
 		$(".modelname").html("");
@@ -335,7 +334,16 @@ $(document).ready(function(){
 		});
 	});
 
+	$(".vbtnfind").click(function(e){
+		if ($(".editbox").is(":visible")) $("#clsEditBox").click();
+		if ($(".hipotesis").is(":visible")) $("#clsModelsBox").click();
+		if ($(".infocaja").is(":visible")) $("#clsInfoBox").click();
+	});
+
 	$(".vbtnhipo").click(function(e){
+		if ($(".cajasearch").is(":visible")) $("#clsSearchBox").click();
+		if ($(".editbox").is(":visible")) $("#clsEditBox").click();
+		if ($(".infocaja").is(":visible")) $("#clsInfoBox").click();
 		/* TODO clean layers */
 		$(".btnedicion").hide();
 		if($(".cajitaeditar").is(":visible")){
@@ -351,6 +359,9 @@ $(document).ready(function(){
 	});
 
 	$(".vbtninfo").click(function(e){
+		if ($(".cajasearch").is(":visible")) $("#clsSearchBox").click();
+		if ($(".editbox").is(":visible")) $("#clsEditBox").click();
+		if ($(".hipotesis").is(":visible")) $("#clsModelsBox").click();
 		/* TODO clean layers */
 		$.ajax({
 		    type: 'POST',
@@ -430,7 +441,6 @@ $(document).ready(function(){
 			data.locality = locRecordEdition;
 		}
 		var valResponse = validate(varsToValidate, constraints, {format: "flat"});
-		console.log(valResponse);
 		if(valResponse){
 			var response = "";
 			for(var i=0; i<valResponse.length; i++){
@@ -439,7 +449,6 @@ $(document).ready(function(){
 			alertify.alert(response);
 		}
 		else{
-			console.log(data);
 			$.ajax({
 			    type: 'POST',
 			    url: "/records/update_record",

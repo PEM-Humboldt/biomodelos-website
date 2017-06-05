@@ -1,9 +1,12 @@
 <% if @init_model %>
 	_BioModelosVisorModule.loadModel("<%= set_path(@init_model.pngUrl, 'model') %>", "<%= @init_model.modelStatus %>");
+	$(".modelname").show();
 	$(".modelname").html("<%= @init_model.modelStatus %>");
 	<% if !@popup_content.blank? %>
 		alertify.alert("<%= @popup_content %>");
 	<% end %>
 <% else %>
+	$(".modelname").html("");
+	$(".modelname").hide();
 	alertify.alert("Esta especie aun no cuenta con modelo de distribución. Para contribuir a su desarrollo, registrate en el grupo de expertos de la especie.");
 <% end %>
