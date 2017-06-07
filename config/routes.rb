@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   post "groups_species/species_by_group"
   post "groups_species/update_groups_species"
   post "groups/bulk_group_email"
+  post "groups/suggest_group"
   post "groups_users/users_by_group"
   post "groups_users/update_groups_user"
   post "users/send_message_to_user"

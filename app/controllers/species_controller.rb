@@ -72,7 +72,10 @@ class SpeciesController < ApplicationController
 			@forest_loss = Model.forest_loss(params[:species_id])
 			@all_covers = Model.covers(params[:species_id])
 			# Sort the covers by value
-			@covers =  Hash[@all_covers[0].select{|k, v| v && v!= 0 && k != "modelID"}.sort_by{ |k, v| v }.reverse]
+			@covers = nil
+			if !@all_covers.blank?
+				@covers =  Hash[@all_covers[0].select{|k, v| v && v!= 0 && k != "modelID"}.sort_by{ |k, v| v }.reverse]
+			end
 
 			respond_to do |format|
 	      		format.js

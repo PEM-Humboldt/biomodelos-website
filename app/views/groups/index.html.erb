@@ -4,24 +4,25 @@
 			<h1>grupos biomodelos</h1>
 			<%= link_to '', root_path, class: 'closecb' %>
 			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.</p>
-			<a ng-click="newgroup=!newgroup; activeButton()" ng-class="{'btnact': isActive}" class="newgrbtn">Sugerir Grupo</a>
-			<div ng-show="newgroup" class="forms clearfix">
-				<p>Ingrese la información a continuación sobre el grupo que desea sugerir para que podamos contactarlo:</p>
-				<form action="">
-					<input type="text" placeholder="Nombre del grupo"></input>
-					<input type="text" placeholder="Posible moderador"></input>
-					<textarea name="" id="" cols="10" rows="6" maxlength="600" placeholder="Breve descripción"></textarea>
-					<input type="submit" value="Enviar"></input>
-				</form>
-			</div>
-
+			<% if user_signed_in? %>
+				<a ng-click="newgroup=!newgroup; activeButton()" ng-class="{'btnact': isActive}" class="newgrbtn">Sugerir Grupo</a>
+				<div ng-show="newgroup" class="forms clearfix">
+					<p>Ingrese la información a continuación sobre el grupo que desea sugerir para que podamos contactarlo:</p>
+					<%= simple_form_for :suggested_group, :url => {:controller => "groups", :action => "suggest_group" }, :html => {:class => 'forma' } do |f| %>
+					    <%= f.input :name, :maxlength => 50, :placeholder => "Nombre del grupo", label: false %>
+					    <%= f.input :moderator, :maxlength => 50, :placeholder => "Posible moderador", label: false %>
+					    <%= f.input :content, :placeholder => "Breve descripción", :as => :text, :input_html => {:maxlength => 600, :cols => "10", :rows => "6"}, label: false %>
+					    <%= f.button :submit, :value => "Enviar" %>
+					<% end %>
+				</div>
+			<% end %>
 			<div class="sugeridor"></div>
 			<div class="mt10"></div>
 			<div class="aligner2">
 				<% @groups.each do |group| %>
 					<div class="groupcard">
 						<div class="groupthumb">
-						<%= link_to image_tag(group.logo.url(:profile).to_s), group %>
+						<%= link_to image_tag(group.logo.url(:thumb).to_s), group %>
 						</div>
 						<%= link_to group, :class => 'titgrcard' do%>
 							<%= group.name %>
