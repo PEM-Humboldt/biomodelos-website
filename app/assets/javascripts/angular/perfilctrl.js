@@ -15,3 +15,22 @@ angular.module('biomodelos')
     };
 
 }]);
+
+angular.module('biomodelos').directive('boletin', function(){ 
+  var select = function(element) {
+    if(element.hasClass('actbol'))
+        element.removeClass('actbol');
+    else
+        element.addClass('actbol');
+  }
+  return {
+    
+    link : function(scope, element, attrs){
+      
+       element.on('click', function(){
+         select(element);
+       });
+       
+    }
+  }
+});
