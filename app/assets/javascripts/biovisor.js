@@ -20,18 +20,20 @@ var _BioModelosVisorModule = function() {
 
 	var redIcon = new L.Icon({	iconUrl: '/assets/redmarker.png',
        							shadowUrl: "/assets/marker-shadow.png",
-	       						iconSize:    [25, 41],
-								iconAnchor:  [12, 41],
-								popupAnchor: [1, -34],
+	       						iconSize:    [25, 25],
+								iconAnchor:  [12, 25],
+								popupAnchor: [1, -25],
 								tooltipAnchor: [16, -28],
-								shadowSize:  [41, 41]}),
-       	blueIcon = new L.Icon({	iconUrl: '/assets/marker-icon.png',
+								shadowAnchor: [7, 25],
+								shadowSize:  [25, 25]}),
+       	blueIcon = new L.Icon({	iconUrl: '/assets/regperfil.png',
        			  				shadowUrl: "/assets/marker-shadow.png",
-       			  				iconSize:    [25, 41],
-								iconAnchor:  [12, 41],
-								popupAnchor: [1, -34],
+       			  				iconSize:    [25, 25],
+								iconAnchor:  [12, 25],
+								popupAnchor: [1, -25],
 								tooltipAnchor: [16, -28],
-								shadowSize:  [41, 41]});
+								shadowAnchor: [7, 25],
+								shadowSize:  [25, 25]});
 
     var headers = {
     					"acceptedNameUsage":"Nombre aceptado",
@@ -187,12 +189,20 @@ var _BioModelosVisorModule = function() {
 	* @param {boolean} isEditable - True if the user can edit this species information.
 	*/
 	var getSpeciesRecords = function(species_id, isEditable){
+		if(map.hasLayer(cluster)) {
+			clearLayer(cluster);
+       		layerControl.removeLayer(cluster);
+       	}
+
 		$.getJSON("/species/" + species_id + "/get_species_records",function(data){
 			species_records = data;
 		    filterRecords(["",""], ["","","visualadd"], [], [], isEditable);
 		}).fail(function(jqxhr, textStatus, error) {
     		alertify.alert("Ha ocurrido un error al cargar los registros: " + error);
   		});
+  		cluster = L.markerClusterGroup();
+		map.addLayer(cluster);
+		layerControl.addOverlay(cluster,"Registros");
 	}
 
 	var includesValue = function(val, arr){
@@ -212,10 +222,7 @@ var _BioModelosVisorModule = function() {
 	* @param {boolean} isEditable - True if the user can edit this species information.
 	*/
 	var filterRecords = function(selectFilters, visFilters, yearFilters, monthFilters, isEditable){
-		if(map.hasLayer(recordsLayer)) {
-			clearLayer(recordsLayer);
-       		layerControl.removeLayer(recordsLayer);
-       	}	
+		cluster.clearLayers();
        	recordsLayer = L.geoJson(species_records,{
        			pointToLayer: function(feature, latlng) {
        				var filtered = false;
@@ -295,7 +302,7 @@ var _BioModelosVisorModule = function() {
 					layer.bindPopup(popupcontent.join('<div class="mt10"></div>'));
 				}	
 		});
-		map.addLayer(recordsLayer);
+		cluster.addLayer(recordsLayer);
 		map.on('popupopen', function(e) {
 		   currentPopupID = e.popup._leaflet_id;
 		   addNiceScroll();
@@ -350,7 +357,6 @@ var _BioModelosVisorModule = function() {
 	* Function that gets the unique values from the selected filter
 	*/
 	var uniqueValues = function(filterName){
-		console.log(filterName);
 		var result = [];
 		if(species_records){
 			var lookup = {},
@@ -573,8 +579,6 @@ var _BioModelosVisorModule = function() {
 		pointDrawer.disable();
 
 		var currentLayer;
-		console.log(newRecordsLayer);
-		console.log(currentPopupID);
 		newRecordsLayer.eachLayer(function(layer) {
 	        if (layer._popup._leaflet_id === currentPopupID) {
 	            currentLayer = layer;
@@ -597,9 +601,7 @@ var _BioModelosVisorModule = function() {
 	}
 
 	var editPolygon = function (){
-		console.log(polygonEditor);
 		polygonEditor.enable();
-		console.log(polygonEditor);
 	}
 
 	var cancelEditPolygon = function(){
@@ -695,7 +697,6 @@ var _BioModelosVisorModule = function() {
 	}
 
 	var loadUserLayer = function (userLayer) {
-	   console.log(userLayer);
 		/* Dispose older review if it exists */
        editableLayer.clearLayers();
 
@@ -723,7 +724,6 @@ var _BioModelosVisorModule = function() {
    }
 
    var unloadEditionLayer = function(){
-   		console.log("Has editableLayer: " + map.hasLayer(editableLayer));
    		if(map.hasLayer(editableLayer)) {
    			editableLayer.clearLayers();
        		map.removeLayer(editableLayer);

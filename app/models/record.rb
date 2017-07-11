@@ -12,7 +12,7 @@ class Record
 	end
 
 	def self.update_record(data)
-		JSON.parse(get('/' + data[:recordId], :body => data).body)
+		JSON.parse(put('/' + data[:recordId], :body => data).body)
 	end
 
 	def self.records_institutions(taxID)

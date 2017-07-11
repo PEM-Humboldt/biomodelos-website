@@ -4,7 +4,7 @@
 	</div>
 	<% @pending_species.each do |p_species| %>
 		<div class="spp">
-			<a><%= p_species[0] %><%= hidden_field_tag('', p_species[1], :class => 'p_sp_id') %></a>
+			<a href="/species/visor?species_id=<%= p_species[1] %>"><%= p_species[0] %><%= hidden_field_tag('', p_species[1], :class => 'p_sp_id') %></a>
 			<div class="acceptbuttons">
 				<a href="" class="btn_dismiss_sp"><%= image_tag("delicon.png", :title => 'No Aprobar', :rel => "tooltip") %></a>
 				<a href="" class="btn_approve_sp"><%= image_tag("aprobicon.png", :title => 'Aprobar especie', :rel => "tooltip") %></a>
@@ -20,7 +20,7 @@
 <div id="grp_spe_box">
 	<% @actual_species.each do |species| %>
 		<div class="spp">
-			<a><%= species[0] %><%= hidden_field_tag('', species[1], :class => 'a_sp_id') %></a>
+			<a href="/species/visor?species_id=<%= species[1] %>"><%= species[0] %><%= hidden_field_tag('', species[1], :class => 'a_sp_id') %></a>
 			<p class="spperc"></p>
 		</div>
 	<% end %>

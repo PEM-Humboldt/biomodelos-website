@@ -1,16 +1,16 @@
-<form class="terminos">
-    <p>Antes de descargar, recuerda:</p>
-    <input type="checkbox" name="aceptoterms" value="terms" id="acepto-chk" />
-        <label  class="checkboxterm"><%= link_to 'He leído y acepto los términos y condiciones', home_terms_path, :target =>"_blank" %></label></br>
-    </input>
-    <p>Selecciona el uso que le darás al modelo:</p>
-   	<input type="radio">Actividades educativas (incluye desde preparación de clases hasta realización de tareas)</input>
-	<input type="radio">Investigación aplicada (incluye planes de ordenamiento territorial, planes de conservación, etc.)</input>
-	<input type="radio">Investigación académica</input>
-	<input type="radio">Consultoría ambiental</input>
-	<input type="radio">Bio-prospección</input>
- 	<input type="radio">Otros</input>
- 	<div class="clearfix"></div>
-    <%= link_to 'X', '', {:id => 'cancelo-trm-btn', :class=> 'btngen'} %>
-    <div id='download-btn'><%= link_to 'ACEPTO', models_download_model_path(:zip_url => params[:zip_url], :box => params[:box]), {:class => 'btngen', :id => 'acepto-btn'} %></div>
-</form>
+    <%= simple_form_for @download, :url => models_download_model_path, html: { class: "terminos"} do |f| %>
+        <p>Antes de descargar, recuerda:</p>
+        <%= f.hidden_field :model_id, value: params[:model_id] %>
+        <%= f.hidden_field :species_id, value: params[:species_id] %>
+        <%= f.hidden_field :zip_url, value: params[:zip_url] %>
+        <%= f.input :terminos, label: false, as: :boolean, :required => true %>
+        <label class="checkboxterm"><%= link_to 'He leído y acepto los términos y condiciones', home_terms_path, :target =>"_blank" %></label></br>
+        <!-- <input type="checkbox" name="aceptoterms" value="terms" id="acepto-chk" />
+            <label  class="checkboxterm"><%= link_to 'He leído y acepto los términos y condiciones', home_terms_path, :target =>"_blank" %></label></br>
+        </input> -->
+        <p>Selecciona el uso que le darás al modelo:</p>
+        <%= f.collection_radio_buttons(:model_use_id, ModelUse.all, :id, :description, :class=> 'terminoschk') %>
+     	<div class="clearfix"></div>
+        <%= link_to 'X', '', {:id => 'cancelo-trm-btn', :class=> 'btngen'} %>
+        <%= f.submit 'ACEPTO', {:class => 'uzcolor', :id => 'acepto-btn'} %>
+    <% end %>

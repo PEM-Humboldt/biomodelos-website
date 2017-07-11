@@ -11,7 +11,7 @@
 					<%= image_tag(set_path(continuous_t.thumbUrl, "thumb")) %>
 				</div>
 			<div class="editactions clearfix">
-					<%= link_to models_download_model_path(:zip_url => set_path(continuous_t.zipUrl, "zip"), :box => 1), {:class => 'download', :title => "Bajar el modelo", :rel => "tooltip", :remote => true} do %>
+					<%= button_to models_download_terms_path(:zip_url => set_path(continuous_t.zipUrl, "zip"), :box => 1, :model_id => continuous_t.modelID, :species_id => @species_id), {:class => 'pad3', :title => "Descargar el modelo", :rel => "tooltip", :remote => true} do %>
 						<%= image_tag("downicon.png") %>
 					<% end %>
 					<a target="_blank" href="/models/<%= continuous_t.modelID %>/metadata" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>

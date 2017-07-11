@@ -31,7 +31,7 @@
         <p>
           <% if @collections[0]["colection"].length == 1 && @collections[0]["colection"][0].blank? %>
             No hay información disponible.
-          <% else %><
+          <% else %>
             <% @collections[0]["colection"].each_with_index do |colection, i| %><%= colection %><% if i < @collections[0]["colection"].length - 1 %>, <% else %>.<% end %>
             <% end %>
           <% end %>

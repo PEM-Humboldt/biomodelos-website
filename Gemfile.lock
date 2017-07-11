@@ -140,6 +140,8 @@ GEM
     rake (11.1.2)
     rdoc (4.2.2)
       json (~> 1.4)
+    recaptcha (4.3.1)
+      json
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     rspec-core (3.4.4)
@@ -216,6 +218,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick (~> 4.5, >= 4.5.1)
   rails (= 4.2.6)
+  recaptcha
   rspec-rails (~> 3.4.2)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

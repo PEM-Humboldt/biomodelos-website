@@ -68,4 +68,20 @@ class GroupsController < ApplicationController
 	    GroupMailer.bulk_email_group(params[:message][:message], mails, group.name, current_user.name).deliver_now
 	    redirect_to group_path(id: group.id), :flash => { :notice => "El mensaje ha sido enviado a los miembros del grupo." }	
 	end
+
+	def suggest_group
+		@new_group = SuggestedGroup.new(suggested_group_params)
+		if @new_group.valid?
+			AdministratorsMailer.group_suggested(current_user, @new_group).deliver_now
+			redirect_to groups_path, notice: 'Tu sugerencia ha sido recibida.'
+		else
+			redirect_to groups_path, :flash => { :error => "Debe llenar todos los campos para sugerir un grupo." }
+		end
+	end
+
+	private
+
+		def suggested_group_params
+      		params.require(:suggested_group).permit(:name, :moderator, :content)
+    	end
 end

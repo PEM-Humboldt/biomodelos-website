@@ -716,6 +716,11 @@ p.redsq::before	{
 	vertical-align: middle;
 }
 
+.field2 .field_with_errors {
+	display: inline-block !important;
+}
+
+.editbox input[type="submit"],
 .hipotesis input[type="submit"], 
 .loginbox input[type="submit"] {
 	background: none;
@@ -729,6 +734,32 @@ p.redsq::before	{
 	cursor: pointer;
 	float: right;
 	width: auto;
+}
+
+.editbox input[type="submit"],
+.hipotesis input[type="submit"] {
+	padding: 7px 16px 7px;
+	float: inital;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.editbox input[type="submit"]:hover,
+.hipotesis input[type="submit"]:hover {
+	background-color: #db3f2a;
+	color: #fff;
+}
+
+.editbox span,
+.hipotesis span {
+	display: block;
+	font-size: 13px;
+}
+
+.editbox span label, 
+.hipotesis span label {
+	margin-left: 5px;
+	line-height: 2;
 }
 
 .loginbox label {
@@ -751,8 +782,18 @@ p.redsq::before	{
 	margin-bottom: 40px;
 	font-size: 0.87em;
 	line-height: 0;
-
 }
+
+.loginbox a.linkterminos {
+	float: initial;
+	color: #db3f2a;
+	padding: 0 5px;
+}
+
+.loginbox input[type="checkbox"] {
+	margin-top: 18px;
+}
+
 .mb40 {
 	margin-bottom: 20px;
 }
@@ -1159,6 +1200,26 @@ p.groupuser {
 
 .pad3 img {
 	padding: 3px 7px 3px 0;
+}
+
+button.pad3 {
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+
+.editactions .pad3 img {
+	padding: 0 7px 0 0;
+}
+
+.editactions form,
+.mmicon form {
+	display: inline-block;
+	padding: 0 !important;
+	width: auto;
+	margin: 0 !important;
+	border: none !important;
+	float: left;
 }
 
 .raty-cancel {
@@ -2519,6 +2580,7 @@ a.cajathumb p {
 	width: 200px;
 	border-left: 1px solid #8d8d8d;
 	color: #393836;
+	display: none;
 }
 
 .gradient {
@@ -3281,10 +3343,15 @@ form.terminos .btngen:hover {
 	color: #fff;
 }
 
+.download_terminos {
+	display: inline-block;
+}
+
+form.terminos input[type="checkbox"],
 form.terminos input[type="radio"] {
-	font-size: 14px;
-	color: #fff;
-	margin-bottom: 5px;
+	font-size: 13px;
+	vertical-align: middle;
+	margin-top: -3px;
 }
 
 label.checkboxterm  {

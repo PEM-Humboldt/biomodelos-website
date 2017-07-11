@@ -1,6 +1,6 @@
   <div class="innercontainer metad">
     <div class="dialog">
-      <h1>Metadatos modelo <em><% @species_name ? "" : @species_name %></em></h1>
+      <h1>Metadatos modelo <em><%= @species_name.blank? ? "" : @species_name %></em></h1>
       <% if @metadata %>
         <p><b>ID del Modelo: </b><%= @metadata[0]["modelID"] %></p>
         <p><b>Número de registros: </b><%= @records_number %></p>
@@ -18,7 +18,7 @@
 
         <h2>Cita</h2>
         <blockquote>
-        <p><%=  @metadata[0]["modelAuthors"] %>. <%= @metadata[0]["yyyy"].blank? ? "NA" : @metadata[0]["yyyy"] %>. Modelo de distribución de <em>Aburria aburri</em> ID <%= @metadata[0]["modelID"] %>. Laboratorio de Biogeografía Aplicada. Instituto Alexander von Humboldt.</p><div class="overf"><a href="http://biomodelos.humboldt.org.co/">http://betabiomodelos.humboldt.org.co/models/visor?species_id=<%= @metadata[0]["taxID"] %></a>.</div>
+        <p><%=  @metadata[0]["modelAuthors"] %>. <%= @metadata[0]["yyyy"].blank? ? "NA" : @metadata[0]["yyyy"] %>. Modelo de distribución de <em><%= @species_name.blank? ? "" : @species_name %></em> ID <%= @metadata[0]["modelID"] %>. Laboratorio de Biogeografía Aplicada. Instituto Alexander von Humboldt.</p><div class="overf"><a href="http://biomodelos.humboldt.org.co/">http://betabiomodelos.humboldt.org.co/models/visor?species_id=<%= @metadata[0]["taxID"] %></a>.</div>
         </blockquote>
       <% end %>
 

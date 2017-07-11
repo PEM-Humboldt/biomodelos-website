@@ -1,14 +1,14 @@
-<% if @eoo || !@eoo.blank? %>
+<% if !@eoo.blank? %>
 	<div class="maindata">
-		<h4><%= @eoo[0]["statRangeSize"].round %> km<b>2</b></h4>
+		<h4><%= @eoo[0]["statRangeSize"].nil? ? '-': @eoo[0]["statRangeSize"].round %> km<b>2</b></h4>
 		<h5>Rango Geográfico</h5>
 	</div>
 	<div class="seconddata">
-		<h4><%= @eoo[0]["statModelEOO"].round %> km<b>2</b></h4>
+		<h4><%= @eoo[0]["statModelEOO"].nil? ? '-': @eoo[0]["statModelEOO"].round %> km<b>2</b></h4>
 		<h5>PMC sobre modelos</h5>
 	</div>
 	<div class="seconddata fdata">
-		<h4><%= @eoo[0]["statRecsEOO"].round %> km<b>2</b></h4>
+		<h4><%= @eoo[0]["statRecsEOO"].nil? ? '-': @eoo[0]["statRecsEOO"].round %> km<b>2</b></h4>
 		<h5>PMC sobre registros</h5>
 	</div>
 <% end %>

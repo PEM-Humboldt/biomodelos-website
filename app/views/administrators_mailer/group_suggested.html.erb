@@ -59,17 +59,15 @@ h3 span {
 <body>
 <div class="linewidth"></div>
 <div class ="contenido">
-	Se ha recibido una publicación en BioModelos con la siguiente información:<br/>
-	<br/>
+	<h3>Se ha recibido una sugerencia para la creación de un nuevo grupo desde la aplicación <span>BioModelos</span> con la siguiente información:</h3>
+
 	Hora de recepción: <%= @datetime.strftime("%F %r") %><br/>
 	<br/>
-	<b>Experto:</b> <a href="http://biomodelos.humboldt.org.co/users/<%= @user.id %>"><%= @user.name %></a><br/>
-	<b>E-Mail:</b> <%= @user.email %><br/>
-	<b>Archivo:</b> <%= @publication.files %><br/>
-	<b>Licencia CC:</b> <%= @publication.cc_license %><br/>
-	<b>Visualización:</b> <%= @publication.records_vis %><br/>
-	<b>Contacto SiB:</b> <%= @publication.sib_contact %><br/>
-	<b>Atlas de la Biodiversidad:</b> <%= @publication.atlas_agreement %><br/>
+	Usuario: <b><a href="biomodelos.humboldt.org.co/users/<%= @user.id %>"><%= @user.name %></a></b><br/>
+	E-Mail: <b><%= @user.email %></b><br/>
+	Nombre del grupo: <b><%= @new_group.name %></b><br/>
+	Posible moderador: <b><%= @new_group.moderator %></b><br/>
+	Descripción del grupo: <b><%= @new_group.content %></b><br/>
 </div>
 </body>
 </html>

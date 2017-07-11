@@ -24,7 +24,7 @@
 				</div>
 			</div>
 			<div class="mmicon clearfix">
-				<%= link_to models_download_model_path(:zip_url => set_path(model.zipUrl, "zip"), :box => 2), {:class => 'pad3', :title => "Descargar el modelo", :rel => "tooltip", :remote => true} do %>
+				<%= button_to models_download_terms_path(:zip_url => set_path(model.zipUrl, "zip"), :box => 2, :model_id => model.modelID , :species_id => @species_id), {:class => 'pad3', :title => "Descargar el modelo", :rel => "tooltip", :remote => true} do %>
 						<%= image_tag("downicon.png") %>
 					<% end %>
 				<a target="_blank" href="/models/<%= model.modelID %>/metadata" title="Ver metadatos del modelo" rel="tooltip" class="pad3"><%= image_tag("metaicon.png") %></a>

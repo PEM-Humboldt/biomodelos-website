@@ -1,0 +1,27 @@
+var $box;
+<% if user_signed_in? %>
+	if(<%= params[:box] %> == 1)
+		$box = $('.termbox');
+	else
+		$box = $('.termbox2');
+
+	$box.html('<%=j render partial: 'models/terms_and_conditions' %>');
+	$("#acepto-btn").click(function(e){
+		if($("#download_terminos").is(':checked') && $("input:radio[name ='download[model_use_id]']").is(':checked'))
+		{
+			$box.hide();
+		}
+		else{
+			e.preventDefault();
+			alertify.alert("Debe leer y aceptar los términos y condiciones al igual que seleccionar el uso que le darás al modelo para continuar con la descarga.");
+		}
+		
+	});
+	$("#cancelo-trm-btn").click(function(e){
+		e.preventDefault();
+		$box.hide();
+	});
+	$box.show('slow');
+<% else %>
+	alertify.alert("Debe estar registrado en la plataforma para poder descargar el modelo.");
+<% end %>

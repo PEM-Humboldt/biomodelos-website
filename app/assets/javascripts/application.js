@@ -19,6 +19,7 @@
 //= require utils.js
 //= require leaflet/dist/leaflet-src
 //= require leaflet-draw/dist/leaflet.draw
+//= require leaflet.markercluster/dist/leaflet.markercluster
 //= require Leaflet.Coordinates/dist/Leaflet.Coordinates-0.1.5.min
 //= require angularjs-slider/dist/rzslider.min
 //= require v-accordion/dist/v-accordion.min

@@ -12,4 +12,11 @@ class AdministratorsMailer < ApplicationMailer
 	    @datetime = DateTime.now
 	    mail to: "biomodelos@humboldt.org.co",  subject: "BioModelos: Nuevo modelo publicado por experto"
 	end
+
+	def group_suggested(user, new_group)
+		@user = user
+		@new_group = new_group
+		@datetime = DateTime.now
+		mail to: "dlopez@humboldt.org.co",  subject: "BioModelos: Nueva sugerencia de grupo"
+	end
 end

@@ -2,7 +2,7 @@
 		<% total_tasks = 0 %>
 		<% tasks_done = 0 %>
 		<div class="tareaspp"><!-- 
-		--><a class="colspp"><%= species[0] %></a><!-- 
+		--><a class="colspp" href="/species/visor?species_id=<%= species[1] %>"><%= species[0] %></a><!-- 
 		--><div class="coladv"><% task = @tasks.select{|x| x.task_type_id == 1 && x.species_id == species[1]}.uniq %>
 			<% if task.size > 0 %>
 				<% total_tasks = total_tasks + 1 %>
