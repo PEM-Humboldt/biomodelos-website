@@ -19,7 +19,7 @@
 <div id="visCntrl" ng-controller="visorCtrl">
 	<div class="spname"></div>
 	<%= hidden_field_tag 'species_id_field'%>
-	<div class="modelname"> <!-- agregar en Continuo class: gradient --></div>
+	<div class="modelname" title="Estado del modelo" rel="tooltip"> <!-- agregar en Continuo class: gradient --></div>
 	<div id="layerbtn" title="Capas geográficas" rel="tooltip" class="visorbtn"></div>
 	<div ng-click="find=!find" title="Búsqueda Avanzada" rel="tooltip" class="visorbtn vbtnfind" selectable></div>
 	<div ng-click="info=!info" title="Información de la especie" rel="tooltip" class="visorbtn vbtninfo" selectable></div>
@@ -41,10 +41,10 @@
 			<a ng-click="hipotesis=!hipotesis" class="closevb" id="clsModelsBox">x</a>
 		</div>
 		<div class="cvcolumn">
-			<div class="followstate fright">
+<!-- 			<div class="followstate fright">
 				<a href="" class="follow invisible">seguir</a>
 				<div class="follow siguiendo">siguiendo</div>
-			</div>
+			</div> -->
 			<div id="hipotesisbox_content"></div>
 		</div>
 	</div>

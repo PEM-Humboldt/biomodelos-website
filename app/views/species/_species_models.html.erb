@@ -8,18 +8,44 @@
 					<a class="back2 sp_model_link">
 						<%= hidden_field_tag('imgsrc_model', set_path(model.pngUrl, "model")) %>
 						<div class="titlethumb">
-							<%= model_title_thumb(model.modelStatus) %>
+							<%= model_title_thumb(model.modelStatus, model.published) %>
 							<%= hidden_field_tag 'txt_model_status', model.modelStatus %>
 						</div>
+						<div class="citathumb"><b>
+							<% if !model.level.blank? %>
+						 		Nivel <%= model.level %>
+						 	<% end %>
+						</b></div>
 						<div class="infothumb">
 							Calificación promedio
-							<div class="calificacion"><%= Rating.average_rating(model.modelID) %> <b>(12 votos)</b></div>
+							<div class="calificacion"><%= Rating.average_rating(model.modelID) %> <b>(<%= Rating.rating_number(model.modelID) %> votos)</b></div>
 						</div>
 						<div class="infothumb">
 							Número descargas
-							<div class="calificacion">3</div>
+							<div class="calificacion"><%= Download.downloads(model.modelID) %></div>
 						</div>
-						<div class="citathumb">Gutiérrez, et.al, 2015</div>
+						<div class="citathumb lhlow"><%= model.citation.blank? ? "": model.citation %></div>
+						<div class="commons">
+							<% if model.license == 'by' %>
+								<%= image_tag("cc1.png") %>
+								<%= image_tag("cc2.png") %>
+							<% elsif model.license == 'by-sa' %>
+								<%= image_tag("cc1.png") %>
+								<%= image_tag("cc2.png") %>
+								<%= image_tag("cc4.png") %>
+							<% elsif model.license == 'by-nc' %>
+								<%= image_tag("cc1.png") %>
+								<%= image_tag("cc2.png") %>
+								<%= image_tag("cc3.png") %>
+							<% elsif model.license == 'by-nc-sa' %>
+								<%= image_tag("cc1.png") %>
+								<%= image_tag("cc2.png") %>
+								<%= image_tag("cc3.png") %>
+								<%= image_tag("cc4.png") %>
+							<% elsif model.license == 'cc-zero' %>
+								<%= image_tag("cc5.png") %>
+							<% end %>
+						</div>
 					</a>
 				</div>
 			</div>

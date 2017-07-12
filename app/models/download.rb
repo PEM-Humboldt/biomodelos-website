@@ -9,5 +9,12 @@ class Download < ActiveRecord::Base
 	validates :terminos, presence: true, acceptance: {message: "Debe aceptar los términos y condiciones."} 
 
 	belongs_to :user
-	has_one :model_use	
+	has_one :model_use
+
+	# Gets the average rating of a model rounded to 2 decimals. 
+    #
+    # @param model_id [Number] ID of the model.
+	def self.downloads(model_id)
+		where("model_id = ?", "#{model_id}").count
+	end	
 end

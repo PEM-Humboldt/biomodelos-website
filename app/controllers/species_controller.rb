@@ -27,6 +27,19 @@ class SpeciesController < ApplicationController
 	    end
 	end
 
+	def filter
+		begin
+			@species = Species.filter(params)
+			respond_to do |format|
+	      		format.js
+	    	end
+		rescue => e
+			logger.error "#{e.message} #{e.backtrace}"
+			err_msg = e.message.tr(?',?").delete("\n")
+	    	render :js => "alert('Ha ocurrido un error en la búsqueda. #{err_msg}');"
+	    end
+	end
+
 	def set_species
 		begin
 			@can_edit = false

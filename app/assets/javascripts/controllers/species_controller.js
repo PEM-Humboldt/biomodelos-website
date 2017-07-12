@@ -22,6 +22,48 @@ var _speciesFunctionsModule = function(){
 
 $(document).ready(function(){
 
+
+	/*
+	* Advanced search filters
+	*/
+
+	function add_species_filters(){
+		var bmclasses = [];
+		var categories = [];
+		$('.sppbtn input[type="checkbox"]').each(function () {
+                    if (this.checked && this.value == 1)
+                      bmclasses.push('anfibios');
+                    if (this.checked && this.value == 2)
+                      bmclasses.push('aves');
+                    if (this.checked && this.value == 3)
+                      bmclasses.push('invertebrados');
+                    if (this.checked && this.value == 4)
+                      bmclasses.push('mamiferos');
+                    if (this.checked && this.value == 5)
+                      bmclasses.push('peces');
+                    if (this.checked && this.value == 6)
+                      bmclasses.push('reptiles');
+                    if (this.checked && this.value == 7)
+                      bmclasses.push('plantas');
+        });
+
+		$('.typebtn input[type="checkbox"]').each(function () {
+                    if (this.checked && this.value == 1)
+                      categories.push('Endemic');
+                    if (this.checked && this.value == 2)
+                      categories.push('Invasive');
+                    if (this.checked && this.value == 3)
+                      categories.push('Endangered');
+                  	if (this.checked && this.value == 4)
+                      categories.push('Valid');
+         });
+
+		$.post( "/species/filter", {bmclasses: bmclasses, categories: categories});
+	}
+
+	$(".cajasearch").on("click"," .sppbtn input[type='checkbox']", add_species_filters);
+	$(".cajasearch").on("click"," .typebtn input[type='checkbox']", add_species_filters);
+
 	/* 
 	* Botones de cerrar las cajas del menú: Búsqueda, Info, Modelos, Contribuciones 
 	*/
@@ -338,6 +380,7 @@ $(document).ready(function(){
 		if ($(".editbox").is(":visible")) $("#clsEditBox").click();
 		if ($(".hipotesis").is(":visible")) $("#clsModelsBox").click();
 		if ($(".infocaja").is(":visible")) $("#clsInfoBox").click();
+		if ($(".vbtnfind").hasClass('vbtnact')) add_species_filters(); 
 	});
 
 	$(".vbtnhipo").click(function(e){
@@ -379,7 +422,7 @@ $(document).ready(function(){
 		if($(".cajitaeditar").is(":visible")){
 			$(".btnedicion").click();
 		}
-		$(".modelname").html($("#txt_model_status").val());
+		$(".modelname").html(map_status_name($("#txt_model_status").val()));
         _BioModelosVisorModule.unloadAllLayers();
 		_BioModelosVisorModule.loadModel($(this).find('#imgsrc_model').val(), $('.titlethumb').val());
 
@@ -600,7 +643,7 @@ $(document).ready(function(){
             isError = true;
             alertify.alert( "Ha ocurrido un error al guardar la variable ecológica: " + error );
           } 	
-     });
+    });
   });
 });
 

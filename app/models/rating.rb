@@ -13,4 +13,8 @@ class Rating < ActiveRecord::Base
 		where("model_id = ? AND score > 0", "#{model_id}").count == 0 ? 0.0 : where("model_id = ?", "#{model_id}").sum(:score).fdiv(where("model_id = ? AND score > 0", "#{model_id}").count).round(2)
 	end
 
+	def self.rating_number(model_id)
+		where("model_id = ? AND score > 0", "#{model_id}").count
+	end
+
 end

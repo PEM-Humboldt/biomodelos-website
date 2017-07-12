@@ -66,12 +66,12 @@
 	<div ng-show="consulta">
 		<div class="cajabase">
 			<div class="hcbase">
-				<h1>modelos</h1>
+				<h1>consulta</h1>
 				<a ng-click="consulta=!consulta" class="closecb">x</a>
 			</div>
 			<p>Ingresa directamente al buscador de BioModelos el nombre científico de la especie de tu interés para consultar su mapa de distribución en el visor. Allí podrás consultar las hipótesis de distribución disponibles para la especie y que calificación les han dado otros usuarios, así como algunas estadísticas sobre el rango de la especie.</p></br>
 			<%= link_to 'IR', species_visor_path(:search => "1"),  class: 'botoncb' %>
-			<p>Si deseas descargar el mapa deberás dirigirte a la sección de registro, llenar el formulario e ingresar a la plataforma con tu usuario y contraseña. Para hacer aportes al conocimiento de la distribución de alguna especie, revisa la sección “contribuye”.</p>
+			<p>Si deseas descargar el mapa deberás dirigirte a la sección de registro, llena el formulario e ingresa a la plataforma con tu usuario y contraseña. Para hacer aportes al conocimiento de la distribución de alguna especie, revisa la sección “contribuye”.</p>
 			
 		</div>
 	</div>
@@ -90,9 +90,9 @@
 			- Edición de los modelos estadísticos desarrollados por el Laboratorio de Biogeografía Aplicada.</br>
 			- Documentando las coberturas terrestres idóneas para las especie.</br>
 			- Desarrollando mapas de experto , especialmente para especies que cuentan con muy pocos o ningún registro biológico.</br>
-			- Participando en el foro de la especie para compartir opiniones con otros expertos.</br>
-			- Calificando las hipótesis de distribución geográfica disponibles para la especie.</br></br>
-			Los aportes que realices a una especie se verán reflejados en tu perfil y serán reconocidos en la citación del mapa.</p>
+			- Participando en el foro de las especies para compartir opiniones con otros expertos.</br>
+			- Calificando las hipótesis de distribución geográfica disponibles para las especies.</br></br>
+			</p>
 			<% if user_signed_in? %>
 			    <%= link_to 'PERFIL', user_path(:id => current_user.id), class: 'botoncb' %>
 			    <%= hidden_field_tag 'user_name', current_user.name %>
@@ -108,7 +108,7 @@
 				<h1>publica</h1>
 				<a ng-click="publica=!publica" class="closecb">x</a>
 			</div>
-			<p>Si has desarrollado modelos de distribución para una o más especies, los puedes publicar a través de BioModelos. Así podrás visibilizar tu trabajo y facilitar su uso por otros investigadores así como recibir la retroalimentación de expertos sobre el desempeño de tus modelos. <a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank">Entérate más.</a></br></br>
+			<p>Si has desarrollado modelos de distribución para una o más especies, los puedes publicar a través de BioModelos. Así podrás visibilizar tu trabajo y facilitar su uso por otros investigadores, así como recibir la retroalimentación de expertos sobre el desempeño de tus modelos. <a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank">Entérate más.</a></br></br>
 			Sólo debes ser un usuario registrado en BioModelos, ingresar al link “Publica” y seguir las instrucciones.</p>
 			<%= link_to 'PUBLICA', home_publish_path, class: 'botoncb' %>
 		</div>

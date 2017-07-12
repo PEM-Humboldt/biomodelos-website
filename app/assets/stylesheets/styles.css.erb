@@ -465,6 +465,9 @@ footer li a, .visorfooter li a {
 	font-weight: 400;
 }
 
+.nbg4 .hcbase h1 {
+	margin-bottom: 20px !important;
+}
 .hcbase {
 	margin-bottom: 12px;
 }
@@ -682,8 +685,15 @@ p.redsq::before	{
 }
 
 #error_explanation h2 {
-	font-size: 1.6em;
+	font-size: 1.1em;
 	color: #db3f2a;
+	text-align: left;
+	padding-bottom: 12px;
+	margin-bottom: 5px;
+}
+
+#error_explanation ul {
+	display: none;
 }
 
 .loginbox a {
@@ -714,6 +724,13 @@ p.redsq::before	{
 	border-radius: none !important;
 	cursor: pointer;
 	vertical-align: middle;
+}
+
+.loginbox span.error {
+	color:#db3f2a;
+	font-weight: 300;
+	padding: 3px;
+	text-transform: uppercase;
 }
 
 .field2 .field_with_errors {
@@ -766,7 +783,10 @@ p.redsq::before	{
 	color: #393836;
 	letter-spacing: 0.5px;
 	padding-top: 5px;
-    vertical-align: middle;
+}
+
+.remembchk label {
+	vertical-align: -10px;
 }
 
 .loginbox .field {
@@ -794,6 +814,13 @@ p.redsq::before	{
 	margin-top: 18px;
 }
 
+.nbg6 .loginbox input[type="checkbox"] {
+	margin-top: 6px;
+}
+
+.vamiddle {
+	padding:0;
+}
 .mb40 {
 	margin-bottom: 20px;
 }
@@ -1494,8 +1521,7 @@ p.moderlink{
 }
 
 .sugeridor {
-	margin-top: 15px;
-	border: 1px solid #db3f2a;
+	margin-top: 25px;
 }
 
 .searchbtnspp {
@@ -1875,6 +1901,7 @@ p.moderlink{
 	cursor: pointer;
 	color:#db3f2a;
 	background: none;
+	margin-top: 15px;
 }
 
 .newgrbtn:hover {
@@ -2861,15 +2888,19 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	width: 100%;
 	border: solid 1px #db3f2a;
 	font-style: italic;
-	color: #393836;
 	line-height: 1.5;
-	font-size: 0.95em;
 	margin-top: 15px;
 	padding: 10px 10px 15px;
 	min-height: 150px;
 	max-height: 375px;
 	position: relative;
 	margin-bottom: 10px;
+	overflow-y: scroll;
+}
+
+.resultados a {
+	color: #393836;
+	font-size: 1.1em;
 }
 
 .subinfo {
@@ -3165,9 +3196,9 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 }
 
 .infothumb .calificacion {
-	font-size: 1.8em;
+	font-size: 1.4em;
 	color:#124c5e;
-	padding-bottom: 5px;
+	padding-bottom: 3px;
 }
 
 .infothumb .calificacion b {
@@ -3178,11 +3209,28 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 }
 
 .citathumb {
-	padding: 5px 10px;
+	padding: 0 10px;
 	font-size: 0.87em;
 	color:#545350;
 }
 
+.lhlow {
+	line-height: 1.1;
+	margin-bottom: 5px;
+}
+
+.commons {
+	vertical-align: bottom;
+	width: auto;
+	height: 25px;
+	text-align: left;
+	padding-left: 8px;	
+}
+
+.commons img {
+	display: inline-block;
+	margin-right: 2px;
+}
 .cajavisor h3 {
 	font-weight: 400;
 	font-size: 1.2em;
@@ -3357,6 +3405,17 @@ form.terminos input[type="radio"] {
 label.checkboxterm  {
 	font-size: 14px !important;
 	color: #db3f2a !important;
+	vertical-align: -4px;
+}
+
+label.checkboxterm2 {
+	font-size: 14px !important;
+	color: #db3f2a !important;
+	vertical-align: 6px;
+}
+
+label.checkboxdown {
+	vertical-align: 0;
 }
 
 .rzslider {

@@ -31,6 +31,23 @@ module ModelsHelper
 		end	
 	end
 
+	# Maps the model status name. 
+	#
+	# @param method [String] Model status.
+	# @return [String] Model status in spanish.
+	def map_status_name(status)
+		case status 
+		when 'pendingValidation'
+		  return 'Validación pendiente'
+		when 'Valid'
+		  return 'Validado'
+		when 'Developing'
+		  return 'En desarrollo'
+		else
+		  return status
+		end	
+	end
+
 	# Sets the full file path for the models, thumbnails and downloadable zip files. 
 	#
 	# @param method [String] File name.

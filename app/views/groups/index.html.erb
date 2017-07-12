@@ -3,7 +3,6 @@
 		<div class="hcbase">
 			<h1>grupos biomodelos</h1>
 			<%= link_to '', root_path, class: 'closecb' %>
-			<p>Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui.</p>
 			<% if user_signed_in? %>
 				<a ng-click="newgroup=!newgroup; activeButton()" ng-class="{'btnact': isActive}" class="newgrbtn">Sugerir Grupo</a>
 				<div ng-show="newgroup" class="forms clearfix">

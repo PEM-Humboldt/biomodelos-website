@@ -28,8 +28,10 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
   <div class="field2">
+  <%= f.check_box :terms_of_service, {:class => "vamiddle"} %>
+  <label class="checkboxterm"><%= link_to 'He leído y acepto los términos y condiciones', home_terms_path(:anchor => "politica"), {class: 'linkterminos', target: '_blank'} %></label></br>
   <%= f.check_box :terms_of_service, {:class => "mb40"} %>
-  <label class="checkboxterm"><%= link_to 'He leído y acepto los términos y condiciones', home_terms_path, {class: 'linkterminos', target: '_blank'} %></label></br>
+  <label class="checkboxterm2"><%= link_to 'Políticas de protección de datos personales', home_terms_path(:anchor => "personales"), {class: 'linkterminos', target: '_blank'} %></label></br>
     <!-- <input type="checkbox" name="aceptoterms" value="terms" id="acepto-chk" class="mb40" />
         <label  class="checkboxterm"><a class="linkterminos" href="">He leído y acepto los términos y condiciones</a></label></br>
     </input> -->

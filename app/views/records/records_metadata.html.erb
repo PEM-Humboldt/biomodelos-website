@@ -13,7 +13,7 @@
       </br>
 
       <p><b>Total registros únicos:</b> <%= @records_number %></p>
-      <p><b>Actualizado:</b><% if @latest_date.blank? %> NA<% else %><%= @latest_date %><% end %></p>
+      <p><b>Actualizado: </b><% if @latest_date.blank? %> NA<% else %><%= @latest_date.to_time.strftime("%F") %><% end %></p>
 
       <h2>Instituciones</h2>
        <blockquote>
@@ -54,7 +54,7 @@
           <% if @collaborators["collaborators"].length == 0 %>
               No hay información disponible.
             <% else %>
-              <% @collaborators["collaborators"].each_with_index do |collaborator, i| %><%= collaborator %><% if i < @collaborators["collaborators"].length - 1 %>, <% else %>.<% end %>
+              <% @collaborators["collaborators"].each_with_index do |collaborator, i| %><%= User.find(collaborator).name %><% if i < @collaborators["collaborators"].length - 1 %>, <% else %>.<% end %>
               <% end %>
             <% end %>
         </p>

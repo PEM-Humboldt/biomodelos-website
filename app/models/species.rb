@@ -20,6 +20,32 @@ class Species
 		JSON.parse(get('/records/' + taxID.to_s).body)
 	end
 
+	def self.filter(params)
+		url = "?"
+		if params[:bmclasses]
+			params[:bmclasses].each do |bm_class|
+				url += "&bmClass=" + bm_class
+			end
+		end
+		if params[:categories]
+			params[:categories].each do |category|
+				if(category == 'Endemic')
+					url += "&endemic=true"
+				end
+				if(category == 'Invasive')
+					url += "&invasive=true"
+				end
+				if(category == 'Endangered')
+					url += "&enPeligro=true"
+				end
+				if(category == 'Valid')
+					url += "&modelStatus=Valid"
+				end
+			end
+		end
+		JSON.parse(get(URI.escape(url)).body)
+	end
+
 	def self.search(params)
 		url = "/search"
 		if params[:query]

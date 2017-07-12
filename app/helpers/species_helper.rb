@@ -7,14 +7,15 @@ module SpeciesHelper
     	!!(parameter =~ /\A[-+]?[0-9]+\z/)
     end
 
-    def model_title_thumb(modelStatus)
-    	case modelStatus 
-		when 'pendingValidation'
-		  return 'HIPÓTESIS'
-		when 'Valid'
-		  return 'MODELO VALIDADO'
-		else
-		  return "MODELO"
+    def model_title_thumb(modelStatus, published)
+    	if modelStatus == 'pendingValidation' && published
+    		return 'PUBLICADO POR VALIDAR'
+    	elsif modelStatus == 'pendingValidation' && !published
+    		return 'POR VALIDAR'
+    	elsif modelStatus == 'Valid' && published
+    		return 'PUBLICADO VALIDO'
+    	elsif modelStatus == 'Valid' && !published
+    		return 'VALIDO'
 		end	
     end
 end
