@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-	def show	
+	def show
 	end
 
 	def about_us

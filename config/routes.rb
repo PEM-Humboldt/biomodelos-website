@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   post "models/get_hypotheses"
   post "models/download_model"
   post "models/download_terms"
+  post "models/models_stats"
   get "models/metadata"
   get "records/records_metadata/:id" => "records#records_metadata", as: "records_metadata"
   get "species/search"

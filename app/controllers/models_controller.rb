@@ -142,6 +142,11 @@ class ModelsController < ApplicationController
 	    end
   	end
 
+  	def models_stats
+  		@models_stats = Model.models_stats
+  		render json: @models_stats
+  	end
+
   	private
 
     	def download_params

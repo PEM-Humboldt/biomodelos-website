@@ -113,4 +113,8 @@ class Model
       end
       return best_hypothesis
     end
+
+    def self.models_stats
+      JSON.parse(get('/stats').body)
+    end
 end
