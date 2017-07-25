@@ -19,9 +19,11 @@
 </div>
 <div id="grp_spe_box">
 	<% @actual_species.each do |species| %>
-		<div class="spp">
-			<a href="/species/visor?species_id=<%= species[1] %>"><%= species[0] %><%= hidden_field_tag('', species[1], :class => 'a_sp_id') %></a>
-			<p class="spperc"></p>
-		</div>
+		<% if !species[0].blank? %>
+			<div class="spp">
+				<a href="/species/visor?species_id=<%= species[1] %>"><%= species[0] %><%= hidden_field_tag('', species[1], :class => 'a_sp_id') %></a>
+				<p class="spperc"></p>
+			</div>
+		<% end %>
 	<% end %>
 </div>

@@ -117,4 +117,10 @@ class Model
     def self.models_stats
       JSON.parse(get('/stats').body)
     end
+
+    def self.valid_records_number(taxID)
+      values = JSON.parse(get('/approved/eoo/' + taxID.to_s).body)
+      rec_number = values.blank? ? "-" : values[0]["recsUsed"]
+      return rec_number
+    end
 end

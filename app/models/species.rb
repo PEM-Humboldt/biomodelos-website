@@ -5,7 +5,13 @@ class Species
 	# has_many :tasks
 
 	def self.find_name(taxID)
-   		JSON.parse(get('/' + taxID.to_s).body)[0]["acceptedNameUsage"]	
+   		res = JSON.parse(get('/' + taxID.to_s).body)
+   		if !res.blank?
+   			res = res[0]["acceptedNameUsage"]
+   		else
+   			res = ""
+   		end
+   		return res	
 	end
 
 	def self.records_number(taxID)
@@ -18,6 +24,10 @@ class Species
 
 	def self.records(taxID)
 		JSON.parse(get('/records/' + taxID.to_s).body)
+	end
+
+	def self.group_records(taxID)
+		JSON.parse(get('/records/group/' + taxID.to_s).body)
 	end
 
 	def self.filter(params)
@@ -36,7 +46,7 @@ class Species
 					url += "&invasive=true"
 				end
 				if(category == 'Endangered')
-					url += "&enPeligro=true"
+					url += "&endangered=true"
 				end
 				if(category == 'Valid')
 					url += "&modelStatus=Valid"

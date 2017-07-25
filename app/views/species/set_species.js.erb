@@ -5,6 +5,11 @@ $(document).ready(function(){
 		$("#info_species_name").html("<%= @species_name %>");
 		$("#info_records_number").html("<%= @records_number %>");
 		$("#info_records_metadata").html('<%= link_to "METADATOS REGISTROS", records_metadata_path(:id => params[:species_id]), target: "_blank" %>');
+		<% if !@approved_model.blank? %>
+			$("#valid_model_text").html('<p>Esta información corresponde al modelo validado por los expertos en BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie.</p>');
+		<% else %>
+			$("#valid_model_text").html('<p>Dado que esta especie aún no tiene un modelo validado, no es posible calcular la información que normalmente se presenta en esta sección.</p>');
+		<% end %>
 		/* Clears layers */
 		_BioModelosVisorModule.unloadAllLayers();
 		/* Clears edition tools */

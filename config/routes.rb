@@ -61,7 +61,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :users, :only => [:index, :show]
+  resources :users, :only => [:show]
   resources :groups, :only => [:index, :show, :update]
   resources :info, :only => [:index]
   resources :groups_species, :only => [:index, :create]
@@ -71,16 +71,6 @@ Rails.application.routes.draw do
   resources :models do
     member do
       get :metadata
-    end
-  end
-
-  #BioModelos API routes
-  constraints :subdomain => 'api' do
-    scope module: "api", defaults: {format: 'json'} do
-      namespace :v1 do
-        get "species/:id" => "species#show"
-        get "species/records/:id"  => "species#records"
-      end
     end
   end
 

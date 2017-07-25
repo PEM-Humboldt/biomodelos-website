@@ -130,12 +130,13 @@ var typeahead_f = function(){
         $("#mam_lbl").html(stats[0]["totalSpecies"]);
         function drawChart() {
           var developingModel = stats[0]["developingModels"] ? stats[0]["developingModels"] : 0;
+          var pendingValModel = stats[0]["pendingValidation"] ? stats[0]["pendingValidation"] : 0;
           var validatedModel = stats[0]["validModels"] ? stats[0]["validModels"] : 0;
-          var noModel = stats[0]["totalSpecies"] - (developingModel + validatedModel);
+          var noModel = stats[0]["totalSpecies"] - (developingModel + pendingValModel + validatedModel);
           var data = google.visualization.arrayToDataTable([
             ['Estado del modelo', 'Número de spp.'],
             ['Sin Modelo', noModel],
-            ['Modelo en desarrollo', developingModel],
+            ['Modelo en desarrollo', developingModel + pendingValModel],
             ['Modelo validado', validatedModel],
             ]);
 
@@ -146,12 +147,13 @@ var typeahead_f = function(){
         $("#av_lbl").html(stats[1]["totalSpecies"]);
         function drawChart2() {
           var developingModel = stats[1]["developingModels"] ? stats[1]["developingModels"] : 0;
+          var pendingValModel = stats[1]["pendingValidation"] ? stats[1]["pendingValidation"] : 0;
           var validatedModel = stats[1]["validModels"] ? stats[1]["validModels"] : 0;
-          var noModel = stats[1]["totalSpecies"] - (developingModel + validatedModel);
+          var noModel = stats[1]["totalSpecies"] - (developingModel + pendingValModel + validatedModel);
           var data = google.visualization.arrayToDataTable([
             ['Estado del modelo', 'Número de spp.'],
             ['Sin Modelo', noModel],
-            ['Modelo en desarrollo', developingModel],
+            ['Modelo en desarrollo', developingModel + pendingValModel],
             ['Modelo validado', validatedModel],
             ]);
 
@@ -161,12 +163,13 @@ var typeahead_f = function(){
         $("#rep_lbl").html(stats[2]["totalSpecies"]);
         function drawChart3() {
           var developingModel = stats[2]["developingModels"] ? stats[2]["developingModels"] : 0;
+          var pendingValModel = stats[2]["pendingValidation"] ? stats[2]["pendingValidation"] : 0;
           var validatedModel = stats[2]["validModels"] ? stats[2]["validModels"] : 0;
-          var noModel = stats[2]["totalSpecies"] - (developingModel + validatedModel);
+          var noModel = stats[2]["totalSpecies"] - (developingModel + pendingValModel + validatedModel);
           var data = google.visualization.arrayToDataTable([
             ['Estado del modelo', 'Número de spp.'],
             ['Sin Modelo', noModel],
-            ['Modelo en desarrollo', developingModel],
+            ['Modelo en desarrollo', developingModel + pendingValModel],
             ['Modelo validado', validatedModel],
             ]);
 
@@ -176,12 +179,13 @@ var typeahead_f = function(){
         $("#anf_lbl").html(stats[3]["totalSpecies"]);
         function drawChart4() {
           var developingModel = stats[3]["developingModels"] ? stats[3]["developingModels"] : 0;
+          var pendingValModel = stats[3]["pendingValidation"] ? stats[3]["pendingValidation"] : 0;
           var validatedModel = stats[3]["validModels"] ? stats[3]["validModels"] : 0;
-          var noModel = stats[3]["totalSpecies"] - (developingModel + validatedModel);
+          var noModel = stats[3]["totalSpecies"] - (developingModel + pendingValModel + validatedModel);
           var data = google.visualization.arrayToDataTable([
             ['Estado del modelo', 'Número de spp.'],
             ['Sin Modelo', noModel],
-            ['Modelo en desarrollo', developingModel],
+            ['Modelo en desarrollo', developingModel + pendingValModel],
             ['Modelo validado', validatedModel],
             ]);
 
@@ -191,12 +195,13 @@ var typeahead_f = function(){
         $("#pec_lbl").html(stats[4]["totalSpecies"]);
         function drawChart5() {
           var developingModel = stats[4]["developingModels"] ? stats[4]["developingModels"] : 0;
+          var pendingValModel = stats[4]["pendingValidation"] ? stats[4]["pendingValidation"] : 0;
           var validatedModel = stats[4]["validModels"] ? stats[4]["validModels"] : 0;
-          var noModel = stats[4]["totalSpecies"] - (developingModel + validatedModel);
+          var noModel = stats[4]["totalSpecies"] - (developingModel + pendingValModel + validatedModel);
           var data = google.visualization.arrayToDataTable([
             ['Estado del modelo', 'Número de spp.'],
             ['Sin Modelo', noModel],
-            ['Modelo en desarrollo', developingModel],
+            ['Modelo en desarrollo', developingModel + pendingValModel],
             ['Modelo validado', validatedModel],
             ]);
 
@@ -206,12 +211,13 @@ var typeahead_f = function(){
         $("#inv_lbl").html(stats[5]["totalSpecies"]);
         function drawChart6() {
           var developingModel = stats[5]["developingModels"] ? stats[5]["developingModels"] : 0;
+          var pendingValModel = stats[5]["pendingValidation"] ? stats[5]["pendingValidation"] : 0;
           var validatedModel = stats[5]["validModels"] ? stats[5]["validModels"] : 0;
-          var noModel = stats[5]["totalSpecies"] - (developingModel + validatedModel);
+          var noModel = stats[5]["totalSpecies"] - (developingModel + pendingValModel + validatedModel);
           var data = google.visualization.arrayToDataTable([
             ['Estado del modelo', 'Número de spp.'],
             ['Sin Modelo', noModel],
-            ['Modelo en desarrollo', developingModel],
+            ['Modelo en desarrollo', developingModel + pendingValModel],
             ['Modelo validado', validatedModel],
             ]);
 
@@ -221,12 +227,13 @@ var typeahead_f = function(){
         $("#pla_lbl").html(stats[6]["totalSpecies"]);
         function drawChart7() {
           var developingModel = stats[6]["developingModels"] ? stats[6]["developingModels"] : 0;
+          var pendingValModel = stats[6]["pendingValidation"] ? stats[6]["pendingValidation"] : 0;
           var validatedModel = stats[6]["validModels"] ? stats[6]["validModels"] : 0;
-          var noModel = stats[6]["totalSpecies"] - (developingModel + validatedModel);
+          var noModel = stats[6]["totalSpecies"] - (developingModel + pendingValModel + validatedModel);
           var data = google.visualization.arrayToDataTable([
             ['Estado del modelo', 'Número de spp.'],
             ['Sin Modelo', noModel],
-            ['Modelo en desarrollo', developingModel],
+            ['Modelo en desarrollo', developingModel + pendingValModel],
             ['Modelo validado', validatedModel],
             ]);
 

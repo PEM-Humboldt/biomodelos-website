@@ -16,7 +16,7 @@
 					<% end %>
 					<a target="_blank" href="/models/<%= continuous_t.modelID %>/metadata" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
 					<%= hidden_field_tag 'continuous_t_url', set_path(continuous_t.pngUrl, "model") %>
-					<button class="newgrbtn" id="cbt_editBtn">editar</a>
+					<button class="newgrbtn btnemergencia" id="cbt_editBtn">editar</a>
 			<% else %>
 				<div class="editthumb">
 					<%= image_tag("nomap.png") %>

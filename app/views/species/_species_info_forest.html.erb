@@ -21,12 +21,12 @@
 				data.addColumn('number', 'Tendencia Industrializada');
 
 				data.addRows([
-					[new Date(1990,0,1), <%= @forest_loss[0]["statForestLoss90"] %>, , , ,],
-					[new Date(2000,0,1), <%= @forest_loss[0]["statForestLoss00"] %>, , , ,],
-					[new Date(2005,0,1), <%= @forest_loss[0]["statForestLoss05"] %>, , , ,],
-					[new Date(2010,0,1), <%= @forest_loss[0]["statForestLoss10"] %>, , , ,],
-					[new Date(2012,0,1), <%= @forest_loss[0]["statForestLoss12"] %>, <%= @forest_loss[0]["statForestLoss12"] %>, <%= @forest_loss[0]["statForestLoss12"] %>, <%= @forest_loss[0]["statForestLoss12"] %>,],
-					[new Date(2030,0,1), , <%= @forest_loss[0]["statFutureForest30h"] %>, <%= @forest_loss[0]["statFutureForest30d"] %>, <%= @forest_loss[0]["statFutureForest30c"] %>]
+					[new Date(1990,0,1), <%= @forest_loss[0]["statForestLoss90"].blank? ? 0 : @forest_loss[0]["statForestLoss90"] %>, , , ,],
+					[new Date(2000,0,1), <%= @forest_loss[0]["statForestLoss00"].blank? ? 0 : @forest_loss[0]["statForestLoss00"] %>, , , ,],
+					[new Date(2005,0,1), <%= @forest_loss[0]["statForestLoss05"].blank? ? 0 : @forest_loss[0]["statForestLoss05"] %>, , , ,],
+					[new Date(2010,0,1), <%= @forest_loss[0]["statForestLoss10"].blank? ? 0 : @forest_loss[0]["statForestLoss10"] %>, , , ,],
+					[new Date(2012,0,1), <%= @forest_loss[0]["statForestLoss12"].blank? ? 0 : @forest_loss[0]["statForestLoss12"] %>, <%= @forest_loss[0]["statForestLoss12"].blank? ? 0 : @forest_loss[0]["statForestLoss12"] %>, <%= @forest_loss[0]["statForestLoss12"].blank? ? 0 : @forest_loss[0]["statForestLoss12"] %>, <%= @forest_loss[0]["statForestLoss12"].blank? ? 0 : @forest_loss[0]["statForestLoss12"] %>,],
+					[new Date(2030,0,1), , <%= @forest_loss[0]["statFutureForest30h"].blank? ? 0 : @forest_loss[0]["statFutureForest30h"] %>, <%= @forest_loss[0]["statFutureForest30d"].blank? ? 0 : @forest_loss[0]["statFutureForest30d"] %>, <%= @forest_loss[0]["statFutureForest30c"].blank? ? 0 : @forest_loss[0]["statFutureForest30c"] %>]
 					]);
 
 				var options = {

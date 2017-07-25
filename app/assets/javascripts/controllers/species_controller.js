@@ -32,17 +32,17 @@ $(document).ready(function(){
 		var categories = [];
 		$('.sppbtn input[type="checkbox"]').each(function () {
                     if (this.checked && this.value == 1)
-                      bmclasses.push('anfibios');
+                      bmclasses.push('mamiferos');
                     if (this.checked && this.value == 2)
                       bmclasses.push('aves');
                     if (this.checked && this.value == 3)
-                      bmclasses.push('invertebrados');
+                      bmclasses.push('reptiles');
                     if (this.checked && this.value == 4)
-                      bmclasses.push('mamiferos');
+                      bmclasses.push('anfibios');
                     if (this.checked && this.value == 5)
                       bmclasses.push('peces');
                     if (this.checked && this.value == 6)
-                      bmclasses.push('reptiles');
+                      bmclasses.push('invertebrados');
                     if (this.checked && this.value == 7)
                       bmclasses.push('plantas');
         });
@@ -414,6 +414,25 @@ $(document).ready(function(){
 		    }
 		});
 	});
+
+	function map_status_name(status){
+		var mapped_status ="";
+		switch (status) {
+	  		case 'pendingValidation':
+	    		mapped_status = 'Validación pendiente';
+	    		break;
+	  		case 'Valid':
+	    		mapped_status = 'Validado';
+	    		break;
+	  		case 'Developing':
+	    		mapped_status = 'En desarrollo';
+	    		break;
+	  		default:
+	    		mapped_status = status;
+	    		break;
+		}
+		return mapped_status;	
+	}
 
 	$("#visCntrl").on("click",".sp_model_link",function(e){
         e.preventDefault();

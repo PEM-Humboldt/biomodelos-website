@@ -2,6 +2,7 @@
 	<div class="homeline" ng-style="{'background-image': hc.slide}">
 		<div class="container homec">
 			<div class="hlink">
+				<%= link_to 'Versión 1', 'http://biomodelosv1.humboldt.org.co', target: "_blank" %>
 				<%= link_to 'Busqueda avanzada', species_visor_path(:search => "1") %>
 			</div>
 			<%= form_tag({}, {:id => 'search_form_home'})  do %>

@@ -118,7 +118,7 @@ class ModelsController < ApplicationController
 		begin
 			@metadata = Model.get_metadata(params[:id])
 			@species_name = Species.find_name(@metadata[0]["taxID"])
-			@records_number = Species.records_number(@metadata[0]["taxID"])
+			#@records_number = Species.records_number(@metadata[0]["taxID"])
 		rescue => e
 			logger.error "#{e.message} #{e.backtrace}"
 			err_msg = e.message.tr(?',?").delete("\n")

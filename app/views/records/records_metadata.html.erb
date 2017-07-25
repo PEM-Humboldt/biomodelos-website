@@ -3,8 +3,8 @@
       <h1>Metadatos registros <em><%= @species_name %></em></h1>
 
       <h2>FUENTES</h2>
-      <% if @sources[0]["source"].length == 1 && @sources[0]["source"][0].blank? %>
-            No hay información disponible.
+      <% if @sources.blank? || @sources[0]["source"].length == 1 && @sources[0]["source"][0].blank? %>
+            <p>No hay información disponible.</p>
           <% else %>
             <% @sources[0]["source"].each_with_index do |source, i| %>
             <p><%= source %></p>
@@ -18,7 +18,7 @@
       <h2>Instituciones</h2>
        <blockquote>
         <p>
-          <% if @institutions[0]["institution"].length == 1 && @institutions[0]["institution"][0].blank? %>
+          <% if @institutions.blank? || @institutions[0]["institution"].length == 1 && @institutions[0]["institution"][0].blank? %>
             No hay información disponible.
           <% else %>
             <% @institutions[0]["institution"].each_with_index do |institution, i| %><%= institution %><% if i < @institutions[0]["institution"].length - 1 %>, <% else %>.<% end %>
@@ -29,7 +29,7 @@
       <h2>Colecciones</h2>
        <blockquote>
         <p>
-          <% if @collections[0]["colection"].length == 1 && @collections[0]["colection"][0].blank? %>
+          <% if @collections.blank? || @collections[0]["colection"].length == 1 && @collections[0]["colection"][0].blank? %>
             No hay información disponible.
           <% else %>
             <% @collections[0]["colection"].each_with_index do |colection, i| %><%= colection %><% if i < @collections[0]["colection"].length - 1 %>, <% else %>.<% end %>
@@ -40,7 +40,7 @@
       <h2>Colectores</h2>
        <blockquote>
         <p>
-          <% if @collectors[0]["collector"].length == 1 && @collectors[0]["collector"][0].blank? %>
+          <% if @collectors.blank? || @collectors[0]["collector"].length == 1 && @collectors[0]["collector"][0].blank? %>
               No hay información disponible.
             <% else %>
               <% @collectors[0]["collector"].each_with_index do |collector, i| %><%= collector %><% if i < @collectors[0]["collector"].length - 1 %>, <% else %>.<% end %>

@@ -52,7 +52,8 @@ class SpeciesController < ApplicationController
 				#TO DO: get species and find if it's empty (id doesn't exist) or not.
 				@species_id = params[:species_id]
 				@species_name = Species.find_name(params[:species_id])
-				@records_number = Species.records_number(params[:species_id])
+				@records_number = Model.valid_records_number(params[:species_id])
+				@approved_model = Model.get_valid_model(params[:species_id])
 				respond_to do |format|
 	      			format.js
 	    		end
@@ -66,7 +67,11 @@ class SpeciesController < ApplicationController
 
 	def get_species_records
 		begin
-			records = Species.records(params[:id])
+			if !params[:inGroup].blank? && params[:inGroup]
+				records = Species.group_records(params[:id])
+			else
+				records = Species.records(params[:id])
+			end
 			render json: records
 		rescue => e
 			logger.error "#{e.message} #{e.backtrace}"
@@ -79,7 +84,6 @@ class SpeciesController < ApplicationController
     #
 	def species_info
 		begin
-			@approved_model = Model.get_valid_model(params[:species_id])
 			@eoo = Model.eoo(params[:species_id])
 			@rpa = Model.rpa(params[:species_id])
 			@forest_loss = Model.forest_loss(params[:species_id])

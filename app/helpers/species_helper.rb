@@ -13,9 +13,9 @@ module SpeciesHelper
     	elsif modelStatus == 'pendingValidation' && !published
     		return 'POR VALIDAR'
     	elsif modelStatus == 'Valid' && published
-    		return 'PUBLICADO VALIDO'
+    		return 'PUBLICADO VALIDADO'
     	elsif modelStatus == 'Valid' && !published
-    		return 'VALIDO'
+    		return 'VALIDADO'
 		end	
     end
 end

@@ -1,5 +1,5 @@
 <div class="vcbase">
-			<h1>Estadísticas sobre modelo aprobado<br><i id="info_species_name"></i></h1>
+			<h1>Estadísticas sobre modelo validado <br><i id="info_species_name"></i></h1>
 			<a ng-click="info=!info" class="closevb vatop" id="clsInfoBox">x</a>
 </div>
 <div class="cvcolumn">
@@ -14,11 +14,7 @@
 		</div>
 		<div class="followstate"></div>
 	</div>
-	<% if @approved_model && !@approved_model.blank? %>
-	<p>Esta información corresponde al modelo validado por los expertos en BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie.</p>
-	<% else %>
-	<p>Dado que esta especie aún no tiene un modelo validado, no es posible calcular la información que normalmente se presenta en esta sección.</p>
-	<% end %>
+	<div id="valid_model_text"></div>
 	<div class="databox">
 		<h2 class="infotitle" ng-click="extinfo=!extinfo">EXTENSIÓN DE OCURRENCIA</h2>
 		<div ng-show="extinfo" class="infobox">

@@ -43,7 +43,7 @@
 
 			<div class="clearfix"></div>
 			<div class="perfilsub modertext">Moderador(es)</div>
-			<% @group_members.select{|x| x.is_admin == true}.each do |admin| %>
+			<% @group_admins.each do |admin| %>
 				<p class="moderlink"><a href="/users/<%= admin.user_id %>" class="moderlink"><%= admin.user.name %></a></p>
 			<% end %>
 			<div class="groupunder">Mensaje moderador</div>
@@ -91,6 +91,8 @@
 	</div>
 </div>
 <script>
+/* Preload species by group */
+$.post( "/groups_species/species_by_group", { id: $("#group_id_field").val()});
 $('.cajaperfil').niceScroll({
 	cursorcolor: "#5d5e5e",
 	cursorwidth: "7px",

@@ -2,8 +2,8 @@
 	<%= f.error_notification %>
 	<%= f.hidden_field :group_id, value: @group.id %>
 	<p>Agregar nueva tarea</p>
-	<%= f.select :user_id, options_from_collection_for_select(@group_members, 'user_id', 'user_name'), include_blank: 'Seleccionar experto *' %>
-	<%= f.select :species_id, options_for_select(@group_species), :include_blank => 'Seleccionar especie *' %>
+	<%= f.select :user_id, options_from_collection_for_select(GroupsUser.where(:group_id => @group.id, :groups_users_state_id => 1).joins(:user).order('users.name'), 'user_id', 'user_name'), include_blank: 'Seleccionar experto *' %>
+	<%= f.select :species_id, options_for_select(@species_ids.map{|t| [Species.find_name(t.species_id.to_s), t.species_id]}.uniq), :include_blank => 'Seleccionar especie *' %>
 	<p class="tarea">Selecciona tareas a realizar</p>
 	<div id="chkBoxTask">
         <label class="lblvisual" rel="tooltip" title="Curación de registros">

@@ -193,8 +193,13 @@ var _BioModelosVisorModule = function() {
 			clearLayer(cluster);
        		layerControl.removeLayer(cluster);
        	}
+       	var url;
+       	if(!isEditable)
+       		url = "/species/" + species_id + "/get_species_records";
+       	else
+       		url = "/species/" + species_id + "/get_species_records?inGroup=true";
 
-		$.getJSON("/species/" + species_id + "/get_species_records",function(data){
+		$.getJSON(url,function(data){
 			species_records = data;
 		    filterRecords(["",""], ["","","visualadd"], [], [], isEditable);
 		}).fail(function(jqxhr, textStatus, error) {
@@ -291,6 +296,8 @@ var _BioModelosVisorModule = function() {
 					for (var prop in feature.properties) {
 						if(prop === '_id')
 							popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
+						else if (prop === 'url')
+							popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + "<a href=http://"+ feature.properties[prop] +" target='_blank'>" + feature.properties[prop] + "</a></br>");
 						else if (prop != "taxID" && prop != "species" && prop != "reported" && prop != "updated" && prop != "environmentalOutlier")
 							popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + feature.properties[prop] + "</br>");
 		
