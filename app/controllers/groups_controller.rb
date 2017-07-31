@@ -64,8 +64,12 @@ class GroupsController < ApplicationController
 	    group_users.each do |f|
 	      mails.push(f.user.email)
 	    end
-	    GroupMailer.bulk_email_group(params[:message][:message], mails, group.name, current_user.name).deliver_now
-	    redirect_to group_path(id: group.id), :flash => { :notice => "El mensaje ha sido enviado a los miembros del grupo." }	
+	    if !params[:message][:message].blank?
+	    	GroupMailer.bulk_email_group(params[:message][:message], mails, group.name, current_user.name).deliver_now
+	    	redirect_to group_path(id: group.id), :flash => { :notice => "El mensaje ha sido enviado a los miembros del grupo." }	
+	    else
+	    	redirect_to group_path(id: group.id), :flash => { :error => "Debe agregar un mensaje para enviar al grupo." }
+	    end
 	end
 
 	def suggest_group
@@ -75,6 +79,18 @@ class GroupsController < ApplicationController
 			redirect_to groups_path, notice: 'Tu sugerencia ha sido recibida.'
 		else
 			redirect_to groups_path, :flash => { :error => "Debe llenar todos los campos para sugerir un grupo." }
+		end
+	end
+
+	def invite_user
+		mails = []
+	    group = Group.find(params[:message][:group_id])
+		mails = params[:message][:email].split(";")
+		if !mails.blank? && !params[:message][:message].blank?
+			GroupMailer.user_invitation(mails, group, current_user, params[:message][:message]).deliver_now
+	    	redirect_to group_path(id: group.id), :flash => { :notice => "El mensaje ha sido enviado a los miembros del grupo." }
+		else
+			redirect_to group_path(id: group.id), :flash => { :error => "Debe llenar todos los campos para invitar a un experto al grupo." }
 		end
 	end
 

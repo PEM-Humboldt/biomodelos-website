@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="author" content="BioModelos - biomodelos@humboldt.org.co">
+    <title>Mensaje administrador</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic' rel='stylesheet' type='text/css'>
+<style>
+* {
+	margin:0;
+	padding:0;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+	font-size: 14px;
+	background-color: #f2f2f2;
+}
+
+a {
+	text-decoration: none;
+	color: #db3f2a;
+}
+
+.linewidth {
+	width: 700px;
+	height: 150px;
+	background-color: #1b3337;
+	margin: 0 auto;
+}
+
+.contenido {
+	width: 600px;
+	background-color: #fff;
+	padding: 20px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	margin: 0 auto;
+	margin-top: -70px;
+}
+
+h3 {
+	color: #393836;
+	margin-bottom: 35px;
+}
+
+h3 i,
+h3 b {
+	color: #424242;
+}
+
+h3 span {
+	color: #db3f2a;
+}
+
+</style>
+
+</head>
+<body>
+<div class="linewidth"></div>
+<div class ="contenido">
+	<h3>Saludos,</h3>
+	<h3><a href="http://biomodelos.humboldt.org.co/users/<%= @admin.id %>"><%= @admin.name %></a> te ha invitado a unirte al grupo <a href="http://biomodelos.humboldt.org.co/groups/<%= @group.id %>"><%= @group.name %></a></b> en la aplicación <span>BioModelos:</span></h3>
+	<h4><%= @message %></h4>
+	<br/>
+	Para aceptar la invitación, debes registrarte en BioModelos. Si ya estás registrado, visita el <a href="http://biomodelos.humboldt.org.co/groups/<%= @group.id %>">perfil del grupo</a> y haz clic en el botón "Solicitar unirse a este grupo".<br/>
+	<br/>
+	Regístrate en BioModelos <a href="http://biomodelos.humboldt.org.co/users/sign_up">aquí</a>.<br/>
+	<br/>
+	Atentamente,<br/>
+	<br/>
+	Equipo BioModelos
+	<h3><a href="http://biomodelos.humboldt.org.co">biomodelos.humboldt.org.co</a><br/>
+	biomodelos@humboldt.org.co</h3>
+</div>
+</body>
+</html>
