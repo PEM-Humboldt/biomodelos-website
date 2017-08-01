@@ -1,4 +1,7 @@
 class HomeController < ApplicationController
+
+	before_action :authenticate_user!, :except => [:show, :about_us, :contact_us, :send_contact_form, :terms]
+
 	def show
 	end
 
@@ -42,9 +45,6 @@ class HomeController < ApplicationController
 
 			redirect_to home_contact_us_path, :flash => { :error => errores }
 		end
-	end
-
-	def api
 	end
 
 	def terms
