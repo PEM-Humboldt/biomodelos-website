@@ -4,28 +4,57 @@
 		<div class="maparea">
 			<div href="" class="mapthumb">
 				<div class="flipper">
-					<div class="front2"><%= image_tag(model.thumbUrl) %></div>
+					<div class="front2"><%= image_tag(set_path(model.thumbUrl, "thumb")) %></div>
 					<a class="back2 sp_model_link">
-						<%= hidden_field_tag('imgsrc_model', model.pngUrl) %>
+						<%= hidden_field_tag('imgsrc_model', set_path(model.pngUrl, "model")) %>
 						<div class="titlethumb">
-							<%= model_title_thumb(model.modelStatus) %>
+							<%= model_title_thumb(model.modelStatus, model.published) %>
+							<%= hidden_field_tag 'txt_model_status', model.modelStatus %>
 						</div>
+						<div class="citathumb"><b>
+							<% if !model.level.blank? %>
+						 		Nivel <%= model.level %>
+						 	<% end %>
+						</b></div>
 						<div class="infothumb">
 							Calificación promedio
-							<div class="calificacion">4.2 <b>(12 votos)</b></div>
+							<div class="calificacion"><%= Rating.average_rating(model.modelID) %> <b>(<%= Rating.rating_number(model.modelID) %> votos)</b></div>
 						</div>
 						<div class="infothumb">
 							Número descargas
-							<div class="calificacion">3</div>
+							<div class="calificacion"><%= Download.downloads(model.modelID) %></div>
 						</div>
-						<div class="citathumb">Gutiérrez, et.al, 2015</div>
+						<div class="citathumb lhlow"><%= model.citation.blank? ? "": model.citation %></div>
+						<div class="commons">
+							<% if model.license == 'by' %>
+								<%= image_tag("cc1.png") %>
+								<%= image_tag("cc2.png") %>
+							<% elsif model.license == 'by-sa' %>
+								<%= image_tag("cc1.png") %>
+								<%= image_tag("cc2.png") %>
+								<%= image_tag("cc4.png") %>
+							<% elsif model.license == 'by-nc' %>
+								<%= image_tag("cc1.png") %>
+								<%= image_tag("cc2.png") %>
+								<%= image_tag("cc3.png") %>
+							<% elsif model.license == 'by-nc-sa' %>
+								<%= image_tag("cc1.png") %>
+								<%= image_tag("cc2.png") %>
+								<%= image_tag("cc3.png") %>
+								<%= image_tag("cc4.png") %>
+							<% elsif model.license == 'cc-zero' %>
+								<%= image_tag("cc5.png") %>
+							<% end %>
+						</div>
 					</a>
 				</div>
 			</div>
 			<div class="mmicon clearfix">
-				<a href="" title="Descargar el modelo" rel="tooltip" class="pad3"><%= image_tag("downicon.png") %></a>
+				<%= button_to models_download_terms_path(:zip_url => set_path(model.zipUrl, "zip"), :box => 2, :model_id => model.modelID , :species_id => @species_id), {:class => 'pad3', :title => "Descargar el modelo", :rel => "tooltip", :remote => true} do %>
+						<%= image_tag("downicon.png") %>
+					<% end %>
 				<a target="_blank" href="/models/<%= model.modelID %>/metadata" title="Ver metadatos del modelo" rel="tooltip" class="pad3"><%= image_tag("metaicon.png") %></a>
-				<% if user_signed_in?%>
+				<% if user_signed_in? && can_edit %>
 					<div class="user_star">
 						<%= hidden_field_tag('myscore', ratings[model.modelID], :class => 'myscore') %>
 						<%= hidden_field_tag('model', model.modelID, :class => 'model_id' )  %>
@@ -57,9 +86,9 @@
 			</div>
 		</div>
 <% end %>
+<div class ="termbox2"></div>
 
-
-<h3>FORO <i>Aglaiocercus coelestis</i></h3>
+<!-- <h3>FORO <i>Aglaiocercus coelestis</i></h3>
 <form action="">
 	<textarea name="" id="" cols="30" rows="4" placeholder="Foro exclusivo para comentar las hipótesis de distribución disponibles para esta especie."></textarea>
 </form>
@@ -85,7 +114,7 @@
 		<a href="">responder</a>
 		<a href="">borrar</a>
 	</div>
-</div>
+</div> -->
 <script type="text/javascript">
 /* Rating */
 $('.user_star').raty({ 

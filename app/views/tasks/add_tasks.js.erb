@@ -1,0 +1,13 @@
+$.ajax({
+    type: "POST",
+    url: "/tasks/tasks_by_group",
+    data: { id: <%= params[:task][:group_id] %>},
+    success:function(data) {
+    	<% if @tasks.size > 1 %>
+    		alertify.alert("¡Las tareas han sido agregadas con éxito!");
+    	<% else %>
+    		alertify.alert("¡La tarea ha sido agregada con éxito!");
+    	<% end %>
+    }
+});
+

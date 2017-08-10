@@ -13,7 +13,6 @@ angular.module('biomodelos')
 }]);
 
 angular.module('biomodelos').directive('arrow', function(){ 
-  console.log("Entre selectable");
   var select = function(element) {
   	if(element.hasClass('rotatearr'))
   		element.removeClass('rotatearr');

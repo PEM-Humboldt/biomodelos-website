@@ -96,7 +96,7 @@ es:
       second: Segundos
       year: Año
   errors: &errors
-    format: ! '%{attribute} %{message}'
+    format: ! '%{message}'
     messages:
       accepted: debe ser aceptado
       blank: no puede estar en blanco
@@ -105,6 +105,7 @@ es:
       equal_to: debe ser igual a %{count}
       even: debe ser par
       exclusion: está reservado
+      extension_whitelist_error: El formato del archivo no es válido.
       greater_than: debe ser mayor que %{count}
       greater_than_or_equal_to: debe ser mayor que o igual a %{count}
       inclusion: no está incluido en la lista
@@ -119,6 +120,7 @@ es:
       too_long: es demasiado largo (%{count} caracteres máximo)
       too_short: es demasiado corto (%{count} caracteres mínimo)
       wrong_length: no tiene la longitud correcta (%{count} caracteres exactos)
+      max_size_error: el tamaño del archivo supera el límite establecido
     template:
       body: ! 'Se encontraron problemas con los siguientes campos:'
       header:

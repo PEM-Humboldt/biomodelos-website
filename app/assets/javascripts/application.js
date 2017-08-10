@@ -16,6 +16,7 @@
 //= require angular-animate/angular-animate.min
 //= require typeahead.js/dist/typeahead.bundle.min.js
 //= require custom_select
+//= require utils.js
 //= require leaflet/dist/leaflet-src
 //= require leaflet-draw/dist/leaflet.draw
 //= require leaflet.markercluster/dist/leaflet.markercluster
@@ -28,5 +29,6 @@
 //= require validate/validate.min
 //= require alertify/alertify.min
 //= require raty/lib/jquery.raty
+//= require clipboard/dist/clipboard.min.js
 //= require_tree ./angular
 //= require_tree ./controllers

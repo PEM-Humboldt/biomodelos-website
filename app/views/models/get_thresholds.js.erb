@@ -1,5 +1,5 @@
 $('#editbox_content').html('<%=j render partial: 'species/species_contributions', locals: { :continuous_t => @continuous_t, :zero_t => @zero_t, :ten_t => @ten_t, :twenty_t => @twenty_t, :thirty_t => @thirty_t } %>');
-_BioModelosVisorModule.unloadModel();
+_BioModelosVisorModule.unloadAllLayers();
 
 /* Carga de variables ecológicas */
 $.ajax({

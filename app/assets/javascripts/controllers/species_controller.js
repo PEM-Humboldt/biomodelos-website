@@ -1,4 +1,68 @@
+var _speciesFunctionsModule = function(){
+	/**
+ 	* Reset the filter controls (año, mes, select, filtros) to the 
+ 	* default values. 
+	*/
+	function resetRecordsFilters(){
+		//Reset slider Año
+		angular.element($("#visCntrl")).scope().resetSlider();
+		//Reset meses
+		$('input:checkbox.meschk').removeAttr('checked');
+		//Reset filters
+		$(".select-options li:contains('Tipo de filtro')").click();
+		//Reset visualizar filters
+		$('#chkBoxFilters input:checkbox').removeAttr('checked');
+		//Activate the default checkbox
+		$('#chkBoxFilters input:checkbox[name="visualadd"]').prop('checked', true);
+	}
+	return{
+		resetRecordsFilters:resetRecordsFilters
+	}
+}();
+
 $(document).ready(function(){
+
+
+	/*
+	* Advanced search filters
+	*/
+
+	function add_species_filters(){
+		var bmclasses = [];
+		var categories = [];
+		$('.sppbtn input[type="checkbox"]').each(function () {
+                    if (this.checked && this.value == 1)
+                      bmclasses.push('mamiferos');
+                    if (this.checked && this.value == 2)
+                      bmclasses.push('aves');
+                    if (this.checked && this.value == 3)
+                      bmclasses.push('reptiles');
+                    if (this.checked && this.value == 4)
+                      bmclasses.push('anfibios');
+                    if (this.checked && this.value == 5)
+                      bmclasses.push('peces');
+                    if (this.checked && this.value == 6)
+                      bmclasses.push('invertebrados');
+                    if (this.checked && this.value == 7)
+                      bmclasses.push('plantas');
+        });
+
+		$('.typebtn input[type="checkbox"]').each(function () {
+                    if (this.checked && this.value == 1)
+                      categories.push('Endemic');
+                    if (this.checked && this.value == 2)
+                      categories.push('Invasive');
+                    if (this.checked && this.value == 3)
+                      categories.push('Endangered');
+                  	if (this.checked && this.value == 4)
+                      categories.push('Valid');
+         });
+
+		$.post( "/species/filter", {bmclasses: bmclasses, categories: categories});
+	}
+
+	$(".cajasearch").on("click"," .sppbtn input[type='checkbox']", add_species_filters);
+	$(".cajasearch").on("click"," .typebtn input[type='checkbox']", add_species_filters);
 
 	/* 
 	* Botones de cerrar las cajas del menú: Búsqueda, Info, Modelos, Contribuciones 
@@ -50,7 +114,7 @@ $(document).ready(function(){
 		$(".delpoli").removeClass("polibtnact");
 	}
 
-	$(".polig").click(function(e){
+	$("#edit_tools_box").on("click",".polig",function(e){
 		if($(this).hasClass("polibtnact")){
 			_BioModelosVisorModule.deactivateDraw();
 			$(this).removeClass("polibtnact");
@@ -66,7 +130,7 @@ $(document).ready(function(){
 		}
 		e.preventDefault();
 	});
-	$(".edipoli").click(function(e){
+	$("#edit_tools_box").on("click",".edipoli",function(e){
 		_BioModelosVisorModule.deactivateDraw();
 		_BioModelosVisorModule.editPolygon();
 		$(".polig").addClass("opacitybtn");
@@ -79,7 +143,7 @@ $(document).ready(function(){
 		}
 		e.preventDefault();
 	});
-	$(".delpoli").click(function(e){
+	$("#edit_tools_box").on("click",".delpoli",function(e){
 		_BioModelosVisorModule.deactivateDraw();
 		_BioModelosVisorModule.deletePolygon();
 		$(".polig").addClass("opacitybtn");
@@ -99,34 +163,33 @@ $(document).ready(function(){
 		deactivateDeletion();			
 	} 
 
-	$(".saveedit").click(function(e){
+	$("#edit_tools_box").on("click",".saveedit",function(e){
 		_BioModelosVisorModule.saveEditPolygon();
 		deactivateEdition();
 		e.preventDefault();
 	});
-	$(".canceledit").click(function(e){
+	$("#edit_tools_box").on("click",".canceledit",function(e){
 		_BioModelosVisorModule.cancelEditPolygon();
 		deactivateEdition();
 		e.preventDefault();
 	});
-	$(".savedel").click(function(e){
+	$("#edit_tools_box").on("click",".savedel",function(e){
 		_BioModelosVisorModule.saveDeletePolygon();
 		deactivateDeletion();
 		e.preventDefault();
 	});
-	$(".canceldel").click(function(e){
+	$("#edit_tools_box").on("click",".canceldel",function(e){
 		_BioModelosVisorModule.cancelDeletePolygon();
 		deactivateDeletion();
 		e.preventDefault();
 	});
-	$("#btnAddSingleRecord").click(function(e){
+	$("#add_records_box").on("click","#btnAddSingleRecord",function(e){
 		_BioModelosVisorModule.deactivateDraw();
 		_BioModelosVisorModule.drawSinglePoint();
 		if(!$(this).hasClass("btngenact"))
 			$(this).addClass("btngenact");
 		e.preventDefault();
 	});
-
 	$("body").on("click", "#popUpCancelBtn", function(e){
   		e.preventDefault();
 		_BioModelosVisorModule.cancelAddPoint();
@@ -140,7 +203,7 @@ $(document).ready(function(){
 			$(this).removeClass("polibtnact");
 	});
 
-	$("#btnPauseEdition").click(function(e){
+	$("#edit_tools_box").on("click","#btnPauseEdition",function(e){
 		e.preventDefault();
 		$.ajax({
 		    type: 'POST',
@@ -155,7 +218,7 @@ $(document).ready(function(){
 		});
 	});
 
-	$("#btnEnvEdition").click(function(e){
+	$("#edit_tools_box").on("click","#btnEnvEdition",function(e){
 		e.preventDefault();
 		alertify.confirm('¿Desea enviar esta como su versión final?', function(e){ 
 			if(e){
@@ -189,112 +252,117 @@ $(document).ready(function(){
 	});
 
 
-	/* Boton de filtrar registros */
+	/**
+ 	* Records filter action
+	* On click action that initializes arrays with the actual values of each type of filter 
+	* (Año, Mes, Buscar por, Visualizar) and passes them to a function.
+	*/
 	$("#filtrarBtn").click(function(e){
-		var selectFilters = [],
+		var findByFilters = [],
 			yearFilters = [],
-			monthFilters = [];
+			monthFilters = [],
+			visualizeFilters = [],
+			yearNotApplicableValue = 0,
+			yearTodayValue = moment().format("YYYY");
 
-		// Almacena el tipo de filtro y el valor
-		selectFilters[0] = $("#filtroRegistro option:selected").text();
-		selectFilters[1] = $("#resultadoFiltro option:selected").text();
-  		// Guarda el rango de los años en un arreglo
+		findByFilters[0] = $("#filtroRegistro option:selected").text();
+		findByFilters[1] = $("#resultadoFiltro option:selected").text();
+
   		yearFilters[0] = $("#sliYearMin").val();
   		yearFilters[1] = $("#sliYearMax").val();
+
+  		//Set default values to non-numeric options of the Year slider.
   		if(yearFilters[0] === 'Hoy')
-  			yearFilters[0] = moment().format("YYYY");
+  			yearFilters[0] = yearTodayValue;
+  		else if (yearFilters[0] === 'NA')
+  			yearFilters[0] = yearNotApplicableValue;
   		if(yearFilters[1] === 'Hoy')
-  			yearFilters[1] = moment().format("YYYY");
-  		// Guarda los meses seleccionados en un arreglo
+  			yearFilters[1] = yearTodayValue;
+  		else if (yearFilters[1] === 'NA')
+  			yearFilters[1] = yearNotApplicableValue;
+
+  		//Goes through every month checkbox and stores the attribute name of the checked ones.
   		$('input[type="checkbox"].meschk').each(function () {
   			if(this.checked)
   				monthFilters.push($(this).attr('name'));
   		});
-
-  		var visFilters = [];
+  		/*Goes through every visualize checkbox and stores the attribute name of the checked ones.
+  		* If the option is not checked, it stores an empty string */
   		$('input[type="checkbox"].checkregistros').each(function () {
   			if(this.checked)
-  				visFilters.push($(this).attr('name'));
+  				visualizeFilters.push($(this).attr('name'));
   			else
-  				visFilters.push("");
+  				visualizeFilters.push("");
   		});
-		_BioModelosVisorModule.filterRecords(selectFilters, visFilters, yearFilters, monthFilters);
-	})
+  		$.post( "/records/edit_record", { species_id: $("#species_id_field").val()}).done(function(data) {
+    		_BioModelosVisorModule.filterRecords(findByFilters, visualizeFilters, yearFilters, monthFilters, data);
+  		});	
+	});
 
 	/* Botón Limpiar filtros
-		1. Reset DOM (año, mes, select, filtros)
+	*
 	*/
 	$("#limpiarBtn").click(function(e){
-		//Reset slider Año
-		angular.element($("#visCntrl")).scope().resetSlider();
-		//Reset meses
-		$('input:checkbox.meschk').removeAttr('checked');
-		//Reset filters
-		$(".select-options li:contains('Tipo de filtro')").click();
-		//Reset visualizar filters
-		$('#chkBoxFilters input:checkbox').removeAttr('checked');
+		_speciesFunctionsModule.resetRecordsFilters();
 		//Reset data
-		_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val());
+		$.post( "/records/edit_record", { species_id: $("#species_id_field").val()}).done(function(data) {
+    		_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val(), data);
+  		});
 	});
 
 
-	/* Botón para activar menú de edición */
-	$("#visCntrl").on("click", "#cbt_editBtn", function(e){
-		e.preventDefault(); 
+	/**
+ 	* Shows the edition menu for editing an existing model or creating a new one. 
+ 	* 
+	* @param {Boolean} event.data.IsNewMap - True if it's activating the create a new map edition 
+	* menu or False if it's the model edition menu.
+	*/
+	function _activateEditionMenu(event){
 		//Cierra menú edición
 		$("#clsEditBox").click();
-		//Carga umbrales, limpia la capa de edición y carga capa pausada si existe
-		_BioModelosVisorModule.unloadThresholdLayer();
-		_BioModelosVisorModule.loadThresholdLayer();
-		_BioModelosVisorModule.unloadEditionLayer(); 
+		//Carga umbrales si es edición de mapa y carga capa pausada si existe
+		if(event.data.isNewMap){
+			//Oculta el slider de umbrales
+			$("#regMenu_slider").hide();
+		}		
+		else{
+			_BioModelosVisorModule.loadThresholdLayer();
+		}
 		_BioModelosVisorModule.loadEditionLayer();
-		$.ajax({
-		    type: 'POST',
-		    url: "/users_layers/load_layer",
-		    data: {
-		    	species_id: $("#species_id_field").val() 
-		    }
-		});
-		//Visibiliza y muestra el menú de edición
-		resetPolygonButtons();
-		$(".btnedicion").show();
-		$(".btnedicion").click();
-		//Set newModel value
-		$("#newModel_field").val(false);
-	});
-	
-	/* Botón crea tu mapa */
-	$("#visCntrl").on("click", "#cbt_crearBtn", function(e){
-		e.preventDefault(); 
-		//Cierra menú edición
-		$("#clsEditBox").click();
-		//Limpia la capa de edición y carga capa pausada si existe 
-		_BioModelosVisorModule.unloadEditionLayer(); 
-		_BioModelosVisorModule.loadEditionLayer();
-		_BioModelosVisorModule.unloadThresholdLayer();
 		$.ajax({
 		    type: 'POST',
 		    url: "/users_layers/load_layer",
 		    data: {
 		    	species_id: $("#species_id_field").val(),
-		    	new_map: true
+		    	new_map: event.data.isNewMap 
 		    }
 		});
-		//Oculta el slider de umbrales
-		$("#regMenu_slider").hide();
 		//Visibiliza y muestra el menú de edición
 		resetPolygonButtons();
-		if(!$(".btnedicion").is(":visible")){
-			$(".btnedicion").show();
-			$(".btnedicion").click();
+		if($(".cajaregistros").is(":visible")){
+			$(".btnregistros").click();
 		}
+		$(".btnedicion").show();
+		$(".btnedicion").click();
 		//Set newModel value
-		$("#newModel_field").val(true);
-	});
+		$("#newModel_field").val(event.data.isNewMap);
+	}
 
-	$(".vbtnedit").click(function(e){
+	/* Edition Menu button */
+	$("#visCntrl").on("click", "#cbt_editBtn", { isNewMap: false }, _activateEditionMenu);
+	
+	/* Create your map button */
+	$("#visCntrl").on("click", "#cbt_crearBtn", { isNewMap: true }, _activateEditionMenu);
+
+	$("#visCntrl").on("click",".vbtnedit", function(e){
+		if ($(".cajasearch").is(":visible")) $("#clsSearchBox").click();
+		if ($(".hipotesis").is(":visible")) $("#clsModelsBox").click();
+		if ($(".infocaja").is(":visible")) $("#clsInfoBox").click();
 		/* TODO clean layers */
 		$("#regMenu_slider").show();
+		$(".modelname").html("");
+		if($(".modelname").hasClass("gradient"))
+          $(".modelname").removeClass("gradient");
 		$(".btnedicion").hide();
 		if($(".cajitaeditar").is(":visible")){
 			$(".btnedicion").click();
@@ -308,11 +376,25 @@ $(document).ready(function(){
 		});
 	});
 
+	$(".vbtnfind").click(function(e){
+		if ($(".editbox").is(":visible")) $("#clsEditBox").click();
+		if ($(".hipotesis").is(":visible")) $("#clsModelsBox").click();
+		if ($(".infocaja").is(":visible")) $("#clsInfoBox").click();
+		if ($(".vbtnfind").hasClass('vbtnact')) add_species_filters(); 
+	});
+
 	$(".vbtnhipo").click(function(e){
+		if ($(".cajasearch").is(":visible")) $("#clsSearchBox").click();
+		if ($(".editbox").is(":visible")) $("#clsEditBox").click();
+		if ($(".infocaja").is(":visible")) $("#clsInfoBox").click();
 		/* TODO clean layers */
+		$(".btnedicion").hide();
+		if($(".cajitaeditar").is(":visible")){
+			$(".btnedicion").click();
+		}
 		$.ajax({
 		    type: 'POST',
-		    url: "/models/get_models",
+		    url: "/models/get_hypotheses",
 		    data: {
 		    	species_id: $("#species_id_field").val(),
 		    }
@@ -320,6 +402,9 @@ $(document).ready(function(){
 	});
 
 	$(".vbtninfo").click(function(e){
+		if ($(".cajasearch").is(":visible")) $("#clsSearchBox").click();
+		if ($(".editbox").is(":visible")) $("#clsEditBox").click();
+		if ($(".hipotesis").is(":visible")) $("#clsModelsBox").click();
 		/* TODO clean layers */
 		$.ajax({
 		    type: 'POST',
@@ -330,6 +415,25 @@ $(document).ready(function(){
 		});
 	});
 
+	function map_status_name(status){
+		var mapped_status ="";
+		switch (status) {
+	  		case 'pendingValidation':
+	    		mapped_status = 'Validación pendiente';
+	    		break;
+	  		case 'Valid':
+	    		mapped_status = 'Validado';
+	    		break;
+	  		case 'Developing':
+	    		mapped_status = 'En desarrollo';
+	    		break;
+	  		default:
+	    		mapped_status = status;
+	    		break;
+		}
+		return mapped_status;	
+	}
+
 	$("#visCntrl").on("click",".sp_model_link",function(e){
         e.preventDefault();
         $("#clsModelsBox").click();
@@ -337,12 +441,22 @@ $(document).ready(function(){
 		if($(".cajitaeditar").is(":visible")){
 			$(".btnedicion").click();
 		}
-        _BioModelosVisorModule.unloadModel();
-        _BioModelosVisorModule.unloadEditionLayer();
-        _BioModelosVisorModule.unloadThresholdLayer();
+		$(".modelname").html(map_status_name($("#txt_model_status").val()));
+        _BioModelosVisorModule.unloadAllLayers();
 		_BioModelosVisorModule.loadModel($(this).find('#imgsrc_model').val(), $('.titlethumb').val());
 
 	});
+
+	$("body").on("click","#editRecordBtn",function(e){
+        e.preventDefault();
+		_BioModelosVisorModule.editRecord();
+  	});
+
+  	function _refreshSpeciesRecords(){
+  		$.post( "/records/edit_record", { species_id: $("#species_id_field").val()}).done(function(data) {
+  			_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val(), data);
+  		});
+  	}
 
 	/* Botón enviar edición de registro */
 	$("body").on("click","#sendRecordEdition",function(e){
@@ -389,7 +503,6 @@ $(document).ready(function(){
 			data.locality = locRecordEdition;
 		}
 		var valResponse = validate(varsToValidate, constraints, {format: "flat"});
-		console.log(valResponse);
 		if(valResponse){
 			var response = "";
 			for(var i=0; i<valResponse.length; i++){
@@ -398,13 +511,12 @@ $(document).ready(function(){
 			alertify.alert(response);
 		}
 		else{
-			console.log(data);
 			$.ajax({
 			    type: 'POST',
 			    url: "/records/update_record",
 			    data: data,
 			    success: function(){
-					_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val());
+					_refreshSpeciesRecords();
 					alertify.alert("Su edición se ha realizado con éxito");
 				},
 				error: function(jqXHR, textStatus, errorThrown){
@@ -431,12 +543,15 @@ $(document).ready(function(){
 			locNewRecord = $("#r_localidad").val(),
 			tipoNewRecord = $("#r_tipo").val(),
 			colNewRecord = $("#r_observador").val(),
+			citaNewRecord = $("#r_cita").val(),
 			commentNewRecord = $("#r_comment").val();
 
 
 		var varsToValidate = {},
 		constraints = {},
-		data = {taxID: $("#species_id_field").val()};
+		data = {taxID: $("#species_id_field").val(),
+				acceptedNameUsage: $(".spname").html(),
+				userId_bm: $("#user_id_field").val()};
 		
 		varsToValidate.lat = latNewRecord;
 		constraints.lat = {};
@@ -500,11 +615,13 @@ $(document).ready(function(){
 			data.basisOfRecord = tipoNewRecord;
 		if(colNewRecord != "")
 			data.collector = colNewRecord;
+		if(citaNewRecord != "")
+			data.citation_bm = citaNewRecord;
 		if(commentNewRecord != "")
-			data.citation_bm = commentNewRecord;
+			data.comments_bm = commentNewRecord;
 
 		var valResponse = validate(varsToValidate, constraints, {format: "flat"});
-		console.log(valResponse);
+
 		if(valResponse){
 			var response = "";
 			for(var i=0; i<valResponse.length; i++){
@@ -519,7 +636,7 @@ $(document).ready(function(){
 			    data: data,
 			    success: function(){
 			    	_BioModelosVisorModule.cancelAddPoint();
-					_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val());
+					_refreshSpeciesRecords();
 					alertify.alert("El registro ha sido agregado con éxito");
 				},
 				error: function(jqXHR, textStatus, errorThrown){
@@ -545,10 +662,8 @@ $(document).ready(function(){
             isError = true;
             alertify.alert( "Ha ocurrido un error al guardar la variable ecológica: " + error );
           } 	
-     });
+    });
   });
-
-	
 });
 
 

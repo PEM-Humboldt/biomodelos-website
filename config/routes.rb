@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -15,19 +15,25 @@ Rails.application.routes.draw do
   get "home/about_us"
   get "home/publish"
   get "home/api"
+  get "home/terms"
+  post "home/send_contact_form"
   post "users_layers/load_layer"
   post "users_layers/pause_layer"
   post "users_layers/send_layer"
   post "reports/update_record"
   post "species/set_species"
   post "records/report_record"
+  post "records/edit_record"
   post "species/species_info"
   post "records/send_report_record"
+  post "models/load_initial_model"
   post "models/get_thresholds"
-  post "models/get_models"
-  get "models/download_model"
+  post "models/get_hypotheses"
+  post "models/download_model"
+  post "models/download_terms"
+  post "models/models_stats"
   get "models/metadata"
-  get "records/records_metadata"
+  get "records/records_metadata/:id" => "records#records_metadata", as: "records_metadata"
   get "species/search"
   post "ratings/rate_model"
   get "eco_variables/eco_variables_search"
@@ -36,31 +42,37 @@ Rails.application.routes.draw do
   post "records/new_record"
   post "records/new_report"
   post "records/update_record"
+  post "tasks/add_tasks"
+  post "tasks/finish_task"
+  post "tasks/tasks_by_group"
+  post "tasks/tasks_by_user"
+  post "groups_species/species_by_group"
+  post "groups_species/update_groups_species"
+  post "groups/bulk_group_email"
+  post "groups/invite_user"
+  post "groups/suggest_group"
+  post "groups_users/users_by_group"
+  post "groups_users/update_groups_user"
+  post "users/send_message_to_user"
+  post "groups/group_activity"
+  post "home/upload_model"
+  post "species/filter"
   # get "models/metadata/:id"
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :users, :only => [:index, :show]
-  resources :groups, :only => [:index, :show]
+  resources :users, :only => [:show]
+  resources :groups, :only => [:index, :show, :update]
   resources :info, :only => [:index]
-  resources :species_groups, :only => [:index, :create]
+  resources :groups_species, :only => [:index, :create]
+  resources :groups_users, :only => [:index, :create]
   resources :tasks, :only => [:index, :create]
   resources :ratings, :only => [:destroy]
   resources :models do
     member do
       get :metadata
-    end
-  end
-
-  #BioModelos API routes
-  constraints :subdomain => 'api' do
-    scope module: "api", defaults: {format: 'json'} do
-      namespace :v1 do
-        get "species/:id" => "species#show"
-        get "species/records/:id"  => "species#records"
-      end
     end
   end
 

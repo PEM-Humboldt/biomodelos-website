@@ -30,6 +30,7 @@
     "alertify": "^0.3.10",
     "raty": "^2.7.1",
     "moment": "^2.15.1",
-    "Leaflet.Coordinates": "^0.1.5"
+    "Leaflet.Coordinates": "^0.1.5",
+    "clipboard": "^1.6.1"
   }
 }

@@ -1,19 +1,17 @@
 <h1>expertos</h1>
-<a ng-click="invitador=!invitador; activeButton()" ng-class="{'btnact': isActive}" class="closecb">INVITAR EXPERTO</a>
-<div ng-show="invitador" class="forms">
-	<%= simple_form_for :message do |f| %>
-         <%= f.error_notification %>
-         <%= f.input :email, :maxlength => 50, :placeholder => "E-mail", :name => "email", label: false %>
-         <%= f.input :content, :as => :text, :input_html => {:maxlength => 1200, :cols => "20", :rows => "6"}, :name => "cuerpo", label: false %>
-         <%= f.button :submit, :value => "ENVIAR", :class => 'boton1'%>
-   <% end %>
-</div>
-<div class="clearfix mb20"></div>
-<% @group_members.each do |member| %>
-	<div class="expindex groupexindex">
-		<div class="expcard"><%= image_tag("perfilprueba.jpg") %></div>
-		<div href="" class="rankblue"></div>
-		<h2 class="clearfix"><b>Ranking</b></br>400</h2>
-		<h5><a href="/users/<%= member.user_id %>"><%= member.user.name %></a></h5>
+<% if @current_group_user %>
+	<a ng-click="invitador=!invitador; activeButton()" ng-class="{'btnact': isActive}" class="closecb">INVITAR EXPERTO</a>
+	<div ng-show="invitador" class="forms">
+		<p class="groupuser">Para enviar invitaciones simultáneas a un grupo de expertos, se deben separar las direcciones de correo utilizando un punto y coma (;) sin dejar espacios de por medio. Máximo 500 caracteres.</p><br/>
+		<%= simple_form_for :message, :url =>  groups_invite_user_path, :method => :post do |f| %>
+	         <%= f.error_notification %>
+	         <%= f.hidden_field :group_id, :value => @group.id %>
+	         <%= f.input :email, :maxlength => 500, :placeholder => "E-mail", :name => "email", label: false %>
+	         <%= f.input :message, :as => :text, :input_html => {:maxlength => 1200, :cols => "20", :rows => "6"}, :name => "cuerpo", label: false %>
+	         <%= f.button :submit, :value => "ENVIAR", :class => 'boton1'%>
+	   <% end %>
 	</div>
 <% end %>
+
+<div id="group_users_tables"></div>
+

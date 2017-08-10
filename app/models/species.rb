@@ -4,18 +4,14 @@ class Species
   	base_uri BASE_URI + '/species'
 	# has_many :tasks
 
-	# def self.search(options)
-	# 	if options[:query]
- 	#      		where("sci_name like ?", "%#{options[:query]}%").limit(10)
- 	#    	end
-	# end
-
-	def initialize
-
-	end
-
 	def self.find_name(taxID)
-   		JSON.parse(get('/' + taxID.to_s).body)[0]["species"]	
+   		res = JSON.parse(get('/' + taxID.to_s).body)
+   		if !res.blank?
+   			res = res[0]["acceptedNameUsage"]
+   		else
+   			res = ""
+   		end
+   		return res	
 	end
 
 	def self.records_number(taxID)
@@ -28,6 +24,36 @@ class Species
 
 	def self.records(taxID)
 		JSON.parse(get('/records/' + taxID.to_s).body)
+	end
+
+	def self.group_records(taxID)
+		JSON.parse(get('/records/group/' + taxID.to_s).body)
+	end
+
+	def self.filter(params)
+		url = "?"
+		if params[:bmclasses]
+			params[:bmclasses].each do |bm_class|
+				url += "&bmClass=" + bm_class
+			end
+		end
+		if params[:categories]
+			params[:categories].each do |category|
+				if(category == 'Endemic')
+					url += "&endemic=true"
+				end
+				if(category == 'Invasive')
+					url += "&invasive=true"
+				end
+				if(category == 'Endangered')
+					url += "&endangered=true"
+				end
+				if(category == 'Valid')
+					url += "&modelStatus=Valid"
+				end
+			end
+		end
+		JSON.parse(get(URI.escape(url)).body)
 	end
 
 	def self.search(params)
@@ -62,8 +88,8 @@ class Species
 		if params[:invasive]
 			url += "&invasive=" + params[:invasive]
 		end
-		if params[:enPeligro]
-			url += "&enPeligro=" + params[:enPeligro]
+		if params[:endangered]
+			url += "&endangered=" + params[:endangered]
 		end
 
 		JSON.parse(get(URI.escape(url)).body)

@@ -7,16 +7,15 @@ module SpeciesHelper
     	!!(parameter =~ /\A[-+]?[0-9]+\z/)
     end
 
-    def model_title_thumb(modelStatus)
-    	case modelStatus # a_variable is the variable we want to compare
-		when 'Developing'    #compare to 1
-		  return 'MODELO EN DESARROLLO'
-		when 'Approved'   #compare to 2
-		  return 'MODELO VALIDADO BIOMODELOS'
-		when 'Published'
-		  return 'MODELO PUBLICADO'
-		else
-		  return "MODELO"
+    def model_title_thumb(modelStatus, published)
+    	if modelStatus == 'pendingValidation' && published
+    		return 'PUBLICADO POR VALIDAR'
+    	elsif modelStatus == 'pendingValidation' && !published
+    		return 'POR VALIDAR'
+    	elsif modelStatus == 'Valid' && published
+    		return 'PUBLICADO VALIDADO'
+    	elsif modelStatus == 'Valid' && !published
+    		return 'VALIDADO'
 		end	
     end
 end

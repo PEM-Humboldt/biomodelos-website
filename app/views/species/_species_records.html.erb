@@ -52,27 +52,16 @@
 				<option value="">- Categoria -</option>
 			</select>
 		<div class="infotitle steptitle" title="En esta sección podrás resaltar los registros por:&#013;&#013;
-• Registro extremo: aplica para observaciones que son válidas pero que corresponden a eventos aislados que pueden sesgar un modelo.&#013; 
-• Reportados: aquellos registros que han tenido un reporte de error previo en BioModelos.&#013; 
-• Agregados: aquellos registros que los expertos han contribuido a través de BioModelos." rel="tooltip">Visualizar</div>
+• Reportados: registros que han tenido un reporte de error en BioModelos.&#013;
+• Editados: registros que han sido modificados por los expertos de la especie.&#013; 
+• Prioritarios de revisión: registros que requieren revisión prioritaria." rel="tooltip">Visualizar</div>
 		<div id="chkBoxFilters">
 			<input type="checkbox" name="visualrep" class="checkregistros"></input>
 			<label for="visualrep" class="lblvisual">Reportados</label></br>
 			<input type="checkbox" name="visualedit" class="checkregistros"></input>
 			<label for="visualedit" class="lblvisual">Editados</label></br>
 			<input type="checkbox" name="visualadd" class="checkregistros"></input>
-			<label for="visualadd" class="lblvisual">Agregados</label></br>
+			<label for="visualadd" class="lblvisual">Prioritarios de revisión</label></br>
 		</div>
 		<button class="btngen" id="limpiarBtn">limpiar</button>
 		<button class="btngen" id="filtrarBtn">filtrar</button>
-
-		<div class="foreditors">
-			<div class="littleline"></div>
-			<% if user_signed_in? %>
-				<div class="steptitle" title="1: Las coordenadas del visor geográfico permiten agregar un registro para la especie, después podrás cambiarlas y llenar los demás campos de documentación." rel="tooltip">Agregar registro</div>
-				<button class="btngen marbtnreg" id="btnAddSingleRecord">1</button>
-					<!-- <button class="btngen marbtnreg">conjunto</button>
-				<div class="infotitle steptitle lh25" title="Esta información corresponde al modelo validado BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie. Las estadísticas que se presentan a continuación corresponden únicamente a este modelo." rel="tooltip">Actualizar taxonomía</div>
-					<button class="taxbtn"></button> -->
-			<% end %>
-		</div>

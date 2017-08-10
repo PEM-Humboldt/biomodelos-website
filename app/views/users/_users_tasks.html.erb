@@ -1,51 +1,20 @@
 <h1>tareas</h1>
-				<div class="colspp tabletit">
-					<h2>Especie</h2>
-				</div><!-- 
-			 --><div class="coladv tabletit" rel="tooltip" title="Curación de registros">
-					<%= image_tag("regperfil.png") %>
-				</div><!-- 
-			 --><div class="coladv tabletit" rel="tooltip" title="Edición de modelos">
-					<%= image_tag("penperfil.png") %>
-				</div><!-- 
-			 --><div class="coladv tabletit" rel="tooltip" title="Variables ecológicas">
-					<%= image_tag("veicon2.png") %>
-				</div><!--  
-			 --><div class="coladv tabletit" rel="tooltip" title="Modelo aprobado">
-					<%= image_tag("aprobicon.png") %>
-				</div><!-- 
-			 --><div class="coladv tabletit" rel="tooltip" title="Porcentaje de avance">
-					<%= image_tag("percicon.png") %>
-				</div>
-				<% @species_with_tasks.each do |species| %>
-					<% @tasks.select{|x| x.species_id == species[1]}.each do |task| %>
-						<div class="tareaspp"><!-- 
-						--><a class="colspp"><%= species[0] %></a><!-- 
-						--><div class="coladv">
-							<% if task.task_type_id == 1 %>
-								<% if task.task_state_id == 2 %>
-									<%= image_tag("check.png") %>
-								<% else %>
-									<% if user_signed_in? && @user.id == current_user.id %>
-										<input type="checkbox" \>
-									<% end %>
-								<% end %>
-							<% end %>
-						</div><!-- 
-						--><div class="coladv">
-							<% if task.task_type_id == 2 %>
-								<% if task.task_state_id == 2 %>
-									<%= image_tag("check.png") %>
-								<% else %>
-									<% if user_signed_in? && @user.id == current_user.id %>
-										<input type="checkbox" \>
-									<% end %>
-								<% end %>
-							<% end %>
-							</div><!-- 
-						--><div class="coladv"><input type="checkbox" ></input></div><!-- 
-						--><p class="coladv">50%</p><!-- 
-						--><p class="coladv"></p>
-						</div>
-					<% end %>
-				<% end %>
+<div class="colspp tabletit">
+	<h2>Especie</h2>
+</div><!-- 
+--><div class="coladv tabletit" rel="tooltip" title="Curación de registros">
+	<%= image_tag("regperfil.png") %>
+</div><!-- 
+--><div class="coladv tabletit" rel="tooltip" title="Edición de modelos">
+	<%= image_tag("penperfil.png") %>
+</div><!-- 
+--><div class="coladv tabletit" rel="tooltip" title="Variables ecológicas">
+	<%= image_tag("veicon2.png") %>
+</div><!--  
+--><div class="coladv tabletit" rel="tooltip" title="Modelo aprobado">
+	<%= image_tag("aprobicon.png") %>
+</div><!-- 
+--><div class="coladv tabletit" rel="tooltip" title="Porcentaje de avance">
+	<%= image_tag("percicon.png") %>
+</div>
+<div id="user_tasks_table"></div>

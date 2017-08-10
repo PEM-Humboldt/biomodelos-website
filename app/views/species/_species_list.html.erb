@@ -1,0 +1,18 @@
+
+<section class="resultados">
+	<% if @species.blank? %>
+		No existen resultados para la búsqueda.
+	<% else %>
+		<% @species.each do |sp|%>
+			<a href="/species/visor?species_id=<%= sp['taxID'] %>"><%= sp["species"] %></a></br>
+		<% end %>
+	<% end %>
+</section>
+
+<script type="text/javascript">
+	$('.resultados').niceScroll({
+		cursorcolor: "#5d5e5e",
+		cursorwidth: "7px",
+		cursorborder: "none"
+	});
+</script>

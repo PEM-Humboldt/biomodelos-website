@@ -1,23 +1,63 @@
-<% if !params[:species_id].blank? && is_integer_num(params[:species_id]) %>
-	$("#species_id_field").val("<%= params[:species_id] %>");
-	$(".spname").html("<%= @species_name %>");
-	$("#info_species_name").html("<%= @species_name %>");
-	$("#info_records_number").html("<%= @records_number %>")
-	/* Clear layers */
-	_BioModelosVisorModule.unloadModel();
-	_BioModelosVisorModule.unloadEditionLayer();
-	_BioModelosVisorModule.unloadThresholdLayer();
-	_BioModelosVisorModule.getSpeciesRecords("<%= params[:species_id] %>");
-	$(".vbtninfo").show();
-	$(".vbtnhipo").show();
-	$(".vbtnedit").show();
-	$(".btnedicion").hide();
-	if($(".cajitaeditar").is(":visible")){
-		$(".btnedicion").click();
-	}
-	$(".btnregistros").show();
-	$(".spname").show();
-	if($(".cajasearch").is(":visible"))
-		$("#clsSearchBox").click();
-<% end %>
-
+$(document).ready(function(){
+	<% if !params[:species_id].blank? && is_integer_num(params[:species_id]) && params[:species_id] != 0 %>
+		$("#species_id_field").val("<%= params[:species_id] %>");
+		$(".spname").html("<%= @species_name %>");
+		$("#info_species_name").html("<%= @species_name %>");
+		$("#info_records_number").html("<%= @records_number %>");
+		$("#info_records_metadata").html('<%= link_to "METADATOS REGISTROS", records_metadata_path(:id => params[:species_id]), target: "_blank" %>');
+		<% if !@approved_model.blank? %>
+			$("#valid_model_text").html('<p>Esta información corresponde al modelo validado por los expertos en BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie.</p>');
+		<% else %>
+			$("#valid_model_text").html('<p>Dado que esta especie aún no tiene un modelo validado, no es posible calcular la información que normalmente se presenta en esta sección.</p>');
+		<% end %>
+		/* Clears layers */
+		_BioModelosVisorModule.unloadAllLayers();
+		/* Clears edition tools */
+		$(".btnedicion").hide();
+		if($(".cajitaeditar").is(":visible")){
+				$(".btnedicion").click();
+		}
+		/* Loads records */
+		_BioModelosVisorModule.getSpeciesRecords("<%= params[:species_id] %>", <%= @can_edit %>);
+		$(".btnregistros").show();
+		if(!$(".cajaregistros").is(":visible")){
+			$(".btnregistros").click();
+		}
+		_speciesFunctionsModule.resetRecordsFilters();
+		/* Shows main toolbar buttons */
+		$(".vbtninfo").show();
+		$(".vbtnhipo").show();
+		/* Loads initial model */
+		$.post( "/models/load_initial_model", { species_id: <%= params[:species_id] %>});
+		/* Dynamically loads the edition tools if the user can edit */
+		<% if user_signed_in? && @can_edit %>
+			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $('#edit_model_btn'), '<div ng-click="edit=!edit" title="Editar modelo" rel="tooltip" class="visorbtn vbtnedit" selectable></div>');
+			$(".vbtnedit").show();
+			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $("#edit_box_btn"),'<div ng-click="editar=!editar" class="btnedicion" selectable>edición</div>');
+			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $("#edit_tools_box"), '<div ng-show="editar" class="cajitaeditar"><%=j render 'species/species_edition' %></div>');
+			$('#add_records_box').html('<%=j render partial: 'species_edition_new_records' %>');
+		<% else %>
+			$('#edit_model_btn').html('');
+			$("#edit_box_btn").html('');
+			$("#edit_tools_box").html('');
+			$('#add_records_box').html('');
+		<% end %>
+		$(".spname").show();
+		if($(".cajasearch").is(":visible"))
+			$("#clsSearchBox").click();
+	<% else %>
+		$("#species_id_field").val(0);
+		/* Clears layers */
+		_BioModelosVisorModule.unloadAllLayers();
+		$(".btnedicion").hide();
+		$(".spname").hide();
+		$(".modelname").hide();
+		if($(".cajitaeditar").is(":visible")){
+				$(".btnedicion").click();
+		}
+		if($(".cajaregistros").is(":visible")){
+			$(".btnregistros").click();
+		}
+		$(".btnregistros").hide();
+	<% end %>
+});

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="author" content="BioModelos - biomodelos@humboldt.org.co">
+    <title>Mensaje administrador</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic' rel='stylesheet' type='text/css'>
+<style>
+* {
+	margin:0;
+	padding:0;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+	font-size: 14px;
+	background-color: #f2f2f2;
+}
+
+a {
+	text-decoration: none;
+	color: #db3f2a;
+}
+
+.linewidth {
+	width: 700px;
+	height: 150px;
+	background-color: #1b3337;
+	margin: 0 auto;
+}
+
+.contenido {
+	width: 600px;
+	background-color: #fff;
+	padding: 20px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	margin: 0 auto;
+	margin-top: -70px;
+}
+
+h3 {
+	color: #393836;
+	margin-bottom: 35px;
+}
+
+h3 i,
+h3 b {
+	color: #424242;
+}
+
+h3 span {
+	color: #db3f2a;
+}
+
+</style>
+
+</head>
+<body>
+<div class="linewidth"></div>
+<div class ="contenido">
+	<h3>Se ha recibido una sugerencia para la creación de un nuevo grupo desde la aplicación <span>BioModelos</span> con la siguiente información:</h3>
+
+	Hora de recepción: <%= @datetime.strftime("%F %r") %><br/>
+	<br/>
+	Usuario: <b><a href="biomodelos.humboldt.org.co/users/<%= @user.id %>"><%= @user.name %></a></b><br/>
+	E-Mail: <b><%= @user.email %></b><br/>
+	Nombre del grupo: <b><%= @new_group.name %></b><br/>
+	Posible moderador: <b><%= @new_group.moderator %></b><br/>
+	Descripción del grupo: <b><%= @new_group.content %></b><br/>
+</div>
+</body>
+</html>

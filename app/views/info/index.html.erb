@@ -12,18 +12,18 @@
 	    <div class="clearfix"></div>
 		<div ng-show="isSet(1)" class="cajainfo">
  			<ul class="subtabs">
-		       	<li class="subtabact">
+		       	<!-- <li class="subtabact">
 		          	<a href="">noticias</a>
 		       	</li><!-- 
-		     --><li >
+		     --><li class="subtabact">
 		          	<a href="">boletines</a>
 		       	</li><!-- 	
-		        --><li>
+		        --><!-- <li>
 		          	<a href="">publicaciones</a>
-		       	</li><!-- 
-		       	 --><li>
+		       	</li> --><!-- 
+		       	 --><!-- <li>
 		          	<a href="">conferencias</a>
-		       	</li>
+		       	</li> -->
 	     	</ul>
 	     	<div class="infocontainer">
 				<div class="blogg invisible">
@@ -36,7 +36,7 @@
 				</div>
 
 				<div class="boletindex">
-					<div class="cardbol" ng-click="boletin4=!boletin4; activeButton()" ng-class="{'actbol': isActive}" ontouchstart="this.classList.toggle('hover');">
+					<div class="cardbol" ng-click="boletin4=!boletin4" ontouchstart="this.classList.toggle('hover');" boletin>
 						<div class="flipper">
 							<div class="front">
 								<h3>Boletín No. 4</h3>
@@ -52,7 +52,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="cardbol" ng-click="boletin3=!boletin3; activeButton()" ng-class="{'actbol': isActive}" ontouchstart="this.classList.toggle('hover');">
+					<div class="cardbol" ng-click="boletin3=!boletin3" ontouchstart="this.classList.toggle('hover');" boletin>
 						<div class="flipper">
 							<div class="front">
 								<h3>Boletín No. 3</h3>
@@ -68,7 +68,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="cardbol" ng-click="boletin2=!boletin2; activeButton()" ng-class="{'actbol': isActive}" ontouchstart="this.classList.toggle('hover');">
+					<div class="cardbol" ng-click="boletin2=!boletin2" ontouchstart="this.classList.toggle('hover');" boletin>
 						<div class="flipper">
 							<div class="front">
 								<h3>Boletín No. 2</h3>
@@ -84,7 +84,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="cardbol" ng-click="boletin1=!boletin1; activeButton()" ng-class="{'actbol': isActive}" ontouchstart="this.classList.toggle('hover');">
+					<div class="cardbol" ng-click="boletin1=!boletin1" ontouchstart="this.classList.toggle('hover');" boletin>
 						<div class="flipper">
 							<div class="front">
 								<h3>Boletín No. 1</h3>
@@ -279,14 +279,14 @@
 					<%= image_tag("regisdocs.jpg") %>
 					<p>+</p>
 				</a>
-				<a href="http://biomodelos.humboldt.org.co/expertos.pdf" target="_blank" class="cajathumb">
+<!-- 				<a href="http://biomodelos.humboldt.org.co/expertos.pdf" target="_blank" class="cajathumb">
 					<%= image_tag("experdocs.jpg") %>
 					<p>+</p>
 				</a>
 				<a href="http://biomodelos.humboldt.org.co/metodologia.pdf" target="_blank" class="cajathumb">
 					<%= image_tag("metoddocs.jpg") %>
 					<p>+</p>
-				</a>
+				</a> -->
 			</div>
 		</div>
 	</div>

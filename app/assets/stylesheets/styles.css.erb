@@ -225,7 +225,7 @@ footer {
 	font-size: 12px;
 	color: #fff;
 	font-weight: 400;
-	margin-bottom: 20px;
+	margin-bottom: 37px;
 	font-size: 0.87em;
 	letter-spacing: 0.5px;
 }
@@ -465,6 +465,9 @@ footer li a, .visorfooter li a {
 	font-weight: 400;
 }
 
+.nbg4 .hcbase h1 {
+	margin-bottom: 20px !important;
+}
 .hcbase {
 	margin-bottom: 12px;
 }
@@ -602,6 +605,12 @@ div.google-visualization-tooltip > ul > li:nth-child(2) {
 	vertical-align: middle;
 	display: inline-block;
 }
+p.removeline::before {
+	width: 0;
+}
+p.orangesq::before {
+	background-color: #18b4b1;
+}
 p.yellsq::before {
 	background-color: #e3af24;
 }
@@ -620,7 +629,7 @@ p.redsq::before	{
 	justify-content: center;
 }
 .nbg1 {
-	background-image: url(<%= asset_path 'bg2.jpg' %>);
+	background-image: url(<%= asset_path 'bg9.jpg' %>);
 }
 .nbg2 {
 	background-image: url(<%= asset_path 'bg5.jpg' %>);
@@ -632,7 +641,7 @@ p.redsq::before	{
 	background-image: url(<%= asset_path 'bg8.jpg' %>);
 }
 .nbg5 {
-	background-image: url(<%= asset_path 'bg9.jpg' %>);
+	background-image: url(<%= asset_path 'bg3.jpg' %>);
 }
 .nbg6 {
 	background-image: url(<%= asset_path 'bg1.jpg' %>);
@@ -667,9 +676,24 @@ p.redsq::before	{
 	color: #1b3337;
 }
 
+.loginbox h3 {
+	font-size: 1.2em;
+	font-weight: 300;
+	padding-bottom: 5px;
+	text-align: center;
+	color: #6c6c6c;
+}
+
 #error_explanation h2 {
-	font-size: 1.6em;
+	font-size: 1.1em;
 	color: #db3f2a;
+	text-align: left;
+	padding-bottom: 12px;
+	margin-bottom: 5px;
+}
+
+#error_explanation ul {
+	/*display: none;*/
 }
 
 .loginbox a {
@@ -702,6 +726,18 @@ p.redsq::before	{
 	vertical-align: middle;
 }
 
+.loginbox span.error {
+	color:#db3f2a;
+	font-weight: 300;
+	padding: 3px;
+	text-transform: uppercase;
+}
+
+.field2 .field_with_errors {
+	display: inline-block !important;
+}
+
+.editbox input[type="submit"],
 .hipotesis input[type="submit"], 
 .loginbox input[type="submit"] {
 	background: none;
@@ -717,11 +753,40 @@ p.redsq::before	{
 	width: auto;
 }
 
+.editbox input[type="submit"],
+.hipotesis input[type="submit"] {
+	padding: 7px 16px 7px;
+	float: inital;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.editbox input[type="submit"]:hover,
+.hipotesis input[type="submit"]:hover {
+	background-color: #db3f2a;
+	color: #fff;
+}
+
+.editbox span,
+.hipotesis span {
+	display: block;
+	font-size: 13px;
+}
+
+.editbox span label, 
+.hipotesis span label {
+	margin-left: 5px;
+	line-height: 2;
+}
+
 .loginbox label {
 	color: #393836;
 	letter-spacing: 0.5px;
 	padding-top: 5px;
-    vertical-align: middle;
+}
+
+.remembchk label {
+	vertical-align: -10px;
 }
 
 .loginbox .field {
@@ -737,7 +802,24 @@ p.redsq::before	{
 	margin-bottom: 40px;
 	font-size: 0.87em;
 	line-height: 0;
+}
 
+.loginbox a.linkterminos {
+	float: initial;
+	color: #db3f2a;
+	padding: 0 5px;
+}
+
+.loginbox input[type="checkbox"] {
+	margin-top: 18px;
+}
+
+.nbg6 .loginbox input[type="checkbox"] {
+	margin-top: 6px;
+}
+
+.vamiddle {
+	padding:0;
 }
 .mb40 {
 	margin-bottom: 20px;
@@ -840,7 +922,7 @@ p.redsq::before	{
 }
 
 .intgroups {
-	color: #391410;
+	color: #e45b2d;
 	margin-top: 7px;
 }
 
@@ -905,6 +987,9 @@ p.redsq::before	{
 	background: url(<%= asset_path 'groupjoin.png' %>) left no-repeat;
 	margin-top: 5px;
 	margin-left: 3px;
+	border: 0;
+	outline: none;
+	cursor: pointer;
 }
 
 .perfilunder {
@@ -1015,6 +1100,12 @@ p.groupuser {
 	border-bottom: 1px solid #db3f2a;
 }
 
+.fz1em {
+	font-size: 0.67em;
+	padding-left: 5px;
+	margin-top: 30px;
+}
+
 .sppbox h2, .tabletit h2, .top5 h2 {
 	color:#1b3337;
 	font-size: 1em;
@@ -1043,6 +1134,16 @@ p.groupuser {
 	color:#9c9d36;
 }
 
+.noitalic a {
+	font-style: normal;
+	color: #6c6c6c;
+}
+
+.expaprobar {
+	padding-bottom: 15px;
+	border-bottom: 1px solid #e1e1e1;
+}
+
 .leavesp {
 	height: 25px;
 	width: 25px;
@@ -1059,6 +1160,14 @@ p.groupuser {
 .spp .fechanotif {
 	padding:14px 8px;
 	font-size: .68em;
+}
+
+.acceptbuttons a {
+	padding: 0 3px;
+}
+
+.acceptbuttons {
+	margin-top: 7px;
 }
 
 .aporte {
@@ -1118,6 +1227,26 @@ p.groupuser {
 
 .pad3 img {
 	padding: 3px 7px 3px 0;
+}
+
+button.pad3 {
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+
+.editactions .pad3 img {
+	padding: 0 7px 0 0;
+}
+
+.editactions form,
+.mmicon form {
+	display: inline-block;
+	padding: 0 !important;
+	width: auto;
+	margin: 0 !important;
+	border: none !important;
+	float: left;
 }
 
 .raty-cancel {
@@ -1212,12 +1341,16 @@ p.groupuser {
 	vertical-align: top;
 }
 
-.tareaspp p {
+.tareaspp p, .userspp p {
 	text-align: center;
 	padding: 17px 0 18px;
 	margin-bottom: -2px;
 	color: #124c5e;
 	font-size: 0.7em;
+}
+
+.userspp p {
+	padding-top: 10px !important;
 }
 
 .tareaspp a {
@@ -1295,6 +1428,18 @@ p.groupuser {
 .modertext {
 	color: #e45b2d;
 	margin-top: 7px;
+	margin-bottom: 5px;
+	border-bottom: 2px #e45b2d solid;
+	width: 140px;
+}
+
+a.moderlink{
+	color: #5d5e5e;
+	font-weight: 400;
+}
+
+p.moderlink{
+	margin-bottom:4px;
 }
 
 .groupunder {
@@ -1376,8 +1521,7 @@ p.groupuser {
 }
 
 .sugeridor {
-	margin-top: 15px;
-	border: 1px solid #db3f2a;
+	margin-top: 25px;
 }
 
 .searchbtnspp {
@@ -1510,12 +1654,21 @@ p.groupuser {
 }
 
 .groupexindex {
-	height: 110px;
+	height: auto;
 }
 
-.groupexindex h5 {
+.groupexindex a {
 	margin-left: 3px;
 	border-bottom: none;
+	font-size: 15px;
+	color: #1b3337;
+	display: block;
+	border-bottom: 1px solid #c5c4c4;
+	padding: 5px;
+}
+
+.groupexindex:nth-child(odd) {
+	background-color: #f2f2f2;
 }
 
 .userspp {
@@ -1748,11 +1901,16 @@ p.groupuser {
 	cursor: pointer;
 	color:#db3f2a;
 	background: none;
+	margin-top: 15px;
 }
 
 .newgrbtn:hover {
 	background-color: #db3f2a;
 	color: #fff;
+}
+
+.btnemergencia {
+	margin-top: 0 !important; 
 }
 
 .btnact {
@@ -2453,6 +2611,7 @@ a.cajathumb p {
 	width: 200px;
 	border-left: 1px solid #8d8d8d;
 	color: #393836;
+	display: none;
 }
 
 .gradient {
@@ -2733,15 +2892,19 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	width: 100%;
 	border: solid 1px #db3f2a;
 	font-style: italic;
-	color: #393836;
 	line-height: 1.5;
-	font-size: 0.95em;
 	margin-top: 15px;
 	padding: 10px 10px 15px;
 	min-height: 150px;
 	max-height: 375px;
 	position: relative;
 	margin-bottom: 10px;
+	overflow-y: scroll;
+}
+
+.resultados a {
+	color: #393836;
+	font-size: 1.1em;
 }
 
 .subinfo {
@@ -2755,7 +2918,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	vertical-align: top;
 	color:#393836;
 	letter-spacing: 1px;
-	font-size: 18px;
+	font-size: 18px !important;
 	font-weight: 400;
 	display: inline;
 }
@@ -2770,6 +2933,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 
 .subinfo .reg {
 	margin-right: 20px;
+	margin-bottom: 15px;
 }
 
 .sppcateg:after {
@@ -2945,7 +3109,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	line-height:1.5;
 	border: 1px solid #d0d2d0;
 	padding: 5px 15px 5px 5px;
-	max-width: 300px;
+	max-width: 400px;
 	max-height: 218px;
 	overflow-y: auto;
 }
@@ -3036,9 +3200,9 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 }
 
 .infothumb .calificacion {
-	font-size: 1.8em;
+	font-size: 1.4em;
 	color:#124c5e;
-	padding-bottom: 5px;
+	padding-bottom: 3px;
 }
 
 .infothumb .calificacion b {
@@ -3049,11 +3213,28 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 }
 
 .citathumb {
-	padding: 5px 10px;
+	padding: 0 10px;
 	font-size: 0.87em;
 	color:#545350;
 }
 
+.lhlow {
+	line-height: 1.1;
+	margin-bottom: 5px;
+}
+
+.commons {
+	vertical-align: bottom;
+	width: auto;
+	height: 25px;
+	text-align: left;
+	padding-left: 8px;	
+}
+
+.commons img {
+	display: inline-block;
+	margin-right: 2px;
+}
 .cajavisor h3 {
 	font-weight: 400;
 	font-size: 1.2em;
@@ -3179,6 +3360,66 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	*display: inline;
 	*zoom: 1;
 	vertical-align: top;
+}
+
+.termbox, .termbox2 {
+	position: absolute;
+	top: 0;
+	background-color: #f6f6f6;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	top: 64px;
+	width: 95%;
+	margin: 0 auto;
+}
+
+.termbox p, .termbox2 p {
+	font-size: 15px;
+	font-family: 'Lato', sans-serif;
+	text-align: justify;
+	color: #1b3337;
+	max-width: 90%;
+	margin-top: 15px;
+}
+
+form.terminos {
+	border: none;
+	padding: 15px;
+}
+
+form.terminos .btngen {
+	float: right;
+	margin: 10px;
+}
+
+form.terminos .btngen:hover {
+	color: #fff;
+}
+
+.download_terminos {
+	display: inline-block;
+}
+
+form.terminos input[type="checkbox"],
+form.terminos input[type="radio"] {
+	font-size: 13px;
+	vertical-align: middle;
+	margin-top: -3px;
+}
+
+label.checkboxterm  {
+	font-size: 14px !important;
+	color: #db3f2a !important;
+	vertical-align: -4px;
+}
+
+label.checkboxterm2 {
+	font-size: 14px !important;
+	color: #db3f2a !important;
+	vertical-align: 6px;
+}
+
+label.checkboxdown {
+	vertical-align: 0;
 }
 
 .rzslider {
@@ -3691,6 +3932,14 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
     cursor: pointer;
 }
 
+.mininota {
+	padding-left: 40px;
+	font-weight: 300;
+	font-style: italic;
+	font-size: 13px;
+	margin: -7px 0 10px;
+}
+
 .anglnkact {
     border-bottom: 1px solid #db3f2a;
 }
@@ -3781,13 +4030,12 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 
 .w203 {
 	width: 203px !important;
-	font-size: 12px;
+	font-size: 13px;
 	padding-left: 10px;
 }
 
 .fileUpload {
     overflow: hidden;
-    border:solid 1px gray;
     display:inline-block;
     vertical-align:top;
 }
@@ -3798,7 +4046,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
     text-transform: uppercase;
     font-size:16px;
     padding:0 13px;
-    height:25px;
+    height:27px;
     line-height:24px;
     border: 1px solid #124c5e;
     color:#124c5e;
@@ -3808,7 +4056,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 
 .fileUpload input {
     position: absolute;
-    top: 0;
+    top: 230px;
     right: 0;
     margin: 0;
     padding: 0;
@@ -3816,6 +4064,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
     cursor: pointer;
     opacity: 0;
     filter: alpha(opacity=0);
+    display: none;
 }
 
 .pubcontent {
@@ -3892,6 +4141,10 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
     width: 100px;
 }
 
+.nonchecked {
+	opacity: 0.5;
+}
+
 /* about */
 
 .centerbox {
@@ -3943,6 +4196,34 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	padding: 10px 0 30px;
 }
 
+.btnterminos {
+	margin: 0 8px;
+	padding: 3px 8px;
+	border: 1px solid #1b3337;
+	color: #1b3337;
+	cursor: pointer;
+}
+
+.btnterminos:hover {
+	background-color: #1b3337;
+	color: #fff;
+}
+
+.thirdtitle {
+	margin: 10px auto;
+	font-weight: 400;
+	text-align: left;
+	width: 90%;
+	max-width: 650px;
+}
+
+.thirdtitle b {
+	padding: 1px 4px;
+	border: 1px solid #1b3337;
+	font-weight: 600;
+	margin-right: 5px;
+}
+
 .centerbox p {
 	width: 90%;
 	max-width: 650px;
@@ -3957,6 +4238,20 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	color: #124c5e;
 }
 
+.smallp {
+	font-size: 1em !important;
+	margin: 20px auto !important;
+}
+
+.specialp {
+	color: #6f6f6f;
+	padding: 0 20px;
+	text-align: left;
+	width: 90%;
+	max-width: 650px;
+	margin: 0 auto;
+}
+
 .member {
 	width: 300px;
 	padding: 25px;
@@ -3966,6 +4261,11 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	color: #1b3337;
 	display: inline-block;
 	margin: auto;
+}
+
+.member b {
+	font-size: 1.2em;
+	margin-top: 15px;	
 }
 
 .equipo {
@@ -4098,3 +4398,10 @@ font-weight: 300;
   margin-bottom: 30px;
 }
 
+/* Leaflet 0.7.x fix for image layers moving and disappearing when zooming in */
+.leaflet-container .leaflet-overlay-pane svg,
+.leaflet-container .leaflet-marker-pane img,
+.leaflet-container .leaflet-tile-pane img,
+.leaflet-container img.leaflet-image-layer {
+	max-width: none !important;
+}
