@@ -1,4 +1,7 @@
 class HomeController < ApplicationController
+
+	before_action :authenticate_user!, :except => [:show, :about_us, :contact_us, :send_contact_form, :terms]
+
 	def show
 	end
 
@@ -23,7 +26,25 @@ class HomeController < ApplicationController
 	def contact_us
 	end
 
-	def api
+	def send_contact_form
+		@contact_message = ContactMessage.new(message_params)
+		if @contact_message.valid?
+			AdministratorsMailer.contact_us(@contact_message).deliver_now
+			redirect_to root_path, notice: 'Su mensaje ha sido enviado con éxito.'
+		else
+			errores = "Debe completar los siguientes campos: "
+			if !@contact_message.errors.messages[:name].blank?
+				errores << "Nombre "
+			end
+			if !@contact_message.errors.messages[:email].blank?
+				errores << "E-mail "
+			end
+			if !@contact_message.errors.messages[:content].blank?
+				errores << "Mensaje "
+			end
+
+			redirect_to home_contact_us_path, :flash => { :error => errores }
+		end
 	end
 
 	def terms
@@ -32,7 +53,7 @@ class HomeController < ApplicationController
 	private
 
 	    def message_params
-	      params.require(:message).permit(:name, :email, :subject, :content)
+	      params.require(:contact_message).permit(:name, :email, :subject, :content)
 	    end
 
 	    def upload_params

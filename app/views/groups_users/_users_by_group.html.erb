@@ -5,7 +5,7 @@
 	<div class="expaprobar">
 		<% @pending_members.each do |p_member| %>
 			<div class="spp noitalic">
-				<a><%= p_member.user.name %><%= hidden_field_tag('', p_member.user_id, :class => 'p_usr_id') %></a>
+				<a href="/users/<%= p_member.user_id %>"><%= p_member.user.name %><%= hidden_field_tag('', p_member.user_id, :class => 'p_usr_id') %></a>
 				<div class="acceptbuttons">
 				<a href="" class="btn_dismiss_usr"><%= image_tag("delicon.png", :title => 'No Aprobar', :rel => "tooltip") %></a>
 				<a href="" class="btn_approve_usr"><%= image_tag("aprobicon.png", :title => 'Aprobar experto', :rel => "tooltip") %></a>

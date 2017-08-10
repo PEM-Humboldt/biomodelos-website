@@ -4,7 +4,7 @@
                   <h1>Contacto</h1>
                   <%= link_to '', root_path, class: 'closecb' %>
                   <div id="mailform" class="forms">       
-                        <%= simple_form_for :message do |f| %>
+                        <%= simple_form_for :contact_message, :url =>  home_send_contact_form_path, :method => :post do |f| %>
                               <%= f.error_notification %>
                               <%= f.input :name, :maxlength => 50, :placeholder => "Nombre o Institución", :name => "nombre", label: false%>
                               <%= f.input :subject, :maxlength => 50, :placeholder => "Asunto", :name => "asunto", label: false %>
@@ -19,5 +19,3 @@
             </div>
 	</div>
 </div>
-
-<!-- , :url => {:controller => "home", :action => "send_message" }, :html => {:class => 'forma' }, :remote => true  -->
