@@ -1,18 +1,18 @@
 <% if !@rpa.blank? %>
 	<div class="maindata 2ndpad">
-		<h4><%= @rpa[0]["statRepPA"].blank? ? '-' : '%.1f' % @rpa[0]["statRepPA"] %> %</h4>
+		<h4><%= @rpa["statRepPA"].blank? ? '-' : '%.1f' % @rpa["statRepPA"] %> %</h4>
 		<h5>Total Representatividad</h5>
 	</div>
 	<div class="seconddata">
-		<h4><%= @rpa[0]["statRepPA1"].blank? ? '-' : '%.1f' % @rpa[0]["statRepPA1"] %> %</h4>
+		<h4><%= @rpa["statRepPA1"].blank? ? '-' : '%.1f' % @rpa["statRepPA1"] %> %</h4>
 		<h5>PNN</h5>
 	</div>
 	<div class="seconddata">
-		<h4><%= @rpa[0]["statRepPA2"].blank? ? '-' : '%.1f' % @rpa[0]["statRepPA2"] %> %</h4>
+		<h4><%= @rpa["statRepPA2"].blank? ? '-' : '%.1f' % @rpa["statRepPA2"] %> %</h4>
 		<h5>RSC</h5>
 	</div>
 	<div class="seconddata fdata">
-		<h4><%= @rpa[0]["statRepPA3"].blank? ? '-' : '%.1f' % @rpa[0]["statRepPA3"] %> %</h4>
+		<h4><%= @rpa["statRepPA3"].blank? ? '-' : '%.1f' % @rpa["statRepPA3"] %> %</h4>
 		<h5>otras figuras</h5>
 	</div>
 <% end %>

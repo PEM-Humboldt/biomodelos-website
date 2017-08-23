@@ -91,7 +91,7 @@ class SpeciesController < ApplicationController
 			# Sort the covers by value
 			@covers = nil
 			if !@all_covers.blank?
-				@covers =  Hash[@all_covers[0].select{|k, v| v && v!= 0 && k != "modelID"}.sort_by{ |k, v| v }.reverse]
+				@covers =  Hash[@all_covers.select{|k, v| v && v!= 0 && k != "modelID"}.sort_by{ |k, v| v }.reverse]
 			end
 
 			respond_to do |format|
