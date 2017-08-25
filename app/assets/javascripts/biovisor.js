@@ -385,7 +385,7 @@ var _BioModelosVisorModule = function() {
 			  		break;	
 			  }
 
-			  if (!(name in lookup)) {
+			  if (name && !(name in lookup)) {
 			    lookup[name] = 1;
 			    result.push(name);
 			  }
