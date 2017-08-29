@@ -18,9 +18,9 @@
 			<button class="savedel actionbtn">confirmar</button>
 			<button class="canceldel actionbtn">deshacer</button>
 		</div>
-		<div class="steptitle veicon2" title="IDEAM 2010. Leyenda Nacional de Coberturas de la Tierra. Metodología CORINE Land Cover adaptada para Colombia Escala 1:100.000. Instituto de Hidrología, Meteorología y Estudios Ambientales. Bogotá, D. C., 72p." rel="tooltip">Variables Ecológicas</div>
+		<div class="steptitle veicon2" title="IDEAM 2010. Leyenda Nacional de Coberturas de la Tierra. Metodología CORINE Land Cover adaptada para Colombia Escala 1:100.000. Instituto de Hidrología, Meteorología y Estudios Ambientales. Bogotá, D. C., 72p." rel="tooltip">Coberturas Terrestres</div>
         <%= render 'species/species_eco_variables' %>
-		<button class="btngen" id="btnPauseEdition">pausar</button>
+		<button class="btngen" id="btnPauseEdition">grabar</button>
 		<button class="btngen" id="btnEnvEdition">enviar</button>
 		<%= hidden_field_tag "user_id_field", current_user.id %>
 		<%= hidden_field_tag "newModel_field", false %>
