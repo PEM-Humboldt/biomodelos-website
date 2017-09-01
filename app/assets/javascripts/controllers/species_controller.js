@@ -205,16 +205,12 @@ $(document).ready(function(){
 
 	$("#edit_tools_box").on("click","#btnPauseEdition",function(e){
 		e.preventDefault();
-		$.ajax({
-		    type: 'POST',
-		    url: "/users_layers/pause_layer",
-		    data: {
-		    	id: $("#layer_id_field").val(),
+		$.post("/users_layers/pause_layer", { 
+				id: $("#layer_id_field").val(),
 		    	species_id: $("#species_id_field").val(),
 		    	threshold: angular.element($("#visCntrl")).scope().corteSlider.value,
 		    	geoJSON: _BioModelosVisorModule.getGeojsonLayer($("#newModel_field").val()),
-		    	newModel: $("#newModel_field").val()
-		    }
+		    	newModel: $("#newModel_field").val() 
 		});
 	});
 

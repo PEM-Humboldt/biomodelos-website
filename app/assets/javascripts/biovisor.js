@@ -409,10 +409,12 @@ var _BioModelosVisorModule = function() {
 				'<input id="review_type" type="hidden">'+
 				'<div class="row-fluid clearfix">'+
 				'<div class="labelcom clearfix">Acción</div></br>'+
-				'<input type="radio" name="EditType" value="Intersect" class="radiogaga"></input><label for="Intersect">Agregar área</label></br>'+
-				'<input type="radio" name="EditType" value="Add" class="radiogaga"></input><label for="Add">Sustraer área</label></br>'+
-				'<input type="radio" name="EditType" value="Cut" class="radiogaga"></input><label for="Cut">Recortar del polígono</label></br>'+
-				'<div class="centering"><button class="botonpopup" id="savePolBtn" type="button">guardar</button>'+
+				'<input type="radio" name="EditType" value="Agregar área" class="radiogaga"></input><label for="Intersect">Agregar área</label></br>'+
+				'<input type="radio" name="EditType" value="Sustraer área" class="radiogaga"></input><label for="Add">Sustraer área</label></br>'+
+				'<input type="radio" name="EditType" value="Recortar del polígono" class="radiogaga"></input><label for="Cut">Recortar del polígono</label></br>'+
+				'<input type="radio" name="EditType" value="Otra" class="radiogaga"></input><label for="Other">Otra</label></br>'+
+				'<textarea rows="4" cols="38" placeholder="Defina otra acción" class="areaother" id="msgPolygon" maxlength="300"></textarea></br>'+
+				'<div class="centering"><button class="botonpopup" id="savePolBtn" type="button">aceptar</button>'+
 				'<button class="botonpopup ml0" id="puNewPolygonCancelBtn" type="button">cancelar</button></div>'+
 				'<a href="http://biomodelos.humboldt.org.co/faq#faq" target="_blank" title="Cómo utilizamos este aporte?" class="infolink" id="gotofaq"></a></div>';
 		}
@@ -485,6 +487,7 @@ var _BioModelosVisorModule = function() {
 				'<div class="row-fluid clearfix">'+
 				'<div class="labelcom clearfix">Acción</div></br>'+
 				'<label id="propValue">'+ $("input[name='EditType']:checked").val() +'</label></br>'+
+				'<input type="hidden" name="msginput" value="'+ $("#msgPolygon").val() +'" />' +
 				'<a href="http://biomodelos.humboldt.org.co/faq#faq" target="_blank" title="Cómo utilizamos este aporte?" class="infolink" id="gotofaq"></a></div>';
 
 			polygonLayer.bindPopup(popUpActionForm);
@@ -564,10 +567,23 @@ var _BioModelosVisorModule = function() {
 		else{
 			var popUpContent = layer._popup.getContent();
 			var valueProp = $(popUpContent).find("label").html();
+			var messageProp = $(popUpContent).find("input[name='msginput']").val();
+			var response;
 
-			return {
-				action: valueProp
+			if (messageProp != "" && messageProp){
+				response = {
+					action: valueProp,
+					message: messageProp
+				};
 			}
+			else{
+				response = {
+					action: valueProp
+				};
+			}
+				
+
+			return response;
 		}
 	}
 
