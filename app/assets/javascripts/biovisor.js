@@ -434,6 +434,9 @@ var _BioModelosVisorModule = function() {
 			       '<input type="text" name="tipo" id="r_tipo" placeholder="Tipo de registro" class="inputforma"></input>' +
 			       '<input type="text" name="colector" id="r_observador" placeholder="Observador" class="inputforma"></input>' +
 			       '<input type="text" name="cita" id="r_cita" placeholder="Cita" class="inputforma"></input>' +
+			       '<input type="text" name="numcatalogo" id="r_ncatalog" placeholder="Número de catalogo" class="inputforma"></input>' +
+			       '<input type="text" name="coleccion" id="r_coleccion" placeholder="Colección" class="inputforma"></input>' +
+			       '<input type="text" name="institucion" id="r_institucion" placeholder="Institución" class="inputforma"></input>' +
 			       '<textarea rows="4" cols="30" placeholder="Ingrese una observación" id="r_comment" class="inputforma"></textarea>' +
 			       '<div class="centering"><button class="botonpopup" id="r_saveBtn" type="button">guardar</button>' +
 		           '<button class="botonpopup" id="popUpCancelBtn" type="button">cancelar</button></div></div>';
