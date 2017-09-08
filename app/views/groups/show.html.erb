@@ -26,7 +26,8 @@
 				 	<% if @user_group && @user_group.groups_users_state_id == 2 %>
 						<%= image_tag "groupjoin2", :title=>"En espera de aprobación", :rel=>"tooltip" %>
 					<% elsif @user_group && @user_group.groups_users_state_id == 1 %>
-						<%= image_tag "member", :title=>"Miembro del grupo", :rel=>"tooltip" %>
+<!-- 						<%= image_tag "member", :title=>"Miembro del grupo", :rel=>"tooltip" %> -->
+						<%= submit_tag "", :class=> "leavegroup", :title=>"Abandonar grupo", :rel=>"tooltip" %>
 					<% elsif  !@current_group_user %>
 						<%= simple_form_for @groups_users do |f| %>
 		                  <%= f.hidden_field :group_id, :value =>  @group.id %>
