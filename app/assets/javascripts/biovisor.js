@@ -47,11 +47,14 @@ var _BioModelosVisorModule = function() {
 						"catalogNumber":"Número de catálogo",
 						"basisOfRecord":"Evidencia",
 						"collector":"Recolector",
+						"collection_code":"Colección",
 						"yyyy":"Año",
 						"mm":"Mes",
 						"dd":"Día",
 						"url":"Url"
 					};
+
+	var hiddenFields = ["adm1", "adm2", "taxID", "species", "reported", "updated", "environmentalOutlier"];
 
 	var imageBounds = [[13,-60],[-14, -83]];
 
@@ -298,7 +301,7 @@ var _BioModelosVisorModule = function() {
 							popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
 						else if (prop === 'url')
 							popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + "<a href=http://"+ feature.properties[prop] +" target='_blank'>" + feature.properties[prop] + "</a></br>");
-						else if (prop != "taxID" && prop != "species" && prop != "reported" && prop != "updated" && prop != "environmentalOutlier")
+						else if (hiddenFields.indexOf(prop) === -1)
 							popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + feature.properties[prop] + "</br>");
 		
 					}
@@ -338,7 +341,7 @@ var _BioModelosVisorModule = function() {
 							editableForm.push('<b>Localidad:</b></br><input type="text" id="txtLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
 							editableForm.push('<input type="hidden" id="oldLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input>');
 						}
-						else if(prop != "taxID" && prop != "species" && prop != "reported" && prop != "updated" && prop != "environmentalOutlier")
+						else if(hiddenFields.indexOf(prop) === -1)
 							editableForm.push('<b>'+ headers[prop] + "</b></br>" + editableLayer.feature.properties[prop] + "</br>");	
 					}
 					editableForm.push('</div><div class="centering"><a href="" class="wrongbtn" id="sendRecordEdition">Enviar</a><a href="" class="wrongbtn" id="cancelRecordEdition">Cancelar</a></div>');

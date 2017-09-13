@@ -502,23 +502,19 @@ $(document).ready(function(){
 		if(valResponse){
 			var response = "";
 			for(var i=0; i<valResponse.length; i++){
-				response += valResponse[i] + "\n";
+				response += valResponse[i] + "<br />";
 			}
 			alertify.alert(response);
 		}
 		else{
-			$.ajax({
-			    type: 'POST',
-			    url: "/records/update_record",
-			    data: data,
-			    success: function(){
-					_refreshSpeciesRecords();
+			$.post( "/records/update_record", data)
+  				.done(function() {
+    				_refreshSpeciesRecords();
 					alertify.alert("Su edición se ha realizado con éxito");
-				},
-				error: function(jqXHR, textStatus, errorThrown){
+  				})
+  				.fail(function(jqXHR, textStatus, errorThrown){
 					alertify.alert("Ha ocurrido un error al editar el registro: " + textStatus);
-				}
-			});
+				});
 		}
 	});
 
@@ -528,19 +524,22 @@ $(document).ready(function(){
 		validate.validators.presence.message = "no puede estar vacío";
 
 		// Validación de los campos editables de un registro.
-		var latNewRecord = $("#txtNewRecordLat").val(),
-			lonNewRecord = $("#txtNewRecordLon").val(),
-			altNewRecord = $("#r_altitude").val(),
-			yearNewRecord = $("#year_registro").val(),
-			monthNewRecord = $("#month_registro").val(),
-			dayNewRecord = $("#day_registro").val(),
-			depNewRecord = $("#r_departamento").val(),
-			munNewRecord = $("#r_municipio").val(),
-			locNewRecord = $("#r_localidad").val(),
-			tipoNewRecord = $("#r_tipo").val(),
-			colNewRecord = $("#r_observador").val(),
-			citaNewRecord = $("#r_cita").val(),
-			commentNewRecord = $("#r_comment").val();
+		var latNew = $("#txtNewRecordLat").val(),
+			lonNew = $("#txtNewRecordLon").val(),
+			altNew = $("#r_altitude").val(),
+			yearNew = $("#year_registro").val(),
+			monthNew = $("#month_registro").val(),
+			dayNew = $("#day_registro").val(),
+			depNew = $("#r_departamento").val(),
+			munNew = $("#r_municipio").val(),
+			locNew = $("#r_localidad").val(),
+			tipoNew = $("#r_tipo").val(),
+			obsNew = $("#r_observador").val(),
+			citaNew = $("#r_cita").val(),
+			catNumberNew = $("#r_ncatalog").val(),
+			colNew = $("#r_coleccion").val(),
+			instNew = $("#r_institucion").val(),
+			commentNew = $("#r_comment").val();
 
 
 		var varsToValidate = {},
@@ -549,96 +548,98 @@ $(document).ready(function(){
 				acceptedNameUsage: $(".spname").html(),
 				userId_bm: $("#user_id_field").val()};
 		
-		varsToValidate.lat = latNewRecord;
+		varsToValidate.lat = latNew;
 		constraints.lat = {};
 		constraints.lat.numericality = {};
 		constraints.lat.presence = true;
 		constraints.lat.numericality.greaterThanOrEqualTo = -90;
 		constraints.lat.numericality.lessThanOrEqualTo = 90;
-		data.lat = latNewRecord;
+		data.lat = latNew;
 
-		varsToValidate.lon = lonNewRecord;
+		varsToValidate.lon = lonNew;
 		constraints.lon = {};
 		constraints.lon.numericality = {};
 		constraints.lon.presence = true;
 		constraints.lon.numericality.greaterThanOrEqualTo = -180;
 		constraints.lon.numericality.lessThanOrEqualTo = 180;
-		data.lon = lonNewRecord;
+		data.lon = lonNew;
 
-		varsToValidate.localidad = locNewRecord;
+		varsToValidate.localidad = locNew;
 		constraints.localidad = {};
 		constraints.localidad.presence = true;
-		data.locality = locNewRecord;
+		data.locality = locNew;
 
-		if(altNewRecord != ""){
-			varsToValidate.altura = altNewRecord;
+		if(altNew != ""){
+			varsToValidate.altura = altNew;
 			constraints.altura = {};
 			constraints.altura.numericality = {};
 			constraints.altura.numericality.greaterThanOrEqualTo = 0;
 			constraints.altura.numericality.lessThanOrEqualTo = 10000;
-			data["alt"] = altNewRecord;
+			data["alt"] = altNew;
 		}
 
-		if(yearNewRecord != ""){
-			varsToValidate.yyyy = yearNewRecord;
+		if(yearNew != ""){
+			varsToValidate.yyyy = yearNew;
 			constraints.yyyy = {};
 			constraints.yyyy.numericality = {};
 			constraints.yyyy.numericality.greaterThanOrEqualTo = 1800;
 			constraints.yyyy.numericality.lessThanOrEqualTo = moment.utc().year();
-			data.yyyy = yearNewRecord;
+			data.yyyy = yearNew;
 		}
-		if(monthNewRecord != ""){
-			varsToValidate.mm = monthNewRecord;
+		if(monthNew != ""){
+			varsToValidate.mm = monthNew;
 			constraints.mm = {};
 			constraints.mm.numericality = {};
 			constraints.mm.numericality.greaterThanOrEqualTo = 1;
 			constraints.mm.numericality.lessThanOrEqualTo = 12;
-			data.mm = monthNewRecord;
+			data.mm = monthNew;
 		}
-		if(dayNewRecord != ""){
-			varsToValidate.dd = dayNewRecord;
+		if(dayNew != ""){
+			varsToValidate.dd = dayNew;
 			constraints.dd = {};
 			constraints.dd.numericality = {};
 			constraints.dd.numericality.greaterThanOrEqualTo = 1;
 			constraints.dd.numericality.lessThanOrEqualTo = 31;
-			data.dd = dayNewRecord;
+			data.dd = dayNew;
 		}
-		if(depNewRecord != "")
-			data.adm1 = depNewRecord;
-		if(munNewRecord != "")
-			data.adm2 = munNewRecord;
-		if(tipoNewRecord != "")
-			data.basisOfRecord = tipoNewRecord;
-		if(colNewRecord != "")
-			data.collector = colNewRecord;
-		if(citaNewRecord != "")
-			data.citation_bm = citaNewRecord;
-		if(commentNewRecord != "")
-			data.comments_bm = commentNewRecord;
+		if(depNew != "")
+			data.adm1 = depNew;
+		if(munNew != "")
+			data.adm2 = munNew;
+		if(tipoNew != "")
+			data.basisOf = tipoNew;
+		if(obsNew != "")
+			data.collector = obsNew;
+		if(citaNew != "")
+			data.citation_bm = citaNew;
+		if(catNumberNew != "")
+			data.catalogNumber = catNumberNew;
+		if(colNew != "")
+			data.collection_code = colNew;
+		if(instNew != "")
+			data.institution = instNew;
+		if(commentNew != "")
+			data.comments_bm = commentNew;
 
 		var valResponse = validate(varsToValidate, constraints, {format: "flat"});
 
 		if(valResponse){
 			var response = "";
 			for(var i=0; i<valResponse.length; i++){
-				response += valResponse[i] + "\n";
+				response += valResponse[i] + "<br/>";
 			}
 			alertify.alert(response);
 		}
 		else{
-			$.ajax({
-			    type: 'POST',
-			    url: "/records/new_record",
-			    data: data,
-			    success: function(){
-			    	_BioModelosVisorModule.cancelAddPoint();
+			$.post( "/records/new_record", data)
+  				.done(function() {
+    				_BioModelosVisorModule.cancelAddPoint();
 					_refreshSpeciesRecords();
 					alertify.alert("El registro ha sido agregado con éxito");
-				},
-				error: function(jqXHR, textStatus, errorThrown){
+  				})
+  				.fail(function(jqXHR, textStatus, errorThrown){
 					alertify.alert("Ha ocurrido un error al agregar el registro: " + errorThrown);
-				}
-			});
+				});
 		}
 	});
 
