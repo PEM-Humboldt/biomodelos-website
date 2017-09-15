@@ -3591,10 +3591,11 @@ label.checkboxdown {
 	background-color: #fff;
 	position: absolute;
 	z-index: 17;
-	max-height: -moz-calc(100% - 211px);
-	max-height: -webkit-calc(100% - 211px);
-	max-height: calc(100% - 211px);
+	height: -moz-calc(100% - 211px);
+	height: -webkit-calc(100% - 211px);
+	height: calc(100% - 211px);
 	padding: 5px 15px 5px 8px;
+	overflow-y: auto;
 }
 
 .cajitaeditar .steptitle,
@@ -3860,6 +3861,10 @@ label.checkboxdown {
 	width: 72px;
 	padding: 3px;
 	margin-bottom: 10px;
+}
+
+.regform {
+	overflow-y: scroll; 
 }
 
 .regform label {
