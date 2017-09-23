@@ -1,4 +1,33 @@
 $(document).ready(function(){
+
+	/**
+ 	* Ovewrites data-confirm function so it now triggers an alertify confirmation. 
+ 	* 
+	* Taken from https://stackoverflow.com/questions/18921689/alertify-js-rails-custom-confirm-dialog
+	*/
+	$.rails.allowAction = function(element){
+    if( undefined === element.attr('data-confirm') ){
+        return true;
+    }
+
+    $.rails.showConfirmDialog(element);
+    return false;
+	};
+
+	$.rails.confirmed = function(element){
+	    element.removeAttr('data-confirm');
+	    element.trigger('click.rails');
+	};
+
+	$.rails.showConfirmDialog = function(element){
+	    var msg = element.data('confirm');
+	    alertify.confirm(msg, function(e){
+	        if(e){
+	            $.rails.confirmed(element);
+	        }
+	    })
+	};
+
 	$(".group_tasks_tab").click(function(e){
 		e.preventDefault();
 		$.ajax({

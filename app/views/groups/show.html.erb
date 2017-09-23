@@ -9,7 +9,7 @@
 				</div>
 				<div class="editgroupform" ng-show="messagebox">
 				<h2>Mensaje al Grupo</h2>
-				<%= simple_form_for :message, :url =>  groups_bulk_group_email_path, :method => :post do |f|  %>
+				<%= simple_form_for :message, :url =>  groups_bulk_group_email_path, :method => :post, remote: true do |f|  %>
 					<%= f.input :message, :as => :text, :placeholder => "máximo 500 caracteres", :input_html => {:maxlength => 500, :cols => "20", :rows => "8"}, :name => "cuerpo", label: false %>
 					<%= f.hidden_field :group_id, :value => @group.id %>
 				    <div class="clearfix"></div>
@@ -26,8 +26,9 @@
 				 	<% if @user_group && @user_group.groups_users_state_id == 2 %>
 						<%= image_tag "groupjoin2", :title=>"En espera de aprobación", :rel=>"tooltip" %>
 					<% elsif @user_group && @user_group.groups_users_state_id == 1 %>
-<!-- 						<%= image_tag "member", :title=>"Miembro del grupo", :rel=>"tooltip" %> -->
-						<%= submit_tag "", :class=> "leavegroup", :title=>"Abandonar grupo", :rel=>"tooltip" %>
+                		<%= link_to groups_user_path(@user_group), {method: :delete, data: { confirm: '¿Quiere borrar la edición?' }}  do %>
+                			<%= image_tag "leave.png", title:"Abandonar el grupo", class: 'leavegroup', rel: 'tooltip' %>
+                		<% end %>				
 					<% elsif  !@current_group_user %>
 						<%= simple_form_for @groups_users do |f| %>
 		                  <%= f.hidden_field :group_id, :value =>  @group.id %>

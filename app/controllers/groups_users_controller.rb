@@ -44,6 +44,16 @@ class GroupsUsersController < ApplicationController
 		end
   	end
 
+  	def destroy
+  		@groups_user = GroupsUser.where(:id => params[:id]).first
+  		
+  		if @groups_user.destroy
+  			redirect_to group_path(id: @groups_user.group_id), :flash => { :notice => "Ha abandonado el grupo con éxito." }
+  		else
+  			redirect_to group_path(id: @groups_user.group_id), :flash => { :error => "Ha ocurrido un error al intentar abandonar el grupo." }, status: :see_other
+  		end
+	end
+
 	private
 
 		def groups_users_params

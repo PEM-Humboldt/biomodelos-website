@@ -67,7 +67,7 @@ Rails.application.routes.draw do
   resources :groups, :only => [:index, :show, :update]
   resources :info, :only => [:index]
   resources :groups_species, :only => [:index, :create]
-  resources :groups_users, :only => [:index, :create]
+  resources :groups_users, :only => [:index, :create, :destroy]
   resources :tasks, :only => [:index, :create]
   resources :ratings, :only => [:destroy]
   resources :models do
