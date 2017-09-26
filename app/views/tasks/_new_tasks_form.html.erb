@@ -2,7 +2,11 @@
 	<%= f.error_notification %>
 	<%= f.hidden_field :group_id, value: @group.id %>
 	<p>Agregar nueva tarea</p>
-	<%= f.select :user_id, options_from_collection_for_select(GroupsUser.where(:group_id => @group.id, :groups_users_state_id => 1).joins(:user).order('users.name'), 'user_id', 'user_name'), include_blank: 'Seleccionar experto *' %>
+        <% if current_group_user.is_admin %>
+	       <%= f.select :user_id, options_from_collection_for_select(GroupsUser.where(:group_id => @group.id, :groups_users_state_id => 1).joins(:user).order('users.name'), 'user_id', 'user_name'), include_blank: 'Seleccionar experto *' %>
+        <% else %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+        <% end %>
 	<%= f.select :species_id, options_for_select(@species_ids.map{|t| [Species.find_name(t.species_id.to_s), t.species_id]}.uniq), :include_blank => 'Seleccionar especie *' %>
 	<p class="tarea">Selecciona tareas a realizar</p>
 	<div id="chkBoxTask">

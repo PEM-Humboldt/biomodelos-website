@@ -45,7 +45,7 @@ class TasksController < ApplicationController
 		if(params[:records_task].blank? && params[:edition_task].blank? && params[:eco_task].blank? && params[:approval_task].blank?)
 			validation_errors[0] = true
 		end
-		if(params[:task][:species_id].blank? && params[:task][:user_id].blank?)
+		if(params[:task][:species_id].blank? || params[:task][:user_id].blank?)
 			validation_errors[1] = true
 		end
 		

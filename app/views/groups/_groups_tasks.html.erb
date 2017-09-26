@@ -1,9 +1,9 @@
 <h1 class="tasks">tareas</h1> 
-<% if @current_group_user && @current_group_user.is_admin %>
+<% if @current_group_user %>
 	<div class="newtask" ng-click="taskbox=!taskbox" rel="tooltip" title="Agregar nueva tarea"><%= image_tag("newtask.png") %></div>
 	<div class="clearfix"></div>
 	<div class="addtask" ng-show="taskbox">
-		<%= render partial:'tasks/new_tasks_form', locals: {task: @task, group: @group, group_members: @group_members, group_species: @group_species} %>	
+		<%= render partial:'tasks/new_tasks_form', locals: {task: @task, group: @group, group_members: @group_members, group_species: @group_species, current_group_user: @current_group_user} %>	
 	</div>
 <% end %>
 <div class="clearfix"></div>

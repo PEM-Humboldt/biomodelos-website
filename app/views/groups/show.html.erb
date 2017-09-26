@@ -26,7 +26,7 @@
 				 	<% if @user_group && @user_group.groups_users_state_id == 2 %>
 						<%= image_tag "groupjoin2", :title=>"En espera de aprobación", :rel=>"tooltip" %>
 					<% elsif @user_group && @user_group.groups_users_state_id == 1 %>
-                		<%= link_to groups_user_path(@user_group), {method: :delete, data: { confirm: '¿Quiere borrar la edición?' }}  do %>
+                		<%= link_to groups_user_path(@user_group), {method: :delete, data: { confirm: '¿Quiere abandonar el grupo?' }}  do %>
                 			<%= image_tag "leave.png", title:"Abandonar el grupo", class: 'leavegroup', rel: 'tooltip' %>
                 		<% end %>				
 					<% elsif  !@current_group_user %>
