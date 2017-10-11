@@ -25,6 +25,9 @@
 						<% else %>
 							<% if @current_group_user && (@current_group_user.is_admin || task[0].user_id == current_user.id) %>
 								<%= check_box_tag "task_active_#{task[0].id}",  task[0].id %>
+								<%= link_to task_path(task[0]), {method: :delete, remote: true, data: { confirm: '¿Quiere eliminar esta tarea?' }} do %>
+									<%= image_tag("delicon.png", size: "13x13", title: "Borrar tarea", rel: "tooltip") %>
+								<% end %>
 							<% else %>
 								<%= image_tag("develop.png", title: "En desarrollo", rel: "tooltip") %>
 							<% end %>
@@ -42,6 +45,9 @@
 					<% else %>
 						<% if @current_group_user && (@current_group_user.is_admin || task[0].user_id == current_user.id) %>
 							<%= check_box_tag "task_active_#{task[0].id}",  task[0].id %>
+							<%= link_to task_path(task[0]), {method: :delete, remote: true, data: { confirm: '¿Quiere eliminar esta tarea?' }} do %>
+								<%= image_tag("delicon.png", size: "13x13", title: "Borrar tarea", rel: "tooltip") %>
+							<% end %>
 						<% else %>
 							<%= image_tag("develop.png", title: "En desarrollo", rel: "tooltip") %>
 						<% end %>
@@ -59,6 +65,9 @@
 					<% else %>
 						<% if @current_group_user && (@current_group_user.is_admin || task[0].user_id == current_user.id) %>
 							<%= check_box_tag "task_active_#{task[0].id}",  task[0].id %>
+							<%= link_to task_path(task[0]), {method: :delete, remote: true, data: { confirm: '¿Quiere eliminar esta tarea?' }} do %>
+									<%= image_tag("delicon.png", size: "13x13", title: "Borrar tarea", rel: "tooltip") %>
+							<% end %>
 						<% else %>
 							<%= image_tag("develop.png", title: "En desarrollo", rel: "tooltip") %>
 						<% end %>
@@ -76,6 +85,9 @@
 					<% else %>
 						<% if @current_group_user && (@current_group_user.is_admin || task[0].user_id == current_user.id) %>
 							<%= check_box_tag "task_active_#{task[0].id}",  task[0].id %>
+							<%= link_to task_path(task[0]), {method: :delete, remote: true, data: { confirm: '¿Quiere eliminar esta tarea?' }} do %>
+								<%= image_tag("delicon.png", size: "13x13", title: "Borrar tarea", rel: "tooltip") %>
+							<% end %>
 						<% else %>
 							<%= image_tag("develop.png", title: "En desarrollo", rel: "tooltip") %>
 						<% end %>

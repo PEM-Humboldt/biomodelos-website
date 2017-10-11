@@ -29,10 +29,10 @@
       <h2>Colecciones</h2>
        <blockquote>
         <p>
-          <% if @collections.blank? || @collections[0]["colection"].length == 1 && @collections[0]["colection"][0].blank? %>
+          <% if @collections.blank? || @collections[0]["colection_code"].blank? || @collections[0]["colection_code"].length == 1 && @collections[0]["colection_code"][0].blank? %>
             No hay información disponible.
           <% else %>
-            <% @collections[0]["colection"].each_with_index do |colection, i| %><%= colection %><% if i < @collections[0]["colection"].length - 1 %>, <% else %>.<% end %>
+            <% @collections[0]["colection_code"].each_with_index do |colection, i| %><%= colection %><% if i < @collections[0]["colection_code"].length - 1 %>, <% else %>.<% end %>
             <% end %>
           <% end %>
         </p> 

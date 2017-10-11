@@ -13,6 +13,10 @@ class SpeciesController < ApplicationController
 	  	@skip_footer = true
 	end
 
+	def visor2
+	  	@skip_footer = true
+	end
+
 	def search
 		begin
 			species = Species.search(params)

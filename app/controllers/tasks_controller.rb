@@ -107,6 +107,17 @@ class TasksController < ApplicationController
 			end			
 		end 
 	end
+
+	def destroy
+  		@task = Task.find(params[:id])
+  		if @task.destroy
+  			respond_to do |format|
+				format.js
+			end
+  		else
+			render :js => "alertify.alert('Error: No fue posible eliminar la tarea.');"
+  		end
+	end
 	
 	private
 		def task_params
