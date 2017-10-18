@@ -42,7 +42,7 @@ module ModelsHelper
 		when 'Valid'
 		  return 'Validado'
 		when 'Developing'
-		  return 'En desarrollo'
+		  return 'Desarrollo'
 		else
 		  return status
 		end	

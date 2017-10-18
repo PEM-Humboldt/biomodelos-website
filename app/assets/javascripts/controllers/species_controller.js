@@ -384,6 +384,9 @@ $(document).ready(function(){
 		if ($(".editbox").is(":visible")) $("#clsEditBox").click();
 		if ($(".infocaja").is(":visible")) $("#clsInfoBox").click();
 		/* TODO clean layers */
+		$(".modelname").html("");
+		if($(".modelname").hasClass("gradient"))
+          $(".modelname").removeClass("gradient");
 		$(".btnedicion").hide();
 		if($(".cajitaeditar").is(":visible")){
 			$(".btnedicion").click();

@@ -2,6 +2,8 @@
 	_BioModelosVisorModule.loadModel("<%= set_path(@init_model.pngUrl, 'model') %>", "<%= @init_model.modelStatus %>");
 	$(".modelname").show();
 	$(".modelname").html("<%= map_status_name(@init_model.modelStatus) %>");
+	if(<%= @init_model.modelStatus == 'Developing' %> && !$(".modelname").hasClass("gradient"))
+        $(".modelname").addClass("gradient");
 	<% if !@popup_content.blank? %>
 		alertify.alert("<%= @popup_content %>");
 	<% end %>
