@@ -20,10 +20,10 @@ $.ajax({
 	},
 	success: function(){
 		_refreshSpeciesRecordsReport();
-		alertify.alert("Su reporte se ha realizado con éxito");
+		alertify.alert("<%= t('biomodelos.records.report.success_notice') %>");
 		$('.reportBox').html("");
 	},
 	error: function(jqXHR, textStatus, errorThrown){
-		alertify.alert("Ha ocurrido un error al reportar el registro: " + errorThrown);
+		alertify.alert("<%= t('biomodelos.records.report.error_notice') %>" + errorThrown);
 	}
 });

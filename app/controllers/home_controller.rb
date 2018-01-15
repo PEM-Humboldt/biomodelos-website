@@ -17,7 +17,7 @@ class HomeController < ApplicationController
 
 	    if @publication.save
 	      AdministratorsMailer.model_uploaded(current_user, @publication).deliver_now
-	      redirect_to home_publish_path, notice: 'La publicación se ha realizado con éxito.'
+	      redirect_to home_publish_path, notice: I18n.t('biomodelos.publish.success_notice')
 	    else
 	      render 'publish'
 	    end
@@ -30,9 +30,9 @@ class HomeController < ApplicationController
 		@contact_message = ContactMessage.new(message_params)
 		if @contact_message.valid?
 			AdministratorsMailer.contact_us(@contact_message).deliver_now
-			redirect_to root_path, notice: 'Su mensaje ha sido enviado con éxito.'
+			redirect_to root_path, notice: I18n.t('biomodelos.contact.success_notice')
 		else
-			errores = "Debe completar los siguientes campos: "
+			errores = I18n.t('biomodelos.contact.fields_error')
 			if !@contact_message.errors.messages[:name].blank?
 				errores << "Nombre "
 			end

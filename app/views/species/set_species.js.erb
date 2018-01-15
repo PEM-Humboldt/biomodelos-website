@@ -4,11 +4,11 @@ $(document).ready(function(){
 		$(".spname").html("<%= @species_name %>");
 		$("#info_species_name").html("<%= @species_name %>");
 		$("#info_records_number").html("<%= @records_number %>");
-		$("#info_records_metadata").html('<%= link_to "METADATOS REGISTROS", records_metadata_path(:id => params[:species_id]), target: "_blank" %>');
+		$("#info_records_metadata").html('<%= link_to t("biomodelos.visor.statistics.records_metadata"), records_metadata_path(:id => params[:species_id]), target: "_blank" %>');
 		<% if !@approved_model.blank? %>
-			$("#valid_model_text").html('<p>Esta información corresponde al modelo validado por los expertos en BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie.</p>');
+			$("#valid_model_text").html('<p><%= t("biomodelos.visor.statistics.text_1") %></p>');
 		<% else %>
-			$("#valid_model_text").html('<p>Dado que esta especie aún no tiene un modelo validado, no es posible calcular la información que normalmente se presenta en esta sección.</p>');
+			$("#valid_model_text").html('<p><%= t("biomodelos.visor.statistics.text_2") %></p>');
 		<% end %>
 		/* Clears layers */
 		_BioModelosVisorModule.unloadAllLayers();
@@ -31,9 +31,9 @@ $(document).ready(function(){
 		$.post( "/models/load_initial_model", { species_id: <%= params[:species_id] %>});
 		/* Dynamically loads the edition tools if the user can edit */
 		<% if user_signed_in? && @can_edit %>
-			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $('#edit_model_btn'), '<div ng-click="edit=!edit" title="Editar modelo" rel="tooltip" class="visorbtn vbtnedit" selectable></div>');
+			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $('#edit_model_btn'), '<div ng-click="edit=!edit" title="<%= t("biomodelos.visor.tooltip.edit_btn") %>" rel="tooltip" class="visorbtn vbtnedit" selectable></div>');
 			$(".vbtnedit").show();
-			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $("#edit_box_btn"),'<div ng-click="editar=!editar" class="btnedicion" selectable>edición</div>');
+			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $("#edit_box_btn"),'<div ng-click="editar=!editar" class="btnedicion" selectable><%= t("biomodelos.visor.edit_box.title") %></div>');
 			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $("#edit_tools_box"), '<div ng-show="editar" class="cajitaeditar"><%=j render 'species/species_edition' %></div>');
 			$('#add_records_box').html('<%=j render partial: 'species_edition_new_records' %>');
 		<% else %>

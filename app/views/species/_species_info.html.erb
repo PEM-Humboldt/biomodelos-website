@@ -1,11 +1,11 @@
 <div class="vcbase">
-			<h1>Estadísticas sobre modelo validado <br><i id="info_species_name"></i></h1>
+			<h1><%= t('biomodelos.visor.statistics.title') %><br><i id="info_species_name"></i></h1>
 			<a ng-click="info=!info" class="closevb vatop" id="clsInfoBox">x</a>
 </div>
 <div class="cvcolumn">
 	<div class="subinfo">
-		<h3 class="reg" title="Registros de presencia de la especie utilizados en el desarrollo del modelo." rel="tooltip">NÚMERO DE REGISTROS<b id="info_records_number"></b></h3>
-		<h3 class="metreg" title="Información sobre los registros usados en el modelamiento y el proceso de curaduría de los mismos." rel="tooltip"><div id="info_records_metadata"></div></h3>
+		<h3 class="reg" title="<%= t('biomodelos.visor.statistics.records_number_tt') %>" rel="tooltip"><%= t('biomodelos.visor.statistics.records_number') %><b id="info_records_number"></b></h3>
+		<h3 class="metreg" title="<%= t('biomodelos.visor.statistics.records_metadata_tt') %>" rel="tooltip"><div id="info_records_metadata"></div></h3>
 	</div>
 	<div class="infofollow">
 		<div class="sppcategories">
@@ -16,45 +16,45 @@
 	</div>
 	<div id="valid_model_text"></div>
 	<div class="databox">
-		<h2 class="infotitle" ng-click="extinfo=!extinfo">EXTENSIÓN DE OCURRENCIA</h2>
+		<h2 class="infotitle" ng-click="extinfo=!extinfo"><%= t('biomodelos.visor.statistics.eoo_title') %></h2>
 		<div ng-show="extinfo" class="infobox">
-			<h2>extensión de ocurrencia</h2>
+			<h2><%= t('biomodelos.visor.statistics.eoo_title') %></h2>
 			<a ng-click="extinfo=!extinfo" class="closevb">x</a>
-			<p>La extensión de ocurrencia (EOO por sus siglas en inglés utilizadas en la literatura) se define como el área contenida dentro de los límites más cortos imaginarios que pueden ser dibujados para abarcar todos los sitios en donde se encuentra la especie, bien sea conocidos, inferidos o proyectados (IUCN 2013).</p>
-			<p><b>PMC sobre modelos:</b> polígono mínimo convexo delimitado sobre la distribución modelada para cada especie (<a href="http://www.humboldt.org.co/es/test/item/download/244_4bf9941429abe826cb0bee0e9f755f2a" target="_blank" style="float:none;">Figura 1, Renjifo et al. 2014</a>).</p>
+			<p><%= t('biomodelos.visor.statistics.eoo_text_1_html') %></p>
+			<p><%= t('biomodelos.visor.statistics.eoo_text_2_html') %></p>
 			<%= image_tag("fig1.png") %>
-			<div class="figtxt">Figura 1. Polígono mínimo convexo generado para <em>Andigena hypoglauca</em> (línea roja) de acuerdo a la distribución original de la especie (en verde) (Renjifo et al. 2014).</div>
-			<p><b>PMC sobre registros:</b> polígono mínimo convexo delimitado sobre los registros biológicos para cada especie. Representa el polígono de menor superficie que contiene todos los lugares de presencia, pero que ninguno de sus ángulos internos excede los 180 grados (<a href="http://s3.amazonaws.com/iucnredlist-newcms/staging/public/attachments/3156/reg_guidelines_sp.pdf" target="_blank" style="float:none;">Figura 2, IUCN 2013</a>)</p>
+			<div class="figtxt"><%= t('biomodelos.visor.statistics.eoo_fig_1_html') %></div>
+			<p><%= t('biomodelos.visor.statistics.eoo_text_3_html') %></p>
 			<%= image_tag("fig2.png") %>
-			<div class="figtxt">Figura 2. Representación del cálculo de un polígono mínimo convexo.</div>
+			<div class="figtxt"><%= t('biomodelos.visor.statistics.eoo_fig_2_html') %></div>
 		</div>
 		<div id="eoo_info"></div>
 	</div>
 	<div class="databox">
-		<h2 class="infotitle" ng-click="repinfo=!repinfo">REPRESENTATIVIDAD EN ÁREAS PROTEGIDAS</h2>
+		<h2 class="infotitle" ng-click="repinfo=!repinfo"><%= t('biomodelos.visor.statistics.rpa_title') %></h2>
 		<div ng-show="repinfo" class="infobox">
-			<h2>REPRESENTATIVIDAD EN ÁREAS PROTEGIDAS</h2>
+			<h2><%= t('biomodelos.visor.statistics.rpa_title') %></h2>
 			<a ng-click="repinfo=!repinfo" class="closevb">x</a>
-			<p>Corresponde al porcentaje de área de la distribución de las especie en el total de las áreas protegidas del país, y discriminado por los Parques Nacionales Naturales (PNN), Reservas de la Sociedad Civil (RSC) y las otras figuras (Reservas Forestales Protectoras, Parques Naturales Regionales, Distritos de Manejo Integrado, Distritos de Conservación de Suelos y Áreas de Recreación). El porcentaje total de las áreas protegidas puede no coincidir con la suma de las áreas de PNN, RSC y otras, dado que alguna áreas portegidas se encuentran dentro del área de otras.</p>
+			<p><%= t('biomodelos.visor.statistics.rpa_text_1') %></p>
 		</div>
 		<div id="rpa_info"></div>
 	</div>
 	<div class="databox">
-		<h2 class="infotitle dtab" ng-click="perinfo=!perinfo">PÉRDIDA DE BOSQUE</h2>
+		<h2 class="infotitle dtab" ng-click="perinfo=!perinfo"><%= t('biomodelos.visor.statistics.forest_loss_title') %></h2>
 		<div ng-show="perinfo" class="infobox">
-			<h2>PÉRDIDA DE BOSQUE</h2>
+			<h2><%= t('biomodelos.visor.statistics.forest_loss_title') %></h2>
 			<a ng-click="perinfo=!perinfo" class="closevb">x</a>
-			<p>Esta gráfica describe la variación del porcentaje del área de la distribución de la especie en áreas de bosque del país, de acuerdo a los mapas de deforestación desarrollados por el IDEAM y a los escenarios de deforestación propuestos por Etter y Arévalo (2014) (proyectado al 2030).</p>
-			<div class="figtxt">Etter, A. y Arévalo, P. (2014). Escenarios futuros de la cobertura forestal en Colombia. En: Bello et al. (ed). Biodiversidad 2014. Estado y tendencia de la biodiversidad continental en Colombia. Instituto Alexander von Humboldt. Bogotá, D.C., Colombia.</div>
+			<p><%= t('biomodelos.visor.statistics.forest_loss_text_1') %></p>
+			<div class="figtxt"><%= t('biomodelos.visor.statistics.forest_loss_text_2') %></div>
 		</div>
 		<div id="forest_info"></div>
 	</div>
 	<div class="databox">
-		<h2 class="infotitle" ng-click="cobinfo=!cobinfo">coberturas</h2>
+		<h2 class="infotitle" ng-click="cobinfo=!cobinfo"><%= t('biomodelos.visor.statistics.covers_title') %></h2>
 		<div ng-show="cobinfo" class="infobox">
-			<h2>coberturas</h2>
+			<h2><%= t('biomodelos.visor.statistics.covers_title') %></h2>
 			<a ng-click="cobinfo=!cobinfo" class="closevb">x</a>
-			<p>Listado de las coberturas seleccionadas por los expertos para la especie en la sección variables ecológicas, con el correspondiente porcentaje de área de la distribución de la especie que se encuentra en cada una de ellas.</p>
+			<p><%= t('biomodelos.visor.statistics.covers_text_1') %></p>
 		</div>
 		<div id="covers_info"></div>
 	</div>
@@ -72,7 +72,7 @@
 	</div> -->
 </div>
 <div class="cvcol40">
-	<button class="urllink" title="Copiar URL de la especie" rel="tooltip"></button>
+	<button class="urllink" title="<%= t('biomodelos.visor.statistics.copy_url_tt') %>" rel="tooltip"></button>
 	<!-- <div class="amenaza" title="Categoría de amenaza" rel="tooltip"><%= image_tag("caten.png") %></div> -->
 </div>
 <script>

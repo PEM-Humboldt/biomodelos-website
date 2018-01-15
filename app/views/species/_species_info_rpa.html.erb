@@ -1,18 +1,18 @@
 <% if !@rpa.blank? %>
 	<div class="maindata 2ndpad">
 		<h4><%= @rpa["statRepPA"].blank? ? '-' : '%.1f' % @rpa["statRepPA"] %> %</h4>
-		<h5>Total Representatividad</h5>
+		<h5><%= t('biomodelos.visor.statistics.rpa_total') %></h5>
 	</div>
 	<div class="seconddata">
 		<h4><%= @rpa["statRepPA1"].blank? ? '-' : '%.1f' % @rpa["statRepPA1"] %> %</h4>
-		<h5>PNN</h5>
+		<h5><%= t('biomodelos.visor.statistics.rpa_pnn') %></h5>
 	</div>
 	<div class="seconddata">
 		<h4><%= @rpa["statRepPA2"].blank? ? '-' : '%.1f' % @rpa["statRepPA2"] %> %</h4>
-		<h5>RSC</h5>
+		<h5><%= t('biomodelos.visor.statistics.rpa_rsc') %></h5>
 	</div>
 	<div class="seconddata fdata">
 		<h4><%= @rpa["statRepPA3"].blank? ? '-' : '%.1f' % @rpa["statRepPA3"] %> %</h4>
-		<h5>otras figuras</h5>
+		<h5><%= t('biomodelos.visor.statistics.rpa_other') %></h5>
 	</div>
 <% end %>

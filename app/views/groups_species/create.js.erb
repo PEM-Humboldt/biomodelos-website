@@ -1,4 +1,4 @@
 <% if @current_group_user.is_admin %>
 	$.post( "/groups_species/species_by_group", { id: $("#group_id_field").val()});
 <% end %>
-alertify.alert("La especie ha sido sugerida con éxito");
+alertify.alert("<%= t('biomodelos.groups.species.suggestion_success') %>");

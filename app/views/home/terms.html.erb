@@ -4,58 +4,38 @@
 			BioModelos
 		</div>
 		<div class="slogan">
-			Términos y condiciones DE USO DE BIOMODELOS (V 1.0)
+			<%= t('biomodelos.terms.title') %>
 		</div>
-		<a href="#general" class="btnterminos">General</a>
-		<a href="#politica" class="btnterminos">Registro</a>
-		<a href="#publicacion" class="btnterminos">Publicación</a>
+		<a href="#general" class="btnterminos"><%= t('biomodelos.terms.general') %></a>
+		<a href="#politica" class="btnterminos"><%= t('biomodelos.terms.sign_up') %></a>
+		<a href="#publicacion" class="btnterminos"><%= t('biomodelos.terms.publish') %></a>
 		<div class="subt" id="general">
-			General
+			<%= t('biomodelos.terms.general') %>
 		</div>
-		<p class="smallp"><i>El uso que haga de BioModelos (biomodelos.humboldt.org.co), en cualquier forma, consultando o complementando su contenido, constituye la aceptación de los siguientes Términos y Condiciones, los cuales se hacen efectivos a partir de la fecha en la que ingrese al sitio indicado.</i></p>
-		<div class="thirdtitle"><b>1.</b> General</div>
-		<p class="smallp">Este acuerdo de usuario establece los términos y condiciones de una licencia para que usted utilice la plataforma web BioModelos y la información contenida en ella. Para los propósitos del presente acuerdo, la información de BioModelos comprende la visualización de registros biológicos a través del visor geográfico de la plataforma, los modelos de distribución de especies desarrollados a partir de dichos registros y las estadísticas e indicadores calculados a partir de los modelos. Al acceder y/o usar BioModelos, se presume que usted ha leído, aceptado y está de acuerdo con cumplir todos los términos y condiciones de este acuerdo de usuario. Los derechos y obligaciones relacionados con el uso de BioModelos de conformidad con este acuerdo de usuario son personales y no son transferibles a persona natural o jurídica alguna. Eventualmente, estos términos y condiciones de uso de BioModelos pueden ser modificados, lo cual quedará registrado en la presente página. En consecuencia es su responsabilidad revisar y cumplir los términos y condiciones establecidos, siempre que acceda o use BioModelos.</p>
-		<div class="thirdtitle"><b>2.</b> Derechos de autor y propiedad intelectual</div>
-		<p class="smallp">BioModelos contiene material protegido por las leyes y tratados referidos a propiedad intelectual, por lo tanto, la información de BioModelos está protegida por los acuerdos, las leyes y reglamentos de derechos de autor en todo el mundo.</br></br>
-		El Instituto de Investigación de Recursos Biológicos Alexander von Humboldt es el propietario único y exclusivo de la aplicación BioModelos, incluida la marca, nombre comercial, secreto comercial y otros derechos de propiedad intelectual sobre esta aplicación. 
-		</br></br>
-		Dado que la información que reposa en BioModelos es el resultado de un proceso de colaboración entre el Instituto Alexander von Humboldt y los usuarios registrados, su administración y manejo corresponde exclusivamente al Instituto Alexander von Humboldt, de acuerdo a los términos y alcances estipulados en los formularios de registro y de publicación.
-		El Instituto Alexander von Humboldt ostenta de manera exclusiva los derechos patrimoniales de autor de la información generada a partir de toda la actividad de usuarios registrados en BioModelos, particularmente en los módulos “edición y contribución” y “registros y filtros”. En todo caso, el Instituto Alexander von Humboldt reconocerá los derechos morales de autor para cada contribución consignada por los usuarios registrados en BioModelos. 
-		</br></br>
-		Una vez consignada la información en BioModelos por parte de los “Publicadores”, el Instituto Alexander von Humboldt gozará de una licencia para su uso y disposición, de acuerdo a las licencia Creative Commons con que se publique dicha información, de acuerdo a lo establecido por el o los publicadores en el formulario de publicación.
-		</br></br>
-		Usted acepta no alterar ni eliminar ningún símbolo de copyright u otra identificación relativa a la autoría de ninguno de los materiales contenidos o puestos a su disposición en BioModelos.
+		<p class="smallp"><i><%= t('biomodelos.terms.general_text') %></i></p>
+		<div class="thirdtitle"><b>1.</b> <%= t('biomodelos.terms.general') %></div>
+		<p class="smallp"><%= t('biomodelos.terms.general_1_text') %></p>
+		<div class="thirdtitle"><b>2.</b> <%= t('biomodelos.terms.general_2_title') %></div>
+		<p class="smallp"><%= t('biomodelos.terms.general_2_text_html') %>
 		</p>
-		<div class="thirdtitle"><b>3.</b> Productos derivados</div>
-		<p class="smallp">Las obras derivadas basadas en la información de BioModelos pueden divulgarse, electrónicamente o en forma impresa, sin el permiso previo por escrito del Instituto Alexander von Humboldt, siempre y cuando estén disponibles sin fines comerciales y se incluya la citación a la fuente, puntualmente señalada en el campo correspondiente a “cita” en los metadatos. BioModelos se reserva el derecho de usar / reutilizar cualquier trabajo derivado basado en su información de acuerdo con los mismos términos y condiciones de uso. Para efectos de estos términos y condiciones, un "trabajo derivado" es un trabajo nuevo que se basa total o parcialmente en la información de BioModelos. Para ser considerada una obra derivada, la nueva obra debe ser transformadora e incluir originalidad por parte del creador, de lo contrario puede simplemente considerarse redistribución, dependiendo de la manera en que se pone a disposición el nuevo trabajo.
-		</br></br>
-		El uso de la información de BioModelos en la creación de obras derivadas no constituye un respaldo por parte del Instituto Alexander von Humboldt o de sus socios a esos productos derivados, informes o análisis. Queda expresamente prohibido el uso de los logotipos de BioModelos o del Instituto Alexander von Humboldt en cualquier producto derivado, informe o análisis, o en materiales de apoyo, sin el permiso escrito, previo y expreso por parte del Instituto.
+		<div class="thirdtitle"><b>3.</b> <%= t('biomodelos.terms.general_3_title') %></div>
+		<p class="smallp"><%= t('biomodelos.terms.general_3_text_html') %>
 		</p>
-		<div class="thirdtitle"><b>4.</b> Uso</div>
-		<p class="smallp">Siempre que el uso o consulta de la información de BioModelos se haga de conformidad con los términos y condiciones de este acuerdo de usuario, se otorga una licencia gratuita, indefinida e intransferible para su consulta, descarga o impresión, sin necesidad de permiso previo por parte del Instituto.
-		</br></br>
-		La consulta y el uso de la información proveniente de BioModelos se restringe a fines educativos, investigativos académicos o aplicados. En todo caso, queda prohibido adelantar o ejecutar cualquier acto de disposición económica sobre la misma.  
-		</br></br>
-		Los productos o resultados publicados a partir de la información obtenida en BioModelos deben ser enviados en copia electrónica o una copia en medio físico a los datos de contacto que se indican en la sección “información de contacto” de estos términos y condiciones.
+		<div class="thirdtitle"><b>4.</b> <%= t('biomodelos.terms.general_4_title') %></div>
+		<p class="smallp"><%= t('biomodelos.terms.general_4_text_html') %>
 		</p>
-		<div class="thirdtitle"><b>5.</b> Reconocimiento y citación</div>
-		<p class="smallp">El usuario de la información de BioModelos deberá otorgar los créditos correspondientes a la fuente de dicha información, empleando la citación provista en los metadatos que acompañan cada modelo, indicando de manera puntual la versión de la información de BioModelos utilizada.
-		</br></br>
-		El Instituto Alexander von Humboldt invita a los usuarios de la información de BioModelos a participar en su construcción y complemento. Igualmente, les extiende la invitación a hacer partícipe al Instituto de todas aquellas publicaciones que se deriven significativamente de la información disponible en BioModelos, previamente a su divulgación, en un espacio de colaboración conjunto. Las expresiones de interés pueden ser enviadas directamente al Instituto Alexander von Humboldt utilizando los datos de contacto que se indican en la sección “información de contacto”  de estos términos y condiciones.
+		<div class="thirdtitle"><b>5.</b> <%= t('biomodelos.terms.general_5_title') %></div>
+		<p class="smallp"><%= t('biomodelos.terms.general_5_text_html') %>
 		</p>
-		<div class="thirdtitle"><b>6.</b> Actualizaciones</div>
-		<p class="smallp">A menos que se requiera para análisis específicos, no se debe utilizar ninguna versión de la información de BioModelos después de haber sido reemplazada por una versión posterior. Es su responsabilidad verificar si hay disponible una actualización de la información publicada en BioModelos.</p>
-		<div class="thirdtitle"><b>7.</b> Limitaciones en la responsabilidad</div>
-		<p class="smallp">El Instituto Alexander von Humboldt,  sus socios, cualquiera de sus respectivos empleados, proveedores de contenido de terceros o licenciantes no garantizan que el acceso y uso de BioModelos estará libre de interrupciones o libre de errores, así como,  que cualquier información accesible de o relacionados con la información está libre de virus u otros componentes dañinos. Igualmente no se otorgan garantías en relación con los resultados que se pueden obtener del uso de la información de BioModelos o de la exactitud, confiabilidad o contenido de cualquier información o servicio proporcionado a través de BioModelos.
-		</br></br>
-		BioModelos es un espacio para la discusión y evaluación científica de modelos de distribución geográfica de especies. En este sentido, la información descargable representa hipótesis de la probable distribución geográfica de las especies y productos derivados de esas hipótesis, que si bien pueden contener errores y sesgos asociados a los datos y el modelamiento estadístico, hace un esfuerzo por disminuir el impacto de dichos factores al incorporar el conocimiento experto para producir mapas validados. 
-		</br></br>
-		La información que está disponible en BioModelos no es información oficial para Colombia y por tal motivo su uso lo debe realizar bajo su propia responsabilidad. El Instituto Alexander von Humboldt, los patrocinadores de BioModelos y demás colaboradores, no garantizan que los resultados derivados de usar la información descargada cumplan con sus requerimientos particulares.
+		<div class="thirdtitle"><b>6.</b> <%= t('biomodelos.terms.general_6_title') %>s</div>
+		<p class="smallp"><%= t('biomodelos.terms.general_6_text_html') %></p>
+		<div class="thirdtitle"><b>7.</b> <%= t('biomodelos.terms.general_7_title') %></div>
+		<p class="smallp"><%= t('biomodelos.terms.general_7_text_html') %>
 		</p>
-		<div class="thirdtitle"><b>8.</b> Terminación del acuerdo</div>
-		<p class="smallp">Usted o el Instituto Alexander von Humboldt pueden terminar este acuerdo de usuario en cualquier momento, con efecto inmediato, con o sin previo aviso a la otra parte. La terminación de este acuerdo termina automáticamente su licencia para usar BioModelos y cualquier contenido u otro material contenido en ella. Las disposiciones de las secciones 3, 4, y 5 sobrevivirán a cualquier terminación de este acuerdo de usuario.</p>
-		<div class="thirdtitle"><b>9.</b> Información de contacto</div>
-		<p class="smallp">Si tiene alguna pregunta sobre cualquiera de estos términos o sobre cómo pueden aplicarse al uso previsto de la información que proporciona BioModelos, contacte al Laboratorio de Biogeografía Aplicada (LBA) del Instituto Alexander von Humboldt:</br></br>
+		<div class="thirdtitle"><b>8.</b> <%= t('biomodelos.terms.general_8_title') %></div>
+		<p class="smallp"><%= t('biomodelos.terms.general_8_text_html') %></p>
+		<div class="thirdtitle"><b>9.</b> <%= t('biomodelos.terms.general_9_title') %></div>
+		<p class="smallp"><%= t('biomodelos.terms.general_9_text_html') %></br></br>
 		<div class="specialp">Instituto de investigación de recursos biológicos Alexander von Humboldt – Programa de evaluación y monitoreo de la Biodiversidad</br>
 		Avenida Paseo Bolívar 16 - 20</br>
 		Bogotá, Colombia</br>
@@ -64,33 +44,22 @@
 		</p>
 		
 		<div class="subt" id="politica">
-			Registro
+			<%= t('biomodelos.terms.sign_up') %>
 		</div>
 		<p class="smallp"></p>
-		<div class="thirdtitle"><b>1.</b>Términos y condiciones de registro</b></div>
-		<p class="smallp">Al registrarse en BioModelos, el usuario además de aceptar los términos y condiciones de uso definidos previamente, deberá acoger la siguiente política de tratamiento de aportes de BioModelos:
-		</br></br>
-		Constituyen aportes a BioModelos toda la información relativa a la distribución de especies que es ingresada por los usuarios registrados a BioModelos, incluyendo pero no restringido a: los reportes y ediciones de error de registros, las ediciones a modelos de distribución, la selección de variables ecológicas por especie, los comentarios en foros, las calificaciones a modelos de distribución y mapas de experto. El Instituto Alexander von Humboldt se reserva el derecho a: almacenar, distribuir, usar, adelantar cualquier actos de disposición o eliminar los aportes realizados por usuarios registrados de BioModelos, así como, la información relativa al origen del aporte (nombre, correo electrónico, fecha y dirección IP del aportante), aun cuando el usuario elimine su registro de BioModelos. 
-		<br id="personales"></br>
-		Los derechos morales de autor de los aportes pertenece a los aportantes y el Instituto Alexander von Humboldt se compromete a citar adecuadamente los mismos cada que estos sean utilizados para el fin de BioModelos o los productos derivados que estime convenientes.
+		<div class="thirdtitle"><b>1.</b><%= t('biomodelos.terms.sign_up_1_title') %></b></div>
+		<p class="smallp"><%= t('biomodelos.terms.sign_up_1_text_html') %>
 		</p>
-		<div class="thirdtitle" id="personales"><b>2.</b>Política de protección de datos personales</div>
-		<p class="smallp">En virtud de la Ley Estatutaria 1581 del 2012 mediante la cual se dictan las disposiciones generales para la protección de datos personales, y su Decreto Reglamentario 1377 de 2013, el Instituto de Investigación de Recursos Biológicos Alexander von Humboldt, considerado como responsable y/o encargado del tratamiento de datos personales, requiere su autorización para continuar con el tratamiento de sus datos personales almacenados en nuestras bases de datos, las cuales incluyen información que ustedes nos han reportado en desarrollo de las diferentes actividades realizadas por nuestra institución en particular los siguientes: Nombres, correo electrónico, ciudad, afiliación institucional y dirección IP desde donde se ingrese a la plataforma biomodelos.humboldt.org.</br></br>
-		<b>Finalidad:</b> Los datos serán utilizados para la misión institucional establecida en la ley 99 de 1993, centrada en desarrollar investigación científica y tecnológica sobre biodiversidad, promover el establecimiento de estaciones de investigaciones en el territorio de la Nación, brindar asesoría a las entidades que conforman el Sistema Ambiental (Sina) y conformar el Inventario Nacional de la Biodiversidad del país.</p>
+		<div class="thirdtitle" id="personales"><b>2.</b><%= t('biomodelos.terms.sign_up_2_title') %></div>
+		<p class="smallp"><%= t('biomodelos.terms.sign_up_2_text_html') %></p>
 		
 		<div class="subt" id="publicacion">
-			Publicación
+			<%= t('biomodelos.terms.publish') %>
 		</div>
-		<div class="thirdtitle"><b>1.</b> El publicador declara:</div>
-		<p class="smallp specialp">1. Que el/los modelo(s) que se suben a BioModelos son autoría de las personas listadas en el formulario de publicación de modelos (en adelante publicadores) o tienen la cesión de derechos vigente para tal fin.</br>
-		2. Que todos los autores del modelo o conjunto de modelos aceptan o autorizan su publicación en BioModelos a partir del momento en que sube la información.</br>
-		3. Que los registros biológicos que acompañan el modelo son de uso abierto, son propios o su uso exclusivamente para propósitos de visualización en BioModelos ha sido autorizado explícita o implícitamente (p. ej. a través de una licencia de Creative Commons) por los propietarios de la información o quienes tienen alguna cesión o autorización frente al particular.</br>
-		4. Que los publicadores autorizan la descarga y uso de sus modelos por terceros a través de BioModelos bajo las condiciones provistas por la licencia Creative Commons señalada en el formulario de publicación de modelos.</p>
-		<div class="thirdtitle"><b>2.</b> El Instituto de Investigación de recursos biológicos Alexander Von Humboldt a través de la aplicación web BioModelos</div>
-		<p class="smallp specialp">1. Ofrecerá estadísticas de actividad (visualización y descarga) y perfil de uso a solicitud de los publicadores de la información.</br>
-		2. Otorgará el crédito correspondiente a los publicadores de modelos en la página de BioModelos y en los metadatos que acompañan los modelos de su autoría, con base en la información registrada en el formulario de publicación.</br>
-		3. Utilizará los registros biológicos que acompañan el modelo únicamente para la visualización en BioModelos bajo las condiciones determinadas por los publicadores en el formulario de publicación del modelo. En ningún caso su uso o descarga estará habilitada en BioModelos, a menos que esto sea expresamente autorizado en el formulario de publicación de modelos.</br>
-		4. Se reserva el derecho de publicar los modelos así como de bajarlos en cualquier momento de la página.</p>
+		<div class="thirdtitle"><b>1.</b> <%= t('biomodelos.terms.publish_1_title') %></div>
+		<p class="smallp specialp"><%= t('biomodelos.terms.publish_1_text_html') %></p>
+		<div class="thirdtitle"><b>2.</b> <%= t('biomodelos.terms.publish_2_title') %></div>
+		<p class="smallp specialp"><%= t('biomodelos.terms.publish_2_text_html') %></p>
 			
 	</div>
 </div>

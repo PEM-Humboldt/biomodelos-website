@@ -8,12 +8,12 @@
 					<%= render 'groups/edit_group' %>
 				</div>
 				<div class="editgroupform" ng-show="messagebox">
-				<h2>Mensaje al Grupo</h2>
+				<h2><%= t('biomodelos.groups.group_message.title') %></h2>
 				<%= simple_form_for :message, :url =>  groups_bulk_group_email_path, :method => :post, remote: true do |f|  %>
-					<%= f.input :message, :as => :text, :placeholder => "máximo 500 caracteres", :input_html => {:maxlength => 500, :cols => "20", :rows => "8"}, :name => "cuerpo", label: false %>
+					<%= f.input :message, :as => :text, :placeholder => t('biomodelos.groups.group_message.message_ph'), :input_html => {:maxlength => 500, :cols => "20", :rows => "8"}, :name => "cuerpo", label: false %>
 					<%= f.hidden_field :group_id, :value => @group.id %>
 				    <div class="clearfix"></div>
-				    <%= f.submit 'ENVIAR', class: "btngen ml0"%>
+				    <%= f.submit t('biomodelos.groups.group_message.submit_btn'), class: "btngen ml0"%>
 				    <a class="closeedit" ng-click="messagebox=!messagebox">X</a>
 				<% end %>
 				</div>
@@ -24,31 +24,31 @@
 			<div class="perflinks">
 				<% if user_signed_in? %>
 				 	<% if @user_group && @user_group.groups_users_state_id == 2 %>
-						<%= image_tag "groupjoin2", :title=>"En espera de aprobación", :rel=>"tooltip" %>
+						<%= image_tag "groupjoin2", :title=>t('biomodelos.groups.profile.waiting_approval_tt'), :rel=>"tooltip" %>
 					<% elsif @user_group && @user_group.groups_users_state_id == 1 %>
-                		<%= link_to groups_user_path(@user_group), {method: :delete, data: { confirm: '¿Quiere abandonar el grupo?' }}  do %>
-                			<%= image_tag "leave.png", title:"Abandonar el grupo", class: 'leavegroup', rel: 'tooltip' %>
+                		<%= link_to groups_user_path(@user_group), {method: :delete, data: { confirm: t('biomodelos.groups.profile.leave_group_confirm') }}  do %>
+                			<%= image_tag "leave.png", title:t('biomodelos.groups.profile.leave_group_tt'), class: 'leavegroup', rel: 'tooltip' %>
                 		<% end %>				
 					<% elsif  !@current_group_user %>
 						<%= simple_form_for @groups_users do |f| %>
 		                  <%= f.hidden_field :group_id, :value =>  @group.id %>
 		                  <%= f.hidden_field :groups_users_state_id, :value => 2 %>
-		                  <%= f.submit "", :class=> "joingroup", :title=>"Solicitar unirse a este grupo", :rel=>"tooltip" %>
+		                  <%= f.submit "", :class=> "joingroup", :title=>t('biomodelos.groups.profile.join_group_tt'), :rel=>"tooltip" %>
 		                <% end %>
 		            <% end %>
 				<% end %>
 				<% if @current_group_user && @current_group_user.is_admin%>
-					<a href="" title="Mensaje a miembros del grupo" rel="tooltip" class="mailto" ng-click="messagebox=!messagebox"></a>
-					<a href="" title="Editar información del grupo" rel="tooltip" class="edituser" ng-click="editgroup=!editgroup"></a>
+					<a href="" title="<%= t('biomodelos.groups.profile.group_message_tt') %>" rel="tooltip" class="mailto" ng-click="messagebox=!messagebox"></a>
+					<a href="" title="<%= t('biomodelos.groups.profile.edit_group_tt') %>" rel="tooltip" class="edituser" ng-click="editgroup=!editgroup"></a>
 				<% end %>
 			</div>
 
 			<div class="clearfix"></div>
-			<div class="perfilsub modertext">Moderador(es)</div>
+			<div class="perfilsub modertext"><%= t('biomodelos.groups.profile.moderators') %></div>
 			<% @group_admins.each do |admin| %>
 				<p class="moderlink"><a href="/users/<%= admin.user_id %>" class="moderlink"><%= admin.user.name %></a></p>
 			<% end %>
-			<div class="groupunder">Mensaje moderador</div>
+			<div class="groupunder"><%= t('biomodelos.groups.profile.moderator_message') %></div>
 			<p><%= @group.message %></p>
 			<!-- <div class="groupunder">Última Actividad</div>
 			<p class="actvspp"><a>Wingardium leviosa</a> · Aporte de Edición</p>
@@ -58,19 +58,19 @@
 
 			<ul class="perfilnav groupnav">
 		       	<li ng-class="{ active: isSet(1) }">
-		          	<a href ng-click="setTab(1)">estadísticas</a>
+		          	<a href ng-click="setTab(1)"><%= t('biomodelos.groups.profile.statistics_tab') %></a>
 		       	</li>
 		       	<li ng-class="{ active: isSet(2) }">
-		          	<a href ng-click="setTab(2)" class="group_tasks_tab">tareas</a>
+		          	<a href ng-click="setTab(2)" class="group_tasks_tab"><%= t('biomodelos.groups.profile.tasks_tab') %></a>
 		       	</li>
 		       	<li ng-class="{ active: isSet(3) }">
-		          	<a href ng-click="setTab(3)" class="group_activity_tab">actividad</a>
+		          	<a href ng-click="setTab(3)" class="group_activity_tab"><%= t('biomodelos.groups.profile.activity_tab') %></a>
 		       	</li>
 		       	<li ng-class="{ active: isSet(4) }">
-		          	<a href ng-click="setTab(4)" class="group_species_tab">especies</a>
+		          	<a href ng-click="setTab(4)" class="group_species_tab"><%= t('biomodelos.groups.profile.species_tab') %></a>
 		       	</li>
 		       	<li ng-class="{ active: isSet(5) }">
-		          	<a href ng-click="setTab(5)" class="group_users_tab">expertos</a>
+		          	<a href ng-click="setTab(5)" class="group_users_tab"><%= t('biomodelos.groups.profile.experts_tab') %></a>
 		       	</li>
 		     </ul>
 

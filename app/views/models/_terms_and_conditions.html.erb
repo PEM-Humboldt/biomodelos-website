@@ -1,16 +1,16 @@
     <%= simple_form_for @download, :url => models_download_model_path, html: { class: "terminos"} do |f| %>
-        <p>Antes de descargar, recuerda:</p>
+        <p><%= t('biomodelos.models.download.text_1') %></p>
         <%= f.hidden_field :model_id, value: params[:model_id] %>
         <%= f.hidden_field :species_id, value: params[:species_id] %>
         <%= f.hidden_field :zip_url, value: params[:zip_url] %>
         <%= f.input :terminos, label: false, as: :boolean, :required => true %>
-        <label class="checkboxterm checkboxdown"><%= link_to 'He leído y acepto los términos y condiciones', home_terms_path, :target =>"_blank" %></label></br>
+        <label class="checkboxterm checkboxdown"><%= link_to t('biomodelos.models.download.read_terms_lnk'), home_terms_path, :target =>"_blank" %></label></br>
         <!-- <input type="checkbox" name="aceptoterms" value="terms" id="acepto-chk" />
             <label  class="checkboxterm"><%= link_to 'He leído y acepto los términos y condiciones', home_terms_path, :target =>"_blank" %></label></br>
         </input> -->
-        <p>Selecciona el uso que le darás al modelo:</p>
+        <p><%= t('biomodelos.models.download.text_2') %></p>
         <%= f.collection_radio_buttons(:model_use_id, ModelUse.all, :id, :description, :class=> 'terminoschk') %>
      	<div class="clearfix"></div>
         <%= link_to 'X', '', {:id => 'cancelo-trm-btn', :class=> 'btngen'} %>
-        <%= f.submit 'ACEPTO', {:class => 'uzcolor', :id => 'acepto-btn'} %>
+        <%= f.submit t('biomodelos.models.download.accept_btn'), {:class => 'uzcolor', :id => 'acepto-btn'} %>
     <% end %>

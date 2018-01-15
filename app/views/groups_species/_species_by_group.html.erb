@@ -1,20 +1,20 @@
 <% if @current_group_user && @current_group_user.is_admin %>
 	<div class="spptit">
-		<h2>Especies sugeridas</h2>
+		<h2><%= t('biomodelos.groups.species.suggested') %></h2>
 	</div>
 	<% @pending_species.each do |p_species| %>
 		<div class="spp">
 			<a href="/species/visor?species_id=<%= p_species[1] %>"><%= p_species[0] %><%= hidden_field_tag('', p_species[1], :class => 'p_sp_id') %></a>
 			<div class="acceptbuttons">
-				<a href="" class="btn_dismiss_sp"><%= image_tag("delicon.png", :title => 'No Aprobar', :rel => "tooltip") %></a>
-				<a href="" class="btn_approve_sp"><%= image_tag("aprobicon.png", :title => 'Aprobar especie', :rel => "tooltip") %></a>
+				<a href="" class="btn_dismiss_sp"><%= image_tag("delicon.png", :title => t('biomodelos.groups.species.approved_tt'), :rel => "tooltip") %></a>
+				<a href="" class="btn_approve_sp"><%= image_tag("aprobicon.png", :title => t('biomodelos.groups.species.not_approved_tt'), :rel => "tooltip") %></a>
 			</div>
 		</div>
 	<% end %>
 </div>
 <% end %>
 <div class="spptit">
-	<h2>Nombre de la especie</h2>
+	<h2><%= t('biomodelos.groups.species.species_name') %></h2>
 	<h3></h3>
 </div>
 <div id="grp_spe_box">

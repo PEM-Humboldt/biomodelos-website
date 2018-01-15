@@ -1,19 +1,19 @@
 <div class="innercontainer fondoplumas nbg3">
 	<div class="cajainners">
             <div class="hcbase">
-                  <h1>Contacto</h1>
+                  <h1><%= t('biomodelos.contact.title') %></h1>
                   <%= link_to '', root_path, class: 'closecb' %>
                   <div id="mailform" class="forms">       
                         <%= simple_form_for :contact_message, :url =>  home_send_contact_form_path, :method => :post do |f| %>
                               <%= f.error_notification %>
-                              <%= f.input :name, :maxlength => 50, :placeholder => "Nombre o Institución", :name => "nombre", label: false%>
-                              <%= f.input :subject, :maxlength => 50, :placeholder => "Asunto", :name => "asunto", label: false %>
+                              <%= f.input :name, :maxlength => 50, :placeholder => t('biomodelos.contact.name_ph'), :name => "nombre", label: false%>
+                              <%= f.input :subject, :maxlength => 50, :placeholder => t('biomodelos.contact.subject_ph'), :name => "asunto", label: false %>
                               <%= f.input :email, :maxlength => 50, :placeholder => "E-mail", :name => "email", label: false %>
                               <%= f.input :content, :as => :text, :input_html => {:maxlength => 1200, :cols => "20", :rows => "12"}, :name => "cuerpo", label: false %>
-                              <%= f.button :submit, :value => "ENVIAR", :class => 'boton1'%>
+                              <%= f.button :submit, :value => t('biomodelos.contact.submit_btn'), :class => 'boton1'%>
                         <% end %>
-                        <p><strong>Dirección:</strong> calle 28A no. 15-09 Bogotá D.C., Colombia.</br>
-                        <strong>Teléfono:</strong> pbx 57(1) 320 2767 ext. 1161</br>
+                        <p><strong><%= t('biomodelos.contact.address') %>:</strong> calle 28A no. 15-09 Bogotá D.C., Colombia.</br>
+                        <strong><%= t('biomodelos.contact.phone') %>:</strong> pbx 57(1) 320 2767 ext. 1161</br>
                         <a href="mailto:biomodelos@humboldt.org.co">biomodelos@humboldt.org.co</a></p>
                   </div>
             </div>

@@ -1,7 +1,7 @@
-<h1 class="tasks">tareas</h1> 
+<h1 class="tasks"><%= t('biomodelos.groups.profile.tasks_tab') %></h1> 
 <% if @current_group_user %>
 	<div class="newta
-	sk" ng-click="taskbox=!taskbox" rel="tooltip" title="Agregar nueva tarea"><%= image_tag("newtask.png") %></div>
+	sk" ng-click="taskbox=!taskbox" rel="tooltip" title="<%= t('biomodelos.tasks.new_task') %>"><%= image_tag("newtask.png") %></div>
 	<div class="clearfix"></div>
 	<div class="addtask" ng-show="taskbox">
 		<%= render partial:'tasks/new_tasks_form', locals: {task: @task, group: @group, group_members: @group_members, group_species: @group_species, current_group_user: @current_group_user} %>	
@@ -9,21 +9,21 @@
 <% end %>
 <div class="clearfix"></div>
 <div class="colspp tabletit">
-	<h2>Especie</h2>
+	<h2><%= t('biomodelos.tasks.species') %></h2>
 </div><!-- 
---><div class="coladv tabletit" rel="tooltip" title="Curación de registros">
+--><div class="coladv tabletit" rel="tooltip" title="<%= t('biomodelos.tasks.records_task_tt') %>">
 	<%= image_tag("regperfil.png") %>
 </div><!-- 
---><div class="coladv tabletit" rel="tooltip" title="Edición de modelos">
+--><div class="coladv tabletit" rel="tooltip" title="<%= t('biomodelos.tasks.edition_task_tt') %>">
 	<%= image_tag("penperfil.png") %>
 </div><!--  
---><div class="coladv tabletit" rel="tooltip" title="Variables ecológicas">
+--><div class="coladv tabletit" rel="tooltip" title="<%= t('biomodelos.tasks.covers_task_tt') %>">
 	<%= image_tag("veicon2.png") %>
 </div><!-- 
---><div class="coladv tabletit" rel="tooltip" title="Modelo aprobado">
+--><div class="coladv tabletit" rel="tooltip" title="<%= t('biomodelos.tasks.validation_task_tt') %>">
 	<%= image_tag("aprobicon.png") %>
 </div><!-- 
---><div class="coladv tabletit" rel="tooltip" title="Porcentaje de avance">
+--><div class="coladv tabletit" rel="tooltip" title="<%= t('biomodelos.tasks.advance_tt') %>">
 	<%= image_tag("percicon.png") %>
 </div>
 <div id="group_tasks_table"></div>

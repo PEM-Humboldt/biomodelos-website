@@ -1,7 +1,7 @@
 
 <section class="resultados">
 	<% if @species.blank? %>
-		No existen resultados para la búsqueda.
+		<%= t('biomodelos.search.no_results') %>
 	<% else %>
 		<% @species.each do |sp|%>
 			<a href="/species/visor?species_id=<%= sp['taxID'] %>"><%= sp["species"] %></a></br>

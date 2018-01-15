@@ -19,19 +19,19 @@ class ModelsController < ApplicationController
 		if @valid_model
 			@init_model = @valid_model
 			if @hypotheses.size > 0
-				@popup_content = "Esta es una hipótesis de distribución aprobada por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución no aprobadas por expertos, disponibles para esta especie."
+				@popup_content = I18n.t('biomodelos.models.init.case_2')
 			end
 		elsif @hypotheses.size > 0
 			if @hypotheses.size == 1
 				@init_model = @hypotheses[0]
-				@popup_content = "Esta hipótesis de distribución está pendiente de aprobación por expertos."
+				@popup_content = I18n.t('biomodelos.models.init.case_3')
 			else
 				@init_model = Model.get_best_hypothesis(@hypotheses)
-				@popup_content = "Esta es una de las hipótesis de distribución disponibles pendientes de aprobación por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución pendientes de aprobación disponibles para esta especie."
+				@popup_content = I18n.t('biomodelos.models.init.case_4')
 			end
 		elsif @continuous_model
 			@init_model = @continuous_model
-			@popup_content = "Esta es una hipótesis de distribución sin aportes de expertos. Para contribuir a mejorarlo, registrate en el grupo de expertos de la especie."
+			@popup_content = I18n.t('biomodelos.models.init.case_5')
 		end
 
 		respond_to do |format|
@@ -122,7 +122,7 @@ class ModelsController < ApplicationController
 		rescue => e
 			logger.error "#{e.message} #{e.backtrace}"
 			err_msg = e.message.tr(?',?").delete("\n")
-			redirect_to species_visor_path, notice: 'Se ha producido un error al obtener los metadatos del modelo.'
+			redirect_to species_visor_path, notice: I18n.t('biomodelos.models.metadata.error')
 		end
 	end
 

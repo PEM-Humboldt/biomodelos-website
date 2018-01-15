@@ -1,14 +1,14 @@
-<h1>expertos</h1>
+<h1><%= t('biomodelos.groups.experts.title') %></h1>
 <% if @current_group_user %>
-	<a ng-click="invitador=!invitador; activeButton()" ng-class="{'btnact': isActive}" class="closecb">INVITAR EXPERTO</a>
+	<a ng-click="invitador=!invitador; activeButton()" ng-class="{'btnact': isActive}" class="closecb"><%= t('biomodelos.groups.experts.invitation_title') %></a>
 	<div ng-show="invitador" class="forms">
-		<p class="groupuser">Para enviar invitaciones simultáneas a un grupo de expertos, se deben separar las direcciones de correo utilizando un punto y coma (;) sin dejar espacios de por medio. Máximo 500 caracteres.</p><br/>
+		<p class="groupuser"><%= t('biomodelos.groups.experts.invitation_notice') %></p><br/>
 		<%= simple_form_for :message, :url =>  groups_invite_user_path, :method => :post do |f| %>
 	         <%= f.error_notification %>
 	         <%= f.hidden_field :group_id, :value => @group.id %>
-	         <%= f.input :email, :maxlength => 500, :placeholder => "E-mail", :name => "email", label: false %>
+	         <%= f.input :email, :maxlength => 500, :placeholder => t('biomodelos.groups.experts.email_ph'), :name => "email", label: false %>
 	         <%= f.input :message, :as => :text, :input_html => {:maxlength => 1200, :cols => "20", :rows => "6"}, :name => "cuerpo", label: false %>
-	         <%= f.button :submit, :value => "ENVIAR", :class => 'boton1'%>
+	         <%= f.button :submit, :value => t('biomodelos.groups.experts.submit_btn'), :class => 'boton1'%>
 	   <% end %>
 	</div>
 <% end %>

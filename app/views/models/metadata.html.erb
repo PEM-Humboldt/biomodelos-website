@@ -1,29 +1,29 @@
   <div class="innercontainer metad">
     <div class="dialog">
-      <h1>Metadatos modelo <em><%= @species_name.blank? ? "" : @species_name %></em></h1>
+      <h1><%= t('biomodelos.models.metadata.title') %> <em><%= @species_name.blank? ? "" : @species_name %></em></h1>
       <% if @metadata %>
-        <p><b>ID del Modelo: </b><%= @metadata[0]["modelID"] %></p>
-        <p><b>Número de registros: </b><%= @metadata[0]["recsUsed"].blank? ? 0 : @metadata[0]["recsUsed"] %></p>
-        <p><b>Fecha desarrollo: </b><%= @metadata[0]["yyyy"].blank? ? "NA" : @metadata[0]["yyyy"] %>-<%= @metadata[0]["mm"].blank? ? "NA": @metadata[0]["mm"] %>-<%= @metadata[0]["dd"].blank? ? "NA" : @metadata[0]["dd"] %></p>
+        <p><b><%= t('biomodelos.models.metadata.model_id') %> </b><%= @metadata[0]["modelID"] %></p>
+        <p><b><%= t('biomodelos.models.metadata.records_number') %> </b><%= @metadata[0]["recsUsed"].blank? ? 0 : @metadata[0]["recsUsed"] %></p>
+        <p><b><%= t('biomodelos.models.metadata.date') %> </b><%= @metadata[0]["yyyy"].blank? ? "NA" : @metadata[0]["yyyy"] %>-<%= @metadata[0]["mm"].blank? ? "NA": @metadata[0]["mm"] %>-<%= @metadata[0]["dd"].blank? ? "NA" : @metadata[0]["dd"] %></p>
 
-        <h2>Info</h2>
+        <h2><%= t('biomodelos.models.metadata.info') %></h2>
         <div class="infocontent">
-        <h3 rel="tooltip" title="Método empleado para el desarrollo del modelo">Método <b><%= map_method_name(@metadata[0]["modelingMethod"]) %></b></h3>
-        <h3 rel="tooltip" title="Criterio empleado para aplicar umbral">Umbral <b><%= @metadata[0]["thresholdType"] %></b></h3>
-        <h3 rel="tooltip" title="Método de partición empleado para validación">Tipo validación <b><%= @metadata[0]["validationType"] %></b></h3>
-        <h3 rel="tooltip" title="Estadístico empleado para medir desempeño"><%= @metadata[0]["perfStatType"] %> <b><%= @metadata[0]["perfStatValue"] %></b></h3>
-        <h3 rel="tooltip" title="Componente de la distribución de la especie descrita por el modelo">Nivel <b><%= map_level_name(@metadata[0]["modelLevel"]) %></b></h3>
-        <h3 rel="tooltip" title="Código o métodos para la generación del modelo">Documentación <b><%= @metadata[0]["methodFile"].blank? ? "NA" : link_to(@metadata[0]["methodFile"], "http://biomodelos.humboldt.org.co/methods/#{@metadata[0]['methodFile']}") %></b></h3>
+        <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.method_tt') %>"><%= t('biomodelos.models.metadata.method') %> <b><%= map_method_name(@metadata[0]["modelingMethod"]) %></b></h3>
+        <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.threshold_tt') %>"><%= t('biomodelos.models.metadata.threshold') %> <b><%= @metadata[0]["thresholdType"] %></b></h3>
+        <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.validation_type_tt') %>"><%= t('biomodelos.models.metadata.validation_type') %> <b><%= @metadata[0]["validationType"] %></b></h3>
+        <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.stat_type_tt') %>"><%= @metadata[0]["perfStatType"] %> <b><%= @metadata[0]["perfStatValue"] %></b></h3>
+        <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.level_tt') %>"><%= t('biomodelos.models.metadata.level') %> <b><%= map_level_name(@metadata[0]["modelLevel"]) %></b></h3>
+        <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.docs_tt') %>"><%= t('biomodelos.models.metadata.docs') %> <b><%= @metadata[0]["methodFile"].blank? ? "NA" : link_to(@metadata[0]["methodFile"], "http://biomodelos.humboldt.org.co/methods/#{@metadata[0]['methodFile']}") %></b></h3>
         </div>
 
-        <h2>Cita</h2>
+        <h2><%= t('biomodelos.models.metadata.citation') %></h2>
         <blockquote>
         <p><%=  @metadata[0]["modelAuthors"] %>. <%= @metadata[0]["yyyy"].blank? ? "NA" : @metadata[0]["yyyy"] %>. Modelo de distribución de <em><%= @species_name.blank? ? "" : @species_name %></em> ID <%= @metadata[0]["modelID"] %>. Laboratorio de Biogeografía Aplicada. Instituto Alexander von Humboldt.</p><div class="overf"><a href="http://biomodelos.humboldt.org.co/species/visor?species_id=<%= @metadata[0]["taxID"] %>">http://biomodelos.humboldt.org.co/species/visor?species_id=<%= @metadata[0]["taxID"] %></a>.</div>
         </blockquote>
       <% end %>
 
 
-      <h2>Contacto</h2>
+      <h2><%= t('biomodelos.models.metadata.contact') %></h2>
 
       <p>BioModelos - Laboratorio de Biogeografía Aplicada
       <a href="mailto:biomodelos@humboldt.org.co" class="overf">biomodelos@humboldt.org.co</a></p>

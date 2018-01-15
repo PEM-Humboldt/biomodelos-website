@@ -2,62 +2,62 @@
 	<div class="homeline" ng-style="{'background-image': hc.slide}">
 		<div class="container homec">
 			<div class="hlink">
-				<%= link_to 'Versión 1', 'http://biomodelosv1.humboldt.org.co', target: "_blank" %>
-				<%= link_to 'Busqueda avanzada', species_visor_path(:search => "1") %>
+				<%= link_to t('biomodelos.home.version_1'), 'http://biomodelosv1.humboldt.org.co', target: "_blank" %>
+				<%= link_to t('biomodelos.home.advanced_search'), species_visor_path(:search => "1") %>
 			</div>
 			<%= form_tag({}, {:id => 'search_form_home'})  do %>
-				<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Consulta una especie por su nombre científico', :include_blank => false, :rel => 'autocomplete' %>
+				<%= text_field_tag :query, '', :id => 'search_form', :placeholder => t('biomodelos.home.search_ph'), :include_blank => false, :rel => 'autocomplete' %>
 				<%= hidden_field_tag 'species_id_home' %>
-				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'searchBtnHome', :title => 'Ir a especie', :rel => "tooltip" %>
+				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'searchBtnHome', :title => t('biomodelos.home.go_to_species_tt'), :rel => "tooltip" %>
 			<% end %>
 			
 			<div class="hlbtn">
-				<a ng-click="consulta=!consulta">MODELOS</a>
-				<a ng-click="contribuye=!contribuye">CONTRIBUYE</a>
-				<a ng-click="publica=!publica">PUBLICA</a>
+				<a ng-click="consulta=!consulta"><%= t('biomodelos.home.models_btn') %></a>
+				<a ng-click="contribuye=!contribuye"><%= t('biomodelos.home.contribute_btn') %></a>
+				<a ng-click="publica=!publica"><%= t('biomodelos.home.publish_btn') %></a>
 			</div>
 		</div>
 	</div>
-	<h1>MEJORES MODELOS CON EL APOYO DE EXPERTOS</h1>
+	<h1><%= t('biomodelos.home.slogan') %></h1>
 	<div class="allgraphs">
 		<div class="graphcont">
-			<h3>MAMÍFEROS</h3>
+			<h3><%= t('biomodelos.home.mammals') %></h3>
 			<h4 id="mam_lbl"></h4>
 			<div class="graph" id="donutmam" style="width: 140px; height: 180px;"></div>
 			<%= image_tag("home_mam.png") %>
 		</div>
 		<div class="graphcont">
-			<h3>AVES</h3>
+			<h3><%= t('biomodelos.home.birds') %></h3>
 			<h4 id="av_lbl"></h4>
 			<div class="graph" id="donutave" style="width: 140px; height: 180px;"></div>
 			<%= image_tag("home_ave.png") %>
 		</div>
 		<div class="graphcont">
-			<h3>REPTILES</h3>
+			<h3><%= t('biomodelos.home.reptiles') %></h3>
 			<h4 id="rep_lbl"></h4>
 			<div class="graph" id="donutrep" style="width: 140px; height: 180px;"></div>
 			<%= image_tag("home_rep.png") %>
 		</div>
 		<div class="graphcont">
-			<h3>ANFIBIOS</h3>
+			<h3><%= t('biomodelos.home.amphibians') %></h3>
 			<h4 id="anf_lbl"></h4>
 			<div class="graph" id="donutanf" style="width: 140px; height: 180px;"></div>
 			<%= image_tag("home_anf.png") %>
 		</div>
 		<div class="graphcont">
-			<h3>PECES</h3>
+			<h3><%= t('biomodelos.home.fish') %></h3>
 			<h4 id="pec_lbl"></h4>
 			<div class="graph" id="donutpec" style="width: 140px; height: 180px;"></div>
 			<%= image_tag("home_pec.png") %>
 		</div>
 		<div class="graphcont">
-			<h3>INVERTEBRADOS</h3>
+			<h3><%= t('biomodelos.home.invertebrates') %></h3>
 			<h4 id="inv_lbl"></h4>
 			<div class="graph" id="donutinv" style="width: 140px; height: 180px;"></div>
 			<%= image_tag("home_inv.png") %>
 		</div>
 		<div class="graphcont">
-			<h3>PLANTAS</h3>
+			<h3><%= t('biomodelos.home.plants') %></h3>
 			<h4 id="pla_lbl"></h4>
 			<div class="graph" id="donutpla" style="width: 140px; height: 180px;"></div>
 			<%= image_tag("home_pla.png") %>
@@ -67,38 +67,32 @@
 	<div ng-show="consulta">
 		<div class="cajabase">
 			<div class="hcbase">
-				<h1>consulta</h1>
+				<h1><%= t('biomodelos.home.consult.title') %></h1>
 				<a ng-click="consulta=!consulta" class="closecb">x</a>
 			</div>
-			<p>Ingresa directamente al buscador de BioModelos el nombre científico de la especie de tu interés para consultar su mapa de distribución en el visor. Allí podrás consultar las hipótesis de distribución disponibles para la especie y que calificación les han dado otros usuarios, así como algunas estadísticas sobre el rango de la especie.</p></br>
-			<%= link_to 'IR', species_visor_path(:search => "1"),  class: 'botoncb' %>
-			<p>Si deseas descargar el mapa deberás dirigirte a la sección de registro, llena el formulario e ingresa a la plataforma con tu usuario y contraseña. Para hacer aportes al conocimiento de la distribución de alguna especie, revisa la sección “contribuye”.</p>
-			
+			<p><%= t('biomodelos.home.consult.text_1') %></p></br>
+			<%= link_to t('biomodelos.home.consult.go_btn'), species_visor_path(:search => "1"),  class: 'botoncb' %>
+			<p><%= t('biomodelos.home.consult.text_2') %></p>	
 		</div>
 	</div>
 
 	<div ng-show="contribuye">
 		<div class="cajabase">
 			<div class="hcbase">
-				<h1>contribuye</h1>
+				<h1><%= t('biomodelos.home.contribute.title') %></h1>
 				<a ng-click="contribuye=!contribuye" class="closecb">x</a>
 			</div>
-			<p>Para contribuir en BioModelos debes ser un usuario registrado y pertenecer a uno de los grupos de la plataforma.</p></br>
-			<%= link_to 'REGISTRO', new_user_registration_path, class: 'botoncb' %>
-			<h3>TIPOS DE APORTES</h3>
-			<p>Puedes aportar a mejorar el conocimiento sobre la distribución geográfica de las especies a través de las siguientes actividades:</br>
-			- Curación de registros biológicos.</br>
-			- Edición de los modelos estadísticos desarrollados por el Laboratorio de Biogeografía Aplicada.</br>
-			- Documentando las coberturas terrestres idóneas para las especie.</br>
-			- Desarrollando mapas de experto , especialmente para especies que cuentan con muy pocos o ningún registro biológico.</br>
-			- Participando en el foro de las especies para compartir opiniones con otros expertos.</br>
-			- Calificando las hipótesis de distribución geográfica disponibles para las especies.</br></br>
+			<p><%= t('biomodelos.home.contribute.text_1') %></p></br>
+			<%= link_to t('biomodelos.home.contribute.sign_up_btn'), new_user_registration_path, class: 'botoncb' %>
+			<h3><%= t('biomodelos.home.contribute.contribution_types') %></h3>	
+			<p><%= t('biomodelos.home.contribute.text_2') %></br>
+			<%= t('biomodelos.home.contribute.activities_list_html') %></br>
 			</p>
 			<% if user_signed_in? %>
-			    <%= link_to 'PERFIL', user_path(:id => current_user.id), class: 'botoncb' %>
+			    <%= link_to t('biomodelos.home.contribuye.profile_btn'), user_path(:id => current_user.id), class: 'botoncb' %>
 			    <%= hidden_field_tag 'user_name', current_user.name %>
 			<% else %>
-			    <%= link_to 'INGRESAR', new_user_session_path, class: 'botoncb' %>
+			    <%= link_to t('biomodelos.home.log_in.log_in_btn'), new_user_session_path, class: 'botoncb' %>
 			<% end %>
 		</div>
 	</div>
@@ -106,12 +100,12 @@
 	<div ng-show="publica">
 		<div class="cajabase">
 			<div class="hcbase">
-				<h1>publica</h1>
+				<h1><%= t('biomodelos.home.publish.title') %></h1>
 				<a ng-click="publica=!publica" class="closecb">x</a>
 			</div>
-			<p>Si has desarrollado modelos de distribución para una o más especies, los puedes publicar a través de BioModelos. Así podrás visibilizar tu trabajo y facilitar su uso por otros investigadores, así como recibir la retroalimentación de expertos sobre el desempeño de tus modelos. <a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank">Entérate más.</a></br></br>
-			Sólo debes ser un usuario registrado en BioModelos, ingresar al link “Publica” y seguir las instrucciones.</p>
-			<%= link_to 'PUBLICA', home_publish_path, class: 'botoncb' %>
+			<p><%= t('biomodelos.home.publish.text_1') %> <a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank"><%= t('biomodelos.home.publish.more_lnk') %></a></br></br>
+			<%= t('biomodelos.home.publish.text_2') %></p>
+			<%= link_to t('biomodelos.home.publish.publish_btn'), home_publish_path, class: 'botoncb' %>
 		</div>
 	</div>
 </div>

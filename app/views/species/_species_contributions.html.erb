@@ -1,22 +1,22 @@
 		<div class="cvcolumn">
-			<div class="followstate fright"><div class="follow siguiendo">siguiendo</div></div>
-			<p>BioModelos te ofrece tres opciones para contribuir a documentar las distribuciones de especies: editando sobre el modelo estadístico desarrollado por BioModelos, creando un mapa de experto en la aplicación o publicando un modelo que hayas desarrollado.</p>
+			<!-- <div class="followstate fright"><div class="follow siguiendo">siguiendo</div></div> -->
+			<p><%= t('biomodelos.visor.contributions.text_1') %></p>
 		</div>
-		<h2>DESARROLLO MODELO</h2>
+		<h2><%= t('biomodelos.visor.contributions.model_development') %></h2>
 
-		<div class="steptitle">1. A partir de modelo estadístico</div>
+		<div class="steptitle">1. <%= t('biomodelos.visor.contributions.statistical_model') %></div>
 		<div class="dinblock">
 			<% if continuous_t %> 
 				<div class="editthumb">
 					<%= image_tag(set_path(continuous_t.thumbUrl, "thumb")) %>
 				</div>
 			<div class="editactions clearfix">
-					<%= button_to models_download_terms_path(:zip_url => set_path(continuous_t.zipUrl, "zip"), :box => 1, :model_id => continuous_t.modelID, :species_id => @species_id), {:class => 'pad3', :title => "Descargar el modelo", :rel => "tooltip", :remote => true} do %>
+					<%= button_to models_download_terms_path(:zip_url => set_path(continuous_t.zipUrl, "zip"), :box => 1, :model_id => continuous_t.modelID, :species_id => @species_id), {:class => 'pad3', :title => t('biomodelos.visor.hypotheses.download_tt'), :rel => "tooltip", :remote => true} do %>
 						<%= image_tag("downicon.png") %>
 					<% end %>
-					<a target="_blank" href="/models/<%= continuous_t.modelID %>/metadata" title="Ver metadatos del modelo" rel="tooltip"><%= image_tag("metaicon.png") %></a>
+					<a target="_blank" href="/models/<%= continuous_t.modelID %>/metadata" title="<%= t('biomodelos.visor.hypotheses.metadata_tt') %>" rel="tooltip"><%= image_tag("metaicon.png") %></a>
 					<%= hidden_field_tag 'continuous_t_url', set_path(continuous_t.pngUrl, "model") %>
-					<button class="newgrbtn btnemergencia" id="cbt_editBtn">editar</a>
+					<button class="newgrbtn btnemergencia" id="cbt_editBtn"><%= t('biomodelos.visor.contributions.edit_btn') %></a>
 			<% else %>
 				<div class="editthumb">
 					<%= image_tag("nomap.png") %>
@@ -46,20 +46,20 @@
 			</div>
 		</div>
 		<div class="dinblock">
-			<p class="estadistico">UMBRAL</p>
-			<p>Utiliza el slider para identificar el modelo que mejor representa el área climáticamente idónea para la especie (los límites de distribución se definen con la herramienta polígono). Si quieres mayor información sobre la definición del umbral, consulta el documento metodológico de BioModelos.</p>
-			<p class="estadistico edicon">HERRAMIENTAS DE POLÍGONO</p>
-			<p>El botón inicial crea poligonos. Se puede dibujar un area sobre la cual recortar la distribución propuesta, así como agregar áreas que no se muestren en el modelo estadístico o sustraer áreas de. Los otros dos botones permiten modificar los polígonos dibujados o eliminarlos.</p>
-			<p class="estadistico veicon">VARIABLES ECOLÓGICAS</p>
-			<p>Selecciona las coberturas terrestres adecuadas para la manutención de poblaciones de la especie, de acuerdo a la leyenda nacional de coberturas de la tierra.</p>
+			<p class="estadistico"><%= t('biomodelos.visor.contributions.threshold_title') %></p>
+			<p><%= t('biomodelos.visor.contributions.threshold_text') %></p>
+			<p class="estadistico edicon"><%= t('biomodelos.visor.contributions.tools_title') %></p>
+			<p><%= t('biomodelos.visor.contributions.tools_text') %></p>
+			<p class="estadistico veicon"><%= t('biomodelos.visor.contributions.variables_title') %></p>
+			<p><%= t('biomodelos.visor.contributions.variables_text') %></p>
 		</div>
-		<div class="steptitle">2. Crea tu mapa</div>
-		<p>Utilizando la herramienta polígono podrás delinear las áreas que corresponden al rango de distribución de una especie.</p>
+		<div class="steptitle">2. <%= t('biomodelos.visor.contributions.create_your_map') %></div>
+		<p><%= t('biomodelos.visor.contributions.create_your_map_text') %></p>
 		<div class="editactions clearfix">
-			<button class="newgrbtn" id="cbt_crearBtn">crear</button>
+			<button class="newgrbtn" id="cbt_crearBtn"><%= t('biomodelos.visor.contributions.create_btn') %></button>
 		</div>
 
-		<div class="steptitle">3. Publica tu mapa</div>
-		<p>Este enlace te llevará al formulario que describe el procedimiento para publicar tus modelos en BioModelos.</p>
+		<div class="steptitle">3. <%= t('biomodelos.visor.contributions.publish') %></div>
+		<p><%= t('biomodelos.visor.contributions.publish_text') %></p>
 		<%= link_to image_tag("uploadicon.png"), home_publish_path %>
 		<div class ="termbox"></div>

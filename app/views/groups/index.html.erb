@@ -1,17 +1,17 @@
 <div class="innercontainer fondoplumas nbg4" ng-controller="perfilCtrl">
 	<div class="cajainners">
 		<div class="hcbase">
-			<h1>grupos biomodelos</h1>
+			<h1><%= t('biomodelos.groups.index.title') %></h1>
 			<%= link_to '', root_path, class: 'closecb' %>
 			<% if user_signed_in? %>
-				<a ng-click="newgroup=!newgroup; activeButton()" ng-class="{'btnact': isActive}" class="newgrbtn">Sugerir Grupo</a>
+				<a ng-click="newgroup=!newgroup; activeButton()" ng-class="{'btnact': isActive}" class="newgrbtn"><%= t('biomodelos.groups.suggest_group.title') %></a>
 				<div ng-show="newgroup" class="forms clearfix">
-					<p>Ingrese la información a continuación sobre el grupo que desea sugerir para que podamos contactarlo:</p>
+					<p><%= t('biomodelos.groups.suggest_group.text') %></p>
 					<%= simple_form_for :suggested_group, :url => {:controller => "groups", :action => "suggest_group" }, :html => {:class => 'forma' } do |f| %>
-					    <%= f.input :name, :maxlength => 50, :placeholder => "Nombre del grupo", label: false %>
-					    <%= f.input :moderator, :maxlength => 50, :placeholder => "Posible moderador", label: false %>
-					    <%= f.input :content, :placeholder => "Breve descripción", :as => :text, :input_html => {:maxlength => 600, :cols => "10", :rows => "6"}, label: false %>
-					    <%= f.button :submit, :value => "Enviar" %>
+					    <%= f.input :name, :maxlength => 50, :placeholder => t('biomodelos.groups.suggest_group.group_name_ph'), label: false %>
+					    <%= f.input :moderator, :maxlength => 50, :placeholder => t('biomodelos.groups.suggest_group.moderator_ph'), label: false %>
+					    <%= f.input :content, :placeholder => t('biomodelos.groups.suggest_group.content_ph'), :as => :text, :input_html => {:maxlength => 600, :cols => "10", :rows => "6"}, label: false %>
+					    <%= f.button :submit, :value => t('biomodelos.groups.suggest_group.submit_btn') %>
 					<% end %>
 				</div>
 			<% end %>
@@ -26,13 +26,13 @@
 						<%= link_to group, :class => 'titgrcard' do%>
 							<%= group.name %>
 						<% end %>
-						<div class="subtgr"><b>Moderador</b></br><%= group.admin.first.user.name %></div>
+						<div class="subtgr"><b><%= t('biomodelos.groups.index.moderator') %></b></br><%= group.admin.first.user.name %></div>
 						<div class="colhalf subtgr lineright">
-							<b>Especies</b>
+							<b><%= t('biomodelos.groups.index.species') %></b>
 							<h5><%= GroupsSpecies.where(group_id: group.id, groups_species_state_id: 1).count %></h5>
 						</div>
 						<div class="colhalf subtgr clearfix">
-							<b>Miembros</b>
+							<b><%= t('biomodelos.groups.index.members') %></b>
 							<h5><%= GroupsUser.where(group_id: group.id, groups_users_state_id: 1).count %></h5>
 						</div>
 					</div>

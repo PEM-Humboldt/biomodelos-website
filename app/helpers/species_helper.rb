@@ -9,13 +9,13 @@ module SpeciesHelper
 
     def model_title_thumb(modelStatus, published)
     	if modelStatus == 'pendingValidation' && published
-    		return 'PUBLICADO POR VALIDAR'
+    		return I18n.t('biomodelos.visor.hypotheses.pending_and_published_thumb')
     	elsif modelStatus == 'pendingValidation' && !published
-    		return 'POR VALIDAR'
+    		return I18n.t('biomodelos.visor.hypotheses.pending_thumb')
     	elsif modelStatus == 'Valid' && published
-    		return 'PUBLICADO VALIDADO'
+    		return I18n.t('biomodelos.visor.hypotheses.valid_published_thumb')
     	elsif modelStatus == 'Valid' && !published
-    		return 'VALIDADO'
+    		return I18n.t('biomodelos.visor.hypotheses.valid_thumb')
 		end	
     end
 end

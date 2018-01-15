@@ -20,80 +20,80 @@
 				<% if task.size > 0 %>
 					<% total_tasks = total_tasks + 1 %>
 						<%if task[0].task_state_id == 2 %>
-							<%= image_tag("check.png", title: "¡Hecho!", rel: "tooltip") %>
+							<%= image_tag("check.png", title: t('biomodelos.tasks.done_tt'), rel: "tooltip") %>
 							<% tasks_done = tasks_done + 1 %>
 						<% else %>
 							<% if @current_group_user && (@current_group_user.is_admin || task[0].user_id == current_user.id) %>
 								<%= check_box_tag "task_active_#{task[0].id}",  task[0].id %>
-								<%= link_to task_path(task[0]), {method: :delete, remote: true, data: { confirm: '¿Quiere eliminar esta tarea?' }} do %>
-									<%= image_tag("delicon.png", size: "13x13", title: "Borrar tarea", rel: "tooltip") %>
+								<%= link_to task_path(task[0]), {method: :delete, remote: true, data: { confirm: t('biomodelos.tasks.confirm_deletion') }} do %>
+									<%= image_tag("delicon.png", size: "13x13", title: t('biomodelos.tasks.delete_task_tt'), rel: "tooltip") %>
 								<% end %>
 							<% else %>
-								<%= image_tag("develop.png", title: "En desarrollo", rel: "tooltip") %>
+								<%= image_tag("develop.png", title: t('biomodelos.tasks.developing_tt'), rel: "tooltip") %>
 							<% end %>
 						<% end %>
 				<% else %>
-					<%= image_tag("notask.png", title: "No asignada", rel: "tooltip") %>
+					<%= image_tag("notask.png", title: t('biomodelos.tasks.not_assigned_tt'), rel: "tooltip") %>
 				<% end %>
 			</div><!-- 
 			--><div class="coladv"><% task = tasks_by_user.select{|x| x.task_type_id == 2}.uniq %>
 				<% if task.size > 0 %>
 					<% total_tasks = total_tasks + 1 %>
 					<% if task[0].task_state_id == 2 %>
-						<%= image_tag("check.png", title: "¡Hecho!", rel: "tooltip") %>
+						<%= image_tag("check.png", title: t('biomodelos.tasks.done_tt'), rel: "tooltip") %>
 						<% tasks_done = tasks_done + 1 %>
 					<% else %>
 						<% if @current_group_user && (@current_group_user.is_admin || task[0].user_id == current_user.id) %>
 							<%= check_box_tag "task_active_#{task[0].id}",  task[0].id %>
-							<%= link_to task_path(task[0]), {method: :delete, remote: true, data: { confirm: '¿Quiere eliminar esta tarea?' }} do %>
-								<%= image_tag("delicon.png", size: "13x13", title: "Borrar tarea", rel: "tooltip") %>
+							<%= link_to task_path(task[0]), {method: :delete, remote: true, data: { confirm: t('biomodelos.tasks.confirm_deletion') }} do %>
+								<%= image_tag("delicon.png", size: "13x13", title: t('biomodelos.tasks.delete_task_tt'), rel: "tooltip") %>
 							<% end %>
 						<% else %>
-							<%= image_tag("develop.png", title: "En desarrollo", rel: "tooltip") %>
+							<%= image_tag("develop.png", title: t('biomodelos.tasks.developing_tt'), rel: "tooltip") %>
 						<% end %>
 					<% end %>
 				<% else %>
-					<%= image_tag("notask.png", title: "No asignada", rel: "tooltip") %>	
+					<%= image_tag("notask.png", title: t('biomodelos.tasks.not_assigned_tt'), rel: "tooltip") %>	
 				<% end %>
 			</div><!-- 
 			--><div class="coladv"><% task = tasks_by_user.select{|x| x.task_type_id == 3}.uniq %>
 				<% if task.size > 0 %>
 					<% total_tasks = total_tasks + 1 %>
 					<%if task[0].task_state_id == 2 %>
-						<%= image_tag("check.png", title: "¡Hecho!", rel: "tooltip") %>
+						<%= image_tag("check.png", title: t('biomodelos.tasks.done_tt'), rel: "tooltip") %>
 						<% tasks_done = tasks_done + 1 %>
 					<% else %>
 						<% if @current_group_user && (@current_group_user.is_admin || task[0].user_id == current_user.id) %>
 							<%= check_box_tag "task_active_#{task[0].id}",  task[0].id %>
-							<%= link_to task_path(task[0]), {method: :delete, remote: true, data: { confirm: '¿Quiere eliminar esta tarea?' }} do %>
-									<%= image_tag("delicon.png", size: "13x13", title: "Borrar tarea", rel: "tooltip") %>
+							<%= link_to task_path(task[0]), {method: :delete, remote: true, data: { confirm: t('biomodelos.tasks.confirm_deletion') }} do %>
+									<%= image_tag("delicon.png", size: "13x13", title: t('biomodelos.tasks.delete_task_tt'), rel: "tooltip") %>
 							<% end %>
 						<% else %>
-							<%= image_tag("develop.png", title: "En desarrollo", rel: "tooltip") %>
+							<%= image_tag("develop.png", title: t('biomodelos.tasks.developing_tt'), rel: "tooltip") %>
 						<% end %>
 					<% end %>
 				<% else %>
-					<%= image_tag("notask.png", title: "No asignada", rel: "tooltip") %>
+					<%= image_tag("notask.png", title: t('biomodelos.tasks.not_assigned_tt'), rel: "tooltip") %>
 				<% end %>
 			</div><!-- 
 			--><div class="coladv"><% task = tasks_by_user.select{|x| x.task_type_id == 4}.uniq %>
 				<% if task.size > 0 %>
 					<% total_tasks = total_tasks + 1 %>
 					<%if task[0].task_state_id == 2 %>
-						<%= image_tag("check.png", title: "¡Hecho!", rel: "tooltip") %>
+						<%= image_tag("check.png", title: t('biomodelos.tasks.done_tt'), rel: "tooltip") %>
 						<% tasks_done = tasks_done + 1 %>
 					<% else %>
 						<% if @current_group_user && (@current_group_user.is_admin || task[0].user_id == current_user.id) %>
 							<%= check_box_tag "task_active_#{task[0].id}",  task[0].id %>
-							<%= link_to task_path(task[0]), {method: :delete, remote: true, data: { confirm: '¿Quiere eliminar esta tarea?' }} do %>
-								<%= image_tag("delicon.png", size: "13x13", title: "Borrar tarea", rel: "tooltip") %>
+							<%= link_to task_path(task[0]), {method: :delete, remote: true, data: { confirm: t('biomodelos.tasks.confirm_deletion') }} do %>
+								<%= image_tag("delicon.png", size: "13x13", title: t('biomodelos.tasks.delete_task_tt'), rel: "tooltip") %>
 							<% end %>
 						<% else %>
-							<%= image_tag("develop.png", title: "En desarrollo", rel: "tooltip") %>
+							<%= image_tag("develop.png", title: t('biomodelos.tasks.developing_tt'), rel: "tooltip") %>
 						<% end %>
 					<% end %>
 				<% else %>
-					<%= image_tag("notask.png", title: "No asignada", rel: "tooltip") %>
+					<%= image_tag("notask.png", title: t('biomodelos.tasks.not_assigned_tt'), rel: "tooltip") %>
 				<% end %>
 			</div><!--
 			--><p class="coladv"><%= ((tasks_done.to_f/total_tasks.to_f)*100).round %>%</p>

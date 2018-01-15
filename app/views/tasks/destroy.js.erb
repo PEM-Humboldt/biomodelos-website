@@ -3,6 +3,6 @@ $.ajax({
     url: "/tasks/tasks_by_group",
     data: { id: <%= @task.group_id %>},
     success:function(data) {
-    	alertify.alert("La tarea ha sido eliminada con éxito");
+    	alertify.alert("<%= t('biomodelos.tasks.task_deleted_notice') %>");
     }
 });

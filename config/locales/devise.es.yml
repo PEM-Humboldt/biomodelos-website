@@ -54,3 +54,10 @@ es:
         subject: 'Instrucciones de cambio de contraseña'
       unlock_instructions:
         subject: 'Instrucciones de desbloqueo'
+    links:
+      sign_in: 'INGRESAR'
+      sign_up: 'REGISTRARSE'
+      forgot_password: 'OLVIDE MI CLAVE'
+      no_instructions_sent: 'No recibí instrucciones de confirmación'
+      no_unlock_instructions_sent: 'No recibí instrucciones para desbloquear'
+      omniauthable: 'Registrarse con %{provider}'

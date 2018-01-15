@@ -10,5 +10,5 @@
 <% else %>
 	$(".modelname").html("");
 	$(".modelname").hide();
-	alertify.alert("Esta especie aun no cuenta con modelo de distribución. Para contribuir a su desarrollo, registrate en el grupo de expertos de la especie.");
+	alertify.alert("<%= t('biomodelos.models.init.no_model') %>");
 <% end %>

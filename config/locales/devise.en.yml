@@ -50,6 +50,13 @@ en:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+    links:
+      sign_in: 'LOG IN'
+      sign_up: 'SIGN UP'
+      forgot_password: 'FORGOT MY PASSWORD'
+      no_instructions_sent: "Didn't receive confirmation instructions?"
+      no_unlock_instructions_sent: "Didn't receive unlock instructions?"
+      omniauthable: "Sign in with %{provider}"
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"

@@ -1,61 +1,61 @@
 <div class="vcbase">
-			<h1>BUSCADOR DE ESPECIES</h1>
+			<h1><%= t('biomodelos.visor.search.title') %></h1>
 			<a ng-click="find=!find" class="closevb" id="clsSearchBox">x</a>
 		</div>
 		<div class="cvcolumn">
-			<p>Activando nuestro sistema de filtros puedes reducir o aumentar el listado de especies hasta encontrar la especie deseada, o escribir su nombre directamente en el buscador. Ten en cuenta que no todas las especies tienen modelo de distribución, pero si opciones para avanzar en su desarrollo.</p>
+			<p><%= t('biomodelos.visor.search.text_1') %></p>
 			<%= form_tag({:controller => 'species', :action => 'set_species'}, {:method => 'post', :remote => true,:id => 'sp_search_form'})  do %>
-				<%= text_field_tag :query, '', :id => 'search_form', :placeholder => 'Consulta una especie por su nombre científico', :include_blank => false, :rel => 'autocomplete' %>
+				<%= text_field_tag :query, '', :id => 'search_form', :placeholder => t('biomodelos.home.search_ph'), :include_blank => false, :rel => 'autocomplete' %>
 				<%= hidden_field_tag 'species_id' %>
-				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'species_src_btn', :title => 'Ir a especie', :rel => "tooltip" %>
+				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'species_src_btn', :title => t('biomodelos.home.go_to_species_tt'), :rel => "tooltip" %>
 			<% end %>
-			<h2>FILTROS</h2>
+			<h2><%= t('biomodelos.visor.search.filters_title') %></h2>
 			<div class="sppbtn">
 				<label>
 		            <input type="checkbox" name="taxon" value="1"/>
-		            <%= image_tag("mambtn.png", :title => 'Mamiferos', :rel => "tooltip") %>
+		            <%= image_tag("mambtn.png", :title => t('biomodelos.visor.search.mammals_tt'), :rel => "tooltip") %>
 		        </label>
 		        <label>
 		            <input type="checkbox" name="taxon" value="2" />
-		            <%= image_tag("avesbtn.png", :title => 'Aves', :rel => "tooltip") %>
+		            <%= image_tag("avesbtn.png", :title => t('biomodelos.visor.search.birds_tt'), :rel => "tooltip") %>
 		        </label>
 		        <label>
 		            <input type="checkbox" name="taxon" value="3" />
-		            <%= image_tag("repbtn.png", :title => 'Reptiles', :rel => "tooltip") %>
+		            <%= image_tag("repbtn.png", :title => t('biomodelos.visor.search.reptiles_tt'), :rel => "tooltip") %>
 		        </label>
 		        <label>
 		            <input type="checkbox" name="taxon" value="4" />
-		            <%= image_tag("anfbtn.png", :title => 'Anfibios', :rel => "tooltip") %>
+		            <%= image_tag("anfbtn.png", :title => t('biomodelos.visor.search.amphibians_tt'), :rel => "tooltip") %>
 		        </label>
 		        <label>
 		            <input type="checkbox" name="taxon" value="5" />
-		            <%= image_tag("pecesbtn.png", :title => 'Peces', :rel => "tooltip") %>
+		            <%= image_tag("pecesbtn.png", :title => t('biomodelos.visor.search.fish_tt'), :rel => "tooltip") %>
 		        </label>
 		        <label>
 		            <input type="checkbox" name="taxon" value="6" />
-		            <%= image_tag("invbtn.png", :title => 'Invertebrados', :rel => "tooltip") %>
+		            <%= image_tag("invbtn.png", :title => t('biomodelos.visor.search.invertebrates_tt'), :rel => "tooltip") %>
 		        </label>
 		        <label>
 		            <input type="checkbox" name="taxon" value="7" />
-		            <%= image_tag("plantbtn.png", :title => 'Plantas', :rel => "tooltip") %>
+		            <%= image_tag("plantbtn.png", :title => t('biomodelos.visor.search.plants_tt'), :rel => "tooltip") %>
 		        </label>
 			</div>
 			<div class="typebtn">
 				<label>
 		            <input type="checkbox" name="taxon" value="1" />
-		            <p>endémicas</p>
+		            <p><%= t('biomodelos.visor.search.endemic') %></p>
 		        </label>
 				<label>
 		            <input type="checkbox" name="taxon" value="2" />
-		            <p>invasoras</p>
+		            <p><%= t('biomodelos.visor.search.invasive') %></p>
 		        </label>
 				<label>
 		            <input type="checkbox" name="taxon" value="3" />
-		            <p>amenazadas</p>
+		            <p><%= t('biomodelos.visor.search.threatened') %></p>
 		        </label>
 				<label>
 		            <input type="checkbox" name="taxon" value="4" />
-		            <p>validadas</p>
+		            <p><%= t('biomodelos.visor.search.validated') %></p>
 		        </label>
 				<!-- <label>
 		            <input type="checkbox" name="taxon" value="5" />

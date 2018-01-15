@@ -1,17 +1,17 @@
-<h1>estadísticas</h1>
+<h1><%= t('biomodelos.users.statistics_tab')%></h1>
 <% if @task_pending.size != 0 %>
 	<div class="estadbox">
-		<h2>Tareas en desarrollo</h2>
+		<h2><%= t('biomodelos.users.developing_tasks')%></h2>
 		<h6><%= @task_pending.size %></h6>
 	</div>
 <% end %>
 <% if @species_with_tasks.size != 0 %>
 	<div class="estadbox">
-		<h2>especies que trabaja</h2>
+		<h2><%= t('biomodelos.users.species_tasks')%></h2>
 		<h6><%= @species_with_tasks.size %></h6>
 	</div>
 <% end %>
 <div class="estadbox">
-	<h2>mapas publicados</h2>
+	<h2><%= t('biomodelos.users.maps_published')%></h2>
 	<h6>-</h6>
 </div>

@@ -1,31 +1,31 @@
 <%= simple_form_for @task, :url => {:controller => "tasks", :action => "add_tasks"}, :method => :post, :remote => true do |f| %>
 	<%= f.error_notification %>
 	<%= f.hidden_field :group_id, value: @group.id %>
-	<p>Agregar nueva tarea</p>
+	<p><%= t('biomodelos.tasks.new_taks') %></p>
         <% if current_group_user.is_admin %>
-	       <%= f.select :user_id, options_from_collection_for_select(GroupsUser.where(:group_id => @group.id, :groups_users_state_id => 1).joins(:user).order('users.name'), 'user_id', 'user_name'), include_blank: 'Seleccionar experto *' %>
+	       <%= f.select :user_id, options_from_collection_for_select(GroupsUser.where(:group_id => @group.id, :groups_users_state_id => 1).joins(:user).order('users.name'), 'user_id', 'user_name'), include_blank: t('biomodelos.tasks.choose_expert') %>
         <% else %>
                 <%= f.hidden_field :user_id, value: current_user.id %>
         <% end %>
-	<%= f.select :species_id, options_for_select(@species_ids.map{|t| [Species.find_name(t.species_id.to_s), t.species_id]}.uniq), :include_blank => 'Seleccionar especie *' %>
-	<p class="tarea">Selecciona tareas a realizar</p>
+	<%= f.select :species_id, options_for_select(@species_ids.map{|t| [Species.find_name(t.species_id.to_s), t.species_id]}.uniq), :include_blank => t('biomodelos.tasks.choose_species') %>
+	<p class="tarea"><%= t('biomodelos.tasks.choose_tasks') %></p>
 	<div id="chkBoxTask">
-        <label class="lblvisual" rel="tooltip" title="Curación de registros">
+        <label class="lblvisual" rel="tooltip" title="<%= t('biomodelos.tasks.records_task_tt') %>">
         <%= check_box_tag :records_task,  1, checked:true %>
         <%= image_tag("regperfil.png") %>
         </label>
-        <label class="lblvisual" rel="tooltip" title="Edición de modelos">
+        <label class="lblvisual" rel="tooltip" title="<%= t('biomodelos.tasks.edition_task_tt') %>">
         <%= check_box_tag :edition_task,  2,  checked:true %>
         <%= image_tag("penperfil.png") %>
         </label>
-        <label class="lblvisual" rel="tooltip" title="Variables ecológicas">
+        <label class="lblvisual" rel="tooltip" title="<%= t('biomodelos.tasks.covers_task_tt') %>">
         <%= check_box_tag :eco_task,  3, checked:true %>
         <%= image_tag("veicon2.png") %>
         </label>
-        <label class="lblvisual" rel="tooltip" title="Aprobación de modelo">
+        <label class="lblvisual" rel="tooltip" title="<%= t('biomodelos.tasks.validation_task_tt') %>">
         <%= check_box_tag :approval_task,  4, checked:true %>
         <%= image_tag("aprobicon.png") %>
         </label>
-        <%= f.button :submit, :value => "Agregar", :class => 'btngen'%>
+        <%= f.button :submit, :value => t('biomodelos.tasks.submit_btn'), :class => 'btngen'%>
 	</div>
 <% end %>

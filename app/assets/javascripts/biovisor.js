@@ -416,7 +416,7 @@ var _BioModelosVisorModule = function() {
 				'<input type="radio" name="EditType" value="Sustraer área" class="radiogaga"></input><label for="Add">Sustraer área</label></br>'+
 				'<input type="radio" name="EditType" value="Recortar del polígono" class="radiogaga"></input><label for="Cut">Recortar del polígono</label></br>'+
 				'<input type="radio" name="EditType" value="Otra" class="radiogaga"></input><label for="Other">Otra</label></br>'+
-				'<textarea rows="4" cols="38" placeholder="Defina otra acción" class="areaother" id="msgPolygon" maxlength="300"></textarea></br>'+
+				'<textarea rows="4" cols="32" placeholder="Defina otra acción" class="areaother" id="msgPolygon" maxlength="300"></textarea></br>'+
 				'<div class="centering"><button class="botonpopup" id="savePolBtn" type="button">aceptar</button>'+
 				'<button class="botonpopup ml0" id="puNewPolygonCancelBtn" type="button">cancelar</button></div>'+
 				'<a href="http://biomodelos.humboldt.org.co/faq#faq" target="_blank" title="Cómo utilizamos este aporte?" class="infolink" id="gotofaq"></a></div>';

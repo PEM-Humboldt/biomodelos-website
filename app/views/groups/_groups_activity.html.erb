@@ -1,14 +1,14 @@
-<h1>actividad</h1>
+<h1><%= t('biomodelos.groups.profile.activity_tab') %></h1>
 <% @group.activity.each do |activity| %>
 	<div class="notif">  
     <% if activity.type == 'task_done' %>
     	<%= image_tag(User.find(activity.id).avatarURL.url(:thumb).to_s) %>
     	<h6 class="fechanotif"><%= activity.updated_at.to_time.strftime("%F %R") %></h6>
-    	<p><a href="/users/<%= activity.id %>"><%= activity.user_name %></a> completó la tarea <i><%= activity.task_name %></i> para la especie <a class="activity" href="/species/visor?species_id=<%= activity.sp_id %>"><%= Species.find_name(activity.sp_id) %></a></p>
+    	<p><a href="/users/<%= activity.id %>"><%= activity.user_name %></a> <%= t('biomodelos.groups.profile.task_completed') %> <i><%= activity.task_name %></i> <%= t('biomodelos.groups.profile.for_the_species') %> <a class="activity" href="/species/visor?species_id=<%= activity.sp_id %>"><%= Species.find_name(activity.sp_id) %></a></p>
    <% elsif activity.type == 'new_user' %>
         <%= image_tag(User.find(activity.id).avatarURL.url(:thumb).to_s) %>
     	<h6 class="fechanotif"><%= activity.updated_at.to_time.strftime("%F %R") %></h6>
-    	<p><a href="/users/<%= activity.id %>"><%= activity.user_name %></a> se unió al grupo.</p>
+    	<p><a href="/users/<%= activity.id %>"><%= activity.user_name %></a> <%= t('biomodelos.groups.profile.joined_group') %></p>
     <% end %>
    	</div>
 <% end %> 
