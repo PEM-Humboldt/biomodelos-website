@@ -13,32 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20170523193938) do
 
-  create_table "downloads", force: :cascade do |t|
-    t.integer  "user_id",      null: false
-    t.string   "model_id",     null: false
-    t.integer  "species_id",   null: false
-    t.integer  "model_use_id", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "downloads", ["model_id"], name: "index_downloads_on_model_id"
-
-  create_table "eco_variables", force: :cascade do |t|
-    t.string   "name",       limit: 255, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "eco_variables_species", force: :cascade do |t|
-    t.integer  "eco_variable_id"
-    t.integer  "user_id"
-    t.integer  "species_id"
-    t.boolean  "selected",        default: true, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "group_states", force: :cascade do |t|
     t.string   "name",       limit: 100, null: false
     t.datetime "created_at"
@@ -49,20 +23,10 @@ ActiveRecord::Schema.define(version: 20170523193938) do
     t.string   "name",           limit: 100, null: false
     t.text     "message",        limit: 500
     t.string   "logo",           limit: 255
-    t.integer  "group_state_id"
+    t.belongs_to :group_state, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "groups_species", force: :cascade do |t|
-    t.integer  "species_id"
-    t.integer  "group_id"
-    t.integer  "groups_species_state_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "groups_species", ["species_id"], name: "index_groups_species_on_species_id"
 
   create_table "groups_species_states", force: :cascade do |t|
     t.string   "name",       limit: 100, null: false
@@ -70,14 +34,15 @@ ActiveRecord::Schema.define(version: 20170523193938) do
     t.datetime "updated_at"
   end
 
-  create_table "groups_users", force: :cascade do |t|
-    t.integer  "group_id"
-    t.integer  "user_id"
-    t.integer  "groups_users_state_id"
-    t.boolean  "is_admin",              null: false
+  create_table "groups_species", force: :cascade do |t|
+    t.integer  "species_id"
+    t.belongs_to :group, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
+    t.belongs_to :groups_species_state, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "groups_species", ["species_id"], name: "index_groups_species_on_species_id"
 
   create_table "groups_users_states", force: :cascade do |t|
     t.string   "name",       limit: 100, null: false
@@ -87,26 +52,6 @@ ActiveRecord::Schema.define(version: 20170523193938) do
 
   create_table "model_uses", force: :cascade do |t|
     t.string   "description", limit: 300, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "publications", force: :cascade do |t|
-    t.integer  "user_id",                    null: false
-    t.string   "cc_license",      limit: 10, null: false
-    t.string   "records_vis",     limit: 50, null: false
-    t.string   "sib_contact",     limit: 2,  null: false
-    t.string   "files",                      null: false
-    t.boolean  "atlas_agreement",            null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "ratings", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "model_id"
-    t.integer  "species_id"
-    t.integer  "score",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -122,20 +67,6 @@ ActiveRecord::Schema.define(version: 20170523193938) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "tasks", force: :cascade do |t|
-    t.integer  "species_id"
-    t.integer  "user_id"
-    t.integer  "group_id"
-    t.integer  "task_type_id"
-    t.integer  "created_by"
-    t.integer  "completed_by"
-    t.integer  "task_state_id", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "tasks", ["species_id"], name: "index_tasks_on_species_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 100,              null: false
@@ -166,7 +97,7 @@ ActiveRecord::Schema.define(version: 20170523193938) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "users_layers", force: :cascade do |t|
-    t.integer  "user_id"
+    t.belongs_to :user, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
     t.integer  "species_id"
     t.string   "threshold",                  null: false
     t.boolean  "newModel",   default: false
@@ -177,5 +108,77 @@ ActiveRecord::Schema.define(version: 20170523193938) do
   end
 
   add_index "users_layers", ["species_id"], name: "index_users_layers_on_species_id"
+
+  create_table "groups_users", force: :cascade do |t|
+    t.belongs_to :group, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
+    t.belongs_to :user, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
+    t.belongs_to :groups_users_state, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
+    t.boolean  "is_admin",              null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.belongs_to :user, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
+    t.string   "model_id"
+    t.integer  "species_id"
+    t.integer  "score",      default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ratings", ["model_id"], name: "index_ratings_on_model_id"
+  add_index "ratings", ["species_id"], name: "index_ratings_on_species_id"
+
+  create_table "publications", force: :cascade do |t|
+    t.belongs_to :user, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
+    t.string   "cc_license",      limit: 10, null: false
+    t.string   "records_vis",     limit: 50, null: false
+    t.string   "sib_contact",     limit: 2,  null: false
+    t.string   "files",                      null: false
+    t.boolean  "atlas_agreement",            null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer  "species_id"
+    t.belongs_to :user, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
+    t.belongs_to :group, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
+    t.belongs_to :task_type, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
+    t.belongs_to :task_state, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
+    t.integer  "created_by"
+    t.integer  "completed_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tasks", ["species_id"], name: "index_tasks_on_species_id"
+
+  create_table "downloads", force: :cascade do |t|
+    t.belongs_to :user, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
+    t.string   "model_id",     null: false
+    t.integer  "species_id",   null: false
+    t.belongs_to :model_use, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "downloads", ["model_id"], name: "index_downloads_on_model_id"
+
+  create_table "eco_variables", force: :cascade do |t|
+    t.string   "name",       limit: 255, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "eco_variables_species", force: :cascade do |t|
+    t.belongs_to :eco_variable, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
+    t.belongs_to :user, index: true, foreign_key: {on_delete: :restrict, on_update: :restrict}
+    t.integer  "species_id"
+    t.boolean  "selected",        default: true, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
