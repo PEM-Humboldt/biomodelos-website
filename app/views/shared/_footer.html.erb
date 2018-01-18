@@ -11,16 +11,7 @@
 		<div class="sitemap">
 			<nav>
 				<ul id="subnav">
-					<% if I18n.locale == :es %>
-					  <%= link_to url_for(locale: :en), {class: 'lang', rel: 'tooltip', title:"English"} do %>
-					    en
-					  <% end %>
-					<% else %>
-					  <%= link_to url_for(locale: :es), {class: 'lang', rel: 'tooltip', title:"Español"} do %>
-					    es
-					  <% end %>
-					<% end %>
-					<div class="clearfix mb5"></div>
+					<div class="clearfix"></div>
 					<li>
 						<%= link_to t('biomodelos.footer.models'), species_visor_path %>
 					</li>

@@ -17,12 +17,21 @@
 			<% end %>
 		</ul>
 		<a class="toggle-nav" href="#">&#9776;</a>
+		<% if I18n.locale == :es %>
+		  <%= link_to url_for(locale: :en), {class: 'lang', rel: 'tooltip', title: 'English'} do %>
+		    en
+		  <% end %>
+		<% else %>
+		  <%= link_to url_for(locale: :es), {class: 'lang', rel: 'tooltip', title:"Español"} do %>
+		    es
+		  <% end %>
+		<% end %>
 	</nav>
 </header>
 
 <script>
 	$(document).ready(function(){
-    $('.active a').each(function(index) {
+    $('.active li a').each(function(index) {
         if(this.href.trim() == window.location)
             $(this).addClass("current");
     });
