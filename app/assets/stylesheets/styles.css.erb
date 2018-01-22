@@ -126,7 +126,7 @@ div.google-visualization-tooltip { pointer-events: none } /* flickering de googl
 header {
 	width: 100%;
 	background-color: #1b3337;
-	padding: 12px 34px;
+	padding: 12px 30px;
 	display: flex;
     justify-content: space-between;
     position: relative;
@@ -140,7 +140,8 @@ header h1 {
 	font-weight: 400;
 }
 
-header nav {
+header nav ul {
+	display: inline-block;
 	margin-top: 6px;
 }
 
@@ -153,14 +154,14 @@ header nav li {
 
 header nav li a {
 	text-transform: uppercase;
-	padding: 15px;
+	padding: 15px 13px;
 	color: #fff;
 	margin-left: 10px;
 	font-size: 0.75em;
 	letter-spacing: 1px;
 }
 
-header nav a:hover {
+header nav li a:hover {
 	color: #18b4b1;
 }
 
@@ -266,28 +267,23 @@ footer li a, .visorfooter li a {
 
 .lang {
 	text-transform: uppercase;
-	padding-left: 5px;
+	display: inline-block;
+	background: url(<%= asset_path 'lang.png' %>) center no-repeat ;
+	vertical-align: top;
 }
 
-.mb5{
-	margin-bottom: 5px;
+a.lang {	
+	font-size: 14px;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 36px;
+	height: 36px;
+	width: 36px;
 }
 
-a.lang {
-	color: #75746f;
-	margin-bottom: 10px;
-}
-
-a:hover {
-	color: #fff;
-}
-
-.lang:first-child {
-	padding-left: 15px;
-}
-
-a.langactive {
-	color: #fff;
+.lang:hover {
+	color: #4dc8ee;
+	background-image: url(<%= asset_path 'lang2.png' %>);
 }
 
 .smallnavli {
