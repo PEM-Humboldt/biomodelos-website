@@ -7,11 +7,13 @@
 <% elsif !params[:species_id].blank? && is_integer_num(params[:species_id]) %>
       <script>
           //Unique URL for each species
-          $.ajax({
-                          type: "POST",
-                          url: "/species/set_species",
-                          data: { species_id: <%=j params[:species_id]%> }
-          });
+          $(document).ready(function(){
+	          $.ajax({
+	                          type: "POST",
+	                          url: "/species/set_species",
+	                          data: { species_id: <%=j params[:species_id]%> }
+	          });
+	      });
       </script>
 <% end %>
 <div class="mapcontainer" id="map"></div>
