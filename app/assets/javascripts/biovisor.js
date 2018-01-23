@@ -309,8 +309,10 @@ var _BioModelosVisorModule = function() {
 						popupcontent.push('</div><div class="centering"><a href="" class="wrongbtn" id="editRecordBtn">Editar</a><a href="/records/report_record" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar</a></div>');
 					else
 						popupcontent.push('</div>');
-					layer.bindPopup(popupcontent.join('<div class="mt10"></div>'));
+					popupcontent.push('<a class="vermasreg">Ver más <b>+</b></a>');
+					layer.bindPopup(popupcontent.join(''));
 				}	
+
 		});
 		cluster.addLayer(recordsLayer);
 		map.on('popupopen', function(e) {

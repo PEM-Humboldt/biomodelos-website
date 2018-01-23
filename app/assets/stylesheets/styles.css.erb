@@ -154,7 +154,7 @@ header nav li {
 
 header nav li a {
 	text-transform: uppercase;
-	padding: 15px 13px;
+	padding: 15px 12px;
 	color: #fff;
 	margin-left: 10px;
 	font-size: 0.75em;
@@ -172,7 +172,7 @@ header nav li a:hover {
 .usuario a {
 	display: inline-block;
 	color:#e45b2d;
-	padding: 0 10px;
+	padding: 0 9px;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	max-width: auto;
@@ -184,12 +184,12 @@ header nav li a:hover {
 
 .xsalir {
     cursor: pointer;
-    width: 16px;
+    width: 8px;
     height: 17px;
     background-image: url(<%= asset_path 'logout.png' %>);
     background-repeat: no-repeat;
     vertical-align: text-bottom;
-    margin-left: 10px;
+    margin-top: 3px;
 }
 
 .current {
@@ -3838,7 +3838,7 @@ label.checkboxdown {
 
 .leaflet-container a.leaflet-popup-close-button{
 	font-family: 'Lato', sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 	color: #db3f2a;
 	padding: 10px 6px 0 0;
 	height: auto;
@@ -3869,6 +3869,25 @@ label.checkboxdown {
 
 .centering {
 	text-align: center;
+}
+
+a.vermasreg {
+	-ms-text-align-last: right;
+	text-align-last: right;
+	display: block;
+	padding-right: 20px;
+	letter-spacing: 1px;
+	color: #4dc8ee;
+}
+
+a.vermasreg b {
+	color: #4dc8ee;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+a.vermasreg:hover {
+	color: #fff;
 }
 
 .regform ::-webkit-input-placeholder {
@@ -3910,7 +3929,7 @@ label.checkboxdown {
 
 .cajita a.wrongbtn {
 	padding: 7px 16px;
-	margin: 10px;
+	margin: 10px 10px 5px;
 	border: none;
 	background: none;
 	border: 1px solid #db3f2a;
