@@ -33,7 +33,7 @@ $(document).ready(function(){
 		<% if user_signed_in? && @can_edit %>
 			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $('#edit_model_btn'), '<div ng-click="edit=!edit" title="<%= t("biomodelos.visor.tooltip.edit_btn") %>" rel="tooltip" class="visorbtn vbtnedit" selectable></div>');
 			$(".vbtnedit").show();
-			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $("#edit_box_btn"),'<div ng-click="editar=!editar" class="btnedicion" selectable><%= t("biomodelos.visor.edit_box.title") %></div>');
+			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $("#edit_box_btn"),'<div ng-click="editar=!editar" class="btnedicion" selectable><%= t("biomodelos.visor.edition_box.title") %></div>');
 			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $("#edit_tools_box"), '<div ng-show="editar" class="cajitaeditar"><%=j render 'species/species_edition' %></div>');
 			$('#add_records_box').html('<%=j render partial: 'species_edition_new_records' %>');
 		<% else %>
