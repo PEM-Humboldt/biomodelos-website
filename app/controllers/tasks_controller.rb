@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 	
 	def tasks_by_group
 		@group = Group.find(params[:id])
-		@tasks = Task.where(:group_id =>  @group.id).group(:species_id, :user_id, :task_type_id, :group_id)
+		@tasks = Task.where(:group_id =>  @group.id).group(:id, :species_id, :user_id, :task_type_id, :group_id)
 		@species_with_tasks = @tasks.map{|t| [Species.find_name(t.species_id.to_s),t.species_id]}.uniq
 		@members_with_tasks = @tasks.map{|t| [t.user.id]}.uniq
 		@current_group_user = false
@@ -16,7 +16,7 @@ class TasksController < ApplicationController
 
 	def tasks_by_user
 		@user= User.find(params[:user_id])
-		@tasks = Task.where(:user_id =>  @user.id).group(:species_id, :user_id, :task_type_id)
+		@tasks = Task.where(:user_id =>  @user.id).group(:id, :species_id, :user_id, :task_type_id)
 		@species_with_tasks = @tasks.map{|t| [Species.find_name(t.species_id.to_s),t.species_id]}.uniq
 		@current_group_user = false
 	    respond_to do |format|
