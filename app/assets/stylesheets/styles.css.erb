@@ -2336,16 +2336,22 @@ p.moderlink{
 }
 
 .cardbol:hover .flipper, .cardbol.hover .flipper {
-	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 .flipper {
 	transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	position: relative;
 }
 
 .front, .back {
+	-webkit-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
 	backface-visibility: hidden;
 	position: absolute;
 	top: 0;
@@ -2354,13 +2360,17 @@ p.moderlink{
 
 .front {
 	z-index: 2;
+	-webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
 	transform: rotateY(0deg);
 	width: 220px;
 	text-align: center;
 }
 
 .back {
-	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 	width: 220px;
 	background-color: #196982;
 	height: 240px;
@@ -2531,6 +2541,7 @@ a.cajathumb p {
 	top: 120px;
 	z-index: 1000;
 	left: 50%;
+	-webkit-transform: translatex(-50%);
 	transform: translatex(-50%);
 	color: #fff;
 }
@@ -3195,10 +3206,14 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 }
 
 .mapthumb:hover .flipper, .mapthumb.hover .flipper {
+	-webkit-transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
 	transform: rotateY(180deg);
 }
 
 .front2, .back2 {
+	-webkit-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
 	backface-visibility: hidden;
 	position: absolute;
 	top: 0;
@@ -3207,6 +3222,8 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 
 .front2 {
 	z-index: 2;
+	-webkit-transform: rotateY(0deg);
+	-webkit-transform: rotateY(0deg);
 	transform: rotateY(0deg);
 	width: 185px;
 	text-align: center;
@@ -3215,6 +3232,8 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 }
 
 .back2 {
+	-webkit-transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
 	transform: rotateY(180deg);
 	width: 185px;
 	height: 230px;
@@ -4458,6 +4477,27 @@ font-weight: 300;
 
 .dialog blockquote:last-child {
   margin-bottom: 30px;
+}
+
+.regdialog p {
+	margin-left: 15px;
+}
+
+.regdialog p:nth-child(1) {
+	margin-left: 0;
+}
+
+.regdialog p:nth-child(even) {
+	background-color: #f1f2f2;
+}
+
+.regdialog p b {
+	margin-right: 8px;
+}
+
+.regdialog .mediac {
+	width: 408px;
+	display: inline-block;
 }
 
 /* Leaflet 0.7.x fix for image layers moving and disappearing when zooming in */
