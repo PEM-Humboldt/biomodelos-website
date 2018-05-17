@@ -10,7 +10,7 @@
 				<%= hidden_field_tag 'species_id_home' %>
 				<%= submit_tag '', :name => nil, :class => 'searchbtnhome', :id => 'searchBtnHome', :title => t('biomodelos.home.go_to_species_tt'), :rel => "tooltip" %>
 			<% end %>
-			
+
 			<div class="hlbtn">
 				<a ng-click="consulta=!consulta"><%= t('biomodelos.home.models_btn') %></a>
 				<a ng-click="contribuye=!contribuye"><%= t('biomodelos.home.contribute_btn') %></a>
@@ -72,7 +72,7 @@
 			</div>
 			<p><%= t('biomodelos.home.consult.text_1') %></p></br>
 			<%= link_to t('biomodelos.home.consult.go_btn'), species_visor_path(:search => "1"),  class: 'botoncb' %>
-			<p><%= t('biomodelos.home.consult.text_2') %></p>	
+			<p><%= t('biomodelos.home.consult.text_2') %></p>
 		</div>
 	</div>
 
@@ -84,7 +84,7 @@
 			</div>
 			<p><%= t('biomodelos.home.contribute.text_1') %></p></br>
 			<%= link_to t('biomodelos.home.contribute.sign_up_btn'), new_user_registration_path, class: 'botoncb' %>
-			<h3><%= t('biomodelos.home.contribute.contribution_types') %></h3>	
+			<h3><%= t('biomodelos.home.contribute.contribution_types') %></h3>
 			<p><%= t('biomodelos.home.contribute.text_2') %></br>
 			<%= t('biomodelos.home.contribute.activities_list_html') %></br>
 			</p>
@@ -92,7 +92,7 @@
 			    <%= link_to t('biomodelos.home.contribuye.profile_btn'), user_path(:id => current_user.id), class: 'botoncb' %>
 			    <%= hidden_field_tag 'user_name', current_user.name %>
 			<% else %>
-			    <%= link_to t('biomodelos.home.log_in.log_in_btn'), new_user_session_path, class: 'botoncb' %>
+			    <%= link_to t('biomodelos.log_in.log_in_btn'), new_user_session_path, class: 'botoncb' %>
 			<% end %>
 		</div>
 	</div>
