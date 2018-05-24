@@ -9,7 +9,7 @@
 			  <div class="usuario">
 			    <%= link_to current_user.email, user_path(:id => current_user.id), :title=> t('biomodelos.header.profile_tt') %>
 			    <%= hidden_field_tag 'user_name', current_user.name %>
-			    <%= link_to '', destroy_user_session_path, :method=>'delete', :class=>'xsalir', :title=> t('biomodelos.header.log_out_tt') %>
+			    <%= link_to '', destroy_user_session_path, :method=>'delete', :class=>'xsalir', :rel=> 'tooltip', :title=> t('biomodelos.header.log_out_tt') %>
 			  </div>
 			<% else %>
 			    <li><%= link_to t('biomodelos.header.log_in'), new_user_session_path %></li>

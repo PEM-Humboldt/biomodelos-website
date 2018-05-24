@@ -626,11 +626,11 @@ es:
         contact: "Contacto"
         error: 'Se ha producido un error al obtener los metadatos del modelo.'
       init:
-        no_model: "Esta especie aun no cuenta con modelo de distribución. Para contribuir a su desarrollo, registrate en el grupo de expertos de la especie."
-        case_2: "Esta es una hipótesis de distribución aprobada por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución no aprobadas por expertos, disponibles para esta especie."
-        case_3: "Esta hipótesis de distribución está pendiente de aprobación por expertos."
-        case_4: "Esta es una de las hipótesis de distribución disponibles pendientes de aprobación por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución pendientes de aprobación disponibles para esta especie."
-        case_5: "Esta es una hipótesis de distribución sin aportes de expertos. Para contribuir a mejorarlo, registrate en el grupo de expertos de la especie."
+        no_model: "Esta especie aun <b>no cuenta con modelo de distribución.</b> Para contribuir a su desarrollo, registrate en el grupo de expertos de la especie."
+        case_2: "Esta es una <b>hipótesis de distribución aprobada por expertos.</b> Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución no aprobadas por expertos, disponibles para esta especie."
+        case_3: "Esta hipótesis de distribución está <b>pendiente de aprobación</b> por expertos."
+        case_4: "Esta es una de las <b>hipótesis de distribución disponibles pendientes de aprobación</b> por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución pendientes de aprobación disponibles para esta especie."
+        case_5: "Esta es una <b>hipótesis de distribución sin aportes de expertos.</b> Para contribuir a mejorarlo, registrate en el grupo de expertos de la especie."
       download:
         text_1: "Antes de descargar, recuerda:"
         read_terms_lnk: 'He leído y acepto los términos y condiciones'

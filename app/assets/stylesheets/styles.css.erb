@@ -40,7 +40,7 @@ body {
 }
 
 svg > g > g:last-child { pointer-events: none } /* flickering de google charts */
-div.google-visualization-tooltip { pointer-events: none } /* flickering de google charts */
+div.google-visualization-tooltip { pointer-events: none !important } /* flickering de google charts */
 
 .clearfix:before,
 .clearfix:after {
@@ -84,6 +84,7 @@ div.google-visualization-tooltip { pointer-events: none } /* flickering de googl
     font-weight: 300;
     font-size: 0.87em;
     white-space: pre-line;
+    pointer-events: none;
 }
  
     #tooltip:after /* triangle decoration */
@@ -1974,7 +1975,7 @@ p.moderlink{
 	margin-bottom: 5px;
 }
 
-.forms input[type=submit] {
+.forms input[type=submit], .nobox .cancelbtn {
 	text-transform: uppercase;
 	padding: 5px 10px;
 	margin: 5px 0;
@@ -1986,6 +1987,19 @@ p.moderlink{
 	letter-spacing: 1px;
 	font-size: 0.8em;
 	float: right;
+}
+
+.nobox .forms {
+	margin-left: 15px;
+}
+
+.nobox .forms input[type=submit] {
+	background-color: #db3f2a;
+	margin-left: 5px;
+}
+
+.nobox .forms input[type=radio] {
+	margin: 10px;
 }
 
 .forms ::-webkit-input-placeholder {
@@ -2516,9 +2530,7 @@ a.cajathumb p {
 	border-radius: 0;
 	background-color: #1b3337;
 	box-shadow: none;
-	padding-top: 0;
-	padding-right:0;
-	padding-left:0;
+	padding:0;
 }
 
 .leaflet-control-coordinates {
@@ -2619,7 +2631,8 @@ a.cajathumb p {
 	font-weight: 300;
 }
 
-.botonpopup {
+.botonpopup,
+.botonpopup2 {
 	background: none;
 	border-radius: 0;
 	border: 1px solid #db3f2a;
@@ -2630,6 +2643,42 @@ a.cajathumb p {
 	letter-spacing: 1px;
 	font-weight: 300;
 	cursor: pointer;
+	vertical-align: top;
+}
+
+.botonpopup:hover {
+	color:#fff;
+	background-color: #db3f2a;
+}
+
+.botonpopup2 {
+	color:#fff;
+	background-color: #db3f2a;
+}
+
+.botonpopup2:hover {
+	color:#db3f2a;
+	background-color: #fff;
+}
+
+.approved, .unapproved {
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	margin: 10px 15px 0 0;
+	background-image: url(<%= asset_path 'approvedyes1.png' %>);
+}
+
+.unapproved {
+	background-image: url(<%= asset_path 'approvedno1.png' %>);
+}
+
+.approved:hover, .approved.active {
+	background-image: url(<%= asset_path 'approvedyes2.png' %>);
+}
+
+.unapproved:hover, .unapproved.active {
+	background-image: url(<%= asset_path 'approvedno2.png' %>);
 }
 
 .areaother {
@@ -2776,6 +2825,23 @@ a.cajathumb p {
 	height: calc(100% - 106px);
 }
 
+.cajavisor2 {
+	width: 650px;
+	height: 100%;
+	padding: 10px 20px;
+	position: absolute;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	background-color: #fff;
+	overflow-y: auto;
+	z-index: 1001;
+	top: 60px;
+	right: 0;
+	font: 14px/24px 'Lato', sans-serif;
+	height: -moz-calc(100% - 106px);
+	height: -webkit-calc(100% - 106px);
+	height: calc(100% - 106px);
+}
+
 .vcbase h1 {
 	padding: 0 0 13px 0;
 	margin-top: 0;
@@ -2815,13 +2881,22 @@ a.cajathumb p {
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
-	line-height: 40px;
+	line-height: 39px;
 	height: 40px;
 	cursor: pointer;
 }
 
+.closevb:hover {
+	color:#fff !important;
+	background-color: #db3f2a;
+}
+
 .vatop {
 	vertical-align: top;
+}
+
+.nobox .vatop {
+	position: fixed;
 }
 
 .cajavisor p, .infobox p {
@@ -3543,7 +3618,6 @@ label.checkboxdown {
 
 .regactive {
 	padding:0 8px;
-	letter-spacing: 1px;
 	font-size: 1.1em;
 	background-image: url(<%= asset_path 'uparroww.png' %>);
 	height: 45px;
@@ -4393,7 +4467,6 @@ margin: 0 auto;
 background-color: #fff;
 padding: 30px 20px;
 box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-overflow-y: scroll;
 }
 
 .dialog h1 {
@@ -4479,10 +4552,6 @@ font-weight: 300;
   margin-bottom: 30px;
 }
 
-.regdialog p {
-	margin-left: 15px;
-}
-
 .regdialog p:nth-child(1) {
 	margin-left: 0;
 }
@@ -4498,6 +4567,139 @@ font-weight: 300;
 .regdialog .mediac {
 	width: 408px;
 	display: inline-block;
+}
+
+.nobox {
+	box-shadow: none;
+	width: auto;
+	height: 100%;
+	padding: 0;
+	margin-bottom: 40px !important;
+}
+
+.nobox h1 {
+	display: inline-block;
+	min-width: 555px;
+}
+
+.nobox h3 {
+	margin: 0;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+	display: none;
+}
+
+.redtext {
+	color: red;
+}
+
+.showreg {
+	width: 30px;
+	height: 30px;
+	background: none;
+	background-image: url(<%= asset_path 'arrow.png' %>);
+	border: none;
+	position: relative;
+	display: inline-block;
+	margin: 10px 0 15px 10px;
+	cursor: pointer;
+}	
+
+.showreg:focus {
+	outline: 0;
+}
+
+.rotate {
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    -webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s
+	-o-transition: all 1s;
+	transition: all 1s;
+}
+
+.vermas {
+	display: inline-block;
+	margin-top: 10px;
+	vertical-align: top;
+	height: 30px;
+}
+
+.vermas:after {
+	content: "ver más";
+	line-height: 30px;
+	color: #db3f2a;
+	font-size: 15px;
+}
+
+.vermenos:after {
+	content: "ver menos";
+}
+
+.regcateg {
+	display: flex;
+	justify-content: space-between;
+	font-size: 15px;
+	padding-left: 11px;
+	border-bottom: 1px solid #18b4b1;
+	font-weight: 400;
+}
+
+.regcateg b, .colreg i {
+	color: #18b4b1;
+	font-weight: 400;
+}
+
+.regcateg i, .colreg u {
+	font-style: normal;
+	font-weight: 400;
+	color: #e3af24;	
+}
+
+.correctoreg {
+	width: 25px;
+	height: 25px;
+	background: url(<%= asset_path 'true.png' %>) center left no-repeat;
+	display: inline-block;
+	float: right;
+}
+
+.falsoreg {
+	width: 25px;
+	height: 25px;
+	background: url(<%= asset_path 'false.png' %>) center left no-repeat;
+	display: inline-block;
+	float: right;
+}
+
+.camposreg {
+	padding-left: 10px;
+	background-color: #f1f2f2;
+}
+
+.campouno{
+	color: #18b4b1;
+	display: inline-block;
+	font-size: 18px;
+	font-weight: 300;
+}
+
+.campodos:before {
+	content: ' · ';
+	padding-right: 5px;
+}
+
+.campodos {
+	color: #e3af24;
+	display: inline-block;
+	font-size: 18px;
+	font-weight: 300;
+	margin-left: 10px;
 }
 
 /* Leaflet 0.7.x fix for image layers moving and disappearing when zooming in */

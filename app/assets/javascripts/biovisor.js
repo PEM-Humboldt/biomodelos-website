@@ -14,6 +14,7 @@ var _BioModelosVisorModule = function() {
 		recordsLayer, 
 		cluster, 
 		currentPopupID,
+		currentPopup,
 		pointDrawer,
 		polygonDrawer,
 		modelLayer;
@@ -294,31 +295,44 @@ var _BioModelosVisorModule = function() {
 					return yearFilter && monthFilter && dataFilter;
    				},	
 		 		onEachFeature: function (feature, layer) {
-		 			var popupcontent = [];
-					popupcontent.push('<div class="cajita"><div class="regscroller"><div id="point_lat">'+ feature.geometry.coordinates[1]+'</div><div id="point_lon"> '+ feature.geometry.coordinates[0] + '</div>');
-					for (var prop in feature.properties) {
-						if(prop === '_id')
-							popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
-						else if (prop === 'url')
-							popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + "<a href=http://"+ feature.properties[prop] +" target='_blank'>" + feature.properties[prop] + "</a></br>");
-						else if (hiddenFields.indexOf(prop) === -1)
-							popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + feature.properties[prop] + "</br>");
+
+					layer.on('click',function(e){
+						$.ajax({
+						    type: 'POST',
+						    url: "/records/show",
+						});
+
+					}); 
+		 		// 	var popupcontent = [];
+					// popupcontent.push();
+					// for (var prop in feature.properties) {
+					// 	if(prop === '_id')
+					// 		popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
+					// 	else if (prop === 'url')
+					// 		popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + "<a href=http://"+ feature.properties[prop] +" target='_blank'>" + feature.properties[prop] + "</a></br>");
+					// 	else if (hiddenFields.indexOf(prop) === -1)
+					// 		popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + feature.properties[prop] + "</br>");
 		
-					}
-					if(isEditable)
-						popupcontent.push('</div><div class="centering"><a href="" class="wrongbtn" id="editRecordBtn">Editar</a><a href="/records/report_record" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar</a></div>');
-					else
-						popupcontent.push('</div>');
-					popupcontent.push('<a class="vermasreg">Ver más <b>+</b></a>');
-					layer.bindPopup(popupcontent.join(''));
-				}	
+					// }
+					// if(isEditable)
+					// 	popupcontent.push('</div><div class="centering"><a href="" class="wrongbtn" id="editRecordBtn">Editar</a><a href="/records/report_record" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar</a></div>');
+					// else
+					// 	popupcontent.push('</div>');
+					// popupcontent.push('<a class="vermasreg">Ver más <b>+</b></a>');
+					layer.bindPopup();
+				}
 
 		});
 		cluster.addLayer(recordsLayer);
 		map.on('popupopen', function(e) {
-		   currentPopupID = e.popup._leaflet_id;
-		   addNiceScroll();
+			console.log(e.popup);
+		    currentPopup = e.popup;
 		});
+	}
+
+	var closePopUp = function() {
+		if (currentPopup)
+			map.closePopup(currentPopup);
 	}
 
 	var editRecord = function(){
@@ -812,7 +826,8 @@ var _BioModelosVisorModule = function() {
 		unloadThresholdLayer: unloadThresholdLayer,
 		loadModel: loadModel,
 		unloadModel: unloadModel,
-		unloadAllLayers: unloadAllLayers
+		unloadAllLayers: unloadAllLayers,
+		closePopUp: closePopUp
 	}
 }();
 
