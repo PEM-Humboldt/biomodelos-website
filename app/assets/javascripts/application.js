@@ -29,6 +29,7 @@
 //= require validate/validate.min
 //= require alertify/alertify.min
 //= require raty/lib/jquery.raty
+//= require isotope-layout/dist/isotope.pkgd.min
 //= require clipboard/dist/clipboard.min.js
 //= require_tree ./angular
 //= require_tree ./controllers

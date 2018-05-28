@@ -626,11 +626,11 @@ en:
         contact: "Contact"
         error: 'An error occurred while obtaining model metadata.'
       init:
-        no_model: "This species <b>does not have a distribution model yet.</b> To contribute to its development, register in the group of experts of the species."
-        case_2: "This is a <b>distribution hypothesis approved by experts.</b> Consult the 'Distribution hypothesis' tab to view other distribution hypotheses not approved by experts, available for this species."
-        case_3: "This distribution hypothesis is <b>pending approval</b> by experts."
-        case_4: "This is one of the <b>available distribution hypotheses pending approval</b> by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses pending approval available for this species."
-        case_5: "This is a distribution <b>hypothesis without contributions from experts.</b> To help improve it, join the group of experts of the species."
+        no_model: "This species does not have a distribution model yet. To contribute to its development, register in the group of experts of the species."
+        case_2: "This is a distribution hypothesis approved by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses not approved by experts, available for this species."
+        case_3: "This distribution hypothesis is pending approval by experts."
+        case_4: "This is one of the available distribution hypotheses pending approval by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses pending approval available for this species."
+        case_5: "This is a distribution hypothesis without contributions from experts. To help improve it, join the group of experts of the species."
       download:
         text_1: "Before download, remember:"
         read_terms_lnk: 'I have read and accept the terms and conditions'
