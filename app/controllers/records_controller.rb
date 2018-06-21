@@ -1,6 +1,12 @@
 class RecordsController < ApplicationController
 	include UsersHelper
 
+	def show
+		respond_to do |format|
+      		format.js
+    	end
+	end
+
 	def edit_record
 		@can_edit = false
 		if user_signed_in?

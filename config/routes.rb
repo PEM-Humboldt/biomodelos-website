@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     post "species/set_species"
     post "records/report_record"
     post "records/edit_record"
+    post "records/show"
     post "species/species_info"
     post "records/send_report_record"
     post "models/load_initial_model"
