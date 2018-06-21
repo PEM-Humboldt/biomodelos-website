@@ -105,7 +105,7 @@ es:
         eoo_title: "EXTENSIÓN DE OCURRENCIA"
         eoo_text_1_html: 'La extensión de ocurrencia (EOO por sus siglas en inglés utilizadas en la literatura) se define como el área contenida dentro de los límites más cortos imaginarios que pueden ser dibujados para abarcar todos los sitios en donde se encuentra la especie, bien sea conocidos, inferidos o proyectados (IUCN 2013).'
         eoo_text_2_html: '<b>PMC sobre modelos:</b> polígono mínimo convexo delimitado sobre la distribución modelada para cada especie (<a href="http://www.humboldt.org.co/es/test/item/download/244_4bf9941429abe826cb0bee0e9f755f2a" target="_blank" style="float:none;">Figura 1, Renjifo et al. 2014</a>).'
-        eoo_fig_1_html: 'Figura 1. Polígono mínimo convexo generado para <em>Andigena hypoglauca</em> (línea roja) de acuerdo a la distribución original de la especie (en verde) (Renjifo et al. 2014).' 
+        eoo_fig_1_html: 'Figura 1. Polígono mínimo convexo generado para <em>Andigena hypoglauca</em> (línea roja) de acuerdo a la distribución original de la especie (en verde) (Renjifo et al. 2014).'
         eoo_text_3_html: '<b>PMC sobre registros:</b> polígono mínimo convexo delimitado sobre los registros biológicos para cada especie. Representa el polígono de menor superficie que contiene todos los lugares de presencia, pero que ninguno de sus ángulos internos excede los 180 grados (<a href="http://s3.amazonaws.com/iucnredlist-newcms/staging/public/attachments/3156/reg_guidelines_sp.pdf" target="_blank" style="float:none;">Figura 2, IUCN 2013</a>)'
         eoo_fig_2_html: 'Figura 2. Representación del cálculo de un polígono mínimo convexo.'
         eoo_geo_range: 'Rango Geográfico'
@@ -190,7 +190,7 @@ es:
                         En esta sección podrás resaltar los registros por:&#013;&#013;
                         • Reportados: registros que han tenido un reporte de error en BioModelos.&#013;
                         • Editados: registros que han sido modificados por los expertos de la especie.&#013;
-                        • Prioritarios de revisión: registros que requieren revisión prioritaria." 
+                        • Prioritarios de revisión: registros que requieren revisión prioritaria."
         visualize: "Visualizar"
         reported_lbl: "Reportados"
         edited_lbl: "Editados"
@@ -228,7 +228,7 @@ es:
         pause_btn: "guardar"
         send_btn: "enviar"
         pause_success: 'Se ha guardado la edición del modelo.'
-      covers:  
+      covers:
         covers_tt: "IDEAM 2010. Leyenda Nacional de Coberturas de la Tierra. Metodología CORINE Land Cover adaptada para Colombia Escala 1:100.000. Instituto de Hidrología, Meteorología y Estudios Ambientales. Bogotá, D. C., 72p."
         title: "Coberturas Terrestres"
         cover_1: "Territorios artificializados"
@@ -421,6 +421,8 @@ es:
       all_users_opt: "Todos los usuarios"
       experts_opt: 'Expertos registrados en el grupo de la especie'
       sib_col_data: "¿Deseas ser contactado por el SiB Colombia para la publicación de tu conjunto de datos?"
+      sib_col_yes: "Sí"
+      sib_col_na: "No aplica"
       step_4_html: '<a href="http://biomodelos.humboldt.org.co/guia_documentacion_y_plantillas.zip" download>Descarga</a> y llena las plantillas para documentación de datos y metadatos de los modelos'
       step_5: "Sube en un archivo comprimido la metodología, las dos plantillas y los modelos"
       select_file_ph: "Seleccionar Archivo"
@@ -467,7 +469,7 @@ es:
     users:
       message_to_expert: "Mensaje al experto."
       max_message_ph: "máximo 500 caracteres"
-      message_to_expert_tt: "Mensaje al usuario" 
+      message_to_expert_tt: "Mensaje al usuario"
       edit_user_tt: "Editar usuario"
       bio: "Biografía"
       groups: "Grupos"
@@ -540,7 +542,7 @@ es:
         leave_group_tt: "Abandonar el grupo"
         join_group_tt: "Solicitar unirse a este grupo"
         group_message_tt: "Mensaje a miembros del grupo"
-        edit_group_tt: "Editar información del grupo" 
+        edit_group_tt: "Editar información del grupo"
         moderators: "Moderador(es)"
         moderator_message: "Mensaje moderador"
         statistics_tab: "estadísticas"
@@ -595,7 +597,7 @@ es:
         outlier_lbl: "Outlier geográfico"
         geo_issue_lbl: "Georreferenciación dudosa"
         id_issue_lbl: "Identificación dudosa"
-        old_taxonomy_lbl: "Nombre desactualizado" 
+        old_taxonomy_lbl: "Nombre desactualizado"
         in_captivity_lbl: "Individuo introducido"
         other_issues_lbl: "Otros (comentar)"
         comment_ph: "Comentario"
@@ -638,7 +640,7 @@ es:
         accept_btn: 'ACEPTO'
         selection_notice: "Debe leer y aceptar los términos y condiciones al igual que seleccionar el uso que le darás al modelo para continuar con la descarga."
         sign_up_notice: "Debe estar registrado en la plataforma para poder descargar el modelo."
-    terms: 
+    terms:
       title: "Términos y condiciones DE USO DE BIOMODELOS (V 1.0)"
       general: "General"
       sign_up: "Registro"
@@ -661,7 +663,7 @@ es:
       general_4_text_html: >
                      Siempre que el uso o consulta de la información de BioModelos se haga de conformidad con los términos y condiciones de este acuerdo de usuario, se otorga una licencia gratuita, indefinida e intransferible para su consulta, descarga o impresión, sin necesidad de permiso previo por parte del Instituto.</br></br>
                      La consulta y el uso de la información proveniente de BioModelos se restringe a fines educativos, investigativos académicos o aplicados. En todo caso, queda prohibido adelantar o ejecutar cualquier acto de disposición económica sobre la misma.</br></br>
-                     Los productos o resultados publicados a partir de la información obtenida en BioModelos deben ser enviados en copia electrónica o una copia en medio físico a los datos de contacto que se indican en la sección “información de contacto” de estos términos y condiciones. 
+                     Los productos o resultados publicados a partir de la información obtenida en BioModelos deben ser enviados en copia electrónica o una copia en medio físico a los datos de contacto que se indican en la sección “información de contacto” de estos términos y condiciones.
       general_5_title: "Reconocimiento y citación"
       general_5_text_html: >
                            El usuario de la información de BioModelos deberá otorgar los créditos correspondientes a la fuente de dicha información, empleando la citación provista en los metadatos que acompañan cada modelo, indicando de manera puntual la versión de la información de BioModelos utilizada.</br></br>

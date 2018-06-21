@@ -1,8 +1,8 @@
 <% @species_with_tasks.each do |species| %>
 		<% total_tasks = 0 %>
 		<% tasks_done = 0 %>
-		<div class="tareaspp"><!-- 
-		--><a class="colspp" href="/species/visor?species_id=<%= species[1] %>"><%= species[0] %></a><!-- 
+		<div class="tareaspp"><!--
+		--><%= link_to species[0], "/#{I18n.locale}/species/visor?species_id=#{species[1]}", class:"colspp" %><!-- 
 		--><div class="coladv"><% task = @tasks.select{|x| x.task_type_id == 1 && x.species_id == species[1]}.uniq %>
 			<% if task.size > 0 %>
 				<% total_tasks = total_tasks + 1 %>
@@ -19,7 +19,7 @@
 			<% else %>
 					<%= image_tag("notask.png", title: t('biomodelos.tasks.not_assigned_tt'), rel: "tooltip") %>
 			<% end %>
-		</div><!-- 
+		</div><!--
 		--><div class="coladv"><% task = @tasks.select{|x| x.task_type_id == 2 && x.species_id == species[1]}.uniq %>
 			<% if task.size > 0 %>
 				<% total_tasks = total_tasks + 1 %>
@@ -36,7 +36,7 @@
 			<% else %>
 					<%= image_tag("notask.png", title: t('biomodelos.tasks.not_assigned_tt'), rel: "tooltip") %>
 			<% end %>
-			</div><!-- 
+			</div><!--
 		--><div class="coladv"><% task = @tasks.select{|x| x.task_type_id == 3 && x.species_id == species[1]}.uniq %>
 			<% if task.size > 0 %>
 				<% total_tasks = total_tasks + 1 %>
@@ -53,7 +53,7 @@
 			<% else %>
 					<%= image_tag("notask.png", title: t('biomodelos.tasks.not_assigned_tt'), rel: "tooltip") %>
 			<% end %>
-		</div><!-- 
+		</div><!--
 		--><div class="coladv"><% task = @tasks.select{|x| x.task_type_id == 4 && x.species_id == species[1]}.uniq %>
 			<% if task.size > 0 %>
 				<% total_tasks = total_tasks + 1 %>
@@ -70,7 +70,7 @@
 			<% else %>
 					<%= image_tag("notask.png", title: t('biomodelos.tasks.not_assigned_tt'), rel: "tooltip") %>
 			<% end %>
-		</div><!--  
+		</div><!--
 		--><p class="coladv"><%= ((tasks_done.to_f/total_tasks.to_f)*100).round %>%</p>
 		</div>
 <% end %>

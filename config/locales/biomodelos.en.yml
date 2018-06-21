@@ -421,6 +421,8 @@ en:
       all_users_opt: "All users"
       experts_opt: 'Experts registered in the species group'
       sib_col_data: "Do you want to be contacted by SiB Colombia for the publication of your data set?"
+      sib_col_yes: "Yes"
+      sib_col_na: "Not applicable"
       step_4_html: '<a href="http://biomodelos.humboldt.org.co/guia_documentacion_y_plantillas.zip" download>Download</a> and fill in the templates for data and metadata documentation of the models'
       step_5: "Upload the methodology, the two templates and the models in a compressed file"
       select_file_ph: "Select File"
@@ -568,7 +570,7 @@ en:
         suggested: "Suggested species"
         approved_tt: 'Approve species'
         not_approved_tt: 'Do not approve'
-        species_name: "Name of species"
+        species_name: "Species names"
         suggestion_success: "The species has been suggested successfully"
       edit:
         title: "Edit Group"
@@ -626,11 +628,11 @@ en:
         contact: "Contact"
         error: 'An error occurred while obtaining model metadata.'
       init:
-        no_model: "This species <b>does not have a distribution model yet.</b> To contribute to its development, register in the group of experts of the species."
-        case_2: "This is a <b>distribution hypothesis approved by experts.</b> Consult the 'Distribution hypothesis' tab to view other distribution hypotheses not approved by experts, available for this species."
-        case_3: "This distribution hypothesis is <b>pending approval</b> by experts."
-        case_4: "This is one of the <b>available distribution hypotheses pending approval</b> by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses pending approval available for this species."
-        case_5: "This is a distribution <b>hypothesis without contributions from experts.</b> To help improve it, join the group of experts of the species."
+        no_model: "This species does not have a distribution model yet. To contribute to its development, register in the group of experts of the species."
+        case_2: "This is a distribution hypothesis approved by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses not approved by experts, available for this species."
+        case_3: "This distribution hypothesis is pending approval by experts."
+        case_4: "This is one of the available distribution hypotheses pending approval</b> by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses pending approval available for this species."
+        case_5: "This is a distribution hypothesis without contributions from experts.</b> To help improve it, join the group of experts of the species."
       download:
         text_1: "Before download, remember:"
         read_terms_lnk: 'I have read and accept the terms and conditions'
@@ -653,6 +655,7 @@ en:
                       The Alexander von Humboldt Institute exclusively holds the patrimonial rights as author of the information generated from all the activity of registered users in BioModelos, particularly in the "edition and contribution" and "records and filters" modules. In any case, the Alexander von Humboldt Institute will recognize the author's moral rights for each contribution consigned by registered users in BioModelos.</br> </br>
                       Once the information in BioModelos has been recorded by the "Publishers", the Alexander von Humboldt Institute will have a license for its use and disposal, according to the Creative Commons licenses with which said information is published, in accordance with what was established with the publisher(s) in the publication form.</br></br>
                       You agree not to alter or eliminate any copyright symbol or other identification related to the authorship of any of the materials contained or made available in BioModelos.general_3_title:  "Productos derivados"
+      general_3_title: "Derivative works"
       general_3_text_html: >
                      Derivative works based on the information of BioModelos can be distributed, electronically or in printed form, without the prior written permission of the Alexander von Humboldt Institute, as long as they are available for non-commercial purposes and include the citation to the source, punctually indicated in the field corresponding to "citation" in the metadata. BioModelos reserves the right to use/reuse any derivative work based on your information in accordance with the same terms and conditions of use. For purposes of these terms and conditions, a "derivative work" is a new work that is based totally or partially on the BioModelos information. To be considered a derivative work, the new work must be transformative and include originality on the part of the creator, otherwise it can simply be considered redistribution, depending on the way in which the new work is made available.</br></br>
                      use of the information of BioModelos in the creation of derivative works does not constitute an endorsement by the Alexander von Humboldt Institute or its partners to these derived products, reports or analyzes. It is expressly forbidden to use the BioModelos logos or the Alexander von Humboldt Institute in any derived product, report or analysis, or in support materials, without the prior written permission of the Institute.

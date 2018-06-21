@@ -12,5 +12,5 @@
         <%= f.collection_radio_buttons(:model_use_id, ModelUse.all, :id, :description, :class=> 'terminoschk') %>
      	<div class="clearfix"></div>
         <%= link_to 'X', '', {:id => 'cancelo-trm-btn', :class=> 'btngen'} %>
-        <%= f.submit t('biomodelos.models.download.accept_btn'), {:class => 'uzcolor', :id => 'acepto-btn'} %>
+        <%= f.submit t('biomodelos.models.download.accept_btn'), :class => 'uzcolor', :id => 'acepto-btn', data: { disable_with: t('biomodelos.models.download.accept_btn') } %>
     <% end %>

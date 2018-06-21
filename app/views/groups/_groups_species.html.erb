@@ -1,4 +1,4 @@
-<h1><%= t('biomodelos.groups.profiles.species_tab') %></h1>
+<h1><%= t('biomodelos.groups.profile.species_tab') %></h1>
 <% if @current_group_user %>
 	<a ng-click="sugeridor=!sugeridor; activeButton()" ng-class="{'btnact': isActive}" class="closecb"><%= t('biomodelos.groups.species.suggest') %></a>
 	<div ng-show="sugeridor" class="sugeridor">
@@ -7,7 +7,7 @@
 			<%= f.hidden_field :groups_species_state_id, :value => 2 %>
 			<%= f.hidden_field :species_id, :id => "species_id_home" %>
 			<%= f.hidden_field :group_id, :id => "group_id_home", :value => @group.id %>
-			<%= f.submit "+", :class=> "searchbtnspp bigplus" %>
+			<%= f.submit "+", :class=> "searchbtnspp bigplus", data: { disable_with: "+" } %>
 		<% end %>
 	</div>
 <% end %>

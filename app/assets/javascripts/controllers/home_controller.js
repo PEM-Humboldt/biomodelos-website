@@ -53,7 +53,7 @@ var typeahead_f = function(){
     $('#search_form').typeahead({
       minLength: 3,
       highlight: true
-    }, 
+    },
     {
       displayKey: function (species) {
         return species.species;
@@ -91,7 +91,7 @@ var typeahead_f = function(){
     var $box = $(this);
     if ($box.is(":checked")) {
       $("#publication_cc_license").val($box.val());
-    } 
+    }
   });
 
 
@@ -102,7 +102,7 @@ var typeahead_f = function(){
 
     function _drawCharts(stats){
     // Check if allgraphs class exists to Draw the charts. Avoids container errors.
-      if($(".allgraphs").length){    
+      if($(".allgraphs").length){
         google.charts.load("current", {packages:["corechart"]});
         google.charts.setOnLoadCallback(drawChart);
         google.charts.setOnLoadCallback(drawChart2);
@@ -240,13 +240,13 @@ var typeahead_f = function(){
           var chart = new google.visualization.PieChart(document.getElementById('donutpla'));
           chart.draw(data, options_chart);
         }
-      } 
+      }
     }
   }();
 
 /* Action to go to a species URL from home */
 $("#searchBtnHome").click(function(e){
   e.preventDefault();
-  window.location.href = "/species/visor?species_id=" + $("#species_id_home").val();
+  window.location.href = "/"+ $("#locale_field").val() +"/species/visor?species_id=" + $("#species_id_home").val();
 });
 });

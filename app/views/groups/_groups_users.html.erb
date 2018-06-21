@@ -8,7 +8,7 @@
 	         <%= f.hidden_field :group_id, :value => @group.id %>
 	         <%= f.input :email, :maxlength => 500, :placeholder => t('biomodelos.groups.experts.email_ph'), :name => "email", label: false %>
 	         <%= f.input :message, :as => :text, :input_html => {:maxlength => 1200, :cols => "20", :rows => "6"}, :name => "cuerpo", label: false %>
-	         <%= f.button :submit, :value => t('biomodelos.groups.experts.submit_btn'), :class => 'boton1'%>
+	         <%= f.button :submit, :value => t('biomodelos.groups.experts.submit_btn'), :class => 'boton1', data: { disable_with: t('biomodelos.groups.experts.submit_btn') }%>
 	   <% end %>
 	</div>
 <% end %>

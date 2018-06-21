@@ -1,10 +1,9 @@
-
 <section class="resultados">
 	<% if @species.blank? %>
 		<%= t('biomodelos.search.no_results') %>
 	<% else %>
 		<% @species.each do |sp|%>
-			<a href="/species/visor?species_id=<%= sp['taxID'] %>"><%= sp["species"] %></a></br>
+			<%= link_to sp["species"], "/#{I18n.locale}/species/visor?species_id=#{sp['taxID']}" %></br>
 		<% end %>
 	<% end %>
 </section>

@@ -13,7 +13,7 @@
 					<%= f.input :message, :as => :text, :placeholder => t('biomodelos.groups.group_message.message_ph'), :input_html => {:maxlength => 500, :cols => "20", :rows => "8"}, :name => "cuerpo", label: false %>
 					<%= f.hidden_field :group_id, :value => @group.id %>
 				    <div class="clearfix"></div>
-				    <%= f.submit t('biomodelos.groups.group_message.submit_btn'), class: "btngen ml0"%>
+				    <%= f.submit t('biomodelos.groups.group_message.submit_btn'), class: "btngen ml0", data: { disable_with: t('biomodelos.groups.group_message.submit_btn') }%>
 				    <a class="closeedit" ng-click="messagebox=!messagebox">X</a>
 				<% end %>
 				</div>
@@ -28,12 +28,12 @@
 					<% elsif @user_group && @user_group.groups_users_state_id == 1 %>
                 		<%= link_to groups_user_path(@user_group), {method: :delete, data: { confirm: t('biomodelos.groups.profile.leave_group_confirm') }}  do %>
                 			<%= image_tag "leave.png", title:t('biomodelos.groups.profile.leave_group_tt'), class: 'leavegroup', rel: 'tooltip' %>
-                		<% end %>				
+                		<% end %>
 					<% elsif  !@current_group_user %>
 						<%= simple_form_for @groups_users do |f| %>
 		                  <%= f.hidden_field :group_id, :value =>  @group.id %>
 		                  <%= f.hidden_field :groups_users_state_id, :value => 2 %>
-		                  <%= f.submit "", :class=> "joingroup", :title=>t('biomodelos.groups.profile.join_group_tt'), :rel=>"tooltip" %>
+		                  <%= f.submit "", :class=> "joingroup", :title=>t('biomodelos.groups.profile.join_group_tt'), :rel=>"tooltip", data: { disable_with: "" } %>
 		                <% end %>
 		            <% end %>
 				<% end %>
@@ -102,4 +102,3 @@ $('.cajaperfil').niceScroll({
 });
 $( ".tareaspp:odd" ).css( "background-color", "#f2f2f2" );
 </script>
-

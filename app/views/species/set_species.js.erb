@@ -28,7 +28,7 @@ $(document).ready(function(){
 		$(".vbtninfo").show();
 		$(".vbtnhipo").show();
 		/* Loads initial model */
-		$.post( "/models/load_initial_model", { species_id: <%= params[:species_id] %>});
+		$.post( "/"+ $("#locale_field").val() +"/models/load_initial_model", { species_id: <%= params[:species_id] %>});
 		/* Dynamically loads the edition tools if the user can edit */
 		<% if user_signed_in? && @can_edit %>
 			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $('#edit_model_btn'), '<div ng-click="edit=!edit" title="<%= t("biomodelos.visor.tooltip.edit_btn") %>" rel="tooltip" class="visorbtn vbtnedit" selectable></div>');

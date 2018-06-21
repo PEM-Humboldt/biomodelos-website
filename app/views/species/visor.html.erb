@@ -10,7 +10,7 @@
           $(document).ready(function(){
 	          $.ajax({
 	                          type: "POST",
-	                          url: "/species/set_species",
+	                          url: "/" + $("#locale_field").val() + "/species/set_species",
 	                          data: { species_id: <%=j params[:species_id]%> }
 	          });
 	      });
@@ -36,7 +36,7 @@
 		<%= render 'species/species_info' %>
 	</div>
 
-	
+
 	<div ng-show="hipotesis" class="cajavisor hipotesis">
 		<div class="vcbase">
 			<h1><%= t('biomodelos.visor.hypotheses.title') %></h1>
@@ -50,7 +50,7 @@
 			<div id="hipotesisbox_content"></div>
 		</div>
 	</div>
-	
+
 	<% if user_signed_in? %>
 		<div ng-show="edit" class="cajavisor editbox">
 			<div class="vcbase">

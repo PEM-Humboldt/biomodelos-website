@@ -53,10 +53,10 @@
                         <h4><%= t('biomodelos.publish.records_vis_permission') %></h4>
                         <p><%= t('biomodelos.publish.choose_option') %></p>
                         <%= f.collection_radio_buttons :records_vis, [['allusers', t('biomodelos.publish.all_users_opt')] ,['regusers', t('biomodelos.publish.experts_opt')]], :first, :last, { item_wrapper_tag: false, :checked => 'allusers', label: false } %>
-                        
+
                         <div class="mt10"></div>
                         <p><%= t('biomodelos.publish.sib_col_data') %></p>
-                        <%= f.collection_radio_buttons :sib_contact, [['SI', 'Si'] ,['NO', 'No'],['NA', 'No aplica']], :first, :last, { item_wrapper_tag: false, :checked => 'SI', label: false } %>
+                        <%= f.collection_radio_buttons :sib_contact, [['SI', t('biomodelos.publish.sib_col_yes')] ,['NO', 'No'],['NA', t('biomodelos.publish.sib_col_na')]], :first, :last, { item_wrapper_tag: false, :checked => 'SI', label: false } %>
                         </div>
                   <p><b>4.</b> <%= t('biomodelos.publish.step_4_html') %></p>
                   <p><b>5.</b> <%= t('biomodelos.publish.step_5') %></p>
@@ -79,7 +79,7 @@
                         <%= f.input :atlas_agreement, label: false, :as => :boolean %><%= t('biomodelos.publish.atlas_notice_html') %>
                   </div>
                   <p><%= t('biomodelos.publish.contact_us') %> <a mailto="biomodelos@humboldt.org.co">biomodelos@humboldt.org.co</a></p>
-                  <%= f.submit t('biomodelos.publish.upload_btn'), class: "upzip uzcolor"%>
+                  <%= f.submit t('biomodelos.publish.upload_btn'), class: "upzip uzcolor", data: { disable_with: t('biomodelos.publish.upload_btn') }%>
                   <% end %>
             </div>
 	</div>

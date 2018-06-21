@@ -1,5 +1,6 @@
 <header>
 	<h1>BioModelos</h1>
+	<%= hidden_field_tag 'locale_field', I18n.locale %>
 	<nav class="menu">
 		<ul class="active">
 			<li><%= link_to t('biomodelos.header.home'), root_path %></li>
@@ -36,4 +37,4 @@
             $(this).addClass("current");
     });
 });
-</script>	
+</script>

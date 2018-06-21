@@ -54,7 +54,10 @@
 				model.zipUrl, "zip"), :box => 2, :model_id => model.modelID , :species_id => @species_id), {:class => 'pad3', :title => t('biomodelos.visor.hypotheses.download_tt'), :rel => "tooltip", :remote => true} do %>
 						<%= image_tag("downicon.png") %>
 					<% end %>
-				<a target="_blank" href="/models/<%= model.modelID %>/metadata" title="<%= t('biomodelos.visor.hypotheses.metadata_tt') %>" rel="tooltip" class="pad3"><%= image_tag("metaicon.png") %></a>
+				<!-- <a target="_blank" href="/models/<%= model.modelID %>/metadata" title="<%= t('biomodelos.visor.hypotheses.metadata_tt') %>" rel="tooltip" class="pad3"><%= image_tag("metaicon.png") %></a> -->
+				<%= link_to "/#{I18n.locale}/models/#{model.modelID}/metadata", target: "_blank", title: t('biomodelos.visor.hypotheses.metadata_tt'), rel: "tooltip", class: "pad3"  do %>
+					<%= image_tag("metaicon.png") %>
+				<% end %>
 				<% if user_signed_in? && can_edit %>
 					<div class="user_star">
 						<%= hidden_field_tag('myscore', ratings[model.modelID], :class => 'myscore') %>
@@ -112,8 +115,9 @@
 </div> -->
 <script type="text/javascript">
 /* Rating */
-$('.user_star').raty({ 
-	path: '../assets/raty/lib/images',
+var raty_icon_path = "http://biomodelos.humboldt.org.co/assets/raty/lib/images";
+$('.user_star').raty({
+	path: raty_icon_path,
 	hints: ['<%= t('biomodelos.visor.hypotheses.rating_0_hint') %>', '<%= t('biomodelos.visor.hypotheses.rating_1_hint') %>', '<%= t('biomodelos.visor.hypotheses.rating_2_hint') %>', '<%= t('biomodelos.visor.hypotheses.rating_3_hint') %>', '<%= t('biomodelos.visor.hypotheses.rating_4_hint') %>'],
 	cancel: true,
 	cancelHint:   '<%= t('biomodelos.visor.hypotheses.rating_delete') %>',
@@ -138,15 +142,15 @@ $('.user_star').raty({
 				type: "POST",
 				url: "/ratings/rate_model",
 				data: { model_id: $(".model_id[value='"+model_clicked_id+"']").val(), species_id: $("#species_id_field").val(), score: score,},
-				success: function(data){                
-					
+				success: function(data){
+
 				},
 				error: function(data){
 					alertify.alert("<%= t('biomodelos.visor.hypotheses.rating_error') %>");
 				}
 			});
 
-		} 
-	} 
+		}
+	}
 });
 </script>

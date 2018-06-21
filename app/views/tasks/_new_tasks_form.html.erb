@@ -26,6 +26,6 @@
         <%= check_box_tag :approval_task,  4, checked:true %>
         <%= image_tag("aprobicon.png") %>
         </label>
-        <%= f.button :submit, :value => t('biomodelos.tasks.submit_btn'), :class => 'btngen'%>
+        <%= f.button :submit, :value => t('biomodelos.tasks.submit_btn'), :class => 'btngen', data: { disable_with: t('biomodelos.tasks.submit_btn') }%>
 	</div>
 <% end %>
