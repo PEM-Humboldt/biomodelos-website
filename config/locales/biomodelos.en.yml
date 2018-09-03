@@ -453,8 +453,9 @@ en:
       text_1_html: >
                 BioModelos is a digital tool that allows <b>communication between experts</b> in biodiversity for the development of models of distribution of the existing species in Colombia in a collaborative and open manner.</br></br>
                 This initiative arises in order to bring researchers, government institutions, NGOs and citizens, an <b>accurate and validated information</b> by experts on the distribution of species in Colombia, that serves as reference for studies and decisions making on biodiversity."
-      team: "the team"
-      acknowledgments: "thanks to"
+      team: "current team"
+      founders: "fundadores"
+      acknowledgments: "collaborators"
       sponsors: "sponsors"
       allies: "allies"
     contact:
