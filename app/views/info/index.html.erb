@@ -2,15 +2,56 @@
 	<div class="contenedor" ng-controller="perfilCtrl">
 		<ul class="perfilnav infonav">
 	       	<li ng-class="{ active: isSet(1) }">
-	          	<a href ng-click="setTab(1)">blog</a>
+	          	<a href ng-click="setTab(1)">docs</a>
 	       	</li>
 	       	<li ng-class="{ active: isSet(2) }">
-	          	<a href ng-click="setTab(2)">docs</a>
+	          	<a href ng-click="setTab(2)">blog</a>
 	       	</li>
 	     </ul>
 	     <h1>info</h1>
-	    <div class="clearfix"></div>
+
 		<div ng-show="isSet(1)" class="cajainfo">
+			<div class="infocontainer">
+				<h2>Guías 2018</h2>
+				<a href="http://biomodelos.humboldt.org.co/Quickuu.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("guideuu.png") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/Quickru.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("guideru.png") %>
+					<p>+</p>
+				</a>
+				<h2>Guías 2017</h2>
+				<a href="http://biomodelos.humboldt.org.co/usuario.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("usudocs.jpg") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("publidocs.jpg") %>
+					<p>+</p>
+				</a><!-- 
+				<a href="http://biomodelos.humboldt.org.co/moderadores.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("moderdocs.jpg") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/curaduria.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("regisdocs.jpg") %>
+					<p>+</p>
+				</a> -->
+<!-- 				<a href="http://biomodelos.humboldt.org.co/expertos.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("experdocs.jpg") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/metodologia.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("metoddocs.jpg") %>
+					<p>+</p>
+				</a> -->
+			</div>
+		</div>
+		
+	    <div class="clearfix"></div>
+
+		<div ng-show="isSet(2)" class="cajainfo">
  			<ul class="subtabs">
 		       	<!-- <li class="subtabact">
 		          	<a href="">noticias</a>
@@ -259,35 +300,6 @@
 					</div>
 
 	     	</div>
-		</div>
-	
-		<div ng-show="isSet(2)" class="cajainfo">
-			<div class="infocontainer">
-				<a href="http://biomodelos.humboldt.org.co/usuario.pdf" target="_blank" class="cajathumb">
-					<%= image_tag("usudocs.jpg") %>
-					<p>+</p>
-				</a>
-				<a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank" class="cajathumb">
-					<%= image_tag("publidocs.jpg") %>
-					<p>+</p>
-				</a>
-				<a href="http://biomodelos.humboldt.org.co/moderadores.pdf" target="_blank" class="cajathumb">
-					<%= image_tag("moderdocs.jpg") %>
-					<p>+</p>
-				</a>
-				<a href="http://biomodelos.humboldt.org.co/curaduria.pdf" target="_blank" class="cajathumb">
-					<%= image_tag("regisdocs.jpg") %>
-					<p>+</p>
-				</a>
-<!-- 				<a href="http://biomodelos.humboldt.org.co/expertos.pdf" target="_blank" class="cajathumb">
-					<%= image_tag("experdocs.jpg") %>
-					<p>+</p>
-				</a>
-				<a href="http://biomodelos.humboldt.org.co/metodologia.pdf" target="_blank" class="cajathumb">
-					<%= image_tag("metoddocs.jpg") %>
-					<p>+</p>
-				</a> -->
-			</div>
 		</div>
 	</div>
 </div>
