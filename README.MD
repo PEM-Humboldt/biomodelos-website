@@ -1,6 +1,6 @@
 # BioModelos v2  
  
-[BioModelos]([biomodelos.humboldt.org.co](http://biomodelos.humboldt.org.co)) is a web app that facilitates the generation, validation and consultation of hypothesis of species distribution for the continental biodiversity of Colombia. As such, it provides tools to (1) improve existing species distribution models (SDMs) by integrating expert's opinion, (2) generate expert maps and (3) publish SDMs. Our objective is to provide freely and openly access to the most up to date information on species distributions, validated by a large network of researchers, to support national environmental decision making processes and research.  
+[BioModelos](http://biomodelos.humboldt.org.co) is a web app that facilitates the generation, validation and consultation of hypothesis of species distribution for the continental biodiversity of Colombia. As such, it provides tools to (1) improve existing species distribution models (SDMs) by integrating expert's opinion, (2) generate expert maps and (3) publish SDMs. Our objective is to provide freely and openly access to the most up to date information on species distributions, validated by a large network of researchers, to support national environmental decision making processes and research.  
   
   
 # Requirements  
@@ -89,15 +89,19 @@ On the root path of the rails app you enter this command to build the image:
 ### Configuration
 
 To finish the configuration process and start the server, you have to access the container entering this command:
+
 ```$ docker exec -it <container name or ID> /bin/sh```
 
 Then go to the app directory:
+
 ``` cd /home/BioModelos.v2/ ```
 
 To install all the rails dependencies you must install the Bundler gem first:
+
  ```gem install bundler```
 
 And finally you install all the gems specified in the Gemfile file:
+
 ```bundle install```
 
 ### Installing the Javascript libraries
@@ -116,4 +120,4 @@ Then you can exit the docker container.
 
 ## LICENSE
 
-The MIT License (MIT) 2018 - [Instituto de Investigación de Recursos Biológicos Alexander von Humboldt](http://humboldt.org.co). Please have a look at the LICENSE.md file for more details.
+The MIT License (MIT) 2018 - [Instituto de Investigación de Recursos Biológicos Alexander von Humboldt](http://humboldt.org.co). Please have a look at the [LICENSE.md](LICENSE.md) file for more details.
