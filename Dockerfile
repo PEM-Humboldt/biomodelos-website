@@ -5,7 +5,7 @@ MAINTAINER Daniel Lopez <dlopez@humboldt.org.co>
 ENV RAILS_VERSION="4.2.10" \
     BUILD_PACKAGES="curl-dev build-base openssh" \
     DEV_PACKAGES="tzdata libxml2 libxml2-dev libxslt libxslt-dev postgresql-dev \
-                  imagemagick imagemagick-dev sqlite-dev git nodejs" 
+                  imagemagick imagemagick-dev sqlite-dev git nodejs npm"
 
 RUN \
   apk --update --upgrade add $BUILD_PACKAGES $DEV_PACKAGES && \
@@ -23,7 +23,7 @@ RUN \
   # bundle config --global build.nokogumbo "--use-system-libraries" && \
   rm -rf /usr/lib/lib/ruby/gems/*/cache/* && \
   rm -rf ~/.gem
-  
+
 RUN npm install -g bower
 
 CMD [ "/bin/sh" ]
