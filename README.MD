@@ -44,13 +44,13 @@ Some files and paths in BioModelos need to be configured in order for the app to
 - Zip folder with zip files of the models.
 
 ### API
-You need to setup a path to the BioModelos API service URL using the file */config/initializers/url.rb*
+You need to setup a path to the BioModelos API service URL using the file *[/config/initializers/url.rb](config/initializers/url.rb)*
 
 ```BASE_URI = "http://localhost:3000/v2"; ```
 
 
 ### Keys and credentials
-The app needs the following keys which you can set up in a *local_env.yml* file like this:
+The app needs the following keys which you can set up in a *local_env.yml* file under the *config* folder like this:
 
 ```
 SECRET_KEY_BASE: [secret key base]
@@ -84,7 +84,7 @@ On the root path of the rails app you enter this command to build the image:
 
   Once you have the image, you can run the container with the next command:
 
-  ```$ docker run  --restart always -t -d -p <host port>:3000 -v /path/to/BioModelos.v2:/home/BioModelos.v2 <image name>:<tag>```
+  ```$ docker run  --restart always -t -d --name <container_name> -p <host port>:3000 -v /path/to/BioModelos.v2:/home/BioModelos.v2 <image name>:<tag>```
 
 ### Configuration
 
