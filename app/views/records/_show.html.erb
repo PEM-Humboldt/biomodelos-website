@@ -1,12 +1,12 @@
   <div class="cajavisor2" >
   	<div class="dialog regdialog nobox">
       <h1>REGISTRO DE</br>
-      <em>species</em></h1> <!-- species -->
+      <em><%= @record["species"] %></em></h1> <!-- species -->
       <a class="closevb vatop" id="regboxclose">x</a>
       <blockquote>
         <p>
          <b>ID del registro:</b> 5824a335e21cc54c32cb91c1<br> <!-- _id -->
-         <b>ID especie en BioModelos:</b> 2117 <!-- taxID -->
+         <b>ID especie en BioModelos:</b> <%= @record["taxID"] %> <!-- taxID -->
         </p> 
       </blockquote>
       <button id="editregbtn" class="botonpopup">editar</button>
@@ -21,16 +21,16 @@
          </form>
       <div class="clearfix"></div>
       <h2>Taxonomía</h2>
-      <p><b>Nombre aceptado:</b> <span class="contented">Hedychium coronarium</span></p> <!-- acceptedNameUsage -->
-      <p><b>Nombre original:</b> Hedychium coronarium</p> <!-- speciesOriginal -->
+      <p><b>Nombre aceptado:</b> <span class="contented" id="txtSpeciesEdit"><%= @record["acceptedNameUsage"] %></span></p> <!-- acceptedNameUsage -->
+      <p><b>Nombre original:</b> <%= @record["speciesOriginal"] %></p> <!-- speciesOriginal -->
       <p><b>Familia:</b> xx</p> <!-- family -->
       <p><b>Orden:</b> xxx</p> <!-- order -->
       <p><b>Clase:</b> xxx</p> <!-- class -->
       <p><b>Reino:</b> xx</p> <!-- kingdom -->
 
       <h2>Ubicación</h2>
-      <p><b>Latitud:</b> <span class="contented">9.07416</span></p> <!-- lat -->
-      <p><b>Longitud:</b> <span class="contented">-79.66</span></p> <!-- lon -->
+      <p><b>Latitud:</b> <span class="contented" id="txtLatEdit"><%= @record["lat"] %></span></p> <!-- lat -->
+      <p><b>Longitud:</b> <span class="contented" id="txtLonEdit"><%= @record["lon"] %></span></p> <!-- lon -->
       <br>
       <div class="regcateg">
          <div><b>original</b> · <i>interpretado</i></div>
@@ -39,61 +39,61 @@
       <div class="colreg">
          <p><b>País:</b></p>
          <div class="camposreg">
-            <div class="campouno">PA</div>
-            <div class="campodos">Panama</div>
-            <div class="correctoreg"></div>
+            <div class="campouno"><%= @record["country"] %></div>
+            <div class="campodos"><%= @record["suggestedCountry"] %></div>
+            <% if @record["correctCountry"] %><div class="correctoreg"></div><% else %><div class="falsoreg"></div><% end %>
          </div><!-- country, suggestedCountry, correctCountry -->
          <p><b>Departamento:</b></p>
          <div class="camposreg">
-            <div class="campouno"><span class="contented">Canal Area</span></div>
-            <div class="campodos">Null</div>
-            <div class="falsoreg"></div>
+            <div class="campouno"><span class="contented" id="txtAdm1Edit"><%= @record["adm1"].nil? ? '-': @record["adm1"] %></span></div>
+            <div class="campodos"><%= @record["suggestedStateProvince"].nil? ? '-': @record["suggestedStateProvince"] %></div>
+            <% if @record["correctStateProvince"] %><div class="correctoreg"></div><% else %><div class="falsoreg"></div><% end %>
          </div><!-- adm1, suggestedStateProvince, correctStateProvince -->
          <p><b>Municipio:</b></p>
          <div class="camposreg">
-            <div class="campouno"><span class="contented">xx</span></div>
-            <div class="campodos">Null</div>
-            <div class="falsoreg"></div>
+            <div class="campouno"><span class="contented" id="txtAdm2Edit"><%= @record["adm2"].nil? ? '-': @record["adm2"] %></span></div>
+            <div class="campodos"><%= @record["suggestedCounty"].nil? ? '-': @record["adm2"] %></div>
+            <% if @record["correctCounty"] %><div class="correctoreg"></div><% else %><div class="falsoreg"></div><% end %>
          </div><!-- adm2, suggestedCounty, correctCounty -->
          <p><b>Localidad:</b></p>
          <div class="camposreg">
-            <div class="campouno"><span class="contented">Along Gaillard Highway, ca. 1 mi N of Summit Gardens</span></div>
-            <div class="correctoreg"></div>
+            <div class="campouno"><span class="contented" id="txtLocEdit"><%= @record["locality"].nil? ? '-': @record["locality"] %></span></div>
+             <% if @record["hasLocality"] %><div class="correctoreg"></div><% else %><div class="falsoreg"></div><% end %>
          </div><!-- locality, hasLocality -->
          <p><b>Altitud:</b></p>
          <div class="camposreg">
-            <div class="campouno"><span class="contented">91</span></div>
-            <div class="campodos">null</div>
+            <div class="campouno"><span class="contented" id="txtAltEdit"><%= @record["alt"].nil? ? '-': @record["alt"] %></span></div>
+            <div class="campodos"><%= @record["interpretedElevation"].nil? ? '-': @record["interpretedElevation"] %></div>
             <div class="correctoreg"></div>
          </div><!-- alt, interpretedElevation, diferenceInAltitude (0 decimales)  -->
       </div>
 
       <div class="invisible" id="Reghidden">
          <h2>Información del registro</h2>
-         <p><b>Fuente: </b> GBIF</p> <!-- source -->
-         <p><b>ID registro original: </b> 1259465233</p> <!-- occurrenceID -->
+         <p><b>Fuente: </b> <%= @record["source"].nil? ? '-': @record["source"] %></p> <!-- source -->
+         <p><b>ID registro original: </b> <%= @record["occurrenceID"].nil? ? '-': @record["occurrenceID"] %></p> <!-- occurrenceID -->
          <p><b>Fecha descarga fuente: </b> 17/05/2016</p> <!-- downloadDate -->
-         <p><b>Institución: </b> <span class="contented">MO</span></p> <!-- institution -->
-         <p><b>Colección: </b> <span class="contented">null</span></p> <!-- collection_code -->
-         <p><b>Número de catálogo: </b> <span class="contented">2177612</span></p> <!-- catalogNumber -->
-         <p><b>Colector: </b> <span class="contented">Thomas B. Croat</span></p> <!-- collector -->
-         <p><b>Evidencia de registro: </b> <span class="contented">PRESERVED_SPECIMEN</span></p> <!-- basisOfRecord -->
-         <p><b>URL: </b> <span class="contented">Null</span></p> <!-- url -->
+         <p><b>Institución: </b> <span class="contented"><%= @record["institution"].nil? ? '-': @record["institution"] %></span></p> <!-- institution -->
+         <p><b>Colección: </b> <span class="contented"><%= @record["colection"].nil? ? '-': @record["colection"] %></span></p> <!-- collection_code -->
+         <p><b>Número de catálogo: </b> <span class="contented"><%= @record["catalogNumber"].nil? ? '-': @record["catalogNumber"] %></span></p> <!-- catalogNumber -->
+         <p><b>Colector: </b> <span class="contented"><%= @record["collector"].nil? ? '-': @record["collector"] %></span></p> <!-- collector -->
+         <p><b>Evidencia de registro: </b> <span class="contented"><%= @record["basisOfRecord"].nil? ? '-': @record["basisOfRecord"] %></span></p> <!-- basisOfRecord -->
+         <p><b>URL: </b> <span class="contented"><%= @record["url"].nil? ? '-': @record["url"] %></span></p> <!-- url -->
          <p><b>Creado por: </b> Null</p> </br> <!-- userID -->
       
-         <p><b>Fecha inicial: </b> Null</p> <!-- earliestDateCollected -->
-         <p><b>Fecha final: </b> Null</p> <!-- latestDateCollected -->
-         <p><b>Fecha interpretada: </b> YYYY MM DD</p> <!-- yyyy mm dd -->
+         <p><b>Fecha inicial: </b> <%= @record["earliestDateCollected"].nil? ? '-': @record["earliestDateCollected"] %></p> <!-- earliestDateCollected -->
+         <p><b>Fecha final: </b> <%= @record["latestDateCollected"].nil? ? '-': @record["latestDateCollected"] %></p> <!-- latestDateCollected -->
+         <p><b>Fecha interpretada: </b> <%= @record["yyyy"].nil? ? '-': @record["yyyy"] %>/<%= @record["mm"].nil? ? '-': @record["mm"] %>/<%= @record["dd"].nil? ? '-': @record["dd"] %></p> <!-- yyyy mm dd -->
          <p><b>Fecha creación: </b> YYYY MM DD</p> <!-- yyyy mm dd ligado a userID-->
 
          <h2>Calidad del registro</h2>
-         <p><b>Error georeferenciación (m):</b> null</p> <!-- coordUncertaintyM -->
-         <p><b>En casco urbano:</b> false</p> <!-- inUrbanArea -->
-         <p><b>Altitud en coordenadas:</b> 89</p> <!-- demAltitude -->
-         <p><b>Altitud en rango conocido:</b> null</p> <!-- consistentAltitude -->
-         <p><b>Distancia a rango conocido:</b> null</p> <!-- dist2KnowRange -->
-         <p><b>Altitud atipica:</b> false</p> <!-- altitudinalOutlier -->
-         <p><b>Ambiente atípico:</b> true</p> <!-- environmentalOutlier -->
+         <p><b>Error georeferenciación (m):</b> <%= @record["coordUncertaintyM"].nil? ? '-': @record["coordUncertaintyM"] %></p> <!-- coordUncertaintyM -->
+         <p><b>En casco urbano:</b> <%= @record["inUrbanArea"].nil? ? '-': @record["inUrbanArea"] %></p> <!-- inUrbanArea -->
+         <p><b>Altitud en coordenadas:</b> <%= @record["demAltitude"].nil? ? '-': @record["demAltitude"] %></p> <!-- demAltitude -->
+         <p><b>Altitud en rango conocido:</b> <%= @record["consistentAltitude"].nil? ? '-': @record["consistentAltitude"] %></p> <!-- consistentAltitude -->
+         <p><b>Distancia a rango conocido:</b> <%= @record["dist2KnowRange"].nil? ? '-': @record["dist2KnowRange"] %></p> <!-- dist2KnowRange -->
+         <p><b>Altitud atipica:</b> <%= @record["altitudinalOutlier"].nil? ? '-': @record["altitudinalOutlier"] %></p> <!-- altitudinalOutlier -->
+         <p><b>Ambiente atípico:</b> <%= @record["environmentalOutlier"].nil? ? '-': @record["environmentalOutlier"] %></p> <!-- environmentalOutlier -->
 
          
          <br><br>

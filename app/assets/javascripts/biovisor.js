@@ -300,8 +300,10 @@ var _BioModelosVisorModule = function() {
 						$.ajax({
 						    type: 'POST',
 						    url: "/records/show",
+						    data: {
+		    					id: layer.feature.properties._id
+		    				},
 						});
-
 					}); 
 		 		// 	var popupcontent = [];
 					// popupcontent.push();
@@ -325,7 +327,6 @@ var _BioModelosVisorModule = function() {
 		});
 		cluster.addLayer(recordsLayer);
 		map.on('popupopen', function(e) {
-			console.log(e.popup);
 		    currentPopup = e.popup;
 		});
 	}
