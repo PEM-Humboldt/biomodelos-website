@@ -81,6 +81,16 @@ class Model
       return valid_model
     end
 
+    def self.get_valid_models(species_id)
+      response = JSON.parse(get('/' + species_id + '?type=Valid').body)
+      valid_models_array = []
+      response.each do |model|
+        t = Model.new(model["modelID"], model["modelStatus"], model["png"], model["zip"], model["thumb"], model["thresholdType"], model["modelLevel"], model["license"], model["customCitation"], model["methodFile"], model["published"])
+        valid_models_array.push(t)
+      end
+      return valid_models_array
+    end
+
     def self.eoo(species_id)
       response = JSON.parse(get('/approved/eoo/' + species_id).body)
       eooData = nil
