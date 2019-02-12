@@ -28,22 +28,26 @@ class HomeController < ApplicationController
 
 	def send_contact_form
 		@contact_message = ContactMessage.new(message_params)
-		if @contact_message.valid?
+		if @contact_message.valid? && verify_recaptcha
 			AdministratorsMailer.contact_us(@contact_message).deliver_now
 			redirect_to root_path, notice: I18n.t('biomodelos.contact.success_notice')
 		else
-			errores = I18n.t('biomodelos.contact.fields_error')
-			if !@contact_message.errors.messages[:name].blank?
-				errores << "Nombre "
-			end
-			if !@contact_message.errors.messages[:email].blank?
-				errores << "E-mail "
-			end
-			if !@contact_message.errors.messages[:content].blank?
-				errores << "Mensaje "
-			end
+			if !verify_recaptcha
+				redirect_to home_contact_us_path
+			elsif !@contact_message.valid?
+			 	errores = I18n.t('biomodelos.contact.fields_error')
+				if !@contact_message.errors.messages[:name].blank?
+					errores << "Nombre "
+				end
+				if !@contact_message.errors.messages[:email].blank?
+					errores << "E-mail "
+				end
+				if !@contact_message.errors.messages[:content].blank?
+					errores << "Mensaje "
+				end
 
-			redirect_to home_contact_us_path, :flash => { :error => errores }
+				redirect_to home_contact_us_path, :flash => { :error => errores }
+			end
 		end
 	end
 
