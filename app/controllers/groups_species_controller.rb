@@ -40,7 +40,6 @@ class GroupsSpeciesController < ApplicationController
 	def species_by_group
 		@group = Group.find(params[:id])
 		@species_ids = GroupsSpecies.where(:group_id => @group.id)
-		@pending_species = @species_ids.select{|c| c.groups_species_state_id == 2}.map{|t| [Species.find_name(t.species_id.to_s), t.species_id]}.uniq
 		@pending_species = Species.find_names(@species_ids.select{|c| c.groups_species_state_id == 2}.map{|t| t.species_id}.uniq)\
 			.map{|e| [e['acceptedNameUsage'].to_s, e['taxID'].to_s]}
 		@actual_species = Species.find_names(@species_ids.select{|c| c.groups_species_state_id == 1}.map{|t| t.species_id}.uniq)\
