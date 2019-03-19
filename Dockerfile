@@ -1,29 +1,24 @@
 FROM ruby:2.3-alpine
 MAINTAINER Daniel Lopez <dlopez@humboldt.org.co>
-# Based on bluebu/rails-alpine by bluebu <bluebuwang@gmail.com>
 
-ENV RAILS_VERSION="4.2.10" \
-    BUILD_PACKAGES="curl-dev build-base openssh" \
-    DEV_PACKAGES="tzdata libxml2 libxml2-dev libxslt libxslt-dev postgresql-dev \
-                  imagemagick imagemagick-dev sqlite-dev git nodejs npm"
+ENV BUILD_PACKAGES="curl-dev build-base openssh"
+#gmp-dev for nokogiri gem on Ubuntu
+ENV DEV_PACKAGES="tzdata libxml2-dev libxslt-dev postgresql-dev imagemagick imagemagick-dev git gmp-dev nodejs npm"
 
-RUN \
-  apk --update --upgrade add $BUILD_PACKAGES $DEV_PACKAGES && \
-  rm /var/cache/apk/*
-
-RUN \
-  gem install -N nokogiri -v 1.8.1 -- --use-system-libraries && \
-  gem install -N rails --version "$RAILS_VERSION" && \
-  echo 'gem: --no-document' >> ~/.gemrc && \
-  cp ~/.gemrc /etc/gemrc && \
-  chmod uog+r /etc/gemrc && \
-
-  # cleanup and settings
-  # bundle config --global build.nokogiri  "--use-system-libraries" && \
-  # bundle config --global build.nokogumbo "--use-system-libraries" && \
-  rm -rf /usr/lib/lib/ruby/gems/*/cache/* && \
-  rm -rf ~/.gem
-
+RUN apk --update --upgrade add $BUILD_PACKAGES $DEV_PACKAGES && rm -rf /var/cache/apk/*
 RUN npm install -g bower
+  
+ENV RAILS_ROOT /var/www/BioModelos
+RUN mkdir -p $RAILS_ROOT
+WORKDIR $RAILS_ROOT
 
-CMD [ "/bin/sh" ]
+COPY Gemfile Gemfile.lock ./
+RUN gem install bundler
+RUN bundle install
+
+COPY . .
+
+RUN bower install --allow-root
+RUN bundle exec rake assets:precompile
+
+CMD ["bundle", "exec", "rails", "s", "-b0.0.0.0", "-e", "production"]
