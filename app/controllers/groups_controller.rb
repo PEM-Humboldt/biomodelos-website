@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
 			@group = Group.find(params[:id])
 			@tasks = Task.where(:group_id =>  @group.id)
 			@species_ids = GroupsSpecies.where(:group_id => @group.id, :groups_species_state_id => 1)
-			@species_with_tasks_pending = @tasks.select{|x| x.task_state_id == 1}.map{|t| [Species.find_name(t.species_id.to_s),t.species_id]}.uniq
+			#@species_with_tasks_pending = @tasks.select{|x| x.task_state_id == 1}.map{|t| [Species.find_name(t.species_id.to_s),t.species_id]}.uniq
 			@models_approved = 0
 			# @species_with_tasks.each do |species|
 			# 	approved_by_species = @tasks.select{|x| x.species_id == species[1] && x.task_type_id == 4}

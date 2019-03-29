@@ -87,7 +87,7 @@ class ModelsController < ApplicationController
 			
 			# If there are valid models, adds them first to the array.
 			if @valid_models
-				@valid_models.each do |m|
+				@valid_models .each do |m|
 					@models.unshift(m)
 				end 
 			end
