@@ -489,7 +489,7 @@ $(document).ready(function(){
 			constraints.lon.presence = true;
 			constraints.lon.numericality.greaterThanOrEqualTo = -180;
 			constraints.lon.numericality.lessThanOrEqualTo = 180;
-			data.lon = lonRecordEdition;
+			data.decimalLongitude = lonRecordEdition;
 		}
 		if(speRecordEdition != $("#oldSpeciesEdit").val()){
 			varsToValidate.speciesOriginal = speRecordEdition;
@@ -565,7 +565,7 @@ $(document).ready(function(){
 		constraints.lon.presence = true;
 		constraints.lon.numericality.greaterThanOrEqualTo = -180;
 		constraints.lon.numericality.lessThanOrEqualTo = 180;
-		data.lon = lonNew;
+		data.decimalLongitude = lonNew;
 
 		varsToValidate.localidad = locNew;
 		constraints.localidad = {};
