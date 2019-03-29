@@ -606,7 +606,7 @@ $(document).ready(function(){
 			data.dd = dayNew;
 		}
 		if(depNew != "")
-			data.adm1 = depNew;
+			data.stateProvince = depNew;
 		if(munNew != "")
 			data.adm2 = munNew;
 		if(tipoNew != "")

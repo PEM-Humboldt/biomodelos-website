@@ -7,7 +7,7 @@
         <p>
          <b>ID del registro:</b> 5824a335e21cc54c32cb91c1<br> <!-- _id -->
          <b>ID especie en BioModelos:</b> 2117 <!-- taxID -->
-        </p> 
+        </p>
       </blockquote>
       <button id="editregbtn" class="botonpopup">editar</button>
       <a href="#" class="approved" title="Registro correcto" rel="tooltip"></a>
@@ -48,7 +48,7 @@
             <div class="campouno"><span class="contented">Canal Area</span></div>
             <div class="campodos">Null</div>
             <div class="falsoreg"></div>
-         </div><!-- adm1, suggestedStateProvince, correctStateProvince -->
+         </div><!-- stateProvince, suggestedStateProvince, correctStateProvince -->
          <p><b>Municipio:</b></p>
          <div class="camposreg">
             <div class="campouno"><span class="contented">xx</span></div>
@@ -80,7 +80,7 @@
          <p><b>Evidencia de registro: </b> <span class="contented">PRESERVED_SPECIMEN</span></p> <!-- basisOfRecord -->
          <p><b>URL: </b> <span class="contented">Null</span></p> <!-- url -->
          <p><b>Creado por: </b> Null</p> </br> <!-- userID -->
-      
+
          <p><b>Fecha inicial: </b> Null</p> <!-- earliestDateCollected -->
          <p><b>Fecha final: </b> Null</p> <!-- latestDateCollected -->
          <p><b>Fecha interpretada: </b> YYYY MM DD</p> <!-- yyyy mm dd -->
@@ -95,7 +95,7 @@
          <p><b>Altitud atipica:</b> false</p> <!-- altitudinalOutlier -->
          <p><b>Ambiente atípico:</b> true</p> <!-- environmentalOutlier -->
 
-         
+
          <br><br>
          <p><b>Último reporte: </b>
             <br>2001/12/12, Error de georeferenciación, Roberto Bolaños</p> <!-- reported -->
@@ -121,15 +121,15 @@ $(document).ready(function(){
         $("#saveregbtn").replaceWith('<button id="editregbtn" class="botonpopup">editar</button>');
     });
 
-    $(".unapproved").on("click", function( event ) {   
+    $(".unapproved").on("click", function( event ) {
      $(".reportar").toggle("slow");
     });
 
-    $("#cancel-point-cmt").on("click", function( event ) {   
+    $("#cancel-point-cmt").on("click", function( event ) {
      $(".reportar").toggle("slow");
     });
 
-    $("#Showreg").on("click", function( event ) {   
+    $("#Showreg").on("click", function( event ) {
      $("#Reghidden").toggle("slow");
      if ($("#Showreg").hasClass("rotate")){
        $("#Showreg").removeClass("rotate");
@@ -143,15 +143,15 @@ $(document).ready(function(){
 
 });
 
-   // para maximo numero de caracteres..... 
-   //var content_id = 'editable_div';  
+   // para maximo numero de caracteres.....
+   //var content_id = 'editable_div';
 
    // max = 10;
 
    // $('#'+content_id).keydown(function(e){ check_charcount(content_id, max, e); });
 
    // function check_charcount(content_id, max, e)
-   // {   
+   // {
    //     if(e.which != 8 && $('#'+content_id).text().length > max)
    //     {
    //        e.preventDefault();

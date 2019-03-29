@@ -55,7 +55,7 @@ var _BioModelosVisorModule = function() {
 						"url":"Url"
 					};
 
-	var hiddenFields = ["adm1", "adm2", "taxID", "species", "reported", "updated", "environmentalOutlier"];
+	var hiddenFields = ["stateProvince", "adm2", "taxID", "species", "reported", "updated", "environmentalOutlier"];
 
 	var imageBounds = [[13,-60],[-14, -83]];
 
@@ -302,7 +302,7 @@ var _BioModelosVisorModule = function() {
 						    url: "/records/show",
 						});
 
-					}); 
+					});
 		 		// 	var popupcontent = [];
 					// popupcontent.push();
 					// for (var prop in feature.properties) {
@@ -312,7 +312,7 @@ var _BioModelosVisorModule = function() {
 					// 		popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + "<a href=http://"+ feature.properties[prop] +" target='_blank'>" + feature.properties[prop] + "</a></br>");
 					// 	else if (hiddenFields.indexOf(prop) === -1)
 					// 		popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + feature.properties[prop] + "</br>");
-		
+
 					// }
 					// if(isEditable)
 					// 	popupcontent.push('</div><div class="centering"><a href="" class="wrongbtn" id="editRecordBtn">Editar</a><a href="/records/report_record" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar</a></div>');
