@@ -47,7 +47,7 @@ var _BioModelosVisorModule = function() {
 						"institutionCode":"Institución",
 						"catalogNumber":"Número de catálogo",
 						"basisOfRecord":"Evidencia",
-						"collector":"Recolector",
+						"recordedBy":"Recolector",
 						"collectionCode":"Colección",
 						"yyyy":"Año",
 						"mm":"Mes",

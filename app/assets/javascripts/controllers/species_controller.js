@@ -612,7 +612,7 @@ $(document).ready(function(){
 		if(tipoNew != "")
 			data.basisOf = tipoNew;
 		if(obsNew != "")
-			data.collector = obsNew;
+			data.recordedBy = obsNew;
 		if(citaNew != "")
 			data.citation_bm = citaNew;
 		if(catNumberNew != "")
