@@ -44,7 +44,7 @@ var _BioModelosVisorModule = function() {
 						"suggestedCounty":"Municipio",
 						"verbatimLocality":"Localidad",
 						"verbatimElevation":"Altitud",
-						"institution":"Institución",
+						"institutionCode":"Institución",
 						"catalogNumber":"Número de catálogo",
 						"basisOfRecord":"Evidencia",
 						"collector":"Recolector",
@@ -283,7 +283,7 @@ var _BioModelosVisorModule = function() {
 					    dataFilter = feature.properties.source === selectFilters[1];
 					    break;
 					  case 'Institución':
-					  	dataFilter = feature.properties.institution === selectFilters[1];
+					  	dataFilter = feature.properties.institutionCode === selectFilters[1];
 					  	break;
 					  case '':
 					    dataFilter = true;
@@ -398,7 +398,7 @@ var _BioModelosVisorModule = function() {
 			  		name = item.properties["source"];
 			  		break;
 			  	case "Institución":
-			  		name = item.properties.institution;
+			  		name = item.properties.institutionCode;
 			  		break;
 			  	default:
 			  		break;

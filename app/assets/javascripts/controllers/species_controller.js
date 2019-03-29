@@ -620,7 +620,7 @@ $(document).ready(function(){
 		if(colNew != "")
 			data.collection_code = colNew;
 		if(instNew != "")
-			data.institution = instNew;
+			data.institutionCode = instNew;
 		if(commentNew != "")
 			data.comments_bm = commentNew;
 
