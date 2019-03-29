@@ -43,7 +43,7 @@ var _BioModelosVisorModule = function() {
 						"suggestedStateProvince":"Departamento",
 						"suggestedCounty":"Municipio",
 						"verbatimLocality":"Localidad",
-						"alt":"Altitud",
+						"verbatimElevation":"Altitud",
 						"institution":"Institución",
 						"catalogNumber":"Número de catálogo",
 						"basisOfRecord":"Evidencia",

@@ -578,7 +578,7 @@ $(document).ready(function(){
 			constraints.altura.numericality = {};
 			constraints.altura.numericality.greaterThanOrEqualTo = 0;
 			constraints.altura.numericality.lessThanOrEqualTo = 10000;
-			data["alt"] = altNew;
+			data.verbatimElevation = altNew;
 		}
 
 		if(yearNew != ""){
