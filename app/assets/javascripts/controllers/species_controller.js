@@ -499,7 +499,7 @@ $(document).ready(function(){
 			varsToValidate.localidad = locRecordEdition;
 			constraints.localidad = {};
 			constraints.localidad.presence = true;
-			data.locality = locRecordEdition;
+			data.verbatimLocality = locRecordEdition;
 		}
 		var valResponse = validate(varsToValidate, constraints, {format: "flat"});
 		if(valResponse){
@@ -570,7 +570,7 @@ $(document).ready(function(){
 		varsToValidate.localidad = locNew;
 		constraints.localidad = {};
 		constraints.localidad.presence = true;
-		data.locality = locNew;
+		data.verbatimLocality = locNew;
 
 		if(altNew != ""){
 			varsToValidate.altura = altNew;

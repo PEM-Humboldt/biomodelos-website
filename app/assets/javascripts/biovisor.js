@@ -42,7 +42,7 @@ var _BioModelosVisorModule = function() {
 						"source":"Fuente",
 						"suggestedStateProvince":"Departamento",
 						"suggestedCounty":"Municipio",
-						"locality":"Localidad",
+						"verbatimLocality":"Localidad",
 						"alt":"Altitud",
 						"institution":"Institución",
 						"catalogNumber":"Número de catálogo",
@@ -353,7 +353,7 @@ var _BioModelosVisorModule = function() {
 							editableForm.push('<b>Especie original:</b></br><input type="text" id="txtSpeciesEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
 							editableForm.push('<input type="hidden" id="oldSpeciesEdit" value="' + editableLayer.feature.properties[prop] +'"/input>');
 						}
-						else if(prop === 'locality'){
+						else if(prop === 'verbatimLocality'){
 							editableForm.push('<b>Localidad:</b></br><input type="text" id="txtLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
 							editableForm.push('<input type="hidden" id="oldLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input>');
 						}
