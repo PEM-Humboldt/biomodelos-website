@@ -608,7 +608,7 @@ $(document).ready(function(){
 		if(depNew != "")
 			data.stateProvince = depNew;
 		if(munNew != "")
-			data.adm2 = munNew;
+			data.county = munNew;
 		if(tipoNew != "")
 			data.basisOf = tipoNew;
 		if(obsNew != "")

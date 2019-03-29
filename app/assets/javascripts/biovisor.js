@@ -55,7 +55,7 @@ var _BioModelosVisorModule = function() {
 						"url":"Url"
 					};
 
-	var hiddenFields = ["stateProvince", "adm2", "taxID", "species", "reported", "updated", "environmentalOutlier"];
+	var hiddenFields = ["stateProvince", "county", "taxID", "species", "reported", "updated", "environmentalOutlier"];
 
 	var imageBounds = [[13,-60],[-14, -83]];
 
