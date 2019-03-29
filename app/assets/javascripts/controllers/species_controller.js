@@ -480,7 +480,7 @@ $(document).ready(function(){
 			constraints.lat.presence = true;
 			constraints.lat.numericality.greaterThanOrEqualTo = -90;
 			constraints.lat.numericality.lessThanOrEqualTo = 90;
-			data.lat = latRecordEdition;
+			data.decimalLatitude = latRecordEdition;
 		}
 		if (lonRecordEdition != $("#oldLonEdit").val()){
 			varsToValidate.lon = lonRecordEdition;
@@ -557,7 +557,7 @@ $(document).ready(function(){
 		constraints.lat.presence = true;
 		constraints.lat.numericality.greaterThanOrEqualTo = -90;
 		constraints.lat.numericality.lessThanOrEqualTo = 90;
-		data.lat = latNew;
+		data.decimalLatitude = latNew;
 
 		varsToValidate.lon = lonNew;
 		constraints.lon = {};
