@@ -618,7 +618,7 @@ $(document).ready(function(){
 		if(catNumberNew != "")
 			data.catalogNumber = catNumberNew;
 		if(colNew != "")
-			data.collection_code = colNew;
+			data.collectionCode = colNew;
 		if(instNew != "")
 			data.institutionCode = instNew;
 		if(commentNew != "")
