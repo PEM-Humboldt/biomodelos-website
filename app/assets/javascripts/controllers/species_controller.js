@@ -587,7 +587,7 @@ $(document).ready(function(){
 			constraints.yyyy.numericality = {};
 			constraints.yyyy.numericality.greaterThanOrEqualTo = 1800;
 			constraints.yyyy.numericality.lessThanOrEqualTo = moment.utc().year();
-			data.yyyy = yearNew;
+			data.year = yearNew;
 		}
 		if(monthNew != ""){
 			varsToValidate.mm = monthNew;
@@ -595,7 +595,7 @@ $(document).ready(function(){
 			constraints.mm.numericality = {};
 			constraints.mm.numericality.greaterThanOrEqualTo = 1;
 			constraints.mm.numericality.lessThanOrEqualTo = 12;
-			data.mm = monthNew;
+			data.month = monthNew;
 		}
 		if(dayNew != ""){
 			varsToValidate.dd = dayNew;
@@ -603,7 +603,7 @@ $(document).ready(function(){
 			constraints.dd.numericality = {};
 			constraints.dd.numericality.greaterThanOrEqualTo = 1;
 			constraints.dd.numericality.lessThanOrEqualTo = 31;
-			data.dd = dayNew;
+			data.day = dayNew;
 		}
 		if(depNew != "")
 			data.stateProvince = depNew;

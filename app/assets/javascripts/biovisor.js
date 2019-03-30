@@ -49,9 +49,9 @@ var _BioModelosVisorModule = function() {
 						"basisOfRecord":"Evidencia",
 						"recordedBy":"Recolector",
 						"collectionCode":"Colección",
-						"yyyy":"Año",
-						"mm":"Mes",
-						"dd":"Día",
+						"year":"Año",
+						"month":"Mes",
+						"day":"Día",
 						"url":"Url"
 					};
 
@@ -264,16 +264,16 @@ var _BioModelosVisorModule = function() {
 
        				if(yearFilters != ""){
 
-       					var yearValue = feature.properties.yyyy;
+       					var yearValue = feature.properties.year;
        					if(yearValue == null){
        						yearValue = 0;
        					}
-       					if(yearValue < yearFilters[0] || feature.properties.yyyy > yearFilters[1]){
+       					if(yearValue < yearFilters[0] || feature.properties.year > yearFilters[1]){
        						yearFilter = false;
        					}
        				}
        				if(monthFilters != ""){
-       					monthFilter = includesValue(feature.properties.mm, monthFilters);
+       					monthFilter = includesValue(feature.properties.month, monthFilters);
        				}
 					switch (selectFilters[0]){
 					  case 'Evidencia':
