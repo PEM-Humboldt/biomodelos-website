@@ -470,7 +470,7 @@ $(document).ready(function(){
 
 		var varsToValidate = {},
 		constraints = {},
-		data = {userId_bm: $("#user_id_field").val(),
+		data = {userIdBm: $("#user_id_field").val(),
 				recordId: $("#bm_db_id").val()};
 
 		if (latRecordEdition != $("#oldLatEdit").val()){
@@ -549,7 +549,7 @@ $(document).ready(function(){
 		constraints = {},
 		data = {taxID: $("#species_id_field").val(),
 				acceptedNameUsage: $(".spname").html(),
-				userId_bm: $("#user_id_field").val()};
+				userIdBm: $("#user_id_field").val()};
 
 		varsToValidate.lat = latNew;
 		constraints.lat = {};
