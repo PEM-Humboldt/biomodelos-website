@@ -622,7 +622,7 @@ $(document).ready(function(){
 		if(instNew != "")
 			data.institutionCode = instNew;
 		if(commentNew != "")
-			data.comments_bm = commentNew;
+			data.reportedCommentsBm = commentNew;
 
 		var valResponse = validate(varsToValidate, constraints, {format: "flat"});
 
