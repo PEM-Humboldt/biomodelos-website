@@ -614,7 +614,7 @@ $(document).ready(function(){
 		if(obsNew != "")
 			data.recordedBy = obsNew;
 		if(citaNew != "")
-			data.citation_bm = citaNew;
+			data.createdCitationBm = citaNew;
 		if(catNumberNew != "")
 			data.catalogNumber = catNumberNew;
 		if(colNew != "")
@@ -622,7 +622,7 @@ $(document).ready(function(){
 		if(instNew != "")
 			data.institutionCode = instNew;
 		if(commentNew != "")
-			data.reportedCommentsBm = commentNew;
+			data.createdCommentsBm = commentNew;
 
 		var valResponse = validate(varsToValidate, constraints, {format: "flat"});
 
