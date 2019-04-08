@@ -80,14 +80,16 @@ class ModelsController < ApplicationController
 
 		begin
 			@species_id = params[:species_id]
-			@valid_model = Model.get_valid_model(params[:species_id])
+			@valid_models = Model.get_valid_models(params[:species_id])
 			@models = Model.get_hypotheses(params[:species_id])
 			@can_edit = false
 
 			
-			# If there's a valid model, adds it first to the array.
-			if @valid_model
-				@models.unshift(@valid_model)
+			# If there are valid models, adds them first to the array.
+			if @valid_models
+				@valid_models.each do |m|
+					@models.unshift(m)
+				end 
 			end
 			# If the user is signed in and can edit the species, it gets and sets the user ratings for each model.
 			if user_signed_in?

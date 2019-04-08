@@ -226,3 +226,7 @@ es:
                 too_short: La contraseña es demasiado corta (%{count} caracteres mínimo)
               password_confirmation:
                 blank: "Ingrese la confirmación de la contraseña"
+  recaptcha:
+    errors:
+      verification_failed: 'La validación del reCAPTCHA falló. Inténtelo de nuevo.'
+      recaptcha_unreachable: 'Ocurrió un error al intentar validar el reCAPTCHA. Inténtelo de nuevo.'
