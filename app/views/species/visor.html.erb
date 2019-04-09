@@ -76,10 +76,9 @@
 	<% if user_signed_in? %>
 		<div id="edit_tools_box"></div>
 	<% end %>
-
-	<% if user_signed_in? %>
-		<div id="show_record_box"></div>
-	<% end %>
+	
+	<div id="show_record_box"></div>
+	
 </div>
 
 <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+ Rails.application.secrets.google_maps_key %>

@@ -1,13 +1,8 @@
 $("#show_record_box").html(""); //Clear div before rendering again
-<% if user_signed_in? %>
-	$("#show_record_box").html('<%=j render partial: 'records/show' %>');
-	// $("#point_comment_recordId").val($("#bm_db_id").val());
-	// /* Cancel button */
+$("#show_record_box").html('<%=j render partial: 'records/show' %>');
+	/* Cancel button */
 	$("#regboxclose").click(function(e){
 		e.preventDefault();
 		$("#show_record_box").html("");
         _BioModelosVisorModule.closePopUp();
 	});
-<% else %>
-	// alertify.alert("<%= t('biomodelos.records.report.sign_up_notice') %>");
-<% end %>

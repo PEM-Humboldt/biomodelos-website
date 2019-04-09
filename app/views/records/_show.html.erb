@@ -1,7 +1,7 @@
   <div class="cajavisor2" >
   	<div class="dialog regdialog nobox">
       <h1>REGISTRO DE</br>
-      <em><%= @record["species"] %></em></h1> <!-- species -->
+      <em><%= @record["species"] %></em></h1>
       <a class="closevb vatop" id="regboxclose">x</a>
       <blockquote>
         <p>
@@ -9,16 +9,18 @@
          <b>ID especie en BioModelos:</b> <%= @record["taxID"] %> <!-- taxID -->
         </p> 
       </blockquote>
-      <button id="editregbtn" class="botonpopup">editar</button>
-      <a href="#" class="approved" title="Registro correcto" rel="tooltip"></a>
-      <a href="#" class="unapproved" title="Reportar" rel="tooltip"></a>
-         <form class="forms reportar invisible">
-            <h3>Reportar Registro</h3>
-            <input type="radio" name="badid" value="idIssue" checked="checked"><%= t('biomodelos.records.report.id_issue_lbl') %><br>
-            <input type="radio" name="badid" value="geoIssue"><%= t('biomodelos.records.report.geo_issue_lbl') %><br>
-            <input type="submit" value='<%= t('biomodelos.records.report.submit_btn') %>'>
-            <input type="button" id='cancel-point-cmt' class="cancelbtn" value='<%= t('biomodelos.records.report.cancel_lnk') %>'>
-         </form>
+      <% if user_signed_in? %>
+         <button id="editregbtn" class="botonpopup">editar</button>
+         <a href="#" class="approved" title="Registro correcto" rel="tooltip"></a>
+         <a href="#" class="unapproved" title="Reportar" rel="tooltip"></a>
+            <form class="forms reportar invisible">
+               <h3>Reportar Registro</h3>
+               <input type="radio" name="badid" value="idIssue" checked="checked"><%= t('biomodelos.records.report.id_issue_lbl') %><br>
+               <input type="radio" name="badid" value="geoIssue"><%= t('biomodelos.records.report.geo_issue_lbl') %><br>
+               <input type="submit" value='<%= t('biomodelos.records.report.submit_btn') %>'>
+               <input type="button" id='cancel-point-cmt' class="cancelbtn" value='<%= t('biomodelos.records.report.cancel_lnk') %>'>
+            </form>
+      <% end %>
       <div class="clearfix"></div>
       <h2>Taxonomía</h2>
       <p><b>Nombre aceptado:</b> <span class="contented" id="txtSpeciesEdit"><%= @record["acceptedNameUsage"] %></span></p> <!-- acceptedNameUsage -->
