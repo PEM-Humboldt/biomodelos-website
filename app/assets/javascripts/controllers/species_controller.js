@@ -470,7 +470,7 @@ $(document).ready(function(){
 
 		var varsToValidate = {},
 		constraints = {},
-		data = {userId_bm: $("#user_id_field").val(),
+		data = {userIdBm: $("#user_id_field").val(),
 				recordId: $("#bm_db_id").val()};
 
 		if (latRecordEdition != $("#oldLatEdit").val()){
@@ -480,7 +480,7 @@ $(document).ready(function(){
 			constraints.lat.presence = true;
 			constraints.lat.numericality.greaterThanOrEqualTo = -90;
 			constraints.lat.numericality.lessThanOrEqualTo = 90;
-			data.lat = latRecordEdition;
+			data.decimalLatitude = latRecordEdition;
 		}
 		if (lonRecordEdition != $("#oldLonEdit").val()){
 			varsToValidate.lon = lonRecordEdition;
@@ -489,7 +489,7 @@ $(document).ready(function(){
 			constraints.lon.presence = true;
 			constraints.lon.numericality.greaterThanOrEqualTo = -180;
 			constraints.lon.numericality.lessThanOrEqualTo = 180;
-			data.lon = lonRecordEdition;
+			data.decimalLongitude = lonRecordEdition;
 		}
 		if(speRecordEdition != $("#oldSpeciesEdit").val()){
 			varsToValidate.speciesOriginal = speRecordEdition;
@@ -499,7 +499,7 @@ $(document).ready(function(){
 			varsToValidate.localidad = locRecordEdition;
 			constraints.localidad = {};
 			constraints.localidad.presence = true;
-			data.locality = locRecordEdition;
+			data.verbatimLocality = locRecordEdition;
 		}
 		var valResponse = validate(varsToValidate, constraints, {format: "flat"});
 		if(valResponse){
@@ -549,7 +549,7 @@ $(document).ready(function(){
 		constraints = {},
 		data = {taxID: $("#species_id_field").val(),
 				acceptedNameUsage: $(".spname").html(),
-				userId_bm: $("#user_id_field").val()};
+				userIdBm: $("#user_id_field").val()};
 
 		varsToValidate.lat = latNew;
 		constraints.lat = {};
@@ -557,7 +557,7 @@ $(document).ready(function(){
 		constraints.lat.presence = true;
 		constraints.lat.numericality.greaterThanOrEqualTo = -90;
 		constraints.lat.numericality.lessThanOrEqualTo = 90;
-		data.lat = latNew;
+		data.decimalLatitude = latNew;
 
 		varsToValidate.lon = lonNew;
 		constraints.lon = {};
@@ -565,12 +565,12 @@ $(document).ready(function(){
 		constraints.lon.presence = true;
 		constraints.lon.numericality.greaterThanOrEqualTo = -180;
 		constraints.lon.numericality.lessThanOrEqualTo = 180;
-		data.lon = lonNew;
+		data.decimalLongitude = lonNew;
 
 		varsToValidate.localidad = locNew;
 		constraints.localidad = {};
 		constraints.localidad.presence = true;
-		data.locality = locNew;
+		data.verbatimLocality = locNew;
 
 		if(altNew != ""){
 			varsToValidate.altura = altNew;
@@ -578,7 +578,7 @@ $(document).ready(function(){
 			constraints.altura.numericality = {};
 			constraints.altura.numericality.greaterThanOrEqualTo = 0;
 			constraints.altura.numericality.lessThanOrEqualTo = 10000;
-			data["alt"] = altNew;
+			data.verbatimElevation = altNew;
 		}
 
 		if(yearNew != ""){
@@ -587,7 +587,7 @@ $(document).ready(function(){
 			constraints.yyyy.numericality = {};
 			constraints.yyyy.numericality.greaterThanOrEqualTo = 1800;
 			constraints.yyyy.numericality.lessThanOrEqualTo = moment.utc().year();
-			data.yyyy = yearNew;
+			data.year = yearNew;
 		}
 		if(monthNew != ""){
 			varsToValidate.mm = monthNew;
@@ -595,7 +595,7 @@ $(document).ready(function(){
 			constraints.mm.numericality = {};
 			constraints.mm.numericality.greaterThanOrEqualTo = 1;
 			constraints.mm.numericality.lessThanOrEqualTo = 12;
-			data.mm = monthNew;
+			data.month = monthNew;
 		}
 		if(dayNew != ""){
 			varsToValidate.dd = dayNew;
@@ -603,26 +603,26 @@ $(document).ready(function(){
 			constraints.dd.numericality = {};
 			constraints.dd.numericality.greaterThanOrEqualTo = 1;
 			constraints.dd.numericality.lessThanOrEqualTo = 31;
-			data.dd = dayNew;
+			data.day = dayNew;
 		}
 		if(depNew != "")
-			data.adm1 = depNew;
+			data.stateProvince = depNew;
 		if(munNew != "")
-			data.adm2 = munNew;
+			data.county = munNew;
 		if(tipoNew != "")
 			data.basisOf = tipoNew;
 		if(obsNew != "")
-			data.collector = obsNew;
+			data.recordedBy = obsNew;
 		if(citaNew != "")
-			data.citation_bm = citaNew;
+			data.createdCitationBm = citaNew;
 		if(catNumberNew != "")
 			data.catalogNumber = catNumberNew;
 		if(colNew != "")
-			data.collection_code = colNew;
+			data.collectionCode = colNew;
 		if(instNew != "")
-			data.institution = instNew;
+			data.institutionCode = instNew;
 		if(commentNew != "")
-			data.comments_bm = commentNew;
+			data.createdCommentsBm = commentNew;
 
 		var valResponse = validate(varsToValidate, constraints, {format: "flat"});
 

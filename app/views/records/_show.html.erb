@@ -7,7 +7,7 @@
         <p>
          <b>ID del registro:</b> 5824a335e21cc54c32cb91c1<br> <!-- _id -->
          <b>ID especie en BioModelos:</b> <%= @record["taxID"] %> <!-- taxID -->
-        </p> 
+        </p>
       </blockquote>
       <% if user_signed_in? %>
          <button id="editregbtn" class="botonpopup">editar</button>
@@ -31,8 +31,8 @@
       <p><b>Reino:</b> xx</p> <!-- kingdom -->
 
       <h2>Ubicación</h2>
-      <p><b>Latitud:</b> <span class="contented" id="txtLatEdit"><%= @record["lat"] %></span></p> <!-- lat -->
-      <p><b>Longitud:</b> <span class="contented" id="txtLonEdit"><%= @record["lon"] %></span></p> <!-- lon -->
+      <p><b>Latitud:</b> <span class="contented" id="txtLatEdit"><%= @record["decimalLatitude"] %></span></p> <!-- decimalLatitude -->
+      <p><b>Longitud:</b> <span class="contented" id="txtLonEdit"><%= @record["decimalLongitude"] %></span></p> <!-- decimalLongitude -->
       <br>
       <div class="regcateg">
          <div><b>original</b> · <i>interpretado</i></div>
@@ -47,19 +47,19 @@
          </div><!-- country, suggestedCountry, correctCountry -->
          <p><b>Departamento:</b></p>
          <div class="camposreg">
-            <div class="campouno"><span class="contented" id="txtAdm1Edit"><%= @record["adm1"].nil? ? '-': @record["adm1"] %></span></div>
+            <div class="campouno"><span class="contented" id="txtAdm1Edit"><%= @record["stateProvince"].nil? ? '-': @record["stateProvince"] %></span></div>
             <div class="campodos"><%= @record["suggestedStateProvince"].nil? ? '-': @record["suggestedStateProvince"] %></div>
             <% if @record["correctStateProvince"] %><div class="correctoreg"></div><% else %><div class="falsoreg"></div><% end %>
-         </div><!-- adm1, suggestedStateProvince, correctStateProvince -->
+         </div><!-- stateProvince, suggestedStateProvince, correctStateProvince -->
          <p><b>Municipio:</b></p>
          <div class="camposreg">
-            <div class="campouno"><span class="contented" id="txtAdm2Edit"><%= @record["adm2"].nil? ? '-': @record["adm2"] %></span></div>
-            <div class="campodos"><%= @record["suggestedCounty"].nil? ? '-': @record["adm2"] %></div>
+            <div class="campouno"><span class="contented" id="txtAdm2Edit"><%= @record["county"].nil? ? '-': @record["county"] %></span></div>
+            <div class="campodos"><%= @record["suggestedCounty"].nil? ? '-': @record["suggestedCounty"] %></div> <!-- TODO: Validate if it is suggestedCounty -->
             <% if @record["correctCounty"] %><div class="correctoreg"></div><% else %><div class="falsoreg"></div><% end %>
-         </div><!-- adm2, suggestedCounty, correctCounty -->
+         </div><!-- county, suggestedCounty, correctCounty -->
          <p><b>Localidad:</b></p>
          <div class="camposreg">
-            <div class="campouno"><span class="contented" id="txtLocEdit"><%= @record["locality"].nil? ? '-': @record["locality"] %></span></div>
+            <div class="campouno"><span class="contented" id="txtLocEdit"><%= @record["verbatimLocality"].nil? ? '-': @record["verbatimLocality"] %></span></div>
              <% if @record["hasLocality"] %><div class="correctoreg"></div><% else %><div class="falsoreg"></div><% end %>
          </div><!-- locality, hasLocality -->
          <p><b>Altitud:</b></p>
@@ -67,7 +67,7 @@
             <div class="campouno"><span class="contented" id="txtAltEdit"><%= @record["alt"].nil? ? '-': @record["alt"] %></span></div>
             <div class="campodos"><%= @record["interpretedElevation"].nil? ? '-': @record["interpretedElevation"] %></div>
             <div class="correctoreg"></div>
-         </div><!-- alt, interpretedElevation, diferenceInAltitude (0 decimales)  -->
+         </div><!-- verbatimElevation, interpretedElevation, diferenceInAltitude (0 decimales)  -->
       </div>
 
       <div class="invisible" id="Reghidden">
@@ -75,21 +75,21 @@
          <p><b>Fuente: </b> <%= @record["source"].nil? ? '-': @record["source"] %></p> <!-- source -->
          <p><b>ID registro original: </b> <%= @record["occurrenceID"].nil? ? '-': @record["occurrenceID"] %></p> <!-- occurrenceID -->
          <p><b>Fecha descarga fuente: </b> 17/05/2016</p> <!-- downloadDate -->
-         <p><b>Institución: </b> <span class="contented"><%= @record["institution"].nil? ? '-': @record["institution"] %></span></p> <!-- institution -->
-         <p><b>Colección: </b> <span class="contented"><%= @record["colection"].nil? ? '-': @record["colection"] %></span></p> <!-- collection_code -->
+         <p><b>Institución: </b> <span class="contented"><%= @record["institutionCode"].nil? ? '-': @record["institutionCode"] %></span></p> <!-- institutionCode -->
+         <p><b>Colección: </b> <span class="contented"><%= @record["collectionCode"].nil? ? '-': @record["collectionCode"] %></span></p> <!-- collectionCode -->
          <p><b>Número de catálogo: </b> <span class="contented"><%= @record["catalogNumber"].nil? ? '-': @record["catalogNumber"] %></span></p> <!-- catalogNumber -->
-         <p><b>Colector: </b> <span class="contented"><%= @record["collector"].nil? ? '-': @record["collector"] %></span></p> <!-- collector -->
+         <p><b>Colector: </b> <span class="contented"><%= @record["recordedBy"].nil? ? '-': @record["recordedBy"] %></span></p> <!-- recordedBy -->
          <p><b>Evidencia de registro: </b> <span class="contented"><%= @record["basisOfRecord"].nil? ? '-': @record["basisOfRecord"] %></span></p> <!-- basisOfRecord -->
          <p><b>URL: </b> <span class="contented"><%= @record["url"].nil? ? '-': @record["url"] %></span></p> <!-- url -->
          <p><b>Creado por: </b> Null</p> </br> <!-- userID -->
-      
+
          <p><b>Fecha inicial: </b> <%= @record["earliestDateCollected"].nil? ? '-': @record["earliestDateCollected"] %></p> <!-- earliestDateCollected -->
          <p><b>Fecha final: </b> <%= @record["latestDateCollected"].nil? ? '-': @record["latestDateCollected"] %></p> <!-- latestDateCollected -->
-         <p><b>Fecha interpretada: </b> <%= @record["yyyy"].nil? ? '-': @record["yyyy"] %>/<%= @record["mm"].nil? ? '-': @record["mm"] %>/<%= @record["dd"].nil? ? '-': @record["dd"] %></p> <!-- yyyy mm dd -->
-         <p><b>Fecha creación: </b> YYYY MM DD</p> <!-- yyyy mm dd ligado a userID-->
+         <p><b>Fecha interpretada: </b> <%= @record["year"].nil? ? '-': @record["year"] %>/<%= @record["month"].nil? ? '-': @record["month"] %>/<%= @record["day"].nil? ? '-': @record["day"] %></p> <!-- year month day -->
+         <p><b>Fecha creación: </b> YYYY MM DD</p> <!-- year month day ligado a userID-->
 
          <h2>Calidad del registro</h2>
-         <p><b>Error georeferenciación (m):</b> <%= @record["coordUncertaintyM"].nil? ? '-': @record["coordUncertaintyM"] %></p> <!-- coordUncertaintyM -->
+         <p><b>Error georeferenciación (m):</b> <%= @record["coordinateUncertaintyInMeters"].nil? ? '-': @record["coordinateUncertaintyInMeters"] %></p> <!-- coordinateUncertaintyInMeters -->
          <p><b>En casco urbano:</b> <%= @record["inUrbanArea"].nil? ? '-': @record["inUrbanArea"] %></p> <!-- inUrbanArea -->
          <p><b>Altitud en coordenadas:</b> <%= @record["demAltitude"].nil? ? '-': @record["demAltitude"] %></p> <!-- demAltitude -->
          <p><b>Altitud en rango conocido:</b> <%= @record["consistentAltitude"].nil? ? '-': @record["consistentAltitude"] %></p> <!-- consistentAltitude -->
@@ -97,7 +97,6 @@
          <p><b>Altitud atipica:</b> <%= @record["altitudinalOutlier"].nil? ? '-': @record["altitudinalOutlier"] %></p> <!-- altitudinalOutlier -->
          <p><b>Ambiente atípico:</b> <%= @record["environmentalOutlier"].nil? ? '-': @record["environmentalOutlier"] %></p> <!-- environmentalOutlier -->
 
-         
          <br><br>
          <p><b>Último reporte: </b>
             <br>2001/12/12, Error de georeferenciación, Roberto Bolaños</p> <!-- reported -->
@@ -123,15 +122,15 @@ $(document).ready(function(){
         $("#saveregbtn").replaceWith('<button id="editregbtn" class="botonpopup">editar</button>');
     });
 
-    $(".unapproved").on("click", function( event ) {   
+    $(".unapproved").on("click", function( event ) {
      $(".reportar").toggle("slow");
     });
 
-    $("#cancel-point-cmt").on("click", function( event ) {   
+    $("#cancel-point-cmt").on("click", function( event ) {
      $(".reportar").toggle("slow");
     });
 
-    $("#Showreg").on("click", function( event ) {   
+    $("#Showreg").on("click", function( event ) {
      $("#Reghidden").toggle("slow");
      if ($("#Showreg").hasClass("rotate")){
        $("#Showreg").removeClass("rotate");
@@ -145,15 +144,15 @@ $(document).ready(function(){
 
 });
 
-   // para maximo numero de caracteres..... 
-   //var content_id = 'editable_div';  
+   // para maximo numero de caracteres.....
+   //var content_id = 'editable_div';
 
    // max = 10;
 
    // $('#'+content_id).keydown(function(e){ check_charcount(content_id, max, e); });
 
    // function check_charcount(content_id, max, e)
-   // {   
+   // {
    //     if(e.which != 8 && $('#'+content_id).text().length > max)
    //     {
    //        e.preventDefault();

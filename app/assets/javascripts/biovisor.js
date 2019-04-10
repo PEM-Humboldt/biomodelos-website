@@ -42,20 +42,20 @@ var _BioModelosVisorModule = function() {
 						"source":"Fuente",
 						"suggestedStateProvince":"Departamento",
 						"suggestedCounty":"Municipio",
-						"locality":"Localidad",
-						"alt":"Altitud",
-						"institution":"Institución",
+						"verbatimLocality":"Localidad",
+						"verbatimElevation":"Altitud",
+						"institutionCode":"Institución",
 						"catalogNumber":"Número de catálogo",
 						"basisOfRecord":"Evidencia",
-						"collector":"Recolector",
-						"collection_code":"Colección",
-						"yyyy":"Año",
-						"mm":"Mes",
-						"dd":"Día",
+						"recordedBy":"Recolector",
+						"collectionCode":"Colección",
+						"year":"Año",
+						"month":"Mes",
+						"day":"Día",
 						"url":"Url"
 					};
 
-	var hiddenFields = ["adm1", "adm2", "taxID", "species", "reported", "updated", "environmentalOutlier"];
+	var hiddenFields = ["stateProvince", "county", "taxID", "species", "reported", "updated", "environmentalOutlier"];
 
 	var imageBounds = [[13,-60],[-14, -83]];
 
@@ -264,16 +264,16 @@ var _BioModelosVisorModule = function() {
 
        				if(yearFilters != ""){
 
-       					var yearValue = feature.properties.yyyy;
+       					var yearValue = feature.properties.year;
        					if(yearValue == null){
        						yearValue = 0;
        					}
-       					if(yearValue < yearFilters[0] || feature.properties.yyyy > yearFilters[1]){
+       					if(yearValue < yearFilters[0] || feature.properties.year > yearFilters[1]){
        						yearFilter = false;
        					}
        				}
        				if(monthFilters != ""){
-       					monthFilter = includesValue(feature.properties.mm, monthFilters);
+       					monthFilter = includesValue(feature.properties.month, monthFilters);
        				}
 					switch (selectFilters[0]){
 					  case 'Evidencia':
@@ -283,7 +283,7 @@ var _BioModelosVisorModule = function() {
 					    dataFilter = feature.properties.source === selectFilters[1];
 					    break;
 					  case 'Institución':
-					  	dataFilter = feature.properties.institution === selectFilters[1];
+					  	dataFilter = feature.properties.institutionCode === selectFilters[1];
 					  	break;
 					  case '':
 					    dataFilter = true;
@@ -304,7 +304,7 @@ var _BioModelosVisorModule = function() {
 		    					id: layer.feature.properties._id
 		    				},
 						});
-					}); 
+					});
 		 		// 	var popupcontent = [];
 					// popupcontent.push();
 					// for (var prop in feature.properties) {
@@ -314,7 +314,7 @@ var _BioModelosVisorModule = function() {
 					// 		popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + "<a href=http://"+ feature.properties[prop] +" target='_blank'>" + feature.properties[prop] + "</a></br>");
 					// 	else if (hiddenFields.indexOf(prop) === -1)
 					// 		popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + feature.properties[prop] + "</br>");
-		
+
 					// }
 					// if(isEditable)
 					// 	popupcontent.push('</div><div class="centering"><a href="" class="wrongbtn" id="editRecordBtn">Editar</a><a href="/records/report_record" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar</a></div>');
@@ -354,7 +354,7 @@ var _BioModelosVisorModule = function() {
 							editableForm.push('<b>Especie original:</b></br><input type="text" id="txtSpeciesEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
 							editableForm.push('<input type="hidden" id="oldSpeciesEdit" value="' + editableLayer.feature.properties[prop] +'"/input>');
 						}
-						else if(prop === 'locality'){
+						else if(prop === 'verbatimLocality'){
 							editableForm.push('<b>Localidad:</b></br><input type="text" id="txtLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
 							editableForm.push('<input type="hidden" id="oldLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input>');
 						}
@@ -399,7 +399,7 @@ var _BioModelosVisorModule = function() {
 			  		name = item.properties["source"];
 			  		break;
 			  	case "Institución":
-			  		name = item.properties.institution;
+			  		name = item.properties.institutionCode;
 			  		break;
 			  	default:
 			  		break;
