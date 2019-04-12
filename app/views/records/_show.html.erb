@@ -5,7 +5,7 @@
       <a class="closevb vatop" id="regboxclose">x</a>
       <blockquote>
         <p>
-         <b>ID del registro:</b> 5824a335e21cc54c32cb91c1<br> <!-- _id -->
+         <b>ID del registro:</b> <%= @record["id"] %><br> <!-- _id -->
          <b>ID especie en BioModelos:</b> <%= @record["taxID"] %> <!-- taxID -->
         </p>
       </blockquote>
@@ -13,13 +13,13 @@
          <button id="editregbtn" class="botonpopup">editar</button>
          <a href="#" class="approved" title="Registro correcto" rel="tooltip"></a>
          <a href="#" class="unapproved" title="Reportar" rel="tooltip"></a>
-            <form class="forms reportar invisible">
-               <h3>Reportar Registro</h3>
-               <input type="radio" name="badid" value="idIssue" checked="checked"><%= t('biomodelos.records.report.id_issue_lbl') %><br>
-               <input type="radio" name="badid" value="geoIssue"><%= t('biomodelos.records.report.geo_issue_lbl') %><br>
-               <input type="submit" value='<%= t('biomodelos.records.report.submit_btn') %>'>
-               <input type="button" id='cancel-point-cmt' class="cancelbtn" value='<%= t('biomodelos.records.report.cancel_lnk') %>'>
-            </form>
+         <form class="forms reportar invisible">
+            <h3>Reportar Registro</h3>
+            <input type="radio" name="badid" value="idIssue" checked="checked"><%= t('biomodelos.records.report.id_issue_lbl') %><br>
+            <input type="radio" name="badid" value="geoIssue"><%= t('biomodelos.records.report.geo_issue_lbl') %><br>
+            <input type="submit" value='<%= t('biomodelos.records.report.submit_btn') %>'>
+            <input type="button" id='cancel-point-cmt' class="cancelbtn" value='<%= t('biomodelos.records.report.cancel_lnk') %>'>
+         </form>
       <% end %>
       <div class="clearfix"></div>
       <h2>Taxonomía</h2>
@@ -54,7 +54,7 @@
          <p><b>Municipio:</b></p>
          <div class="camposreg">
             <div class="campouno"><span class="contented" id="txtAdm2Edit"><%= @record["county"].nil? ? '-': @record["county"] %></span></div>
-            <div class="campodos"><%= @record["suggestedCounty"].nil? ? '-': @record["suggestedCounty"] %></div> <!-- TODO: Validate if it is suggestedCounty -->
+            <div class="campodos"><%= @record["suggestedCounty"].nil? ? '-': @record["suggestedCounty"] %></div>
             <% if @record["correctCounty"] %><div class="correctoreg"></div><% else %><div class="falsoreg"></div><% end %>
          </div><!-- county, suggestedCounty, correctCounty -->
          <p><b>Localidad:</b></p>
@@ -64,7 +64,7 @@
          </div><!-- locality, hasLocality -->
          <p><b>Altitud:</b></p>
          <div class="camposreg">
-            <div class="campouno"><span class="contented" id="txtAltEdit"><%= @record["alt"].nil? ? '-': @record["alt"] %></span></div>
+            <div class="campouno"><span class="contented" id="txtAltEdit"><%= @record["verbatimElevation"].nil? ? '-': @record["verbatimElevation"] %></span></div>
             <div class="campodos"><%= @record["interpretedElevation"].nil? ? '-': @record["interpretedElevation"] %></div>
             <div class="correctoreg"></div>
          </div><!-- verbatimElevation, interpretedElevation, diferenceInAltitude (0 decimales)  -->
@@ -99,10 +99,26 @@
 
          <br><br>
          <p><b>Último reporte: </b>
-            <br>2001/12/12, Error de georeferenciación, Roberto Bolaños</p> <!-- reported -->
+            <br>
+            <% if !@record["reportedDate"].nil? %>
+               <%= Date.parse @record["reportedDate"] %>
+            <% else %>
+               -
+            <% end %> <!-- TODO: We would need to query the user by userIdBm (updated) or reportedUserIdBm -->
          <p><b>Última actualización: </b>
-            <br>2001/12/12, Error de georeferenciación, Roberto Bolaños</p> <!-- updated -->
-
+            <br>
+            <% if !@record["updated"].nil? && !@record["updated"][-1]["updatedDate"].nil? %>
+               <% updatedRecord = @record["updated"][-1] %>
+               <% if !@record["reportedDate"].nil? && updatedRecord["updatedDate"] > @record["reportedDate"]%>
+                  <%= Date.parse updatedRecord["updatedDate"] %>
+               <% else %>
+                  <%= Date.parse @record["reportedDate"] %>
+               <% end %>
+            <% elsif !@record["reportedDate"].nil? %>
+               <%= Date.parse @record["reportedDate"] %>
+            <% else %>
+               -
+            <% end %> <!-- TODO: We would need to query the user by userIdBm (updated) or reportedUserIdBm -->
       </div>
 
       <div class="showreg" id="Showreg"></div>
