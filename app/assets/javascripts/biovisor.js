@@ -232,98 +232,78 @@ var _BioModelosVisorModule = function() {
 	*/
 	var filterRecords = function(selectFilters, visFilters, yearFilters, monthFilters, isEditable){
 		cluster.clearLayers();
-       	recordsLayer = L.geoJson(species_records,{
-       			pointToLayer: function(feature, latlng) {
-       				var filtered = false;
+		recordsLayer = L.geoJson(species_records,{
+			pointToLayer: function(feature, latlng) {
+				var filtered = false;
 
-	       			if(visFilters[0] === 'visualrep'){
-	       				filtered = feature.properties.reported === true;
-	       			}
-	       			if(visFilters[1] === 'visualedit'){
-	       				filtered = filtered || feature.properties.updated === true;
-	       			}
-	       			if(visFilters[2] === 'visualadd'){
-	       				filtered = filtered || feature.properties.environmentalOutlier === true;
-	       			}
-	   			    if (filtered){
-	   			    	return new L.Marker(latlng, {
-				            icon: redIcon
-				        });
-	   			    }
-	   			    else{
-	   			    	return new L.Marker(latlng, {
-				          	icon: blueIcon
-				        });
-	   			    }
-			    },
-       			filter: function(feature, layer) {
-
-       				var yearFilter = true,
-       					monthFilter = true,
-       					dataFilter = true;
-
-       				if(yearFilters != ""){
-
-       					var yearValue = feature.properties.year;
-       					if(yearValue == null){
-       						yearValue = 0;
-       					}
-       					if(yearValue < yearFilters[0] || feature.properties.year > yearFilters[1]){
-       						yearFilter = false;
-       					}
-       				}
-       				if(monthFilters != ""){
-       					monthFilter = includesValue(feature.properties.month, monthFilters);
-       				}
-					switch (selectFilters[0]){
-					  case 'Evidencia':
-					    dataFilter = feature.properties.basisOfRecord === selectFilters[1];
-					    break;
-					  case 'Fuente':
-					    dataFilter = feature.properties.source === selectFilters[1];
-					    break;
-					  case 'Institución':
-					  	dataFilter = feature.properties.institutionCode === selectFilters[1];
-					  	break;
-					  case '':
-					    dataFilter = true;
-					    break;
-					  default:
-					    dataFilter = true;
-					    break;
-					}
-					return yearFilter && monthFilter && dataFilter;
-   				},
-		 		onEachFeature: function (feature, layer) {
-
-					layer.on('click',function(e){
-						$.ajax({
-						    type: 'POST',
-						    url: "/records/show",
-						    data: {
-		    					id: layer.feature.properties._id
-		    				},
-						});
-					});
-		 		// 	var popupcontent = [];
-					// popupcontent.push();
-					// for (var prop in feature.properties) {
-					// 	if(prop === '_id')
-					// 		popupcontent.push("<input id='bm_db_id' type='hidden' value='" + feature.properties[prop] + "'>");
-					// 	else if (prop === 'url')
-					// 		popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + "<a href=http://"+ feature.properties[prop] +" target='_blank'>" + feature.properties[prop] + "</a></br>");
-					// 	else if (hiddenFields.indexOf(prop) === -1)
-					// 		popupcontent.push('<b>'+ headers[prop] + ":</b></br>" + feature.properties[prop] + "</br>");
-
-					// }
-					// if(isEditable)
-					// 	popupcontent.push('</div><div class="centering"><a href="" class="wrongbtn" id="editRecordBtn">Editar</a><a href="/records/report_record" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar</a></div>');
-					// else
-					// 	popupcontent.push('</div>');
-					// popupcontent.push('<a class="vermasreg">Ver más <b>+</b></a>');
-					layer.bindPopup();
+				if(visFilters[0] === 'visualrep'){
+					filtered = feature.properties.reported === true;
 				}
+				if(visFilters[1] === 'visualedit'){
+					filtered = filtered || feature.properties.updated === true;
+				}
+				if(visFilters[2] === 'visualadd'){
+					filtered = filtered || feature.properties.environmentalOutlier === true;
+				}
+				if (filtered){
+					return new L.Marker(latlng, {
+							icon: redIcon
+					});
+				}
+				else{
+					return new L.Marker(latlng, {
+							icon: blueIcon
+					});
+				}
+			},
+			filter: function(feature, layer) {
+				var yearFilter = true,
+					monthFilter = true,
+					dataFilter = true;
 
+				if (yearFilters != "") {
+					var yearValue = feature.properties.year;
+					if (yearValue == null) {
+						yearValue = 0;
+					}
+					if (yearValue < yearFilters[0] || feature.properties.year > yearFilters[1]) {
+						yearFilter = false;
+					}
+				}
+				if (monthFilters != "") {
+					monthFilter = includesValue(feature.properties.month, monthFilters);
+				}
+				switch (selectFilters[0]) {
+					case 'Evidencia':
+						dataFilter = feature.properties.basisOfRecord === selectFilters[1];
+						break;
+					case 'Fuente':
+						dataFilter = feature.properties.source === selectFilters[1];
+						break;
+					case 'Institución':
+						dataFilter = feature.properties.institutionCode === selectFilters[1];
+						break;
+					case '':
+						dataFilter = true;
+						break;
+					default:
+						dataFilter = true;
+						break;
+				}
+				return yearFilter && monthFilter && dataFilter;
+			},
+			onEachFeature: function (feature, layer) {
+				layer.on('click',function(e) {
+					$.ajax({
+							type: 'POST',
+							url: "/records/show",
+							data: {
+								id: layer.feature.properties._id
+							},
+					});
+				});
+				layer.bindPopup();
+			}
 		});
 		cluster.addLayer(recordsLayer);
 		map.on('popupopen', function(e) {
@@ -334,50 +314,6 @@ var _BioModelosVisorModule = function() {
 	var closePopUp = function() {
 		if (currentPopup)
 			map.closePopup(currentPopup);
-	}
-
-	var editRecord = function(){
-
-		recordsLayer.eachLayer(function(layer) {
-	        if (layer._popup._leaflet_id === currentPopupID) {
-	            editableLayer = layer;
-	        }
-	    });
-
-	    var editableForm = [];
-	    editableForm.push('<div class="cajita"><div class="regscroller"><div id="point_lat"><input type="text" id="txtLatEdit" value="'+ editableLayer.feature.geometry.coordinates[1] +'"/input></div><div id="point_lon"><input type="text" id="txtLonEdit" value="'+ editableLayer.feature.geometry.coordinates[0] + '"/input></div>');
-		editableForm.push('<input type="hidden" id="oldLatEdit" value="'+ editableLayer.feature.geometry.coordinates[1] +'"/input><input type="hidden" id="oldLonEdit" value="'+ editableLayer.feature.geometry.coordinates[0] + '"/input>');
-					for (var prop in editableLayer.feature.properties) {
-						if(prop === '_id')
-							editableForm.push("<input id='bm_db_id' type='hidden' value='" + editableLayer.feature.properties[prop] + "'>");
-						else if(prop === 'speciesOriginal'){
-							editableForm.push('<b>Especie original:</b></br><input type="text" id="txtSpeciesEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
-							editableForm.push('<input type="hidden" id="oldSpeciesEdit" value="' + editableLayer.feature.properties[prop] +'"/input>');
-						}
-						else if(prop === 'verbatimLocality'){
-							editableForm.push('<b>Localidad:</b></br><input type="text" id="txtLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input></br>');
-							editableForm.push('<input type="hidden" id="oldLocEdit" value="' + editableLayer.feature.properties[prop] +'"/input>');
-						}
-						else if(hiddenFields.indexOf(prop) === -1)
-							editableForm.push('<b>'+ headers[prop] + "</b></br>" + editableLayer.feature.properties[prop] + "</br>");
-					}
-					editableForm.push('</div><div class="centering"><a href="" class="wrongbtn" id="sendRecordEdition">Enviar</a><a href="" class="wrongbtn" id="cancelRecordEdition">Cancelar</a></div>');
-					// editableLayer.bindPopup(editableForm.join('<div class="mt10"></div>'));
-					var oldContent = editableLayer._popup.getContent();
-					editableLayer.setPopupContent(editableForm.join('<div class="mt10"></div>'));
-
-		// Set the old content back when the popup closes.
-		map.on('popupclose', function(e) {
-		   editableLayer.setPopupContent(oldContent);
-		});
-		//Set the old content back when cancel button is pressed.
-		$( "#cancelRecordEdition" ).on( "click", function(e) {
-  			e.preventDefault();
-			editableLayer.setPopupContent(oldContent);
-			addNiceScroll();
-		});
-
-		addNiceScroll();
 	}
 
 	/*
@@ -811,7 +747,6 @@ var _BioModelosVisorModule = function() {
 		setLayers: setLayers,
 		changeThresholdLayer:changeThresholdLayer,
 		filterRecords:filterRecords,
-		editRecord: editRecord,
 		addActionToPolygon: addActionToPolygon,
 		getGeojsonLayer: getGeojsonLayer,
 		uniqueValues: uniqueValues,
