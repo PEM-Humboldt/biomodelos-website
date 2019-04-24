@@ -127,37 +127,38 @@
     </div>
 </div>
 
-<script>
+
+<script type="text/javascript">
 $(document).ready(function(){
-    $(".nobox").on("click", "#editregbtn", function(){
-        $(".contented").attr("contenteditable","true").addClass("redtext");
-        $("#editregbtn").replaceWith('<button id="saveregbtn" class="botonpopup2">guardar</button>');
-    });
-    $(".nobox").on("click", "#saveregbtn", function(){
-        $(".contented").attr("contenteditable","false").removeClass("redtext");
-        $("#saveregbtn").replaceWith('<button id="editregbtn" class="botonpopup">editar</button>');
-    });
+  $(".nobox").on("click", "#editregbtn", function(){
+    $(".contented").attr("contenteditable","true").addClass("redtext");
+    $("#editregbtn").replaceWith('<button id="saveregbtn" class="botonpopup2">guardar</button>');
+    _BioModelosVisorModule.editRecord("<%= @record['id'] %>");
+  });
 
-    $(".unapproved").on("click", function( event ) {
-     $(".reportar").toggle("slow");
-    });
+  $(".nobox").on("click", "#saveregbtn", function(){
+    $(".contented").attr("contenteditable","false").removeClass("redtext");
+    $("#saveregbtn").replaceWith('<button id="editregbtn" class="botonpopup">editar</button>');
+  });
 
-    $("#cancel-point-cmt").on("click", function( event ) {
-     $(".reportar").toggle("slow");
-    });
+  $(".unapproved").on("click", function( event ) {
+    $(".reportar").toggle("slow");
+  });
 
-    $("#Showreg").on("click", function( event ) {
-     $("#Reghidden").toggle("slow");
-     if ($("#Showreg").hasClass("rotate")){
-       $("#Showreg").removeClass("rotate");
-       $(".vermas").removeClass("vermenos");
-      }
-      else {
-         $("#Showreg").addClass("rotate");
-         $(".vermas").addClass("vermenos");
-      }
-    });
+  $("#cancel-point-cmt").on("click", function( event ) {
+    $(".reportar").toggle("slow");
+  });
 
+  $("#Showreg").on("click", function( event ) {
+    $("#Reghidden").toggle("slow");
+    if ($("#Showreg").hasClass("rotate")){
+      $("#Showreg").removeClass("rotate");
+      $(".vermas").removeClass("vermenos");
+    } else {
+      $("#Showreg").addClass("rotate");
+      $(".vermas").addClass("vermenos");
+    }
+  });
 });
 
    // para maximo numero de caracteres.....
