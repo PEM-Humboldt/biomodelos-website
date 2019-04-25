@@ -6,7 +6,7 @@ class Record
   	def self.find(record_id)
 		JSON.parse(get('/' + record_id.to_s).body)
 	end
-		
+
 	def self.report_record(data)
 		JSON.parse(post('/' + data[:recordId], :body => data).body)
 	end
