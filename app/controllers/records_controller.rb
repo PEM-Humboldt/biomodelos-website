@@ -2,6 +2,8 @@ class RecordsController < ApplicationController
 	include UsersHelper
 
 	def show
+		@record = Record.find(params[:id])
+		@record["id"] = params[:id]
 		respond_to do |format|
       		format.js
     	end
@@ -41,7 +43,6 @@ class RecordsController < ApplicationController
 		respond_to do |format|
       		format.js
     	end
-    	
 	end
 
 	def new_record

@@ -1,4 +1,4 @@
-var _speciesFunctionsModule = function(){
+var _speciesFunctionsModule = function() {
 	/**
  	* Reset the filter controls (año, mes, select, filtros) to the
  	* default values.
@@ -15,13 +15,34 @@ var _speciesFunctionsModule = function(){
 		//Activate the default checkbox
 		$('#chkBoxFilters input:checkbox[name="visualadd"]').prop('checked', true);
 	}
-	return{
-		resetRecordsFilters:resetRecordsFilters
-	}
+	return { resetRecordsFilters: resetRecordsFilters };
 }();
 
-$(document).ready(function(){
+$(document).ready(function() {
+	// Report - cancel report - send report button
+  $("body").on("click", ".unapproved", function( event ) {
+    $(".reportar").toggle("slow");
+  });
+  $("body").on("click", "#cancel-point-cmt", function( event ) {
+    $(".reportar").toggle("slow");
+	});
+	$("body").on("click", "#send-report", function( event ) {
+		event.preventDefault();
+		$.post("/records/send_report_record", $("#report-form").serializeArray());
+		$(".reportar").toggle("slow");
+	});
 
+	// Actions for show more - show less button on _show for record information
+  $("body").on("click", "#Showreg", function( event ) {
+    $("#Reghidden").toggle("slow");
+    if ($("#Showreg").hasClass("rotate")){
+      $("#Showreg").removeClass("rotate");
+      $(".vermas").removeClass("vermenos");
+    } else {
+      $("#Showreg").addClass("rotate");
+      $(".vermas").addClass("vermenos");
+    }
+	});
 
 	/*
 	* Advanced search filters
@@ -446,80 +467,85 @@ $(document).ready(function(){
 
 	});
 
-	$("body").on("click","#editRecordBtn",function(e){
-        e.preventDefault();
-		_BioModelosVisorModule.editRecord();
-  	});
+	function _refreshSpeciesRecords() {
+		$.post( "/records/edit_record", { species_id: $("#species_id_field").val()}).done(function(data) {
+			_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val(), data);
+		});
+	}
 
-  	function _refreshSpeciesRecords(){
-  		$.post( "/records/edit_record", { species_id: $("#species_id_field").val()}).done(function(data) {
-  			_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val(), data);
-  		});
-  	}
+	// Action for Edit - Save buttons on _show for record information / edition
+	$("body").on("click", "#editregbtn", function(){
+    $(".contented").attr("contenteditable","true").addClass("redtext");
+    $("#editregbtn").replaceWith('<button id="saveregbtn" class="botonpopup2">guardar</button>');
+  });
+  $("body").on("click", "#saveregbtn", function() {
+  	validate.validators.presence.message = "no puede estar vacío";
 
-	/* Botón enviar edición de registro */
-	$("body").on("click","#sendRecordEdition",function(e){
-        e.preventDefault();
-        validate.validators.presence.message = "no puede estar vacío";
+		const latRecordEdition = $("#txtLatEdit");
+		const lonRecordEdition = $("#txtLonEdit");
+		const speRecordEdition = $("#txtSpeciesEdit");
+		const locRecordEdition = $("#txtLocEdit");
 
-		// Validación de los campos editables de un registro.
-		var latRecordEdition = $("#txtLatEdit").val(),
-			lonRecordEdition = $("#txtLonEdit").val(),
-			speRecordEdition = $("#txtSpeciesEdit").val(),
-			locRecordEdition = $("#txtLocEdit").val();
-
-		var varsToValidate = {},
+		const varsToValidate = {},
 		constraints = {},
-		data = {userId_bm: $("#user_id_field").val(),
-				recordId: $("#bm_db_id").val()};
+		data = {
+			userIdBm: $("#user_id_field").val(),
+			recordId: $("#record_id").text(),
+		};
 
-		if (latRecordEdition != $("#oldLatEdit").val()){
-			varsToValidate.lat = latRecordEdition;
+		if (latRecordEdition.text() != latRecordEdition.attr('oldVal')){
+			varsToValidate.lat = latRecordEdition.text();
 			constraints.lat = {};
-			constraints.lat.numericality = {};
 			constraints.lat.presence = true;
-			constraints.lat.numericality.greaterThanOrEqualTo = -90;
-			constraints.lat.numericality.lessThanOrEqualTo = 90;
-			data.lat = latRecordEdition;
+			constraints.lat.numericality = {
+				greaterThanOrEqualTo: -90,
+				lessThanOrEqualTo: 90,
+			};
+			data.decimalLatitude = latRecordEdition.text();
 		}
-		if (lonRecordEdition != $("#oldLonEdit").val()){
-			varsToValidate.lon = lonRecordEdition;
+		if (lonRecordEdition.text() != lonRecordEdition.attr('oldVal')){
+			varsToValidate.lon = lonRecordEdition.text();
 			constraints.lon = {};
-			constraints.lon.numericality = {};
 			constraints.lon.presence = true;
-			constraints.lon.numericality.greaterThanOrEqualTo = -180;
-			constraints.lon.numericality.lessThanOrEqualTo = 180;
-			data.lon = lonRecordEdition;
+			constraints.lon.numericality = {
+				greaterThanOrEqualTo: -180,
+				lessThanOrEqualTo: 180,
+			};
+			data.decimalLongitude = lonRecordEdition.text();
 		}
-		if(speRecordEdition != $("#oldSpeciesEdit").val()){
-			varsToValidate.speciesOriginal = speRecordEdition;
-			data.speciesOriginal = speRecordEdition;
+		if(speRecordEdition.text() != speRecordEdition.attr('oldVal')){
+			varsToValidate.speciesOriginal = speRecordEdition.text();
+			constraints.speciesOriginal = {};
+			constraints.speciesOriginal.length = { maximum: 100 };
+			data.speciesOriginal = speRecordEdition.text();
 		}
-		if (locRecordEdition != $("#oldLocEdit").val()){
-			varsToValidate.localidad = locRecordEdition;
+		if (locRecordEdition.text() != locRecordEdition.attr('oldVal')){
+			varsToValidate.localidad = locRecordEdition.text();
 			constraints.localidad = {};
 			constraints.localidad.presence = true;
-			data.locality = locRecordEdition;
+			constraints.localidad.length = { maximum: 100 };
+			data.verbatimLocality = locRecordEdition.text();
 		}
-		var valResponse = validate(varsToValidate, constraints, {format: "flat"});
-		if(valResponse){
-			var response = "";
-			for(var i=0; i<valResponse.length; i++){
-				response += valResponse[i] + "<br />";
-			}
+		const valResponse = validate(varsToValidate, constraints, { format: "flat" });
+		if (valResponse) {
+			let response = "";
+			valResponse.forEach(function (message) {
+				response += `${message} <br />`;
+			})
 			alertify.alert(response);
-		}
-		else{
-			$.post( "/records/update_record", data)
-  				.done(function() {
-    				_refreshSpeciesRecords();
+		} else {
+			$.post("/records/update_record", data)
+				.done(function() {
+					$(".contented").attr("contenteditable","false").removeClass("redtext");
+					$("#saveregbtn").replaceWith('<button id="editregbtn" class="botonpopup">editar</button>');
+					_refreshSpeciesRecords();
 					alertify.alert("Su edición se ha realizado con éxito");
-  				})
-  				.fail(function(jqXHR, textStatus, errorThrown){
+				})
+				.fail(function(jqXHR, textStatus, errorThrown){
 					alertify.alert("Ha ocurrido un error al editar el registro: " + textStatus);
 				});
 		}
-	});
+  });
 
 	/* Botón enviar nuevo registro */
 	$("body").on("click","#r_saveBtn",function(e){
@@ -549,7 +575,7 @@ $(document).ready(function(){
 		constraints = {},
 		data = {taxID: $("#species_id_field").val(),
 				acceptedNameUsage: $(".spname").html(),
-				userId_bm: $("#user_id_field").val()};
+				userIdBm: $("#user_id_field").val()};
 
 		varsToValidate.lat = latNew;
 		constraints.lat = {};
@@ -557,7 +583,7 @@ $(document).ready(function(){
 		constraints.lat.presence = true;
 		constraints.lat.numericality.greaterThanOrEqualTo = -90;
 		constraints.lat.numericality.lessThanOrEqualTo = 90;
-		data.lat = latNew;
+		data.decimalLatitude = latNew;
 
 		varsToValidate.lon = lonNew;
 		constraints.lon = {};
@@ -565,12 +591,12 @@ $(document).ready(function(){
 		constraints.lon.presence = true;
 		constraints.lon.numericality.greaterThanOrEqualTo = -180;
 		constraints.lon.numericality.lessThanOrEqualTo = 180;
-		data.lon = lonNew;
+		data.decimalLongitude = lonNew;
 
 		varsToValidate.localidad = locNew;
 		constraints.localidad = {};
 		constraints.localidad.presence = true;
-		data.locality = locNew;
+		data.verbatimLocality = locNew;
 
 		if(altNew != ""){
 			varsToValidate.altura = altNew;
@@ -578,7 +604,7 @@ $(document).ready(function(){
 			constraints.altura.numericality = {};
 			constraints.altura.numericality.greaterThanOrEqualTo = 0;
 			constraints.altura.numericality.lessThanOrEqualTo = 10000;
-			data["alt"] = altNew;
+			data.verbatimElevation = altNew;
 		}
 
 		if(yearNew != ""){
@@ -587,7 +613,7 @@ $(document).ready(function(){
 			constraints.yyyy.numericality = {};
 			constraints.yyyy.numericality.greaterThanOrEqualTo = 1800;
 			constraints.yyyy.numericality.lessThanOrEqualTo = moment.utc().year();
-			data.yyyy = yearNew;
+			data.year = yearNew;
 		}
 		if(monthNew != ""){
 			varsToValidate.mm = monthNew;
@@ -595,7 +621,7 @@ $(document).ready(function(){
 			constraints.mm.numericality = {};
 			constraints.mm.numericality.greaterThanOrEqualTo = 1;
 			constraints.mm.numericality.lessThanOrEqualTo = 12;
-			data.mm = monthNew;
+			data.month = monthNew;
 		}
 		if(dayNew != ""){
 			varsToValidate.dd = dayNew;
@@ -603,26 +629,26 @@ $(document).ready(function(){
 			constraints.dd.numericality = {};
 			constraints.dd.numericality.greaterThanOrEqualTo = 1;
 			constraints.dd.numericality.lessThanOrEqualTo = 31;
-			data.dd = dayNew;
+			data.day = dayNew;
 		}
 		if(depNew != "")
-			data.adm1 = depNew;
+			data.stateProvince = depNew;
 		if(munNew != "")
-			data.adm2 = munNew;
+			data.county = munNew;
 		if(tipoNew != "")
 			data.basisOf = tipoNew;
 		if(obsNew != "")
-			data.collector = obsNew;
+			data.recordedBy = obsNew;
 		if(citaNew != "")
-			data.citation_bm = citaNew;
+			data.createdCitationBm = citaNew;
 		if(catNumberNew != "")
 			data.catalogNumber = catNumberNew;
 		if(colNew != "")
-			data.collection_code = colNew;
+			data.collectionCode = colNew;
 		if(instNew != "")
-			data.institution = instNew;
+			data.institutionCode = instNew;
 		if(commentNew != "")
-			data.comments_bm = commentNew;
+			data.createdCommentsBm = commentNew;
 
 		var valResponse = validate(varsToValidate, constraints, {format: "flat"});
 
@@ -635,12 +661,12 @@ $(document).ready(function(){
 		}
 		else{
 			$.post( "/records/new_record", data)
-  				.done(function() {
-    				_BioModelosVisorModule.cancelAddPoint();
+				.done(function() {
+					_BioModelosVisorModule.cancelAddPoint();
 					_refreshSpeciesRecords();
-					alertify.alert("El registro ha sido agregado con éxito");
-  				})
-  				.fail(function(jqXHR, textStatus, errorThrown){
+				alertify.alert("El registro ha sido agregado con éxito");
+				})
+				.fail(function(jqXHR, textStatus, errorThrown) {
 					alertify.alert("Ha ocurrido un error al agregar el registro: " + errorThrown);
 				});
 		}
