@@ -13,11 +13,12 @@
          <button id="editregbtn" class="botonpopup">editar</button>
          <a href="#" class="approved" title="Registro correcto" rel="tooltip"></a>
          <a href="#" class="unapproved" title="Reportar" rel="tooltip"></a>
-         <form class="forms reportar invisible">
+         <form class="forms reportar invisible" id="report-form">
             <h3>Reportar Registro</h3>
-            <input type="radio" name="badid" value="idIssue" checked="checked"><%= t('biomodelos.records.report.id_issue_lbl') %><br>
-            <input type="radio" name="badid" value="geoIssue"><%= t('biomodelos.records.report.geo_issue_lbl') %><br>
-            <input type="submit" value='<%= t('biomodelos.records.report.submit_btn') %>'>
+            <input type="hidden" name="recordId" value="<%= @record["id"] %>">
+            <input type="checkbox" name="idIssue" checked="checked"><%= t('biomodelos.records.report.id_issue_lbl') %><br>
+            <input type="checkbox" name="geoIssue"><%= t('biomodelos.records.report.geo_issue_lbl') %><br>
+            <input type="submit" id='send-report' value='<%= t('biomodelos.records.report.submit_btn') %>'>
             <input type="button" id='cancel-point-cmt' class="cancelbtn" value='<%= t('biomodelos.records.report.cancel_lnk') %>'>
          </form>
       <% end %>

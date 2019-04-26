@@ -25,7 +25,12 @@ $(document).ready(function() {
   });
   $("body").on("click", "#cancel-point-cmt", function( event ) {
     $(".reportar").toggle("slow");
-  });
+	});
+	$("body").on("click", "#send-report", function( event ) {
+		event.preventDefault();
+		$.post("/records/send_report_record", $("#report-form").serializeArray());
+		$(".reportar").toggle("slow");
+	});
 
 	// Actions for show more - show less button on _show for record information
   $("body").on("click", "#Showreg", function( event ) {

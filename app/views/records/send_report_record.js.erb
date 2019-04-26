@@ -4,20 +4,21 @@ function _refreshSpeciesRecordsReport(){
   	});
 }
 
+const data = {
+	recordId: "<%= params[:recordId] %>",
+	reportedUserIdBm: <%= current_user.id %>
+};
+<% if params[:geoIssue] == "on" %>
+	data.reportedGeoIssueBm = true;
+<% end %>
+<% if params[:idIssue] == "on" %>
+	data.reportedIdIssueBm = true;
+<% end %>
+
 $.ajax({
 	type: 'POST',
 	url: "/records/new_report",
-	data:{
-		recordId: "<%= params[:point_comment][:recordId] %>",
-		reportedUserId: <%= current_user.id %>,
-		reportedOriginVagrant: <%= params[:point_comment][:isOutlier] %>,
-		reportedGeoIssueBm: <%= params[:point_comment][:geoIssue] %>,
-		reportedIdIssueBm: <%= params[:point_comment][:idIssue] %>,
-		reportedOldTaxonomyBm: <%= params[:point_comment][:oldTaxonomy] %>,
-		reportedOriginIntroduced: <%= params[:point_comment][:inCaptivity] %>,
-		reportedOtherIssuesBm: <%= params[:point_comment][:otherIssues] %>,
-		reportedCommentsBm: "<%= params[:point_comment][:comment] %>"
-	},
+	data,
 	success: function(){
 		_refreshSpeciesRecordsReport();
 		alertify.alert("<%= t('biomodelos.records.report.success_notice') %>");
