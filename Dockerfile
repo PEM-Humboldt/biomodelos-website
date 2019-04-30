@@ -7,7 +7,7 @@ ENV DEV_PACKAGES="tzdata libxml2-dev libxslt-dev postgresql-dev imagemagick imag
 
 RUN apk --update --upgrade add $BUILD_PACKAGES $DEV_PACKAGES && rm -rf /var/cache/apk/*
 RUN npm install -g bower
-  
+
 ENV RAILS_ROOT /var/www/BioModelos
 RUN mkdir -p $RAILS_ROOT
 WORKDIR $RAILS_ROOT
@@ -21,4 +21,4 @@ COPY . .
 RUN bower install --allow-root
 RUN bundle exec rake assets:precompile
 
-CMD ["bundle", "exec", "rails", "s", "-b0.0.0.0", "-e", "production"]
+CMD ["sh", "-c", "rm -f tmp/pids/server.pid && bundle exec rails s -b0.0.0.0 -e production"]
