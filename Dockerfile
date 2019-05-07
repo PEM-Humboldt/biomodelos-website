@@ -19,8 +19,6 @@ RUN bundle install
 COPY . .
 
 RUN bower install --allow-root
+RUN bundle exec rake assets:precompile
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["sh", "-c", "rm -f tmp/pids/server.pid && bundle exec rails s -b0.0.0.0 -e production"]
