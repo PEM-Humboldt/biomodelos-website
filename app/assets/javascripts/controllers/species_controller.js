@@ -473,11 +473,16 @@ $(document).ready(function() {
 		});
 	}
 
-	// Action for Edit - Save buttons on _show for record information / edition
+	// Action for Edit - Save - Cancel buttons on _show for record information / edition
 	$("body").on("click", "#editregbtn", function(){
     $(".contented").attr("contenteditable","true").addClass("redtext");
-    $("#editregbtn").replaceWith('<button id="saveregbtn" class="botonpopup2">guardar</button>');
-  });
+		$("#editregbtn").replaceWith('<button id="saveregbtn" class="botonpopup2">guardar</button>');
+		$("#cancelEditBtn").html('<button id="cancelregbtn" class="botonpopup2">cancelar</button>');
+	});
+	$("body").on("click", "#cancelregbtn", function() {
+		$.post( "/records/show", { id: $("span#record_id").text()}).done();
+	});
+
   $("body").on("click", "#saveregbtn", function() {
   	validate.validators.presence.message = "no puede estar vacío";
 
