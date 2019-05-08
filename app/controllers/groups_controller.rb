@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
 			@task = Task.new
 			if user_signed_in?
 				@user_group = GroupsUser.find_by(group_id: @group.id, user_id: current_user.id)
-				@current_group_user = @user_group.is_admin ? @user_group : false
+				@current_group_user = (@user_group && @user_group[:is_admin]) ? @user_group : nil
 			end
 	    rescue => e
 				logger.error "#{e.message} #{e.backtrace}"
