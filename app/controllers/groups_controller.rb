@@ -26,12 +26,12 @@ class GroupsController < ApplicationController
 			@task = Task.new
 			if user_signed_in?
 				@user_group = GroupsUser.find_by(group_id: @group.id, user_id: current_user.id)
-	        	@current_group_user = GroupsUser.find_by(group_id: @group.id, user_id: current_user.id, groups_users_state_id: 1)
-	        end
+				@current_group_user = @user_group.is_admin? @user_group : false
+			end
 	    rescue => e
-			logger.error "#{e.message} #{e.backtrace}"
-			err_msg = e.message.tr(?',?").delete("\n")
-			redirect_to root_path, :flash => { :error => "Ha ocurrido un error: #{err_msg}" }	    
+				logger.error "#{e.message} #{e.backtrace}"
+				err_msg = e.message.tr(?',?").delete("\n")
+				redirect_to root_path, :flash => { :error => "Ha ocurrido un error: #{err_msg}" }
 	    end
 	end
 
@@ -52,11 +52,11 @@ class GroupsController < ApplicationController
 		@group = Group.find(params[:id])
 		respond_to do |format|
 			format.js
-		end	
+		end
 	end
 
 	# Sends an email to every active member of a group.
-	# 
+	#
 	def bulk_group_email
 	    mails = []
 	    group = Group.find(params[:message][:group_id])
@@ -66,7 +66,7 @@ class GroupsController < ApplicationController
 	    end
 	    if !params[:message][:message].blank?
 	    	GroupMailer.bulk_email_group(params[:message][:message], mails, group.name, current_user.name).deliver_now
-	    	redirect_to group_path(id: group.id), :flash => { :notice => "El mensaje ha sido enviado a los miembros del grupo." }	
+	    	redirect_to group_path(id: group.id), :flash => { :notice => "El mensaje ha sido enviado a los miembros del grupo." }
 	    else
 	    	redirect_to group_path(id: group.id), :flash => { :error => "Debe agregar un mensaje para enviar al grupo." }
 	    end
