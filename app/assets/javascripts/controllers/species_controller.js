@@ -467,6 +467,7 @@ $(document).ready(function() {
 
 	});
 
+	// Reload species records
 	function _refreshSpeciesRecords() {
 		$.post( "/records/edit_record", { species_id: $("#species_id_field").val()}).done(function(data) {
 			_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val(), data);
@@ -541,8 +542,7 @@ $(document).ready(function() {
 		} else {
 			$.post("/records/update_record", data)
 				.done(function() {
-					$(".contented").attr("contenteditable","false").removeClass("redtext");
-					$("#saveregbtn").replaceWith('<button id="editregbtn" class="botonpopup">editar</button>');
+					$.post( "/records/show", { id: $("span#record_id").text()}).done();
 					_refreshSpeciesRecords();
 					alertify.alert("Su edición se ha realizado con éxito");
 				})
