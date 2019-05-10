@@ -17,7 +17,7 @@ class TasksController < ApplicationController
 	def tasks_by_user
 		@user= User.find(params[:user_id])
 		@tasks = Task.where(:user_id =>  @user.id).group(:id, :species_id, :user_id, :task_type_id)
-		@species_with_tasks = @tasks.map{|t| [Species.find_name(t.species_id.to_s),t.species_id]}.uniq
+		@species_with_tasks = Species.find_names(@tasks.map{|t| t.species_id}.uniq).map{|s| [s["acceptedNameUsage"], s["taxID"]]}
 		@current_group_user = false
 	    respond_to do |format|
 			format.js
