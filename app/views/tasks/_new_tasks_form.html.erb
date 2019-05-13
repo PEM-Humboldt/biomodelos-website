@@ -1,7 +1,7 @@
 <%= simple_form_for @task, :url => {:controller => "tasks", :action => "add_tasks"}, :method => :post, :remote => true do |f| %>
 	<%= f.error_notification %>
 	<%= f.hidden_field :group_id, value: @group.id %>
-	<p><%= t('biomodelos.tasks.new_taks') %></p>
+	<p><%= t('biomodelos.tasks.new_task') %></p>
         <% if current_group_user.is_admin %>
 	       <%= f.select :user_id, options_from_collection_for_select(GroupsUser.where(:group_id => @group.id, :groups_users_state_id => 1).joins(:user).order('users.name'), 'user_id', 'user_name'), include_blank: t('biomodelos.tasks.choose_expert') %>
         <% else %>
