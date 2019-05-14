@@ -1,0 +1,131 @@
+  <div class="cajavisor2" >
+  	<div class="dialog regdialog nobox">
+      <h1>REGISTRO DE</br>
+      <em><%= @record["species"] %></em></h1>
+      <a class="closevb vatop" id="regboxclose">x</a>
+      <blockquote>
+        <p>
+         <b>ID del registro:</b> <span id="record_id"><%= @record["id"] %></span><br> <!-- _id -->
+         <b>ID especie en BioModelos:</b> <%= @record["taxID"] %> <!-- taxID -->
+        </p>
+      </blockquote>
+      <% if user_signed_in? %>
+         <button id="editregbtn" class="botonpopup">editar</button>
+         <div id="cancelEditBtn"></div>
+         <!-- <a href="#" class="approved" title="Registro correcto" rel="tooltip"></a> -->
+         <a href="#" class="unapproved" title="Reportar" rel="tooltip"></a>
+         <form class="forms reportar invisible" id="report-form">
+            <h3>Reportar Registro</h3>
+            <input type="hidden" name="recordId" value="<%= @record["id"] %>">
+            <input type="checkbox" name="idIssue" checked="checked"><%= t('biomodelos.records.report.id_issue_lbl') %><br>
+            <input type="checkbox" name="geoIssue"><%= t('biomodelos.records.report.geo_issue_lbl') %><br>
+            <input type="submit" id='send-report' value='<%= t('biomodelos.records.report.submit_btn') %>'>
+            <input type="button" id='cancel-point-cmt' class="cancelbtn" value='<%= t('biomodelos.records.report.cancel_lnk') %>'>
+         </form>
+      <% end %>
+      <div class="clearfix"></div>
+      <h2>Taxonomía</h2>
+      <p><b>Nombre aceptado:</b> <span class="contented" id="txtSpeciesEdit" oldVal="<%= @record['acceptedNameUsage'] %>"><%= @record["acceptedNameUsage"] %></span></p> <!-- acceptedNameUsage -->
+      <p><b>Nombre original:</b> <%= @record["speciesOriginal"] %></p> <!-- speciesOriginal -->
+      <p><b>Familia:</b> xx</p> <!-- family -->
+      <p><b>Orden:</b> xxx</p> <!-- order -->
+      <p><b>Clase:</b> xxx</p> <!-- class -->
+      <p><b>Reino:</b> xx</p> <!-- kingdom -->
+
+      <h2>Ubicación</h2>
+      <p><b>Latitud:</b> <span class="contented" id="txtLatEdit" oldVal="<%= @record['decimalLatitude'] %>"><%= @record["decimalLatitude"] %></span></p> <!-- decimalLatitude -->
+      <p><b>Longitud:</b> <span class="contented" id="txtLonEdit" oldVal="<%= @record['decimalLongitude'] %>"><%= @record["decimalLongitude"] %></span></p> <!-- decimalLongitude -->
+      <br>
+      <div class="regcateg">
+         <div><b>original</b> · <i>interpretado</i></div>
+         <div>consistente</div>
+      </div>
+      <div class="colreg">
+         <p><b>País:</b></p>
+         <div class="camposreg">
+            <div class="campouno"><%= @record["country"] %></div>
+            <div class="campodos"><%= @record["suggestedCountry"] %></div>
+            <% if @record["correctCountry"] %><div class="correctoreg"></div><% else %><div class="falsoreg"></div><% end %>
+         </div><!-- country, suggestedCountry, correctCountry -->
+         <p><b>Departamento:</b></p>
+         <div class="camposreg">
+            <div class="campouno"><span id="txtAdm1Edit"><%= @record["stateProvince"].nil? ? '-': @record["stateProvince"] %></span></div>
+            <div class="campodos"><%= @record["suggestedStateProvince"].nil? ? '-': @record["suggestedStateProvince"] %></div>
+            <% if @record["correctStateProvince"] %><div class="correctoreg"></div><% else %><div class="falsoreg"></div><% end %>
+         </div><!-- stateProvince, suggestedStateProvince, correctStateProvince -->
+         <p><b>Municipio:</b></p>
+         <div class="camposreg">
+            <div class="campouno"><span id="txtAdm2Edit"><%= @record["county"].nil? ? '-': @record["county"] %></span></div>
+            <div class="campodos"><%= @record["suggestedCounty"].nil? ? '-': @record["suggestedCounty"] %></div>
+            <% if @record["correctCounty"] %><div class="correctoreg"></div><% else %><div class="falsoreg"></div><% end %>
+         </div><!-- county, suggestedCounty, correctCounty -->
+         <p><b>Localidad:</b></p>
+         <div class="camposreg">
+            <div class="campouno"><span class="contented" id="txtLocEdit" oldVal="<%= @record['verbatimLocality'] %>"><%= @record["verbatimLocality"].nil? ? '-': @record["verbatimLocality"] %></span></div>
+             <% if @record["hasLocality"] %><div class="correctoreg"></div><% else %><div class="falsoreg"></div><% end %>
+         </div><!-- locality, hasLocality -->
+         <p><b>Altitud:</b></p>
+         <div class="camposreg">
+            <div class="campouno"><span id="txtAltEdit"><%= @record["verbatimElevation"].nil? ? '-': @record["verbatimElevation"] %></span></div>
+            <div class="campodos"><%= @record["interpretedElevation"].nil? ? '-': @record["interpretedElevation"] %></div>
+            <div class="correctoreg"></div>
+         </div><!-- verbatimElevation, interpretedElevation, diferenceInAltitude (0 decimales)  -->
+      </div>
+
+      <div class="invisible" id="Reghidden">
+         <h2>Información del registro</h2>
+         <p><b>Fuente: </b> <%= @record["source"].nil? ? '-': @record["source"] %></p> <!-- source -->
+         <p><b>ID registro original: </b> <%= @record["occurrenceID"].nil? ? '-': @record["occurrenceID"] %></p> <!-- occurrenceID -->
+         <p><b>Fecha descarga fuente: </b> 17/05/2016</p> <!-- downloadDate -->
+         <p><b>Institución: </b> <span><%= @record["institutionCode"].nil? ? '-': @record["institutionCode"] %></span></p> <!-- institutionCode -->
+         <p><b>Colección: </b> <span><%= @record["collectionCode"].nil? ? '-': @record["collectionCode"] %></span></p> <!-- collectionCode -->
+         <p><b>Número de catálogo: </b> <span><%= @record["catalogNumber"].nil? ? '-': @record["catalogNumber"] %></span></p> <!-- catalogNumber -->
+         <p><b>Colector: </b> <span><%= @record["recordedBy"].nil? ? '-': @record["recordedBy"] %></span></p> <!-- recordedBy -->
+         <p><b>Evidencia de registro: </b> <span><%= @record["basisOfRecord"].nil? ? '-': @record["basisOfRecord"] %></span></p> <!-- basisOfRecord -->
+         <p><b>URL: </b> <span><%= @record["url"].nil? ? '-': @record["url"] %></span></p> <!-- url -->
+         <p><b>Creado por: </b> Null</p> </br> <!-- userID -->
+
+         <p><b>Fecha inicial: </b> <%= @record["earliestDateCollected"].nil? ? '-': @record["earliestDateCollected"] %></p> <!-- earliestDateCollected -->
+         <p><b>Fecha final: </b> <%= @record["latestDateCollected"].nil? ? '-': @record["latestDateCollected"] %></p> <!-- latestDateCollected -->
+         <p><b>Fecha interpretada: </b> <%= @record["year"].nil? ? '-': @record["year"] %>/<%= @record["month"].nil? ? '-': @record["month"] %>/<%= @record["day"].nil? ? '-': @record["day"] %></p> <!-- year month day -->
+         <p><b>Fecha creación: </b> YYYY MM DD</p> <!-- year month day ligado a userID-->
+
+         <h2>Calidad del registro</h2>
+         <p><b>Error georeferenciación (m):</b> <%= @record["coordinateUncertaintyInMeters"].nil? ? '-': @record["coordinateUncertaintyInMeters"] %></p> <!-- coordinateUncertaintyInMeters -->
+         <p><b>En casco urbano:</b> <%= @record["inUrbanArea"].nil? ? '-': @record["inUrbanArea"] %></p> <!-- inUrbanArea -->
+         <p><b>Altitud en coordenadas:</b> <%= @record["demAltitude"].nil? ? '-': @record["demAltitude"] %></p> <!-- demAltitude -->
+         <p><b>Altitud en rango conocido:</b> <%= @record["consistentAltitude"].nil? ? '-': @record["consistentAltitude"] %></p> <!-- consistentAltitude -->
+         <p><b>Distancia a rango conocido:</b> <%= @record["dist2KnowRange"].nil? ? '-': @record["dist2KnowRange"] %></p> <!-- dist2KnowRange -->
+         <p><b>Altitud atipica:</b> <%= @record["altitudinalOutlier"].nil? ? '-': @record["altitudinalOutlier"] %></p> <!-- altitudinalOutlier -->
+         <p><b>Ambiente atípico:</b> <%= @record["environmentalOutlier"].nil? ? '-': @record["environmentalOutlier"] %></p> <!-- environmentalOutlier -->
+
+         <br><br>
+         <p><b>Último reporte: </b>
+            <br>
+            <% if !@record["reportedDate"].nil? %>
+               <%= Date.parse @record["reportedDate"] %>
+            <% else %>
+               -
+            <% end %> <!-- TODO: We would need to query the user by userIdBm (updated) or reportedUserIdBm -->
+         <p><b>Última actualización: </b>
+            <br>
+            <% if !@record["updated"].nil? && !@record["updated"][-1].nil? && !@record["updated"][-1]["updatedDate"].nil? %>
+               <% updatedRecord = @record["updated"][-1] %>
+               <% if ((!@record["reportedDate"].nil? && updatedRecord["updatedDate"] > @record["reportedDate"]) ||
+                  @record["reportedDate"].nil?) %>
+                  <%= Date.parse updatedRecord["updatedDate"] %>
+               <% else %>
+                  <%= Date.parse @record["reportedDate"] %>
+               <% end %>
+            <% elsif !@record["reportedDate"].nil? %>
+               <%= Date.parse @record["reportedDate"] %>
+            <% else %>
+               -
+            <% end %> <!-- TODO: We would need to query the user by userIdBm (updated) or reportedUserIdBm -->
+      </div>
+
+      <div class="showreg" id="Showreg"></div>
+      <div class="vermas"></div>
+
+    </div>
+</div>

@@ -1,6 +1,6 @@
 <div class="innercontainer fondoplumas nbg6">
   <div class="loginbox">
-    <h2>Registrarse</h2>
+    <h2><%= t('biomodelos.sign_up.title') %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -11,34 +11,34 @@
   </div>
 
   <div class="field">
-    <%= f.label :Nombre_y_Apellidos %>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
     <%= f.label :clave %>
     <% if @minimum_password_length %>
-    <em>(mínimo <%= @minimum_password_length %> caracteres)</em>
+    <em><%= t('biomodelos.sign_up.password_min_txt', caracteres: @minimum_password_length) %></em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :confirmar_clave %><br />
+    <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
   <div class="field2">
   <%= f.check_box :terms_of_service, {:class => "vamiddle"} %>
-  <label class="checkboxterm"><%= link_to 'He leído y acepto los términos y condiciones', home_terms_path(:anchor => "politica"), {class: 'linkterminos', target: '_blank'} %></label></br>
+  <label class="checkboxterm"><%= link_to t('biomodelos.sign_up.terms_txt'), home_terms_path(:anchor => "politica"), {class: 'linkterminos', target: '_blank'} %></label></br>
   <%= f.check_box :data_policy, {:class => "mb40"} %>
-  <label class="checkboxterm2"><%= link_to 'Políticas de protección de datos personales', home_terms_path(:anchor => "personales"), {class: 'linkterminos', target: '_blank'} %></label></br>
+  <label class="checkboxterm2"><%= link_to t('biomodelos.sign_up.data_policies_txt'), home_terms_path(:anchor => "personales"), {class: 'linkterminos', target: '_blank'} %></label></br>
     <!-- <input type="checkbox" name="aceptoterms" value="terms" id="acepto-chk" class="mb40" />
         <label  class="checkboxterm"><a class="linkterminos" href="">He leído y acepto los términos y condiciones</a></label></br>
     </input> -->
   </div>
   <%= recaptcha_tags %>
   <div class="actions">
-    <%= f.submit "REGISTRARSE" %>
+    <%= f.submit t('biomodelos.sign_up.sign_up_btn') %>
   </div>
 <% end %>
 <div class="respclear"></div>

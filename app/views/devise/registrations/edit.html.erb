@@ -1,19 +1,19 @@
 <div class="innercontainer fondoplumas nbg7">
   <div class="loginbox">
-    <h2>Editar mi usuario</h2>
+    <h2><%= t('biomodelos.users.edit_profile.title') %></h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
       <br \>
-      <h3>Completando tu perfil de usuario aumentas la posibilidad de ingresar a los grupos de expertos y de mejorar la interacción con los demás usuarios.</h3>
+      <h3><%= t('biomodelos.users.edit_profile.text_1') %></h3>
       <div class="field">
-        <%= f.label :Email, rel: "tooltip", title: "Es importante tener un email válido para recibir notificaciones e información desde la aplicación."%>
+        <%= f.label :email, rel: "tooltip", title: t('biomodelos.users.edit_profile.valid_email_tt')%>
         <%= f.input :email, required: true, autofocus: "off", label: false %>
       </div>
 
       <div class="field">
-        <%= f.label :nombre %>
-        <%= f.input :name, required: true, autofocus: "off", label: false, placeholder: "Nombre y Apellido", :input_html => {maxlength: 55} %>
+        <%= f.label :name %>
+        <%= f.input :name, required: true, autofocus: "off", label: false, placeholder: t('biomodelos.users.edit_profile.name_ph'), :input_html => {maxlength: 55} %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -21,53 +21,53 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :Grupos_de_interes %>
-        <%= f.input :expertise, autocomplete: "off", label: false, placeholder: "Grupo(s) taxonómico(s) de interés", :input_html => { maxlength: 100 } %>
+        <%= f.label :expertise %>
+        <%= f.input :expertise, autocomplete: "off", label: false, placeholder: t('biomodelos.users.edit_profile.expertise_ph'), :input_html => { maxlength: 100 } %>
       </div>
 
       <div class="field">
-        <%= f.label :organización %>
-        <%= f.input :organization, autocomplete: "off", label: false, placeholder: "Organización", :input_html => {maxlength: 50 } %>
+        <%= f.label :organization %>
+        <%= f.input :organization, autocomplete: "off", label: false, placeholder: t('biomodelos.users.edit_profile.organization_ph'), :input_html => {maxlength: 50 } %>
       </div>
 
       <div class="field"> 
-        <%= f.label :Ubicación %>
-        <%= f.input :location, autocomplete: "off", label: false, placeholder: "País, ciudad o municipio", :input_html => {maxlength: 50 } %>
+        <%= f.label :location %>
+        <%= f.input :location, autocomplete: "off", label: false, placeholder: t('biomodelos.users.edit_profile.location_ph'), :input_html => {maxlength: 50 } %>
       </div>
 
       <div class="field mb40">
-        <%= f.label :Biografia %>
-        <%= f.text_area :bio, autocomplete: "off", label: false, placeholder: "Biografía resumida (max 600 caracteres)", :input_html => { maxlength: 600} %>
+        <%= f.label :bio %>
+        <%= f.text_area :bio, autocomplete: "off", label: false, placeholder: t('biomodelos.users.edit_profile.bio_ph'), :input_html => { maxlength: 600} %>
       </div>
 
       <div class="inputBtnSection ml0">
-        <input id="uploadFile" class="disableInputField w203" placeholder="Seleccionar Archivo" />
+        <input id="uploadFile" class="disableInputField w203" placeholder="<%= t('biomodelos.users.edit_profile.file_ph') %>" />
           <label class="fileUpload">
             <%= f.input :avatarURL, :as => :file, :required => true, label: false, error_html: {:class => 'publierror'}, :input_html => { :id => "uploadBtn", :class => "upload"} %>
-            <span class="uploadBtn">CAMBIAR FOTO</span>
+            <span class="uploadBtn"><%= t('biomodelos.users.edit_profile.change_photo') %></span>
           </label>
       </div>
-      <h3>Cambio de clave</h3>
+      <h3><%= t('biomodelos.users.edit_profile.password_change') %></h3>
       <div class="field">
-        <%= f.label :nueva_contraseña %> <i>(sólo si va a cambiarla)</i>
-        <%= f.input :password, autocomplete: "off", label: false, placeholder: "Ingrese una nueva contraseña", required: false %>
+        <%= f.label :clave %> <i><%= t('biomodelos.users.edit_profile.password_notice') %></i>
+        <%= f.input :password, autocomplete: "off", label: false, placeholder: t('biomodelos.users.edit_profile.new_password_ph'), required: false %>
       </div>
 
       <div class="field">
-        <%= f.label :confirmar_contraseña %>
-        <%= f.input :password_confirmation, label: false, placeholder: "Confirmar nueva contraseña", required: false %>
+        <%= f.label :password_confirmation %>
+        <%= f.input :password_confirmation, label: false, placeholder: t('biomodelos.users.edit_profile.confirm_password_ph'), required: false %>
       </div>
       <br \>
-      <h3>Confirmación de cambios</h3>
+      <h3><%= t('biomodelos.users.edit_profile.confirm_changes') %></h3>
       <div class="field mb40">
-        <%= f.label :clave_actual %> <i>(Necesaria para confirmar los cambios)</i>
-        <%= f.input :current_password, autocomplete: "off", label: false, placeholder: "Ingrese su clave actual", required: true  %>
+        <%= f.label :current_password %> <i><%= t('biomodelos.users.edit_profile.current_password_notice') %></i>
+        <%= f.input :current_password, autocomplete: "off", label: false, placeholder: t('biomodelos.users.edit_profile.current_password_ph'), required: true  %>
       </div>
 
-        <%= f.submit "ACTUALIZAR", :class => "ml20" %>
+        <%= f.submit t('biomodelos.users.edit_profile.submit_btn'), :class => "ml20" %>
     <% end %>
 
-   <%= link_to "Volver", :back %>
+   <%= link_to t('biomodelos.users.edit_profile.back_lnk'), :back %>
   </div>
 </div>
 

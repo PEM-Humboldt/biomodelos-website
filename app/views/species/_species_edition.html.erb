@@ -1,27 +1,27 @@
 		<div id="regMenu_slider">
-			<div class="steptitle">Seleccionar Umbral</div>
+			<div class="steptitle"><%= t('biomodelos.visor.edition_box.select_threshold') %></div>
 			<rzslider rz-slider-model="corteSlider.value" rz-slider-options="corteSlider.options" class="rzslider"></rzslider>
 			<div class="littleline"></div>
 		</div>
-		<div class="steptitle">Herramienta de polígono</div>
+		<div class="steptitle"><%= t('biomodelos.visor.edition_box.polygon_tools') %></div>
 		<div class="polibotons">
-			<button class="poliboton polig" title="Dibujar polígono" rel="tooltip"></button>
-			<button class="poliboton edipoli" title="Editar polígono" rel="tooltip"></button>
-			<button class="poliboton delpoli" title="Borrar polígono" rel="tooltip"></button>
+			<button class="poliboton polig" title="<%= t('biomodelos.visor.edition_box.draw_tt') %>" rel="tooltip"></button>
+			<button class="poliboton edipoli" title="<%= t('biomodelos.visor.edition_box.edit_tt') %>" rel="tooltip"></button>
+			<button class="poliboton delpoli" title="<%= t('biomodelos.visor.edition_box.delete_tt') %>" rel="tooltip"></button>
 		</div>
 		<div class="littleline"></div>
 		<div class="editbotones">
-			<button class="saveedit actionbtn">confirmar</button>
-			<button class="canceledit actionbtn">deshacer</button>
+			<button class="saveedit actionbtn"><%= t('biomodelos.visor.edition_box.confirm_btn') %></button>
+			<button class="canceledit actionbtn"><%= t('biomodelos.visor.edition_box.undo_btn') %></button>
 		</div>
 		<div class="delbotones">
-			<button class="savedel actionbtn">confirmar</button>
-			<button class="canceldel actionbtn">deshacer</button>
+			<button class="savedel actionbtn"><%= t('biomodelos.visor.edition_box.confirm_btn') %></button>
+			<button class="canceldel actionbtn"><%= t('biomodelos.visor.edition_box.undo_btn') %></button>
 		</div>
-		<div class="steptitle veicon2" title="IDEAM 2010. Leyenda Nacional de Coberturas de la Tierra. Metodología CORINE Land Cover adaptada para Colombia Escala 1:100.000. Instituto de Hidrología, Meteorología y Estudios Ambientales. Bogotá, D. C., 72p." rel="tooltip">Variables Ecológicas</div>
+		<div class="steptitle veicon2" title="<%= t('biomodelos.visor.covers.covers_tt') %>" rel="tooltip"><%= t('biomodelos.visor.covers.title') %></div>
         <%= render 'species/species_eco_variables' %>
-		<button class="btngen" id="btnPauseEdition">pausar</button>
-		<button class="btngen" id="btnEnvEdition">enviar</button>
+		<button class="btngen" id="btnPauseEdition"><%= t('biomodelos.visor.edition_box.pause_btn') %></button>
+		<button class="btngen" id="btnEnvEdition"><%= t('biomodelos.visor.edition_box.send_btn') %></button>
 		<%= hidden_field_tag "user_id_field", current_user.id %>
 		<%= hidden_field_tag "newModel_field", false %>
 		<%= hidden_field_tag "layer_id_field" %>

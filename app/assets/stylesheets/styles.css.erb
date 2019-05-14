@@ -33,14 +33,14 @@ img {
 
 body {
     font: 14px/24px 'Lato', sans-serif;
-    font-size: 1em; 
+    font-size: 1em;
     line-height: 1.2;
     background-color: #f2f2f2;
     height: 100%;
 }
 
 svg > g > g:last-child { pointer-events: none } /* flickering de google charts */
-div.google-visualization-tooltip { pointer-events: none } /* flickering de google charts */
+div.google-visualization-tooltip { pointer-events: none !important } /* flickering de google charts */
 
 .clearfix:before,
 .clearfix:after {
@@ -84,8 +84,9 @@ div.google-visualization-tooltip { pointer-events: none } /* flickering de googl
     font-weight: 300;
     font-size: 0.87em;
     white-space: pre-line;
+    pointer-events: none;
 }
- 
+
     #tooltip:after /* triangle decoration */
     {
         width: 0;
@@ -99,7 +100,7 @@ div.google-visualization-tooltip { pointer-events: none } /* flickering de googl
         bottom: -10px;
         margin-left: -10px;
     }
- 
+
         #tooltip.top:after
         {
             border-top-color: transparent;
@@ -107,13 +108,13 @@ div.google-visualization-tooltip { pointer-events: none } /* flickering de googl
             top: -20px;
             bottom: auto;
         }
- 
+
         #tooltip.left:after
         {
             left: 10px;
             margin: 0;
         }
- 
+
         #tooltip.right:after
         {
             right: 10px;
@@ -126,7 +127,7 @@ div.google-visualization-tooltip { pointer-events: none } /* flickering de googl
 header {
 	width: 100%;
 	background-color: #1b3337;
-	padding: 12px 34px;
+	padding: 12px 30px;
 	display: flex;
     justify-content: space-between;
     position: relative;
@@ -140,7 +141,8 @@ header h1 {
 	font-weight: 400;
 }
 
-header nav {
+header nav ul {
+	display: inline-block;
 	margin-top: 6px;
 }
 
@@ -153,14 +155,14 @@ header nav li {
 
 header nav li a {
 	text-transform: uppercase;
-	padding: 15px;
+	padding: 15px 12px;
 	color: #fff;
 	margin-left: 10px;
 	font-size: 0.75em;
 	letter-spacing: 1px;
 }
 
-header nav a:hover {
+header nav li a:hover {
 	color: #18b4b1;
 }
 
@@ -171,7 +173,7 @@ header nav a:hover {
 .usuario a {
 	display: inline-block;
 	color:#e45b2d;
-	padding: 0 10px;
+	padding: 0 9px;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	max-width: auto;
@@ -183,12 +185,12 @@ header nav a:hover {
 
 .xsalir {
     cursor: pointer;
-    width: 16px;
+    width: 8px;
     height: 17px;
     background-image: url(<%= asset_path 'logout.png' %>);
     background-repeat: no-repeat;
     vertical-align: text-bottom;
-    margin-left: 10px;
+    margin-top: 3px;
 }
 
 .current {
@@ -213,7 +215,7 @@ footer {
     height: 130px;
 }
 
-.humboldtft img, 
+.humboldtft img,
 .humbname {
 	display: inline-block;
 	*display: inline;
@@ -264,6 +266,27 @@ footer li a, .visorfooter li a {
 	color: #18b4b1;
 }
 
+.lang {
+	text-transform: uppercase;
+	display: inline-block;
+	background: url(<%= asset_path 'lang.png' %>) center no-repeat ;
+	vertical-align: top;
+}
+
+a.lang {
+	font-size: 14px;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 36px;
+	height: 36px;
+	width: 36px;
+}
+
+.lang:hover {
+	color: #4dc8ee;
+	background-image: url(<%= asset_path 'lang2.png' %>);
+}
+
 .smallnavli {
 	color: #fff;
 	text-transform: none;
@@ -271,7 +294,7 @@ footer li a, .visorfooter li a {
 
 .linehnav {
 	line-height: 1.3;
-	margin: 3px 0;	
+	margin: 3px 0;
 }
 
 .visorfooter {
@@ -738,7 +761,7 @@ p.redsq::before	{
 }
 
 .editbox input[type="submit"],
-.hipotesis input[type="submit"], 
+.hipotesis input[type="submit"],
 .loginbox input[type="submit"] {
 	background: none;
 	padding: 10px 16px 10px;
@@ -773,7 +796,7 @@ p.redsq::before	{
 	font-size: 13px;
 }
 
-.editbox span label, 
+.editbox span label,
 .hipotesis span label {
 	margin-left: 5px;
 	line-height: 2;
@@ -887,7 +910,7 @@ p.redsq::before	{
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	height: 465px;
 	background-color: #fff;
-	overflow-y: auto;
+	overflow-y: auto !important;
 	padding: 17px;
 	z-index: 6;
 	position: relative;
@@ -896,7 +919,7 @@ p.redsq::before	{
 .cajaperfil h1 {
 	font-size: 1.286em;
 	margin: 0 0 15px;
-	padding: 0; 
+	padding: 0;
 	text-align: left;
 	font-weight: 400;
 }
@@ -990,6 +1013,16 @@ p.redsq::before	{
 	border: 0;
 	outline: none;
 	cursor: pointer;
+}
+
+.leavegroup {
+	margin-top: 5px;
+	width: 30px;
+	height: 30px;
+	border: 0;
+	outline: none;
+	cursor: pointer;
+	margin-left: 1px;
 }
 
 .perfilunder {
@@ -1292,7 +1325,7 @@ button.pad3 {
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
-	text-align: center;	
+	text-align: center;
 	border-left: 1px solid #1b3337;
 	vertical-align: top;
 	height: 45px;
@@ -1544,7 +1577,7 @@ p.moderlink{
 }
 
 .sppbox .closecb {
-	margin-left: 0;	
+	margin-left: 0;
 }
 
 .expindex {
@@ -1559,7 +1592,7 @@ p.moderlink{
 	*zoom: 1;
 	margin-right: 10px;
 	margin-bottom: 12px;
-	vertical-align: top;	
+	vertical-align: top;
 	box-shadow: 0 2px 4px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.12);
 	text-align: left;
 }
@@ -1676,7 +1709,7 @@ p.moderlink{
 }
 
 .userspp input[type="checkbox"] {
-	height: 20px;
+	/*height: 20px;*/
 	margin: 0 auto;
 }
 
@@ -1689,7 +1722,7 @@ p.moderlink{
 	line-height: 2;
 	vertical-align: top;
 	color: #393836;
-	padding-left: 12px;
+	/*padding-left: 12px;*/
 }
 
 .userspp p {
@@ -1788,7 +1821,7 @@ p.moderlink{
   position: relative;
   font-size: 1em;
   color: #db3f2a;
-  width: 285px;
+  width: 280px;
   height: 40px;
   border: solid 1px #db3f2a;
 }
@@ -1910,7 +1943,7 @@ p.moderlink{
 }
 
 .btnemergencia {
-	margin-top: 0 !important; 
+	margin-top: 0 !important;
 }
 
 .btnact {
@@ -1942,7 +1975,7 @@ p.moderlink{
 	margin-bottom: 5px;
 }
 
-.forms input[type=submit] {
+.forms input[type=submit], .nobox .cancelbtn {
 	text-transform: uppercase;
 	padding: 5px 10px;
 	margin: 5px 0;
@@ -1956,6 +1989,19 @@ p.moderlink{
 	float: right;
 }
 
+.nobox .forms {
+	margin-left: 15px;
+}
+
+.nobox .forms input[type=submit] {
+	background-color: #db3f2a;
+	margin-left: 5px;
+}
+
+.nobox .forms input[type=radio] {
+	margin: 10px;
+}
+
 .forms ::-webkit-input-placeholder {
    color: #393836;
    font-family: 'Lato', sans-serif !important;
@@ -1965,19 +2011,19 @@ p.moderlink{
 .forms :-moz-placeholder { /* Firefox 18- */
    color: #393836;
    font-family: 'Lato', sans-serif !important;
-   font-size: 12px;  
+   font-size: 12px;
 }
 
 .forms ::-moz-placeholder {  /* Firefox 19+ */
    color: #393836;
    font-family: 'Lato', sans-serif !important;
-   font-size: 12px;  
+   font-size: 12px;
 }
 
-.forms :-ms-input-placeholder {  
+.forms :-ms-input-placeholder {
    color: #393836;
    font-family: 'Lato', sans-serif !important;
-   font-size: 12px;  
+   font-size: 12px;
 }
 
 .groupcard {
@@ -1988,7 +2034,7 @@ p.moderlink{
 	*zoom: 1;
 	margin-right: 10px;
 	margin-bottom: 12px;
-	vertical-align: top;	
+	vertical-align: top;
 	box-shadow: 0 2px 4px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.12);
 	text-align: left;
 	background-color: #f2f2f2;
@@ -2148,6 +2194,16 @@ p.moderlink{
 	z-index: 6;
 }
 
+.infocontainer h2 {
+	font-weight: 300;
+	font-size: 24px;
+	letter-spacing: 1;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #000;
+}
+
 .apicont {
 	width: 100%;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -2206,7 +2262,7 @@ p.moderlink{
   margin-left: 25px;
 }
 
-.blogg20::before, 
+.blogg20::before,
 .blogglist::before {
   content: '• ';
 }
@@ -2304,16 +2360,22 @@ p.moderlink{
 }
 
 .cardbol:hover .flipper, .cardbol.hover .flipper {
-	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 .flipper {
 	transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	position: relative;
 }
 
 .front, .back {
+	-webkit-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
 	backface-visibility: hidden;
 	position: absolute;
 	top: 0;
@@ -2322,13 +2384,17 @@ p.moderlink{
 
 .front {
 	z-index: 2;
+	-webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
 	transform: rotateY(0deg);
 	width: 220px;
 	text-align: center;
 }
 
 .back {
-	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 	width: 220px;
 	background-color: #196982;
 	height: 240px;
@@ -2474,9 +2540,7 @@ a.cajathumb p {
 	border-radius: 0;
 	background-color: #1b3337;
 	box-shadow: none;
-	padding-top: 0;
-	padding-right:0;
-	padding-left:0;
+	padding:0;
 }
 
 .leaflet-control-coordinates {
@@ -2499,6 +2563,7 @@ a.cajathumb p {
 	top: 120px;
 	z-index: 1000;
 	left: 50%;
+	-webkit-transform: translatex(-50%);
 	transform: translatex(-50%);
 	color: #fff;
 }
@@ -2576,7 +2641,8 @@ a.cajathumb p {
 	font-weight: 300;
 }
 
-.botonpopup {
+.botonpopup,
+.botonpopup2 {
 	background: none;
 	border-radius: 0;
 	border: 1px solid #db3f2a;
@@ -2587,6 +2653,58 @@ a.cajathumb p {
 	letter-spacing: 1px;
 	font-weight: 300;
 	cursor: pointer;
+	vertical-align: top;
+}
+
+.botonpopup:hover {
+	color:#fff;
+	background-color: #db3f2a;
+}
+
+.botonpopup2 {
+	color:#fff;
+	background-color: #db3f2a;
+}
+
+.botonpopup2:hover {
+	color:#db3f2a;
+	background-color: #fff;
+}
+
+#cancelEditBtn {
+	display: inline-block;
+	vertical-align: top;
+	margin: 10px 10px 0 0;
+}
+
+#cancelEditBtn .botonpopup2 {
+	margin: 0 !important;
+}
+
+.approved, .unapproved {
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	margin: 10px 15px 0 0;
+	background-image: url(<%= asset_path 'approvedyes1.png' %>);
+}
+
+.unapproved {
+	background-image: url(<%= asset_path 'approvedno1.png' %>);
+}
+
+.approved:hover, .approved.active {
+	background-image: url(<%= asset_path 'approvedyes2.png' %>);
+}
+
+.unapproved:hover, .unapproved.active {
+	background-image: url(<%= asset_path 'approvedno2.png' %>);
+}
+
+.areaother {
+	margin: 0 5px;
+	padding: 3px;
+	font-family: 'lato', sans-serif;
 }
 
 .ml0{
@@ -2620,7 +2738,7 @@ a.cajathumb p {
     background-position: right;
 }
 
-.spname {	
+.spname {
 	font-style: italic;
 	color: #db3f2a;
 	display: none;
@@ -2727,6 +2845,23 @@ a.cajathumb p {
 	height: calc(100% - 106px);
 }
 
+.cajavisor2 {
+	width: 650px;
+	height: 100%;
+	padding: 10px 20px;
+	position: absolute;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	background-color: #fff;
+	overflow-y: auto;
+	z-index: 1001;
+	top: 60px;
+	right: 0;
+	font: 14px/24px 'Lato', sans-serif;
+	height: -moz-calc(100% - 106px);
+	height: -webkit-calc(100% - 106px);
+	height: calc(100% - 106px);
+}
+
 .vcbase h1 {
 	padding: 0 0 13px 0;
 	margin-top: 0;
@@ -2766,13 +2901,22 @@ a.cajathumb p {
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
-	line-height: 40px;
+	line-height: 39px;
 	height: 40px;
 	cursor: pointer;
 }
 
+.closevb:hover {
+	color:#fff !important;
+	background-color: #db3f2a;
+}
+
 .vatop {
 	vertical-align: top;
+}
+
+.nobox .vatop {
+	position: fixed;
 }
 
 .cajavisor p, .infobox p {
@@ -2833,37 +2977,37 @@ a.cajathumb p {
 .typebtn label > input {
     display:none;
       }
- 
+
 .sppbtn label > input + img,
 .typebtn label > input + p {
      cursor:pointer;
  }
 
 .sppbtn label > input:checked + img,
-.sppbtn label:hover { 
+.sppbtn label:hover {
  	background-color: #1b3337;
 }
 
 .mamiferos {
-background-image: url(<%= asset_path 'mambtn.png' %>);	
+background-image: url(<%= asset_path 'mambtn.png' %>);
 }
 .aves {
-background-image: url(<%= asset_path 'avesbtn.png' %>);	
+background-image: url(<%= asset_path 'avesbtn.png' %>);
 }
 .reptiles {
-background-image: url(<%= asset_path 'repbtn.png' %>);	
+background-image: url(<%= asset_path 'repbtn.png' %>);
 }
 .anfibios {
-background-image: url(<%= asset_path 'anfbtn.png' %>);	
+background-image: url(<%= asset_path 'anfbtn.png' %>);
 }
 .peces {
-background-image: url(<%= asset_path 'pecesbtn.png' %>);	
+background-image: url(<%= asset_path 'pecesbtn.png' %>);
 }
 .invertebrados {
-background-image: url(<%= asset_path 'invbtn.png' %>);	
+background-image: url(<%= asset_path 'invbtn.png' %>);
 }
 .plantas {
-background-image: url(<%= asset_path 'plantbtn.png' %>);	
+background-image: url(<%= asset_path 'plantbtn.png' %>);
 }
 
 .typebtn label > p {
@@ -3157,10 +3301,14 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 }
 
 .mapthumb:hover .flipper, .mapthumb.hover .flipper {
+	-webkit-transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
 	transform: rotateY(180deg);
 }
 
 .front2, .back2 {
+	-webkit-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
 	backface-visibility: hidden;
 	position: absolute;
 	top: 0;
@@ -3169,6 +3317,8 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 
 .front2 {
 	z-index: 2;
+	-webkit-transform: rotateY(0deg);
+	-webkit-transform: rotateY(0deg);
 	transform: rotateY(0deg);
 	width: 185px;
 	text-align: center;
@@ -3177,6 +3327,8 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 }
 
 .back2 {
+	-webkit-transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
 	transform: rotateY(180deg);
 	width: 185px;
 	height: 230px;
@@ -3228,7 +3380,7 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	width: auto;
 	height: 25px;
 	text-align: left;
-	padding-left: 8px;	
+	padding-left: 8px;
 }
 
 .commons img {
@@ -3486,7 +3638,6 @@ label.checkboxdown {
 
 .regactive {
 	padding:0 8px;
-	letter-spacing: 1px;
 	font-size: 1.1em;
 	background-image: url(<%= asset_path 'uparroww.png' %>);
 	height: 45px;
@@ -3548,10 +3699,11 @@ label.checkboxdown {
 	background-color: #fff;
 	position: absolute;
 	z-index: 17;
-	max-height: -moz-calc(100% - 211px);
-	max-height: -webkit-calc(100% - 211px);
-	max-height: calc(100% - 211px);
+	height: -moz-calc(100% - 211px);
+	height: -webkit-calc(100% - 211px);
+	height: calc(100% - 211px);
 	padding: 5px 15px 5px 8px;
+	overflow-y: auto;
 }
 
 .cajitaeditar .steptitle,
@@ -3652,7 +3804,7 @@ label.checkboxdown {
 
 .opacitybtn {
 	opacity: 0.5;
-    filter: alpha(opacity=50); 
+    filter: alpha(opacity=50);
 }
 
 .actionbtn {
@@ -3688,7 +3840,7 @@ label.checkboxdown {
 
 .vAccordion--default v-accordion {
   margin-top: 0 !important;
-  padding-left: 5px !important; 
+  padding-left: 5px !important;
 }
 
 .vAccordion--default v-pane-content > div {
@@ -3706,7 +3858,7 @@ label.checkboxdown {
 }
 
 .vAccordion--default v-pane.is-expanded > v-pane-header {
-    border-top: 1px solid #db3f2a !important; 
+    border-top: 1px solid #db3f2a !important;
 }
 
 .vAccordion--default v-accordion v-pane-header {
@@ -3757,7 +3909,7 @@ label.checkboxdown {
 
 .taxbtn {
 	border-color: #db3f2a;
-	background: url(<%= asset_path 'poligonored.png' %>) center no-repeat; 
+	background: url(<%= asset_path 'poligonored.png' %>) center no-repeat;
 	float: right;
 	cursor: pointer;
 }
@@ -3799,7 +3951,7 @@ label.checkboxdown {
 
 .leaflet-container a.leaflet-popup-close-button{
 	font-family: 'Lato', sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 	color: #db3f2a;
 	padding: 10px 6px 0 0;
 	height: auto;
@@ -3809,7 +3961,7 @@ label.checkboxdown {
 
 .inputforma {
 	width: 92%;
-	min-width: 278px;
+	min-width: 277px;
 	margin: 0 4% 10px;
 	padding: 3px;
 }
@@ -3817,6 +3969,10 @@ label.checkboxdown {
 	width: 72px;
 	padding: 3px;
 	margin-bottom: 10px;
+}
+
+.regform {
+	overflow-y: scroll;
 }
 
 .regform label {
@@ -3828,6 +3984,25 @@ label.checkboxdown {
 	text-align: center;
 }
 
+a.vermasreg {
+	-ms-text-align-last: right;
+	text-align-last: right;
+	display: block;
+	padding-right: 20px;
+	letter-spacing: 1px;
+	color: #4dc8ee;
+}
+
+a.vermasreg b {
+	color: #4dc8ee;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+a.vermasreg:hover {
+	color: #fff;
+}
+
 .regform ::-webkit-input-placeholder {
    color: #1b3337 !important;
    font-family: 'Lato', sans-serif !important;
@@ -3837,19 +4012,19 @@ label.checkboxdown {
 .regform :-moz-placeholder { /* Firefox 18- */
    color: #1b3337 !important;
    font-family: 'Lato', sans-serif !important;
-   font-size: 13px;  
+   font-size: 13px;
 }
 
 .regform ::-moz-placeholder {  /* Firefox 19+ */
    color: #1b3337 !important;
    font-family: 'Lato', sans-serif !important;
-   font-size: 13px;  
+   font-size: 13px;
 }
 
-.regform :-ms-input-placeholder {  
+.regform :-ms-input-placeholder {
    color: #1b3337 !important;
    font-family: 'Lato', sans-serif !important;
-   font-size: 13px;  
+   font-size: 13px;
 }
 
 /*#point_lat::after {
@@ -3867,7 +4042,7 @@ label.checkboxdown {
 
 .cajita a.wrongbtn {
 	padding: 7px 16px;
-	margin: 10px;
+	margin: 10px 10px 5px;
 	border: none;
 	background: none;
 	border: 1px solid #db3f2a;
@@ -4082,7 +4257,7 @@ label.checkboxdown {
     margin-top: 3px;
 }
 
-.pubcontent input[type="checkbox"], 
+.pubcontent input[type="checkbox"],
 .pubcontent input[type="radio"] {
     display:inline-block;
     width:15px;
@@ -4230,7 +4405,7 @@ label.checkboxdown {
 	font-size: 1.1em;
 	color: #1d1d1d;
 	line-height: 1.5;
-	text-align: justify;	
+	text-align: justify;
 	margin: 0 auto;
 }
 
@@ -4265,7 +4440,7 @@ label.checkboxdown {
 
 .member b {
 	font-size: 1.2em;
-	margin-top: 15px;	
+	margin-top: 15px;
 }
 
 .equipo {
@@ -4312,11 +4487,10 @@ margin: 0 auto;
 background-color: #fff;
 padding: 30px 20px;
 box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-overflow-y: scroll;
 }
 
 .dialog h1 {
-font-size: 2em; 
+font-size: 2em;
 font-weight: 300;
 color: #db3f2a;
 border-bottom: 1px solid #1b3337;
@@ -4334,7 +4508,7 @@ padding: 5px 10px;
 font-weight: 300;
 }
 
-.dialog h2 { 
+.dialog h2 {
    font-size:1.6em;
    margin: 20px 0 5px;
    padding: 8px 15px;
@@ -4348,7 +4522,7 @@ font-weight: 300;
 }
 
 
-.dialog h3 { 
+.dialog h3 {
    font-size:1.3em;
    margin:15px 5px;
    padding: 10px;
@@ -4396,6 +4570,178 @@ font-weight: 300;
 
 .dialog blockquote:last-child {
   margin-bottom: 30px;
+}
+
+.regdialog p:nth-child(1) {
+	margin-left: 0;
+}
+
+.regdialog p:nth-child(even) {
+	background-color: #f1f2f2;
+}
+
+.regdialog p b {
+	margin-right: 8px;
+}
+
+.regdialog .mediac {
+	width: 408px;
+	display: inline-block;
+}
+
+.nobox {
+	box-shadow: none;
+	width: auto;
+	height: 100%;
+	padding: 0;
+	margin-bottom: 40px !important;
+}
+
+.nobox h1 {
+	display: inline-block;
+	min-width: 555px;
+}
+
+.nobox h3 {
+	margin: 0;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+	display: none;
+}
+
+.redtext {
+	color: red;
+}
+
+.showreg {
+	width: 30px;
+	height: 30px;
+	background: none;
+	background-image: url(<%= asset_path 'arrow.png' %>);
+	border: none;
+	position: relative;
+	display: inline-block;
+	margin: 10px 0 15px 10px;
+	cursor: pointer;
+}
+
+.showreg:focus {
+	outline: 0;
+}
+
+.rotate {
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    -webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+}
+
+.vermas {
+	display: inline-block;
+	margin-top: 10px;
+	vertical-align: top;
+	height: 30px;
+}
+
+.vermas:after {
+	content: "ver más";
+	line-height: 30px;
+	color: #db3f2a;
+	font-size: 15px;
+}
+
+.vermenos:after {
+	content: "ver menos";
+}
+
+.regcateg {
+	display: flex;
+	justify-content: space-between;
+	font-size: 15px;
+	padding-left: 11px;
+	border-bottom: 1px solid #18b4b1;
+	font-weight: 400;
+}
+
+.regcateg b, .colreg i {
+	color: #18b4b1;
+	font-weight: 400;
+}
+
+.regcateg i, .colreg u {
+	font-style: normal;
+	font-weight: 400;
+	color: #e3af24;
+}
+
+.correctoreg {
+	width: 25px;
+	height: 25px;
+	background: url(<%= asset_path 'true.png' %>) center left no-repeat;
+	display: inline-block;
+	float: right;
+}
+
+.falsoreg {
+	width: 25px;
+	height: 25px;
+	background: url(<%= asset_path 'false.png' %>) center left no-repeat;
+	display: inline-block;
+	float: right;
+}
+
+.camposreg {
+	padding-left: 10px;
+	background-color: #f1f2f2;
+}
+
+.campouno{
+	color: #18b4b1;
+	display: inline-block;
+	font-size: 18px;
+	font-weight: 300;
+}
+
+.campodos:before {
+	content: ' · ';
+	padding-right: 5px;
+}
+
+.campodos {
+	color: #e3af24;
+	display: inline-block;
+	font-size: 18px;
+	font-weight: 300;
+	margin-left: 10px;
+}
+
+.filterbtn {
+	padding: 5px 7px;
+	text-align: center;
+	line-height: 1;
+	font-size: 14px;
+	display: inline-block;
+	margin-right: 5px;
+	margin-bottom: 10px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	background-color: #f2f2f2;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
+.filterbtn:hover, .is-checked {
+	background-color: #db3f2a;
+	color: #fff;
+
 }
 
 /* Leaflet 0.7.x fix for image layers moving and disappearing when zooming in */

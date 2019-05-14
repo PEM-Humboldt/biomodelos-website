@@ -11,12 +11,12 @@
 		</div>
 		<% if user_signed_in? && @user.id != current_user.id %>
 			<div class="editgroupform" ng-show="messagebox">
-						<h2>Mensaje al experto.</h2>
+						<h2><%= t('biomodelos.users.message_to_expert') %></h2>
 						<%= simple_form_for :message, :url =>   users_send_message_to_user_path, :method => :post do |f|  %>
-							<%= f.input :message, :as => :text, :placeholder => "máximo 500 caracteres", :input_html => {:maxlength => 500, :cols => "20", :rows => "8"}, :name => "cuerpo", label: false %>
+							<%= f.input :message, :as => :text, :placeholder => t('biomodelos.users.max_message_ph'), :input_html => {:maxlength => 500, :cols => "20", :rows => "8"}, :name => "cuerpo", label: false %>
 							<%= f.hidden_field :user_id, :value => @user.id %>
 						    <div class="clearfix"></div>
-						    <%= f.submit 'ENVIAR', class: "btngen ml0"%>
+						    <%= f.submit t('biomodelos.contact.submit_btn'), class: "btngen ml0", data: { disable_with: t('biomodelos.contact.submit_btn') }%>
 						    <a class="closeedit" ng-click="messagebox=!messagebox">X</a>
 						<% end %>
 			</div>
@@ -26,28 +26,28 @@
 		<!-- 	<a href="" class="edituser" rel="tooltip" title="Editar usuario"></a> -->
 		<% if user_signed_in? %>
 			<% if @user.id != current_user.id %>
-				<a href="" class="mailto" rel="tooltip" title="Mensaje al usuario" ng-click="messagebox=!messagebox"></a>
+				<a href="" class="mailto" rel="tooltip" title="<%= t('biomodelos.users.message_to_expert_tt') %>" ng-click="messagebox=!messagebox"></a>
 			<% else %>
-				<%= link_to '', edit_user_registration_path, class: 'edituser', rel: "tooltip", title: "Editar usuario" %>
+				<%= link_to '', edit_user_registration_path, class: 'edituser', rel: "tooltip", title: t('biomodelos.users.edit_user_tt') %>
 			<% end %>
 		<% end %>
 		</div>
 		<div class="clearfix"></div>
-		<div class="perfilunder">Biografía</div>
+		<div class="perfilunder"><%= t('biomodelos.users.bio') %></div>
 		<p><%= @user.bio %></p>
-		<div class="perfilunder">Grupos</div>
+		<div class="perfilunder"><%= t('biomodelos.users.groups') %></div>
 		<% @user_groups.each do |group| %>
-			<p class="groupuser"><a href="/groups/<%= group.group_id %>"><%= group.group.name %>  ·  </a><%= group.updated_at.to_time.strftime("%F") %></p>
+			<p class="groupuser"><%= link_to "/#{I18n.locale}/groups/#{group.group_id}" do %><%= group.group.name %>  ·  <% end %><%= group.updated_at.to_time.strftime("%F") %></p>
 		<% end %>
 	</div>
 	<div class="col1">
 
 		<ul class="perfilnav">
 	       	<li ng-class="{ active: isSet(1) }">
-	          	<a href ng-click="setTab(1)">estadísticas</a>
+	          	<a href ng-click="setTab(1)"><%= t('biomodelos.users.statistics_tab') %></a>
 	       	</li>
 	       	<li ng-class="{ active: isSet(2) }">
-	          	<a href ng-click="setTab(2)" class="user_tasks_tab">tareas</a>
+	          	<a href ng-click="setTab(2)" class="user_tasks_tab"><%= t('biomodelos.users.tasks_tab') %></a>
 	       	</li>
 <!-- 	       	<li ng-class="{ active: isSet(3) }">
 	          	<a href ng-click="setTab(3)">mis mapas</a>

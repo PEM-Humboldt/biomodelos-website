@@ -1,18 +1,18 @@
 <div class="report">
-	<h2>REPORTAR REGISTRO</h2>
+	<h2><%= t('biomodelos.records.report.title') %></h2>
 	<%= simple_form_for :point_comment, :url => records_send_report_record_path, :method => :post, :remote => true, :html => {:class => "pointcomm" } do |f| %>
 		<%= f.input :user_id, :as => :hidden, :input_html => {:value => current_user.id} %>
 		<%= f.input :recordId, :as => :hidden %>
 		<%= f.input :dataBaseId, :as => :hidden %>
 		<%= f.input :species_id, :as => :hidden %>
-		<%= f.input :isOutlier, :as => :boolean, label:"Outlier geográfico", :name => "badid" %>
-		<%= f.input :geoIssue, :as => :boolean, label:"Georreferenciación dudosa", :name => "badid" %>
-		<%= f.input :idIssue, :as => :boolean, label:"Identificación dudosa", :name => "badid" %>
-		<%= f.input :oldTaxonomy, :as => :boolean, label:"Nombre desactualizado", :name => "doubtgeo" %>
-		<%= f.input :inCaptivity, :as => :boolean, label:"Individuo introducido", :name => "doubtgeo" %>
-		<%= f.input :otherIssues, :as => :boolean, label:"Otros (comentar)", :name => "doubtgeo" %>
-		<%= f.input :comment, :as => :text, :placeholder => "Comentario", :input_html => {:class =>"repteztarea",:maxlength => 1200,:cols => "50",:rows => "5"}, label: false %>
-		<%= f.button :submit, :value => "guardar", :class => 'botonpopup'%>
-		<%= link_to "cancelar", '', {:id => 'cancel-point-cmt', :class => "botonpopup"} %>
+		<%= f.input :isOutlier, :as => :boolean, label:t('biomodelos.records.report.outlier_lbl'), :name => "badid" %>
+		<%= f.input :geoIssue, :as => :boolean, label:t('biomodelos.records.report.geo_issue_lbl'), :name => "badid" %>
+		<%= f.input :idIssue, :as => :boolean, label:t('biomodelos.records.report.id_issue_lbl'), :name => "badid" %>
+		<%= f.input :oldTaxonomy, :as => :boolean, label:t('biomodelos.records.report.old_taxonomy_lbl'), :name => "doubtgeo" %>
+		<%= f.input :inCaptivity, :as => :boolean, label:t('biomodelos.records.report.in_captivity_lbl'), :name => "doubtgeo" %>
+		<%= f.input :otherIssues, :as => :boolean, label:t('biomodelos.records.report.other_issues_lbl'), :name => "doubtgeo" %>
+		<%= f.input :comment, :as => :text, :placeholder => t('biomodelos.records.report.comment_ph'), :input_html => {:class =>"repteztarea",:maxlength => 1200,:cols => "50",:rows => "5"}, label: false %>
+		<%= f.button :submit, :value => t('biomodelos.records.report.submit_btn'), :class => 'botonpopup', data: { disable_with: t('biomodelos.records.report.submit_btn') }%>
+		<%= link_to t('biomodelos.records.report.cancel_lnk'), '', {:id => 'cancel-point-cmt', :class => "botonpopup"} %>
 	<% end %>
 </div>

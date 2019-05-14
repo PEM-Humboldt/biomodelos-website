@@ -1,0 +1,8 @@
+$("#show_record_box").html(""); //Clear div before rendering again
+$("#show_record_box").html('<%=j render partial: 'records/show' %>');
+	/* Cancel button */
+	$("#regboxclose").click(function(e){
+		e.preventDefault();
+		$("#show_record_box").html("");
+        _BioModelosVisorModule.closePopUp();
+	});

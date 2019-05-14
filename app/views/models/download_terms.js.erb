@@ -13,7 +13,7 @@ var $box;
 		}
 		else{
 			e.preventDefault();
-			alertify.alert("Debe leer y aceptar los términos y condiciones al igual que seleccionar el uso que le darás al modelo para continuar con la descarga.");
+			alertify.alert("<%= t('biomodelos.models.download.selection_notice') %>");
 		}
 		
 	});
@@ -23,5 +23,5 @@ var $box;
 	});
 	$box.show('slow');
 <% else %>
-	alertify.alert("Debe estar registrado en la plataforma para poder descargar el modelo.");
+	alertify.alert("<%= t('biomodelos.models.download.sign_up_notice') %>");
 <% end %>

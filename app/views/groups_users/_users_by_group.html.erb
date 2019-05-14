@@ -1,14 +1,14 @@
 <% if @current_group_user && @current_group_user.is_admin %>
 	<div class="spptit fz1em">
-		<h2>Expertos por aprobar</h2>
+		<h2><%= t('biomodelos.groups.experts.experts_approval') %></h2>
 	</div>
 	<div class="expaprobar">
 		<% @pending_members.each do |p_member| %>
 			<div class="spp noitalic">
 				<a href="/users/<%= p_member.user_id %>"><%= p_member.user.name %><%= hidden_field_tag('', p_member.user_id, :class => 'p_usr_id') %></a>
 				<div class="acceptbuttons">
-				<a href="" class="btn_dismiss_usr"><%= image_tag("delicon.png", :title => 'No Aprobar', :rel => "tooltip") %></a>
-				<a href="" class="btn_approve_usr"><%= image_tag("aprobicon.png", :title => 'Aprobar experto', :rel => "tooltip") %></a>
+				<a href="" class="btn_dismiss_usr"><%= image_tag("delicon.png", :title => t('biomodelos.groups.experts.approve_tt'), :rel => "tooltip") %></a>
+				<a href="" class="btn_approve_usr"><%= image_tag("aprobicon.png", :title => t('biomodelos.groups.experts.not_approve_tt'), :rel => "tooltip") %></a>
 				</div>
 			</div>
 		<% end %>

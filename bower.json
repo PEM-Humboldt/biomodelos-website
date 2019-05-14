@@ -31,6 +31,7 @@
     "raty": "^2.7.1",
     "moment": "^2.15.1",
     "Leaflet.Coordinates": "^0.1.5",
-    "clipboard": "^1.6.1"
+    "clipboard": "^1.6.1",
+    "isotope-layout": "^3.0.6"
   }
 }

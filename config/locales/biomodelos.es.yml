@@ -1,0 +1,703 @@
+es:
+  biomodelos:
+    header:
+      home: 'Inicio'
+      models: 'Modelos'
+      groups: 'Grupos'
+      log_in: 'Ingresar'
+      sign_up: 'Registrarse'
+      profile_tt: 'Perfil'
+      log_out_tt: 'Salir'
+    footer:
+      institute_html: >
+                      Instituto de Investigación de Recursos Biológicos</br>
+                      Alexander von Humboldt
+      program: 'Programa de Evaluación y Monitoreo de la Biodiversidad'
+      models: 'Modelos'
+      groups: 'Grupos'
+      publish: 'Publicar'
+      info: 'Info'
+      about: 'Acerca de Biomodelos'
+      terms: 'Términos'
+      contact: 'Contacto'
+    home:
+      version_1: 'Ir a la versión anterior'
+      advanced_search: 'Búsqueda avanzada'
+      search_ph: 'Consulta una especie por su nombre científico'
+      go_to_species_tt: 'Ir a especie'
+      models_btn: 'MODELOS'
+      contribute_btn: 'CONTRIBUYE'
+      publish_btn: 'PUBLICA'
+      slogan: 'MEJORES MODELOS CON EL APOYO DE EXPERTOS'
+      mammals: 'MAMÍFEROS'
+      birds: 'AVES'
+      reptiles: 'REPTILES'
+      amphibians: 'ANFIBIOS'
+      fish: 'PECES'
+      invertebrates: 'INVERTEBRADOS'
+      plants: 'PLANTAS'
+      consult:
+        title: 'consulta'
+        text_1: 'Ingresa directamente al buscador de BioModelos el nombre científico de la especie de tu interés para consultar su mapa de distribución en el visor. Allí podrás consultar las hipótesis de distribución disponibles para la especie y que calificación les han dado otros usuarios, así como algunas estadísticas sobre el rango de la especie.'
+        go_btn: 'IR'
+        text_2: 'Si deseas descargar el mapa deberás dirigirte a la sección de registro, llena el formulario e ingresa a la plataforma con tu usuario y contraseña. Para hacer aportes al conocimiento de la distribución de alguna especie, revisa la sección “contribuye”.'
+      contribute:
+        title: 'contribuye'
+        text_1: 'Para contribuir en BioModelos debes ser un usuario registrado y pertenecer a uno de los grupos de la plataforma.'
+        sign_up_btn: 'REGISTRO'
+        contribution_types: 'TIPOS DE APORTES'
+        text_2: 'Puedes aportar a mejorar el conocimiento sobre la distribución geográfica de las especies a través de las siguientes actividades:'
+        activities_list_html: >
+                                - Curación de registros biológicos.</br>
+                                - Edición de los modelos estadísticos desarrollados por el Laboratorio de Biogeografía Aplicada.</br>
+                                - Documentando las coberturas terrestres idóneas para las especie.</br>
+                                - Desarrollando mapas de experto, especialmente para especies que cuentan con muy pocos o ningún registro biológico.</br>
+                                - Participando en el foro de las especies para compartir opiniones con otros expertos.</br>
+                                - Calificando las hipótesis de distribución geográfica disponibles para las especies.</br>
+        profile_btn: 'PERFIL'
+      publish:
+        title: 'publica'
+        text_1: 'Si has desarrollado modelos de distribución para una o más especies, los puedes publicar a través de BioModelos. Así podrás visibilizar tu trabajo y facilitar su uso por otros investigadores, así como recibir la retroalimentación de expertos sobre el desempeño de tus modelos.'
+        more_lnk: 'Entérate más.'
+        text_2: 'Sólo debes ser un usuario registrado en BioModelos, ingresar al link “Publica” y seguir las instrucciones.'
+        publish_btn: 'PUBLICA'
+    log_in:
+      title: 'ingresar'
+      log_in_btn: 'INGRESAR'
+    sign_up:
+      title: 'Registrarse'
+      password_min_txt: "mínimo %{caracteres} caracteres"
+      terms_txt: 'He leído y acepto los términos y condiciones'
+      data_policies_txt: 'Políticas de protección de datos personales'
+      sign_up_btn: 'REGISTRARSE'
+    visor:
+      tooltip:
+        model_name: "Estado del modelo"
+        layer_btn: "Capas geográficas"
+        find_btn: "Búsqueda Avanzada"
+        info_btn: "Información de la especie"
+        hipo_btn: "Hipótesis de distribución"
+        edit_btn: "Editar modelo"
+      search:
+        title: "BUSCADOR DE ESPECIES"
+        text_1: "Activando nuestro sistema de filtros puedes reducir o aumentar el listado de especies hasta encontrar la especie deseada, o escribir su nombre directamente en el buscador. Ten en cuenta que no todas las especies tienen modelo de distribución, pero si opciones para avanzar en su desarrollo."
+        filters_title: "FILTROS"
+        mammals_tt: "Mamiferos"
+        birds_tt: "Aves"
+        reptiles_tt: "Reptiles"
+        amphibians_tt: "Anfibios"
+        fish_tt: "Peces"
+        invertebrates_tt: "Invertebrados"
+        plants_tt: "Plantas"
+        endemic: "endémicas"
+        invasive: "invasoras"
+        threatened: "amenazadas"
+        validated: "validadas"
+        no_results: "No existen resultados para la búsqueda."
+      statistics:
+        title: "Estadísticas sobre modelo validado"
+        records_number: "NÚMERO DE REGISTROS"
+        records_number_tt: "Registros de presencia de la especie utilizados en el desarrollo del modelo."
+        records_metadata: "METADATOS REGISTROS"
+        records_metadata_tt: "Información sobre los registros usados en el modelamiento y el proceso de curaduría de los mismos."
+        text_1: "Esta información corresponde al modelo validado por los expertos en BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie."
+        text_2: "Dado que esta especie aún no tiene un modelo validado, no es posible calcular la información que normalmente se presenta en esta sección."
+        eoo_title: "EXTENSIÓN DE OCURRENCIA"
+        eoo_text_1_html: 'La extensión de ocurrencia (EOO por sus siglas en inglés utilizadas en la literatura) se define como el área contenida dentro de los límites más cortos imaginarios que pueden ser dibujados para abarcar todos los sitios en donde se encuentra la especie, bien sea conocidos, inferidos o proyectados (IUCN 2013).'
+        eoo_text_2_html: '<b>PMC sobre modelos:</b> polígono mínimo convexo delimitado sobre la distribución modelada para cada especie (<a href="http://www.humboldt.org.co/es/test/item/download/244_4bf9941429abe826cb0bee0e9f755f2a" target="_blank" style="float:none;">Figura 1, Renjifo et al. 2014</a>).'
+        eoo_fig_1_html: 'Figura 1. Polígono mínimo convexo generado para <em>Andigena hypoglauca</em> (línea roja) de acuerdo a la distribución original de la especie (en verde) (Renjifo et al. 2014).'
+        eoo_text_3_html: '<b>PMC sobre registros:</b> polígono mínimo convexo delimitado sobre los registros biológicos para cada especie. Representa el polígono de menor superficie que contiene todos los lugares de presencia, pero que ninguno de sus ángulos internos excede los 180 grados (<a href="http://s3.amazonaws.com/iucnredlist-newcms/staging/public/attachments/3156/reg_guidelines_sp.pdf" target="_blank" style="float:none;">Figura 2, IUCN 2013</a>)'
+        eoo_fig_2_html: 'Figura 2. Representación del cálculo de un polígono mínimo convexo.'
+        eoo_geo_range: 'Rango Geográfico'
+        eoo_pmc_models: 'PMC sobre modelos'
+        eoo_pmc_records: 'PMC sobre registros'
+        rpa_title: "REPRESENTATIVIDAD EN ÁREAS PROTEGIDAS"
+        rpa_text_1: "Corresponde al porcentaje de área de la distribución de las especie en el total de las áreas protegidas del país, y discriminado por los Parques Nacionales Naturales (PNN), Reservas de la Sociedad Civil (RSC) y las otras figuras (Reservas Forestales Protectoras, Parques Naturales Regionales, Distritos de Manejo Integrado, Distritos de Conservación de Suelos y Áreas de Recreación). El porcentaje total de las áreas protegidas puede no coincidir con la suma de las áreas de PNN, RSC y otras, dado que alguna áreas portegidas se encuentran dentro del área de otras."
+        rpa_total: 'Total Representatividad'
+        rpa_pnn: 'PNN'
+        rpa_rsc: 'RSC'
+        rpa_other: 'otras figuras'
+        forest_loss_title: "PÉRDIDA DE BOSQUE"
+        forest_loss_text_1: "Esta gráfica describe la variación del porcentaje del área de la distribución de la especie en áreas de bosque del país, de acuerdo a los mapas de deforestación desarrollados por el IDEAM y a los escenarios de deforestación propuestos por Etter y Arévalo (2014) (proyectado al 2030)."
+        forest_loss_text_2: "Etter, A. y Arévalo, P. (2014). Escenarios futuros de la cobertura forestal en Colombia. En: Bello et al. (ed). Biodiversidad 2014. Estado y tendencia de la biodiversidad continental en Colombia. Instituto Alexander von Humboldt. Bogotá, D.C., Colombia."
+        forest_graphic_blue: 'Histórico'
+        forest_graphic_trend: 'TENDENCIA'
+        forest_graphic_orange: 'Actual'
+        forest_graphic_red: 'Extractivista'
+        forest_graphic_yellow: 'Industrializada'
+        forest_graphic_year: 'Año'
+        forest_graphic_col_1: 'Histórico'
+        forest_graphic_col_2: 'Tendencia Actual'
+        forest_graphic_col_3: 'Tendencia Extractivista'
+        forest_graphic_col_4: 'Tendencia Industrializada'
+        forest_graphic_percentage: 'Porcentaje de área (%)'
+        covers_title: "coberturas"
+        covers_text_1: "Listado de las coberturas seleccionadas por los expertos para la especie en la sección variables ecológicas, con el correspondiente porcentaje de área de la distribución de la especie que se encuentra en cada una de ellas."
+        copy_url_tt: "Copiar URL de la especie"
+      hypotheses:
+        title: "HIPÓTESIS DISPONIBLES"
+        text_1: 'Estas hipótesis corresponden al modelo aprobado en BioModelos, mapas de expertos o modelos publicados. Pueden ser calificadas por los miembros del grupo al que pertenece esta especie. Aquella con mayor calificación es la que se muestra por defecto. Puedes realizar la descarga de los modelos y consultar sus metadatos.'
+        level: 'Nivel'
+        rating_mean: 'Calificación promedio'
+        votes: 'votos'
+        downloads_number: 'Número descargas'
+        download_tt: 'Descargar el modelo'
+        metadata_tt: 'Ver metadatos del modelo'
+        text_2_html: >
+                Esta especie no cuenta con una hipótesis de distribución.</br>
+                <b>Razones Posibles:</b></br>
+                1)	Se encuentra en desarrollo.</br>
+                2)	No hay suficientes registros para poder desarrollar un modelo.</br>
+                3)	No contamos con expertos para esta especie.</br>
+                4)	En revisión ej. por cambio taxonómico.</br>"
+        no_model: 'SIN MODELO'
+        rating_0_hint: 'No representa'
+        rating_1_hint: 'Representa pobremente'
+        rating_2_hint: 'Representa regularmente'
+        rating_3_hint: 'Representa adecuadamente'
+        rating_4_hint: 'Representa muy bien'
+        rating_delete: 'Eliminar calificación'
+        rating_error: "Ha ocurrido un error al guardar la calificación"
+        pending_and_published_thumb: "PUBLICADO POR VALIDAR"
+        pending_thumb: "POR VALIDAR"
+        valid_published_thumb: "PUBLICADO VALIDADO"
+        valid_thumb: "VALIDADO"
+      records:
+        title: "registros y filtros"
+        year_filter_tt: "Advertencia: este filtro sólo funciona en los registros que tienen el campo fecha con el formato adecuado. Debido a errores de las fuentes, no es posible reconocer el año de todos los registros."
+        month_filter_tt: "Si deseas filtrar los registros de la especie para algunos meses en particular selecciona las casillas correspondientes a estos."
+        month_filter: "Mes"
+        month_1_filter: "Ene"
+        month_2_filter: "Feb"
+        month_3_filter: "Mar"
+        month_4_filter: "Abr"
+        month_5_filter: "May"
+        month_6_filter: "Jun"
+        month_7_filter: "Jul"
+        month_8_filter: "Ago"
+        month_9_filter: "Sep"
+        month_10_filter: "Oct"
+        month_11_filter: "Nov"
+        month_12_filter: "Dic"
+        search_tt: "Puedes filtrar los registros por tipo de evidencia, fuente de los registros o institución. Una vez seleccionado el campo, encontrarás solamente los valores de dicho campo en la siguiente casilla."
+        search: "Buscar por"
+        filter_type: "Tipo de filtro"
+        evidence_option: "Evidencia"
+        source_option: "Fuente"
+        institution_option: "Institución"
+        default_category: "Categoria"
+        visualize_tt_html: >
+                        En esta sección podrás resaltar los registros por:&#013;&#013;
+                        • Reportados: registros que han tenido un reporte de error en BioModelos.&#013;
+                        • Editados: registros que han sido modificados por los expertos de la especie.&#013;
+                        • Prioritarios de revisión: registros que requieren revisión prioritaria."
+        visualize: "Visualizar"
+        reported_lbl: "Reportados"
+        edited_lbl: "Editados"
+        priority_lbl: "Prioritarios de revisión"
+        clean_btn: "limpiar"
+        filter_btn: "filtrar"
+        add_tt: "1: Las coordenadas del visor geográfico permiten agregar un registro para la especie, después podrás cambiarlas y llenar los demás campos de documentación."
+        add: "Agregar registro"
+      contributions:
+        title: "EDICIÓN Y CONTRIBUCIÓN"
+        text_1: "BioModelos te ofrece tres opciones para contribuir a documentar las distribuciones de especies: editando sobre el modelo estadístico desarrollado por BioModelos, creando un mapa de experto en la aplicación o publicando un modelo que hayas desarrollado."
+        model_development: "DESARROLLO MODELO"
+        statistical_model: "A partir de modelo estadístico"
+        edit_btn: "editar"
+        threshold_title: "UMBRAL"
+        threshold_text: "Utiliza el slider para identificar el modelo que mejor representa el área climáticamente idónea para la especie (los límites de distribución se definen con la herramienta polígono). Si quieres mayor información sobre la definición del umbral, consulta el documento metodológico de BioModelos."
+        tools_title: "HERRAMIENTAS DE POLÍGONO"
+        tools_text: "El botón inicial crea poligonos. Se puede dibujar un area sobre la cual recortar la distribución propuesta, así como agregar áreas que no se muestren en el modelo estadístico o sustraer áreas de. Los otros dos botones permiten modificar los polígonos dibujados o eliminarlos."
+        variables_title: "VARIABLES ECOLÓGICAS"
+        variables_text: "Selecciona las coberturas terrestres adecuadas para la manutención de poblaciones de la especie, de acuerdo a la leyenda nacional de coberturas de la tierra."
+        create_your_map: "Crea tu mapa"
+        create_your_map_text: "Utilizando la herramienta polígono podrás delinear las áreas que corresponden al rango de distribución de una especie."
+        create_btn: "crear"
+        publish: "Publica tu mapa"
+        publish_text: "Este enlace te llevará al formulario que describe el procedimiento para publicar tus modelos en BioModelos."
+      edition_box:
+        title: "edición"
+        select_threshold: "Seleccionar Umbral"
+        polygon_tools: "Herramienta de polígono"
+        draw_tt: "Dibujar polígono"
+        edit_tt: "Editar polígono"
+        delete_tt: "Borrar polígono"
+        confirm_btn: "confirmar"
+        undo_btn: "deshacer"
+        pause_btn: "guardar"
+        send_btn: "enviar"
+        pause_success: 'Se ha guardado la edición del modelo.'
+      covers:
+        covers_tt: "IDEAM 2010. Leyenda Nacional de Coberturas de la Tierra. Metodología CORINE Land Cover adaptada para Colombia Escala 1:100.000. Instituto de Hidrología, Meteorología y Estudios Ambientales. Bogotá, D. C., 72p."
+        title: "Coberturas Terrestres"
+        cover_1: "Territorios artificializados"
+        cover_1_tt: "Comprende las áreas de las ciudades y las poblaciones y, aquellas áreas periféricas que están siendo incorporadas a las zonas urbanas mediante un proceso gradual de urbanización o de cambio del uso del suelo hacia fines comerciales, industriales, de servicios y recreativos."
+        cover_11: "Zonas urbanizadas"
+        cover_11_tt: "Las zonas urbanizadas incluyen los territorios cubiertos por infraestructura urbana y todos aquellos espacios verdes y redes de comunicación asociados con ellas, que configuran un tejido urbano."
+        cover_111: "Tejido urbano continuo"
+        cover_111_tt: "Son espacios conformados por edificaciones y los espacios adyacentes a la infraestructura edificada. Las edificaciones, vías y superficies cubiertas artificialmente cubren más de 80% de la superficie del terreno. La vegetación y el suelo desnudo representan una baja proporción del área del tejido urbano."
+        cover_112: "Tejido urbano discontinuo"
+        cover_112_tt: "Son espacios conformados por edificaciones y zonas verdes. Las edificaciones, vías e infraestructura construida cubren la superficie del terreno de manera dispersa y discontinua, ya que el resto del área está cubierta por vegetación."
+        cover_12: "Zonas industriales o comerciales y redes de comunicación"
+        cover_12_tt: "Comprende los territorios cubiertos por infraestructura de uso exclusivamente comercial, industrial, de servicios y comunicaciones."
+        cover_121: "Zonas industriales o comerciales"
+        cover_121_tt: "Son las áreas cubiertas por infraestructura artificial (terrenos cimentados, alquitranados, asfaltados o estabilizados), sin presencia de áreas verdes dominantes, las cuales se utilizan también para actividades comerciales o industriales."
+        cover_122: "Red vial, ferroviaria y terrenos asociados"
+        cover_122_tt: "Son espacios artificializados con infraestructuras de comunicaciones como carreteras, autopistas y vías férreas; se incluye la infraestructura conexa y las instalaciones asociadas tales como: estaciones de servicios, andenes, terraplenes y áreas verdes."
+        cover_123: "Zonas portuarias"
+        cover_123_tt: "Son espacios cubiertos por la infraestructura de puertos, en los que se incluyen las áreas de muelles, parqueaderos, administración y almacenamiento."
+        cover_124: "Aeropuertos"
+        cover_124_tt: "Comprende la infraestructura donde funciona una terminal aérea. Incluye las pistas de aterrizaje y carreteo, los edificios, las superficies libres, las zonas de amortiguación y la vegetación asociada."
+        cover_125: "Obras hidráulicas"
+        cover_125_tt: "Superficies que corresponden a construcciones consolidadas de carácter permanente, destinadas a instalaciones hidráulicas, y aquellas de pequeña magnitud, generalmente asociadas con infraestructura urbana, tales como acueductos, bocatomas, plantas de tratamiento y pequeñas presas."
+        cover_13: "Zonas de extracción mineras y escombreras"
+        cover_13_tt: "Comprende las áreas donde se extraen o acumulan materiales asociados con actividades mineras, de construcción, producción industrial y vertimiento de residuos de diferente origen."
+        cover_131: "Zonas de extracción minera"
+        cover_131_tt: "Son áreas dedicadas a la extracción de materiales minerales a cielo abierto."
+        cover_132: "Zona de disposición de residuos"
+        cover_132_tt: "Son espacios en los que se depositan restos de construcción, residuos urbanos, desechos industriales y material estéril de minas."
+        cover_14: "Zonas verdes artificializadas, no agrícolas"
+        cover_14_tt: "Comprende las zonas verdes localizadas en las áreas urbanas, sobre las cuales se desarrollan actividades comerciales, recreacionales, de conservación y amortiguación, donde los diferentes usos del suelo no requieren de infraestructura construida apreciable.En general, estas zonas verdes son áreas resultantes de procesos de planificación urbana o áreas que por los procesos de urbanización quedaron embebidas en el perímetro de la ciudad."
+        cover_141: "Zonas verdes urbanas"
+        cover_141_tt: "Comprende las zonas cubiertas por vegetación dentro del tejido urbano, incluyendo parques urbanos y cementerios."
+        cover_142: "Instalaciones recreativas"
+        cover_142_tt: "Son los terrenos dedicados a las actividades de camping, deporte, parques de atracción, golf, hipódromos y otras actividades de recreación y esparcimiento, incluyendo los parques habilitados para esparcimiento, no incluidos dentro del tejido urbano."
+        cover_2: "Territorios agrícolas"
+        cover_2_tt: "Son los terrenos dedicados principalmente a la producción de alimentos, fibras y otras materias primas industriales, ya sea que se encuentren con cultivos, con pastos, en rotación y en descanso o barbecho. Comprende las áreas dedicadas a cultivos permanentes, transitorios, áreas de pastos y las zonas agrícolas heterogéneas, en las cuales también se pueden dar usos pecuarios además de los agrícolas."
+        cover_21: "Cultivos transitorios"
+        cover_21_tt: "Comprende las áreas ocupadas con cultivos cuyo ciclo vegetativo es menor a un año, llegando incluso a ser de sólo unos pocos meses, como por ejemplo los cereales (maíz, trigo, cebada y arroz), los tubérculos (papa y yuca), las oleaginosas (el ajonjolí y el algodón), la mayor parte de las hortalizas y algunas especies de flores a cielo abierto. Tienen como característica fundamental, que después de la cosecha es necesario volver a sembrar o plantar para seguir produciendo."
+        cover_211: "Otros cultivos transitorios"
+        cover_211_tt: "Son las tierras ocupadas por cultivos transitorios no incluidos en los grupos de cereales, oleaginosas, leguminosas, hortalizas y tubérculos considerados en esta leyenda."
+        cover_212: "Cereales"
+        cover_212_tt: "Cobertura compuesta principalmente por cultivos transitorios de gramíneas como arroz, maíz, sorgo, cebada y trigo."
+        cover_213: "Oleaginosas y leguminosas"
+        cover_213_tt: "Cobertura compuesta principalmente por cultivos transitorios de plantas para el consumo y la producción de aceite y almidón. Las oleaginosas se caracterizan por ser plantas cuyas semillas se consumen o utilizan para la extracción de aceite. Las tierras agrícolas cubiertas por las leguminosas abarcan una amplia variedad de productos, ricos en almidón."
+        cover_214: "Hortalizas"
+        cover_214_tt: "Cobertura terrestre de manejo intensivo caracterizada por ser un conjunto de plantas herbáceas, cultivadas generalmente en huertas, que se consumen como alimento humano."
+        cover_215: "Tubérculos"
+        cover_215_tt: "Cobertura compuesta principalmente por cultivos transitorios de diferentes tipos de plantas que poseen tubérculos. Esta cobertura la componen principalmente cultivos de papa y yuca."
+        cover_22: "Cultivos permanentes"
+        cover_22_tt: "Comprende los territorios dedicados a cultivos cuyo ciclo vegetativo es mayor a un año, produciendo varias cosechas sin necesidad de volverse a plantar; se incluyen en esta categoría los cultivos de herbáceas como caña de azúcar, caña panelera, plátano y banano; los cultivos arbustivos como café y cacao; y los cultivos arbóreos como palma africana y árboles frutales."
+        cover_221: "Cultivos permanentes herbáceos"
+        cover_221_tt: "Cobertura compuesta principalmente por cultivos permanentes de hábito herbáceo como caña de azúcar y panelera, plátano, banano y tabaco."
+        cover_222: "Cultivos permanentes arbustivos"
+        cover_222_tt: "Coberturas permanentes ocupadas principalmente por cultivos de hábito arbustivo como café, cacao, coca y viñedos. Un arbusto es una planta perenne, con estructura de tallo leñoso, con una altura entre 0,5 y 5 m, fuertemente ramificado en la base y sin una copa definida (FAO, 2001)."
+        cover_223: "Cultivos permanentes arbóreos"
+        cover_223_tt: "Cobertura principalmente ocupada por cultivos de hábito arbóreo, diferentes de plantaciones forestales maderables o de recuperación, como cítricos, palma, mango, etc."
+        cover_224: "Cultivos agroforestales"
+        cover_224_tt: "Zonas ocupadas por arreglos o combinaciones de cultivos de diferentes especies, con otros de hábitos herbáceos, arbustivos y arbóreos, donde la característica principal de la cobertura es que el aumento en el detalle no implica la subdivisión en unidades puras, porque éstas se encuentran combinadas en la misma área, alternadas por surcos o hileras de árboles con cultivos o de árboles con pastos. No incluye el café con sombrio."
+        cover_225: "Cultivos confinados"
+        cover_225_tt: "Comprenden las tierras ocupadas por cultivos bajo infraestructuras de invernaderos, principalmente dedicadas al cultivo de flores, frutales y hortalizas. Incluye toda aquella estructura cerrada cubierta por materiales transparentes, dentro de la cual es posible obtener unas condiciones artificiales de microclima, y con ello cultivar plantas en condiciones óptimas."
+        cover_23: "Pastos"
+        cover_23_tt: "Comprende las tierras cubiertas con hierba densa de composición florística dominada principalmente por la familia Poaceae, dedicadas a pastoreo permanente por un período de dos o más años. Algunas de las categorías definidas pueden presentar anegamientos temporales o permanentes cuando están ubicadas en zonas bajas o en depresiones del terreno. Una característica de esta cobertura es que en un alto porcentaje su presencia se debe a la acción antrópica, referida especialmente a su plantación, con la introducción de especies no nativas principalmente, y en el manejo posterior que se le hace."
+        cover_231: "Pastos Limpios"
+        cover_231_tt: "Esta cobertura comprende las tierras ocupadas por pastos limpios con un porcentaje de cubrimiento mayor a 70%; la realización de prácticas de manejo (limpieza, encalamiento y/o fertilización, etc.) y el nivel tecnológico utilizados impiden la presencia o el desarrollo de otras coberturas."
+        cover_232: "Pastos Arbolados"
+        cover_232_tt: "Cobertura que incluye las tierras cubiertas con pastos, en las cuales se han estructurado potreros con presencia de árboles de altura superior a cinco metros, distribuidos en forma dispersa. La cobertura de árboles debe ser mayor a 30% y menor a 50% del área total de la unidad de pastos."
+        cover_233: "Pastos Enmalezados"
+        cover_233_tt: "Son las coberturas representadas por tierras con pastos y malezas conformando asociaciones de vegetación secundaria, debido principalmente a la realización de escasas prácticas de manejo o la ocurrencia de procesos de abandono. En general, la altura de la vegetación secundaria es menor a 1,5 m."
+        cover_24: "Áreas agrícolas heterogéneas"
+        cover_24_tt: "Son unidades que reúnen dos o más clases de coberturas agrícolas y naturales, dispuestas en un patrón intrincado de mosaicos geométricos que hace difícil su separación en coberturas individuales; los arreglos geométricos están relacionados con el tamaño reducido de los predios, las condiciones locales de los suelos, las prácticas de manejo utilizadas y las formas locales de tenencia de la tierra."
+        cover_241: "Mosaico de Cultivos"
+        cover_241_tt: "Incluye las tierras ocupadas con cultivos anuales, transitorios o permanentes, en los cuales el tamaño de las parcelas es muy pequeño (inferior a 25 ha) y el patrón de distribución de los lotes es demasiado intrincado para representarlos cartográficamente de manera individual."
+        cover_242: "Mosaico de Pastos y Cultivos"
+        cover_242_tt: "Comprende las tierras ocupadas por pastos y cultivos, en los cuales el tamaño de las parcelas es muy pequeño (inferior a 25 ha) y el patrón de distribución de los lotes es demasiado intrincado para representarlos cartográficamente de manera individual."
+        cover_243: "Mosaico de Cultivos, Pastos y Espacios Naturales"
+        cover_243_tt: "Comprende las superficies del territorio ocupadas principalmente por coberturas de cultivos y pastos en combinación con espacios naturales. En esta unidad, el patrón de distribución de las coberturas no puede ser representado individualmente, como parcelas con tamaño mayor a 25 hectáreas. Las áreas de cultivos y pastos ocupan entre 30% y 70% de la superficie total de la unidad."
+        cover_244: "Mosaico de Pastos y Espacios Naturales"
+        cover_244_tt: "Constituida por las superficies ocupadas principalmente por coberturas de pastos en combinación con espacios naturales. En esta unidad, el patrón de distribución de las zonas de pastos y de espacios naturales no puede ser representado individualmente y las parcelas de pastos presentan un área menor a 25 hectáreas. Las coberturas de pastos representan entre 30% y 70% de la superficie total del mosaico. Los espacios naturales están conformados por las áreas ocupadas por relictos de bosque natural, arbustales, bosque de galería o ripario, pantanos y otras áreas no intervenidas o poco transformadas y que debido a limitaciones de uso por sus características biofísicas permanecen en estado natural o casi natural."
+        cover_245: "Mosaico de Cultivos y Espacios Naturales"
+        cover_245_tt: "Corresponde a las superficies ocupadas principalmente por cultivos en combinación con espacios naturales, donde el tamaño de las parcelas es muy pequeño y el patrón de distribución de los lotes es demasiado intrincado para representarlos cartográficamente de manera individual. En esta unidad, los espacios naturales se presentan como pequeños parches o relictos que se distribuyen en forma irregular y heterogénea, a veces entremezclada con las áreas de cultivos, dificultando su diferenciación. Las áreas de cultivos representan entre 30% y 70% de la superficie total de la unidad. Los parches y residuos de espacios naturales están conformados por aquellas áreas cubiertas por relictos de bosque, arbustales, bosque de galería y/o ripario, vegetación secundaria o en transición, zonas pantanosas u otras áreas no intervenidas o poco transformadas que permanecen en estado natural o casi natural."
+        cover_3: "Bosques y áreas seminaturales"
+        cover_3_tt: "Comprende un grupo de coberturas vegetales de tipo boscoso, arbustivo y herbáceo, desarrolladas sobre diferentes sustratos y pisos altitudinales que son el resultado de procesos climáticos; también por aquellos territorios constituidos por suelos desnudos y afloramientos rocosos y arenosos, resultantes de la ocurrencia de procesos naturales o inducidos de degradación. Para la leyenda de coberturas de la tierra de Colombia, en esta categoría se incluyen otras coberturas que son el resultado de un fuerte manejo antrópico, como son las plantaciones forestales y la vegetación secundaria o en transición."
+        cover_31: "Bosques"
+        cover_31_tt: "Comprende las áreas naturales o seminaturales, constituidas principalmente por elementos arbóreos de especies nativas o exóticas. Los árboles son plantas leñosas perennes con un solo tronco principal, que tiene una copa más o menos definida. Esta cobertura comprende los bosques naturales y las plantaciones. Para la leyenda de coberturas de la tierra de Colombia, en esta categoría se incluyen otras formas biológicas naturales, tales como la palma y la guadua."
+        cover_311: "Bosque denso"
+        cover_311_tt: "Cobertura constituida por una comunidad vegetal dominada por elementos típicamente arbóreos, los cuales forman un estrato de copas (dosel) más o menos continuo cuya área de cobertura arbórea representa más de 70% del área total de la unidad, y con altura del dosel superior a cinco metros. Estas formaciones vegetales no han sido intervenidas o su intervención ha sido selectiva y no ha alterado su estructura original y las características funcionales (IGAC, 1999). Se exceptúan de esta unidad los bosques fragmentados, los cuales se clasifican en bosque fragmentado"
+        cover_312: "Bosque abierto"
+        cover_312_tt: "Cobertura constituida por una comunidad vegetal dominada por elementos típicamente arbóreos regularmente distribuidos, los cuales forman un estrato de copas (dosel) discontinuo, con altura del dosel superior a cinco metros y cuya área de cobertura arbórea representa entre 30% y 70% del área total de la unidad. Estas formaciones vegetales no han sido intervenidas o su intervención ha sido selectiva y no ha alterado su estructura original y las características funcionales. Se exceptúan de esta unidad los bosques fragmentados, los cuales se clasifican en bosque fragmentado."
+        cover_313: "Bosque fragmentado"
+        cover_313_tt: "Comprende los territorios cubiertos por bosques naturales densos o abiertos cuya continuidad horizontal está afectada por la inclusión de otros tipos de coberturas como pasto, cultivos o vegetación en transición, las cuales deben representar entre 5% y 30% del área total de la unidad de bosque natural. La distancia entre fragmentos de intervención no debe ser mayor a 250 metros."
+        cover_314: "Bosque de galería y ripario"
+        cover_314_tt: "Se refiere a las coberturas constituidas por vegetación arbórea ubicada en las márgenes de cursos de agua permanentes o temporales. Este tipo de cobertura está limitada por su amplitud, ya que bordea los cursos de agua y los drenajes naturales. Cuando la presencia de estas franjas de bosques ocurre en regiones de sabanas se conoce como bosque de galería o cañadas, las otras franjas de bosque en cursos de agua de zonas andinas son conocidas como bosque ripario."
+        cover_315: "Plantación forestal"
+        cover_315_tt: "Son coberturas constituidas por plantaciones de vegetación arbórea, realizada por la intervención directa del hombre con fines de manejo forestal. En este proceso se constituyen rodales forestales, establecidos mediante la plantación y/o la siembra durante el proceso de forestación o reforestación, para la producción de madera plantaciones comerciales) o de bienes y servicios ambientales (plantaciones protectoras)."
+        cover_32: "Áreas con vegetación herbácea y/o arbustiva"
+        cover_32_tt_html: "Comprende un grupo de coberturas vegetales de tipo natural y producto de la sucesión natural, cuyo hábito de crecimiento es arbustivo y herbáceo, desarrolladas sobre diferentes sustratos y pisos altitudinales, con poca o ninguna intervención antrópica.&#013;Para la leyenda de CORINE Land Cover adaptada para Colombia, en esta clase se incluyen otros tipos de cobertura tales como las áreas cubiertas por vegetación principalmente arbustiva con dosel irregular y presencia de arbustos, palmas, enredaderas y vegetación de bajo porte."
+        cover_321: "Herbazal"
+        cover_321_tt: "Cobertura constituida por una comunidad vegetal dominada por elementos típicamente herbáceos desarrollados en forma natural en diferentes densidades y sustratos, los cuales forman una cobertura densa (>70% de ocupación) o abierta (30% - 70% de ocupación). Estas formaciones vegetales no han sido intervenidas o su intervención ha sido selectiva y no ha alterado su estructura original y las características funcionales. Comprende los territorios cubiertos por vegetación arbustiva desarrollados en forma natural en diferentes densidades y sustratos. Un arbusto es una planta perenne, con estructura de tallo leñoso, con una altura entre 0,5 y 5 m, fuertemente ramificado en la base y sin una copa definida. Incluye coberturas del paramo y subparamo."
+        cover_322: "Arbustal"
+        cover_322_tt: "Comprende los territorios cubiertos por vegetación arbustiva desarrollados en forma natural en diferentes densidades y sustratos. Un arbusto es una planta perenne, con estructura de tallo leñoso, con una altura entre 0,5 y 5 m, fuertemente ramificado en la base y sin una copa definida. Comprende los territorios cubiertos por vegetación arbustiva desarrollados en forma natural en diferentes densidades y sustratos. Un arbusto es una planta perenne, con estructura de tallo leñoso, con una altura entre 0,5 y 5 m, fuertemente ramificado en la base y sin una copa definida. Incluye coberturas del paramo y subparamo."
+        cover_323: "Vegetación secundaria o en transición"
+        cover_323_tt: "Son aquellas áreas cubiertas por vegetación principalmente arbustiva y herbácea con dosel irregular y  resencia ocasional de árboles y enredaderas, que corresponde a los estadios iniciales de la sucesión vegetal después de presentarse un proceso de deforestación de los bosques o aforestación de los pastizales. Se desarrolla posterior a la intervención original y, generalmente, están conformadas por comunidades de arbustos y herbáceas formadas por muchas especies."
+        cover_33: "Áreas abiertas, sin o con poca vegetación"
+        cover_33_tt: "Comprende aquellos territorios en los cuales la cobertura vegetal no existe o es escasa, compuesta principalmente por suelos desnudos y quemados, así como por coberturas arenosas y afloramientos rocosos, algunos de los cuales pueden estar cubiertos por hielo y nieve."
+        cover_331: "Zonas arenosas naturales"
+        cover_331_tt: "Comprende aquellos territorios en los cuales la cobertura vegetal no existe o es escasa, compuesta principalmente por suelos desnudos y quemados, así como por coberturas arenosas y afloramientos rocosos, algunos de los cuales pueden estar cubiertos por hielo y nieve."
+        cover_332: "Afloramientos rocosos"
+        cover_332_tt_html: >
+                        Son áreas en las cuales la superficie del terreno está constituida por capas de rocas expuestas, sin desarrollo de vegetación, generalmente dispuestas en laderas abruptas, formando escarpes y acantilados; así como zonas de rocas desnudas relacionadas con la actividad volcánica o glaciar. Asociados con los afloramientos rocosos se pueden encontrar depósitos de sedimentos finos y gruesos, de bloques o de cenizas.&#013;
+                        Se localizan principalmente en las áreas de fuerte pendiente, donde predominan los sustratos de rocas duras y resistentes, asociadas con fallas y deformaciones geológicas, volcanes y glaciares de montaña, localizados en la región andina. Esta unidad también se puede encontrar en la Orinoquía y en la Amazonía asociada con los paisajes de serranías y afloramientos rocosos del Escudo Guayanés."
+        cover_333: "Tierras desnudas y degradadas"
+        cover_333_tt_html: >
+                        Esta cobertura corresponde a las superficies de terreno desprovistas de vegetación o con escasa cobertura vegetal, debido a la ocurrencia de procesos tanto naturales como antrópicos de erosión y degradación extrema y/o condiciones climáticas extremas. Se incluyen las áreas donde se presentan tierras salinizadas, en proceso de desertificación o con intensos procesos de erosión que pueden llegar hasta la formación de cárcavas.&#013;
+                        En Colombia, la unidad se localiza principalmente en las áreas planas de la región Caribe y en las planicies de los valles de los ríos Magdalena y Cauca, principalmente de los departamentos de Cesar, Guajira, Magdalena, Bolívar, Atlántico, Sucre, Tolima, Huila y Valle del Cauca."
+        cover_334: "Zonas quemadas"
+        cover_334_tt: "Comprende las zonas afectadas por incendios recientes, donde los materiales carbonizados todavía están presentes. Estas zonas hacen referencia a los territorios afectados por incendios localizados tanto en áreas naturales como seminaturales, tales como bosques, cultivos, sabanas y arbustales."
+        cover_335: "Zonas glaciares y nivales"
+        cover_335_tt: "Áreas cubiertas por hielo en forma permanente y por nieve en forma ocasional. La cobertura de hielo se localiza en la cima y las laderas de algunas de las montañas más altas de los Andes colombianos, por encima de la cota de nivel de 4.900 msnm. Se caracteriza por presentar poca variación de su área en el tiempo, con tendencia a la lenta reducción debido al calentamiento de la atmósfera por el cambio climático, aunque eventos extremos como erupciones volcánicas pueden producir grandes pérdidas de las masas glaciares."
+        cover_4: "Áreas húmedas"
+        cover_4_tt: "Comprende aquellas coberturas constituidas por terrenos anegadizos, que pueden ser temporalmente inundados y estar parcialmente cubiertos por vegetación acuática, localizados en los bordes marinos y al interior del continente."
+        cover_41: "Áreas húmedas continentales"
+        cover_41_tt: "Las áreas húmedas hacen referencia a los diferentes tipos de zonas inundables, pantanos y terrenos anegadizos en los cuales el nivel freático está a nivel del suelo en forma temporal o permanente."
+        cover_411: "Zonas Pantanosas"
+        cover_411_tt: "Esta cobertura comprende las tierras bajas, que generalmente permanecen inundadas durante la mayor parte del año, pueden estar constituidas por zonas de divagación de cursos de agua, llanuras de inundación, antiguas vegas de divagación y depresiones naturales donde la capa freática aflora de manera permanente o estacional. Comprenden hondonadas donde se recogen y naturalmente se detienen las aguas, con fondos más o menos cenagosos. Dentro de los pantanos se pueden encontrar cuerpos de agua, algunos con cobertura parcial de vegetación acuática, con tamaño menor a 25 ha, y que en total representan menos de 30% del área total del pantano."
+        cover_412: "Turberas"
+        cover_412_tt: "Son terrenos bajos de tipo pantanoso, de textura esponjosa, cuyo suelo está compuesto principalmente por musgos y materias vegetales descompuestas. Se encuentran frecuentemente en áreas andinas en terrenos situados por encima de los 3.200 msnm."
+        cover_413: "Vegetación acuática sobre cuerpos de agua"
+        cover_413_tt_html: >
+                        Bajo esta categoría se clasifica toda aquella vegetación flotante que se encuentra establecida sobre cuerpos de agua, recubriéndolos en forma parcial o total.&#013;
+                        Comprende vegetación biotipológicamente clasificada como Pleustophyta, Rizophyta y Haptophyta.&#013;
+                        En Colombia, esta cobertura se encuentra asociada con lagos y lagunas andinos en proceso de eutrofización y en las zonas bajas asociada con cuerpos de agua localizados en las planicies de inundación o desborde."
+        cover_42: "Áreas húmedas costeras"
+        cover_42_tt: "Sobre las zonas costeras se diferenciaron las zonas de pantanos litorales y las áreas que presentan procesos de inundación relacionados con la marea."
+        cover_421: "Pantanos costeros"
+        cover_421_tt: "Son áreas costeras bajas cubiertas por vegetación herbácea y arbustiva rala, adaptada a los ambientes salobres, las cuales están bajo la influencia de la marea. Se localizan en zonas asociadas con deltas, estuarios, lagunas costeras y planicies marinas de inundación, generalmente ocupando espacios cóncavos detrás de la barra de playa. Son susceptibles a la inundación durante períodos de nivel alto del mar, tormentas y oleaje fuerte. Se encuentran colonizadas por plantas halófilas1 diferentes al mangle."
+        cover_422: "Salitral"
+        cover_422_tt: "Esta cobertura comprende los territorios planos costeros donde se presenta la formación de depósitos de minerales evaporíticos en forma natural, los cuales por la acción del viento pueden estar acompañados de arcillas, limos, arenas y lodos, conformando costras que recubren el suelo, que pueden estar asociados a procesos de acumulación de sales por infiltración y evaporación, así como por ascenso por capilaridad. Estos terrenos se caracterizan por estar generalmente desprovistos de vegetación, presentando en raras ocasiones desarrollos de vegetación gramínea baja y rala. Generalmente están asociados con los bordes de las marismas costeras, terrazas marinas bajas y antiguos planos de inundación marina."
+        cover_423: "Sedimentos expuestos en bajamar"
+        cover_423_tt: "Comprende las áreas constituidas por planicies litorales mareales que quedan descubiertas de agua durante los períodos de bajamar. Están compuestos por depósitos de lodo y cieno principalmente, pero también incluyen los bordes litorales compuestos por acumulaciones de arena y rocas. Estas superficies se caracterizan por estar desprovistas de vegetación o, en muy raras ocasiones, pueden presentar el desarrollo de pequeños parches de herbáceas. En Colombia, se encuentran principalmente en el litoral de la costa pacífica."
+        cover_5: "Superficies de agua"
+        cover_5_tt: "Son los cuerpos y cauces de aguas permanentes, intermitentes y estacionales, localizados en el interior del continente y los que bordean o se encuentran adyacentes a la línea de costa continental, como los mares. Se incluyen en esta clasificación los fondos asociados con los mares, cuya profundidad no supere los 12 metros."
+        cover_51: "Aguas continentales"
+        cover_51_tt: "Son cuerpos de aguas permanentes, intermitentes y estacionales que comprenden lagos, lagunas, ciénagas, depósitos y estanques naturales o artificiales de agua dulce (no salina), embalses y cuerpos de agua en movimiento, como los ríos y canales."
+        cover_511: "Ríos (50 m)"
+        cover_511_tt: "Un río es una corriente natural de agua que fluye con continuidad, posee un caudal considerable y desemboca en el mar, en un lago o en otro río."
+        cover_512: "Lagunas, lagos y ciénagas naturales"
+        cover_512_tt: "Superficies o depósitos de agua naturales de carácter abierto o cerrado, dulce o salobre, que pueden estar conectadas o no con un río o con el mar."
+        cover_513: "Canales"
+        cover_513_tt: "Cauce artificial abierto que contiene agua en movimiento de forma permanente, que tiene un ancho mínimo de 50 m y que puede enlazar o no dos masas de agua. Comprende los canales de navegación y los de los distritos de riego."
+        cover_514: "Cuerpos de agua artificiales"
+        cover_514_tt: "Esta cobertura comprende los cuerpos de agua de carácter artificial, que fueron creados por el hombre para almacenar agua usualmente con el propósito de generación de electricidad y el abastecimiento de acueductos, aunque también para prestar otros servicios tales como control de caudales, inundaciones, abastecimiento de agua, riego y con fines turísticos y recreativos."
+        cover_52: "Aguas marítimas"
+        cover_52_tt: "Esta cobertura comprende los cuerpos de agua natural salada y salobre asociada con mares u océanos que bordean el litoral."
+        cover_521: "Lagunas costeras"
+        cover_521_tt: "Superficies de agua salada o salobre, separadas del mar por tierras sobresalientes u otras topografías similares. Pueden tener comunicación con el mar de manera permanente o temporal a través de canales, barras de arena y zonas de pantanos costeros."
+        cover_522: "Mares y océanos"
+        cover_522_tt: "Comprende los cuerpos de agua salada que bordean la zona litoral y que se extienden a partir de la línea de costa en período de bajamar."
+        cover_523: "Estanques para acuicultura marina"
+        cover_523_tt: "Cuerpos de agua artificial destinados a la cría de crustáceos y peces. Se ubican, generalmente, en las regiones adyacentes al mar."
+      models:
+        level_1: "Climático"
+        level_2: "Coberturas"
+        pending_validation: "Validación pendiente"
+        valid: "Validado"
+        developing: "Desarrollo"
+    publish:
+      title: "Publica tu mapa"
+      text_1: "Para publicar un modelo de distribución en BioModelos, sigue los siguientes pasos"
+      step_1_html: Lee la <a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank">guía de publicación</a>
+      step_2_1: "Selecciona una"
+      step_2_2: "licencia de uso CC"
+      step_2_3: "para los modelos"
+      cc_title: "Tipo de licencia Creative Commons"
+      cc_attribution: "Reconocimiento"
+      cc_attribution_txt: "Esta condición permite copiar, transmitir, reutilizar y adaptar la información. Si el usuario desea usar los datos o la información sin dar el debido crédito o con fines diferentes a los permitidos, debe obtener permiso previo del autor."
+      cc_sharealike: "Compartir Igual"
+      cc_sharealike_txt: "Esta condición permite copiar, transmitir, reutilizar y adaptar la información, siempre y cuando el resultado se comparta bajo una licencia igual, similar o compatible. Si el usuario desea compartir la información modificada bajo otros términos, debe obtener permiso previo del autor."
+      cc_noncommercial: "No Comercial"
+      cc_noncommercial_txt: "Esta condición permite copiar, transmitir, reutilizar y adaptar la información, siempre y cuando no sea con fines comerciales. Para hacer uso comercial de la información, el usuario debe obtener permiso previo del autor."
+      cc_public_domain: "Dominio Público"
+      cc_public_domain_txt_html: >
+                                Utilice esta herramienta universal si usted es titular de los derechos de propiedad intelectual y desea renunciar a todos sus intereses sobre los datos e información. Permite a otros copiar, modificar, distribuir y reutilizar libremente el material sin solicitar permiso.</br>
+                                Es especialmente recomendada para datos científicos y es incentivada por editoriales como Pensoft y Nature. Aunque CC0 (“CC Cero”) no requiere legalmente que los usuarios citen la fuente de los datos, no los exime de la responsabilidad moral y ética de dar los créditos necesarios, como es habitual en la investigación científica."
+      select_license: "Selecciona un tipo de licencia"
+      step_3_1: "Selecciona el"
+      step_3_2: "tipo de visualización"
+      step_3_3: "de los registros en BioModelos"
+      records_vis_permission: "Permisos de visualización de registros"
+      choose_option: "Escoge una de las siguientes opciones:"
+      all_users_opt: "Todos los usuarios"
+      experts_opt: 'Expertos registrados en el grupo de la especie'
+      sib_col_data: "¿Deseas ser contactado por el SiB Colombia para la publicación de tu conjunto de datos?"
+      sib_col_yes: "Sí"
+      sib_col_na: "No aplica"
+      step_4_html: '<a href="http://biomodelos.humboldt.org.co/guia_documentacion_y_plantillas.zip" download>Descarga</a> y llena las plantillas para documentación de datos y metadatos de los modelos'
+      step_5: "Sube en un archivo comprimido la metodología, las dos plantillas y los modelos"
+      select_file_ph: "Seleccionar Archivo"
+      file_notice: "Se aceptan 3 tipos de formatos (zip, rar, 7zip) con un tamaño máximo de 50 MB."
+      browse_btn: "BUSCAR"
+      step_6_1: "Lee y acepta los"
+      step_6_2: "términos y condiciones"
+      step_6_3: "de publicación"
+      terms_and_conditions_title: "términos y condiciones"
+      terms_and_conditions_html: >
+                                <p>La publicación de modelos en BioModelos se regirá por los siguientes términos y condiciones:</p>
+                                <h6>El publicador declara</h6>
+                                <p><b>1.</b> Que el/los modelo(s) que se suben a BioModelos son autoría de las personas listadas en el formulario de publicación de modelos (en adelante publicadores) o tienen la cesión de derechos vigente para tal fin.</p>
+                                <p><b>2.</b> Que todos los autores del modelo o conjunto de modelos aceptan o autorizan su publicación en BioModelos a partir del momento en que sube la información.</p>
+                                <p><b>3.</b> Que los registros biológicos que acompañan el modelo son de uso abierto, son propios o su uso exclusivamente para propósitos de visualización en BioModelos ha sido autorizado explícita o implícitamente (p. ej. a través de una licencia de Creative Commons) por los propietarios de la información o quienes tienen alguna cesión o autorización frente al particular.</p>
+                                <p><b>4.</b> Que los publicadores autorizan la descarga y uso de sus modelos por terceros a través de BioModelos bajo las condiciones provistas por la licencia Creative Commons señalada en el formulario de publicación de modelos.</p>
+                                <h6>El Laboratorio de Biogeografía Aplicada del Instituto de Investigación de Recursos Biológicos Alexander von Humboldt a través de la aplicación web Biomodelos</h6>
+                                <p><b>1.</b> Ofrecerá estadísticas de actividad (visualización y descarga) y perfil de uso a solicitud de los publicadores de la información.</p>
+                                <p><b>2.</b> Otorgará el crédito correspondiente a los publicadores de modelos en la página de BioModelos y en los metadatos que acompañan los modelos de su autoría, con base en la información registrada en el formulario de publicación.</p>
+                                <p><b>3.</b> Utilizará los registros biológicos que acompañan el modelo únicamente para la visualización en BioModelos bajo las condiciones determinadas por los publicadores en el formulario de publicación del modelo. En ningún caso su uso o descarga estará habilitada en BioModelos, a menos que esto sea expresamente autorizado en el formulario de publicación de modelos.</p>
+                                <p><b>4.</b> Se reserva el derecho de publicar los modelos así como de bajarlos en cualquier momento de la página.</p>"
+      have_read_terms: "He leído y acepto los términos y condiciones"
+      atlas_notice_html: 'Deseo postular mi trabajo para publicación en el <a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank">Atlas de la Biodiversidad de Colombia</a>'
+      contact_us: "Cualquier inquietud escríbenos a"
+      upload_btn: 'ENVIAR'
+      success_notice: 'La publicación se ha realizado con éxito.'
+    about_us:
+      text_1_html: >
+                BioModelos es una herramienta digital que permite la <b>comunicación entre expertos</b> en biodiversidad para el desarrollo de modelos de distribución de las especies existentes en Colombia de forma colaborativa y abierta.</br></br>
+                Esta iniciativa surge con el fin de acercar a investigadores, instituciones gubernamentales, ONGs y ciudadanos, a una <b>información precisa y validada</b> por expertos sobre la distribución de especies en Colombia, que sirva como referencia para estudios y la toma de decisiones sobre biodiversidad."
+      team: "equipo actual"
+      founders: "Fundadores"
+      acknowledgments: "colaboradores"
+      sponsors: "patrocinadores"
+      allies: "aliados"
+    contact:
+      title: "Contacto"
+      name_ph: "Nombre o Institución"
+      subject_ph: "Asunto"
+      submit_btn: "ENVIAR"
+      address: "Dirección"
+      phone: "Teléfono"
+      fields_error: "Debe completar los siguientes campos: "
+      success_notice: 'Su mensaje ha sido enviado con éxito.'
+    users:
+      message_to_expert: "Mensaje al experto."
+      max_message_ph: "máximo 500 caracteres"
+      message_to_expert_tt: "Mensaje al usuario"
+      edit_user_tt: "Editar usuario"
+      bio: "Biografía"
+      groups: "Grupos"
+      statistics_tab: "estadísticas"
+      tasks_tab: "tareas"
+      developing_tasks: "Tareas en desarrollo"
+      species_tasks: "especies que trabaja"
+      maps_published: "mapas publicados"
+      edit_profile:
+        title: "Editar mi usuario"
+        text_1: "Completando tu perfil de usuario aumentas la posibilidad de ingresar a los grupos de expertos y de mejorar la interacción con los demás usuarios."
+        valid_email_tt: "Es importante tener un email válido para recibir notificaciones e información desde la aplicación."
+        name_ph: "Nombres y apellidos"
+        expertise_ph: "Grupo(s) taxonómico(s) de interés"
+        organization_ph: "Organización"
+        location_ph: "País, ciudad o municipio"
+        bio_ph: "Biografía resumida (max 600 caracteres)"
+        file_ph: "Seleccionar Archivo"
+        new_password_ph: "Ingrese una nueva contraseña"
+        confirm_password_ph: "Confirmar nueva contraseña"
+        current_password_ph: "Ingrese su clave actual"
+        submit_btn: "ACTUALIZAR"
+        back_lnk: "Volver"
+        change_photo: "CAMBIAR FOTO"
+        password_change: "Cambio de clave"
+        password_notice: "(sólo si va a cambiarla)"
+        confirm_changes: "Confirmación de cambios"
+        current_password_notice: "(Necesaria para confirmar los cambios)"
+    tasks:
+      title: "tareas"
+      done_tt: "¡Hecho!"
+      developing_tt: "En desarrollo"
+      not_assigned_tt: "No asignada"
+      records_task_tt: "Curación de registros"
+      edition_task_tt: "Edición de modelos"
+      covers_task_tt: "Variables ecológicas"
+      validation_task_tt: "Modelo aprobado"
+      advance_tt: "Porcentaje de avance"
+      new_task: "Agregar nueva tarea"
+      choose_expert: 'Seleccionar experto *'
+      choose_species: 'Seleccionar especie *'
+      choose_tasks: "Selecciona tareas a realizar"
+      submit_btn: "Agregar"
+      species: "Especie"
+      task_added_notice: "¡La tarea ha sido agregada con éxito!"
+      tasks_added_notice: "¡Las tareas han sido agregadas con éxito!"
+      task_deleted_notice: "La tarea ha sido eliminada con éxito"
+      delete_task_tt: "Borrar tarea"
+      confirm_deletion: '¿Quiere eliminar esta tarea?'
+    groups:
+      index:
+        title: "grupos biomodelos"
+        moderator: "Moderador"
+        species: "Especies"
+        members: "Miembros"
+      suggest_group:
+        title: "Sugerir Grupo"
+        text: "Ingrese la información a continuación sobre el grupo que desea sugerir para que podamos contactarlo:"
+        group_name_ph: "Nombre del grupo"
+        moderator_ph: "Posible moderador"
+        content_ph: "Breve descripción"
+        submit_btn: "Enviar"
+      group_message:
+        title: "Mensaje al Grupo"
+        message_ph: "máximo 500 caracteres"
+        submit_btn: 'ENVIAR'
+      profile:
+        waiting_approval_tt: "En espera de aprobación"
+        leave_group_confirm: '¿Quiere abandonar el grupo?'
+        leave_group_tt: "Abandonar el grupo"
+        join_group_tt: "Solicitar unirse a este grupo"
+        group_message_tt: "Mensaje a miembros del grupo"
+        edit_group_tt: "Editar información del grupo"
+        moderators: "Moderador(es)"
+        moderator_message: "Mensaje moderador"
+        statistics_tab: "estadísticas"
+        tasks_tab: "tareas"
+        activity_tab: "actividad"
+        species_tab: "especies"
+        experts_tab: "expertos"
+        experts_in_group: "expertos en el grupo"
+        species_in_group: "especies vinculadas"
+        species_with_tasks: "especies en agenda"
+        task_completed: "completó la tarea"
+        for_the_species: "para la especie"
+        joined_group: "se unió al grupo."
+      experts:
+        title: "expertos"
+        invitation_title: "INVITAR EXPERTO"
+        invitation_notice: "Para enviar invitaciones simultáneas a un grupo de expertos, se deben separar las direcciones de correo utilizando un punto y coma (;) sin dejar espacios de por medio. Máximo 500 caracteres."
+        email_ph: "E-mail"
+        submit_btn: "ENVIAR"
+        experts_approval: "Expertos por aprobar"
+        approve_tt: 'Aprobar experto'
+        not_approve_tt: 'No Aprobar'
+      species:
+        suggest: "SUGERIR ESPECIE"
+        suggested: "Especies sugeridas"
+        approved_tt: 'Aprobar especie'
+        not_approved_tt: 'No Aprobar'
+        species_name: "Nombre de la especie"
+        suggestion_success: "La especie ha sido sugerida con éxito"
+      edit:
+        title: "Editar Grupo"
+        group_name: "Nombre de grupo"
+        former_name_ph: "Nombre anterior"
+        former_message_ph: "Mensaje anterior"
+        change_photo: "Cambiar imagen"
+        upload_photo_btn: "SUBIR FOTO"
+        submit_btn: "GUARDAR"
+    records:
+      metadata:
+        title: "Metadatos registros"
+        sources: "FUENTES"
+        no_info: "No hay información disponible."
+        total_unique_records: "Total registros únicos:"
+        last_update: "Actualizado:"
+        institutions: "Instituciones"
+        collections: "Colecciones"
+        collectors: "Colectores"
+        collaborators: "Colaboradores en curaduría"
+        citation: "Cita"
+      report:
+        title: "REPORTAR REGISTRO"
+        outlier_lbl: "Outlier geográfico"
+        geo_issue_lbl: "Georreferenciación dudosa"
+        id_issue_lbl: "Identificación dudosa"
+        old_taxonomy_lbl: "Nombre desactualizado"
+        in_captivity_lbl: "Individuo introducido"
+        other_issues_lbl: "Otros (comentar)"
+        comment_ph: "Comentario"
+        submit_btn: "guardar"
+        cancel_lnk: "cancelar"
+        sign_up_notice: "Debe estar registrado para poder reportar un registro"
+        success_notice: "Su reporte se ha realizado con éxito"
+        error_notice: "Ha ocurrido un error al reportar el registro: "
+    models:
+      metadata:
+        title: "Metadatos modelo"
+        model_id: "ID del Modelo:"
+        records_number: "Número de registros:"
+        date: "Fecha desarrollo:"
+        info: "Info"
+        method: "Método"
+        method_tt: "Método empleado para el desarrollo del modelo"
+        threshold: "Umbral"
+        threshold_tt: "Criterio empleado para aplicar umbral"
+        validation_type: "Tipo validación"
+        validation_type_tt: "Método de partición empleado para validación"
+        stat_type_tt: "Estadístico empleado para medir desempeño"
+        level: "Nivel"
+        level_tt: "Componente de la distribución de la especie descrita por el modelo"
+        docs: "Documentación"
+        docs_tt: "Código o métodos para la generación del modelo"
+        citation: "Cita"
+        contact: "Contacto"
+        error: 'Se ha producido un error al obtener los metadatos del modelo.'
+      init:
+        no_model: "Esta especie aun no cuenta con modelo de distribución. Para contribuir a su desarrollo, registrate en el grupo de expertos de la especie."
+        case_2: "Esta es una hipótesis de distribución aprobada por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución no aprobadas por expertos, disponibles para esta especie."
+        case_3: "Esta hipótesis de distribución está pendiente de aprobación por expertos."
+        case_4: "Esta es una de las hipótesis de distribución disponibles pendientes de aprobación por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución pendientes de aprobación disponibles para esta especie."
+        case_5: "Esta es una hipótesis de distribución sin aportes de expertos. Para contribuir a mejorarlo, registrate en el grupo de expertos de la especie."
+      download:
+        text_1: "Antes de descargar, recuerda:"
+        read_terms_lnk: 'He leído y acepto los términos y condiciones'
+        text_2: "Selecciona el uso que le darás al modelo:"
+        accept_btn: 'ACEPTO'
+        selection_notice: "Debe leer y aceptar los términos y condiciones al igual que seleccionar el uso que le darás al modelo para continuar con la descarga."
+        sign_up_notice: "Debe estar registrado en la plataforma para poder descargar el modelo."
+    terms:
+      title: "Términos y condiciones DE USO DE BIOMODELOS (V 1.0)"
+      general: "General"
+      sign_up: "Registro"
+      publish: "Publicación"
+      general_text: "El uso que haga de BioModelos (biomodelos.humboldt.org.co), en cualquier forma, consultando o complementando su contenido, constituye la aceptación de los siguientes Términos y Condiciones, los cuales se hacen efectivos a partir de la fecha en la que ingrese al sitio indicado."
+      general_1_text: "Este acuerdo de usuario establece los términos y condiciones de una licencia para que usted utilice la plataforma web BioModelos y la información contenida en ella. Para los propósitos del presente acuerdo, la información de BioModelos comprende la visualización de registros biológicos a través del visor geográfico de la plataforma, los modelos de distribución de especies desarrollados a partir de dichos registros y las estadísticas e indicadores calculados a partir de los modelos. Al acceder y/o usar BioModelos, se presume que usted ha leído, aceptado y está de acuerdo con cumplir todos los términos y condiciones de este acuerdo de usuario. Los derechos y obligaciones relacionados con el uso de BioModelos de conformidad con este acuerdo de usuario son personales y no son transferibles a persona natural o jurídica alguna. Eventualmente, estos términos y condiciones de uso de BioModelos pueden ser modificados, lo cual quedará registrado en la presente página. En consecuencia es su responsabilidad revisar y cumplir los términos y condiciones establecidos, siempre que acceda o use BioModelos."
+      general_2_title:  "Derechos de autor y propiedad intelectual"
+      general_2_text_html: >
+                     BioModelos contiene material protegido por las leyes y tratados referidos a propiedad intelectual, por lo tanto, la información de BioModelos está protegida por los acuerdos, las leyes y reglamentos de derechos de autor en todo el mundo.</br></br>
+                     El Instituto de Investigación de Recursos Biológicos Alexander von Humboldt es el propietario único y exclusivo de la aplicación BioModelos, incluida la marca, nombre comercial, secreto comercial y otros derechos de propiedad intelectual sobre esta aplicación.</br></br>
+                     Dado que la información que reposa en BioModelos es el resultado de un proceso de colaboración entre el Instituto Alexander von Humboldt y los usuarios registrados, su administración y manejo corresponde exclusivamente al Instituto Alexander von Humboldt, de acuerdo a los términos y alcances estipulados en los formularios de registro y de publicación.
+                     El Instituto Alexander von Humboldt ostenta de manera exclusiva los derechos patrimoniales de autor de la información generada a partir de toda la actividad de usuarios registrados en BioModelos, particularmente en los módulos “edición y contribución” y “registros y filtros”. En todo caso, el Instituto Alexander von Humboldt reconocerá los derechos morales de autor para cada contribución consignada por los usuarios registrados en BioModelos.</br></br>
+                     Una vez consignada la información en BioModelos por parte de los “Publicadores”, el Instituto Alexander von Humboldt gozará de una licencia para su uso y disposición, de acuerdo a las licencia Creative Commons con que se publique dicha información, de acuerdo a lo establecido por el o los publicadores en el formulario de publicación.</br></br>
+                     Usted acepta no alterar ni eliminar ningún símbolo de copyright u otra identificación relativa a la autoría de ninguno de los materiales contenidos o puestos a su disposición en BioModelos.
+      general_3_title:  "Productos derivados"
+      general_3_text_html: >
+                     Las obras derivadas basadas en la información de BioModelos pueden divulgarse, electrónicamente o en forma impresa, sin el permiso previo por escrito del Instituto Alexander von Humboldt, siempre y cuando estén disponibles sin fines comerciales y se incluya la citación a la fuente, puntualmente señalada en el campo correspondiente a “cita” en los metadatos. BioModelos se reserva el derecho de usar / reutilizar cualquier trabajo derivado basado en su información de acuerdo con los mismos términos y condiciones de uso. Para efectos de estos términos y condiciones, un "trabajo derivado" es un trabajo nuevo que se basa total o parcialmente en la información de BioModelos. Para ser considerada una obra derivada, la nueva obra debe ser transformadora e incluir originalidad por parte del creador, de lo contrario puede simplemente considerarse redistribución, dependiendo de la manera en que se pone a disposición el nuevo trabajo.</br></br>
+                     El uso de la información de BioModelos en la creación de obras derivadas no constituye un respaldo por parte del Instituto Alexander von Humboldt o de sus socios a esos productos derivados, informes o análisis. Queda expresamente prohibido el uso de los logotipos de BioModelos o del Instituto Alexander von Humboldt en cualquier producto derivado, informe o análisis, o en materiales de apoyo, sin el permiso escrito, previo y expreso por parte del Instituto.
+      general_4_title: "Uso"
+      general_4_text_html: >
+                     Siempre que el uso o consulta de la información de BioModelos se haga de conformidad con los términos y condiciones de este acuerdo de usuario, se otorga una licencia gratuita, indefinida e intransferible para su consulta, descarga o impresión, sin necesidad de permiso previo por parte del Instituto.</br></br>
+                     La consulta y el uso de la información proveniente de BioModelos se restringe a fines educativos, investigativos académicos o aplicados. En todo caso, queda prohibido adelantar o ejecutar cualquier acto de disposición económica sobre la misma.</br></br>
+                     Los productos o resultados publicados a partir de la información obtenida en BioModelos deben ser enviados en copia electrónica o una copia en medio físico a los datos de contacto que se indican en la sección “información de contacto” de estos términos y condiciones.
+      general_5_title: "Reconocimiento y citación"
+      general_5_text_html: >
+                           El usuario de la información de BioModelos deberá otorgar los créditos correspondientes a la fuente de dicha información, empleando la citación provista en los metadatos que acompañan cada modelo, indicando de manera puntual la versión de la información de BioModelos utilizada.</br></br>
+                           El Instituto Alexander von Humboldt invita a los usuarios de la información de BioModelos a participar en su construcción y complemento. Igualmente, les extiende la invitación a hacer partícipe al Instituto de todas aquellas publicaciones que se deriven significativamente de la información disponible en BioModelos, previamente a su divulgación, en un espacio de colaboración conjunto. Las expresiones de interés pueden ser enviadas directamente al Instituto Alexander von Humboldt utilizando los datos de contacto que se indican en la sección “información de contacto”  de estos términos y condiciones.
+      general_6_title: "Actualizaciones"
+      general_6_text_html: "A menos que se requiera para análisis específicos, no se debe utilizar ninguna versión de la información de BioModelos después de haber sido reemplazada por una versión posterior. Es su responsabilidad verificar si hay disponible una actualización de la información publicada en BioModelos."
+      general_7_title: "Limitaciones en la responsabilidad"
+      general_7_text_html: >
+                        El Instituto Alexander von Humboldt,  sus socios, cualquiera de sus respectivos empleados, proveedores de contenido de terceros o licenciantes no garantizan que el acceso y uso de BioModelos estará libre de interrupciones o libre de errores, así como,  que cualquier información accesible de o relacionados con la información está libre de virus u otros componentes dañinos. Igualmente no se otorgan garantías en relación con los resultados que se pueden obtener del uso de la información de BioModelos o de la exactitud, confiabilidad o contenido de cualquier información o servicio proporcionado a través de BioModelos.</br></br>
+                        BioModelos es un espacio para la discusión y evaluación científica de modelos de distribución geográfica de especies. En este sentido, la información descargable representa hipótesis de la probable distribución geográfica de las especies y productos derivados de esas hipótesis, que si bien pueden contener errores y sesgos asociados a los datos y el modelamiento estadístico, hace un esfuerzo por disminuir el impacto de dichos factores al incorporar el conocimiento experto para producir mapas validados. </br></br>
+                        La información que está disponible en BioModelos no es información oficial para Colombia y por tal motivo su uso lo debe realizar bajo su propia responsabilidad. El Instituto Alexander von Humboldt, los patrocinadores de BioModelos y demás colaboradores, no garantizan que los resultados derivados de usar la información descargada cumplan con sus requerimientos particulares.
+      general_8_title: "Terminación del acuerdo"
+      general_8_text_html: "Usted o el Instituto Alexander von Humboldt pueden terminar este acuerdo de usuario en cualquier momento, con efecto inmediato, con o sin previo aviso a la otra parte. La terminación de este acuerdo termina automáticamente su licencia para usar BioModelos y cualquier contenido u otro material contenido en ella. Las disposiciones de las secciones 3, 4, y 5 sobrevivirán a cualquier terminación de este acuerdo de usuario."
+      general_9_title: "Información de contacto"
+      general_9_text_html: "Si tiene alguna pregunta sobre cualquiera de estos términos o sobre cómo pueden aplicarse al uso previsto de la información que proporciona BioModelos, contacte al Laboratorio de Biogeografía Aplicada (LBA) del Instituto Alexander von Humboldt:"
+      sign_up_1_title: "Términos y condiciones de registro"
+      sign_up_1_text_html: >
+                      Al registrarse en BioModelos, el usuario además de aceptar los términos y condiciones de uso definidos previamente, deberá acoger la siguiente política de tratamiento de aportes de BioModelos:</br></br>
+                      Constituyen aportes a BioModelos toda la información relativa a la distribución de especies que es ingresada por los usuarios registrados a BioModelos, incluyendo pero no restringido a: los reportes y ediciones de error de registros, las ediciones a modelos de distribución, la selección de variables ecológicas por especie, los comentarios en foros, las calificaciones a modelos de distribución y mapas de experto. El Instituto Alexander von Humboldt se reserva el derecho a: almacenar, distribuir, usar, adelantar cualquier actos de disposición o eliminar los aportes realizados por usuarios registrados de BioModelos, así como, la información relativa al origen del aporte (nombre, correo electrónico, fecha y dirección IP del aportante), aun cuando el usuario elimine su registro de BioModelos. <br id="personales"></br>
+                      Los derechos morales de autor de los aportes pertenece a los aportantes y el Instituto Alexander von Humboldt se compromete a citar adecuadamente los mismos cada que estos sean utilizados para el fin de BioModelos o los productos derivados que estime convenientes.
+      sign_up_2_title: "Política de protección de datos personales"
+      sign_up_2_text_html: >
+                    En virtud de la Ley Estatutaria 1581 del 2012 mediante la cual se dictan las disposiciones generales para la protección de datos personales, y su Decreto Reglamentario 1377 de 2013, el Instituto de Investigación de Recursos Biológicos Alexander von Humboldt, considerado como responsable y/o encargado del tratamiento de datos personales, requiere su autorización para continuar con el tratamiento de sus datos personales almacenados en nuestras bases de datos, las cuales incluyen información que ustedes nos han reportado en desarrollo de las diferentes actividades realizadas por nuestra institución en particular los siguientes: Nombres, correo electrónico, ciudad, afiliación institucional y dirección IP desde donde se ingrese a la plataforma biomodelos.humboldt.org.</br></br>
+                    <b>Finalidad:</b> Los datos serán utilizados para la misión institucional establecida en la ley 99 de 1993, centrada en desarrollar investigación científica y tecnológica sobre biodiversidad, promover el establecimiento de estaciones de investigaciones en el territorio de la Nación, brindar asesoría a las entidades que conforman el Sistema Ambiental (Sina) y conformar el Inventario Nacional de la Biodiversidad del país.
+      publish_1_title: "El publicador declara:"
+      publish_1_text_html: >
+                        1. Que el/los modelo(s) que se suben a BioModelos son autoría de las personas listadas en el formulario de publicación de modelos (en adelante publicadores) o tienen la cesión de derechos vigente para tal fin.</br>
+                        2. Que todos los autores del modelo o conjunto de modelos aceptan o autorizan su publicación en BioModelos a partir del momento en que sube la información.</br>
+                        3. Que los registros biológicos que acompañan el modelo son de uso abierto, son propios o su uso exclusivamente para propósitos de visualización en BioModelos ha sido autorizado explícita o implícitamente (p. ej. a través de una licencia de Creative Commons) por los propietarios de la información o quienes tienen alguna cesión o autorización frente al particular.</br>
+                        4. Que los publicadores autorizan la descarga y uso de sus modelos por terceros a través de BioModelos bajo las condiciones provistas por la licencia Creative Commons señalada en el formulario de publicación de modelos.
+      publish_2_title: "El Instituto de Investigación de recursos biológicos Alexander Von Humboldt a través de la aplicación web BioModelos"
+      publish_2_text_html: >
+                        1. Ofrecerá estadísticas de actividad (visualización y descarga) y perfil de uso a solicitud de los publicadores de la información.</br>
+                        2. Otorgará el crédito correspondiente a los publicadores de modelos en la página de BioModelos y en los metadatos que acompañan los modelos de su autoría, con base en la información registrada en el formulario de publicación.</br>
+                        3. Utilizará los registros biológicos que acompañan el modelo únicamente para la visualización en BioModelos bajo las condiciones determinadas por los publicadores en el formulario de publicación del modelo. En ningún caso su uso o descarga estará habilitada en BioModelos, a menos que esto sea expresamente autorizado en el formulario de publicación de modelos.</br>
+                        4. Se reserva el derecho de publicar los modelos así como de bajarlos en cualquier momento de la página.

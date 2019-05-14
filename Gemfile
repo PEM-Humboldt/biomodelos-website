@@ -2,9 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'rails', '4.2.11.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -29,8 +27,6 @@ gem 'carrierwave', '~> 1.0.0' #Uploader
 gem 'mini_magick', '~> 4.5', '>= 4.5.1' #Manipulates images
 gem 'carrierwave-bombshelter', '~> 0.2.2' #Protects from bomb images
 gem "recaptcha", require: "recaptcha/rails" #reCaptcha
-
-#gem 'pg', '~> 0.21.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -57,3 +53,6 @@ group :development do
   gem 'spring'
 end
 
+
+# Added at 2017-09-21 13:51:12 -0500 by valentina:
+gem "pg", "~> 0.21.0"

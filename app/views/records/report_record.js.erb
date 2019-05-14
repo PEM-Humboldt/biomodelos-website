@@ -8,5 +8,5 @@ $(".reportBox").html(""); //Clear div before rendering again
 		$(".reportBox").html("");
 	});
 <% else %>
-	alertify.alert("Debe estar registrado para poder reportar un registro");
+	alertify.alert("<%= t('biomodelos.records.report.sign_up_notice') %>");
 <% end %>

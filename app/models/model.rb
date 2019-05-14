@@ -68,28 +68,87 @@ class Model
     # @return [Object] Valid model object.
     def self.get_valid_model(species_id)
       response = JSON.parse(get('/' + species_id + '?type=Valid').body)
-      if response.size > 0
+      valid_model = nil
+      if response.size > 1
+        response.each do |model|
+          if model["modelLevel"] == 2
+            valid_model = Model.new(model["modelID"], model["modelStatus"], model["png"], model["zip"], model["thumb"], model["thresholdType"], model["modelLevel"], model["license"], model["customCitation"], model["methodFile"], model["published"])
+          end
+        end  
+      elsif response.size == 1
         valid_model = Model.new(response[0]["modelID"], response[0]["modelStatus"], response[0]["png"], response[0]["zip"], response[0]["thumb"], response[0]["thresholdType"], response[0]["modelLevel"], response[0]["license"], response[0]["customCitation"], response[0]["methodFile"], response[0]["published"])
-      else
-        valid_model = nil
       end
       return valid_model
     end
 
+    def self.get_valid_models(species_id)
+      response = JSON.parse(get('/' + species_id + '?type=Valid').body)
+      valid_models_array = []
+      response.each do |model|
+        t = Model.new(model["modelID"], model["modelStatus"], model["png"], model["zip"], model["thumb"], model["thresholdType"], model["modelLevel"], model["license"], model["customCitation"], model["methodFile"], model["published"])
+        valid_models_array.push(t)
+      end
+      return valid_models_array
+    end
+
     def self.eoo(species_id)
-      JSON.parse(get('/approved/eoo/' + species_id).body)
+      response = JSON.parse(get('/approved/eoo/' + species_id).body)
+      eooData = nil
+      if response.size > 1
+        response.each do |eoo|
+          if eoo["modelLevel"] == 2
+            eooData = eoo
+          end
+        end  
+      elsif response.size == 1
+        eooData = response[0]
+      end
+      return eooData
     end
 
     def self.rpa(species_id)
-      JSON.parse(get('/approved/rpa/' + species_id).body)
+      response = JSON.parse(get('/approved/rpa/' + species_id).body)
+      rpaData = nil
+      if response.size > 1
+        response.each do |rpa|
+          if rpa["modelLevel"] == 2
+            rpaData = rpa
+          end
+        end  
+      elsif response.size == 1
+        rpaData = response[0]
+      end
+      return rpaData
     end
 
     def self.forest_loss(species_id)
-      JSON.parse(get('/approved/forest_loss/' + species_id).body)
+      response = JSON.parse(get('/approved/forest_loss/' + species_id).body)
+      forestLossData = nil
+      if response.size > 1
+        response.each do |forestLoss|
+          if forestLoss["modelLevel"] == 2
+            forestLossData = forestLoss
+          end
+        end  
+      elsif response.size == 1
+        forestLossData = response[0]
+      end
+      return forestLossData
     end
 
     def self.covers(species_id)
-      JSON.parse(get('/approved/covers/' + species_id).body)
+      response = JSON.parse(get('/approved/covers/' + species_id).body)
+      coversData = nil
+      if response.size > 1
+        response.each do |covers|
+          if covers["modelLevel"] == 2
+            coversData = covers
+          end
+        end  
+      elsif response.size == 1
+        coversData = response[0]
+      end
+      return coversData
     end
 
     def self.get_metadata(model_id)

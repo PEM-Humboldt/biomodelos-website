@@ -23,7 +23,7 @@ class SpeciesController < ApplicationController
 		rescue => e
 			logger.error "#{e.message} #{e.backtrace}"
 			err_msg = e.message.tr(?',?").delete("\n")
-	    	render :js => "alert('Ha ocurrido un error en la búsqueda. #{err_msg}');"
+	    	render :js => "alertify.alert('Ha ocurrido un error en la búsqueda. #{err_msg}');"
 	    end
 	end
 
@@ -36,7 +36,7 @@ class SpeciesController < ApplicationController
 		rescue => e
 			logger.error "#{e.message} #{e.backtrace}"
 			err_msg = e.message.tr(?',?").delete("\n")
-	    	render :js => "alert('Ha ocurrido un error en la búsqueda. #{err_msg}');"
+	    	render :js => "alertify.alert('Ha ocurrido un error en la búsqueda. #{err_msg}');"
 	    end
 	end
 
@@ -91,7 +91,7 @@ class SpeciesController < ApplicationController
 			# Sort the covers by value
 			@covers = nil
 			if !@all_covers.blank?
-				@covers =  Hash[@all_covers[0].select{|k, v| v && v!= 0 && k != "modelID"}.sort_by{ |k, v| v }.reverse]
+				@covers =  Hash[@all_covers.select{|k, v| v && v!= 0 && k != "modelID" && k!= "modelLevel"}.sort_by{ |k, v| v }.reverse]
 			end
 
 			respond_to do |format|

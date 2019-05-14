@@ -7,11 +7,13 @@
 <% elsif !params[:species_id].blank? && is_integer_num(params[:species_id]) %>
       <script>
           //Unique URL for each species
-          $.ajax({
-                          type: "POST",
-                          url: "/species/set_species",
-                          data: { species_id: <%=j params[:species_id]%> }
-          });
+          $(document).ready(function(){
+	          $.ajax({
+	                          type: "POST",
+	                          url: "/" + $("#locale_field").val() + "/species/set_species",
+	                          data: { species_id: <%=j params[:species_id]%> }
+	          });
+	      });
       </script>
 <% end %>
 <div class="mapcontainer" id="map"></div>
@@ -19,11 +21,11 @@
 <div id="visCntrl" ng-controller="visorCtrl">
 	<div class="spname"></div>
 	<%= hidden_field_tag 'species_id_field'%>
-	<div class="modelname" title="Estado del modelo" rel="tooltip"> <!-- agregar en Continuo class: gradient --></div>
-	<div id="layerbtn" title="Capas geográficas" rel="tooltip" class="visorbtn"></div>
-	<div ng-click="find=!find" title="Búsqueda Avanzada" rel="tooltip" class="visorbtn vbtnfind" selectable></div>
-	<div ng-click="info=!info" title="Información de la especie" rel="tooltip" class="visorbtn vbtninfo" selectable></div>
-	<div ng-click="hipotesis=!hipotesis" title="Hipótesis de distribución" rel="tooltip" class="visorbtn vbtnhipo" selectable></div>
+	<div class="modelname" title='<%= t('biomodelos.visor.tooltip.model_name') %>' rel="tooltip"> <!-- agregar en Continuo class: gradient --></div>
+	<div id="layerbtn" title='<%= t('biomodelos.visor.tooltip.layer_btn') %>' rel="tooltip" class="visorbtn"></div>
+	<div ng-click="find=!find" title='<%= t('biomodelos.visor.tooltip.find_btn') %>' rel="tooltip" class="visorbtn vbtnfind" selectable></div>
+	<div ng-click="info=!info" title='<%= t('biomodelos.visor.tooltip.info_btn') %>' rel="tooltip" class="visorbtn vbtninfo" selectable></div>
+	<div ng-click="hipotesis=!hipotesis" title='<%= t('biomodelos.visor.tooltip.hipo_btn') %>' rel="tooltip" class="visorbtn vbtnhipo" selectable></div>
 	<div id="edit_model_btn"></div>
 
 	<div ng-show="find" class="cajavisor cajasearch">
@@ -34,10 +36,10 @@
 		<%= render 'species/species_info' %>
 	</div>
 
-	
+
 	<div ng-show="hipotesis" class="cajavisor hipotesis">
 		<div class="vcbase">
-			<h1>HIPÓTESIS DISPONIBLES</h1>
+			<h1><%= t('biomodelos.visor.hypotheses.title') %></h1>
 			<a ng-click="hipotesis=!hipotesis" class="closevb" id="clsModelsBox">x</a>
 		</div>
 		<div class="cvcolumn">
@@ -48,18 +50,18 @@
 			<div id="hipotesisbox_content"></div>
 		</div>
 	</div>
-	
+
 	<% if user_signed_in? %>
 		<div ng-show="edit" class="cajavisor editbox">
 			<div class="vcbase">
-				<h1>EDICIÓN Y CONTRIBUCIÓN</h1>
+				<h1><%= t('biomodelos.visor.contributions.title') %></h1>
 				<a ng-click="edit=!edit" class="closevb" id="clsEditBox">x</a>
 			</div>
 			<div id="editbox_content"></div>
 			</div>
 	<% end %>
 
-	<div ng-click="registros=!registros" class="btnregistros" selectable>registros y filtros</div>
+	<div ng-click="registros=!registros" class="btnregistros" selectable><%= t('biomodelos.visor.records.title') %></div>
 
 	<div ng-show="registros" class="cajaregistros" id="registros_div">
 		<%= render partial: 'species/species_records' %>
@@ -74,6 +76,9 @@
 	<% if user_signed_in? %>
 		<div id="edit_tools_box"></div>
 	<% end %>
+
+	<div id="show_record_box"></div>
+
 </div>
 
 <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+ Rails.application.secrets.google_maps_key %>
@@ -83,8 +88,7 @@
 <div class="visorfooter">
 			<a href="http://www.humboldt.org.co" class="humboldtft" target="_blank">
 				<div class="humbname">
-					<h1>Instituto de Investigación de Recursos Biológicos</br>
-						Alexander von Humboldt</h1>
+					<h1><%= t('biomodelos.footer.institute_html') %></h1>
 				</div>
 			</a>
 			<nav>
@@ -95,7 +99,7 @@
 				</ul>
 				<ul id="subnav">
 					<li>
-						<%= link_to 'Info', info_index_path %>
+						<%= link_to t('biomodelos.footer.info'), info_index_path %>
 					</li>
 				</ul>
 				<%= image_tag("logolba.png") %>
@@ -155,4 +159,5 @@ $('.cajaregistros').niceScroll({
 	cursorborder: "none"
 });
 
+HomeControllerModule.typeahead_f();
 </script>

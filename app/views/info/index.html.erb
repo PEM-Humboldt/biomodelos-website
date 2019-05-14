@@ -2,25 +2,93 @@
 	<div class="contenedor" ng-controller="perfilCtrl">
 		<ul class="perfilnav infonav">
 	       	<li ng-class="{ active: isSet(1) }">
-	          	<a href ng-click="setTab(1)">blog</a>
+	          	<a href ng-click="setTab(1)">docs</a>
 	       	</li>
 	       	<li ng-class="{ active: isSet(2) }">
-	          	<a href ng-click="setTab(2)">docs</a>
+	          	<a href ng-click="setTab(2)">blog</a>
 	       	</li>
 	     </ul>
 	     <h1>info</h1>
-	    <div class="clearfix"></div>
+
 		<div ng-show="isSet(1)" class="cajainfo">
+			<div class="infocontainer">
+				<h2>Guías 2018</h2>
+				<h3>ES</h3>
+				<a href="http://biomodelos.humboldt.org.co/Guiaun.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("guianres.png") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/Guiaur.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("guiares.png") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/Guiaer.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("guiaexp1es.png") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/Guiaer2.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("guiaexp2es.png") %>
+					<p>+</p>
+				</a>
+				<h3>EN</h3>
+				<a href="http://biomodelos.humboldt.org.co/Quickuu.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("guideuu.png") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/Quickru.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("guideru.png") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/Quickeu.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("guiaexp1en.png") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/Quickeu2.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("guiaexp2en.png") %>
+					<p>+</p>
+				</a>
+				<h2>Guías 2017</h2>
+				<a href="http://biomodelos.humboldt.org.co/moderadores.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("moderdocs.jpg") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("publidocs.jpg") %>
+					<p>+</p>
+				</a>
+				<!--
+				<a href="http://biomodelos.humboldt.org.co/usuario.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("usudocs.jpg") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/curaduria.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("regisdocs.jpg") %>
+					<p>+</p>
+				</a> -->
+<!-- 				<a href="http://biomodelos.humboldt.org.co/expertos.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("experdocs.jpg") %>
+					<p>+</p>
+				</a>
+				<a href="http://biomodelos.humboldt.org.co/metodologia.pdf" target="_blank" class="cajathumb">
+					<%= image_tag("metoddocs.jpg") %>
+					<p>+</p>
+				</a> -->
+			</div>
+		</div>
+
+	    <div class="clearfix"></div>
+
+		<div ng-show="isSet(2)" class="cajainfo">
  			<ul class="subtabs">
 		       	<!-- <li class="subtabact">
 		          	<a href="">noticias</a>
-		       	</li><!-- 
+		       	</li><!--
 		     --><li class="subtabact">
 		          	<a href="">boletines</a>
-		       	</li><!-- 	
+		       	</li><!--
 		        --><!-- <li>
 		          	<a href="">publicaciones</a>
-		       	</li> --><!-- 
+		       	</li> --><!--
 		       	 --><!-- <li>
 		          	<a href="">conferencias</a>
 		       	</li> -->
@@ -99,7 +167,7 @@
 							</div>
 						</div>
 					</div>
-				
+
 				</div>
 
 					<div ng-show="boletin4">
@@ -140,7 +208,7 @@
 
 							<h6>Mariposas de Colombia</h6>
 							<p>Grupo moderado por la entomóloga Blanca Huertas, curadora principal de la Colección de Mariposas del <a href="http://www.nhm.ac.uk/" target="_blank">Museo Británico de Historia Natural</a> en Londres y miembro de los comités directivos del grupo especialista en mariposas de la IUCN, <a href="http://butterfly-int.wixsite.com/international" target="_blank">Butterfly International Network</a> y el <a href="http://www.naba.org/" target="_blank">North American Butterflies Association.</a></p>
-							
+
 							<p>Si quieres proponer un nuevo grupo o colaborar como moderador, puedes leer la <a href="http://biomodelos.humboldt.org.co/moderadores.pdf" target="_blank">guía para moderadores</a> de grupo en BioModelos y escribirnos a <a href="mailto:biomodelos@humboldt.org.co" target="_blank">biomodelos@humboldt.org.co.</a></p>
 						</div>
 						<div class="bolet">
@@ -151,7 +219,7 @@
 
 			                <p>En el mes de octubre se realizará un taller BioModelos de especies endémicas y amenazadas de bosque seco, junto con el programa de ciencias de la biodiversidad del Instituto Humboldt.</p>
 						</div>
-					</div>	
+					</div>
 
 
 
@@ -259,35 +327,6 @@
 					</div>
 
 	     	</div>
-		</div>
-	
-		<div ng-show="isSet(2)" class="cajainfo">
-			<div class="infocontainer">
-				<a href="http://biomodelos.humboldt.org.co/usuario.pdf" target="_blank" class="cajathumb">
-					<%= image_tag("usudocs.jpg") %>
-					<p>+</p>
-				</a>
-				<a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank" class="cajathumb">
-					<%= image_tag("publidocs.jpg") %>
-					<p>+</p>
-				</a>
-				<a href="http://biomodelos.humboldt.org.co/moderadores.pdf" target="_blank" class="cajathumb">
-					<%= image_tag("moderdocs.jpg") %>
-					<p>+</p>
-				</a>
-				<a href="http://biomodelos.humboldt.org.co/curaduria.pdf" target="_blank" class="cajathumb">
-					<%= image_tag("regisdocs.jpg") %>
-					<p>+</p>
-				</a>
-<!-- 				<a href="http://biomodelos.humboldt.org.co/expertos.pdf" target="_blank" class="cajathumb">
-					<%= image_tag("experdocs.jpg") %>
-					<p>+</p>
-				</a>
-				<a href="http://biomodelos.humboldt.org.co/metodologia.pdf" target="_blank" class="cajathumb">
-					<%= image_tag("metoddocs.jpg") %>
-					<p>+</p>
-				</a> -->
-			</div>
 		</div>
 	</div>
 </div>

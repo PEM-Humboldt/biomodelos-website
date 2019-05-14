@@ -197,6 +197,20 @@ es:
     errors:
       <<: *errors
   activerecord:
+    models:
+      user: "User"
+    attributes:
+      user:
+        email: "Email"
+        clave: 'Contraseña'
+        password_confirmation: "Confirmar contraseña"
+        current_password: "Contraseña actual"
+        remember_me: 'Recordarme'
+        name: "Nombres y apellidos"
+        expertise: "Grupos de Interés"
+        organization: "Organización"
+        location: "Ubicación"
+        bio: "Biografía"
     errors:
       models:
           user:
@@ -212,3 +226,7 @@ es:
                 too_short: La contraseña es demasiado corta (%{count} caracteres mínimo)
               password_confirmation:
                 blank: "Ingrese la confirmación de la contraseña"
+  recaptcha:
+    errors:
+      verification_failed: 'La validación del reCAPTCHA falló. Inténtelo de nuevo.'
+      recaptcha_unreachable: 'Ocurrió un error al intentar validar el reCAPTCHA. Inténtelo de nuevo.'

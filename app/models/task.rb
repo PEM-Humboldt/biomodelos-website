@@ -1,5 +1,4 @@
 class Task < ActiveRecord::Base
-	belongs_to :species
 	belongs_to :user
   	belongs_to :group
   	belongs_to :tasks_created, class_name: "User"
@@ -8,6 +7,5 @@ class Task < ActiveRecord::Base
   	has_one :task_type
 
 	validates :user_id, uniqueness: { scope: [:species_id, :group_id, :task_type_id],
-   		message: "Tarea duplicada"}
-
+   		message: "Tarea duplicada"} 
 end

@@ -1,6 +1,6 @@
 class ModelsController < ApplicationController
 	include UsersHelper
-		
+
 	# Sets the initial model to be loaded and the pop-up content based on:
 	# 1. There's only a valid model.
 	# 2. There's a valid model and one or more hypotheses waiting for approval
@@ -19,19 +19,19 @@ class ModelsController < ApplicationController
 		if @valid_model
 			@init_model = @valid_model
 			if @hypotheses.size > 0
-				@popup_content = "Esta es una hipótesis de distribución aprobada por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución no aprobadas por expertos, disponibles para esta especie."
+				@popup_content = I18n.t('biomodelos.models.init.case_2')
 			end
 		elsif @hypotheses.size > 0
 			if @hypotheses.size == 1
 				@init_model = @hypotheses[0]
-				@popup_content = "Esta hipótesis de distribución está pendiente de aprobación por expertos."
+				@popup_content = I18n.t('biomodelos.models.init.case_3')
 			else
 				@init_model = Model.get_best_hypothesis(@hypotheses)
-				@popup_content = "Esta es una de las hipótesis de distribución disponibles pendientes de aprobación por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución pendientes de aprobación disponibles para esta especie."
+				@popup_content = I18n.t('biomodelos.models.init.case_4')
 			end
 		elsif @continuous_model
 			@init_model = @continuous_model
-			@popup_content = "Esta es una hipótesis de distribución sin aportes de expertos. Para contribuir a mejorarlo, registrate en el grupo de expertos de la especie."
+			@popup_content = I18n.t('biomodelos.models.init.case_5')
 		end
 
 		respond_to do |format|
@@ -72,22 +72,24 @@ class ModelsController < ApplicationController
 		end
 	end
 
-	# Gets the model information of the valid model and each of the hypotheses, along with the rating for 
+	# Gets the model information of the valid model and each of the hypotheses, along with the rating for
 	# each one in case the user is signed in and can edit.
-	#    
+	#
 	def get_hypotheses
 		@ratings = Hash.new
 
 		begin
 			@species_id = params[:species_id]
-			@valid_model = Model.get_valid_model(params[:species_id])
+			@valid_models = Model.get_valid_models(params[:species_id])
 			@models = Model.get_hypotheses(params[:species_id])
 			@can_edit = false
 
-			
-			# If there's a valid model, adds it first to the array.
-			if @valid_model
-				@models.unshift(@valid_model)
+
+			# If there are valid models, adds them first to the array.
+			if @valid_models
+				@valid_models.each do |m|
+					@models.unshift(m)
+				end
 			end
 			# If the user is signed in and can edit the species, it gets and sets the user ratings for each model.
 			if user_signed_in?
@@ -109,11 +111,11 @@ class ModelsController < ApplicationController
 			err_msg = e.message.tr(?',?").delete("\n")
 			render :js => "alertify.alert('Se ha producido un error al consultar las hipótesis. #{err_msg}');"
 		end
-		
+
 	end
 
 	# Sets the metadata information for a model, along with the species name and number of records
-	# 
+	#
 	def metadata
 		begin
 			@metadata = Model.get_metadata(params[:id])
@@ -122,7 +124,7 @@ class ModelsController < ApplicationController
 		rescue => e
 			logger.error "#{e.message} #{e.backtrace}"
 			err_msg = e.message.tr(?',?").delete("\n")
-			redirect_to species_visor_path, notice: 'Se ha producido un error al obtener los metadatos del modelo.'
+			redirect_to species_visor_path, notice: I18n.t('biomodelos.models.metadata.error')
 		end
 	end
 
@@ -136,7 +138,7 @@ class ModelsController < ApplicationController
 	def download_model
 		@download = Download.new(download_params.merge(user_id: current_user.id))
 		if @download.save
-	      	send_file Rails.root.join("public" + params[:download][:zip_url]), :type => 'application/zip', :disposition => 'attachment' 
+	      	send_file Rails.root.join("public" + params[:download][:zip_url]), :type => 'application/zip', :disposition => 'attachment'
 	    else
 			redirect_to species_visor_path, :flash => { :error => "Debe seleccionar el uso y aceptar los términos y condiciones para descargar un modelo." }
 	    end

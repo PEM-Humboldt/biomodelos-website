@@ -4,9 +4,9 @@ $.ajax({
     data: { id: <%= params[:task][:group_id] %>},
     success:function(data) {
     	<% if @tasks.size > 1 %>
-    		alertify.alert("¡Las tareas han sido agregadas con éxito!");
+    		alertify.alert("<%= t('biomodelos.tasks.tasks_added_notice') %>");
     	<% else %>
-    		alertify.alert("¡La tarea ha sido agregada con éxito!");
+    		alertify.alert("<%= t('biomodelos.tasks.task_added_notice') %>");
     	<% end %>
     }
 });

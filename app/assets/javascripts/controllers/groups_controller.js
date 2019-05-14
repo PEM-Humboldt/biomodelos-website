@@ -1,9 +1,38 @@
 $(document).ready(function(){
+
+	/**
+ 	* Ovewrites data-confirm function so it now triggers an alertify confirmation.
+ 	*
+	* Taken from https://stackoverflow.com/questions/18921689/alertify-js-rails-custom-confirm-dialog
+	*/
+	$.rails.allowAction = function(element){
+    if( undefined === element.attr('data-confirm') ){
+        return true;
+    }
+
+    $.rails.showConfirmDialog(element);
+    return false;
+	};
+
+	$.rails.confirmed = function(element){
+	    element.removeAttr('data-confirm');
+	    element.trigger('click.rails');
+	};
+
+	$.rails.showConfirmDialog = function(element){
+	    var msg = element.data('confirm');
+	    alertify.confirm(msg, function(e){
+	        if(e){
+	            $.rails.confirmed(element);
+	        }
+	    })
+	};
+
 	$(".group_tasks_tab").click(function(e){
 		e.preventDefault();
 		$.ajax({
 		    type: 'POST',
-		    url: "/tasks/tasks_by_group",
+		    url: "/" + $("#locale_field").val() + "/tasks/tasks_by_group",
 		    data: {
 		    	id: $("#group_id_field").val()
 		    }
@@ -11,28 +40,28 @@ $(document).ready(function(){
 	})
 
 	$(".group_species_tab").click(function(e){
-		$.post( "/groups_species/species_by_group", { id: $("#group_id_field").val()});
+		$.post( "/" + $("#locale_field").val() + "/groups_species/species_by_group", { id: $("#group_id_field").val()});
 	});
 
 	$(".group_users_tab").click(function(e){
-		$.post( "/groups_users/users_by_group", { id: $("#group_id_field").val()});
+		$.post( "/" + $("#locale_field").val() + "/groups_users/users_by_group", { id: $("#group_id_field").val()});
 	});
 
 	$(".group_activity_tab").click(function(e){
-		$.post( "/groups/group_activity", { id: $("#group_id_field").val()});
+		$.post( "/" + $("#locale_field").val() + "/groups/group_activity", { id: $("#group_id_field").val()});
 	});
 
 	/**
- 	* Updates the status of a pending species in a group. 
- 	* 
+ 	* Updates the status of a pending species in a group.
+ 	*
 	* @param {String} event.data.sp_action - Action selected by the group mods ("approve" or "dismiss").
 	* menu or False if it's the model edition menu.
 	*/
 	function updateGroupSpecies(event){
 		event.preventDefault();
 		data = {
-			group_id: $("#group_id_field").val(), 
-			species_id: $(this).parent('div').parent('div').find('.p_sp_id').attr("value"), 
+			group_id: $("#group_id_field").val(),
+			species_id: $(this).parent('div').parent('div').find('.p_sp_id').attr("value"),
 			sp_action: event.data.sp_action
 		}
 		var alert_message = "";
@@ -49,16 +78,16 @@ $(document).ready(function(){
 	}
 
 	/**
- 	* Updates the status of a pending user in a group. 
- 	* 
+ 	* Updates the status of a pending user in a group.
+ 	*
 	* @param {String} event.data.usr_action - Action selected by the group mods ("approve" or "dismiss").
 	* menu or False if it's the model edition menu.
 	*/
 	function updateUserStatus(event){
 		event.preventDefault();
 		data = {
-			group_id: $("#group_id_field").val(), 
-			user_id: $(this).parent('div').parent('div').find('.p_usr_id').attr("value"), 
+			group_id: $("#group_id_field").val(),
+			user_id: $(this).parent('div').parent('div').find('.p_usr_id').attr("value"),
 			usr_action: event.data.usr_action
 		}
 		var alert_message = "";

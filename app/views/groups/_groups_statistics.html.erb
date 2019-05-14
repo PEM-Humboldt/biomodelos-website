@@ -1,18 +1,18 @@
-<h1>estadísticas</h1>
+<h1><%= t('biomodelos.groups.profile.statistics_tab') %></h1>
 
 <div class="estadbox">
-	<h2>expertos en el grupo</h2>
+	<h2><%= t('biomodelos.groups.profile.experts_in_group') %></h2>
 	<h6><%= @group_members_number %></h6>
 </div>
 <div class="estadbox">
-	<h2>especies vinculadas</h2>
+	<h2><%= t('biomodelos.groups.profile.species_in_group') %></h2>
 	<h6><%= @species_ids.size %></h6>
 </div>
+<!--<div class="estadbox">
+	<h2><%= t('biomodelos.groups.profile.species_with_tasks') %></h2>
+	<h6></h6>
+</div> 
 <div class="estadbox">
-	<h2>especies en agenda</h2>
-	<h6><%= @species_with_tasks_pending.size %></h6>
-</div>
-<!-- <div class="estadbox">
 	<h2>modelos aprobados</h2>
 	<h6><%= @models_approved %></h6>
 </div> -->

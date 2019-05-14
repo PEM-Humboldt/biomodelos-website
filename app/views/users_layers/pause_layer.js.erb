@@ -1,0 +1,4 @@
+<% if !@layer.blank? %>
+	$("#layer_id_field").val(<%= @layer.id %>);
+<% end %>
+alertify.alert('<%= t('biomodelos.visor.edit_box.pause_success') %>');

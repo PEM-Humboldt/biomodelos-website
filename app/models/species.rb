@@ -11,7 +11,12 @@ class Species
    		else
    			res = ""
    		end
-   		return res	
+   		return res
+	end
+
+	def self.find_names(taxIDList)
+		res = JSON.parse(get('?speciesIn=' + taxIDList.join(',')).body)
+		return res
 	end
 
 	def self.records_number(taxID)

@@ -14,13 +14,16 @@ class UsersLayersController < ApplicationController
 
   	def pause_layer
   		if params[:id].blank?
-	      UsersLayer.create({:species_id => params[:species_id], :user_id => current_user.id, :threshold => params[:threshold], :newModel => params[:newModel], :geoJSON => params[:geoJSON]})
+	      @layer = UsersLayer.create({:species_id => params[:species_id], :user_id => current_user.id, :threshold => params[:threshold], :newModel => params[:newModel], :geoJSON => params[:geoJSON]})
 	    else
 	      @layer = UsersLayer.find(params[:id])
 	      UsersLayer.update(@layer.id, {:threshold => params[:threshold], :geoJSON => params[:geoJSON]})
 	    end
-
-	    render :js => "alertify.alert('Se ha pausado la edición del modelo.');"
+	    
+	    respond_to do |format|
+	        format.js
+	    end
+	    # render :js => "alertify.alert('Se ha pausado la edición del modelo.');"
 
 	end
 

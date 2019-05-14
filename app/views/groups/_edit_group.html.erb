@@ -1,19 +1,19 @@
-<h2>Editar Grupo</h2>
+<h2><%= t('biomodelos.groups.edit.title') %></h2>
 <%= simple_form_for @group do |f| %>
-	<h3>Nombre de grupo</h3>
-	<%= f.input :name, :maxlength => 50, :placeholder => "Nombre anterior", :name => "nombre", label: false%>
+	<h3><%= t('biomodelos.groups.edit.group_name') %></h3>
+	<%= f.input :name, :maxlength => 50, :placeholder => t('biomodelos.groups.edit.former_name_ph'), :name => "nombre", label: false%>
 	<h3>Mensaje del moderador</h3>
-	<%= f.input :message, :as => :text, :placeholder => "Mensaje anterior", :input_html => {:maxlength => 300, :cols => "20", :rows => "4"}, :name => "cuerpo", label: false %>
-	<h3>Cambiar imagen</h3>
+	<%= f.input :message, :as => :text, :placeholder => t('biomodelos.groups.edit.former_message_ph'), :input_html => {:maxlength => 300, :cols => "20", :rows => "4"}, :name => "cuerpo", label: false %>
+	<h3><%= t('biomodelos.groups.edit.change_photo') %></h3>
 	<div class="inputBtnSection ml0">
-        <input id="uploadFile" class="disableInputField w203" placeholder="Seleccionar Archivo" />
+        <input id="uploadFile" class="disableInputField w203" placeholder="<%= t('biomodelos.publish.select_file_ph') %>" />
 	    <label class="fileUpload">
 		    <%= f.input :logo, :as => :file, :required => true, label: false, error_html: {:class => 'publierror'}, :input_html => { :id => "uploadBtn", :class => "upload"} %>
-		    <span class="uploadBtn">SUBIR FOTO</span>
+		    <span class="uploadBtn"><%= t('biomodelos.groups.edit.upload_photo_btn') %></span>
 	    </label>
     </div>
     <div class="clearfix"></div>
-    <%= f.submit 'GUARDAR', class: "btngen ml0"%>
+    <%= f.submit t('biomodelos.groups.edit.submit_btn'), class: "btngen ml0"%>
     <div id="clsEditGroupBtn"></div>
 <% end %>
 <script type="text/javascript">
