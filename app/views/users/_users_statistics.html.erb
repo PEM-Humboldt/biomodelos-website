@@ -5,10 +5,10 @@
 		<h6><%= @task_pending.size %></h6>
 	</div>
 <% end %>
-<% if @species_with_tasks.size != 0 %>
+<% if @amount_species_with_tasks != 0 %>
 	<div class="estadbox">
 		<h2><%= t('biomodelos.users.species_tasks')%></h2>
-		<h6><%= @species_with_tasks.size %></h6>
+		<h6><%= @amount_species_with_tasks %></h6>
 	</div>
 <% end %>
 <div class="estadbox">

@@ -1,6 +1,6 @@
 class ModelsController < ApplicationController
 	include UsersHelper
-		
+
 	# Sets the initial model to be loaded and the pop-up content based on:
 	# 1. There's only a valid model.
 	# 2. There's a valid model and one or more hypotheses waiting for approval
@@ -72,9 +72,9 @@ class ModelsController < ApplicationController
 		end
 	end
 
-	# Gets the model information of the valid model and each of the hypotheses, along with the rating for 
+	# Gets the model information of the valid model and each of the hypotheses, along with the rating for
 	# each one in case the user is signed in and can edit.
-	#    
+	#
 	def get_hypotheses
 		@ratings = Hash.new
 
@@ -84,12 +84,12 @@ class ModelsController < ApplicationController
 			@models = Model.get_hypotheses(params[:species_id])
 			@can_edit = false
 
-			
+
 			# If there are valid models, adds them first to the array.
 			if @valid_models
 				@valid_models.each do |m|
 					@models.unshift(m)
-				end 
+				end
 			end
 			# If the user is signed in and can edit the species, it gets and sets the user ratings for each model.
 			if user_signed_in?
@@ -111,11 +111,11 @@ class ModelsController < ApplicationController
 			err_msg = e.message.tr(?',?").delete("\n")
 			render :js => "alertify.alert('Se ha producido un error al consultar las hipótesis. #{err_msg}');"
 		end
-		
+
 	end
 
 	# Sets the metadata information for a model, along with the species name and number of records
-	# 
+	#
 	def metadata
 		begin
 			@metadata = Model.get_metadata(params[:id])
@@ -138,7 +138,7 @@ class ModelsController < ApplicationController
 	def download_model
 		@download = Download.new(download_params.merge(user_id: current_user.id))
 		if @download.save
-	      	send_file Rails.root.join("public" + params[:download][:zip_url]), :type => 'application/zip', :disposition => 'attachment' 
+	      	send_file Rails.root.join("public" + params[:download][:zip_url]), :type => 'application/zip', :disposition => 'attachment'
 	    else
 			redirect_to species_visor_path, :flash => { :error => "Debe seleccionar el uso y aceptar los términos y condiciones para descargar un modelo." }
 	    end

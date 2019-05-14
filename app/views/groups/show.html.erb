@@ -23,23 +23,23 @@
 			</div>
 			<div class="perflinks">
 				<% if user_signed_in? %>
-				 	<% if @user_group && @user_group.groups_users_state_id == 2 %>
-						<%= image_tag "groupjoin2", :title=>t('biomodelos.groups.profile.waiting_approval_tt'), :rel=>"tooltip" %>
-					<% elsif @user_group && @user_group.groups_users_state_id == 1 %>
-                		<%= link_to groups_user_path(@user_group), {method: :delete, data: { confirm: t('biomodelos.groups.profile.leave_group_confirm') }}  do %>
-                			<%= image_tag "leave.png", title:t('biomodelos.groups.profile.leave_group_tt'), class: 'leavegroup', rel: 'tooltip' %>
-                		<% end %>
-					<% elsif  !@current_group_user %>
+					<% if !@user_group %>
 						<%= simple_form_for @groups_users do |f| %>
-		                  <%= f.hidden_field :group_id, :value =>  @group.id %>
-		                  <%= f.hidden_field :groups_users_state_id, :value => 2 %>
-		                  <%= f.submit "", :class=> "joingroup", :title=>t('biomodelos.groups.profile.join_group_tt'), :rel=>"tooltip", data: { disable_with: "" } %>
-		                <% end %>
-		            <% end %>
-				<% end %>
-				<% if @current_group_user && @current_group_user.is_admin%>
-					<a href="" title="<%= t('biomodelos.groups.profile.group_message_tt') %>" rel="tooltip" class="mailto" ng-click="messagebox=!messagebox"></a>
-					<a href="" title="<%= t('biomodelos.groups.profile.edit_group_tt') %>" rel="tooltip" class="edituser" ng-click="editgroup=!editgroup"></a>
+							<%= f.hidden_field :group_id, :value =>  @group.id %>
+							<%= f.hidden_field :groups_users_state_id, :value => 2 %>
+							<%= f.submit "", :class=> "joingroup", :title=>t('biomodelos.groups.profile.join_group_tt'), :rel=>"tooltip", data: { disable_with: "" } %>
+						<% end %>
+					<% elsif @user_group.groups_users_state_id == 2 %>
+						<%= image_tag "groupjoin2", :title=>t('biomodelos.groups.profile.waiting_approval_tt'), :rel=>"tooltip" %>
+					<% elsif @user_group.groups_users_state_id == 1 %>
+						<%= link_to groups_user_path(@user_group), {method: :delete, data: { confirm: t('biomodelos.groups.profile.leave_group_confirm') }}  do %>
+							<%= image_tag "leave.png", title:t('biomodelos.groups.profile.leave_group_tt'), class: 'leavegroup', rel: 'tooltip' %>
+						<% end %>
+						<% if @user_group.is_admin%>
+							<a href="" title="<%= t('biomodelos.groups.profile.group_message_tt') %>" rel="tooltip" class="mailto" ng-click="messagebox=!messagebox"></a>
+							<a href="" title="<%= t('biomodelos.groups.profile.edit_group_tt') %>" rel="tooltip" class="edituser" ng-click="editgroup=!editgroup"></a>
+						<% end %>
+					<% end %>
 				<% end %>
 			</div>
 
@@ -93,12 +93,11 @@
 	</div>
 </div>
 <script>
-/* Preload species by group */
-$.post( "/groups_species/species_by_group", { id: $("#group_id_field").val()});
 $('.cajaperfil').niceScroll({
 	cursorcolor: "#5d5e5e",
 	cursorwidth: "7px",
 	cursorborder: "none"
 });
 $( ".tareaspp:odd" ).css( "background-color", "#f2f2f2" );
+HomeControllerModule.typeahead_f();
 </script>

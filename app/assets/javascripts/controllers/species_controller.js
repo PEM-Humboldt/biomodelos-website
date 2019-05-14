@@ -467,17 +467,23 @@ $(document).ready(function() {
 
 	});
 
+	// Reload species records
 	function _refreshSpeciesRecords() {
 		$.post( "/records/edit_record", { species_id: $("#species_id_field").val()}).done(function(data) {
 			_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val(), data);
 		});
 	}
 
-	// Action for Edit - Save buttons on _show for record information / edition
+	// Action for Edit - Save - Cancel buttons on _show for record information / edition
 	$("body").on("click", "#editregbtn", function(){
     $(".contented").attr("contenteditable","true").addClass("redtext");
-    $("#editregbtn").replaceWith('<button id="saveregbtn" class="botonpopup2">guardar</button>');
-  });
+		$("#editregbtn").replaceWith('<button id="saveregbtn" class="botonpopup2">guardar</button>');
+		$("#cancelEditBtn").html('<button id="cancelregbtn" class="botonpopup2">cancelar</button>');
+	});
+	$("body").on("click", "#cancelregbtn", function() {
+		$.post( "/records/show", { id: $("span#record_id").text()}).done();
+	});
+
   $("body").on("click", "#saveregbtn", function() {
   	validate.validators.presence.message = "no puede estar vacío";
 
@@ -536,8 +542,7 @@ $(document).ready(function() {
 		} else {
 			$.post("/records/update_record", data)
 				.done(function() {
-					$(".contented").attr("contenteditable","false").removeClass("redtext");
-					$("#saveregbtn").replaceWith('<button id="editregbtn" class="botonpopup">editar</button>');
+					$.post( "/records/show", { id: $("span#record_id").text()}).done();
 					_refreshSpeciesRecords();
 					alertify.alert("Su edición se ha realizado con éxito");
 				})

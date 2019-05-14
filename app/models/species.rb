@@ -15,7 +15,7 @@ class Species
 	end
 
 	def self.find_names(taxIDList)
-		 res = JSON.parse(get('?speciesIn=' + taxIDList.join(',')).body)
+		res = JSON.parse(get('?speciesIn=' + taxIDList.join(',')).body)
 		return res
 	end
 

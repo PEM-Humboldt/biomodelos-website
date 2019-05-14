@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
-	
+
 	def tasks_by_group
 		@group = Group.find(params[:id])
 		@tasks = Task.where(:group_id =>  @group.id).group(:id, :species_id, :user_id, :task_type_id, :group_id)
-		@species_with_tasks = @tasks.map{|t| [Species.find_name(t.species_id.to_s),t.species_id]}.uniq
+		@species_with_tasks = Species.find_names(@tasks.map{|t| t.species_id}.uniq).map{|s| [s["acceptedNameUsage"], s["taxID"]]}
 		@members_with_tasks = @tasks.map{|t| [t.user.id]}.uniq
 		@current_group_user = false
 		if user_signed_in?
@@ -17,7 +17,7 @@ class TasksController < ApplicationController
 	def tasks_by_user
 		@user= User.find(params[:user_id])
 		@tasks = Task.where(:user_id =>  @user.id).group(:id, :species_id, :user_id, :task_type_id)
-		@species_with_tasks = @tasks.map{|t| [Species.find_name(t.species_id.to_s),t.species_id]}.uniq
+		@species_with_tasks = Species.find_names(@tasks.map{|t| t.species_id}.uniq).map{|s| [s["acceptedNameUsage"], s["taxID"]]}
 		@current_group_user = false
 	    respond_to do |format|
 			format.js
@@ -31,7 +31,7 @@ class TasksController < ApplicationController
 
 	    	respond_to do |format|
 				format.js
-			end 
+			end
 		else
 			render :js => "alertify.alert('Existe un problema con la tarea que intenta actualizar.');"
 		end
@@ -48,8 +48,8 @@ class TasksController < ApplicationController
 		if(params[:task][:species_id].blank? || params[:task][:user_id].blank?)
 			validation_errors[1] = true
 		end
-		
-		if validation_errors[0] || validation_errors[1] 
+
+		if validation_errors[0] || validation_errors[1]
 			render :js => "alertify.alert('Error: Debe elegir una especie, un experto y al menos un tipo de tarea a asignar.');"
 		else
 			if(params[:records_task] == "1")
@@ -70,7 +70,7 @@ class TasksController < ApplicationController
 					if @task_edition.errors.size == 1 && @task_edition.errors.messages[:user_id][0] == "Tarea duplicada"
 						duplicate_error_counter += 1
 					end
-				end	
+				end
 			end
 			if(params[:eco_task] == "3")
 				@task_eco = Task.new(:species_id => params[:task][:species_id], :user_id => params[:task][:user_id], :group_id => params[:task][:group_id], :task_type_id => params[:eco_task], :created_by => current_user.id, :task_state_id => 1)
@@ -104,8 +104,8 @@ class TasksController < ApplicationController
 						format.js
 					end
 				end
-			end			
-		end 
+			end
+		end
 	end
 
 	def destroy
@@ -118,7 +118,7 @@ class TasksController < ApplicationController
 			render :js => "alertify.alert('Error: No fue posible eliminar la tarea.');"
   		end
 	end
-	
+
 	private
 		def task_params
 			params.require(:task).permit(:species_id, :user_id, :group_id, :task_type_id, :created_by, :completed_by, :task_state_id)
