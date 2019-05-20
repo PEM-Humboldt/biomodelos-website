@@ -456,6 +456,7 @@ es:
       team: "equipo actual"
       founders: "Fundadores"
       acknowledgments: "colaboradores"
+      awards: "reconocimientos"
       sponsors: "patrocinadores"
       allies: "aliados"
     contact:
@@ -701,3 +702,22 @@ es:
                         2. Otorgará el crédito correspondiente a los publicadores de modelos en la página de BioModelos y en los metadatos que acompañan los modelos de su autoría, con base en la información registrada en el formulario de publicación.</br>
                         3. Utilizará los registros biológicos que acompañan el modelo únicamente para la visualización en BioModelos bajo las condiciones determinadas por los publicadores en el formulario de publicación del modelo. En ningún caso su uso o descarga estará habilitada en BioModelos, a menos que esto sea expresamente autorizado en el formulario de publicación de modelos.</br>
                         4. Se reserva el derecho de publicar los modelos así como de bajarlos en cualquier momento de la página.
+    info:
+      noticias: "publicaciones"
+      boletines: "boletines"
+      guias: "Guías"
+      boletin: "Boletín"
+      enero: "Enero"
+      febrero: "Febrero"
+      marzo: "Marzo"
+      abril: "Abpril"
+      mayo: "Mayo"
+      junio: "Junio"
+      julio: "Julio"
+      agosto: "Agosto"
+      septiembre: "Septiembre"
+      octubre: "Octubre"
+      noviembre: "Noviembre"
+      diciembre: "Diciembre"
+      titulovid: "Tutorial Curaduría de registros"
+      cuerpovid: "A continuación presentamos el taller virtual realizado el 14 de agosto de 2019"
