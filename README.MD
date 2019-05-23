@@ -1,4 +1,4 @@
-# BioModelos v2.1.0
+# BioModelos v2.1.1
 
 [BioModelos](http://biomodelos.humboldt.org.co) is a web app that facilitates the generation, validation and consultation of hypothesis of species distribution for the continental biodiversity of Colombia. As such, it provides tools to (1) improve existing species distribution models (SDMs) by integrating expert's opinion, (2) generate expert maps and (3) publish SDMs. Our objective is to provide freely and openly access to the most up to date information on species distributions, validated by a large network of researchers, to support national environmental decision making processes and research.
 
@@ -75,6 +75,10 @@ There, you should put information about:
 
 ## Docker
 
+### Copying static files
+
+First, there are some static .PDF, .PNG and .ZIP files you need to copy to the /public/ folder. Those files are part of the guides and graphic pieces to advertise BioModelos and are not part of our repo.
+
 ### Building the image
 On the root path of the rails app you enter this command to build the image:
 
@@ -82,41 +86,29 @@ On the root path of the rails app you enter this command to build the image:
 
 ### Starting the container
 
-  Once you have the image, you can run the container with the next command:
+ Once you have the image, it's recommended to use [docker-compose](https://docs.docker.com/compose/) to run the container.
 
-  ```$ docker run  --restart always -t -d --name <container_name> -p <host port>:3000 -v /path/to/BioModelos.v2:/home/BioModelos.v2 <image name>:<tag>```
+You need to create a docker-compose.yml file and set the volumes according to the models, thumbnails, zip and uploads folders like this:
 
-### Configuration
+```
+version: '3'
+services:
+  biomodelos:
+    image: [image name]
+    ports:
+     - [host port]:[container port]"
+    volumes:
+     - /path/to/host/methods:/var/www/BioModelos/public/methods
+     - /path/to/host/models:/var/www/BioModelos/public/models
+     - /path/to/host/thumbs:/var/www/BioModelos/public/thumbs
+     - /path/to/host/zip:/var/www/BioModelos/public/zip
+     - /path/to/host/uploads:/var/www/BioModelos/public/uploads
 
-To finish the configuration process and start the server, you have to access the container entering this command:
+```
+Finally, you run the container with the next command:
 
-```$ docker exec -it <container name or ID> /bin/sh```
+  ```$ docker-compose  -d up```
 
-Then go to the app directory:
-
-``` cd /home/BioModelos.v2/ ```
-
-To install all the rails dependencies you must install the Bundler gem first:
-
- ```gem install bundler```
-
-And finally you install all the gems specified in the Gemfile file:
-
-```bundle install```
-
-### Installing the Javascript libraries
-To install the javascript libraries declared in the Bower file (bower.json) :
-
-```$ bower install --allow-root```
-
-
-### Running the app
-
-When all the gems, libraries, URLs and file paths have been configured, you can use the WEBrick server to run the app like this:
-
-```$ rails s -d -e production -b 0.0.0.0```
-
-Then you can exit the docker container.
 
 ## LICENSE
 
