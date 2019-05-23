@@ -456,6 +456,7 @@ en:
       team: "current team"
       founders: "fundadores"
       acknowledgments: "collaborators"
+      awards: "acknowledgments"
       sponsors: "sponsors"
       allies: "allies"
     contact:
@@ -701,3 +702,22 @@ en:
                         2. Will grant the corresponding credit to the model publishers in the BioModelos page and in the metadata that accompany the models of their authorship, based on the information registered in the publication form.</br>
                         3. Will use the biological records that accompany the model only for visualization in BioModelos under the conditions determined by the publishers in the  model publication form. In no case will its use or download be enabled in BioModelos, unless this is expressly authorized in the model publication form.</br>
                         4. It reserves the right to publish the models as well as download them at any time on the site.
+    info:
+      noticias: "Publications"
+      boletines: "Newsletters"
+      guias: "Guides"
+      boletin: "Newsletter"
+      enero: "January"
+      febrero: "February"
+      marzo: "March"
+      abril: "April"
+      mayo: "May"
+      junio: "June"
+      julio: "July"
+      agosto: "August"
+      septiembre: "September"
+      octubre: "October"
+      noviembre: "November"
+      diciembre: "December"
+      titulovid: "Records curation tutorial"
+      cuerpovid: "The next video shows the virtual workshop made august 14, 2019"
