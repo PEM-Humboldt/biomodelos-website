@@ -1,8 +1,5 @@
 $(document).ready(function(){
-
-
-	$(document).ready(function(){
-    	$('.cajaperfil').niceScroll({
+    $('.cajaperfil').niceScroll({
     	cursorcolor: "#5d5e5e",
     	cursorwidth: "7px",
     	cursorborder: "none"
