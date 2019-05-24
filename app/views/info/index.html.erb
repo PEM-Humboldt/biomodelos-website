@@ -1,18 +1,21 @@
 <div class="innercontainer tilted">
 	<div class="contenedor" ng-controller="perfilCtrl">
 		<ul class="perfilnav infonav">
-	       	<li ng-class="{ active: isSet(1) }">
-	          	<a href ng-click="setTab(1)">docs</a>
+			<li ng-class="{ active: isSet(1) }">
+	          	<a href ng-click="setTab(1)"><%= t('biomodelos.info.noticias') %></a>
 	       	</li>
 	       	<li ng-class="{ active: isSet(2) }">
-	          	<a href ng-click="setTab(2)">blog</a>
+	          	<a href ng-click="setTab(2)">docs</a>
+	       	</li>
+	       	<li ng-class="{ active: isSet(3) }">
+	          	<a href ng-click="setTab(3)"><%= t('biomodelos.info.boletines') %></a>
 	       	</li>
 	     </ul>
 	     <h1>info</h1>
 
-		<div ng-show="isSet(1)" class="cajainfo">
+		<div ng-show="isSet(2)" class="cajainfo">
 			<div class="infocontainer">
-				<h2>Guías 2018</h2>
+				<h2><%= t('biomodelos.info.guias') %> 2018</h2>
 				<h3>ES</h3>
 				<a href="http://biomodelos.humboldt.org.co/Guiaun.pdf" target="_blank" class="cajathumb">
 					<%= image_tag("guianres.png") %>
@@ -47,7 +50,7 @@
 					<%= image_tag("guiaexp2en.png") %>
 					<p>+</p>
 				</a>
-				<h2>Guías 2017</h2>
+				<h2><%= t('biomodelos.info.guias') %> 2017</h2>
 				<a href="http://biomodelos.humboldt.org.co/moderadores.pdf" target="_blank" class="cajathumb">
 					<%= image_tag("moderdocs.jpg") %>
 					<p>+</p>
@@ -78,41 +81,43 @@
 
 	    <div class="clearfix"></div>
 
-		<div ng-show="isSet(2)" class="cajainfo">
- 			<ul class="subtabs">
-		       	<!-- <li class="subtabact">
-		          	<a href="">noticias</a>
-		       	</li><!--
-		     --><li class="subtabact">
-		          	<a href="">boletines</a>
-		       	</li><!--
-		        --><!-- <li>
-		          	<a href="">publicaciones</a>
-		       	</li> --><!--
-		       	 --><!-- <li>
-		          	<a href="">conferencias</a>
-		       	</li> -->
-	     	</ul>
-	     	<div class="infocontainer">
-				<div class="blogg invisible">
-					<h4>Aviso: estamos en renovación</h4>
-					<p>Como parte de la implementación de la nueva estrategia de BioModelos (ver nuestro <a href="http://us9.campaign-archive2.com/?u=b418e8c5dfe3e2abd225ec166&id=dee402c50c" target="_blank">Boletín No. 3</a>), estamos trabajando en varios cambios al diseño y funcionamiento de nuestro sitio web así como a nuestro flujo de trabajo. Mientras la nueva versión de BioModelos está en línea con nuevos modelos de distribución podrás colaborar a mejorar el conocimiento de la distribución de las especies de Colombia en esta nueva etapa:</p>
-					<p class="blogg20">Manifestando tu interés en colaborar al desarrollo de modelo de distribución de una o más especies escribiéndole (a través de la página) al moderador de tu(s) grupo. Tu contribución será reconocida en la citación del modelo resultante de esta colaboración y será incluida en una publicación con los aportes recibidos durante este año.</p>
+	    <div ng-show="isSet(1)" class="cajainfo">
+			<div class="infocontainer">
+				<div class="blogg">
+					<h4><%= t('biomodelos.info.titulovid') %></h4>
+					<p><%= t('biomodelos.info.cuerpovid') %></p>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/eMgUnsq-26M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<a href="http://biomodelos.humboldt.org.co/PresentacionCuraduria.pdf" target="_blank" class="cajathumb">
+					<h6>PDF Tutorial</h6>
+					<p>+</p>
+					</a>
+<!-- 					<p class="blogg20">Manifestando tu interés en colaborar al desarrollo de modelo de distribución de una o más especies escribiéndole (a través de la página) al moderador de tu(s) grupo. Tu contribución será reconocida en la citación del modelo resultante de esta colaboración y será incluida en una publicación con los aportes recibidos durante este año.</p>
 					<p class="blogg20">Realizando aportes a la calidad de los registros mediante la herramienta “reportar error” <a href="/faq#faq">(ver FAQ)</a> sobre las especies de tu interés.</p>
 					<p class="blogg20">Indicando el rango altitudinal y las coberturas terrestres de las especies de tu interés.</p>
-					<p class="blogg20">Manifestando tu interés en publicar modelos que hayas desarrollado para especies de Colombia en BioModelos aquí: <a href="http://bit.ly/25zPPmE." target="_blank">http://bit.ly/25zPPmE.</a></p>
+					<p class="blogg20">Manifestando tu interés en publicar modelos que hayas desarrollado para especies de Colombia en BioModelos aquí: <a href="http://bit.ly/25zPPmE." target="_blank">http://bit.ly/25zPPmE.</a></p> -->
 				</div>
+			</div>
+		</div>
 
+	    <div class="clearfix"></div>
+
+		<div ng-show="isSet(3)" class="cajainfo">
+<!--  			<ul class="subtabs">
+		       	<li class="subtabact">
+		          	<a href="">noticias</a>
+		       	</li>
+	     	</ul> -->
+	     	<div class="infocontainer">
 				<div class="boletindex">
 					<div class="cardbol" ng-click="boletin4=!boletin4" ontouchstart="this.classList.toggle('hover');" boletin>
 						<div class="flipper">
 							<div class="front">
-								<h3>Boletín No. 4</h3>
-								<h6>Agosto de 2016</h6>
+								<h3><%= t('biomodelos.info.boletin') %> No. 4</h3>
+								<h6><%= t('biomodelos.info.agosto') %> 2016</h6>
 								<%= image_tag("bol4thumb.jpg") %>
 							</div>
 							<div class="back">
-								<h3>Boletín No. 4</h3>
+								<h3><%= t('biomodelos.info.boletin') %> No. 4</h3>
 								<p>Versión 2 de BioModelos</p>
 								<p>Becas participación en modelatones</p>
 								<p>Publica tus modelos de distribución</p>
@@ -123,12 +128,12 @@
 					<div class="cardbol" ng-click="boletin3=!boletin3" ontouchstart="this.classList.toggle('hover');" boletin>
 						<div class="flipper">
 							<div class="front">
-								<h3>Boletín No. 3</h3>
-								<h6>Mayo de 2016</h6>
+								<h3><%= t('biomodelos.info.boletin') %> No. 3</h3>
+								<h6><%= t('biomodelos.info.mayo') %> 2016</h6>
 								<%= image_tag("bol3thumb.jpg") %>
 							</div>
 							<div class="back">
-								<h3>Boletín No. 3</h3>
+								<h3><%= t('biomodelos.info.boletin') %> No. 3</h3>
 								<p>Modelamiento aves acuáticas, magnolias y zamias</p>
 								<p>Nueva imagen y funcionalidad</p>
 								<p>Taller “Moderadores y modeladores de BioModelos”</p>
@@ -139,12 +144,12 @@
 					<div class="cardbol" ng-click="boletin2=!boletin2" ontouchstart="this.classList.toggle('hover');" boletin>
 						<div class="flipper">
 							<div class="front">
-								<h3>Boletín No. 2</h3>
-								<h6>Diciembre de 2015</h6>
+								<h3><%= t('biomodelos.info.boletin') %> No. 2</h3>
+								<h6><%= t('biomodelos.info.diciembre') %> 2015</h6>
 								<%= image_tag("bol2thumb.jpg") %>
 							</div>
 							<div class="back">
-								<h3>Boletín No. 2</h3>
+								<h3><%= t('biomodelos.info.boletin') %> No. 2</h3>
 								<p>Modelos para 444 especies</p>
 								<p>Kit BioModelos para mayor actividad</p>
 								<p>Incorporación de aportes de expertos</p>
@@ -155,12 +160,12 @@
 					<div class="cardbol" ng-click="boletin1=!boletin1" ontouchstart="this.classList.toggle('hover');" boletin>
 						<div class="flipper">
 							<div class="front">
-								<h3>Boletín No. 1</h3>
-								<h6>Octubre de 2015</h6>
+								<h3><%= t('biomodelos.info.boletin') %> No. 1</h3>
+								<h6><%= t('biomodelos.info.octubre') %> 2015</h6>
 								<%= image_tag("bol1thumb.jpg") %>
 							</div>
 							<div class="back">
-								<h3>Boletín No. 1</h3>
+								<h3><%= t('biomodelos.info.boletin') %> No. 1</h3>
 								<p>Grupos temáticos en BioModelos</p>
 								<p>Campaña especie del Mes: Frailejón</p>
 								<p>Taller BioModelos: Zamias y Magnolias</p>
@@ -171,7 +176,7 @@
 				</div>
 
 					<div ng-show="boletin4">
-						<div class="bolet"><a href="http://us9.campaign-archive1.com/?u=b418e8c5dfe3e2abd225ec166&id=6548a6bbee" target="_blank">+ Boletín No.4</a></div>
+						<div class="bolet"><a href="http://us9.campaign-archive1.com/?u=b418e8c5dfe3e2abd225ec166&id=6548a6bbee" target="_blank">+ <%= t('biomodelos.info.boletin') %> No.4</a></div>
 						<div class="clearfix"></div>
 						<div class="bolet">
 							<h4>Editorial</h4>
@@ -224,7 +229,7 @@
 
 
 					<div ng-show="boletin3">
-						<div class="bolet"><a href="http://us9.campaign-archive2.com/?u=b418e8c5dfe3e2abd225ec166&id=dee402c50c" target="_blank">+ Boletín No.3</a></div>
+						<div class="bolet"><a href="http://us9.campaign-archive2.com/?u=b418e8c5dfe3e2abd225ec166&id=dee402c50c" target="_blank">+ <%= t('biomodelos.info.boletin') %> No.3</a></div>
 						<div class="clearfix"></div>
 						<div class="bolet">
 							<h4>Editorial</h4>
@@ -258,7 +263,7 @@
 					</div>
 
 					<div ng-show="boletin2">
-						<div class="bolet"><a href="http://eepurl.com/bKZKXb" target="_blank">+ Boletín No.2</a></div>
+						<div class="bolet"><a href="http://eepurl.com/bKZKXb" target="_blank">+ <%= t('biomodelos.info.boletin') %> No.2</a></div>
 						<div class="clearfix"></div>
 						<div class="bolet">
 							<h4>Nuevos modelos publicados</h4>
@@ -298,7 +303,7 @@
 					</div>
 
 					<div ng-show="boletin1">
-						<div class="bolet"><a href="http://eepurl.com/bDl3Tn" target="_blank">+ Boletín No.1</a></div>
+						<div class="bolet"><a href="http://eepurl.com/bDl3Tn" target="_blank">+ <%= t('biomodelos.info.boletin') %> No.1</a></div>
 						<div class="clearfix"></div>
 						<div class="bolet">
 							<h4>Interactúa con la red BioModelos utilizando las nuevas funciones de grupos</h4>
@@ -312,7 +317,7 @@
 							<h5>Publicado por <b>Jorge Velásquez</b> · <i>OCT 2015</i></h5>
 							<div><%= image_tag("frailejon.jpg") %></div>
 							<p><b>La campaña especie del mes busca acercar a expertos en distintos grupos taxonómicos a BioModelos mediante la generación de un modelo consenso de distribución.</b> Una de las campañas más exitosas se realizó durante los meses de abril y mayo con la Reinita del Canadá, en asocio con <a href="http://calidris.org.co/" target="_blank">Calidris</a>, líderes de la <a href="https://griffingroups.com/groups/profile/32315/canada-warbler-international-conservation-initiative" target="_blank">Iniciativa Internacional de Conservación de la Reinita de Canadá en Colombia.</a> Mediante esta campaña obtuvimos un total de 267 aportes de 23 expertos que permitieron la generación de un modelo consenso para la temporada de <a href="http://biomodelos.humboldt.org.co/models/visor?species_id=5091" target="_blank">paso</a> y de <a href="http://biomodelos.humboldt.org.co/models/visor?species_id=5090" target="_blank">invierno</a> de la reinita. Además se identificaron 48 registros con georeferencias dudosas e ingresaron 17 nuevos registros a la base de datos  que a futuro permitirán el desarrollo de mejores modelos para esta especie.</p>
-							<p>En enero iniciaremos la campaña <b>Especie del mes:</b> Frailejón (<i>Espeletia hartwegiana</i>). Entérate cómo participar siguiendo al Instituto Humboldt a través de redes sociales o suscribiéndote al boletín BioModelos. ¿Quieres proponer una especie? ¡Escríbenos a <a href="mailto:biomodelos@humboldt.org.co">biomodelos@humboldt.org.co!</a></p>
+							<p>En enero iniciaremos la campaña <b>Especie del mes:</b> Frailejón (<i>Espeletia hartwegiana</i>). Entérate cómo participar siguiendo al Instituto Humboldt a través de redes sociales o suscribiéndote al <%= t('biomodelos.info.boletin') %> BioModelos. ¿Quieres proponer una especie? ¡Escríbenos a <a href="mailto:biomodelos@humboldt.org.co">biomodelos@humboldt.org.co!</a></p>
 						</div>
 						<div class="bolet">
 							<h4>Taller BioModelos:<br>Zamias y Magnolias</h4>
