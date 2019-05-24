@@ -61,10 +61,11 @@ var _BioModelosVisorModule = function() {
 
 	var addNiceScroll = function(){
 		$('.regscroller').niceScroll({
-		cursorcolor: "#124c5e",
-		cursorwidth: "7px",
-		cursorborder: "none"
-	});
+			cursorcolor: "#124c5e",
+			cursorwidth: "7px",
+			cursorborder: "none"
+		});
+	}
 
 	var init = function(){
 		var latlng = new L.LatLng(4, -72),
