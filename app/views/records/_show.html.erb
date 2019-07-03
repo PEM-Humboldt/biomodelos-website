@@ -25,13 +25,13 @@
       <% end %>
       <div class="clearfix"></div>
       <h2>Taxonomía</h2>
-      <% speciesInfo = @record["speciesInfo"][0] %>
+      <% speciesInfo = @record["speciesInfo"] ? @record["speciesInfo"][0] : {} %>
       <p><b>Nombre aceptado:</b> <span class="contented" id="txtSpeciesEdit" oldVal="<%= @record['acceptedNameUsage'] %>"><%= @record["acceptedNameUsage"] %></span></p> <!-- acceptedNameUsage -->
       <p><b>Nombre original:</b> <%= @record["speciesOriginal"] %></p> <!-- speciesOriginal -->
-      <p><b>Familia:</b> <%= speciesInfo["family"] %></p> <!-- family -->
-      <p><b>Orden:</b> <%= speciesInfo["order"] %></p> <!-- order -->
-      <p><b>Clase:</b> <%= speciesInfo["class"] %></p> <!-- class -->
-      <p><b>Reino:</b> <%= speciesInfo["kingdom"] %></p> <!-- kingdom -->
+      <p><b>Familia:</b> <%= speciesInfo["family"] ? speciesInfo["family"] : '-' %></p> <!-- family -->
+      <p><b>Orden:</b> <%= speciesInfo["order"] ? speciesInfo["order"] : '-' %></p> <!-- order -->
+      <p><b>Clase:</b> <%= speciesInfo["class"] ? speciesInfo["class"] : '-' %></p> <!-- class -->
+      <p><b>Reino:</b> <%= speciesInfo["kingdom"] ? speciesInfo["kingdom"] : '-' %></p> <!-- kingdom -->
 
       <h2>Ubicación</h2>
       <p><b>Latitud:</b> <span class="contented" id="txtLatEdit" oldVal="<%= @record['decimalLatitude'] %>"><%= @record["decimalLatitude"] %></span></p> <!-- decimalLatitude -->
