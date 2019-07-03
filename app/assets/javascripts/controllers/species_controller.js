@@ -520,10 +520,10 @@ $(document).ready(function() {
 			data.decimalLongitude = lonRecordEdition.text();
 		}
 		if(speRecordEdition.text() != speRecordEdition.attr('oldVal')){
-			varsToValidate.speciesOriginal = speRecordEdition.text();
-			constraints.speciesOriginal = {};
-			constraints.speciesOriginal.length = { maximum: 100 };
-			data.speciesOriginal = speRecordEdition.text();
+			varsToValidate.acceptedNameUsage = speRecordEdition.text();
+			constraints.acceptedNameUsage = {};
+			constraints.acceptedNameUsage.length = { maximum: 100 };
+			data.acceptedNameUsage = speRecordEdition.text();
 		}
 		if (locRecordEdition.text() != locRecordEdition.attr('oldVal')){
 			varsToValidate.localidad = locRecordEdition.text();
