@@ -4,21 +4,24 @@ function _refreshSpeciesRecordsReport(){
   	});
 }
 
-const data = {
-	recordId: "<%= params[:recordId] %>",
-	reportedUserIdBm: <%= current_user.id %>
-};
-<% if params[:geoIssue] == "on" %>
-	data.reportedGeoIssueBm = true;
-<% end %>
-<% if params[:idIssue] == "on" %>
-	data.reportedIdIssueBm = true;
-<% end %>
+function getData() {
+	const data = {
+		recordId: "<%= params[:recordId] %>",
+		reportedUserIdBm: <%= current_user.id %>
+	};
+	<% if params[:geoIssue] == "on" %>
+		data.reportedGeoIssueBm = true;
+	<% end %>
+	<% if params[:idIssue] == "on" %>
+		data.reportedIdIssueBm = true;
+	<% end %>
+	return data;
+}
 
 $.ajax({
 	type: 'POST',
 	url: "/records/new_report",
-	data,
+	data: getData(),
 	success: function(){
 		_refreshSpeciesRecordsReport();
 		alertify.alert("<%= t('biomodelos.records.report.success_notice') %>");
