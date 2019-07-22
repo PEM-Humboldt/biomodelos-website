@@ -30,7 +30,7 @@
 							<%= f.submit "", :class=> "joingroup", :title=>t('biomodelos.groups.profile.join_group_tt'), :rel=>"tooltip", data: { disable_with: "" } %>
 						<% end %>
 					<% elsif @user_group.groups_users_state_id == 2 %>
-						<%= image_tag "groupjoin2", :title=>t('biomodelos.groups.profile.waiting_approval_tt'), :rel=>"tooltip" %>
+						<%= image_tag "groupjoin2.png", :title=>t('biomodelos.groups.profile.waiting_approval_tt'), :rel=>"tooltip" %>
 					<% elsif @user_group.groups_users_state_id == 1 %>
 						<%= link_to groups_user_path(@user_group), {method: :delete, data: { confirm: t('biomodelos.groups.profile.leave_group_confirm') }}  do %>
 							<%= image_tag "leave.png", title:t('biomodelos.groups.profile.leave_group_tt'), class: 'leavegroup', rel: 'tooltip' %>
