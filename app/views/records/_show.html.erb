@@ -5,8 +5,7 @@
       <a class="closevb vatop" id="regboxclose">x</a>
       <blockquote>
         <p>
-         <span hidden id="record_id"><%= @record["id"] %></span>
-         <b>ID especie en BioModelos:</b> <%= @record["taxID"] %> <!-- taxID -->
+        <b>ID del registro:</b> <span id="record_id"><%= @record["id"] %></span><br> <!-- _id -->
         </p>
       </blockquote>
       <% if user_signed_in? %>
