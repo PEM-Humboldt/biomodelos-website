@@ -365,9 +365,9 @@ var _BioModelosVisorModule = function() {
 				'<input id="review_type" type="hidden">'+
 				'<div class="row-fluid clearfix">'+
 				'<div class="labelcom clearfix">Acción</div></br>'+
-				'<input type="radio" name="EditType" value="Agregar área" class="radiogaga"></input><label for="Intersect">Agregar área</label></br>'+
-				'<input type="radio" name="EditType" value="Sustraer área" class="radiogaga"></input><label for="Add">Sustraer área</label></br>'+
 				'<input type="radio" name="EditType" value="Recortar del polígono" class="radiogaga"></input><label for="Cut">Recortar del polígono</label></br>'+
+				'<input type="radio" name="EditType" value="Agregar área" class="radiogaga"></input><label for="Intersect">Agregar área</label></br>'+
+				'<input type="radio" name="EditType" value="Sustraer área" class="radiogaga"></input><label for="Add">Eliminar área</label></br>'+
 				'<input type="radio" name="EditType" value="Otra" class="radiogaga"></input><label for="Other">Otra</label></br>'+
 				'<textarea rows="4" cols="32" placeholder="Defina otra acción" class="areaother" id="msgPolygon" maxlength="300"></textarea></br>'+
 				'<div class="centering"><button class="botonpopup" id="savePolBtn" type="button">aceptar</button>'+
