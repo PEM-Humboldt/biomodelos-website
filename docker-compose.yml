@@ -1,0 +1,18 @@
+version: '3'
+services:
+  biomodelos_front:
+    image: bm:2.1.2
+    container_name: bm_front
+    ports:
+     - "3000:3000"
+    volumes:
+     - /home/erikasv/biomodelos/methods:/var/www/BioModelos/public/methods
+     - /home/erikasv/biomodelos/models:/var/www/BioModelos/public/models
+     - /home/erikasv/biomodelos/thumbs:/var/www/BioModelos/public/thumbs
+     - /home/erikasv/biomodelos/zip:/var/www/BioModelos/public/zip
+     - /home/erikasv/biomodelos/uploads:/var/www/BioModelos/public/uploads
+
+networks:
+  default:
+    external:
+      name: biomodelosNet
