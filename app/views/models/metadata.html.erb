@@ -21,7 +21,7 @@
         <p><% if @metadata[0]["citation"].blank? %> 
               <%= @metadata[0]["modelAuthors"] %>. <%= @metadata[0]["yyyy"].blank? ? "NA" : @metadata[0]["yyyy"] %>. Modelo de distribución de <em><%= @species_name.blank? ? "" : @species_name %></em> ID <%= @metadata[0]["modelID"] %>. Laboratorio de Biogeografía Aplicada. Instituto Alexander von Humboldt.</p><div class="overf"><a href="http://biomodelos.humboldt.org.co/species/visor?species_id=<%= @metadata[0]["taxID"] %>">http://biomodelos.humboldt.org.co/species/visor?species_id=<%= @metadata[0]["taxID"] %></a>.</div>
            <% else %>
-              <%= @metadata[0]["citation"] %> Modelo de distribución de <em><%= @species_name.blank? ? "" : @species_name %></em> ID <%= @metadata[0]["modelID"] %><div class="overf">Modelo disponible en <a href="http://biomodelos.humboldt.org.co/species/visor?species_id=<%= @metadata[0]["taxID"] %>">http://biomodelos.humboldt.org.co/species/visor?species_id=<%= @metadata[0]["taxID"] %></a>.</div>
+              <%= @metadata[0]["citation"] %>
            <% end %>
         </p>
         </blockquote>
