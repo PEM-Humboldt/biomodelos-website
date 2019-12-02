@@ -24,7 +24,7 @@ gem 'devise', '~> 4.1.1'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'httparty', '~> 0.14.0' #HTTP Requests
 gem 'carrierwave', '~> 1.0.0' #Uploader
-gem 'mini_magick', '~> 4.5', '>= 4.5.1' #Manipulates images
+gem 'mini_magick', '~> 4.9', '>= 4.9.5' #Manipulates images
 gem 'carrierwave-bombshelter', '~> 0.2.2' #Protects from bomb images
 gem "recaptcha", require: "recaptcha/rails" #reCaptcha
 
@@ -50,7 +50,7 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 2.0.2'
 end
 
 
