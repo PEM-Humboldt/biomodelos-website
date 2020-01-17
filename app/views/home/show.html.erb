@@ -63,7 +63,7 @@
 			<%= image_tag("home_pla.png") %>
 		</div>
 	</div>
-<!-- 	<div class="barhome" id="gruposbar" style="width: 800px; height: 30px;"></div> -->
+	<!-- 	<div class="barhome" id="gruposbar" style="width: 800px; height: 30px;"></div> -->
 	<div ng-show="consulta">
 		<div class="cajabase">
 			<div class="hcbase">
@@ -106,6 +106,18 @@
 			<p><%= t('biomodelos.home.publish.text_1') %> <a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank"><%= t('biomodelos.home.publish.more_lnk') %></a></br></br>
 			<%= t('biomodelos.home.publish.text_2') %></p>
 			<%= link_to t('biomodelos.home.publish.publish_btn'), home_publish_path, class: 'botoncb' %>
+		</div>
+	</div>
+
+	<div ng-hide="news">
+		<div class="cajanews">
+			<div class="hcbase2">
+				<h1><%= t('biomodelos.home.news.title') %></h1>
+				<a ng-click="news=!news" class="closecb">x</a>
+			</div>
+			<%= image_tag("home_news.png") %>
+			<p><%= t('biomodelos.home.news.text_1') %></p></br>
+			<p><%= t('biomodelos.home.news.text_2') %></p>
 		</div>
 	</div>
 </div>
