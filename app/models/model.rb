@@ -1,7 +1,9 @@
 class Model
 	include HTTParty
   	format :json
-  	base_uri BASE_URI + '/models'
+    base_uri BASE_URI + '/models'
+    headers 'authorization' => "apiKey #{ENV['GATEWAY_API_KEY']}"
+    headers 'host' => 'api.biomodelos.humboldt.org'
 
   	attr_accessor :modelID, :modelStatus, :pngUrl, :zipUrl, :thumbUrl, :threshold, :level, :license, :citation, :methodFile, :published
 
@@ -13,13 +15,13 @@ class Model
 	    self.thumbUrl = thumbUrl
 	    self.threshold = threshold
       self.level = level
-      self.license = license   
+      self.license = license
       self.citation = citation
       self.methodFile = methodFile
       self.published = published
   	end
 
-    # Gets an array of thresholds of the species continuous model developed by BioModelos via API.  
+    # Gets an array of thresholds of the species continuous model developed by BioModelos via API.
     #
     # @param species_id [Number] ID of the species.
     # @return [Array] Thresholds models objects.
@@ -33,7 +35,7 @@ class Model
       return thresholds_array
     end
 
-    # Gets an array of a species models pending of validation via API.  
+    # Gets an array of a species models pending of validation via API.
     #
     # @param species_id [Number] ID of the species.
     # @return [Array] Model objects pending of validation.
@@ -47,7 +49,7 @@ class Model
 		  return hypotheses_array
   	end
 
-    # Gets a species continuous model developed by BioModelos via API.  
+    # Gets a species continuous model developed by BioModelos via API.
     #
     # @param species_id [Number] ID of the species.
     # @return [Object] Continuous model object.
@@ -62,7 +64,7 @@ class Model
       return continuous_model
     end
 
-    # Gets a species validated model via API.  
+    # Gets a species validated model via API.
     #
     # @param species_id [Number] ID of the species.
     # @return [Object] Valid model object.
@@ -74,7 +76,7 @@ class Model
           if model["modelLevel"] == 2
             valid_model = Model.new(model["modelID"], model["modelStatus"], model["png"], model["zip"], model["thumb"], model["thresholdType"], model["modelLevel"], model["license"], model["customCitation"], model["methodFile"], model["published"])
           end
-        end  
+        end
       elsif response.size == 1
         valid_model = Model.new(response[0]["modelID"], response[0]["modelStatus"], response[0]["png"], response[0]["zip"], response[0]["thumb"], response[0]["thresholdType"], response[0]["modelLevel"], response[0]["license"], response[0]["customCitation"], response[0]["methodFile"], response[0]["published"])
       end
@@ -99,7 +101,7 @@ class Model
           if eoo["modelLevel"] == 2
             eooData = eoo
           end
-        end  
+        end
       elsif response.size == 1
         eooData = response[0]
       end
@@ -114,7 +116,7 @@ class Model
           if rpa["modelLevel"] == 2
             rpaData = rpa
           end
-        end  
+        end
       elsif response.size == 1
         rpaData = response[0]
       end
@@ -129,7 +131,7 @@ class Model
           if forestLoss["modelLevel"] == 2
             forestLossData = forestLoss
           end
-        end  
+        end
       elsif response.size == 1
         forestLossData = response[0]
       end
@@ -144,7 +146,7 @@ class Model
           if covers["modelLevel"] == 2
             coversData = covers
           end
-        end  
+        end
       elsif response.size == 1
         coversData = response[0]
       end
@@ -155,7 +157,7 @@ class Model
       JSON.parse(get('/metadata/' + model_id.to_s).body)
     end
 
-    # Gets the best model hypothesis based on rating.  
+    # Gets the best model hypothesis based on rating.
     #
     # @param hypotheses [Array] Array of Model objects.
     # @return [Object] Best hypothesis Model object.
@@ -163,7 +165,7 @@ class Model
       best_hypothesis = nil
       best_rating = -1
       actual_rating = 0
-      hypotheses.each do |hypothesis| 
+      hypotheses.each do |hypothesis|
         actual_rating = Rating.average_rating(hypothesis.modelID)
         if actual_rating > best_rating
           best_hypothesis = hypothesis
