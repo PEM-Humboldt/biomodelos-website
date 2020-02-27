@@ -1,3 +1,3 @@
-class GroupState < ActiveRecord::Base
+class GroupState < ApplicationRecord
 	belongs_to :group
 end

@@ -1,3 +1,3 @@
-class TaskType < ActiveRecord::Base
+class TaskType < ApplicationRecord
 	
 end

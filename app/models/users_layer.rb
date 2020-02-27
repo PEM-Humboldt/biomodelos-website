@@ -1,4 +1,4 @@
-class UsersLayer < ActiveRecord::Base
+class UsersLayer < ApplicationRecord
 	belongs_to :species
 	belongs_to :user
 end

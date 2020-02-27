@@ -1,3 +1,3 @@
-class TaskState < ActiveRecord::Base
+class TaskState < ApplicationRecord
 
 end

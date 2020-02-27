@@ -1,4 +1,4 @@
-class Task < ActiveRecord::Base
+class Task < ApplicationRecord
 	belongs_to :user
   	belongs_to :group
   	belongs_to :tasks_created, class_name: "User"

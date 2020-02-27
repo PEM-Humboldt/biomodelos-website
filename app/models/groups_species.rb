@@ -1,4 +1,4 @@
-class GroupsSpecies < ActiveRecord::Base
+class GroupsSpecies < ApplicationRecord
 	belongs_to :group
 
 	#Avoids undefined method '_path' error due to plural name
