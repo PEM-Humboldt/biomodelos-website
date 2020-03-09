@@ -20,7 +20,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'devise', '~> 4.1.1'
+gem 'devise', '~> 4.7.1'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'httparty', '~> 0.14.0' #HTTP Requests
 gem 'carrierwave', '~> 1.0.0' #Uploader
