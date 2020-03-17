@@ -9,7 +9,6 @@
 ## Services
 Deploy these services before setting up the app:
 
-- MongoDB Database Service [GitHub Repo](https://github.com/LBAB-Humboldt/biomodelos_db_api)
 - BioModelos API Service [GitHub Repo](https://github.com/LBAB-Humboldt/biomodelos_db_api)
 - SQL Database Service
 
