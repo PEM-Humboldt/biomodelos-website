@@ -5,7 +5,6 @@
 
 # Requirements
 
-
 ## Services
 Deploy these services before setting up the app:
 
@@ -15,9 +14,11 @@ Deploy these services before setting up the app:
 
 ## Software
 
+- Ruby v2.6.3
+- Nodejs v8.17.0
+- Google account to use Maps, reCaptcha and Gmail services
 - [Docker](https://www.docker.com) version 17.05 or up.
 - Git
-
 
 # Setup
 
@@ -27,20 +28,18 @@ Clone the repo to the server where you are deploying the app:
 
 ```$ git clone git://github.com/LBAB-Humboldt/BioModelos.v2.git```
 
-## Web app database
-
-To build the database according to the schema file using the SQL Service, you should follow the next steps:
-
-1. Create a [database.yml](https://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) file with the configuration of your SQL Service and add it to the */config/* path.
-2. Once you have the Docker container running, you may execute the **migrations** (*/db/migrate/*) following [this guide](https://edgeguides.rubyonrails.org/active_record_migrations.html#running-migrations).
-
 ## Configuration
 Some files and paths in BioModelos need to be configured in order for the app to work as intended.
 
+### Database
+- Create a [database.yml](https://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) file with the configuration of your SQL Service and add it to the */config/* path.
+
 ### Files
-- Models folder with raster files.
-- Thumbnails folder with thumbnails image files.
-- Zip folder with zip files of the models.
+- public/models folder with raster files.
+- public/thumbs folder with thumbnails image files.
+- public/zip folder with zip files of the models.
+- public/methods
+- public/uploads
 
 ### API
 You need to setup a path to the BioModelos API service URL using the file *[/config/initializers/url.rb](config/initializers/url.rb)*
@@ -73,22 +72,41 @@ There, you should put information about:
 - Google maps key.
 - Recaptcha key.
 - SMTP credentials.
-- Credentials for api gateway
+- [Optional] Credentials for api gateway if you have one
 
-## Docker
+# Run
 
-### Copying static files
+## Install dependencies
 
-First, there are some static .PDF, .PNG and .ZIP files you need to copy to the /public/ folder. Those files are part of the guides and graphic pieces to advertise BioModelos and are not part of our repo.
+### Ruby dependencies
+- `gem install bundler`
+- `bundle install`
 
-### Building the image
+### Javascript dependencies
+- `npm install bower`
+- `npx bower install` (If you installed bower globally omit `npx` command)
+
+## Copying static files
+
+If you are part of the biomodelos team or has an agreement with us, there are some static .PDF, .PNG and .ZIP files you need to copy to the /public/ folder. Those files are part of the guides and graphic pieces to advertise BioModelos and are not part of our repo.
+
+### [Optional] Run database migrations
+
+If the database is new or has a different schema from the one in [db/schema](db/schema.rb) you need to execute the **migrations** (*/db/migrate/*) following [this guide](https://guides.rubyonrails.org/v4.2/active_record_migrations.html#running-migrations).
+
+### Run
+`bundle exec rails s -b0.0.0.0`
+
+# Deploy with docker
+
+## Build the image
 On the root path of the rails app you enter this command to build the image:
 
-```$ docker build -t <image name>:<tag> .```
+```$ docker build -t <image name>:<tag> --no-cache .```
 
 ### Starting the container
 
- Once you have the image, it's recommended to use [docker-compose](https://docs.docker.com/compose/) to run the container.
+Once you have the image, it's recommended to use [docker-compose](https://docs.docker.com/compose/) to run the container.
 
 You need to create a docker-compose.yml file and set the volumes according to the models, thumbnails, zip and uploads folders like this:
 
@@ -109,7 +127,7 @@ services:
 ```
 Finally, you run the container with the next command:
 
-  ```$ docker-compose  -d up```
+  ```$ docker-compose -d up```
 
 
 ## LICENSE
