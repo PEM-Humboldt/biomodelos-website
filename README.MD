@@ -98,7 +98,7 @@ If the database is new or has a different schema from the one in [db/schema](db/
 #### With development environment
 `bundle exec rails s -b0.0.0.0`
 #### With production environment
-First make sure the credentials in the [database config file](config/database.yml) are correct for the production environment.
+First make sure the credentials in the [database config file](###Database) are correct for the production environment.
 
 Next precompile assets:
 
