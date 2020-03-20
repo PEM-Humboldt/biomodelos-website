@@ -95,7 +95,18 @@ If you are part of the biomodelos team or has an agreement with us, there are so
 If the database is new or has a different schema from the one in [db/schema](db/schema.rb) you need to execute the **migrations** (*/db/migrate/*) following [this guide](https://guides.rubyonrails.org/v4.2/active_record_migrations.html#running-migrations).
 
 ### Run
+#### With development environment
 `bundle exec rails s -b0.0.0.0`
+#### With production environment
+First make sure the credentials in the [database config file](config/database.yml) are correct for the production environment.
+
+Next precompile assets:
+
+`bundle exec rake assets:precompile`
+
+And run:
+
+`bundle exec rails s -b0.0.0.0 -e production`
 
 # Deploy with docker
 
