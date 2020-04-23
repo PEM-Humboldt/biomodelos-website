@@ -3,7 +3,7 @@ class Species
   	format :json
 		base_uri BASE_URI + '/species'
     headers 'authorization' => "apiKey #{ENV['GATEWAY_API_KEY']}"
-    headers 'host' => 'api.biomodelos.humboldt.org'
+    headers 'host' => 'api-biomodelos.humboldt.org'
 	# has_many :tasks
 
 	def self.find_name(taxID)
