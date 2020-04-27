@@ -3,7 +3,7 @@ class Record
   	format :json
   	base_uri BASE_URI + '/records'
     headers 'authorization' => "apiKey #{ENV['GATEWAY_API_KEY']}"
-    headers 'host' => 'api-biomodelos.humboldt.org'
+    headers 'host' => "#{ENV['GATEWAY_HOST']}"
 
   	def self.find(record_id)
 		JSON.parse(get('/' + record_id.to_s).body)
