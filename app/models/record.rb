@@ -14,7 +14,7 @@ class Record
 	end
 
 	def self.new_record(data)
-		JSON.parse(post('', :body => data).body)
+		JSON.parse(post('', :body => data.as_json).body)
 	end
 
 	def self.update_record(data)
