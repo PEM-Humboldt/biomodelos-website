@@ -10,7 +10,7 @@ class Record
 	end
 
 	def self.report_record(data)
-		JSON.parse(post('/' + data[:recordId], :body => data).body)
+		JSON.parse(post('/' + data[:recordId], :body => data.as_json).body)
 	end
 
 	def self.new_record(data)
