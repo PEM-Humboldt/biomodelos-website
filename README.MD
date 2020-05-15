@@ -76,7 +76,22 @@ There, you should put information about:
 - SMTP credentials.
 - Credentials for api gateway
 
-## Docker
+## Run
+
+Run the following command to execute the app in your local env
+
+```
+bundle exec rails s -b0.0.0.0
+```
+
+### Dev env with docker
+You can create a docker container for development purposes, just build the image with the dev file:
+```
+$ docker build -f Dockerfile.dev -t <image name> .
+```
+And remember to mount the volumes (or link them) in your source code path
+
+## Deploy
 
 ### Copying static files
 
