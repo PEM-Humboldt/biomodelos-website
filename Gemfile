@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
-gem 'httparty', '~> 0.14.0' #HTTP Requests
+gem 'httparty', '~> 0.18.0' #HTTP Requests
 gem 'carrierwave', '~> 2.1' #Uploader
 gem 'mini_magick', '~> 4.9', '>= 4.9.5' #Manipulates images
 gem 'carrierwave-bombshelter', '~> 0.2.2' #Protects from bomb images
