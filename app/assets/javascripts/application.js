@@ -33,3 +33,4 @@
 //= require clipboard/dist/clipboard.min.js
 //= require_tree ./angular
 //= require_tree ./controllers
+//= require turbolinks
