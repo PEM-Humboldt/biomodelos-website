@@ -1,3 +1,3 @@
-class ModelUse < ActiveRecord::Base
+class ModelUse < ApplicationRecord
 
 end

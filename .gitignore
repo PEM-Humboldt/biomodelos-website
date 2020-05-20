@@ -18,7 +18,8 @@
 
 # Ignore other unneeded files.
 /config/local_env.yml
-database.yml
+config/initializers/url*.rb
+database*.yml
 doc/
 *.swp
 *~
