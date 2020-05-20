@@ -3,22 +3,22 @@ class Record
   	format :json
   	base_uri BASE_URI + '/records'
     headers 'authorization' => "apiKey #{ENV['GATEWAY_API_KEY']}"
-    headers 'host' => 'api.biomodelos.humboldt.org'
+    headers 'host' => "#{ENV['GATEWAY_HOST']}"
 
   	def self.find(record_id)
 		JSON.parse(get('/' + record_id.to_s).body)
 	end
 
 	def self.report_record(data)
-		JSON.parse(post('/' + data[:recordId], :body => data.as_json).body)
+		JSON.parse(post('/' + data[:recordId], :body => data).body)
 	end
 
 	def self.new_record(data)
-		JSON.parse(post('', :body => data.as_json).body)
+		JSON.parse(post('', :body => data).body)
 	end
 
 	def self.update_record(data)
-		JSON.parse(put('/' + data[:recordId], :body => data.as_json).body)
+		JSON.parse(put('/' + data[:recordId], :body => data).body)
 	end
 
 	def self.records_institutions(taxID)
