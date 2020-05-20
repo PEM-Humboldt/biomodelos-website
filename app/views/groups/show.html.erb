@@ -9,7 +9,7 @@
 				</div>
 				<div class="editgroupform" ng-show="messagebox">
 				<h2><%= t('biomodelos.groups.group_message.title') %></h2>
-				<%= simple_form_for :message, :url =>  groups_bulk_group_email_path, :method => :post, remote: true do |f|  %>
+				<%= simple_form_for :message, :url =>  groups_bulk_group_email_path, :method => :post do |f|  %>
 					<%= f.input :message, :as => :text, :placeholder => t('biomodelos.groups.group_message.message_ph'), :input_html => {:maxlength => 500, :cols => "20", :rows => "8"}, :name => "cuerpo", label: false %>
 					<%= f.hidden_field :group_id, :value => @group.id %>
 				    <div class="clearfix"></div>
