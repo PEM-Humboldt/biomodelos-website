@@ -28,14 +28,14 @@ class RecordsController < ApplicationController
 
 	def report_record
 		respond_to do |format|
-      		format.js
-    	end
+			format.js
+		end
 	end
 
 	def send_record_report
 		respond_to do |format|
-      		format.js
-    	end
+			format.js
+		end
 	end
 
 	def new_report
