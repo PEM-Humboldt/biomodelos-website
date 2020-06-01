@@ -1,47 +1,91 @@
 
 function _refreshSpeciesRecordsReport(){
-	$.post( "/records/edit_record", { species_id: $("#species_id_field").val()}).done(function(data) {
-  			_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val(), data);
+	$.post( '/records/edit_record', { species_id: $('#species_id_field').val()}).done(function(data) {
+				_BioModelosVisorModule.getSpeciesRecords($('#species_id_field').val(), data);
   	});
 }
 
 function getData() {
+	const toVal = {
+		recordId: '<%= params[:recordId] %>',
+		reportedUserIdBm: <%= current_user.id %>,
+		reason: '',
+	};
 	const data = {
-		recordId: "<%= params[:recordId] %>",
+		recordId: '<%= params[:recordId] %>',
 		reportedUserIdBm: <%= current_user.id %>
 	};
-	<% if params[:geoIssue] == "on" %>
+	<% if params[:geoIssue] == 'on' %>
 		data.reportedGeoIssueBm = true;
+		toVal.reason = 'GeoIssueBm';
 	<% end %>
-	<% if params[:idIssue] == "on" %>
+	<% if params[:idIssue] == 'on' %>
 		data.reportedIdIssueBm = true;
+		toVal.reason = 'IdIssueBm';
 	<% end %>
-	<% if params[:originVagrant] == "on" %>
+	<% if params[:originVagrant] == 'on' %>
 		data.reportedOriginVagrant = true;
+		toVal.reason = 'OriginVagrant';
 	<% end %>
-	<% if params[:oldTaxonomy] == "on" %>
+	<% if params[:oldTaxonomy] == 'on' %>
 		data.reportedOldTaxonomyBm = true;
+		toVal.reason = 'OldTaxonomyBm';
 	<% end %>
-	<% if params[:originIntroduced] == "on" %>
+	<% if params[:originIntroduced] == 'on' %>
 		data.reportedOriginIntroduced = true;
+		toVal.reason = 'OriginIntroduced';
 	<% end %>
-	<% if params[:otherIssues] == "on" %>
+	<% if params[:otherIssues] == 'on' %>
 		data.reportedOtherIssuesBm = true;
+		toVal.reason = 'OtherIssuesBm'; //This must be the lastone for the validation in CommentsBm
 	<% end %>
-	data.reportedCommentsBm = "<%= params[:commentsIssue] %>";
-	return data;
+	data.reportedCommentsBm = '<%= params[:commentsIssue] %>';
+	toVal.CommentsBm = '<%= params[:commentsIssue] %>';
+	return { data, toVal };
 }
 
-$.ajax({
-	type: 'POST',
-	url: "/records/new_report",
-	data: getData(),
-	success: function(){
-		_refreshSpeciesRecordsReport();
-		alertify.alert("<%= t('biomodelos.records.report.success_notice') %>");
-		$('.reportBox').html("");
+data = getData();
+constraints = {
+	reason: {
+		inclusion: [
+			'GeoIssueBm', 'IdIssueBm', 'OriginVagrant', 'OldTaxonomyBm', 'OriginIntroduced',
+			'OtherIssuesBm'
+		],
+		presence: {
+			allowEmpty: false,
+			message: 'Debe seleccionar una de las razones para reportar el registro'
+		}
 	},
-	error: function(jqXHR, textStatus, errorThrown){
-		alertify.alert("<%= t('biomodelos.records.report.error_notice') %>" + errorThrown);
+	CommentsBm: {
+		presence: function(value, attributes, attributeName) {
+			if (attributes.reason == 'OtherIssuesBm') {
+				return { presence: true, message: 'Los comentarios son obligatorios si selecciona "Otros"' };
+			}
+			return false;
+		}
 	}
-});
+};
+
+errors = validate(data.toVal, constraints, { format: 'flat', fullMessages: false });
+
+if (errors) {
+	response = '';
+	errors.forEach(function (message) {
+		response += `${message} <br />`;
+	})
+	alertify.alert(response);
+} else {
+	$.ajax({
+		type: 'POST',
+		url: '/records/new_report',
+		data: data.data,
+		success: function(){
+			_refreshSpeciesRecordsReport();
+			alertify.alert('<%= t("biomodelos.records.report.success_notice") %>');
+			$('.reportBox').html('');
+		},
+		error: function(jqXHR, textStatus, errorThrown){
+			alertify.alert('<%= t("biomodelos.records.report.error_notice") %>' + errorThrown);
+		}
+	});
+}
