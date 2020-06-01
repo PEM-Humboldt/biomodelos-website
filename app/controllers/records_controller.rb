@@ -22,8 +22,8 @@ class RecordsController < ApplicationController
 	def update_record
 		Record.update_record(params)
 		respond_to do |format|
-      		format.js
-    	end
+			format.js
+		end
 	end
 
 	def report_record
