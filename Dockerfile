@@ -21,4 +21,4 @@ COPY . .
 RUN bower install --allow-root
 RUN bundle exec rake assets:precompile
 
-CMD ["sh", "-c", "rm -f tmp/pids/server.pid && bundle exec rails s -b0.0.0.0 -e production"]
+CMD ["sh", "-c", "rm -f tmp/pids/server.pid && bundle exec rails s -b 0.0.0.0 -e production"]
