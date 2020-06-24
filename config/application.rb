@@ -8,11 +8,6 @@ Bundler.require(*Rails.groups)
 
 module BioModelosV2
   class Application < Rails::Application
-    # Upgrading from Rails 4.2 to Rails 5.0, the next sentence is used to remove
-    # the deprecation warning by "false" value returned by a "before" callback.
-    # Check https://edgeguides.rubyonrails.org/upgrading_ruby_on_rails.html#halting-callback-chains-via-throw-abort
-    # and https://github.com/rails/rails/pull/17227 for more details.
-    ActiveSupport.halt_callback_chains_on_return_false = false
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
