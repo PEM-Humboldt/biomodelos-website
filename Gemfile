@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.1.7'
+gem 'rails', '5.2.4.3'
 # Dependence required by rails
-gem 'actionpack', '5.1.7'
+gem 'actionpack', '5.2.4.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0', '< 5.0.8'
 # Use Uglifier as compressor for JavaScript assets
@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 4.7', '>= 4.7.1'
-gem 'simple_form', '~> 3.2', '>= 3.2.1'
+gem 'simple_form', '>= 3.5.0'
 gem 'httparty', '~> 0.18.0' #HTTP Requests
 gem 'carrierwave', '~> 2.1' #Uploader
 gem 'mini_magick', '~> 4.9', '>= 4.9.5' #Manipulates images
