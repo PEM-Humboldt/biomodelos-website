@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.2.4.3'
+gem 'rails', '6.0.3.2'
 # Dependence required by rails
-gem 'actionpack', '5.2.4.3'
+gem 'actionpack', '6.0.3.2'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0', '< 5.0.8'
+gem 'sass-rails', '~> 6.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -30,6 +30,8 @@ gem 'mini_magick', '~> 4.9', '>= 4.9.5' #Manipulates images
 gem 'carrierwave-bombshelter', '~> 0.2.2' #Protects from bomb images
 gem "recaptcha", require: "recaptcha/rails" #reCaptcha
 
+gem 'alertifyjs-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -49,7 +51,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 4.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 2.0.2'
