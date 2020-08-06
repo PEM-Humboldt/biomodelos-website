@@ -1,4 +1,4 @@
-FROM ruby:2.4-alpine
+FROM ruby:2.5-alpine
 MAINTAINER Daniel Lopez <dlopez@humboldt.org.co>
 
 ENV BUILD_PACKAGES="curl-dev build-base openssh"
