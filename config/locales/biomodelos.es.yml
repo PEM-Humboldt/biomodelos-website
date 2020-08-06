@@ -63,8 +63,8 @@ es:
         publish_btn: 'PUBLICA'
       news:
         title: 'noticias BioModelos'
-        text_1: 'La revista Plos One, enfocada a temas de investigación asociados a ciencia y medicina, dedica algunas páginas a la plataforma digital BioModelos, con el artículo “BioModelos: un sistema colaborativo en línea para mapear distribuciones de especies”, donde se menciona el aporte crucial de este tipo de información para la conservación y el manejo de la biodiversidad. Se destaca, de igual manera, la destinación considerable de recursos para aumentar la cantidad y disponibilidad de los datos, lo que incrementa su utilización y difusión. '
-        text_2: 'Cononce un poco más la herramienta desde su conceptualización hasta su metodología visitando el siguiente enlace:'
+        text_1: 'Y salió la segunda entrega del “Atlas de la Biodiversidad de Colombia”, para el grupo temático Primates. Gracias al trabajo de este grupo en BioModelos se logró la compilación de modelos validados de 38 especies, e información de análisis a partir de su distribución.'
+        text_2: 'Muchos grupos han avanzado en sus listas de especies y algunos ya han terminado de modelar las especies de su grupo temático, un claro caso este año son los expertos en primates, en apoyo con la APC (Asociación Primatológica Colombiana). Es gracias a su colaboración que dichos modelos de distribución consiguen ese estado de validados y son recibidos como información confiable por la comunidad científica, permitiéndonos decir “mejores modelos con el apoyo de expertos”.'
     log_in:
       title: 'ingresar'
       log_in_btn: 'INGRESAR'
