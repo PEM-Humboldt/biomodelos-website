@@ -21,7 +21,6 @@ es:
       terms: 'Términos'
       contact: 'Contacto'
     home:
-      version_1: 'Ir a la versión anterior'
       advanced_search: 'Búsqueda avanzada'
       search_ph: 'Consulta una especie por su nombre científico'
       go_to_species_tt: 'Ir a especie'
