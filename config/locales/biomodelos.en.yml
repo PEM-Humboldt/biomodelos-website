@@ -21,7 +21,6 @@ en:
       terms: 'Terms'
       contact: 'Contact'
     home:
-      version_1: 'Old version'
       advanced_search: 'Advanced search'
       search_ph: 'Enter species scientific name'
       go_to_species_tt: 'Go to species'
@@ -63,8 +62,8 @@ en:
         publish_btn: 'PUBLISH'
       news:
         title: 'BioModelos news'
-        text_1: 'The second installment of the “Atlas of Biodiversity of Colombia” is coming soon, for the Primates thematic group. Thanks to the work of this group in BioModelos, the compilation of validated models of 38 species, and analysis information from their distribution was achieved.'
-        text_2: 'By the end of 2019 many groups have made progress in their species lists and some have already finished modeling the species of their thematic group, a clear case this year are the experts in primates, in support with the APC (Colombian Primatological Association). It is thanks to their collaboration that these distribution models achieve this validated status and are received as reliable information by the scientific community, allowing us to say “better models with support from experts”.'
+        text_1: 'The second installment of the “Atlas of Biodiversity of Colombia” is here, for the Primates thematic group. Thanks to the work of this group in BioModelos, the compilation of validated models of 38 species, and analysis information from their distribution was achieved.'
+        text_2: 'Many groups have made progress in their species lists and some have already finished modeling the species of their thematic group, a clear case this year are the experts in primates, in support with the APC (Colombian Primatological Association). It is thanks to their collaboration that these distribution models achieve this validated status and are received as reliable information by the scientific community, allowing us to say “better models with support from experts”.'
     log_in:
       title: 'log in'
       log_in_btn: 'LOG IN'
