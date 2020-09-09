@@ -12,13 +12,7 @@ ENV RAILS_ROOT /var/www/BioModelos
 RUN mkdir -p $RAILS_ROOT
 WORKDIR $RAILS_ROOT
 
-COPY Gemfile Gemfile.lock ./
-RUN gem install bundler
-RUN bundle install
-
 COPY . .
 
-RUN bower install --allow-root
-RUN bundle exec rake assets:precompile
+ENTRYPOINT ["sh", "/var/www/BioModelos/entrypoint.dev.sh"]
 
-CMD ["sh", "-c", "rm -f tmp/pids/server.pid && bundle exec rails s -b 0.0.0.0 -e production"]

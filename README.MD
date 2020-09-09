@@ -1,4 +1,4 @@
-# BioModelos v2.5.2
+# BioModelos v2.5.5
 
 [BioModelos](http://biomodelos.humboldt.org.co) is a web app that facilitates the generation, validation and consultation of hypothesis of species distribution for the continental biodiversity of Colombia. As such, it provides tools to (1) improve existing species distribution models (SDMs) by integrating expert's opinion, (2) generate expert maps and (3) publish SDMs. Our objective is to provide freely and openly access to the most up to date information on species distributions, validated by a large network of researchers, to support national environmental decision making processes and research.
 
@@ -77,7 +77,22 @@ There, you should put information about:
 - SMTP credentials.
 - Credentials for api gateway
 
-## Docker
+## Run
+
+Run the following command to execute the app in your local env
+
+```
+bundle exec rails s -b0.0.0.0
+```
+
+### Dev env with docker
+You can create a docker container for development purposes, just build the image with the dev file:
+```
+$ docker build -f Dockerfile.dev -t <image name> .
+```
+And remember to mount the volumes (or link them) in your source code path
+
+## Deploy
 
 ### Copying static files
 

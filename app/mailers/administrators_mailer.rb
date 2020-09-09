@@ -17,6 +17,6 @@ class AdministratorsMailer < ApplicationMailer
 		@user = user
 		@new_group = new_group
 		@datetime = DateTime.now
-		mail to: "dlopez@humboldt.org.co",  subject: "BioModelos: Nueva sugerencia de grupo"
+		mail to: "biomodelos@humboldt.org.co",  subject: "BioModelos: Nueva sugerencia de grupo"
 	end
 end

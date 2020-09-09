@@ -1,4 +1,4 @@
-class Group < ActiveRecord::Base
+class Group < ApplicationRecord
 	has_many :groups_users
   has_many :users, through: :groups_users
   #has_many :admin, through: :game_users, ->  where(is_admin: true)

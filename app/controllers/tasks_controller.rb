@@ -7,9 +7,9 @@ class TasksController < ApplicationController
 		@members_with_tasks = @tasks.map{|t| [t.user.id]}.uniq
 		@current_group_user = false
 		if user_signed_in?
-	        @current_group_user = GroupsUser.find_by_group_id_and_user_id(@group.id, current_user.id)
-	    end
-	    respond_to do |format|
+			@current_group_user = GroupsUser.find_by_group_id_and_user_id(@group.id, current_user.id)
+		end
+		respond_to do |format|
 			format.js
 		end
 	end
