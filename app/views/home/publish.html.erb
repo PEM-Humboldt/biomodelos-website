@@ -82,21 +82,13 @@
                   <%= f.submit t('biomodelos.publish.upload_btn'), class: "upzip uzcolor", data: { disable_with: t('biomodelos.publish.upload_btn') }%>
                   <% end %>
             </div>
-	</div>
+      </div>
 </div>
 
 <script>
       $( document ).ready(function() {
-            $("#cclicense").click();
-
             document.getElementById("uploadBtn").onchange = function () {
                 document.getElementById("uploadFile").value = this.value;
             };
-
-            $('.cajainners').niceScroll({
-                  cursorcolor: "#5d5e5e",
-                  cursorwidth: "7px",
-                  cursorborder: "none"
-            });
       });
 </script>
