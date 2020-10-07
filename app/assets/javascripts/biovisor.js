@@ -397,7 +397,9 @@ var _BioModelosVisorModule = function() {
 
 		        popup = new L.Popup({
 		        	keepInView: true,
-		        	closeButton: false
+                    closeButton: false,
+                    maxWidth: 350,
+                    maxHeight: 450
 		        });
 
 		    if (type === 'marker') {
@@ -768,5 +770,5 @@ $(document).ready(function() {
   	$("body").on("click","#popUpCancelBtn",function(e){
         e.preventDefault();
 		_BioModelosVisorModule.cancelAddPoint();
-  	});
+	  });
 });
