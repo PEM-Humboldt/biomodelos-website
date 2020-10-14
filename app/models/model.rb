@@ -2,8 +2,6 @@ class Model
 	include HTTParty
   	format :json
     base_uri BASE_URI + '/models'
-    headers 'authorization' => "apiKey #{ENV['GATEWAY_API_KEY']}"
-    headers 'host' => "#{ENV['GATEWAY_HOST']}"
 
   	attr_accessor :modelID, :modelStatus, :pngUrl, :zipUrl, :thumbUrl, :threshold, :level, :license, :citation, :methodFile, :published
 
