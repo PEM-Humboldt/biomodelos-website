@@ -65,17 +65,12 @@ RECAPTCHA_SECRET_KEY: [secret key]
 \# Mail Server Gmail
 GMAIL_USERNAME: [username]
 GMAIL_PASSWORD: [password]
-
-\# API GATEWAY
-GATEWAY_API_KEY: [site key]
-GATEWAY_HOST: [header host]
 ```
 There, you should put information about:
 - Rails Application key.
 - Google maps key.
 - Recaptcha key.
 - SMTP credentials.
-- Credentials for api gateway
 
 ## Run
 

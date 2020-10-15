@@ -2,8 +2,6 @@ class Record
 	include HTTParty
   	format :json
   	base_uri BASE_URI + '/records'
-    headers 'authorization' => "apiKey #{ENV['GATEWAY_API_KEY']}"
-    headers 'host' => "#{ENV['GATEWAY_HOST']}"
 
   	def self.find(record_id)
 		JSON.parse(get('/' + record_id.to_s).body)
