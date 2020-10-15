@@ -421,8 +421,12 @@ a.lang {
 	background-image: url(<%= asset_path 'searchome.png' %>);
 }
 
-.hlink, .spptit, .spp, .top5, .top5users, .cobert {
+.spptit, .spp, .top5, .top5users, .cobert {
 	display: flex;
+    justify-content: space-between;
+}
+
+.hlink {
     justify-content: end;
 }
 
@@ -3732,6 +3736,7 @@ label.checkboxdown {
 	max-height: -webkit-calc(100% - 181px);
 	max-height: calc(100% - 181px);
 	padding: 5px 15px 15px 8px;
+	overflow-y: auto;
 }
 
 .btnedicion {
@@ -3802,18 +3807,22 @@ label.checkboxdown {
 	padding-top: 9px;
 }
 
-.col4 {
-	width: 22%;
-	display: inline-block;
-	*display: inline;
-	*zoom: 1;
-	margin-left: 2%;
-	margin-bottom: 5px;
+#months {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	padding-right: 12 px;
+}
+
+#months * {
+	flex: 1 1 13.6%;
+}
+
+#months label {
+	flex-grow: 2;
 }
 
 .meschk{
-	vertical-align: middle;
-	float: left;
 	margin: 5px 5px 0 0;
 }
 
@@ -3999,14 +4008,6 @@ label.checkboxdown {
 	line-height: 1.2;
 }
 
-.regscroller {
-	height: 280px;
-	padding-right: 15px;
-	overflow: auto;
-	position: relative;
-	min-width: 271px;
-}
-
 .cajita b {
 	font-weight: 400;
 	color: #db3f2a;
@@ -4042,10 +4043,6 @@ label.checkboxdown {
 	width: 72px;
 	padding: 3px;
 	margin-bottom: 10px;
-}
-
-.regform {
-	overflow-y: scroll;
 }
 
 .regform label {
