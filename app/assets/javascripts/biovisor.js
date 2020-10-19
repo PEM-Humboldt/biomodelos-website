@@ -59,14 +59,6 @@ var _BioModelosVisorModule = function() {
 
 	var imageBounds = [[13,-60],[-14, -83]];
 
-	var addNiceScroll = function(){
-		$('.regscroller').niceScroll({
-			cursorcolor: "#124c5e",
-			cursorwidth: "7px",
-			cursorborder: "none"
-		});
-	}
-
 	var init = function(){
 		var latlng = new L.LatLng(4, -72),
         	zoom = 6,
@@ -405,7 +397,9 @@ var _BioModelosVisorModule = function() {
 
 		        popup = new L.Popup({
 		        	keepInView: true,
-		        	closeButton: false
+                    closeButton: false,
+                    maxWidth: 350,
+                    maxHeight: 450
 		        });
 
 		    if (type === 'marker') {
@@ -776,5 +770,5 @@ $(document).ready(function() {
   	$("body").on("click","#popUpCancelBtn",function(e){
         e.preventDefault();
 		_BioModelosVisorModule.cancelAddPoint();
-  	});
+	  });
 });

@@ -9,38 +9,32 @@
 		<input type="hidden" ng-value="yearSlider.minValue" id="sliYearMin" />
 		<input type="hidden" ng-value="yearSlider.maxValue" id="sliYearMax" />
 		<div class="steptitle" title="<%= t('biomodelos.visor.records.month_filter_tt') %>" rel="tooltip"><%= t('biomodelos.visor.records.month_filter') %></div>
-			<div class="col4">
-				<label for="ene" class="meslbl"><%= t('biomodelos.visor.records.month_1_filter') %></label>
-				<input type="checkbox" name="1" class="meschk"></input>
-				<label for="may" class="meslbl"><%= t('biomodelos.visor.records.month_5_filter') %></label>
-				<input type="checkbox" name="5" class="meschk"></input>
-				<label for="sep" class="meslbl"><%= t('biomodelos.visor.records.month_9_filter') %></label>
-				<input type="checkbox" name="9" class="meschk"></input>
-			</div>
-			<div class="col4">
-				<label for="feb" class="meslbl"><%= t('biomodelos.visor.records.month_2_filter') %></label>
-				<input type="checkbox" name="2" class="meschk"></input>
-				<label for="jun" class="meslbl"><%= t('biomodelos.visor.records.month_6_filter') %></label>
-				<input type="checkbox" name="6" class="meschk"></input>
-				<label for="oct" class="meslbl"><%= t('biomodelos.visor.records.month_10_filter') %></label>
-				<input type="checkbox" name="10" class="meschk"></input>
-			</div>
-			<div class="col4">
-				<label for="mar" class="meslbl"><%= t('biomodelos.visor.records.month_3_filter') %></label>
-				<input type="checkbox" name="3" class="meschk"></input>
-				<label for="jul" class="meslbl"><%= t('biomodelos.visor.records.month_7_filter') %></label>
-				<input type="checkbox" name="7" class="meschk"></input>
-				<label for="nov" class="meslbl"><%= t('biomodelos.visor.records.month_11_filter') %></label>
-				<input type="checkbox" name="11" class="meschk"></input>
-			</div>
-			<div class="col4">
-				<label for="abr" class="meslbl"><%= t('biomodelos.visor.records.month_4_filter') %></label>
-				<input type="checkbox" name="4" class="meschk"></input>
-				<label for="ago" class="meslbl"><%= t('biomodelos.visor.records.month_8_filter') %></label>
-				<input type="checkbox" name="8" class="meschk"></input>
-				<label for="dic" class="meslbl"><%= t('biomodelos.visor.records.month_12_filter') %></label>
-				<input type="checkbox" name="12" class="meschk"></input>
-			</div>
+		<div id="months">
+			<input type="checkbox" name="1" class="meschk"></input>
+			<label for="ene" class="meslbl"><%= t('biomodelos.visor.records.month_1_filter') %></label>
+			<input type="checkbox" name="2" class="meschk"></input>
+			<label for="feb" class="meslbl"><%= t('biomodelos.visor.records.month_2_filter') %></label>
+			<input type="checkbox" name="3" class="meschk"></input>
+			<label for="mar" class="meslbl"><%= t('biomodelos.visor.records.month_3_filter') %></label>
+			<input type="checkbox" name="4" class="meschk"></input>
+			<label for="abr" class="meslbl"><%= t('biomodelos.visor.records.month_4_filter') %></label>
+			<input type="checkbox" name="5" class="meschk"></input>
+			<label for="may" class="meslbl"><%= t('biomodelos.visor.records.month_5_filter') %></label>
+			<input type="checkbox" name="6" class="meschk"></input>
+			<label for="jun" class="meslbl"><%= t('biomodelos.visor.records.month_6_filter') %></label>
+			<input type="checkbox" name="7" class="meschk"></input>
+			<label for="jul" class="meslbl"><%= t('biomodelos.visor.records.month_7_filter') %></label>
+			<input type="checkbox" name="8" class="meschk"></input>
+			<label for="ago" class="meslbl"><%= t('biomodelos.visor.records.month_8_filter') %></label>
+			<input type="checkbox" name="9" class="meschk"></input>
+			<label for="sep" class="meslbl"><%= t('biomodelos.visor.records.month_9_filter') %></label>
+			<input type="checkbox" name="10" class="meschk"></input>
+			<label for="oct" class="meslbl"><%= t('biomodelos.visor.records.month_10_filter') %></label>
+			<input type="checkbox" name="11" class="meschk"></input>
+			<label for="nov" class="meslbl"><%= t('biomodelos.visor.records.month_11_filter') %></label>
+			<input type="checkbox" name="12" class="meschk"></input>
+			<label for="dic" class="meslbl"><%= t('biomodelos.visor.records.month_12_filter') %></label>
+		</div>
 		<div class="steptitle" title="<%= t('biomodelos.visor.records.search_tt') %>" rel="tooltip"><%= t('biomodelos.visor.records.search') %></div>
 			<select name="dropdownFiltros" id="filtroRegistro">
 				<option value="">- <%= t('biomodelos.visor.records.filter_type') %> -</option>

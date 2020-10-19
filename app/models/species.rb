@@ -2,8 +2,6 @@ class Species
 	include HTTParty
   	format :json
 		base_uri BASE_URI + '/species'
-    headers 'authorization' => "apiKey #{ENV['GATEWAY_API_KEY']}"
-    headers 'host' => "#{ENV['GATEWAY_HOST']}"
 	# has_many :tasks
 
 	def self.find_name(taxID)

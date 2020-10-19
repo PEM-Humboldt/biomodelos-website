@@ -1,4 +1,4 @@
-# BioModelos v2.5.5
+# BioModelos v2.5.6
 
 [BioModelos](http://biomodelos.humboldt.org.co) is a web app that facilitates the generation, validation and consultation of hypothesis of species distribution for the continental biodiversity of Colombia. As such, it provides tools to (1) improve existing species distribution models (SDMs) by integrating expert's opinion, (2) generate expert maps and (3) publish SDMs. Our objective is to provide freely and openly access to the most up to date information on species distributions, validated by a large network of researchers, to support national environmental decision making processes and research.
 
@@ -65,17 +65,12 @@ RECAPTCHA_SECRET_KEY: [secret key]
 \# Mail Server Gmail
 GMAIL_USERNAME: [username]
 GMAIL_PASSWORD: [password]
-
-\# API GATEWAY
-GATEWAY_API_KEY: [site key]
-GATEWAY_HOST: [header host]
 ```
 There, you should put information about:
 - Rails Application key.
 - Google maps key.
 - Recaptcha key.
 - SMTP credentials.
-- Credentials for api gateway
 
 ## Run
 
