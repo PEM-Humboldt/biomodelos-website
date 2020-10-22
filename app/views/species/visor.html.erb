@@ -16,75 +16,75 @@
 	      });
       </script>
 <% end %>
-<div class="mapcontainer" id="map">
-	<div class="reportBox"></div>
-	<div id="visCntrl" ng-controller="visorCtrl">
-		<div class="spname"></div>
-		<%= hidden_field_tag 'species_id_field'%>
-		<div class="modelname" title='<%= t('biomodelos.visor.tooltip.model_name') %>' rel="tooltip"> <!-- agregar en Continuo class: gradient --></div>
-		<div id="layerbtn" title='<%= t('biomodelos.visor.tooltip.layer_btn') %>' rel="tooltip" class="visorbtn"></div>
-		<div ng-click="find=!find" title='<%= t('biomodelos.visor.tooltip.find_btn') %>' rel="tooltip" class="visorbtn vbtnfind" selectable></div>
-		<div ng-click="info=!info" title='<%= t('biomodelos.visor.tooltip.info_btn') %>' rel="tooltip" class="visorbtn vbtninfo" selectable></div>
-		<div ng-click="hipotesis=!hipotesis" title='<%= t('biomodelos.visor.tooltip.hipo_btn') %>' rel="tooltip" class="visorbtn vbtnhipo" selectable></div>
-		<div id="edit_model_btn"></div>
+<div class="mapcontainer" id="map"></div>
+<div class="reportBox"></div>
+<div id="visCntrl" ng-controller="visorCtrl">
+	<div class="spname"></div>
+	<%= hidden_field_tag 'species_id_field'%>
+	<div class="modelname" title='<%= t('biomodelos.visor.tooltip.model_name') %>' rel="tooltip"> <!-- agregar en Continuo class: gradient --></div>
+	<div id="layerbtn" title='<%= t('biomodelos.visor.tooltip.layer_btn') %>' rel="tooltip" class="visorbtn"></div>
+	<div ng-click="find=!find" title='<%= t('biomodelos.visor.tooltip.find_btn') %>' rel="tooltip" class="visorbtn vbtnfind" selectable></div>
+	<div ng-click="info=!info" title='<%= t('biomodelos.visor.tooltip.info_btn') %>' rel="tooltip" class="visorbtn vbtninfo" selectable></div>
+	<div ng-click="hipotesis=!hipotesis" title='<%= t('biomodelos.visor.tooltip.hipo_btn') %>' rel="tooltip" class="visorbtn vbtnhipo" selectable></div>
+	<div id="edit_model_btn"></div>
 
-		<div ng-show="find" class="cajavisor cajasearch">
-			<%= render 'species/species_browser' %>
-		</div>
-
-		<div ng-show="info" class="cajavisor infocaja">
-			<%= render 'species/species_info' %>
-		</div>
-
-
-		<div ng-show="hipotesis" class="cajavisor hipotesis">
-			<div class="vcbase">
-				<h1><%= t('biomodelos.visor.hypotheses.title') %></h1>
-				<a ng-click="hipotesis=!hipotesis" class="closevb" id="clsModelsBox">x</a>
-			</div>
-			<div class="cvcolumn">
-	<!-- 			<div class="followstate fright">
-					<a href="" class="follow invisible">seguir</a>
-					<div class="follow siguiendo">siguiendo</div>
-				</div> -->
-				<div id="hipotesisbox_content"></div>
-			</div>
-		</div>
-
-		<% if user_signed_in? %>
-			<div ng-show="edit" class="cajavisor editbox">
-				<div class="vcbase">
-					<h1><%= t('biomodelos.visor.contributions.title') %></h1>
-					<a ng-click="edit=!edit" class="closevb" id="clsEditBox">x</a>
-				</div>
-				<div id="editbox_content"></div>
-			</div>
-		<% end %>
-
-		<div ng-click="registros=!registros" class="btnregistros" selectable><%= t('biomodelos.visor.records.title') %></div>
-
-		<div ng-show="registros" class="cajaregistros" id="registros_div">
-			<%= render partial: 'species/species_records' %>
-			<div class="littleline"></div>
-			<div class="foreditors" id="add_records_box"></div>
-		</div>
-
-		<% if user_signed_in? %>
-				<div id="edit_box_btn"></div>
-		<% end %>
-
-		<% if user_signed_in? %>
-			<div id="edit_tools_box"></div>
-		<% end %>
-
-		<div id="show_record_box"></div>
-
+	<div ng-show="find" class="cajavisor cajasearch">
+		<%= render 'species/species_browser' %>
 	</div>
 
-	<%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+ Rails.application.secrets.google_maps_key %>
-	<%= javascript_include_tag 'Google.js' %>
-	<%= javascript_include_tag 'biovisor' %>
+	<div ng-show="info" class="cajavisor infocaja">
+		<%= render 'species/species_info' %>
+	</div>
+
+
+	<div ng-show="hipotesis" class="cajavisor hipotesis">
+		<div class="vcbase">
+			<h1><%= t('biomodelos.visor.hypotheses.title') %></h1>
+			<a ng-click="hipotesis=!hipotesis" class="closevb" id="clsModelsBox">x</a>
+		</div>
+		<div class="cvcolumn">
+<!-- 			<div class="followstate fright">
+				<a href="" class="follow invisible">seguir</a>
+				<div class="follow siguiendo">siguiendo</div>
+			</div> -->
+			<div id="hipotesisbox_content"></div>
+		</div>
+	</div>
+
+	<% if user_signed_in? %>
+		<div ng-show="edit" class="cajavisor editbox">
+			<div class="vcbase">
+				<h1><%= t('biomodelos.visor.contributions.title') %></h1>
+				<a ng-click="edit=!edit" class="closevb" id="clsEditBox">x</a>
+			</div>
+			<div id="editbox_content"></div>
+		</div>
+	<% end %>
+
+	<div ng-click="registros=!registros" class="btnregistros" selectable><%= t('biomodelos.visor.records.title') %></div>
+
+	<div ng-show="registros" class="cajaregistros" id="registros_div">
+		<%= render partial: 'species/species_records' %>
+		<div class="littleline"></div>
+		<div class="foreditors" id="add_records_box"></div>
+	</div>
+
+	<% if user_signed_in? %>
+			<div id="edit_box_btn"></div>
+	<% end %>
+
+	<% if user_signed_in? %>
+		<div id="edit_tools_box"></div>
+	<% end %>
+
+	<div id="show_record_box"></div>
+
 </div>
+
+<%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+ Rails.application.secrets.google_maps_key %>
+<%= javascript_include_tag 'Google.js' %>
+<%= javascript_include_tag 'biovisor' %>
+
 <div class="visorfooter">
 			<a href="http://www.humboldt.org.co" class="humboldtft" target="_blank">
 				<div class="humbname">

@@ -37,8 +37,6 @@ body {
     line-height: 1.2;
     background-color: #f2f2f2;
     height: 100%;
-    display: grid;
-    grid-template-rows: min-content auto min-content;
 }
 
 svg > g > g:last-child { pointer-events: none } /* flickering de google charts */
@@ -339,6 +337,9 @@ a.lang {
 	width: 100%;
 	z-index: 10;
 	position: relative;
+	min-height: -moz-calc(100% - 190px);
+    min-height: -webkit-calc(100% - 190px);
+    min-height: calc(100% - 190px);
 }
 
 .container {
@@ -2566,6 +2567,9 @@ a.cajathumb p {
 
 .mapcontainer {
 	width: 100%;
+	min-height: -moz-calc(100% - 106px);
+    min-height: -webkit-calc(100% - 106px);
+    min-height: calc(100% - 106px);
 }
 
 .leaflet-top .leaflet-control {
@@ -2800,6 +2804,7 @@ a.cajathumb p {
 	font-weight: 400;
 	font-size: 13px;
 	line-height: 1.5;
+	top: 60px;
 }
 
 .modelname {
@@ -2867,6 +2872,7 @@ a.cajathumb p {
 }
 
 .visorbtn {
+	top:60px;
     height: 45px;
     width: 45px;
     background-repeat: no-repeat;
@@ -2879,34 +2885,36 @@ a.cajathumb p {
 
 .vbtnfind {
 	background-image: url(<%= asset_path 'vbtnfind.png' %>);
-	top:45px;
+	top:105px;
 	background-color: #db3f2a;
 }
 
 .vbtninfo {
 	background-image: url(<%= asset_path 'vbtninfo.png' %>);
-	top:90px;
+	top:150px;
 	background-color: #124c5e;
 	display: none;
 }
 
 .vbtnhipo {
 	background-image: url(<%= asset_path 'vbtnhipo.png' %>);
-	top:135px;
+	top:195px;
 	background-color: #e3af24;
 	display: none;
 }
 
 .vbtnedit {
 	background-image: url(<%= asset_path 'vbtnedit.png' %>);
-	top:180px;
+	top:240px;
 	background-color: #9c9d36;
 	display: none;
 }
 
 .cajavisor {
 	width: 830px;
-	height: 100%;
+	height: -moz-calc(100% - 106px);
+    height: -webkit-calc(100% - 106px);
+    height: calc(100% - 106px);
 	padding: 10px 20px;
 	position: absolute;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -2915,11 +2923,14 @@ a.cajathumb p {
 	z-index: 1001;
 	right: 60px;
 	font: 14px/24px 'Lato', sans-serif;
+	top:60px;
 }
 
 .cajavisor2 {
 	width: 650px;
-	height: 100%;
+	height: -moz-calc(100% - 106px);
+    height: -webkit-calc(100% - 106px);
+    height: calc(100% - 106px);
 	padding: 10px 20px;
 	position: absolute;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -2928,6 +2939,7 @@ a.cajathumb p {
 	z-index: 1001;
 	right: 0;
 	font: 14px/24px 'Lato', sans-serif;
+	top:60px;
 }
 
 .vcbase h1 {
@@ -3693,7 +3705,7 @@ label.checkboxdown {
 
 .btnregistros {
 	position: absolute;
-	top: 45px;
+	top: 95px;
 	padding: 0 5px;
 	width: 270px;
 	text-transform: uppercase;
@@ -3723,7 +3735,7 @@ label.checkboxdown {
 
 .cajaregistros {
 	width: 270px;
-	top: 90px;
+	top: 140px;
 	background-color: #fff;
 	position: absolute;
 	z-index: 19;
@@ -3733,7 +3745,7 @@ label.checkboxdown {
 
 .btnedicion {
 	position: absolute;
-	top: 75px;
+	top: 120px;
 	padding: 0 5px;
 	width: 270px;
 	text-transform: uppercase;
@@ -3764,7 +3776,7 @@ label.checkboxdown {
 
 .cajitaeditar {
 	width: 270px;
-	top: 120px;
+	top: 165px;
 	background-color: #fff;
 	position: absolute;
 	z-index: 17;
@@ -4217,6 +4229,10 @@ a.vermasreg:hover {
 
 .publierror:before {
     clear: both;
+}
+
+.loginbox .publierror {
+	display: none;
 }
 
 .publierror,

@@ -5,6 +5,7 @@ es:
       not_found: "no encontrado"
       already_confirmed: "ya fue confirmada. Intenta ingresar."
       not_locked: "no ha sido bloqueada"
+      unsupported_image_type: "tipo de archivo equivocado"
       not_saved:
         one: "Ha habido 1 error:"
         other: "Han habido %{count} errores:"
