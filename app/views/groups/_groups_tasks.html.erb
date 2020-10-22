@@ -1,7 +1,6 @@
 <h1 class="tasks"><%= t('biomodelos.groups.profile.tasks_tab') %></h1> 
 <% if @current_group_user %>
-	<div class="newta
-	sk" ng-click="taskbox=!taskbox" rel="tooltip" title="<%= t('biomodelos.tasks.new_task') %>"><%= image_tag("newtask.png") %></div>
+	<div class="newtask" ng-click="taskbox=!taskbox" rel="tooltip" title="<%= t('biomodelos.tasks.new_task') %>"><%= image_tag("newtask.png") %></div>
 	<div class="clearfix"></div>
 	<div class="addtask" ng-show="taskbox">
 		<%= render partial:'tasks/new_tasks_form', locals: {task: @task, group: @group, group_members: @group_members, group_species: @group_species, current_group_user: @current_group_user} %>	
