@@ -230,7 +230,7 @@ es:
         undo_btn: "deshacer"
         pause_btn: "guardar"
         send_btn: "enviar"
-        pause_success: 'Se ha guardado la edición del modelo.'
+        pause_success: "Se ha guardado la edición del modelo."
       covers:
         covers_tt: "IDEAM 2010. Leyenda Nacional de Coberturas de la Tierra. Metodología CORINE Land Cover adaptada para Colombia Escala 1:100.000. Instituto de Hidrología, Meteorología y Estudios Ambientales. Bogotá, D. C., 72p."
         title: "Coberturas Terrestres"
@@ -317,7 +317,7 @@ es:
         cover_31: "Bosques"
         cover_31_tt: "Comprende las áreas naturales o seminaturales, constituidas principalmente por elementos arbóreos de especies nativas o exóticas. Los árboles son plantas leñosas perennes con un solo tronco principal, que tiene una copa más o menos definida. Esta cobertura comprende los bosques naturales y las plantaciones. Para la leyenda de coberturas de la tierra de Colombia, en esta categoría se incluyen otras formas biológicas naturales, tales como la palma y la guadua."
         cover_311: "Bosque denso"
-        cover_311_tt: "Cobertura constituida por una comunidad vegetal dominada por elementos típicamente arbóreos, los cuales forman un estrato de copas (dosel) más o menos continuo cuya área de cobertura arbórea representa más de 70% del área total de la unidad, y con altura del dosel superior a cinco metros. Estas formaciones vegetales no han sido intervenidas o su intervención ha sido selectiva y no ha alterado su estructura original y las características funcionales (IGAC, 1999). Se exceptúan de esta unidad los bosques fragmentados, los cuales se clasifican en bosque fragmentado"
+        cover_311_tt: "Cobertura constituida por una comunidad vegetal dominada por elementos típicamente arbóreos, los cuales forman un estrato de copas (dosel) más o menos continuo cuya área de cobertura arbórea representa más de 70% del área total de la unidad, y con altura del dosel superior a cinco metros. Estas formaciones vegetales no han sido intervenidas o su intervención ha sido selectiva y no ha alterado su estructura original y las características funcionales (IGAC, 1999). Se exceptúan de esta unidad los bosques fragmentados, los cuales se clasifican en bosque fragmentado."
         cover_312: "Bosque abierto"
         cover_312_tt: "Cobertura constituida por una comunidad vegetal dominada por elementos típicamente arbóreos regularmente distribuidos, los cuales forman un estrato de copas (dosel) discontinuo, con altura del dosel superior a cinco metros y cuya área de cobertura arbórea representa entre 30% y 70% del área total de la unidad. Estas formaciones vegetales no han sido intervenidas o su intervención ha sido selectiva y no ha alterado su estructura original y las características funcionales. Se exceptúan de esta unidad los bosques fragmentados, los cuales se clasifican en bosque fragmentado."
         cover_313: "Bosque fragmentado"
