@@ -1,10 +1,10 @@
 module ModelsHelper
-	# Maps the model method abbreviation to the full name. 
+	# Maps the model method abbreviation to the full name.
 	#
 	# @param method [String] Abbreviation of the model method.
 	# @return [String] Full name of the model method.
 	def map_method_name(method)
-		case method 
+		case method
 		when 'mx'
 		  return 'Maxent'
 		when 'bc'
@@ -13,30 +13,30 @@ module ModelsHelper
 		  return 'Convex Hull'
 		else
 		  return method
-		end	
+		end
 	end
 
-	# Maps the model level number to the model level name. 
+	# Maps the model level number to the model level name.
 	#
 	# @param method [Number] Model's level.
 	# @return [String] Name of the model's level.
 	def map_level_name(level)
-		case level 
+		case level
 		when 1
 		  return I18n.t('biomodelos.visor.models.level_1')
 		when 2
 		  return I18n.t('biomodelos.visor.models.level_2')
 		else
 		  return level
-		end	
+		end
 	end
 
-	# Maps the model status name. 
+	# Maps the model status name.
 	#
 	# @param method [String] Model status.
 	# @return [String] Model status in spanish.
 	def map_status_name(status)
-		case status 
+		case status
 		when 'pendingValidation'
 		  return I18n.t('biomodelos.visor.models.pending_validation')
 		when 'Valid'
@@ -45,28 +45,28 @@ module ModelsHelper
 		  return I18n.t('biomodelos.visor.models.developing')
 		else
 		  return status
-		end	
+		end
 	end
 
-	# Sets the full file path for the models, thumbnails and downloadable zip files. 
+	# Sets the full file path for the models, thumbnails and downloadable zip files.
 	#
-	# @param method [String] File name.
+	# @param fileName [String] File name.
 	# @param method [String] Type of file "model", "thumb" and "zip".
 	# @return [String] Full file path.
 	def set_path(fileName, fileType)
-		case fileType 
+		case fileType
 		when "model"
-		  return "/models/#{fileName}"
+			return "/models/#{fileName}"
 		when "thumb"
 		  return "/thumbs/#{fileName}"
 		when "zip"
-		  return "/zip/#{fileName}"  
+		  return "/zip/#{fileName}"
 		else
 		  return fileName
-		end		
+		end
 	end
 
-	# Gets the cover full name based on the db name. 
+	# Gets the cover full name based on the db name.
 	#
 	# @param method [String] DB cover name
 	# @return [String] Full cover name if it exists.
