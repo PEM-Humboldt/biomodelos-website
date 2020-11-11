@@ -66,6 +66,23 @@ module ModelsHelper
 		end
 	end
 
+	def model_options(model)
+		if model.gsLayer.nil?
+			return {
+				"type" => "file",
+				"fileName" => model.pngUrl
+			}.to_json
+		else
+			style = model.level == 2 ? "level2" : "binario"
+			return {
+				"type" => "wmsLayer",
+				"wmsUrl" => "/geoserver/wms",
+				"layer" => model.gsLayer,
+				"styles" => style
+			}.to_json
+		end
+	end
+
 	# Gets the cover full name based on the db name.
 	#
 	# @param method [String] DB cover name
