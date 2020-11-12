@@ -74,7 +74,7 @@ module ModelsHelper
 		if model.gsLayer.nil?
 			return {
 				"type" => "file",
-				"fileName" => model.pngUrl
+				"fileName" => "/models/#{model.pngUrl}"
 			}.to_json
 		else
 			style = model.level == 2 ? "level2" : "binario"
