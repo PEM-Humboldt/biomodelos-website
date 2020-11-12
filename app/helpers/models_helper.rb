@@ -66,6 +66,10 @@ module ModelsHelper
 		end
 	end
 
+	# Constructs a json object with options to load a model in the map
+	#
+	# @param model [Model] Model object.
+	# @return [String] json object with options for the model to be loaded
 	def model_options(model)
 		if model.gsLayer.nil?
 			return {
