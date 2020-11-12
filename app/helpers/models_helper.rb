@@ -95,6 +95,19 @@ module ModelsHelper
 		end
 	end
 
+	# Create url to load model thumbnail
+	#
+	# @param model [Model] Model object.
+	# @return [String] url to the thumbnail image
+	def model_thumb(model)
+		if model.gsLayer.nil?
+			return set_path(model.thumbUrl, "thumb")
+		else
+			model_options = gs_options model
+			return "/geoserver/thumb?layer=#{model_options["layer"]}&styles=#{model_options["styles"]}"
+		end
+	end
+
 	# Gets the cover full name based on the db name.
 	#
 	# @param method [String] DB cover name
