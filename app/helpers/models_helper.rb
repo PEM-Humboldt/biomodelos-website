@@ -86,7 +86,7 @@ module ModelsHelper
 		if model.gsLayer.nil?
 			return {
 				"type" => "file",
-				"fileName" => set_path(model.pngUrl, "model")
+				"fileName" => "/models/#{model.pngUrl}"
 			}.to_json
 		else
 			model_options = gs_options model
@@ -101,7 +101,7 @@ module ModelsHelper
 	# @return [String] url to the thumbnail image
 	def model_thumb(model)
 		if model.gsLayer.nil?
-			return set_path(model.thumbUrl, "thumb")
+		  return "/thumbs/#{model.thumbUrl}"
 		else
 			model_options = gs_options model
 			return "/geoserver/thumb?layer=#{model_options["layer"]}&styles=#{model_options["styles"]}"
@@ -116,7 +116,7 @@ module ModelsHelper
 		if model.gsLayer.nil?
 			return {
 				"type" => "file",
-				"fileName" => set_path(model.zipUrl, "zip")
+				"fileName" => "/zip/#{model.zipUrl}"
 			}.to_json
 		else
 			model_options = gs_options model
