@@ -137,8 +137,13 @@ class ModelsController < ApplicationController
 
 	def download_model
 		@download = Download.new(download_params.merge(user_id: current_user.id))
+		model_options = JSON.parse(params[:download][:zip_url])
 		if @download.save
-			send_file Rails.root.join("public" + params[:download][:zip_url]), :type => 'application/zip', :disposition => 'attachment'
+			if model_options["type"] == "file"
+				send_file Rails.root.join("public" + params[:download][:zip_url]), :type => 'application/zip', :disposition => 'attachment'
+			else
+				redirect_to geoserver_zip_path :resource => model_options["layer"]
+			end
 		else
 			redirect_to species_visor_path, :flash => { :error => "Debe seleccionar el uso y aceptar los términos y condiciones para descargar un modelo." }
 		end

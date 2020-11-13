@@ -108,6 +108,23 @@ module ModelsHelper
 		end
 	end
 
+	# Create model download url
+	#
+	# @param model [Model] Model object.
+	# @return [String] url for download
+	def model_zip(model)
+		if model.gsLayer.nil?
+			return {
+				"type" => "file",
+				"fileName" => set_path(model.zipUrl, "zip")
+			}.to_json
+		else
+			model_options = gs_options model
+			model_options["wmsUrl"] = "/geoserver/zip"
+			return model_options.to_json
+		end
+	end
+
 	# Gets the cover full name based on the db name.
 	#
 	# @param method [String] DB cover name

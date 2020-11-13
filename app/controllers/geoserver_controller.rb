@@ -20,4 +20,15 @@ class GeoserverController < ApplicationController
 		chunk = HTTParty.get("#{GEOSERVER_URI}/wms?#{URI.encode_www_form(query_opts)}").body
 		send_data(chunk)
 	end
+
+	def zip
+		query_opts = {
+			"service" => "CSW",
+			"version" => "1.1.0",
+			"request" => "DirectDownload",
+			"resourceId" => params[:resource]
+		}
+		chunk = HTTParty.get("#{GEOSERVER_URI}/wms?#{URI.encode_www_form(query_opts)}").body
+		send_data chunk, :filename => "model.zip"
+	end
 end
