@@ -669,6 +669,7 @@ var _BioModelosVisorModule = function() {
 				transparent: true,
 				format:'image/png'
 			})
+			modelLayer.setOpacity(0.6)
 		}
 
 		map.addLayer(modelLayer, true);
