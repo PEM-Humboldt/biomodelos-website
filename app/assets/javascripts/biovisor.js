@@ -654,15 +654,25 @@ var _BioModelosVisorModule = function() {
 		}
 	}
 
-	var loadModel = function (modelUrl, name) {
+	var loadModel = function (jsonOptions) {
+		/* Dispose older model if it exists */
+		unloadModel();
 
-       /* Dispose older model if it exists */
-        unloadModel();
+		var modelOptions = JSON.parse(jsonOptions);
 
-	    modelLayer = new L.ImageOverlay(modelUrl, imageBounds, {opacity: 0.6});
+		if (modelOptions.type === 'file') {
+			modelLayer = new L.ImageOverlay(modelOptions.fileName, imageBounds, {opacity: 0.6});
+		} else {
+			modelLayer = L.tileLayer.wms(modelOptions.wmsUrl, {
+				layers: modelOptions.layer,
+				styles: modelOptions.styles,
+				transparent: true,
+				format:'image/png'
+			})
+		}
 
-	    map.addLayer(modelLayer, true);
-	    layerControl.addOverlay(modelLayer, "Modelo");
+		map.addLayer(modelLayer, true);
+		layerControl.addOverlay(modelLayer, "Modelo");
 	};
 
 	var unloadModel = function() {
