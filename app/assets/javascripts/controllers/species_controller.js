@@ -463,7 +463,7 @@ $(document).ready(function() {
 		}
 		$(".modelname").html(map_status_name($("#txt_model_status").val()));
     _BioModelosVisorModule.unloadAllLayers();
-		_BioModelosVisorModule.loadModel($(this).find('#model_options').val());
+		_BioModelosVisorModule.loadModel($(this).find('#model_layer').val());
 	});
 
 	// Reload species records

@@ -14,9 +14,9 @@
 		<div class="maparea publicados">
 			<div href="" class="mapthumb">
 				<div class="flipper">
-					<div class="front2"><%= image_tag(set_path(model.thumbUrl, "thumb")) %></div>
+					<div class="front2"><%= image_tag(model_thumb(model)) %></div>
 					<a class="back2 sp_model_link">
-						<%= hidden_field_tag('model_options', model_options(model).html_safe) %>
+						<%= hidden_field_tag('model_layer', model_layer(model).html_safe) %>
 						<div class="titlethumb">
 							<%= model_title_thumb(model.modelStatus, model.published) %>
 							<%= hidden_field_tag 'txt_model_status', model.modelStatus %>

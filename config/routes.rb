@@ -60,6 +60,7 @@ Rails.application.routes.draw do
     post "home/upload_model"
     post "species/filter"
     get "geoserver/wms"
+    get "geoserver/thumb"
     # get "models/metadata/:id"
     # Example of named route that can be invoked with purchase_url(id: product.id)
     #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

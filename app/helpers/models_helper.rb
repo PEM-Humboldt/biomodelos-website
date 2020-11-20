@@ -51,7 +51,7 @@ module ModelsHelper
 	# Sets the full file path for the models, thumbnails and downloadable zip files.
 	#
 	# @param fileName [String] File name.
-	# @param method [String] Type of file "model", "thumb" and "zip".
+	# @param fileType [String] Type of file "model", "thumb" and "zip".
 	# @return [String] Full file path.
 	def set_path(fileName, fileType)
 		case fileType
@@ -66,24 +66,45 @@ module ModelsHelper
 		end
 	end
 
-	# Constructs a json object with options to load a model in the map
+	# Constructs a hash with options required to load a model from geoserver
 	#
 	# @param model [Model] Model object.
-	# @return [String] json object with options for the model to be loaded
-	def model_options(model)
+	# @return [Hash] Hash with options for the model to be loaded
+	def gs_options(model)
+		return {
+			"type" => "wmsLayer",
+			"layer" => model.gsLayer,
+			"styles" => model.level == 2 ? "level2" : "binario"
+		}
+	end
+
+	# Create json object with options to load a model layer
+	#
+	# @param model [Model] Model object.
+	# @return [String] json object
+	def model_layer(model)
 		if model.gsLayer.nil?
 			return {
 				"type" => "file",
-				"fileName" => "/models/#{model.pngUrl}"
+				"fileName" => set_path(model.pngUrl, "model")
 			}.to_json
 		else
-			style = model.level == 2 ? "level2" : "binario"
-			return {
-				"type" => "wmsLayer",
-				"wmsUrl" => "/geoserver/wms",
-				"layer" => model.gsLayer,
-				"styles" => style
-			}.to_json
+			model_options = gs_options model
+			model_options["wmsUrl"] = "/geoserver/wms"
+			return model_options.to_json
+		end
+	end
+
+	# Create url to load model thumbnail
+	#
+	# @param model [Model] Model object.
+	# @return [String] url to the thumbnail image
+	def model_thumb(model)
+		if model.gsLayer.nil?
+			return set_path(model.thumbUrl, "thumb")
+		else
+			model_options = gs_options model
+			return "/geoserver/thumb?layer=#{model_options["layer"]}&styles=#{model_options["styles"]}"
 		end
 	end
 
