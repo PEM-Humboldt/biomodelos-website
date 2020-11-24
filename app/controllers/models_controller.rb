@@ -142,7 +142,7 @@ class ModelsController < ApplicationController
 			if model_options["type"] == "file"
 				send_file Rails.root.join("public" + params[:download][:zip_url]), :type => 'application/zip', :disposition => 'attachment'
 			else
-				redirect_to geoserver_zip_path :resource => model_options["layer"]
+				redirect_to geoserver_zip_path :resource => model_options["layer"], :model_id => params[:download][:model_id]
 			end
 		else
 			redirect_to species_visor_path, :flash => { :error => "Debe seleccionar el uso y aceptar los términos y condiciones para descargar un modelo." }
