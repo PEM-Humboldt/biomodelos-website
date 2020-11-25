@@ -48,33 +48,23 @@ module ModelsHelper
 		end
 	end
 
-	# Sets the full file path for the models, thumbnails and downloadable zip files.
-	#
-	# @param fileName [String] File name.
-	# @param fileType [String] Type of file "model", "thumb" and "zip".
-	# @return [String] Full file path.
-	def set_path(fileName, fileType)
-		case fileType
-		when "model"
-			return "/models/#{fileName}"
-		when "thumb"
-		  return "/thumbs/#{fileName}"
-		when "zip"
-		  return "/zip/#{fileName}"
-		else
-		  return fileName
-		end
-	end
-
 	# Constructs a hash with options required to load a model from geoserver
 	#
 	# @param model [Model] Model object.
 	# @return [Hash] Hash with options for the model to be loaded
 	def gs_options(model)
+		style = ""
+		if model.threshold == "Continuous"
+			style = "continuo"
+		elsif model.level == 2
+			style = "level2"
+		else
+			style = "binario"
+		end
 		return {
 			"type" => "wmsLayer",
 			"layer" => model.gsLayer,
-			"styles" => model.level == 2 ? "level2" : "binario"
+			"styles" => style
 		}
 	end
 
@@ -104,7 +94,11 @@ module ModelsHelper
 		  return "/thumbs/#{model.thumbUrl}"
 		else
 			model_options = gs_options model
-			return "/geoserver/thumb?layer=#{model_options["layer"]}&styles=#{model_options["styles"]}"
+			url = "/geoserver/thumb"
+			if model.threshold == "Continuous"
+				url = "/geoserver/continuous_thumb"
+			end
+			return "#{url}?layer=#{model_options["layer"]}&styles=#{model_options["styles"]}"
 		end
 	end
 

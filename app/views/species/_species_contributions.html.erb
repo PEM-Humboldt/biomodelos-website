@@ -8,7 +8,7 @@
 		<div class="dinblock">
 			<% if continuous_t %>
 				<div class="editthumb">
-					<%= image_tag(set_path(continuous_t.thumbUrl, "thumb")) %>
+					<%= image_tag(model_thumb(continuous_t)) %>
 				</div>
 			<div class="editactions clearfix">
 			<%= button_to models_download_terms_path(:zip_url => model_zip(continuous_t), :box => 1, :model_id => continuous_t.modelID, :species_id => @species_id), {:class => 'pad3', :title => t('biomodelos.visor.hypotheses.download_tt'), :rel => "tooltip", :remote => true} do %>
