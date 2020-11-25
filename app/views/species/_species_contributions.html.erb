@@ -11,7 +11,7 @@
 					<%= image_tag(set_path(continuous_t.thumbUrl, "thumb")) %>
 				</div>
 			<div class="editactions clearfix">
-					<%= button_to models_download_terms_path(:zip_url => set_path(continuous_t.zipUrl, "zip"), :box => 1, :model_id => continuous_t.modelID, :species_id => @species_id), {:class => 'pad3', :title => t('biomodelos.visor.hypotheses.download_tt'), :rel => "tooltip", :remote => true} do %>
+			<%= button_to models_download_terms_path(:zip_url => model_zip(continuous_t), :box => 1, :model_id => continuous_t.modelID, :species_id => @species_id), {:class => 'pad3', :title => t('biomodelos.visor.hypotheses.download_tt'), :rel => "tooltip", :remote => true} do %>
 						<%= image_tag("downicon.png") %>
 					<% end %>
 					<%= link_to "/#{I18n.locale}/models/#{continuous_t.modelID}/metadata",  target: "_blank", title: t('biomodelos.visor.hypotheses.metadata_tt'), rel: "tooltip"  do %>
