@@ -83,7 +83,7 @@ module ModelsHelper
 	# @param model [Model] Model object.
 	# @return [String] json object
 	def model_layer(model)
-		if model.gsLayer.nil?
+		if model.gsLayer.nil? || model.threshold == "Continuous"
 			return {
 				"type" => "file",
 				"fileName" => "/models/#{model.pngUrl}"
