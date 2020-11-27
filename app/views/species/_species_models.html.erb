@@ -60,8 +60,8 @@
 				</div>
 			</div>
 			<div class="mmicon clearfix">
-				<%= button_to models_download_terms_path(:zip_url => set_path(
-				model.zipUrl, "zip"), :box => 2, :model_id => model.modelID , :species_id => @species_id), {:class => 'pad3', :title => t('biomodelos.visor.hypotheses.download_tt'), :rel => "tooltip", :remote => true} do %>
+				<%= button_to models_download_terms_path(:zip_url => model_zip(
+				model), :box => 2, :model_id => model.modelID , :species_id => @species_id), {:class => 'pad3', :title => t('biomodelos.visor.hypotheses.download_tt'), :rel => "tooltip", :remote => true} do %>
 						<%= image_tag("downicon.png") %>
 					<% end %>
 				<!-- <a target="_blank" href="/models/<%= model.modelID %>/metadata" title="<%= t('biomodelos.visor.hypotheses.metadata_tt') %>" rel="tooltip" class="pad3"><%= image_tag("metaicon.png") %></a> -->

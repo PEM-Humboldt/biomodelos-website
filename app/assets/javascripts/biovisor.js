@@ -622,13 +622,35 @@ var _BioModelosVisorModule = function() {
 		//$(".polig").re
 	}
 
-	var setLayers = function(imgThresholdC, imgThreshold0, imgThreshold10, imgThreshold20, imgThreshold30){
+	/**
+	 * Set and return the layer in leaflet to use base on the options created by the models helper
+	 * @param {String} jsonModel json options for the model
+	 */
+	var processModel = function(jsonModel) {
+		var modelOptions = JSON.parse(jsonModel);
 
-		thresholdC = new L.ImageOverlay(imgThresholdC, imageBounds, {opacity: 0.6});
-		threshold0 = new L.ImageOverlay(imgThreshold0, imageBounds, {opacity: 0.6});
-		threshold10 = new L.ImageOverlay(imgThreshold10, imageBounds, {opacity: 0.6});
-		threshold20 = new L.ImageOverlay(imgThreshold20, imageBounds, {opacity: 0.6});
-		threshold30 = new L.ImageOverlay(imgThreshold30, imageBounds, {opacity: 0.6});
+		var layer;
+		if (modelOptions.type === 'file') {
+			layer = new L.ImageOverlay(modelOptions.fileName, imageBounds, { opacity: 0.6 });
+		} else {
+			// TODO: This won't be tested in continuous or thresholded models until thresholds are implemented in geoserver
+			layer = L.tileLayer.wms(modelOptions.wmsUrl, {
+				layers: modelOptions.layer,
+				styles: modelOptions.styles,
+				transparent: true,
+				format:'image/png'
+			})
+			layer.setOpacity(0.6)
+		}
+		return layer;
+	}
+
+	var setLayers = function(imgThresholdC, imgThreshold0, imgThreshold10, imgThreshold20, imgThreshold30) {
+		thresholdC = processModel(imgThresholdC);
+		threshold0 = processModel(imgThreshold0);
+		threshold10 = processModel(imgThreshold10);
+		threshold20 = processModel(imgThreshold20);
+		threshold30 = processModel(imgThreshold30);
 	}
 
 	var changeThresholdLayer = function (threshold){
@@ -658,19 +680,7 @@ var _BioModelosVisorModule = function() {
 		/* Dispose older model if it exists */
 		unloadModel();
 
-		var modelOptions = JSON.parse(jsonOptions);
-
-		if (modelOptions.type === 'file') {
-			modelLayer = new L.ImageOverlay(modelOptions.fileName, imageBounds, {opacity: 0.6});
-		} else {
-			modelLayer = L.tileLayer.wms(modelOptions.wmsUrl, {
-				layers: modelOptions.layer,
-				styles: modelOptions.styles,
-				transparent: true,
-				format:'image/png'
-			})
-			modelLayer.setOpacity(0.6)
-		}
+		modelLayer = processModel(jsonOptions);
 
 		map.addLayer(modelLayer, true);
 		layerControl.addOverlay(modelLayer, "Modelo");

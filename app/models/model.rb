@@ -7,7 +7,7 @@ class Model
       :citation, :methodFile, :published, :gsLayer
 
     def initialize(modelID, modelStatus, pngUrl, zipUrl, thumbUrl, threshold, level, license,
-      citation, methodFile, published, gsLayer)
+      citation, methodFile, published, gsLayer = nil)
   		self.modelID = modelID
       self.modelStatus = modelStatus
 	    self.pngUrl = pngUrl
@@ -30,7 +30,10 @@ class Model
       response = JSON.parse(get('/' + species_id + '?type=Thresholds').body)
       thresholds_array = []
       response.each do |threshold|
-        t = Model.new(threshold["modelID"], threshold["modelStatus"], threshold["png"], threshold["zip"], threshold["thumb"], threshold["thresholdType"], threshold["modelLevel"], threshold["license"], threshold["customCitation"], threshold["methodFile"], threshold["published"])
+        t = Model.new(threshold["modelID"], threshold["modelStatus"], threshold["png"],
+          threshold["zip"], threshold["thumb"], threshold["thresholdType"], threshold["modelLevel"],
+          threshold["license"], threshold["customCitation"], threshold["methodFile"],
+          threshold["published"])
         thresholds_array.push(t)
       end
       return thresholds_array
