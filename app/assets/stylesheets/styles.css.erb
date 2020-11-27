@@ -335,12 +335,11 @@ a.lang {
 
 .innercontainer {
 	width: 100%;
-	min-height: -moz-calc(100% - 190px);
-	min-height: -webkit-calc(100% - 190px);
-	min-height: calc(100% - 190px);
 	z-index: 10;
-	padding-bottom: 30px;
 	position: relative;
+	min-height: -moz-calc(100% - 190px);
+    min-height: -webkit-calc(100% - 190px);
+    min-height: calc(100% - 190px);
 }
 
 .container {
@@ -480,6 +479,10 @@ a.lang {
 	z-index: 6;
 }
 
+.hcbase {
+	margin-bottom: 12px;
+}
+
 .hcbase h1 {
 	padding: 0 0 10px 0;
 	font-size: 1.45em;
@@ -496,12 +499,9 @@ a.lang {
 	margin-bottom: 20px !important;
 }
 
-.hcbase {
-	margin-bottom: 12px;
-}
-
 .closecb {
-	padding: 10px 16px 12px;
+	height: 40px;
+	width: 40px;
 	margin-left: 8px;
 	font-weight: 300;
 	color: #db3f2a;
@@ -511,7 +511,7 @@ a.lang {
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
-	line-height: 1;
+	line-height: 34px;
 }
 
 .cajanews {
@@ -768,6 +768,11 @@ p.redsq::before	{
 	padding-bottom: 5px;
 	text-align: center;
 	color: #6c6c6c;
+}
+
+.loginbox abbr {
+	text-decoration: none;
+	color: red;
 }
 
 #error_explanation h2 {
@@ -2563,8 +2568,8 @@ a.cajathumb p {
 .mapcontainer {
 	width: 100%;
 	min-height: -moz-calc(100% - 106px);
-	min-height: -webkit-calc(100% - 106px);
-	min-height: calc(100% - 106px);
+    min-height: -webkit-calc(100% - 106px);
+    min-height: calc(100% - 106px);
 }
 
 .leaflet-top .leaflet-control {
@@ -2782,6 +2787,7 @@ a.cajathumb p {
 	margin: 0 5px;
 	padding: 3px;
 	font-family: 'lato', sans-serif;
+	max-width: 97%;
 }
 
 .ml0{
@@ -2790,7 +2796,6 @@ a.cajathumb p {
 
 .spname, .modelname {
 	position: absolute;
-	top: 60px;
 	left: 52px;
 	width: 250px;
 	height: 25px;
@@ -2799,6 +2804,7 @@ a.cajathumb p {
 	font-weight: 400;
 	font-size: 13px;
 	line-height: 1.5;
+	top: 60px;
 }
 
 .modelname {
@@ -2824,7 +2830,6 @@ a.cajathumb p {
 .menuright {
 	position: absolute;
 	right: 0;
-	top:60px;
 }
 
 #layerbtn {
@@ -2867,6 +2872,7 @@ a.cajathumb p {
 }
 
 .visorbtn {
+	top:60px;
     height: 45px;
     width: 45px;
     background-repeat: no-repeat;
@@ -2874,7 +2880,6 @@ a.cajathumb p {
     position: absolute;
     z-index:17;
     right:0;
-    top: 60px;
     cursor: pointer;
 }
 
@@ -2907,36 +2912,34 @@ a.cajathumb p {
 
 .cajavisor {
 	width: 830px;
-	height: 100%;
+	height: -moz-calc(100% - 106px);
+    height: -webkit-calc(100% - 106px);
+    height: calc(100% - 106px);
 	padding: 10px 20px;
 	position: absolute;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	background-color: #fff;
 	overflow-y: auto;
 	z-index: 1001;
-	top: 60px;
 	right: 60px;
 	font: 14px/24px 'Lato', sans-serif;
-	height: -moz-calc(100% - 106px);
-	height: -webkit-calc(100% - 106px);
-	height: calc(100% - 106px);
+	top:60px;
 }
 
 .cajavisor2 {
 	width: 650px;
-	height: 100%;
+	height: -moz-calc(100% - 106px);
+    height: -webkit-calc(100% - 106px);
+    height: calc(100% - 106px);
 	padding: 10px 20px;
 	position: absolute;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	background-color: #fff;
 	overflow-y: auto;
 	z-index: 1001;
-	top: 60px;
 	right: 0;
 	font: 14px/24px 'Lato', sans-serif;
-	height: -moz-calc(100% - 106px);
-	height: -webkit-calc(100% - 106px);
-	height: calc(100% - 106px);
+	top:60px;
 }
 
 .vcbase h1 {
@@ -2983,7 +2986,7 @@ a.cajathumb p {
 	cursor: pointer;
 }
 
-.closevb:hover {
+.closevb:hover, .closecb:hover, .botoncb:hover {
 	color:#fff !important;
 	background-color: #db3f2a;
 }
@@ -3142,6 +3145,11 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	font-size: 18px !important;
 	font-weight: 400;
 	display: inline;
+}
+
+.subinfo a {
+	cursor: pointer;
+	text-decoration: underline;
 }
 
 .subinfo h3 b {
@@ -3697,12 +3705,11 @@ label.checkboxdown {
 
 .btnregistros {
 	position: absolute;
-	top: 90px;
+	top: 95px;
 	padding: 0 5px;
-	width: 260px;
+	width: 270px;
 	text-transform: uppercase;
 	color: #fff;
-	font-weight: 300;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 	background: #1b3337 url(<%= asset_path 'downarroww.png' %>) right 10px center no-repeat;
 	cursor: pointer;
@@ -3727,14 +3734,11 @@ label.checkboxdown {
 }
 
 .cajaregistros {
-	width: 260px;
-	top: 135px;
+	width: 270px;
+	top: 140px;
 	background-color: #fff;
 	position: absolute;
 	z-index: 19;
-	max-height: -moz-calc(100% - 181px);
-	max-height: -webkit-calc(100% - 181px);
-	max-height: calc(100% - 181px);
 	padding: 5px 15px 15px 8px;
 	overflow-y: auto;
 }
@@ -3743,10 +3747,9 @@ label.checkboxdown {
 	position: absolute;
 	top: 120px;
 	padding: 0 5px;
-	width: 260px;
+	width: 270px;
 	text-transform: uppercase;
 	color: #fff;
-	font-weight: 300;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 	background: #1b3337 url(<%= asset_path 'downarroww.png' %>) right 10px center no-repeat;
 	cursor: pointer;
@@ -3772,7 +3775,7 @@ label.checkboxdown {
 }
 
 .cajitaeditar {
-	width: 260px;
+	width: 270px;
 	top: 165px;
 	background-color: #fff;
 	position: absolute;
@@ -4228,6 +4231,10 @@ a.vermasreg:hover {
     clear: both;
 }
 
+.loginbox .publierror {
+	display: none;
+}
+
 .publierror,
 .publish .alert {
     position: absolute;
@@ -4395,7 +4402,6 @@ a.vermasreg:hover {
 .centerbox {
 	max-width: 1200px;
 	width: 90%;
-	padding: 40px 30px;
 	top: 2%;
 	position: absolute;
 	left: 50%;
@@ -4405,6 +4411,10 @@ a.vermasreg:hover {
 	background-color: #fff;
 	z-index: 6;
 	text-align: center;
+}
+
+.scrolledPadding {
+	padding: 40px 30px;
 }
 
 .maintitle {
@@ -4812,6 +4822,17 @@ font-weight: 300;
 	background-color: #db3f2a;
 	color: #fff;
 
+}
+
+.alertify {
+	border: none !important;
+}
+
+.ajs-header {
+	display: none !important;
+}
+.ajs-footer {
+	padding: 0 !important;
 }
 
 /* Leaflet 0.7.x fix for image layers moving and disappearing when zooming in */
