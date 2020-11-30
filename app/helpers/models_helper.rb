@@ -1,10 +1,10 @@
 module ModelsHelper
-	# Maps the model method abbreviation to the full name. 
+	# Maps the model method abbreviation to the full name.
 	#
 	# @param method [String] Abbreviation of the model method.
 	# @return [String] Full name of the model method.
 	def map_method_name(method)
-		case method 
+		case method
 		when 'mx'
 		  return 'Maxent'
 		when 'bc'
@@ -13,30 +13,30 @@ module ModelsHelper
 		  return 'Convex Hull'
 		else
 		  return method
-		end	
+		end
 	end
 
-	# Maps the model level number to the model level name. 
+	# Maps the model level number to the model level name.
 	#
 	# @param method [Number] Model's level.
 	# @return [String] Name of the model's level.
 	def map_level_name(level)
-		case level 
+		case level
 		when 1
 		  return I18n.t('biomodelos.visor.models.level_1')
 		when 2
 		  return I18n.t('biomodelos.visor.models.level_2')
 		else
 		  return level
-		end	
+		end
 	end
 
-	# Maps the model status name. 
+	# Maps the model status name.
 	#
 	# @param method [String] Model status.
 	# @return [String] Model status in spanish.
 	def map_status_name(status)
-		case status 
+		case status
 		when 'pendingValidation'
 		  return I18n.t('biomodelos.visor.models.pending_validation')
 		when 'Valid'
@@ -45,28 +45,81 @@ module ModelsHelper
 		  return I18n.t('biomodelos.visor.models.developing')
 		else
 		  return status
-		end	
+		end
 	end
 
-	# Sets the full file path for the models, thumbnails and downloadable zip files. 
+	# Constructs a hash with options required to load a model from geoserver
 	#
-	# @param method [String] File name.
-	# @param method [String] Type of file "model", "thumb" and "zip".
-	# @return [String] Full file path.
-	def set_path(fileName, fileType)
-		case fileType 
-		when "model"
-		  return "/models/#{fileName}"
-		when "thumb"
-		  return "/thumbs/#{fileName}"
-		when "zip"
-		  return "/zip/#{fileName}"  
+	# @param model [Model] Model object.
+	# @return [Hash] Hash with options for the model to be loaded
+	def gs_options(model)
+		style = ""
+		if model.threshold == "Continuous"
+			style = "continuo"
+		elsif model.level == 2
+			style = "level2"
 		else
-		  return fileName
-		end		
+			style = "binario"
+		end
+		return {
+			"type" => "wmsLayer",
+			"layer" => model.gsLayer,
+			"styles" => style
+		}
 	end
 
-	# Gets the cover full name based on the db name. 
+	# Create json object with options to load a model layer
+	#
+	# @param model [Model] Model object.
+	# @return [String] json object
+	def model_layer(model)
+		if model.gsLayer.nil? || model.threshold == "Continuous"
+			return {
+				"type" => "file",
+				"fileName" => "/models/#{model.pngUrl}"
+			}.to_json
+		else
+			model_options = gs_options model
+			model_options["wmsUrl"] = "/geoserver/wms"
+			return model_options.to_json
+		end
+	end
+
+	# Create url to load model thumbnail
+	#
+	# @param model [Model] Model object.
+	# @return [String] url to the thumbnail image
+	def model_thumb(model)
+		if model.gsLayer.nil?
+		  return "/thumbs/#{model.thumbUrl}"
+		else
+			model_options = gs_options model
+			url = "/geoserver/thumb"
+			if model.threshold == "Continuous"
+				url = "/geoserver/continuous_thumb"
+			end
+			return "#{url}?layer=#{model_options["layer"]}&styles=#{model_options["styles"]}"
+		end
+	end
+
+	# Create model download url
+	#
+	# @param model [Model] Model object.
+	# @return [String] url for download
+	def model_zip(model)
+		if model.gsLayer.nil?
+			return {
+				"type" => "file",
+				"fileName" => "/zip/#{model.zipUrl}"
+			}.to_json
+		else
+			model_options = gs_options model
+			model_options["wmsUrl"] = "/geoserver/zip"
+			return model_options.to_json
+		end
+	end
+
+	# Gets the cover full name based on the db name.
 	#
 	# @param method [String] DB cover name
 	# @return [String] Full cover name if it exists.

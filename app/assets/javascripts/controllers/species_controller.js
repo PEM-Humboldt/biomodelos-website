@@ -454,17 +454,16 @@ $(document).ready(function() {
 		return mapped_status;
 	}
 
-	$("#visCntrl").on("click",".sp_model_link",function(e){
-        e.preventDefault();
-        $("#clsModelsBox").click();
-        $(".btnedicion").hide();
-		if($(".cajitaeditar").is(":visible")){
+	$("#visCntrl").on("click",".sp_model_link",function(e) {
+		e.preventDefault();
+		$("#clsModelsBox").click();
+		$(".btnedicion").hide();
+		if($(".cajitaeditar").is(":visible")) {
 			$(".btnedicion").click();
 		}
 		$(".modelname").html(map_status_name($("#txt_model_status").val()));
-        _BioModelosVisorModule.unloadAllLayers();
-		_BioModelosVisorModule.loadModel($(this).find('#imgsrc_model').val(), $('.titlethumb').val());
-
+    _BioModelosVisorModule.unloadAllLayers();
+		_BioModelosVisorModule.loadModel($(this).find('#model_layer').val());
 	});
 
 	// Reload species records

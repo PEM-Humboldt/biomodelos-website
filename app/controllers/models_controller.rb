@@ -60,11 +60,11 @@ class ModelsController < ApplicationController
 					    @thirty_t = t
 					end
 				end
-	    	end
+			end
 
-		    respond_to do |format|
-		      	format.js
-		    end
+			respond_to do |format|
+				format.js
+			end
 		rescue => e
 			logger.error "#{e.message} #{e.backtrace}"
 			err_msg = e.message.tr(?',?").delete("\n")
@@ -96,16 +96,16 @@ class ModelsController < ApplicationController
 				@can_edit = can_edit(current_user.id, params[:species_id])
 				if @can_edit
 					@models.each do |m|
-		          		@rating = Rating.where(model_id: m.modelID, user_id: current_user.id).first
-		          		@ratings[m.modelID] = @rating.blank? ? 0 : @rating.score
-		        	end
-		        end
-		        @download = Download.new
-	        end
+						@rating = Rating.where(model_id: m.modelID, user_id: current_user.id).first
+						@ratings[m.modelID] = @rating.blank? ? 0 : @rating.score
+					end
+				end
+				@download = Download.new
+			end
 
 			respond_to do |format|
-		      format.js
-		    end
+				format.js
+			end
 		rescue => e
 			logger.error "#{e.message} #{e.backtrace}"
 			err_msg = e.message.tr(?',?").delete("\n")
@@ -137,21 +137,26 @@ class ModelsController < ApplicationController
 
 	def download_model
 		@download = Download.new(download_params.merge(user_id: current_user.id))
+		model_options = JSON.parse(params[:download][:zip_url])
 		if @download.save
-	      	send_file Rails.root.join("public" + params[:download][:zip_url]), :type => 'application/zip', :disposition => 'attachment'
-	    else
+			if model_options["type"] == "file"
+				send_file Rails.root.join("public" + params[:download][:zip_url]), :type => 'application/zip', :disposition => 'attachment'
+			else
+				redirect_to geoserver_zip_path :resource => model_options["layer"], :model_id => params[:download][:model_id]
+			end
+		else
 			redirect_to species_visor_path, :flash => { :error => "Debe seleccionar el uso y aceptar los términos y condiciones para descargar un modelo." }
-	    end
-  	end
+		end
+	end
 
-  	def models_stats
-  		@models_stats = Model.models_stats
-  		render json: @models_stats
-  	end
+	def models_stats
+		@models_stats = Model.models_stats
+		render json: @models_stats
+	end
 
-  	private
+	private
 
-    	def download_params
-      		params.require(:download).permit(:user_id, :model_id, :species_id, :model_use_id, :terminos)
-    	end
+		def download_params
+			params.require(:download).permit(:user_id, :model_id, :species_id, :model_use_id, :terminos)
+		end
 end

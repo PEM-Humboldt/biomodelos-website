@@ -8,16 +8,16 @@
 		<div class="dinblock">
 			<% if continuous_t %>
 				<div class="editthumb">
-					<%= image_tag(set_path(continuous_t.thumbUrl, "thumb")) %>
+					<%= image_tag(model_thumb(continuous_t)) %>
 				</div>
 			<div class="editactions clearfix">
-					<%= button_to models_download_terms_path(:zip_url => set_path(continuous_t.zipUrl, "zip"), :box => 1, :model_id => continuous_t.modelID, :species_id => @species_id), {:class => 'pad3', :title => t('biomodelos.visor.hypotheses.download_tt'), :rel => "tooltip", :remote => true} do %>
+			<%= button_to models_download_terms_path(:zip_url => model_zip(continuous_t), :box => 1, :model_id => continuous_t.modelID, :species_id => @species_id), {:class => 'pad3', :title => t('biomodelos.visor.hypotheses.download_tt'), :rel => "tooltip", :remote => true} do %>
 						<%= image_tag("downicon.png") %>
 					<% end %>
 					<%= link_to "/#{I18n.locale}/models/#{continuous_t.modelID}/metadata",  target: "_blank", title: t('biomodelos.visor.hypotheses.metadata_tt'), rel: "tooltip"  do %>
 						<%= image_tag("metaicon.png") %>
 					<% end %>
-					<%= hidden_field_tag 'continuous_t_url', set_path(continuous_t.pngUrl, "model") %>
+					<%= hidden_field_tag 'continuous_t_url', model_layer(continuous_t).html_safe %>
 					<button class="newgrbtn btnemergencia" id="cbt_editBtn"><%= t('biomodelos.visor.contributions.edit_btn') %></a>
 			<% else %>
 				<div class="editthumb">
@@ -26,22 +26,22 @@
 				<div class="editactions clearfix">
 			<% end %>
 			<% if zero_t %>
-				<%= hidden_field_tag 'zero_t_url', set_path(zero_t.pngUrl, "model") %>
+				<%= hidden_field_tag 'zero_t_url', model_layer(zero_t).html_safe %>
 			<% else %>
 				<%= hidden_field_tag 'zero_t_url' %>
 			<% end %>
 			<% if ten_t %>
-				<%= hidden_field_tag 'ten_t_url', set_path(ten_t.pngUrl, "model") %>
+				<%= hidden_field_tag 'ten_t_url', model_layer(ten_t).html_safe %>
 			<% else %>
 				<%= hidden_field_tag 'ten_t_url' %>
 			<% end %>
 			<% if twenty_t %>
-				<%= hidden_field_tag 'twenty_t_url', set_path(twenty_t.pngUrl, "model") %>
+				<%= hidden_field_tag 'twenty_t_url', model_layer(twenty_t).html_safe %>
 			<% else %>
 				<%= hidden_field_tag 'twenty_t_url' %>
 			<% end %>
 			<% if thirty_t %>
-				<%= hidden_field_tag 'thirty_t_url', set_path(thirty_t.pngUrl, "model") %>
+				<%= hidden_field_tag 'thirty_t_url', model_layer(thirty_t).html_safe %>
 			<% else %>
 				<%= hidden_field_tag 'thirty_t_url' %>
 			<% end %>

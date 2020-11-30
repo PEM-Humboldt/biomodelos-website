@@ -88,7 +88,7 @@
 			<%= t('biomodelos.home.contribute.activities_list_html') %></br>
 			</p>
 			<% if user_signed_in? %>
-			    <%= link_to t('biomodelos.home.contribuye.profile_btn'), user_path(:id => current_user.id), class: 'botoncb' %>
+			    <%= link_to t('biomodelos.home.contribute.profile_btn'), user_path(:id => current_user.id), class: 'botoncb' %>
 			    <%= hidden_field_tag 'user_name', current_user.name %>
 			<% else %>
 			    <%= link_to t('biomodelos.log_in.log_in_btn'), new_user_session_path, class: 'botoncb' %>
