@@ -87,6 +87,22 @@ class SpeciesController < ApplicationController
 			@eoo = Model.eoo(params[:species_id])
 			@rpa = Model.rpa(params[:species_id])
 			@forest_loss = Model.forest_loss(params[:species_id])
+			@forest_loss["years"] = []
+			@forest_loss["values"] = []
+			@forest_loss.keys.sort!.select do |key|
+				matches = key.match(/statForestLoss([0-9]+)$/)
+				unless matches.nil?
+					if (matches[1].to_i >= 90)
+						@forest_loss["years"].unshift("19#{matches[1]}")
+						@forest_loss["values"].unshift(@forest_loss[key])
+					else
+						@forest_loss["years"].push("20#{matches[1]}")
+						@forest_loss["values"].push(@forest_loss[key])
+					end
+				end
+			end
+			@forest_loss["years"] = @forest_loss["years"].to_json.html_safe
+			@forest_loss["values"] = @forest_loss["values"].to_json.html_safe
 			@all_covers = Model.covers(params[:species_id])
 			# Sort the covers by value
 			@covers = nil
