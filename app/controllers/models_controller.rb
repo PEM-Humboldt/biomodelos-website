@@ -140,7 +140,7 @@ class ModelsController < ApplicationController
 		model_options = JSON.parse(params[:download][:zip_url])
 		if @download.save
 			if model_options["type"] == "file"
-				send_file Rails.root.join("public" + params[:download][:zip_url]), :type => 'application/zip', :disposition => 'attachment'
+				send_file Rails.root.join("public" + model_options["fileName"]), :type => 'application/zip', :disposition => 'attachment'
 			else
 				redirect_to geoserver_zip_path :resource => model_options["layer"], :model_id => params[:download][:model_id]
 			end
