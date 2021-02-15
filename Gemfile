@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '6.0.3.2'
+gem 'rails', '~> 6.1', '>= 6.0.3.2'
 # Dependence required by rails
-gem 'actionpack', '6.0.3.2'
+gem 'actionpack', '~> 6.1', '>= 6.0.3.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 6.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -21,7 +21,7 @@ gem 'turbolinks', '~> 5.2.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', '~> 2.0', '>= 2.0.3'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'simple_form', '>= 3.5.0'
 gem 'httparty', '~> 0.18.0' #HTTP Requests
@@ -59,4 +59,4 @@ end
 
 
 # Added at 2017-09-21 13:51:12 -0500 by valentina:
-gem "pg", "~> 0.21.0"
+gem "pg", "~> 1.2.3"

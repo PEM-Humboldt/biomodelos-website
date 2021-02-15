@@ -12,6 +12,23 @@
 			google.charts.setOnLoadCallback(drawForestLossChart);
 
 			function drawForestLossChart() {
+				var years = <%= @forest_loss["years"] %>;
+				var values = <%= @forest_loss["values"] %>;
+				var rows = [];
+				years.forEach(function(val, idx) {
+					if (idx === years.length - 1) {
+						rows.push([new Date(years[idx],0,1), values[idx], values[idx], values[idx], values[idx]]);
+					} else {
+						rows.push([new Date(years[idx],0,1), values[idx], , , ,]);
+					}
+				})
+				rows.push([
+					new Date(2030,0,1),
+					,
+					<%= @forest_loss["statFutureForest30h"].blank? ? 0 : @forest_loss["statFutureForest30h"] %>,
+					<%= @forest_loss["statFutureForest30d"].blank? ? 0 : @forest_loss["statFutureForest30d"] %>,
+					<%= @forest_loss["statFutureForest30c"].blank? ? 0 : @forest_loss["statFutureForest30c"] %>
+				]);
 
 				var data = new google.visualization.DataTable();
 				data.addColumn('date', '<%= t('biomodelos.visor.statistics.forest_graphic_year') %>');
@@ -20,14 +37,7 @@
 				data.addColumn('number', '<%= t('biomodelos.visor.statistics.forest_graphic_col_3') %>');
 				data.addColumn('number', '<%= t('biomodelos.visor.statistics.forest_graphic_col_4') %>');
 
-				data.addRows([
-					[new Date(1990,0,1), <%= @forest_loss["statForestLoss90"].blank? ? 0 : @forest_loss["statForestLoss90"] %>, , , ,],
-					[new Date(2000,0,1), <%= @forest_loss["statForestLoss00"].blank? ? 0 : @forest_loss["statForestLoss00"] %>, , , ,],
-					[new Date(2005,0,1), <%= @forest_loss["statForestLoss05"].blank? ? 0 : @forest_loss["statForestLoss05"] %>, , , ,],
-					[new Date(2010,0,1), <%= @forest_loss["statForestLoss10"].blank? ? 0 : @forest_loss["statForestLoss10"] %>, , , ,],
-					[new Date(2012,0,1), <%= @forest_loss["statForestLoss12"].blank? ? 0 : @forest_loss["statForestLoss12"] %>, <%= @forest_loss["statForestLoss12"].blank? ? 0 : @forest_loss["statForestLoss12"] %>, <%= @forest_loss["statForestLoss12"].blank? ? 0 : @forest_loss["statForestLoss12"] %>, <%= @forest_loss["statForestLoss12"].blank? ? 0 : @forest_loss["statForestLoss12"] %>,],
-					[new Date(2030,0,1), , <%= @forest_loss["statFutureForest30h"].blank? ? 0 : @forest_loss["statFutureForest30h"] %>, <%= @forest_loss["statFutureForest30d"].blank? ? 0 : @forest_loss["statFutureForest30d"] %>, <%= @forest_loss["statFutureForest30c"].blank? ? 0 : @forest_loss["statFutureForest30c"] %>]
-					]);
+				data.addRows(rows)
 
 				var options = {
 					width: 500,
@@ -43,9 +53,9 @@
 					colors: ['#124c5e','#18b4b1','#c12a26', '#e3af24']
 				};
 
-				var date_formatter = new google.visualization.DateFormat({ 
+				var date_formatter = new google.visualization.DateFormat({
 					pattern: "yyyy"
-				}); 
+				});
 				date_formatter.format(data, 0);
 
 				var chart = new google.charts.Line(document.getElementById('extchart'));
