@@ -1,17 +1,21 @@
 <% if @models && !@models.blank? %>
 	<p><%= t('biomodelos.visor.hypotheses.text_1') %></p>
-	<!-- <div class="button-group filter-button-group">
-	  <button class="filterbtn is-checked" data-filter="*">Todas</button>
+	<div class="button-group filter-button-group">
+	  <button class="filterbtn is-checked" data-filter="*">Todos</button>
 	  <button class="filterbtn" data-filter=".nivel1">Climáticos</button>
 	  <button class="filterbtn" data-filter=".nivel2">Coberturas</button>
 	  <button class="filterbtn" data-filter=".publicados">Publicados</button>
 	  <button class="filterbtn" data-filter=".validado">Validado</button>
-	</div> -->
+	</div>
 
 	<div class="grid">
 
 	<% @models.each_with_index do |model, i| %>
-		<div class="maparea publicados">
+		<% tags = model.published ? 'publicados' : '' %>
+		<% tags += model.level == 1 ? ' nivel1' : '' %>
+		<% tags += model.level == 2 ? ' nivel2' : '' %>
+		<% tags += model.modelStatus == 'Valid' ? ' validado' : '' %>
+		<div class="maparea <%= tags %>">
 			<div href="" class="mapthumb">
 				<div class="flipper">
 					<div class="front2"><%= image_tag(model_thumb(model)) %></div>
@@ -64,7 +68,6 @@
 				model), :box => 2, :model_id => model.modelID , :species_id => @species_id), {:class => 'pad3', :title => t('biomodelos.visor.hypotheses.download_tt'), :rel => "tooltip", :remote => true} do %>
 						<%= image_tag("downicon.png") %>
 					<% end %>
-				<!-- <a target="_blank" href="/models/<%= model.modelID %>/metadata" title="<%= t('biomodelos.visor.hypotheses.metadata_tt') %>" rel="tooltip" class="pad3"><%= image_tag("metaicon.png") %></a> -->
 				<%= link_to "/#{I18n.locale}/models/#{model.modelID}/metadata", target: "_blank", title: t('biomodelos.visor.hypotheses.metadata_tt'), rel: "tooltip", class: "pad3"  do %>
 					<%= image_tag("metaicon.png") %>
 				<% end %>
