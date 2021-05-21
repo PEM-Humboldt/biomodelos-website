@@ -134,7 +134,7 @@ header {
     z-index: 1003;
 }
 
-header h1 {
+header a {
 	font-size: 1.9em;
 	color: #fff;
 	letter-spacing: 1px;
@@ -259,7 +259,7 @@ footer li {
 	text-transform: uppercase;
 	font-size: 0.8em;
 	line-height: 1.8;
-	width: 105px;
+	max-width: 113px;
 }
 
 footer li a, .visorfooter li a {
@@ -315,7 +315,6 @@ a.lang {
 	*display: inline;
 	*zoom: 1;
 	vertical-align: top;
-	width: 90px;
 }
 
 .visorfooter li {
@@ -364,8 +363,8 @@ a.lang {
 .homec {
 	width: 700px;
 	position: relative;
-	top: 35%;
-	transform: translateY(-35%);
+	top: 40%;
+	transform: translateY(-20%);
 }
 
 .homeline form {
@@ -425,17 +424,6 @@ a.lang {
     justify-content: space-between;
 }
 
-.hlink {
-    justify-content: end;
-}
-
-.hlink a {
-	color: #fff;
-	font-size: 0.8em;
-	padding: 5px 0;
-	font-weight: 400;
-}
-
 .hlbtn {
 	text-align: center;
 }
@@ -443,15 +431,18 @@ a.lang {
 .hlbtn a {
 	padding: 5px 10px;
 	text-align: center;
-	width: 130px;
+	width: auto;
 	background-color: #fff;
 	display: inline-block;
 	margin: 12px 14px 0 14px;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	text-transform: uppercase;
 }
 
 .hlbtn a:hover {
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	background-color: #db3f2a;
+	color: #fff;
 }
 
 .innercontainer h1 {
@@ -472,7 +463,6 @@ a.lang {
 	position: absolute;
 	width: 720px;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-	height: 96%;
 	background-color: #fff;
 	overflow-y: auto;
 	padding: 12px 20px 12px 25px;
@@ -3037,7 +3027,7 @@ a.cajathumb p {
 	letter-spacing: 1px;
 }
 
-.sppbtn {
+.typebtn {
 	margin-top: 5px;
 }
 
@@ -3050,7 +3040,6 @@ a.cajathumb p {
 	width: 30px;
 	height: 30px;
 	margin-right: 5px;
-	margin-bottom: 10px;
 }
 
 .sppbtn label > input,
@@ -3099,10 +3088,10 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	text-transform: uppercase;
 	padding: 5px 7px;
 	margin-right: 5px;
+	margin-bottom: 5px;
 	background: none;
 	font-weight: 300;
 	letter-spacing: 0.5px;
-	margin-bottom: 10px;
 }
 
 .typebtn label > input:checked + p,
@@ -3117,7 +3106,6 @@ background-image: url(<%= asset_path 'plantbtn.png' %>);
 	border: solid 1px #db3f2a;
 	font-style: italic;
 	line-height: 1.5;
-	margin-top: 15px;
 	padding: 10px 10px 15px;
 	min-height: 150px;
 	max-height: 375px;
