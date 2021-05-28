@@ -24,7 +24,7 @@ en:
       advanced_search: 'Advanced search'
       search_ph: 'Enter species scientific name'
       go_to_species_tt: 'Go to species'
-      models_btn: 'MODELS'
+      models_btn: 'CONSULT'
       contribute_btn: 'CONTRIBUTE'
       publish_btn: 'PUBLISH'
       slogan: 'BETTER MODELS WITH SUPPORT FROM EXPERTS'
@@ -96,6 +96,7 @@ en:
         invasive: "invasive"
         threatened: "threatened"
         validated: "validated"
+        withmodel: "with model"
         no_results: "No results found."
       statistics:
         title: "Statistics on validated model"
