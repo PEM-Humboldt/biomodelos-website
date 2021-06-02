@@ -505,6 +505,24 @@ a.lang {
 	line-height: 34px;
 }
 
+.genericbtn {
+	padding: 10px 15px;
+	margin-right: 8px;
+	font-weight: 300;
+	color: #db3f2a;
+	text-align: center;
+	vertical-align: middle;
+	border: solid 1px #db3f2a;
+	display: inline-block;
+	*display: inline;
+	transition: all 1s ease;
+}
+
+.genericbtn:hover {
+	background-color: #db3f2a;
+	color: #fff;
+}
+
 .cajanews {
 	top: 25px;
 	right: 30px;
@@ -957,15 +975,17 @@ p.redsq::before	{
 	margin-left: 6px;
 	text-transform: uppercase;
 	color: #f2f2f2;
-	border: 1px solid #18b4b1;
+	border: 1px solid #fff;
 	font-size: 0.76em;
-	letter-spacing: 1px
+	letter-spacing: 1px;
+	transition: all 1s ease;
+	font-weight: 500;
 }
 
 .perfilnav > li.active > a {
-	color:#18b4b1;
+	color:#0e5c5b;
 	border:1px #fff solid;
-	font-weight: 400;
+	background-color: #fff;
 }
 
 .cajaperfil {
@@ -1492,11 +1512,14 @@ button.pad3 {
 }
 
 .groupnav a {
-	border: 1px solid #207b99;
+	border: 1px solid #fff;
+	transition: all 1s ease;
+	font-weight: 500;
 }
 
 .groupnav > li.active > a {
-	color:#db3f2a;
+	color:#124c5e;
+	background-color: #fff;
 }
 
 .groupimg {
@@ -1840,9 +1863,12 @@ p.moderlink{
 }
 
 .cajainners .closecb {
-	width: 40px;
-	height: 40px;
 	background: url(<%= asset_path 'homeicon.png' %>) top left no-repeat;
+	transition: all 1s ease;
+}
+
+.cajainners .closecb:hover {
+	background: url(<%= asset_path 'homeicon2.png' %>) top left no-repeat;
 }
 
 .botonfiltro {
@@ -1998,6 +2024,7 @@ p.moderlink{
 	color:#db3f2a;
 	background: none;
 	margin-top: 15px;
+	transition: all 1s ease;
 }
 
 .newgrbtn:hover {
@@ -2010,7 +2037,6 @@ p.moderlink{
 }
 
 .btnact {
-	border:none;
 	background-color: #db3f2a;
 	color: #fff;
 }
