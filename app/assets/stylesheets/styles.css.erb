@@ -127,7 +127,7 @@ div.google-visualization-tooltip { pointer-events: none !important } /* flickeri
 header {
 	width: 100%;
 	background-color: #1b3337;
-	padding: 12px 30px;
+	padding: 12px 15px 12px 30px;
 	display: flex;
     justify-content: space-between;
     position: relative;
@@ -143,7 +143,6 @@ header a {
 
 header nav ul {
 	display: inline-block;
-	margin-top: 6px;
 }
 
 header nav li {
@@ -168,6 +167,7 @@ header nav li a:hover {
 
 .usuario {
     display: inline-block;
+    vertical-align: middle;
 }
 
 .usuario a {
@@ -176,12 +176,11 @@ header nav li a:hover {
 	padding: 0 9px;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	max-width: auto;
 	vertical-align: text-top;
 	cursor: pointer;
 	max-width: 240px;
 	border: none !important;
-	font-size: 1em;
+	font-size: 0.8em;
 }
 
 .xsalir {
@@ -190,8 +189,7 @@ header nav li a:hover {
     height: 17px;
     background-image: url(<%= asset_path 'logout.png' %>);
     background-repeat: no-repeat;
-    vertical-align: text-bottom;
-    margin-top: 3px;
+    vertical-align: middle;
 }
 
 .current {
