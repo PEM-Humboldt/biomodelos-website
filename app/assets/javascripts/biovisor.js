@@ -605,9 +605,9 @@ var _BioModelosVisorModule = function() {
 		polygonDelete.disable();
 	}
 
-	var drawSinglePoint = function(){
-		drawObject('Marker', false);
-	}
+  var drawSinglePoint = function(){
+    drawObject('Marker', false);
+  }
 
 	var clearLayer = function(layer){
 		if(map.hasLayer(layer)) {
