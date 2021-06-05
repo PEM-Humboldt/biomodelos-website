@@ -1,0 +1,9 @@
+$("#new_record_box").html("");
+$("#btnAddSingleRecord").toggleClass("btngenact");
+_BioModelosVisorModule.cancelAddPoint();
+_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val(), true)
+$("body").append('<div class="alert alert-<%= @key %>" id="flashm"><%= @message %></div>');
+setTimeout(function(){
+  $('#flashm').remove();
+}, 3500);
+

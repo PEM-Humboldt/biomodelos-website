@@ -587,6 +587,10 @@ es:
         upload_photo_btn: "SUBIR FOTO"
         submit_btn: "GUARDAR"
     records:
+      new_record: "NUEVO REGISTRO DE"
+      submit_btn: "GUARDAR"
+      error_new_record: "Hubo un error al crear el registro"
+      success_new_record: "Registro creado exitosamente"
       metadata:
         title: "Metadatos registros"
         sources: "FUENTES"

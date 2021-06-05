@@ -9,6 +9,19 @@ class RecordsController < ApplicationController
     	end
 	end
 
+	def new_form
+		@record = {
+      "lat" => params[:lat],
+      "lon" => params[:lon],
+      "tax" => params[:tax],
+      "user" => params[:user],
+      "spName" => params[:spName]
+    }
+		respond_to do |format|
+			format.js
+		end
+	end
+
 	def edit_record
 		@can_edit = false
 		if user_signed_in?
@@ -45,12 +58,28 @@ class RecordsController < ApplicationController
     	end
 	end
 
-	def new_record
-		Record.new_record(params)
-		respond_to do |format|
-      		format.js
-    	end
-	end
+  def new_record
+    new_record = new_record_params()
+    unless new_record[:date].empty?
+      mydate = Date.parse(new_record[:date])
+      new_record[:year] = mydate.year
+      new_record[:month] = mydate.month
+      new_record[:day] = mydate.day
+      new_record.delete(:date)
+    end
+    @message = ''
+    begin
+      Record.new_record(new_record)
+      @message = t('biomodelos.records.success_new_record')
+      @key = 'notice'
+    rescue => myError
+      @message = t('biomodelos.records.error_new_record')
+      @key = 'error'
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
 
 	def records_metadata
 		begin
@@ -68,5 +97,14 @@ class RecordsController < ApplicationController
 			redirect_to root_path, :flash => { :error => "Error intentando obtener los metadatos de registro: #{err_msg}" }
 	    end
 	end
+
+  def new_record_params
+    params[:new_record]
+      .permit([
+        :decimalLatitude, :decimalLongitude, :verbatimLocality, :acceptedNameUsage, :userIdBm,
+        :taxID, :verbatimElevation, :date, :stateProvince, :county, :basisOfRecord, :recordedBy,
+        :createdCitationBm, :catalogNumber, :collectionCode, :institutionCode, :createdCommentsBm
+      ]).to_h
+  end
 
 end

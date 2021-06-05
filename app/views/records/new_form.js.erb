@@ -1,0 +1,9 @@
+$("#new_record_box").html("");
+$("#new_record_box").html('<%=j render partial: 'records/new_form' %>');
+
+$("#close_new").click(function(e){
+  e.preventDefault();
+  $("#new_record_box").html("");
+  $("#btnAddSingleRecord").toggleClass("btngenact");
+  _BioModelosVisorModule.cancelAddPoint();
+});

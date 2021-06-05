@@ -1,0 +1,130 @@
+<div class="cajavisor2" >
+  <div class="dialog regdialog nobox">
+    <h1><%= t('biomodelos.records.new_record') %></br>
+      <em><%= @record["spName"] %></em>
+    </h1>
+    <a class="closevb vatop" id="close_new">x</a>
+    <div class="clearfix"></div>
+    <%= simple_form_for(:new_record, :url => records_new_record_path, method: :post, :remote => true, html: { id: 'new_record' }) do |f| %>
+      <div class="field">
+        <%= f.label :decimalLatitude, title: t('simple_form.labels.new_record.decimalLatitude') %>
+        <%= f.input :decimalLatitude, as: :float, required: true, autofocus: "off", label: false, input_html: { value: @record["lat"] } %>
+      </div>
+
+      <div class="field">
+        <%= f.label :decimalLongitude, title: t('simple_form.labels.new_record.decimalLongitude') %>
+        <%= f.input :decimalLongitude, as: :float, required: true, autofocus: "off", label: false, input_html: { value: @record["lon"] } %>
+      </div>
+
+      <div class="field">
+        <%= f.label :verbatimElevation, title: t('simple_form.labels.new_record.verbatimElevation'), required: false %>
+        <%= f.input :verbatimElevation, as: :float, required: false, autofocus: "off", label: false %>
+      </div>
+
+      <div class="field">
+        <%= f.label :date, title: t('simple_form.labels.new_record.date'), required: false %>
+        <%= f.input :date, as: :date, required: false, autofocus: "off", label: false, html5: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :stateProvince, title: t('simple_form.labels.new_record.stateProvince'), required: false %>
+        <%= f.input :stateProvince, as: :select, collection: states(), required: false, autofocus: "off", label: false %>
+      </div>
+
+      <div class="field">
+        <%= f.label :county, title: t('simple_form.labels.new_record.county'), required: false %>
+        <%= f.input :county, as: :select, collection: [], required: false, autofocus: "off", label: false %>
+      </div>
+
+      <div class="field">
+        <%= f.label :verbatimLocality, title: t('simple_form.labels.new_record.verbatimLocality'), required: true %>
+        <%= f.input :verbatimLocality, as: :string, required: true, autofocus: "off", label: false %>
+      </div>
+
+      <div class="field">
+        <%= f.label :basisOfRecord, title: t('simple_form.labels.new_record.basisOfRecord'), required: false %>
+        <%= f.input :basisOfRecord, as: :select, collection: basisOfRecords(), required: false, autofocus: "off", label: false %>
+      </div>
+
+      <div class="field">
+        <%= f.label :recordedBy, title: t('simple_form.labels.new_record.recordedBy'), required: false %>
+        <%= f.input :recordedBy, as: :string, required: false, autofocus: "off", label: false %>
+      </div>
+
+      <div class="field">
+        <%= f.label :createdCitationBm, title: t('simple_form.labels.new_record.createdCitationBm'), required: false %>
+        <%= f.input :createdCitationBm, as: :string, required: false, autofocus: "off", label: false %>
+      </div>
+
+      <div class="field">
+        <%= f.label :catalogNumber, title: t('simple_form.labels.new_record.catalogNumber'), required: false %>
+        <%= f.input :catalogNumber, as: :string, required: false, autofocus: "off", label: false %>
+      </div>
+
+      <div class="field">
+        <%= f.label :collectionCode, title: t('simple_form.labels.new_record.collectionCode'), required: false %>
+        <%= f.input :collectionCode, as: :string, required: false, autofocus: "off", label: false %>
+      </div>
+
+      <div class="field">
+        <%= f.label :institutionCode, title: t('simple_form.labels.new_record.institutionCode'), required: false %>
+        <%= f.input :institutionCode, as: :string, required: false, autofocus: "off", label: false %>
+      </div>
+
+      <div class="field">
+        <%= f.label :createdCommentsBm, title: t('simple_form.labels.new_record.createdCommentsBm'), required: false %>
+        <%= f.input :createdCommentsBm, as: :text, required: false, autofocus: "off", label: false %>
+      </div>
+
+      <%= f.input_field :acceptedNameUsage, as: :hidden, required: true, autofocus: "off", label: false, value: @record["spName"] %>
+      <%= f.input_field :userIdBm, as: :hidden, required: true, autofocus: "off", label: false, value: @record["user"] %>
+      <%= f.input_field :taxID, as: :hidden, required: true, autofocus: "off", label: false, value: @record["tax"] %>
+
+      <%= f.submit t('biomodelos.records.submit_btn'), id: 'submit_new_record' %>
+    <% end %>
+  </div>
+</div>
+
+<% if I18n.locale != :en %>
+  <%= javascript_include_tag src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/localization/messages_#{I18n.locale}.js" %>
+<% end %>
+
+<script>
+  // Control counties selector
+  var counties = [];
+  <% counties().each do |c| %>
+    counties.push(['<%= c[0] %>', '<%= c[1] %>'])
+  <% end %>
+  $("#new_record_stateProvince").on("change", function(e) {
+    var sel = e.target.value
+    $("#new_record_county").empty()
+    $("#new_record_county").append(`<option value="" label=" "></option>`)
+    if (sel !== '') {
+      var options = counties.filter(function(c) {
+        return c[0] === sel
+      })
+      options.forEach(function(opt) {
+        $("#new_record_county").append(
+          $('<option></option>').val(opt[1]).html(opt[1])
+        )
+      })
+    }
+  })
+
+  // Validate form before send it
+  $("#new_record").validate({
+    locale: 'ES',
+    errorClass: "form-invalid",
+    rules: {
+      "new_record[lat]": {
+        range: [-90, 90]
+      },
+      "new_record[lon]": {
+        range: [-180, 180]
+      },
+      "new_record[alt]": {
+        range: [0, 10000]
+      }
+    },
+  });
+</script>
