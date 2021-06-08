@@ -1,6 +1,6 @@
 <h1><%= t('biomodelos.groups.profile.species_tab') %></h1>
 <% if @current_group_user %>
-	<a ng-click="sugeridor=!sugeridor; activeButton()" ng-class="{'btnact': isActive}" class="closecb"><%= t('biomodelos.groups.species.suggest') %></a>
+	<a ng-click="sugeridor=!sugeridor; activeButton()" ng-class="{'btnact': isActive}" class="genericbtn"><%= t('biomodelos.groups.species.suggest') %></a>
 	<div ng-show="sugeridor" class="sugeridor">
 		<%= simple_form_for @groups_species, :remote => true do |f| %>
 			<%= text_field_tag :query, '', :id => 'search_form', :placeholder => t('biomodelos.home.search_ph'), :include_blank => false, :rel => 'autocomplete' %>
