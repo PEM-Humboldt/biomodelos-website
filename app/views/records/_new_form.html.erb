@@ -116,13 +116,13 @@
     locale: 'ES',
     errorClass: "form-invalid",
     rules: {
-      "new_record[lat]": {
+      "new_record[decimalLatitude]": {
         range: [-90, 90]
       },
-      "new_record[lon]": {
+      "new_record[decimalLongitude]": {
         range: [-180, 180]
       },
-      "new_record[alt]": {
+      "new_record[verbatimElevation]": {
         range: [0, 10000]
       }
     },

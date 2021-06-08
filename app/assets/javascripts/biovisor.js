@@ -20,22 +20,36 @@ var _BioModelosVisorModule = function() {
 		polygonDrawer,
 		modelLayer;
 
-	var redIcon = new L.Icon({	iconUrl: '/assets/redmarker.png',
-       							shadowUrl: "/assets/marker-shadow.png",
-	       						iconSize:    [25, 25],
-								iconAnchor:  [12, 25],
-								popupAnchor: [1, -25],
-								tooltipAnchor: [16, -28],
-								shadowAnchor: [7, 25],
-								shadowSize:  [25, 25]}),
-       	blueIcon = new L.Icon({	iconUrl: '/assets/regperfil.png',
-       			  				shadowUrl: "/assets/marker-shadow.png",
-       			  				iconSize:    [25, 25],
-								iconAnchor:  [12, 25],
-								popupAnchor: [1, -25],
-								tooltipAnchor: [16, -28],
-								shadowAnchor: [7, 25],
-								shadowSize:  [25, 25]});
+	var redIcon = new L.Icon({
+    iconUrl: '/assets/redmarker.png',
+    shadowUrl: "/assets/marker-shadow.png",
+    iconSize:    [25, 25],
+    iconAnchor:  [12, 25],
+    popupAnchor: [1, -25],
+    tooltipAnchor: [16, -28],
+    shadowAnchor: [7, 25],
+    shadowSize:  [25, 25]
+  });
+  var blueIcon = new L.Icon({
+    iconUrl: '/assets/regperfil.png',
+    shadowUrl: "/assets/marker-shadow.png",
+    iconSize:    [25, 25],
+    iconAnchor:  [12, 25],
+    popupAnchor: [1, -25],
+    tooltipAnchor: [16, -28],
+    shadowAnchor: [7, 25],
+    shadowSize:  [25, 25]
+  })
+  var greenIcon = new L.Icon({
+    iconUrl: '/assets/greenmarker.png',
+    shadowUrl: "/assets/marker-shadow.png",
+    iconSize:    [25, 25],
+    iconAnchor:  [12, 25],
+    popupAnchor: [1, -25],
+    tooltipAnchor: [16, -28],
+    shadowAnchor: [7, 25],
+    shadowSize:  [25, 25]
+  });
 
     var headers = {
     					"acceptedNameUsage":"Nombre aceptado",
@@ -138,7 +152,7 @@ var _BioModelosVisorModule = function() {
 		});
 
 		//Point handler
-		pointDrawer = new L.Draw.Marker(map, {icon: blueIcon});
+		pointDrawer = new L.Draw.Marker(map, { icon: greenIcon });
 
 		//Threshold layers
 		thresholdLayers = new L.layerGroup();
@@ -406,6 +420,11 @@ var _BioModelosVisorModule = function() {
         layer.addTo(editableLayer);
       }
       $(".polig").removeClass("polibtnact");
+      newRecordMarker.on('click', function(e) {
+        if ($('#regboxclose').length) {
+          $('#regboxclose').trigger('click')
+        }
+      })
     });
 
 		map.on('popupclose', function(e) {
