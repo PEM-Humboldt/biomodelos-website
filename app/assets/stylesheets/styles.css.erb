@@ -777,7 +777,8 @@ p.redsq::before	{
 	color: #6c6c6c;
 }
 
-.loginbox abbr {
+.loginbox abbr,
+.field label.required abbr {
 	text-decoration: none;
 	color: red;
 }
@@ -804,6 +805,20 @@ p.redsq::before	{
 	width: 100%;
 	padding: 5px;
 	margin-top: 5px;
+}
+
+#new_record input::-webkit-outer-spin-button,
+#new_record input::-webkit-inner-spin-button {
+	display: none;
+}
+#new_record input[type=number] {
+	-moz-appearance: textfield;
+}
+
+#new_record .select {
+	display: revert;
+	color: revert;
+	border: revert;
 }
 
 .loginbox textarea, .reportar textarea {
@@ -841,7 +856,8 @@ p.redsq::before	{
 
 .editbox input[type="submit"],
 .hipotesis input[type="submit"],
-.loginbox input[type="submit"] {
+.loginbox input[type="submit"],
+#new_record input[type="submit"] {
 	background: none;
 	padding: 10px 16px 10px;
 	font-weight: 300;
@@ -881,7 +897,8 @@ p.redsq::before	{
 	line-height: 2;
 }
 
-.loginbox label {
+.loginbox label,
+#new_record label {
 	color: #393836;
 	letter-spacing: 0.5px;
 	padding-top: 5px;
@@ -2957,6 +2974,10 @@ a.cajathumb p {
 	top:60px;
 }
 
+#show_record_box .cajavisor2 {
+	z-index: 1002;
+}
+
 .vcbase h1 {
 	padding: 0 0 13px 0;
 	margin-top: 0;
@@ -4061,11 +4082,6 @@ label.checkboxdown {
 	margin-bottom: 10px;
 }
 
-.regform label {
-	padding-right: 4px;
-	padding-left: 4%;
-}
-
 .centering {
 	text-align: center;
 }
@@ -4087,30 +4103,6 @@ a.vermasreg b {
 
 a.vermasreg:hover {
 	color: #fff;
-}
-
-.regform ::-webkit-input-placeholder {
-   color: #1b3337 !important;
-   font-family: 'Lato', sans-serif !important;
-   font-size: 13px;
-}
-
-.regform :-moz-placeholder { /* Firefox 18- */
-   color: #1b3337 !important;
-   font-family: 'Lato', sans-serif !important;
-   font-size: 13px;
-}
-
-.regform ::-moz-placeholder {  /* Firefox 19+ */
-   color: #1b3337 !important;
-   font-family: 'Lato', sans-serif !important;
-   font-size: 13px;
-}
-
-.regform :-ms-input-placeholder {
-   color: #1b3337 !important;
-   font-family: 'Lato', sans-serif !important;
-   font-size: 13px;
 }
 
 /*#point_lat::after {

@@ -587,6 +587,10 @@ en:
         upload_photo_btn: "UPLOAD PHOTO"
         submit_btn: "SAVE"
     records:
+      new_record: "NEW RECORD FOR"
+      submit_btn: "SAVE"
+      error_new_record: "There was an error creating the record"
+      success_new_record: "Record created successfully"
       metadata:
         title: "Records metadata"
         sources: "SOURCES"

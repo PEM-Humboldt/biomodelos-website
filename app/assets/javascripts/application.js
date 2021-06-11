@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-validation
 //= require angular/angular.min
 //= require angular-animate/angular-animate.min
 //= require typeahead.js/dist/typeahead.bundle.min.js
