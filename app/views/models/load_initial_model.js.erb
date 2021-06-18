@@ -4,11 +4,17 @@
 	$(".modelname").html("<%= map_status_name(@init_model.modelStatus) %>");
 	if(<%= @init_model.modelStatus == 'Developing' %> && !$(".modelname").hasClass("gradient"))
         $(".modelname").addClass("gradient");
-	<% if !@popup_content.blank? %>
-		alertify.alert("<%= @popup_content %>");
-	<% end %>
 <% else %>
 	$(".modelname").html("");
 	$(".modelname").hide();
-	alertify.alert("<%= t('biomodelos.models.init.no_model') %>");
+<% end %>
+
+<% unless @alert_log.empty %>
+  $('#alertlogbtn').on('click', function() {
+    $('#alert_log').html('<%=j render partial: 'layouts/alert_log' %>');
+  })
+  <% if @alert_log.any? {|a| !a["shown"]} %>
+    $("#alerts").html('<%=j render partial: 'layouts/alert' %>');
+    $("#alertlogbtn").show();
+  <% end %>
 <% end %>
