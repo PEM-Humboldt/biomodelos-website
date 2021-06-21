@@ -55,12 +55,24 @@ class RecordsController < ApplicationController
 			@can_edit = can_edit(current_user.id, params[:species_id])
 		end
 		respond_to do |format|
-      		format.json { render :json => @can_edit }
-    	end
+      format.json { render :json => @can_edit }
+    end
 	end
 
 	def update_record
-		Record.update_record(params)
+    @alerts_to_show = []
+    begin
+		  Record.update_record(params)
+      @alerts_to_show.push({
+        "message" => t("biomodelos.records.edit.success_notice"),
+        "type" => "notice"
+      })
+    rescue => myError
+      @alerts_to_show.push({
+        "message" => t('biomodelos.records.edit.error_notice'),
+        "type" => 'error'
+      })
+    end
 		respond_to do |format|
 			format.js
 		end

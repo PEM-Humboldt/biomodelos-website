@@ -602,6 +602,9 @@ en:
         collectors: "Collectors"
         collaborators: "Curatorship collaborators"
         citation: "Citation"
+      edit:
+        success_notice: "Record updated successfully"
+        error_notice: "An error occurred while updating the record"
       report:
         title: "RECORD REPORT"
         outlier_lbl: "Geographic outlier"

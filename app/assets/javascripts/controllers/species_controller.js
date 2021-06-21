@@ -538,10 +538,6 @@ $(document).ready(function() {
 				.done(function() {
 					$.post( "/records/show", { id: $("span#record_id").text()}).done();
 					_refreshSpeciesRecords();
-					alertify.alert("Su edición se ha realizado con éxito");
-				})
-				.fail(function(jqXHR, textStatus, errorThrown){
-					alertify.alert("Ha ocurrido un error al editar el registro: " + textStatus);
 				});
 		}
   });
