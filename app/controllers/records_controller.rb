@@ -67,14 +67,18 @@ class RecordsController < ApplicationController
       new_record[:day] = mydate.day
       new_record.delete(:date)
     end
-    @message = ''
+    @alerts_to_show = []
     begin
       Record.new_record(new_record)
-      @message = t('biomodelos.records.success_new_record')
-      @key = 'notice'
+      @alerts_to_show.push({
+        "message" => t('biomodelos.records.success_new_record'),
+        "type" => 'notice'
+      })
     rescue => myError
-      @message = t('biomodelos.records.error_new_record')
-      @key = 'error'
+      @alerts_to_show.push({
+        "message" => t('biomodelos.records.error_new_record'),
+        "type" => 'error'
+      })
     end
     respond_to do |format|
       format.js
