@@ -51,12 +51,24 @@ class RecordsController < ApplicationController
 		end
 	end
 
-	def new_report
-		Record.report_record(params)
-		respond_to do |format|
-      		format.js
-    	end
-	end
+  def new_report
+    @alerts_to_show = []
+    begin
+      Record.report_record(params)
+      @alerts_to_show.push({
+        "message" => t("biomodelos.records.report.success_notice"),
+        "type" => "notice"
+      })
+    rescue => myError
+      @alerts_to_show.push({
+        "message" => t('biomodelos.records.report.error_notice'),
+        "type" => 'error'
+      })
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
 
   def new_record
     new_record = new_record_params()

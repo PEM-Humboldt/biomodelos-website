@@ -615,7 +615,7 @@ es:
         cancel_lnk: "cancelar"
         sign_up_notice: "Debe estar registrado para poder reportar un registro"
         success_notice: "Su reporte se ha realizado con éxito"
-        error_notice: "Ha ocurrido un error al reportar el registro: "
+        error_notice: "Ha ocurrido un error al reportar el registro"
     models:
       metadata:
         title: "Metadatos modelo"

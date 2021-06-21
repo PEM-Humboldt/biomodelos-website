@@ -81,11 +81,7 @@ if (errors) {
 		data: data.data,
 		success: function(){
 			_refreshSpeciesRecordsReport();
-			alertify.alert('<%= t("biomodelos.records.report.success_notice") %>');
 			$('.reportBox').html('');
-		},
-		error: function(jqXHR, textStatus, errorThrown){
-			alertify.alert('<%= t("biomodelos.records.report.error_notice") %>' + errorThrown);
 		}
 	});
 }

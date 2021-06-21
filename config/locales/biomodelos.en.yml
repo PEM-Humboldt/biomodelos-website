@@ -615,7 +615,7 @@ en:
         cancel_lnk: "cancel"
         sign_up_notice: "You must be registered to be able to report a record"
         success_notice: "Your report has been successful"
-        error_notice: "An error occurred while reporting the record: "
+        error_notice: "An error occurred while reporting the record"
     models:
       metadata:
         title: "Models metadata"
