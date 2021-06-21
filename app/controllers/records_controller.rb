@@ -22,6 +22,33 @@ class RecordsController < ApplicationController
 		end
 	end
 
+  def new_record
+    new_record = new_record_params()
+    unless new_record[:date].empty?
+      mydate = Date.parse(new_record[:date])
+      new_record[:year] = mydate.year
+      new_record[:month] = mydate.month
+      new_record[:day] = mydate.day
+      new_record.delete(:date)
+    end
+    @alerts_to_show = []
+    begin
+      Record.new_record(new_record)
+      @alerts_to_show.push({
+        "message" => t('biomodelos.records.success_new_record'),
+        "type" => 'notice'
+      })
+    rescue => myError
+      @alerts_to_show.push({
+        "message" => t('biomodelos.records.error_new_record'),
+        "type" => 'error'
+      })
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
 	def edit_record
 		@can_edit = false
 		if user_signed_in?
@@ -62,33 +89,6 @@ class RecordsController < ApplicationController
     rescue => myError
       @alerts_to_show.push({
         "message" => t('biomodelos.records.report.error_notice'),
-        "type" => 'error'
-      })
-    end
-    respond_to do |format|
-      format.js
-    end
-  end
-
-  def new_record
-    new_record = new_record_params()
-    unless new_record[:date].empty?
-      mydate = Date.parse(new_record[:date])
-      new_record[:year] = mydate.year
-      new_record[:month] = mydate.month
-      new_record[:day] = mydate.day
-      new_record.delete(:date)
-    end
-    @alerts_to_show = []
-    begin
-      Record.new_record(new_record)
-      @alerts_to_show.push({
-        "message" => t('biomodelos.records.success_new_record'),
-        "type" => 'notice'
-      })
-    rescue => myError
-      @alerts_to_show.push({
-        "message" => t('biomodelos.records.error_new_record'),
         "type" => 'error'
       })
     end
