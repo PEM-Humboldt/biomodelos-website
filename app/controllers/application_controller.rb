@@ -30,6 +30,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def update_alert_log
+    session[:alert_log] = @alert_log
+  end
+
   def clean_alert_log
     session[:alert_log] = []
   end
