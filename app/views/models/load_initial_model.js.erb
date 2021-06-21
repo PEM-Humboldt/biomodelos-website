@@ -9,12 +9,12 @@
 	$(".modelname").hide();
 <% end %>
 
-<% unless @alert_log.empty %>
+<% unless @alert_log.empty? %>
+  $("#alertlogbtn").show();
   $('#alertlogbtn').on('click', function() {
     $('#alert_log').html('<%=j render partial: 'layouts/alert_log' %>');
   })
-  <% if @alert_log.any? {|a| !a["shown"]} %>
-    $("#alerts").html('<%=j render partial: 'layouts/alert' %>');
-    $("#alertlogbtn").show();
-  <% end %>
+<% end %>
+<% unless @alerts_to_show.empty? %>
+  $("#alerts").html('<%=j render partial: 'layouts/alert' %>');
 <% end %>

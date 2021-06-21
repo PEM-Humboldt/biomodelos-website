@@ -16,48 +16,32 @@ class ModelsController < ApplicationController
 		@valid_model = Model.get_valid_model(params[:species_id])
 		@hypotheses = Model.get_hypotheses(params[:species_id])
 		@continuous_model = Model.get_continous_model(params[:species_id])
+    alert = nil
+    @alerts_to_show = []
 
 		if @valid_model
 			@init_model = @valid_model
 			if @hypotheses.size > 0
-        @alert_log.unshift({
-          "message" => I18n.t('biomodelos.models.init.case_2'),
-          "shown" => false,
-          "type" => 'notice'
-        })
+        alert = { "message" => I18n.t('biomodelos.models.init.case_2'), "type" => "notice" }
 			end
 		elsif @hypotheses.size > 0
 			if @hypotheses.size == 1
 				@init_model = @hypotheses[0]
-        @alert_log.unshift({
-          "message" => I18n.t('biomodelos.models.init.case_3'),
-          "shown" => false,
-          "type" => 'notice'
-        })
+        alert = { "message" => I18n.t('biomodelos.models.init.case_3'), "type" => "notice" }
 			else
 				@init_model = Model.get_best_hypothesis(@hypotheses)
-        @alert_log.unshift({
-          "message" => I18n.t('biomodelos.models.init.case_4'),
-          "shown" => false,
-          "type" => 'notice'
-        })
+        alert = { "message" => I18n.t('biomodelos.models.init.case_4'), "type" => "notice" }
 			end
 		elsif @continuous_model
 			@init_model = @continuous_model
-      @alert_log.unshift({
-        "message" => I18n.t('biomodelos.models.init.case_5'),
-        "shown" => false,
-        "type" => 'notice'
-      })
+      alert = { "message" => I18n.t('biomodelos.models.init.case_5'), "type" => "notice" }
 		else
-      @alert_log.unshift({
-        "message" => I18n.t('biomodelos.models.init.no_model'),
-        "shown" => false,
-        "type" => 'error'
-      })
+      alert = { "message" => I18n.t('biomodelos.models.init.no_model'), "type" => "error" }
 		end
 
-		update_alert_log()
+    @alert_log.unshift(alert)
+    @alerts_to_show.push(alert)
+    update_alert_log()
 		respond_to do |format|
 		    format.js
 		end

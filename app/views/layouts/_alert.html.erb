@@ -1,16 +1,8 @@
 <% alerts = []%>
-<%
-  @alert_log.each_index do |idx|
-    unless @alert_log[idx]['shown']
-      alerts.push(@alert_log[idx])
-      @alert_log[idx]['shown'] = true
-    end
-  end
-%>
-<div id="flashm" class="alert"></div>
+<div id="flash" class="alert"></div>
 <script>
   var alerts = [];
-  <% alerts.each do |a| %>
+  <% @alerts_to_show.each do |a| %>
     alerts.push(['<%= a['type'] %>', '<%= a['message'] %>'])
   <% end %>
 
@@ -18,17 +10,16 @@
   var interval;
   function nextAlert() {
     if (idx < alerts.length) {
-      $("#flashm")
+      $("#flash")
         .html(alerts[idx][1])
         .removeClass("alert-notice alert-error")
         .addClass(`alert-${alerts[idx][0]}`);
       idx++;
-    } else {
-      $("#flashm").remove();
-      clearInterval(interval);
-    }
+      } else {
+        $("#flash").remove();
+        clearInterval(interval);
+      }
   }
   nextAlert();
   interval = setInterval(nextAlert, 3500);
 </script>
-<% update_alert_log() %>
