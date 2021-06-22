@@ -37,7 +37,7 @@ $ git clone git://github.com/LBAB-Humboldt/BioModelos.v2.git
 
 To build the database according to the schema file using the SQL Service, you should follow the next steps:
 
-1. Create a [database.yml](https://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) file with the configuration of your SQL Service and add it to the */config/* path.
+1. Create a [database.yml](https://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) file with the configuration of your SQL Service and add it to the */config/* path. Use *database_template.yml* as a template which is located at */config/* folder
 2. Once you have the Docker container running, you may execute the **migrations** (*/db/migrate/*) following [this guide](https://edgeguides.rubyonrails.org/active_record_migrations.html#running-migrations).
 
 ## Configuration
