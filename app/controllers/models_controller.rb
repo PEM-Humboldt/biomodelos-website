@@ -40,7 +40,6 @@ class ModelsController < ApplicationController
 		end
 
     @alert_log.unshift(alert)
-    @alerts_to_show.push(alert)
     update_alert_log()
 		respond_to do |format|
 		    format.js

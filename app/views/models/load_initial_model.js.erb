@@ -3,17 +3,15 @@
 	$(".modelname").show();
 	$(".modelname").html("<%= map_status_name(@init_model.modelStatus) %>");
 	if(<%= @init_model.modelStatus == 'Developing' %> && !$(".modelname").hasClass("gradient"))
-        $(".modelname").addClass("gradient");
+    $(".modelname").addClass("gradient");
 <% else %>
-	$(".modelname").html("");
-	$(".modelname").hide();
+	$(".modelname").html("Sin modelo");
+	$(".modelname").show();
 <% end %>
 
 <% unless @alert_log.empty? %>
-  $("#alertlogbtn").show();
-  $('#alertlogbtn').on('click', function() {
-    $('#alert_log').html('<%=j render partial: 'layouts/alert_log' %>');
-  })
+  $("#model-status-btn").show();
+  $('#model-status-info').html('<%=j render partial: 'models/model_status_info' %>');
 <% end %>
 <% unless @alerts_to_show.empty? %>
   $("#alerts").html('<%=j render partial: 'layouts/alert' %>');

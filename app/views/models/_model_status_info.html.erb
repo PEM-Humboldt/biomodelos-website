@@ -1,0 +1,17 @@
+<div class="model-status status-open">
+  <% @alert_log.each do |a| %>
+    <p>
+      <%= a['message'] %>
+    </p>
+  <% end %>
+</div>
+
+<script>
+  setTimeout(function(){
+    $('.model-status').toggleClass('status-open');
+  }, 3500);
+  $('#model-status-btn').on('click', function() {
+    $('.model-status').toggleClass('status-open');
+    $("#model-status-btn").toggleClass('arrow-status');
+  })
+</script>
