@@ -1,7 +1,5 @@
 class ModelsController < ApplicationController
 	include UsersHelper
-	include ApplicationHelper
-	before_action :load_alert_log
 
 	# Sets the initial model to be loaded and the pop-up content based on:
 	# 1. There's only a valid model.
@@ -16,31 +14,28 @@ class ModelsController < ApplicationController
 		@valid_model = Model.get_valid_model(params[:species_id])
 		@hypotheses = Model.get_hypotheses(params[:species_id])
 		@continuous_model = Model.get_continous_model(params[:species_id])
-    alert = nil
-    @alerts_to_show = []
+    @model_status = nil
 
 		if @valid_model
 			@init_model = @valid_model
 			if @hypotheses.size > 0
-        alert = { "message" => I18n.t('biomodelos.models.init.case_2'), "type" => "notice" }
+        @model_status = I18n.t('biomodelos.models.init.case_2')
 			end
 		elsif @hypotheses.size > 0
 			if @hypotheses.size == 1
 				@init_model = @hypotheses[0]
-        alert = { "message" => I18n.t('biomodelos.models.init.case_3'), "type" => "notice" }
+        @model_status = I18n.t('biomodelos.models.init.case_3')
 			else
 				@init_model = Model.get_best_hypothesis(@hypotheses)
-        alert = { "message" => I18n.t('biomodelos.models.init.case_4'), "type" => "notice" }
+        @model_status = I18n.t('biomodelos.models.init.case_4')
 			end
 		elsif @continuous_model
 			@init_model = @continuous_model
-      alert = { "message" => I18n.t('biomodelos.models.init.case_5'), "type" => "notice" }
+      @model_status = I18n.t('biomodelos.models.init.case_5')
 		else
-      alert = { "message" => I18n.t('biomodelos.models.init.no_model'), "type" => "error" }
+      @model_status = I18n.t('biomodelos.models.init.no_model')
 		end
 
-    @alert_log.unshift(alert)
-    update_alert_log()
 		respond_to do |format|
 		    format.js
 		end

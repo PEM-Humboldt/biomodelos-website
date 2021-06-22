@@ -1,9 +1,7 @@
 <div class="model-status status-open">
-  <% @alert_log.each do |a| %>
-    <p>
-      <%= a['message'] %>
-    </p>
-  <% end %>
+  <p>
+    <%= @model_status %>
+  </p>
 </div>
 
 <script>

@@ -21,20 +21,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :terms_of_service, :data_policy])
     devise_parameter_sanitizer.permit(:account_update, keys: [:email, :name, :location, :organization, :bio, :expertise, :password, :password_confirmation, :current_password, :avatarURL])
   end
-
-  def load_alert_log
-    unless session[:alert_log].nil?
-      @alert_log = session[:alert_log]
-    else
-      @alert_log = []
-    end
-  end
-
-  def update_alert_log
-    session[:alert_log] = @alert_log
-  end
-
-  def clean_alert_log
-    session[:alert_log] = []
-  end
 end

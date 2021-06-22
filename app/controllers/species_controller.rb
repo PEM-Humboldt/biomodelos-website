@@ -10,7 +10,6 @@ class SpeciesController < ApplicationController
   	end
 
   def visor
-    clean_alert_log()
     @skip_footer = true
   end
 

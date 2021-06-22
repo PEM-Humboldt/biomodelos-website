@@ -9,10 +9,7 @@
 	$(".modelname").show();
 <% end %>
 
-<% unless @alert_log.empty? %>
+<% unless @model_status.nil? %>
   $("#model-status-btn").show();
   $('#model-status-info').html('<%=j render partial: 'models/model_status_info' %>');
-<% end %>
-<% unless @alerts_to_show.empty? %>
-  $("#alerts").html('<%=j render partial: 'layouts/alert' %>');
 <% end %>
