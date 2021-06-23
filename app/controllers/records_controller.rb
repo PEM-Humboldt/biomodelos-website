@@ -62,7 +62,7 @@ class RecordsController < ApplicationController
 	def update_record
     @alerts_to_show = []
     begin
-		  Record.update_record(params)
+      Record.update_record(params)
       @alerts_to_show.push({
         "message" => t("biomodelos.records.edit.success_notice"),
         "type" => "notice"
