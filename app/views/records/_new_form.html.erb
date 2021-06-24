@@ -1,10 +1,11 @@
 <div class="cajavisor2">
   <div class="nobox2">
-    <h1><%= t('biomodelos.records.new_record') %></br>
-      <em><%= @record["spName"] %></em>
-    </h1>
-    <a class="closevb vatop" id="close_new">x</a>
-    <div class="clearfix mb10"></div>
+    <div class="headernobox2">
+      <h1><%= t('biomodelos.records.new_record') %></br>
+        <em><%= @record["spName"] %></em>
+      </h1>
+      <a class="closevb vatop" id="close_new">x</a>
+    </div>
     <%= simple_form_for(:new_record, :url => records_new_record_path, method: :post, :remote => true, html: { id: 'new_record' }) do |f| %>
       <div class="field">
         <%= f.label :decimalLatitude, title: t('simple_form.labels.new_record.decimalLatitude') %>

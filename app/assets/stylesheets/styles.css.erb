@@ -3132,10 +3132,6 @@ a.cajathumb p {
 	vertical-align: top;
 }
 
-.nobox .vatop {
-	position: fixed;
-}
-
 .cajavisor p, .infobox p {
 	max-width: 500px;
 	line-height: 1.5;
@@ -4675,7 +4671,14 @@ padding: 30px 20px;
 box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-.dialog h1, .nobox2 h1 {
+.headernobox2 {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.dialog h1, .nobox2 h1, .nobox h1 {
 font-size: 2em;
 font-weight: 300;
 color: #db3f2a;
@@ -4783,9 +4786,8 @@ font-weight: 300;
 	margin-bottom: 40px !important;
 }
 
-.nobox h1, .nobox2 h1 {
-	display: inline-block;
-	min-width: 555px;
+.nobox2 h1, .nobox h1 {
+	width: 100%;
 }
 
 .nobox h3 {
