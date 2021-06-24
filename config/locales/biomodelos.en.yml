@@ -398,6 +398,7 @@ en:
         pending_validation: "Pending validation"
         valid: "Validated"
         developing: "Development"
+        no_model: "No model"
     publish:
       title: "Publish your map"
       text_1: "To publish a distribution model in BioModelos, follow the next steps"

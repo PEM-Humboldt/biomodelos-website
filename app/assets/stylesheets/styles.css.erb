@@ -58,24 +58,32 @@ div.google-visualization-tooltip { pointer-events: none !important } /* flickeri
 	display: none;
 }
 
+.status-line {
+	width: 55px;
+	border-top: 2px solid #fe0807;
+	margin-bottom: 10px;
+	margin-top: 5px;
+}
+
 .model-status {
-  width: 350px;
+	width: 350px;
 	background-color: #fff;
-	list-style: none;
 	box-shadow: 0px 2px 6px 0 rgba(0, 0, 0, 0.25);
 	position: absolute;
 	top: 86px;
 	left: 502px;
-	padding: 10px;
-	z-index: 2003;
-  transform-origin: top;
+	padding: 10px 13px 15px;
+	z-index: 1004;
+	transform-origin: top;
 	transform: scale(1, 0.1);
 	opacity: 0;
 	transition: 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+	color: #424242;
+	font-size: 14px;
 }
 
 .status-open {
-  transform: scale(1, 1);
+	transform: scale(1, 1);
 	opacity: 1;
 }
 
@@ -89,9 +97,13 @@ div.google-visualization-tooltip { pointer-events: none !important } /* flickeri
 	padding: 15px 30px;
 	display: block;
 	z-index: 1002;
-	text-transform: uppercase;
-	font-weight: 300;
+	font-weight: 400;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.alert-notice {
+	color: #f2f2f2;
+	background-color: #122b41;
 }
 
 #tooltip
@@ -1933,7 +1945,51 @@ p.moderlink{
 .mb20 {
 	margin-bottom: 20px;
 }
+
+.nobox2 .field {
+	font-family: lato, sans-serif;
+	font-size: 12px;
+	margin-top: 5px;
+}
+
+.nobox2 .field input {
+	width: 100%;
+	padding: 5px;
+	min-height: 30px;
+	border: 2px solid #e9e9e9;
+}
+
+.nobox2 .field input:focus, .new_record_createdCommentsBm textarea:focus, .nobox2 .select:focus  {
+	border: 1px solid #db3f2a;
+}
+
+.nobox2 .field .date:first-child {
+	padding: 3px 5px;
+	font-family: lato, sans-serif;
+}
+
+.new_record_createdCommentsBm textarea {
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 15px;
+	font-family: lato, sans-serif;
+	border: 2px solid #e9e9e9;
+	height: 60px;
+}
+
+#submit_new_record:hover  {
+	background-color: #db3f2a !important;
+	color: #fff !important;
+	transition: 1s ease all;
+}
+
+.nobox2 .form-invalid {
+	padding: 3px;
+	color: #db3f2a !important;
+}
+
 /*select dropdown*/
+
 .select-hidden {
   display: none;
   visibility: hidden;
@@ -1954,6 +2010,13 @@ p.moderlink{
 .cajaregistros .select {
 	width: 100%;
 	height: 30px;
+}
+
+.nobox2 .select {
+	width: 100%;
+	height: 30px;
+	border: 1px solid #e9e9e9 !important;
+	text-transform: none;
 }
 
 .select-styled {
@@ -3062,14 +3125,11 @@ a.cajathumb p {
 .closevb:hover, .closecb:hover, .botoncb:hover {
 	color:#fff !important;
 	background-color: #db3f2a;
+	transition: 1s ease all;
 }
 
 .vatop {
 	vertical-align: top;
-}
-
-.nobox .vatop {
-	position: fixed;
 }
 
 .cajavisor p, .infobox p {
@@ -4611,7 +4671,14 @@ padding: 30px 20px;
 box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-.dialog h1 {
+.headernobox2 {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.dialog h1, .nobox2 h1, .nobox h1 {
 font-size: 2em;
 font-weight: 300;
 color: #db3f2a;
@@ -4621,7 +4688,7 @@ line-height: 1;
 text-align: left;
 }
 
-.dialog p {
+.dialog p, .nobox2 p {
 color: #393836;
 font-size:18px;
 display: block;
@@ -4719,9 +4786,8 @@ font-weight: 300;
 	margin-bottom: 40px !important;
 }
 
-.nobox h1 {
-	display: inline-block;
-	min-width: 555px;
+.nobox2 h1, .nobox h1 {
+	width: 100%;
 }
 
 .nobox h3 {

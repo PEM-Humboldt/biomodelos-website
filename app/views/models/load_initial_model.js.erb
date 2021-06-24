@@ -5,7 +5,7 @@
 	if(<%= @init_model.modelStatus == 'Developing' %> && !$(".modelname").hasClass("gradient"))
     $(".modelname").addClass("gradient");
 <% else %>
-	$(".modelname").html("Sin modelo");
+	$(".modelname").html("<%= t('biomodelos.visor.models.no_model') %>");
 	$(".modelname").show();
 <% end %>
 

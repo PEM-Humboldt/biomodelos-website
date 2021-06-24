@@ -41,7 +41,7 @@ var _BioModelosVisorModule = function() {
     shadowSize:  [25, 25]
   })
   var greenIcon = new L.Icon({
-    iconUrl: '/assets/greenmarker.png',
+    iconUrl: '/assets/cyanmarker.png',
     shadowUrl: "/assets/marker-shadow.png",
     iconSize:    [25, 25],
     iconAnchor:  [12, 25],
