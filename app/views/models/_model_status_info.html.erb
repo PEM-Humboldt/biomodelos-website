@@ -8,6 +8,7 @@
 <script>
   setTimeout(function(){
     $('.model-status').removeClass('status-open');
+    $("#model-status-btn").removeClass('arrow-status');
   }, 3500);
   $('#model-status-btn').on('click', function() {
     $('.model-status').toggleClass('status-open');
