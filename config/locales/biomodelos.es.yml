@@ -398,6 +398,7 @@ es:
         pending_validation: "Validación pendiente"
         valid: "Validado"
         developing: "Desarrollo"
+        no_model: "Sin modelo"
     publish:
       title: "Publica tu mapa"
       text_1: "Para publicar un modelo de distribución en BioModelos, sigue los siguientes pasos"
@@ -602,6 +603,9 @@ es:
         collectors: "Colectores"
         collaborators: "Colaboradores en curaduría"
         citation: "Cita"
+      edit:
+        success_notice: "Su edición se ha realizado con éxito"
+        error_notice: "Ha ocurrido un error al editar el registro"
       report:
         title: "REPORTAR REGISTRO"
         outlier_lbl: "Outlier geográfico"
@@ -615,7 +619,7 @@ es:
         cancel_lnk: "cancelar"
         sign_up_notice: "Debe estar registrado para poder reportar un registro"
         success_notice: "Su reporte se ha realizado con éxito"
-        error_notice: "Ha ocurrido un error al reportar el registro: "
+        error_notice: "Ha ocurrido un error al reportar el registro"
     models:
       metadata:
         title: "Metadatos modelo"

@@ -32,9 +32,11 @@
 	</head>
 	<body ng-app='biomodelos'>
 	<!-- {{angular}} -->
-		<% flash.each do |key, value| %>
-  		<div class="alert alert-<%= key %>" id="flashm"><%= value %></div>
-		<% end %>
+    <div id="alerts">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>" id="flashm"><%= value %></div>
+      <% end %>
+    </div>
 		<%= render 'shared/header' %>
 		<%= yield %>
 		<%= render 'shared/footer' unless @skip_footer %>
@@ -42,10 +44,10 @@
 
 <!-- desaparece las alertas despues de 4 seg-->
 <script type="text/javascript">
-$(document).ready(function(){
-  setTimeout(function(){
-    $('#flashm').remove();
-  }, 3500);
-});
+  $(document).ready(function(){
+    setTimeout(function(){
+      $('#flashm').remove();
+    }, 3500);
+  });
 </script>
 </html>

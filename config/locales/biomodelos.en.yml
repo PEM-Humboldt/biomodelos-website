@@ -398,6 +398,7 @@ en:
         pending_validation: "Pending validation"
         valid: "Validated"
         developing: "Development"
+        no_model: "No model"
     publish:
       title: "Publish your map"
       text_1: "To publish a distribution model in BioModelos, follow the next steps"
@@ -602,6 +603,9 @@ en:
         collectors: "Collectors"
         collaborators: "Curatorship collaborators"
         citation: "Citation"
+      edit:
+        success_notice: "Record updated successfully"
+        error_notice: "An error occurred while updating the record"
       report:
         title: "RECORD REPORT"
         outlier_lbl: "Geographic outlier"
@@ -615,7 +619,7 @@ en:
         cancel_lnk: "cancel"
         sign_up_notice: "You must be registered to be able to report a record"
         success_notice: "Your report has been successful"
-        error_notice: "An error occurred while reporting the record: "
+        error_notice: "An error occurred while reporting the record"
     models:
       metadata:
         title: "Models metadata"

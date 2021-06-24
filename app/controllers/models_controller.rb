@@ -11,27 +11,29 @@ class ModelsController < ApplicationController
     #
 	def load_initial_model
 		@init_model = nil
-		@popup_content = ""
 		@valid_model = Model.get_valid_model(params[:species_id])
 		@hypotheses = Model.get_hypotheses(params[:species_id])
 		@continuous_model = Model.get_continous_model(params[:species_id])
+    @model_status = nil
 
 		if @valid_model
 			@init_model = @valid_model
 			if @hypotheses.size > 0
-				@popup_content = I18n.t('biomodelos.models.init.case_2')
+        @model_status = I18n.t('biomodelos.models.init.case_2')
 			end
 		elsif @hypotheses.size > 0
 			if @hypotheses.size == 1
 				@init_model = @hypotheses[0]
-				@popup_content = I18n.t('biomodelos.models.init.case_3')
+        @model_status = I18n.t('biomodelos.models.init.case_3')
 			else
 				@init_model = Model.get_best_hypothesis(@hypotheses)
-				@popup_content = I18n.t('biomodelos.models.init.case_4')
+        @model_status = I18n.t('biomodelos.models.init.case_4')
 			end
 		elsif @continuous_model
 			@init_model = @continuous_model
-			@popup_content = I18n.t('biomodelos.models.init.case_5')
+      @model_status = I18n.t('biomodelos.models.init.case_5')
+		else
+      @model_status = I18n.t('biomodelos.models.init.no_model')
 		end
 
 		respond_to do |format|
@@ -156,7 +158,7 @@ class ModelsController < ApplicationController
 
 	private
 
-		def download_params
-			params.require(:download).permit(:user_id, :model_id, :species_id, :model_use_id, :terminos)
-		end
+	def download_params
+		params.require(:download).permit(:user_id, :model_id, :species_id, :model_use_id, :terminos)
+	end
 end

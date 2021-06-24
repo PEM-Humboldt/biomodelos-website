@@ -9,9 +9,9 @@ class SpeciesController < ApplicationController
 	    render json: result
   	end
 
-  	def visor
-	  	@skip_footer = true
-	end
+  def visor
+    @skip_footer = true
+  end
 
 	def search
 		begin

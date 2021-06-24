@@ -22,18 +22,57 @@ class RecordsController < ApplicationController
 		end
 	end
 
+  def new_record
+    new_record = new_record_params()
+    unless new_record[:date].empty?
+      mydate = Date.parse(new_record[:date])
+      new_record[:year] = mydate.year
+      new_record[:month] = mydate.month
+      new_record[:day] = mydate.day
+      new_record.delete(:date)
+    end
+    @alerts_to_show = []
+    begin
+      Record.new_record(new_record)
+      @alerts_to_show.push({
+        "message" => t('biomodelos.records.success_new_record'),
+        "type" => 'notice'
+      })
+    rescue => myError
+      @alerts_to_show.push({
+        "message" => t('biomodelos.records.error_new_record'),
+        "type" => 'error'
+      })
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
 	def edit_record
 		@can_edit = false
 		if user_signed_in?
 			@can_edit = can_edit(current_user.id, params[:species_id])
 		end
 		respond_to do |format|
-      		format.json { render :json => @can_edit }
-    	end
+      format.json { render :json => @can_edit }
+    end
 	end
 
 	def update_record
-		Record.update_record(params)
+    @alerts_to_show = []
+    begin
+      Record.update_record(params)
+      @alerts_to_show.push({
+        "message" => t("biomodelos.records.edit.success_notice"),
+        "type" => "notice"
+      })
+    rescue => myError
+      @alerts_to_show.push({
+        "message" => t('biomodelos.records.edit.error_notice'),
+        "type" => 'error'
+      })
+    end
 		respond_to do |format|
 			format.js
 		end
@@ -51,30 +90,19 @@ class RecordsController < ApplicationController
 		end
 	end
 
-	def new_report
-		Record.report_record(params)
-		respond_to do |format|
-      		format.js
-    	end
-	end
-
-  def new_record
-    new_record = new_record_params()
-    unless new_record[:date].empty?
-      mydate = Date.parse(new_record[:date])
-      new_record[:year] = mydate.year
-      new_record[:month] = mydate.month
-      new_record[:day] = mydate.day
-      new_record.delete(:date)
-    end
-    @message = ''
+  def new_report
+    @alerts_to_show = []
     begin
-      Record.new_record(new_record)
-      @message = t('biomodelos.records.success_new_record')
-      @key = 'notice'
+      Record.report_record(params)
+      @alerts_to_show.push({
+        "message" => t("biomodelos.records.report.success_notice"),
+        "type" => "notice"
+      })
     rescue => myError
-      @message = t('biomodelos.records.error_new_record')
-      @key = 'error'
+      @alerts_to_show.push({
+        "message" => t('biomodelos.records.report.error_notice'),
+        "type" => 'error'
+      })
     end
     respond_to do |format|
       format.js
