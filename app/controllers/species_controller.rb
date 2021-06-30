@@ -27,12 +27,12 @@ class SpeciesController < ApplicationController
       end
   end
 
-	def filter
+  def filter
     @alerts_to_show = []
-		begin
-			@species = Species.filter(params)
-		rescue => e
-			logger.error "#{e.message} #{e.backtrace}"
+    begin
+      @species = Species.filter(params)
+    rescue => e
+      logger.error "#{e.message} #{e.backtrace}"
       @alerts_to_show.push({
         "message" => t('biomodelos.visor.search.error'),
         "type" => 'error'
@@ -41,7 +41,7 @@ class SpeciesController < ApplicationController
     respond_to do |format|
       format.js
     end
-	end
+  end
 
 	def set_species
 		begin
