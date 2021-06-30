@@ -98,6 +98,7 @@ en:
         validated: "validated"
         withmodel: "with model"
         no_results: "No results found."
+        error: "There was an error in the search."
       statistics:
         title: "Statistics on validated model"
         records_number: "Occurrences"
