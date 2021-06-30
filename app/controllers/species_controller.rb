@@ -13,19 +13,19 @@ class SpeciesController < ApplicationController
     @skip_footer = true
   end
 
-	def search
-		begin
-			species = Species.search(params)
-			if species.blank?
-				species = { species: "Not found", taxID: 0 }
-			end
-			render json: species
-		rescue => e
-			logger.error "#{e.message} #{e.backtrace}"
-			err_msg = e.message.tr(?',?").delete("\n")
-	    	render :js => "alertify.alert('Ha ocurrido un error en la búsqueda. #{err_msg}');"
-	    end
-	end
+  def search
+    begin
+      species = Species.search(params)
+      if species.blank?
+        species = { species: "Not found", taxID: 0 }
+      end
+      render json: species
+    rescue => e
+      logger.error "#{e.message} #{e.backtrace}"
+      err_msg = e.message.tr(?',?").delete("\n")
+        render :js => "alertify.alert('Ha ocurrido un error en la búsqueda. #{err_msg}');"
+      end
+  end
 
 	def filter
     @alerts_to_show = []
