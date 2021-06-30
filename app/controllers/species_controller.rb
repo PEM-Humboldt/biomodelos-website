@@ -28,16 +28,19 @@ class SpeciesController < ApplicationController
 	end
 
 	def filter
+    @alerts_to_show = []
 		begin
 			@species = Species.filter(params)
-			respond_to do |format|
-	      		format.js
-	    	end
 		rescue => e
 			logger.error "#{e.message} #{e.backtrace}"
-			err_msg = e.message.tr(?',?").delete("\n")
-	    	render :js => "alertify.alert('Ha ocurrido un error en la búsqueda. #{err_msg}');"
-	    end
+      @alerts_to_show.push({
+        "message" => t('biomodelos.visor.search.error'),
+        "type" => 'error'
+      })
+    end
+    respond_to do |format|
+      format.js
+    end
 	end
 
 	def set_species
