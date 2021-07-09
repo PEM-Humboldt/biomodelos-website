@@ -44,46 +44,47 @@ $(document).ready(function() {
     }
 	});
 
-	/*
-	* Advanced search filters
-	*/
+  /*
+  * Advanced search filters
+  */
+  function add_species_filters(){
+    var bmclasses = [];
+    var categories = [];
+    $('.sppbtn input[type="checkbox"]').each(function () {
+      if (this.checked && this.value == 1)
+        bmclasses.push('mamiferos');
+      if (this.checked && this.value == 2)
+        bmclasses.push('aves');
+      if (this.checked && this.value == 3)
+        bmclasses.push('reptiles');
+      if (this.checked && this.value == 4)
+        bmclasses.push('anfibios');
+      if (this.checked && this.value == 5)
+        bmclasses.push('peces');
+      if (this.checked && this.value == 6)
+        bmclasses.push('invertebrados');
+      if (this.checked && this.value == 7)
+        bmclasses.push('plantas');
+    });
 
-	function add_species_filters(){
-		var bmclasses = [];
-		var categories = [];
-		$('.sppbtn input[type="checkbox"]').each(function () {
-                    if (this.checked && this.value == 1)
-                      bmclasses.push('mamiferos');
-                    if (this.checked && this.value == 2)
-                      bmclasses.push('aves');
-                    if (this.checked && this.value == 3)
-                      bmclasses.push('reptiles');
-                    if (this.checked && this.value == 4)
-                      bmclasses.push('anfibios');
-                    if (this.checked && this.value == 5)
-                      bmclasses.push('peces');
-                    if (this.checked && this.value == 6)
-                      bmclasses.push('invertebrados');
-                    if (this.checked && this.value == 7)
-                      bmclasses.push('plantas');
-        });
+    $('.typebtn input[type="checkbox"]').each(function () {
+      if (this.checked && this.value == 1)
+        categories.push('Endemic');
+      if (this.checked && this.value == 2)
+        categories.push('Invasive');
+      if (this.checked && this.value == 3)
+        categories.push('Endangered');
+      if (this.checked && this.value == 4)
+        categories.push('Valid');
+      if (this.checked && this.value == 5)
+        categories.push('WithModel');
+    });
+    var bio_locale = $("#locale_field").val();
+    $.post( "/" + bio_locale + "/species/filter", {bmclasses: bmclasses, categories: categories});
+  }
 
-		$('.typebtn input[type="checkbox"]').each(function () {
-                    if (this.checked && this.value == 1)
-                      categories.push('Endemic');
-                    if (this.checked && this.value == 2)
-                      categories.push('Invasive');
-                    if (this.checked && this.value == 3)
-                      categories.push('Endangered');
-                  	if (this.checked && this.value == 4)
-                      categories.push('Valid');
-         });
-		var bio_locale = $("#locale_field").val();
-		$.post( "/" + bio_locale + "/species/filter", {bmclasses: bmclasses, categories: categories});
-	}
-
-	$(".cajasearch").on("click"," .sppbtn input[type='checkbox']", add_species_filters);
-	$(".cajasearch").on("click"," .typebtn input[type='checkbox']", add_species_filters);
+  $(".cajasearch").on("click"," .sppbtn input[type='checkbox']", add_species_filters);
+  $(".cajasearch").on("click"," .typebtn input[type='checkbox']", add_species_filters);
 
 	/*
 	* Botones de cerrar las cajas del menú: Búsqueda, Info, Modelos, Contribuciones

@@ -8,6 +8,12 @@
 	<% end %>
 </section>
 
+<% unless @alerts_to_show.empty? %>
+  <script>
+    $("#alerts").html('<%=j render partial: 'layouts/alert' %>');
+  </script>
+<% end %>
+
 <script type="text/javascript">
 	$('.resultados').niceScroll({
 		cursorcolor: "#5d5e5e",
