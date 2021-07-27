@@ -110,11 +110,11 @@ const HomeControllerModule = function() {
               - (developingModel + publishedModel + validatedModel + statisticModel);
             var data = google.visualization.arrayToDataTable([
               ['Estado del modelo', 'Número de spp.'],
+              ['Sin Modelo', noModel],
+              ['Modelos en desarrollo', developingModel],
               ['Modelos validados', validatedModel],
               ['Modelos publicados', publishedModel],
-              ['Modelos en desarrollo', developingModel],
               ['Modelos estadísticos', statisticModel],
-              ['Sin Modelo', noModel],
               ]);
 
             var chart = new google.visualization.PieChart(document.getElementById(donutId));
