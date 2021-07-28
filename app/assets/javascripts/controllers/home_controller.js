@@ -122,7 +122,6 @@ const HomeControllerModule = function() {
           }
         }
 
-        console.log(stats)
         $("#mam_lbl").html(stats[1]["totalSpecies"]);
 
         $("#av_lbl").html(stats[2]["totalSpecies"]);
