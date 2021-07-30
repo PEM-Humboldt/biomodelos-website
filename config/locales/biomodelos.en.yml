@@ -685,11 +685,11 @@ en:
         contact: "Contact"
         error: 'An error occurred while obtaining model metadata.'
       init:
+        valid_model: "This is a distribution hypothesis approved by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses not approved by experts, available for this species."
+        pending_validation_model: "This is one of the available distribution hypotheses pending approval by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses pending approval available for this species."
+        statistic_model: "This is a distribution hypothesis without contributions from experts. To help improve it, join the group of experts of the species."
+        continuous_model: "This distribution hypothesis is under construction by the group of experts, to contribute to its development, register in the group of experts of the species."
         no_model: "This species does not have a distribution model yet. To contribute to its development, register in the group of experts of the species."
-        case_2: "This is a distribution hypothesis approved by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses not approved by experts, available for this species."
-        case_3: "This distribution hypothesis is pending approval by experts."
-        case_4: "This is one of the available distribution hypotheses pending approval by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses pending approval available for this species."
-        case_5: "This is a distribution hypothesis without contributions from experts. To help improve it, join the group of experts of the species."
       download:
         text_1: "Before download, remember:"
         read_terms_lnk: 'I have read and accept the terms and conditions'
