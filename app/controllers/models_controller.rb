@@ -1,39 +1,39 @@
 class ModelsController < ApplicationController
 	include UsersHelper
 
-	# Sets the initial model to be loaded and the pop-up content based on:
-	# 1. There is a valid model.
+  # Sets the initial model to be loaded and the pop-up content based on:
+  # 1. There is a valid model.
   # 2. There is no valid model but there are hypotheses waiting for approval
   # 3. There are no hypotheses, there is the BioModelos statistic model
   # 4. There is no statistic model but there is the BioModelos continuous model
   # 5. There is no distribution model for the species yet.
-	def load_initial_model
-		@init_model = nil
-		@valid_model = Model.get_valid_model(params[:species_id])
-		@hypotheses = Model.get_hypotheses(params[:species_id])
+  def load_initial_model
+    @init_model = nil
+    @valid_model = Model.get_valid_model(params[:species_id])
+    @hypotheses = Model.get_hypotheses(params[:species_id])
     @statistic_model = Model.get_statistic_model(params[:species_id])
-		@continuous_model = Model.get_continous_model(params[:species_id])
+    @continuous_model = Model.get_continous_model(params[:species_id])
     @model_status = nil
 
-		if @valid_model
-			@init_model = @valid_model
+    if @valid_model
+      @init_model = @valid_model
       @model_status = I18n.t('biomodelos.models.init.valid_model')
-		elsif @hypotheses.size > 0
+    elsif @hypotheses.size > 0
       @init_model = @hypotheses[0]
       @model_status = I18n.t('biomodelos.models.init.pending_validation_model')
-		elsif @statistic_model
-			@init_model = @statistic_model
+    elsif @statistic_model
+      @init_model = @statistic_model
       @model_status = I18n.t('biomodelos.models.init.statistic_model')
-		elsif @continuous_model
+    elsif @continuous_model
       @model_status = I18n.t('biomodelos.models.init.continuous_model')
-		else
+    else
       @model_status = I18n.t('biomodelos.models.init.no_model')
-		end
+    end
 
-		respond_to do |format|
-		    format.js
-		end
-	end
+    respond_to do |format|
+        format.js
+    end
+  end
 
 	# Gets the model information of each threshold and the continuous model.
     #

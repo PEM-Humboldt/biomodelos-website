@@ -51,7 +51,7 @@ class Model
           hypothesis["zip"], hypothesis["thumb"], hypothesis["thresholdType"],
           hypothesis["modelLevel"], hypothesis["license"], hypothesis["customCitation"],
           hypothesis["methodFile"], hypothesis["published"], hypothesis["gsLayer"])
-          hypotheses_array.push(t)
+        hypotheses_array.push(t)
       end
       return hypotheses_array
   	end
@@ -60,7 +60,7 @@ class Model
     #
     # @param species_id [Number] ID of the species.
     # @return [Object] Model objects statistic.
-  	def self.get_statistic_model(species_id)
+    def self.get_statistic_model(species_id)
       response = JSON.parse(get('/' + species_id + '?type=Statistic').body)
       if response.size > 0
         statistic_model = Model.new(response[0]["modelID"], response[0]["modelStatus"],
@@ -73,7 +73,7 @@ class Model
       end
 
       return statistic_model
-  	end
+    end
 
     # Gets a species continuous model developed by BioModelos via API.
     #
