@@ -105,8 +105,6 @@ en:
         records_number_tt: "The quantity of biological records used in the development of this model."
         records_metadata: "OCCURRENCE METADATA"
         records_metadata_tt: "Metadata on occurrences used for model development and their data cleaning process."
-        text_1: "The information provided below corresponds to the expert validated model."
-        text_2: "Species distribution statistics are not available for this species as it does not have a validated model yet."
         eoo_title: "EXTENT OF OCCURRENCE"
         eoo_text_1_html: 'The extent of occurrence (EOO) is defined as the area contained within the shortest continuous imaginary boundary which can be drawn to encompass al the known, inferred or projected sites of present occurrence of a taxon, excluding cases of vagrancy (IUCN 2013).'
         eoo_text_2_html: '<b>MCP on models:</b> area of minimum convex polygon computed on a species modeled distribution (<a href="http://www.humboldt.org.co/es/test/item/download/244_4bf9941429abe826cb0bee0e9f755f2a" target="_blank" style="float:none;">Figure 1, Renjifo et al. 2014</a>).'

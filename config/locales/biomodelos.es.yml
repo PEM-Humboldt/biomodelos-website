@@ -105,8 +105,6 @@ es:
         records_number_tt: "Registros de presencia de la especie utilizados en el desarrollo del modelo."
         records_metadata: "METADATOS REGISTROS"
         records_metadata_tt: "Información sobre los registros usados en el modelamiento y el proceso de curaduría de los mismos."
-        text_1: "Esta información corresponde al modelo validado por los expertos en BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie."
-        text_2: "Dado que esta especie aún no tiene un modelo validado, no es posible calcular la información que normalmente se presenta en esta sección."
         eoo_title: "EXTENSIÓN DE OCURRENCIA"
         eoo_text_1_html: 'La extensión de ocurrencia (EOO por sus siglas en inglés utilizadas en la literatura) se define como el área contenida dentro de los límites más cortos imaginarios que pueden ser dibujados para abarcar todos los sitios en donde se encuentra la especie, bien sea conocidos, inferidos o proyectados (IUCN 2013).'
         eoo_text_2_html: '<b>PMC sobre modelos:</b> polígono mínimo convexo delimitado sobre la distribución modelada para cada especie (<a href="http://www.humboldt.org.co/es/test/item/download/244_4bf9941429abe826cb0bee0e9f755f2a" target="_blank" style="float:none;">Figura 1, Renjifo et al. 2014</a>).'

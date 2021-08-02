@@ -75,12 +75,14 @@ module ModelsHelper
 	def model_layer(model)
 		if model.gsLayer.nil? || model.threshold == "Continuous"
 			return {
+        "id" => model.modelID,
 				"type" => "file",
 				"fileName" => "/models/#{model.pngUrl}"
 			}.to_json
 		else
 			model_options = gs_options model
 			model_options["wmsUrl"] = "/geoserver/wms"
+      model_options["id"] = model.modelID
 			return model_options.to_json
 		end
 	end
