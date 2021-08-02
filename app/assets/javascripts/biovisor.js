@@ -615,12 +615,12 @@ var _BioModelosVisorModule = function() {
 		//$(".polig").re
 	}
 
-	/**
-	 * Set and return the layer in leaflet to use base on the options created by the models helper
-	 * @param {String} jsonModel json options for the model
-	 */
-	var processModel = function(jsonModel) {
-		var modelOptions = JSON.parse(jsonModel);
+  /**
+   * Set and return the layer in leaflet to use base on the options created by the models helper
+   *
+   * @param {Object} modelOptions options for the model
+   */
+	var processModel = function(modelOptions) {
 
 		var layer;
 		if (modelOptions.type === 'file') {
@@ -669,15 +669,26 @@ var _BioModelosVisorModule = function() {
 		}
 	}
 
-	var loadModel = function (jsonOptions) {
-		/* Dispose older model if it exists */
-		unloadModel();
+  var loadModel = function (jsonOptions) {
+    /* Dispose older model if it exists */
+    unloadModel();
 
-		modelLayer = processModel(jsonOptions);
+    const modelInfo = JSON.parse(jsonOptions);
 
-		map.addLayer(modelLayer, true);
-		layerControl.addOverlay(modelLayer, "Modelo");
-	};
+    if(modelInfo.id !== $("#valid_model_info").text()) {
+      $(".vbtninfo").hide();
+      $(".vbtnhipo").css("top", $("#valid_model_info").attr("data-btnInfoTop"));
+      $(".vbtnedit").css("top", $("#valid_model_info").attr("data-btnHipoTop"));
+    } else {
+      $(".vbtninfo").show();
+      $(".vbtnhipo").css("top", $("#valid_model_info").attr("data-btnHipoTop"));
+      $(".vbtnedit").css("top", $("#valid_model_info").attr("data-btnEditTop"));
+    }
+
+    modelLayer = processModel(modelInfo);
+    map.addLayer(modelLayer, true);
+    layerControl.addOverlay(modelLayer, "Modelo");
+  };
 
 	var unloadModel = function() {
 		if(map.hasLayer(modelLayer)) {

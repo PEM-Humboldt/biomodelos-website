@@ -1,45 +1,39 @@
 class ModelsController < ApplicationController
 	include UsersHelper
 
-	# Sets the initial model to be loaded and the pop-up content based on:
-	# 1. There's only a valid model.
-	# 2. There's a valid model and one or more hypotheses waiting for approval
-    # 3. There's no valid model and just one hypothesis waiting for approval
-    # 4. There are multiple hypotheses waiting for approval and no valid model
-    # 5. There is no valid model, no hypotheses and just the BioModelos continuous model
-    # 6. There is no distribution model for the species yet.
-    #
-	def load_initial_model
-		@init_model = nil
-		@valid_model = Model.get_valid_model(params[:species_id])
-		@hypotheses = Model.get_hypotheses(params[:species_id])
-		@continuous_model = Model.get_continous_model(params[:species_id])
+  # Sets the initial model to be loaded and the pop-up content based on:
+  # 1. There is a valid model.
+  # 2. There is no valid model but there are hypotheses waiting for approval
+  # 3. There are no hypotheses, there is the BioModelos statistic model
+  # 4. There is no statistic model but there is the BioModelos continuous model
+  # 5. There is no distribution model for the species yet.
+  def load_initial_model
+    @init_model = nil
+    @valid_model = Model.get_valid_model(params[:species_id])
+    @hypotheses = Model.get_hypotheses(params[:species_id])
+    @statistic_model = Model.get_statistic_model(params[:species_id])
+    @continuous_model = Model.get_continous_model(params[:species_id])
     @model_status = nil
 
-		if @valid_model
-			@init_model = @valid_model
-			if @hypotheses.size > 0
-        @model_status = I18n.t('biomodelos.models.init.case_2')
-			end
-		elsif @hypotheses.size > 0
-			if @hypotheses.size == 1
-				@init_model = @hypotheses[0]
-        @model_status = I18n.t('biomodelos.models.init.case_3')
-			else
-				@init_model = Model.get_best_hypothesis(@hypotheses)
-        @model_status = I18n.t('biomodelos.models.init.case_4')
-			end
-		elsif @continuous_model
-			@init_model = @continuous_model
-      @model_status = I18n.t('biomodelos.models.init.case_5')
-		else
+    if @valid_model
+      @init_model = @valid_model
+      @model_status = I18n.t('biomodelos.models.init.valid_model')
+    elsif @hypotheses.size > 0
+      @init_model = @hypotheses[0]
+      @model_status = I18n.t('biomodelos.models.init.pending_validation_model')
+    elsif @statistic_model
+      @init_model = @statistic_model
+      @model_status = I18n.t('biomodelos.models.init.statistic_model')
+    elsif @continuous_model
+      @model_status = I18n.t('biomodelos.models.init.continuous_model')
+    else
       @model_status = I18n.t('biomodelos.models.init.no_model')
-		end
+    end
 
-		respond_to do |format|
-		    format.js
-		end
-	end
+    respond_to do |format|
+        format.js
+    end
+  end
 
 	# Gets the model information of each threshold and the continuous model.
     #

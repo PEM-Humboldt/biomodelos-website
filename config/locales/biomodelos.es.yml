@@ -105,8 +105,6 @@ es:
         records_number_tt: "Registros de presencia de la especie utilizados en el desarrollo del modelo."
         records_metadata: "METADATOS REGISTROS"
         records_metadata_tt: "Información sobre los registros usados en el modelamiento y el proceso de curaduría de los mismos."
-        text_1: "Esta información corresponde al modelo validado por los expertos en BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie."
-        text_2: "Dado que esta especie aún no tiene un modelo validado, no es posible calcular la información que normalmente se presenta en esta sección."
         eoo_title: "EXTENSIÓN DE OCURRENCIA"
         eoo_text_1_html: 'La extensión de ocurrencia (EOO por sus siglas en inglés utilizadas en la literatura) se define como el área contenida dentro de los límites más cortos imaginarios que pueden ser dibujados para abarcar todos los sitios en donde se encuentra la especie, bien sea conocidos, inferidos o proyectados (IUCN 2013).'
         eoo_text_2_html: '<b>PMC sobre modelos:</b> polígono mínimo convexo delimitado sobre la distribución modelada para cada especie (<a href="http://www.humboldt.org.co/es/test/item/download/244_4bf9941429abe826cb0bee0e9f755f2a" target="_blank" style="float:none;">Figura 1, Renjifo et al. 2014</a>).'
@@ -685,11 +683,11 @@ es:
         contact: "Contacto"
         error: 'Se ha producido un error al obtener los metadatos del modelo.'
       init:
-        no_model: "Esta especie aun no cuenta con modelo de distribución. Para contribuir a su desarrollo, registrate en el grupo de expertos de la especie."
-        case_2: "Esta es una hipótesis de distribución aprobada por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución no aprobadas por expertos, disponibles para esta especie."
-        case_3: "Esta hipótesis de distribución está pendiente de aprobación por expertos."
-        case_4: "Esta es una de las hipótesis de distribución disponibles pendientes de aprobación por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución pendientes de aprobación disponibles para esta especie."
-        case_5: "Esta es una hipótesis de distribución sin aportes de expertos. Para contribuir a mejorarlo, registrate en el grupo de expertos de la especie."
+        valid_model: "Esta es una hipótesis de distribución aprobada por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución no aprobadas por expertos, disponibles para esta especie."
+        pending_validation_model: "Esta es una de las hipótesis de distribución disponibles pendientes de aprobación por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución pendientes de aprobación disponibles para esta especie."
+        statistic_model: "Esta es una hipótesis de distribución sin aportes de expertos. Para contribuir a mejorarlo, registrate en el grupo de expertos de la especie."
+        continuous_model: "Esta hipótesis se encuentra en construcción por el grupo de expertos, si quieres aportar solicita unirte al grupo de la especie."
+        no_model: "Esta especie aún no cuenta con modelo de distribución. Para contribuir a su desarrollo, registrate en el grupo de expertos de la especie."
       download:
         text_1: "Antes de descargar, recuerda:"
         read_terms_lnk: 'He leído y acepto los términos y condiciones'
