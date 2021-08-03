@@ -95,7 +95,6 @@ class ModelsController < ApplicationController
             @ratings[m.modelID] = @rating.blank? ? 0 : @rating.score
           end
         end
-        @download = Download.new
       end
 
       respond_to do |format|
