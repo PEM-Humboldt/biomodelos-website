@@ -10,7 +10,7 @@
         <b><%= t('biomodelos.visor.selected_record.id_of_the_record') %></b> <span id="record_id"><%= @record["id"] %></span><br> <!-- _id -->
         </p>
       </blockquote>
-      <% if user_signed_in? && !@record["reportedDate"].nil? %>
+      <% if user_signed_in? && @record["reportedDate"].nil? %>
          <button id="editregbtn" class="botonpopup">editar</button>
          <div id="cancelEditBtn"></div>
          <!-- <a href="#" class="approved" title="Registro correcto" rel="tooltip"></a> -->
