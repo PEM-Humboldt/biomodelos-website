@@ -59,7 +59,7 @@ class Model
     # Gets a species statistic model developed by BioModelos via API.
     #
     # @param species_id [Number] ID of the species.
-    # @return [Object] Model objects statistic.
+    # @return [Object] Statistic model object.
     def self.get_statistic_model(species_id)
       response = JSON.parse(get('/' + species_id + '?type=Statistic').body)
       if response.size > 0
@@ -73,6 +73,22 @@ class Model
       end
 
       return statistic_model
+    end
+
+    # Gets all species statistic models developed by BioModelos via API.
+    #
+    # @param species_id [Number] ID of the species.
+    # @return [Array] Statistic model objects.
+    def self.get_statistic_models(species_id)
+      response = JSON.parse(get('/' + species_id + '?type=Statistic').body)
+      models_array = []
+      response.each do |model|
+        t = Model.new(model["modelID"], model["modelStatus"], model["png"], model["zip"],
+          model["thumb"], model["thresholdType"], model["modelLevel"], model["license"],
+          model["customCitation"], model["methodFile"], model["published"], model["gsLayer"])
+        models_array.push(t)
+      end
+      return models_array
     end
 
     # Gets a species continuous model developed by BioModelos via API.

@@ -78,6 +78,7 @@ class ModelsController < ApplicationController
       @species_id = params[:species_id]
       @valid_models = Model.get_valid_models(params[:species_id])
       @models = Model.get_hypotheses(params[:species_id])
+      @statistic_models = Model.get_statistic_models(params[:species_id])
       @can_edit = false
 
       # If there are valid models, adds them first to the array.
@@ -86,6 +87,13 @@ class ModelsController < ApplicationController
           @models.unshift(m)
         end
       end
+
+      if @statistic_models
+        @statistic_models.each do |m|
+          @models.push(m)
+        end
+      end
+
       # If the user is signed in and can edit the species, it gets and sets the user ratings for each model.
       if user_signed_in?
         @can_edit = can_edit(current_user.id, params[:species_id])
