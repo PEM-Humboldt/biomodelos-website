@@ -87,7 +87,6 @@ class ModelsController < ApplicationController
           @models.unshift(m)
         end
       end
-
       if @statistic_models
         @statistic_models.each do |m|
           @models.push(m)
@@ -104,14 +103,15 @@ class ModelsController < ApplicationController
           end
         end
       end
-
-      respond_to do |format|
-        format.js
-      end
     rescue => e
       logger.error "#{e.message} #{e.backtrace}"
-      err_msg = e.message.tr(?',?").delete("\n")
-      render :js => "alertify.alert('Se ha producido un error al consultar las hipótesis. #{err_msg}');"
+      @alerts_to_show = [{
+        "message" => t("biomodelos.visor.models.hypotheses_error"),
+        "type" => "error"
+      }]
+    end
+    respond_to do |format|
+      format.js
     end
   end
 

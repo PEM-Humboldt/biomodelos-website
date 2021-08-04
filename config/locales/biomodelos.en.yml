@@ -440,6 +440,7 @@ en:
         valid: "Validated"
         developing: "Development"
         no_model: "No model"
+        hypotheses_error: "There was an error querying the hypotheses"
     publish:
       title: "Publish your map"
       text_1: "To publish a distribution model in BioModelos, follow the next steps"
