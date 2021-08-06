@@ -440,6 +440,7 @@ es:
         valid: "Validado"
         developing: "Desarrollo"
         no_model: "Sin modelo"
+        hypotheses_error: "Se ha producido un error al consultar las hipótesis"
     publish:
       title: "Publica tu mapa"
       text_1: "Para publicar un modelo de distribución en BioModelos, sigue los siguientes pasos"

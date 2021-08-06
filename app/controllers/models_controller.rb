@@ -68,47 +68,52 @@ class ModelsController < ApplicationController
 		end
 	end
 
-	# Gets the model information of the valid model and each of the hypotheses, along with the rating for
-	# each one in case the user is signed in and can edit.
-	#
-	def get_hypotheses
-		@ratings = Hash.new
+  # Gets the model information of the valid model and each of the hypotheses, along with the rating for
+  # each one in case the user is signed in and can edit.
+  #
+  def get_hypotheses
+    @ratings = Hash.new
 
-		begin
-			@species_id = params[:species_id]
-			@valid_models = Model.get_valid_models(params[:species_id])
-			@models = Model.get_hypotheses(params[:species_id])
-			@can_edit = false
+    begin
+      @species_id = params[:species_id]
+      @valid_models = Model.get_valid_models(params[:species_id])
+      @models = Model.get_hypotheses(params[:species_id])
+      @statistic_models = Model.get_statistic_models(params[:species_id])
+      @can_edit = false
 
+      # If there are valid models, adds them first to the array.
+      if @valid_models
+        @valid_models.each do |m|
+          @models.unshift(m)
+        end
+      end
+      if @statistic_models
+        @statistic_models.each do |m|
+          @models.push(m)
+        end
+      end
 
-			# If there are valid models, adds them first to the array.
-			if @valid_models
-				@valid_models.each do |m|
-					@models.unshift(m)
-				end
-			end
-			# If the user is signed in and can edit the species, it gets and sets the user ratings for each model.
-			if user_signed_in?
-				@can_edit = can_edit(current_user.id, params[:species_id])
-				if @can_edit
-					@models.each do |m|
-						@rating = Rating.where(model_id: m.modelID, user_id: current_user.id).first
-						@ratings[m.modelID] = @rating.blank? ? 0 : @rating.score
-					end
-				end
-				@download = Download.new
-			end
-
-			respond_to do |format|
-				format.js
-			end
-		rescue => e
-			logger.error "#{e.message} #{e.backtrace}"
-			err_msg = e.message.tr(?',?").delete("\n")
-			render :js => "alertify.alert('Se ha producido un error al consultar las hipótesis. #{err_msg}');"
-		end
-
-	end
+      # If the user is signed in and can edit the species, it gets and sets the user ratings for each model.
+      if user_signed_in?
+        @can_edit = can_edit(current_user.id, params[:species_id])
+        if @can_edit
+          @models.each do |m|
+            @rating = Rating.where(model_id: m.modelID, user_id: current_user.id).first
+            @ratings[m.modelID] = @rating.blank? ? 0 : @rating.score
+          end
+        end
+      end
+    rescue => e
+      logger.error "#{e.message} #{e.backtrace}"
+      @alerts_to_show = [{
+        "message" => t("biomodelos.visor.models.hypotheses_error"),
+        "type" => "error"
+      }]
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
 
 	# Sets the metadata information for a model, along with the species name and number of records
 	#

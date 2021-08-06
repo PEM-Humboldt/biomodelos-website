@@ -1,20 +1,20 @@
 <% if @models && !@models.blank? %>
 	<p><%= t('biomodelos.visor.hypotheses.text_1') %></p>
 	<div class="button-group filter-button-group">
-	  <button class="filterbtn is-checked" data-filter="*">Todos</button>
-	  <button class="filterbtn" data-filter=".nivel1">Climáticos</button>
-	  <button class="filterbtn" data-filter=".nivel2">Coberturas</button>
+	  <button class="filterbtn is-checked" data-filter=".validados">Validados</button>
 	  <button class="filterbtn" data-filter=".publicados">Publicados</button>
-	  <button class="filterbtn" data-filter=".validado">Validado</button>
+	  <button class="filterbtn" data-filter=".estadisticos">Estadísticos</button>
+	  <button class="filterbtn" data-filter=".para-calificar">Para calificar</button>
+	  <button class="filterbtn" data-filter="*">Todos</button>
 	</div>
 
 	<div class="grid">
 
 	<% @models.each_with_index do |model, i| %>
-		<% tags = model.published ? 'publicados' : '' %>
-		<% tags += model.level == 1 ? ' nivel1' : '' %>
-		<% tags += model.level == 2 ? ' nivel2' : '' %>
-		<% tags += model.modelStatus == 'Valid' ? ' validado' : '' %>
+		<% tags = model.modelStatus == 'Valid' ? ' validados' : '' %>
+		<% tags += model.published && model.modelStatus == 'pendingValidation' ? 'publicados' : '' %>
+		<% tags += model.modelStatus == 'Statistic' ? ' estadisticos' : '' %>
+		<% tags += model.modelStatus == 'pendingValidation' ? ' para-calificar' : '' %>
 		<div class="maparea <%= tags %>">
 			<div href="" class="mapthumb">
 				<div class="flipper">
@@ -172,6 +172,7 @@ $('.user_star').raty({
 
 // init Isotope
 var $grid = $('.grid').isotope({
+  filter: ".validados"
 });
 
 $('.filter-button-group').on( 'click', 'button', function() {
