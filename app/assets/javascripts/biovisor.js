@@ -109,6 +109,11 @@ var _BioModelosVisorModule = function() {
 	            transparent: true,
 	            layers: 'Historicos:bosque_seco_tropical'
         	});
+        zon_hidrografica = L.tileLayer.wms('http://geoapps.ideam.gov.co/geoserver/unidades_analisis/wfs', {
+                format: 'image/png',
+                transparent: true,
+                layers: 'unidades_analisis:GDBIDEAM.ZONIFICACION_HIDROGRAFICA_2013'
+        });
 
 	    var	baseLayers = {
 	    		"Google Terrain": googleTerrain,
@@ -119,7 +124,8 @@ var _BioModelosVisorModule = function() {
 	    	overlays = {
 	    		"Páramos (2016)": paramos_fondo_2016,
 	    		"Ecosistemas generales (Etter)" : ecosistemas_etter,
-	    		"Bosque seco tropical" : bosque_seco
+	    		"Bosque seco tropical" : bosque_seco,
+                "Zonificación Hidrográfica 2013 (IDEAM)" : zon_hidrografica
 	    	};
 
         map = L.map('map', {crs: L.CRS.EPSG4326}).setView(latlng, zoom);
