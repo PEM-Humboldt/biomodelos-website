@@ -80,6 +80,7 @@ class ModelsController < ApplicationController
       @models = Model.get_hypotheses(params[:species_id])
       @statistic_models = Model.get_statistic_models(params[:species_id])
       @can_edit = false
+      @alerts_to_show = []
 
       # If there are valid models, adds them first to the array.
       if @valid_models
