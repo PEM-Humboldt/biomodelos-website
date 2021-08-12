@@ -93,7 +93,13 @@ const HomeControllerModule = function() {
           chartArea:{left:12,top:12,width:'120',height:'120'},
           pieSliceBorderColor: 'none',
           pieStartAngle: '65',
-          slices: {0: {color: '#25b19e'}, 1: {color: '#e3af24'}, 2: {color: '#db3f2a'}},
+          slices: {
+            0: {color: '#25b19e'},
+            1: {color: '#e3af24'},
+            2: {color: '#db3f2a'},
+            3: {color: '#eb885b'},
+            4: {color: '#1b6875'}
+          },
           sliceVisibilityThreshold: '0',
           fontSize: '12',
           pieSliceText: 'none',
