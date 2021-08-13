@@ -76,104 +76,110 @@ var _BioModelosVisorModule = function() {
 
 	var init = function(){
 		var latlng = new L.LatLng(4, -72),
-        	zoom = 6,
-        	mZoom = 2,
-        	mxZoom = 16;
+      zoom = 6,
+      mZoom = 2,
+      mxZoom = 16;
 
-        /* Elevation API object */
-        var elevator = new google.maps.ElevationService;
+    /* Elevation API object */
+    var elevator = new google.maps.ElevationService;
 
-        /* Base Layers */
-    	var googleTerrain = new L.Google('TERRAIN', {minZoom:mZoom, maxZoom: mxZoom}),
-			googleSatellite = new L.Google('SATELLITE', {minZoom:mZoom, maxZoom: mxZoom}),
-    		osmBase = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            {
-                minZoom: mZoom,
-                maxZoom: mxZoom,
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors'
-            });
+    /* Base Layers */
+    var googleTerrain = new L.Google('TERRAIN', {minZoom:mZoom, maxZoom: mxZoom});
+    var googleSatellite = new L.Google('SATELLITE', {minZoom:mZoom, maxZoom: mxZoom});
+    var osmBase = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      {
+        minZoom: mZoom,
+        maxZoom: mxZoom,
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors'
+      });
 
-        /* Overlays */
-        var paramos_fondo_2016 = new L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Proyecto_fondo_adaptacion/wms', {
-            format: 'image/png',
-            transparent: true,
-            layers: 'Proyecto_fondo_adaptacion:Limites24Paramos_25K_2016'
-        }),
-        ecosistemas_etter = L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Historicos/wms', {
-	            format: 'image/png',
-	            transparent: true,
-	            layers: 'Historicos:ecosistemas_generales_etter'
-        });
-        bosque_seco = L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Historicos/wms', {
-	            format: 'image/png',
-	            transparent: true,
-	            layers: 'Historicos:bosque_seco_tropical'
-        	});
+    /* Overlays */
+    var paramos_fondo_2016 = new L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Proyecto_fondo_adaptacion/wms', {
+      format: 'image/png',
+      transparent: true,
+      layers: 'Proyecto_fondo_adaptacion:Limites24Paramos_25K_2016'
+    });
+    var ecosistemas_etter = L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Historicos/wms', {
+      format: 'image/png',
+      transparent: true,
+      layers: 'Historicos:ecosistemas_generales_etter'
+    });
+    var bosque_seco = L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Historicos/wms', {
+      format: 'image/png',
+      transparent: true,
+      layers: 'Historicos:bosque_seco_tropical'
+    });
+    var zon_hidrografica = L.tileLayer.wms('http://geoapps.ideam.gov.co/geoserver/unidades_analisis/wfs', {
+      format: 'image/png',
+      transparent: true,
+      layers: 'unidades_analisis:GDBIDEAM.ZONIFICACION_HIDROGRAFICA_2013'
+    });
 
-	    var	baseLayers = {
-	    		"Google Terrain": googleTerrain,
-	    		"Google Satellite": googleSatellite,
-	        	"OpenStreetMap": osmBase
-	    	},
+    var	baseLayers = {
+      "Google Terrain": googleTerrain,
+      "Google Satellite": googleSatellite,
+      "OpenStreetMap": osmBase
+    };
 
-	    	overlays = {
-	    		"Páramos (2016)": paramos_fondo_2016,
-	    		"Ecosistemas generales (Etter)" : ecosistemas_etter,
-	    		"Bosque seco tropical" : bosque_seco
-	    	};
+    var overlays = {
+      "Páramos (2016)": paramos_fondo_2016,
+      "Ecosistemas generales (Etter)" : ecosistemas_etter,
+      "Bosque seco tropical" : bosque_seco,
+      "Zonificación Hidrográfica 2013 (IDEAM)" : zon_hidrografica
+    };
 
-        map = L.map('map', {crs: L.CRS.EPSG4326}).setView(latlng, zoom);
+    map = L.map('map', {crs: L.CRS.EPSG4326}).setView(latlng, zoom);
 
-        map.addLayer(googleTerrain);
+    map.addLayer(googleTerrain);
 
-	    /* autoZIndex controls the layer order */
-	    layerControl = L.control.layers(baseLayers, overlays, {autoZIndex: true, collapsed: false});
-	    layerControl.addTo(map);
+    /* autoZIndex controls the layer order */
+    layerControl = L.control.layers(baseLayers, overlays, {autoZIndex: true, collapsed: false});
+    layerControl.addTo(map);
 
-	    //Capa editable
-	    editableLayer = new L.FeatureGroup();
+    //Capa editable
+    editableLayer = new L.FeatureGroup();
 
-		//Capa registros nuevos
-	    newRecordsLayer = new L.FeatureGroup();
-	    map.addLayer(newRecordsLayer);
+    //Capa registros nuevos
+    newRecordsLayer = new L.FeatureGroup();
+    map.addLayer(newRecordsLayer);
 
-	    var drawControl = new L.Control.Draw({
-		    draw: false,
-		    edit: false
-		}).addTo(map);
+    var drawControl = new L.Control.Draw({
+      draw: false,
+      edit: false
+    }).addTo(map);
 
-		//Polygon editor and delete handler
-		polygonEditor = new L.EditToolbar.Edit(map, {
-                featureGroup: editableLayer
-		});
+    //Polygon editor and delete handler
+    polygonEditor = new L.EditToolbar.Edit(map, {
+      featureGroup: editableLayer
+    });
 
-		polygonDelete = new L.EditToolbar.Delete(map, {
-                featureGroup: editableLayer
-		});
+    polygonDelete = new L.EditToolbar.Delete(map, {
+      featureGroup: editableLayer
+    });
 
-		//Point handler
-		pointDrawer = new L.Draw.Marker(map, { icon: greenIcon });
+    //Point handler
+    pointDrawer = new L.Draw.Marker(map, { icon: greenIcon });
 
-		//Threshold layers
-		thresholdLayers = new L.layerGroup();
+    //Threshold layers
+    thresholdLayers = new L.layerGroup();
 
-		L.control.coordinates({
-    		position:"bottomright", //optional default "bootomright"
-		    decimals:2, //optional default 4
-		    decimalSeperator:".", //optional default "."
-		    labelTemplateLat:"Latitud: {y}", //optional default "Lat: {y}"
-		    labelTemplateLng:"Longitud: {x}", //optional default "Lng: {x}"
-		    enableUserInput:false, //optional default true
-		    useDMS:false, //optional default false
-		    useLatLngOrder: true //ordering of labels, default false-> lng-lat
-		}).addTo(map);
+    L.control.coordinates({
+      position:"bottomright", //optional default "bootomright"
+      decimals:2, //optional default 4
+      decimalSeperator:".", //optional default "."
+      labelTemplateLat:"Latitud: {y}", //optional default "Lat: {y}"
+      labelTemplateLng:"Longitud: {x}", //optional default "Lng: {x}"
+      enableUserInput:false, //optional default true
+      useDMS:false, //optional default false
+      useLatLngOrder: true //ordering of labels, default false-> lng-lat
+    }).addTo(map);
 
-	    // Elevation listener
-	    // map.on('mouseover', function(e) {
-	    //      getLocationElevation(e.latlng, elevator);
-	    // });
-		//setLayers("../Aburria aburri_0.png", "../Aburria aburri_0.png", "../Aburria aburri_10.png", "../Aburria aburri_20.png", "../Aburria aburri_30.png");
-	   	// getSpeciesRecords();
+    // Elevation listener
+    // map.on('mouseover', function(e) {
+    //      getLocationElevation(e.latlng, elevator);
+    // });
+    //setLayers("../Aburria aburri_0.png", "../Aburria aburri_0.png", "../Aburria aburri_10.png", "../Aburria aburri_20.png", "../Aburria aburri_30.png");
+    // getSpeciesRecords();
 	}
 
 	var getLocationElevation = function (location, elevator){

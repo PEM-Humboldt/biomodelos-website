@@ -3,7 +3,6 @@
   <a ng-click="find=!find" class="closevb" id="clsSearchBox">x</a>
 </div>
 <div class="cvcolumn">
-  <p><%= t('biomodelos.visor.search.text_1') %></p>
   <%= form_tag(
     { :controller => 'species', :action => 'set_species' },
     { :method => 'post', :remote => true, :id => 'sp_search_form' })  do
@@ -19,6 +18,7 @@
     %>
   <% end %>
   <h2><%= t('biomodelos.visor.search.filters_title') %></h2>
+  <p><%= t('biomodelos.visor.search.text_1') %></p>
   <div class="typebtn">
     <label>
       <input type="checkbox" name="taxon" value="4" />

@@ -22,7 +22,7 @@ en:
       contact: 'Contact'
     home:
       advanced_search: 'Advanced search'
-      search_ph: 'Enter species scientific name'
+      search_ph: 'Scientific name'
       go_to_species_tt: 'Go to species'
       models_btn: 'CONSULT'
       contribute_btn: 'CONTRIBUTE'
