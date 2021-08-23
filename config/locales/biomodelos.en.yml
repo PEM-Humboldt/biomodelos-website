@@ -139,7 +139,12 @@ en:
         copy_url_tt: "Copy species URL"
       hypotheses:
         title: "AVAILABLE HYPOTHESES"
-        text_1: 'Maps in this section are either validated models or pending validation models. They may be rated according to how well they reflect species distribution by experts belonging to the species group. The first model displayed in the viewer corresponds to the map with the highest rating. Registered users may download models and their metadata.'
+        text_1: 'Maps in this section are either approved models (Validated), published by users models (Published) or statistical models performed in an automated way by the BioModelos team (Statistical). They may be rated according to how well they reflect species distribution by experts belonging to the species group (To rate). The first model displayed in the viewer corresponds to the map with the highest rating. Registered users may download models and their metadata.'
+        validated: 'Validated'
+        published: 'Published'
+        statistical: 'Statistical'
+        to_rate: 'To rate'
+        all: 'All'
         level: 'Level'
         rating_mean: 'Average score'
         votes: 'ratings'
@@ -167,6 +172,7 @@ en:
         valid_thumb: "VALIDATED"
       records:
         title: "records and filters"
+        year_label: "Year"
         year_filter_tt: "Warning: this filter works only in records that have the date field with an appropriate format. Due to errors in the sources, it is not possible to recognize the year of all records."
         month_filter_tt: "If you want to filter the records of the species for some particular months, select the boxes corresponding to those."
         month_filter: "Month"
@@ -244,6 +250,8 @@ en:
         environmental_outlier: "Environmental outlier:"
         last_report: "Last report:"
         last_update: "Last update:"
+        see_more: "see more"
+        see_less: "see less"
       contributions:
         title: "EDITION AND CONTRIBUTION"
         text_1: "BioModelos offers you three options to help document the distributions of species: editing the statistical model developed by BioModelos, creating an expert map in the application or publishing a model that you developed."
