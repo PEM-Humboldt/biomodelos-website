@@ -43,18 +43,53 @@ class Model
     #
     # @param species_id [Number] ID of the species.
     # @return [Array] Model objects pending of validation.
-  	def self.get_hypotheses(species_id)
-  		response = JSON.parse(get('/' + species_id + '?type=Hypothesis').body)
-  		hypotheses_array = []
-    	response.each do |hypothesis|
+    def self.get_hypotheses(species_id)
+      response = JSON.parse(get('/' + species_id + '?type=Hypothesis').body)
+      hypotheses_array = []
+      response.each do |hypothesis|
         t = Model.new(hypothesis["modelID"], hypothesis["modelStatus"], hypothesis["png"],
           hypothesis["zip"], hypothesis["thumb"], hypothesis["thresholdType"],
           hypothesis["modelLevel"], hypothesis["license"], hypothesis["customCitation"],
           hypothesis["methodFile"], hypothesis["published"], hypothesis["gsLayer"])
-          hypotheses_array.push(t)
+        hypotheses_array.push(t)
       end
-		  return hypotheses_array
+      return hypotheses_array
   	end
+
+    # Gets a species statistic model developed by BioModelos via API.
+    #
+    # @param species_id [Number] ID of the species.
+    # @return [Object] Statistic model object.
+    def self.get_statistic_model(species_id)
+      response = JSON.parse(get('/' + species_id + '?type=Statistic').body)
+      if response.size > 0
+        statistic_model = Model.new(response[0]["modelID"], response[0]["modelStatus"],
+          response[0]["png"], response[0]["zip"], response[0]["thumb"],
+          response[0]["thresholdType"], response[0]["modelLevel"], response[0]["license"],
+          response[0]["customCitation"], response[0]["methodFile"], response[0]["published"],
+          response[0]["gsLayer"])
+      else
+        statistic_model = nil
+      end
+
+      return statistic_model
+    end
+
+    # Gets all species statistic models developed by BioModelos via API.
+    #
+    # @param species_id [Number] ID of the species.
+    # @return [Array] Statistic model objects.
+    def self.get_statistic_models(species_id)
+      response = JSON.parse(get('/' + species_id + '?type=Statistic').body)
+      models_array = []
+      response.each do |model|
+        t = Model.new(model["modelID"], model["modelStatus"], model["png"], model["zip"],
+          model["thumb"], model["thresholdType"], model["modelLevel"], model["license"],
+          model["customCitation"], model["methodFile"], model["published"], model["gsLayer"])
+        models_array.push(t)
+      end
+      return models_array
+    end
 
     # Gets a species continuous model developed by BioModelos via API.
     #

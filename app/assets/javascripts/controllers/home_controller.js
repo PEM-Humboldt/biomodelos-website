@@ -77,13 +77,13 @@ const HomeControllerModule = function() {
     // Check if allgraphs class exists to Draw the charts. Avoids container errors.
       if($(".allgraphs").length){
         google.charts.load("current", {packages:["corechart"]});
-        google.charts.setOnLoadCallback(drawChart);
-        google.charts.setOnLoadCallback(drawChart2);
-        google.charts.setOnLoadCallback(drawChart3);
-        google.charts.setOnLoadCallback(drawChart4);
-        google.charts.setOnLoadCallback(drawChart5);
-        google.charts.setOnLoadCallback(drawChart6);
-        google.charts.setOnLoadCallback(drawChart7);
+        google.charts.setOnLoadCallback(genericDraw(1, 'donutmam'));
+        google.charts.setOnLoadCallback(genericDraw(2, 'donutave'));
+        google.charts.setOnLoadCallback(genericDraw(6, 'donutrep'));
+        google.charts.setOnLoadCallback(genericDraw(3, 'donutanf'));
+        google.charts.setOnLoadCallback(genericDraw(0, 'donutpec'));
+        google.charts.setOnLoadCallback(genericDraw(4, 'donutinv'));
+        google.charts.setOnLoadCallback(genericDraw(5, 'donutpla'));
 
         var options_chart = {
           titlePosition: 'none',
@@ -93,126 +93,54 @@ const HomeControllerModule = function() {
           chartArea:{left:12,top:12,width:'120',height:'120'},
           pieSliceBorderColor: 'none',
           pieStartAngle: '65',
-          slices: {0: {color: '#25b19e'}, 1: {color: '#e3af24'}, 2: {color: '#db3f2a'}},
+          slices: {
+            0: {color: '#25b19e'},
+            1: {color: '#e3af24'},
+            2: {color: '#db3f2a'},
+            3: {color: '#eb885b'},
+            4: {color: '#1b6875'}
+          },
           sliceVisibilityThreshold: '0',
           fontSize: '12',
           pieSliceText: 'none',
           tooltip: {isHtml: true, textStyle: {color: '#fff'}}
         };
 
-        $("#mam_lbl").html(stats[0]["totalSpecies"]);
-        function drawChart() {
-          var developingModel = stats[0]["developingModels"] ? stats[0]["developingModels"] : 0;
-          var pendingValModel = stats[0]["pendingValidation"] ? stats[0]["pendingValidation"] : 0;
-          var validatedModel = stats[0]["validModels"] ? stats[0]["validModels"] : 0;
-          var noModel = stats[0]["totalSpecies"] - (developingModel + pendingValModel + validatedModel);
-          var data = google.visualization.arrayToDataTable([
-            ['Estado del modelo', 'Número de spp.'],
-            ['Sin Modelo', noModel],
-            ['Modelo en desarrollo', developingModel + pendingValModel],
-            ['Modelo validado', validatedModel],
-            ]);
+        function genericDraw (idx, donutId) {
+          return function () {
+            var developingModel = stats[idx]["developingModels"] ? stats[idx]["developingModels"] : 0;
+            var publishedModel = stats[idx]["publishedModels"] ? stats[idx]["publishedModels"] : 0;
+            var validatedModel = stats[idx]["validModels"] ? stats[idx]["validModels"] : 0;
+            var statisticModel = stats[idx]["statisticModels"] ? stats[idx]["statisticModels"] : 0;
+            var noModel = stats[idx]["totalSpecies"]
+              - (developingModel + publishedModel + validatedModel + statisticModel);
+            var data = google.visualization.arrayToDataTable([
+              ['Estado del modelo', 'Número de spp.'],
+              ['Sin Modelo', noModel],
+              ['Modelos en desarrollo', developingModel],
+              ['Modelos validados', validatedModel],
+              ['Modelos publicados', publishedModel],
+              ['Modelos estadísticos', statisticModel],
+              ]);
 
-          var chart = new google.visualization.PieChart(document.getElementById('donutmam'));
-          chart.draw(data, options_chart);
+            var chart = new google.visualization.PieChart(document.getElementById(donutId));
+            chart.draw(data, options_chart);
+          }
         }
 
-        $("#av_lbl").html(stats[1]["totalSpecies"]);
-        function drawChart2() {
-          var developingModel = stats[1]["developingModels"] ? stats[1]["developingModels"] : 0;
-          var pendingValModel = stats[1]["pendingValidation"] ? stats[1]["pendingValidation"] : 0;
-          var validatedModel = stats[1]["validModels"] ? stats[1]["validModels"] : 0;
-          var noModel = stats[1]["totalSpecies"] - (developingModel + pendingValModel + validatedModel);
-          var data = google.visualization.arrayToDataTable([
-            ['Estado del modelo', 'Número de spp.'],
-            ['Sin Modelo', noModel],
-            ['Modelo en desarrollo', developingModel + pendingValModel],
-            ['Modelo validado', validatedModel],
-            ]);
+        $("#mam_lbl").html(stats[1]["totalSpecies"]);
 
-          var chart = new google.visualization.PieChart(document.getElementById('donutave'));
-          chart.draw(data, options_chart);
-        }
-        $("#rep_lbl").html(stats[2]["totalSpecies"]);
-        function drawChart3() {
-          var developingModel = stats[2]["developingModels"] ? stats[2]["developingModels"] : 0;
-          var pendingValModel = stats[2]["pendingValidation"] ? stats[2]["pendingValidation"] : 0;
-          var validatedModel = stats[2]["validModels"] ? stats[2]["validModels"] : 0;
-          var noModel = stats[2]["totalSpecies"] - (developingModel + pendingValModel + validatedModel);
-          var data = google.visualization.arrayToDataTable([
-            ['Estado del modelo', 'Número de spp.'],
-            ['Sin Modelo', noModel],
-            ['Modelo en desarrollo', developingModel + pendingValModel],
-            ['Modelo validado', validatedModel],
-            ]);
+        $("#av_lbl").html(stats[2]["totalSpecies"]);
 
-          var chart = new google.visualization.PieChart(document.getElementById('donutrep'));
-          chart.draw(data, options_chart);
-        }
+        $("#rep_lbl").html(stats[6]["totalSpecies"]);
+
         $("#anf_lbl").html(stats[3]["totalSpecies"]);
-        function drawChart4() {
-          var developingModel = stats[3]["developingModels"] ? stats[3]["developingModels"] : 0;
-          var pendingValModel = stats[3]["pendingValidation"] ? stats[3]["pendingValidation"] : 0;
-          var validatedModel = stats[3]["validModels"] ? stats[3]["validModels"] : 0;
-          var noModel = stats[3]["totalSpecies"] - (developingModel + pendingValModel + validatedModel);
-          var data = google.visualization.arrayToDataTable([
-            ['Estado del modelo', 'Número de spp.'],
-            ['Sin Modelo', noModel],
-            ['Modelo en desarrollo', developingModel + pendingValModel],
-            ['Modelo validado', validatedModel],
-            ]);
 
-          var chart = new google.visualization.PieChart(document.getElementById('donutanf'));
-          chart.draw(data, options_chart);
-        }
-        $("#pec_lbl").html(stats[4]["totalSpecies"]);
-        function drawChart5() {
-          var developingModel = stats[4]["developingModels"] ? stats[4]["developingModels"] : 0;
-          var pendingValModel = stats[4]["pendingValidation"] ? stats[4]["pendingValidation"] : 0;
-          var validatedModel = stats[4]["validModels"] ? stats[4]["validModels"] : 0;
-          var noModel = stats[4]["totalSpecies"] - (developingModel + pendingValModel + validatedModel);
-          var data = google.visualization.arrayToDataTable([
-            ['Estado del modelo', 'Número de spp.'],
-            ['Sin Modelo', noModel],
-            ['Modelo en desarrollo', developingModel + pendingValModel],
-            ['Modelo validado', validatedModel],
-            ]);
+        $("#pec_lbl").html(stats[0]["totalSpecies"]);
 
-          var chart = new google.visualization.PieChart(document.getElementById('donutpec'));
-          chart.draw(data, options_chart);
-        }
-        $("#inv_lbl").html(stats[5]["totalSpecies"]);
-        function drawChart6() {
-          var developingModel = stats[5]["developingModels"] ? stats[5]["developingModels"] : 0;
-          var pendingValModel = stats[5]["pendingValidation"] ? stats[5]["pendingValidation"] : 0;
-          var validatedModel = stats[5]["validModels"] ? stats[5]["validModels"] : 0;
-          var noModel = stats[5]["totalSpecies"] - (developingModel + pendingValModel + validatedModel);
-          var data = google.visualization.arrayToDataTable([
-            ['Estado del modelo', 'Número de spp.'],
-            ['Sin Modelo', noModel],
-            ['Modelo en desarrollo', developingModel + pendingValModel],
-            ['Modelo validado', validatedModel],
-            ]);
+        $("#inv_lbl").html(stats[4]["totalSpecies"]);
 
-          var chart = new google.visualization.PieChart(document.getElementById('donutinv'));
-          chart.draw(data, options_chart);
-        }
-        $("#pla_lbl").html(stats[6]["totalSpecies"]);
-        function drawChart7() {
-          var developingModel = stats[6]["developingModels"] ? stats[6]["developingModels"] : 0;
-          var pendingValModel = stats[6]["pendingValidation"] ? stats[6]["pendingValidation"] : 0;
-          var validatedModel = stats[6]["validModels"] ? stats[6]["validModels"] : 0;
-          var noModel = stats[6]["totalSpecies"] - (developingModel + pendingValModel + validatedModel);
-          var data = google.visualization.arrayToDataTable([
-            ['Estado del modelo', 'Número de spp.'],
-            ['Sin Modelo', noModel],
-            ['Modelo en desarrollo', developingModel + pendingValModel],
-            ['Modelo validado', validatedModel],
-            ]);
-
-          var chart = new google.visualization.PieChart(document.getElementById('donutpla'));
-          chart.draw(data, options_chart);
-        }
+        $("#pla_lbl").html(stats[5]["totalSpecies"]);
       }
     }
   };

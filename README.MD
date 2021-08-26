@@ -1,4 +1,4 @@
-# BioModelos v2.7.2
+# BioModelos v2.8.0
 
 [BioModelos](http://biomodelos.humboldt.org.co) is a web app that facilitates the generation, validation and consultation of hypothesis of species distribution for the continental biodiversity of Colombia. As such, it provides tools to (1) improve existing species distribution models (SDMs) by integrating expert's opinion, (2) generate expert maps and (3) publish SDMs. Our objective is to provide freely and openly access to the most up to date information on species distributions, validated by a large network of researchers, to support national environmental decision making processes and research.
 
@@ -9,15 +9,18 @@
 ## Services
 Deploy these services before setting up the app:
 
-- MongoDB Database Service [GitHub Repo](https://github.com/LBAB-Humboldt/biomodelos_db_api)
+- MongoDB Database Service
 - BioModelos API Service [GitHub Repo](https://github.com/LBAB-Humboldt/biomodelos_db_api)
 - SQL Database Service
 
 
 ## Software
 
+- Ruby version 2.5. It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
 - [Docker](https://www.docker.com) version 17.05 or up.
-- Git
+- [Git](https://git-scm.com/)
+- [Bower](https://bower.io/)
+
 
 
 # Setup
@@ -26,13 +29,15 @@ Deploy these services before setting up the app:
 
 Clone the repo to the server where you are deploying the app:
 
-```$ git clone git://github.com/LBAB-Humboldt/BioModelos.v2.git```
+```sh
+$ git clone git://github.com/LBAB-Humboldt/BioModelos.v2.git
+```
 
 ## Web app database
 
 To build the database according to the schema file using the SQL Service, you should follow the next steps:
 
-1. Create a [database.yml](https://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) file with the configuration of your SQL Service and add it to the */config/* path.
+1. Create a [database.yml](https://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) file with the configuration of your SQL Service and add it to the */config/* path. Use *database_template.yml* as a template which is located at */config/* folder
 2. Once you have the Docker container running, you may execute the **migrations** (*/db/migrate/*) following [this guide](https://edgeguides.rubyonrails.org/active_record_migrations.html#running-migrations).
 
 ## Configuration
@@ -43,16 +48,18 @@ Some files and paths in BioModelos need to be configured in order for the app to
 - Thumbnails folder with thumbnails image files.
 - Zip folder with zip files of the models.
 
-### API
-You need to setup a path to the BioModelos API service URL using the file *[/config/initializers/url.rb](config/initializers/url.rb)*
+### Connection to other BioModelos services
+You need to setup a path to the BioModelos API service URL and geoserver URL. Create a new file *url.rb* under the */config/initializers/* folder and setup the next env vars:
 
-```BASE_URI = "http://localhost:3000/v2"; ```
-
+```sh
+BASE_URI = "http://localhost:3000/v2";
+GEOSERVER_URI = "http://localhost:8080/geoserver";
+```
 
 ### Keys and credentials
 The app needs the following keys which you can set up in a *local_env.yml* file under the *config* folder like this:
 
-```
+```sh
 SECRET_KEY_BASE: [secret key base]
 
 \# Google Maps API
@@ -73,16 +80,24 @@ There, you should put information about:
 - SMTP credentials.
 
 ## Run
+Install dependencies
+```sh
+gem install bundler
+
+bundle install
+
+bower install --allow-root
+```
 
 Run the following command to execute the app in your local env
 
-```
-bundle exec rails s -b0.0.0.0
+```sh
+bundle exec rails s -b 0.0.0.0
 ```
 
 ### Dev env with docker
 You can create a docker container for development purposes, just build the image with the dev file:
-```
+```sh
 $ docker build -f Dockerfile.dev -t <image name> .
 ```
 And remember to mount the volumes (or link them) in your source code path
@@ -96,7 +111,9 @@ First, there are some static .PDF, .PNG and .ZIP files you need to copy to the /
 ### Building the image
 On the root path of the rails app you enter this command to build the image:
 
-```$ docker build -t <image name>:<tag> .```
+```sh
+$ docker build -t <image name>:<tag> .
+```
 
 ### Starting the container
 
@@ -104,7 +121,7 @@ On the root path of the rails app you enter this command to build the image:
 
 You need to create a docker-compose.yml file and set the volumes according to the models, thumbnails, zip and uploads folders like this:
 
-```
+```sh
 version: '3'
 services:
   biomodelos:
@@ -121,7 +138,9 @@ services:
 ```
 Finally, you run the container with the next command:
 
-  ```$ docker-compose  -d up```
+  ```sh
+  $ docker-compose  -d up
+  ```
 
 
 ## LICENSE

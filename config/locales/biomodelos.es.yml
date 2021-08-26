@@ -22,9 +22,9 @@ es:
       contact: 'Contacto'
     home:
       advanced_search: 'Búsqueda avanzada'
-      search_ph: 'Consulta una especie por su nombre científico'
+      search_ph: 'Nombre científico'
       go_to_species_tt: 'Ir a especie'
-      models_btn: 'MODELOS'
+      models_btn: 'CONSULTA'
       contribute_btn: 'CONTRIBUYE'
       publish_btn: 'PUBLICA'
       slogan: 'MEJORES MODELOS CON EL APOYO DE EXPERTOS'
@@ -96,15 +96,15 @@ es:
         invasive: "invasoras"
         threatened: "amenazadas"
         validated: "validadas"
+        withmodel: "con modelo"
         no_results: "No existen resultados para la búsqueda."
+        error: "Ha ocurrido un error en la búsqueda."
       statistics:
         title: "Estadísticas sobre modelo validado"
         records_number: "NÚMERO DE REGISTROS"
         records_number_tt: "Registros de presencia de la especie utilizados en el desarrollo del modelo."
         records_metadata: "METADATOS REGISTROS"
         records_metadata_tt: "Información sobre los registros usados en el modelamiento y el proceso de curaduría de los mismos."
-        text_1: "Esta información corresponde al modelo validado por los expertos en BioModelos, el cual tiene la mayor calificación entre las hipótesis de distribución disponibles para este especie."
-        text_2: "Dado que esta especie aún no tiene un modelo validado, no es posible calcular la información que normalmente se presenta en esta sección."
         eoo_title: "EXTENSIÓN DE OCURRENCIA"
         eoo_text_1_html: 'La extensión de ocurrencia (EOO por sus siglas en inglés utilizadas en la literatura) se define como el área contenida dentro de los límites más cortos imaginarios que pueden ser dibujados para abarcar todos los sitios en donde se encuentra la especie, bien sea conocidos, inferidos o proyectados (IUCN 2013).'
         eoo_text_2_html: '<b>PMC sobre modelos:</b> polígono mínimo convexo delimitado sobre la distribución modelada para cada especie (<a href="http://www.humboldt.org.co/es/test/item/download/244_4bf9941429abe826cb0bee0e9f755f2a" target="_blank" style="float:none;">Figura 1, Renjifo et al. 2014</a>).'
@@ -139,7 +139,12 @@ es:
         copy_url_tt: "Copiar URL de la especie"
       hypotheses:
         title: "HIPÓTESIS DISPONIBLES"
-        text_1: 'Estas hipótesis corresponden al modelo aprobado en BioModelos, mapas de expertos o modelos publicados. Pueden ser calificadas por los miembros del grupo al que pertenece esta especie. Aquella con mayor calificación es la que se muestra por defecto. Puedes realizar la descarga de los modelos y consultar sus metadatos.'
+        text_1: 'Estas hipótesis corresponden al modelo aprobado en BioModelos (Validados), modelos publicados por usuarios (Publicados) o modelos estadísticos que han sido desarrollados de forma automatizada por el equipo de BioModelos (Estadísticos). Pueden ser calificadas por los miembros del grupo al que pertenece esta especie (Para calificar). Aquella con mayor calificación es la que se muestra por defecto. Puedes realizar la descarga de los modelos y consultar sus metadatos.'
+        validated: 'Validados'
+        published: 'Publicados'
+        statistical: 'Estadísticos'
+        to_rate: 'Para calificar'
+        all: 'Todos'
         level: 'Nivel'
         rating_mean: 'Calificación promedio'
         votes: 'votos'
@@ -167,6 +172,7 @@ es:
         valid_thumb: "VALIDADO"
       records:
         title: "registros y filtros"
+        year_label: "Año"
         year_filter_tt: "Advertencia: este filtro sólo funciona en los registros que tienen el campo fecha con el formato adecuado. Debido a errores de las fuentes, no es posible reconocer el año de todos los registros."
         month_filter_tt: "Si deseas filtrar los registros de la especie para algunos meses en particular selecciona las casillas correspondientes a estos."
         month_filter: "Mes"
@@ -202,6 +208,50 @@ es:
         filter_btn: "filtrar"
         add_tt: "1: Las coordenadas del visor geográfico permiten agregar un registro para la especie, después podrás cambiarlas y llenar los demás campos de documentación."
         add: "Agregar registro"
+      selected_record:
+        record_of: "REGISTRO DE"
+        id_of_the_record: "ID del registro:"
+        taxonomy: "Taxonomía"
+        accepted_name: "Nombre aceptado:"
+        original_name: "Nombre original:"
+        family: "Familia:"
+        order: "Orden:"
+        class: "Clase:"
+        kingdom: "Reino:"
+        location: "Ubicación"
+        latitude: "Latitud:"
+        longitude: "Longitud:"
+        original: "original"
+        interpreted: "interpretado"
+        consistent: "consistente"
+        country: "País:"
+        state: "Departamento:"
+        county: "Municipio:"
+        locality: "Localidad:"
+        altitude: "Altitud:"
+        record_information: "Información del registro"
+        institution: "Institución:"
+        collection: "Colección:"
+        catalog_number: "Número de catálogo:"
+        recorded_by: "Colector:"
+        basis_of_record: "Evidencia de registro:"
+        event_date: "Fecha de registro:"
+        url: "URL:"
+        source: "Fuente:"
+        occurrence_id: "ID registro original:"
+        download_date: "Fecha descarga fuente:"
+        record_quality: "Calidad del registro "
+        georeferencing_error: "Error georeferenciación (m):"
+        in_urban_area: "En casco urbano:"
+        altitude_in_coordinates: "Altitud en coordenadas:"
+        altitude_in_known_range: "Altitud en rango conocido:"
+        distance_to_known_range: "Distancia a rango conocido:"
+        altitudinal_outlier: "Altitud atipica:"
+        environmental_outlier: "Ambiente atípico:"
+        last_report: "Último reporte:"
+        last_update: "Última actualización:"
+        see_more: "ver más"
+        see_less: "ver menos"
       contributions:
         title: "EDICIÓN Y CONTRIBUCIÓN"
         text_1: "BioModelos te ofrece tres opciones para contribuir a documentar las distribuciones de especies: editando sobre el modelo estadístico desarrollado por BioModelos, creando un mapa de experto en la aplicación o publicando un modelo que hayas desarrollado."
@@ -397,6 +447,8 @@ es:
         pending_validation: "Validación pendiente"
         valid: "Validado"
         developing: "Desarrollo"
+        no_model: "Sin modelo"
+        hypotheses_error: "Se ha producido un error al consultar las hipótesis"
     publish:
       title: "Publica tu mapa"
       text_1: "Para publicar un modelo de distribución en BioModelos, sigue los siguientes pasos"
@@ -586,6 +638,10 @@ es:
         upload_photo_btn: "SUBIR FOTO"
         submit_btn: "GUARDAR"
     records:
+      new_record: "NUEVO REGISTRO DE"
+      submit_btn: "GUARDAR"
+      error_new_record: "Hubo un error al crear el registro"
+      success_new_record: "Registro creado exitosamente"
       metadata:
         title: "Metadatos registros"
         sources: "FUENTES"
@@ -597,6 +653,9 @@ es:
         collectors: "Colectores"
         collaborators: "Colaboradores en curaduría"
         citation: "Cita"
+      edit:
+        success_notice: "Su edición se ha realizado con éxito"
+        error_notice: "Ha ocurrido un error al editar el registro"
       report:
         title: "REPORTAR REGISTRO"
         outlier_lbl: "Outlier geográfico"
@@ -610,7 +669,7 @@ es:
         cancel_lnk: "cancelar"
         sign_up_notice: "Debe estar registrado para poder reportar un registro"
         success_notice: "Su reporte se ha realizado con éxito"
-        error_notice: "Ha ocurrido un error al reportar el registro: "
+        error_notice: "Ha ocurrido un error al reportar el registro"
     models:
       metadata:
         title: "Metadatos modelo"
@@ -633,11 +692,11 @@ es:
         contact: "Contacto"
         error: 'Se ha producido un error al obtener los metadatos del modelo.'
       init:
-        no_model: "Esta especie aun no cuenta con modelo de distribución. Para contribuir a su desarrollo, registrate en el grupo de expertos de la especie."
-        case_2: "Esta es una hipótesis de distribución aprobada por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución no aprobadas por expertos, disponibles para esta especie."
-        case_3: "Esta hipótesis de distribución está pendiente de aprobación por expertos."
-        case_4: "Esta es una de las hipótesis de distribución disponibles pendientes de aprobación por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución pendientes de aprobación disponibles para esta especie."
-        case_5: "Esta es una hipótesis de distribución sin aportes de expertos. Para contribuir a mejorarlo, registrate en el grupo de expertos de la especie."
+        valid_model: "Esta es una hipótesis de distribución aprobada por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución no aprobadas por expertos, disponibles para esta especie."
+        pending_validation_model: "Esta es una de las hipótesis de distribución disponibles pendientes de aprobación por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución pendientes de aprobación disponibles para esta especie."
+        statistic_model: "Esta es una hipótesis de distribución sin aportes de expertos. Para contribuir a mejorarlo, registrate en el grupo de expertos de la especie."
+        continuous_model: "Esta hipótesis se encuentra en construcción por el grupo de expertos, si quieres aportar solicita unirte al grupo de la especie."
+        no_model: "Esta especie aún no cuenta con modelo de distribución. Para contribuir a su desarrollo, registrate en el grupo de expertos de la especie."
       download:
         text_1: "Antes de descargar, recuerda:"
         read_terms_lnk: 'He leído y acepto los términos y condiciones'

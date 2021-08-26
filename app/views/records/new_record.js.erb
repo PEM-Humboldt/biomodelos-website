@@ -1,0 +1,8 @@
+$("#new_record_box").html("");
+$("#btnAddSingleRecord").toggleClass("btngenact");
+_BioModelosVisorModule.cancelAddPoint();
+_BioModelosVisorModule.getSpeciesRecords($("#species_id_field").val(), true)
+<% unless @alerts_to_show.empty? %>
+  $("#alerts").html('<%=j render partial: 'layouts/alert' %>');
+<% end %>
+

@@ -1,21 +1,21 @@
-en:
+es:
   simple_form:
     labels:
       new_record:
-        decimalLatitude: "Latitude"
-        decimalLongitude: "Longitude"
-        verbatimElevation: "Altitude"
-        date: "Date"
-        stateProvince: "State"
-        county: "County"
-        verbatimLocality: "Locality"
-        basisOfRecord: "Basis of record"
-        recordedBy: "Recorded by"
-        createdCitationBm: "Citation"
-        catalogNumber: "Catalog number"
-        collectionCode: "Collection"
-        institutionCode: "Institution"
-        createdCommentsBm: "More information"
+        decimalLatitude: "Latitud"
+        decimalLongitude: "Longitud"
+        verbatimElevation: "Altitud"
+        date: "Fecha"
+        stateProvince: "Departamento"
+        county: "Municipio"
+        verbatimLocality: "Localidad"
+        basisOfRecord: "Evidencia de registro"
+        recordedBy: "Colector"
+        createdCitationBm: "Cita"
+        catalogNumber: "Número de catálogo"
+        collectionCode: "Colección"
+        institutionCode: "Institución"
+        createdCommentsBm: "Más información"
     "yes": 'Yes'
     "no": 'No'
     required:

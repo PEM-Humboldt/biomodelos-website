@@ -9,60 +9,63 @@ class SpeciesController < ApplicationController
 	    render json: result
   	end
 
-  	def visor
-	  	@skip_footer = true
-	end
+  def visor
+    @skip_footer = true
+  end
 
-	def search
-		begin
-			species = Species.search(params)
-			if species.blank?
-				species = { species: "Not found", taxID: 0 }
-			end
-			render json: species
-		rescue => e
-			logger.error "#{e.message} #{e.backtrace}"
-			err_msg = e.message.tr(?',?").delete("\n")
-	    	render :js => "alertify.alert('Ha ocurrido un error en la búsqueda. #{err_msg}');"
-	    end
-	end
+  def search
+    begin
+      species = Species.search(params)
+      if species.blank?
+        species = { species: "Not found", taxID: 0 }
+      end
+      render json: species
+    rescue => e
+      logger.error "#{e.message} #{e.backtrace}"
+      err_msg = e.message.tr(?',?").delete("\n")
+        render :js => "alertify.alert('Ha ocurrido un error en la búsqueda. #{err_msg}');"
+      end
+  end
 
-	def filter
-		begin
-			@species = Species.filter(params)
-			respond_to do |format|
-	      		format.js
-	    	end
-		rescue => e
-			logger.error "#{e.message} #{e.backtrace}"
-			err_msg = e.message.tr(?',?").delete("\n")
-	    	render :js => "alertify.alert('Ha ocurrido un error en la búsqueda. #{err_msg}');"
-	    end
-	end
+  def filter
+    @alerts_to_show = []
+    begin
+      @species = Species.filter(params)
+    rescue => e
+      logger.error "#{e.message} #{e.backtrace}"
+      @alerts_to_show.push({
+        "message" => t('biomodelos.visor.search.error'),
+        "type" => 'error'
+      })
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
 
-	def set_species
-		begin
-			@can_edit = false
-			if params[:species_id] == "0"
-				render :js => "alertify.alert('La especie #{params[:query]} no está disponible.');"
-			else
-				if user_signed_in?
-					@can_edit = can_edit(current_user.id, params[:species_id])
-				end
-				#TO DO: get species and find if it's empty (id doesn't exist) or not.
-				@species_id = params[:species_id]
-				@species_name = Species.find_name(params[:species_id])
-				@records_number = Model.valid_records_number(params[:species_id])
-				@approved_model = Model.get_valid_model(params[:species_id])
-				respond_to do |format|
-	      			format.js
-	    		end
-			end
-	    rescue => e
-	    	logger.error "#{e.message} #{e.backtrace}"
-			err_msg = e.message.tr(?',?").delete("\n")
-	    	render :js => "alertify.alert('Ha ocurrido un error cosultando la especie. #{err_msg}');"
-	    end
+  def set_species
+    begin
+      @can_edit = false
+      if params[:species_id] == "0"
+        render :js => "alertify.alert('La especie #{params[:query]} no está disponible.');"
+      else
+        if user_signed_in?
+          @can_edit = can_edit(current_user.id, params[:species_id])
+        end
+        #TO DO: get species and find if it's empty (id doesn't exist) or not.
+        @species_id = params[:species_id]
+        @species_name = Species.find_name(params[:species_id])
+        @records_number = Model.valid_records_number(params[:species_id])
+        @approved_model = Model.get_valid_model(params[:species_id])
+        respond_to do |format|
+          format.js
+        end
+      end
+    rescue => e
+      logger.error "#{e.message} #{e.backtrace}"
+      err_msg = e.message.tr(?',?").delete("\n")
+      render :js => "alertify.alert('Ha ocurrido un error cosultando la especie. #{err_msg}');"
+    end
 	end
 
 	def get_species_records

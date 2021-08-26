@@ -1,17 +1,21 @@
 <% if @models && !@models.blank? %>
 	<p><%= t('biomodelos.visor.hypotheses.text_1') %></p>
-	<!-- <div class="button-group filter-button-group">
-	  <button class="filterbtn is-checked" data-filter="*">Todas</button>
-	  <button class="filterbtn" data-filter=".nivel1">Climáticos</button>
-	  <button class="filterbtn" data-filter=".nivel2">Coberturas</button>
-	  <button class="filterbtn" data-filter=".publicados">Publicados</button>
-	  <button class="filterbtn" data-filter=".validado">Validado</button>
-	</div> -->
+	<div class="button-group filter-button-group">
+	  <button class="filterbtn is-checked" data-filter=".validados"><%= t('biomodelos.visor.hypotheses.validated') %></button>
+	  <button class="filterbtn" data-filter=".publicados"><%= t('biomodelos.visor.hypotheses.published') %></button>
+	  <button class="filterbtn" data-filter=".estadisticos"><%= t('biomodelos.visor.hypotheses.statistical') %></button>
+	  <button class="filterbtn" data-filter=".para-calificar"><%= t('biomodelos.visor.hypotheses.to_rate') %></button>
+	  <button class="filterbtn" data-filter="*"><%= t('biomodelos.visor.hypotheses.all') %></button>
+	</div>
 
 	<div class="grid">
 
 	<% @models.each_with_index do |model, i| %>
-		<div class="maparea publicados">
+		<% tags = model.modelStatus == 'Valid' ? ' validados' : '' %>
+		<% tags += model.published && model.modelStatus == 'pendingValidation' ? 'publicados' : '' %>
+		<% tags += model.modelStatus == 'Statistic' ? ' estadisticos' : '' %>
+		<% tags += model.modelStatus == 'pendingValidation' ? ' para-calificar' : '' %>
+		<div class="maparea <%= tags %>">
 			<div href="" class="mapthumb">
 				<div class="flipper">
 					<div class="front2"><%= image_tag(model_thumb(model)) %></div>
@@ -64,7 +68,6 @@
 				model), :box => 2, :model_id => model.modelID , :species_id => @species_id), {:class => 'pad3', :title => t('biomodelos.visor.hypotheses.download_tt'), :rel => "tooltip", :remote => true} do %>
 						<%= image_tag("downicon.png") %>
 					<% end %>
-				<!-- <a target="_blank" href="/models/<%= model.modelID %>/metadata" title="<%= t('biomodelos.visor.hypotheses.metadata_tt') %>" rel="tooltip" class="pad3"><%= image_tag("metaicon.png") %></a> -->
 				<%= link_to "/#{I18n.locale}/models/#{model.modelID}/metadata", target: "_blank", title: t('biomodelos.visor.hypotheses.metadata_tt'), rel: "tooltip", class: "pad3"  do %>
 					<%= image_tag("metaicon.png") %>
 				<% end %>
@@ -169,6 +172,7 @@ $('.user_star').raty({
 
 // init Isotope
 var $grid = $('.grid').isotope({
+  filter: ".validados"
 });
 
 $('.filter-button-group').on( 'click', 'button', function() {

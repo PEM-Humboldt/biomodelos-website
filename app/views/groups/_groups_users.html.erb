@@ -1,6 +1,6 @@
 <h1><%= t('biomodelos.groups.experts.title') %></h1>
 <% if @current_group_user %>
-	<a ng-click="invitador=!invitador; activeButton()" ng-class="{'btnact': isActive}" class="closecb"><%= t('biomodelos.groups.experts.invitation_title') %></a>
+	<a ng-click="invitador=!invitador; activeButton()" ng-class="{'btnact': isActive}" class="genericbtn"><%= t('biomodelos.groups.experts.invitation_title') %></a>
 	<div ng-show="invitador" class="forms">
 		<p class="groupuser"><%= t('biomodelos.groups.experts.invitation_notice') %></p><br/>
 		<%= simple_form_for :message, :url =>  groups_invite_user_path, :method => :post do |f| %>

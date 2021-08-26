@@ -1,0 +1,25 @@
+<% alerts = []%>
+<div id="flash" class="alert"></div>
+<script>
+  var alerts = [];
+  <% @alerts_to_show.each do |a| %>
+    alerts.push(['<%= a['type'] %>', '<%= a['message'] %>'])
+  <% end %>
+
+  var idx = 0
+  var interval;
+  function nextAlert() {
+    if (idx < alerts.length) {
+      $("#flash")
+        .html(alerts[idx][1])
+        .removeClass("alert-notice alert-error")
+        .addClass(`alert-${alerts[idx][0]}`);
+      idx++;
+      } else {
+        $("#flash").remove();
+        clearInterval(interval);
+      }
+  }
+  nextAlert();
+  interval = setInterval(nextAlert, 3500);
+</script>

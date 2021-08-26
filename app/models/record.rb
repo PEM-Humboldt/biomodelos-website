@@ -1,9 +1,9 @@
 class Record
 	include HTTParty
-  	format :json
-  	base_uri BASE_URI + '/records'
+	format :json
+	base_uri BASE_URI + '/records'
 
-  	def self.find(record_id)
+	def self.find(record_id)
 		JSON.parse(get('/' + record_id.to_s).body)
 	end
 

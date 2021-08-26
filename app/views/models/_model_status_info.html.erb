@@ -1,0 +1,17 @@
+<div class="model-status status-open">
+  <div class="status-line"></div>
+  <p>
+    <%= @model_status %>
+  </p>
+</div>
+
+<script>
+  setTimeout(function(){
+    $('.model-status').removeClass('status-open');
+    $("#model-status-btn").removeClass('arrow-status');
+  }, 7000);
+  $('#model-status-btn').on('click', function() {
+    $('.model-status').toggleClass('status-open');
+    $("#model-status-btn").toggleClass('arrow-status');
+  })
+</script>

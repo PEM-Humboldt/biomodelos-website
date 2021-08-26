@@ -22,9 +22,9 @@ en:
       contact: 'Contact'
     home:
       advanced_search: 'Advanced search'
-      search_ph: 'Enter species scientific name'
+      search_ph: 'Scientific name'
       go_to_species_tt: 'Go to species'
-      models_btn: 'MODELS'
+      models_btn: 'CONSULT'
       contribute_btn: 'CONTRIBUTE'
       publish_btn: 'PUBLISH'
       slogan: 'BETTER MODELS WITH SUPPORT FROM EXPERTS'
@@ -96,15 +96,15 @@ en:
         invasive: "invasive"
         threatened: "threatened"
         validated: "validated"
+        withmodel: "with model"
         no_results: "No results found."
+        error: "There was an error in the search."
       statistics:
         title: "Statistics on validated model"
         records_number: "Occurrences"
         records_number_tt: "The quantity of biological records used in the development of this model."
         records_metadata: "OCCURRENCE METADATA"
         records_metadata_tt: "Metadata on occurrences used for model development and their data cleaning process."
-        text_1: "The information provided below corresponds to the expert validated model."
-        text_2: "Species distribution statistics are not available for this species as it does not have a validated model yet."
         eoo_title: "EXTENT OF OCCURRENCE"
         eoo_text_1_html: 'The extent of occurrence (EOO) is defined as the area contained within the shortest continuous imaginary boundary which can be drawn to encompass al the known, inferred or projected sites of present occurrence of a taxon, excluding cases of vagrancy (IUCN 2013).'
         eoo_text_2_html: '<b>MCP on models:</b> area of minimum convex polygon computed on a species modeled distribution (<a href="http://www.humboldt.org.co/es/test/item/download/244_4bf9941429abe826cb0bee0e9f755f2a" target="_blank" style="float:none;">Figure 1, Renjifo et al. 2014</a>).'
@@ -139,7 +139,12 @@ en:
         copy_url_tt: "Copy species URL"
       hypotheses:
         title: "AVAILABLE HYPOTHESES"
-        text_1: 'Maps in this section are either validated models or pending validation models. They may be rated according to how well they reflect species distribution by experts belonging to the species group. The first model displayed in the viewer corresponds to the map with the highest rating. Registered users may download models and their metadata.'
+        text_1: 'Maps in this section are either approved models (Validated), published by users models (Published) or statistical models performed in an automated way by the BioModelos team (Statistical). They may be rated according to how well they reflect species distribution by experts belonging to the species group (To rate). The first model displayed in the viewer corresponds to the map with the highest rating. Registered users may download models and their metadata.'
+        validated: 'Validated'
+        published: 'Published'
+        statistical: 'Statistical'
+        to_rate: 'To rate'
+        all: 'All'
         level: 'Level'
         rating_mean: 'Average score'
         votes: 'ratings'
@@ -167,6 +172,7 @@ en:
         valid_thumb: "VALIDATED"
       records:
         title: "records and filters"
+        year_label: "Year"
         year_filter_tt: "Warning: this filter works only in records that have the date field with an appropriate format. Due to errors in the sources, it is not possible to recognize the year of all records."
         month_filter_tt: "If you want to filter the records of the species for some particular months, select the boxes corresponding to those."
         month_filter: "Month"
@@ -202,6 +208,50 @@ en:
         filter_btn: "filter"
         add_tt: "1: The coordinates of the geographic viewer allow you to add a record for the species, after that you can change them and fill the other documentation fields."
         add: "Add record"
+      selected_record:
+        record_of: "RECORD OF"
+        id_of_the_record: "ID of the record:"
+        taxonomy: "Taxonomy"
+        accepted_name: "Accepted name:"
+        original_name: "Original name:"
+        family: "Family:"
+        order: "Order:"
+        class: "Class:"
+        kingdom: "Kingdom:"
+        location: "Location"
+        latitude: "Latitude:"
+        longitude: "Longitude:"
+        original: "original"
+        interpreted: "interpreted"
+        consistent: "consistent"
+        country: "Country:"
+        state: "State:"
+        county: "County:"
+        locality: "Locality:"
+        altitude: "Altitude:"
+        record_information: "Record Information"
+        institution: "Institution:"
+        collection: "Collection:"
+        catalog_number: "Catalog number:"
+        recorded_by: "Recorded by:"
+        basis_of_record: "Basis of record:"
+        event_date: "Event date:"
+        url: "URL:"
+        source: "Source:"
+        occurrence_id: "Occurrence ID:"
+        download_date: "Download date:"
+        record_quality: "Record Quality"
+        georeferencing_error: "Georeferencing error:"
+        in_urban_area: "In urban area:"
+        altitude_in_coordinates: "Altitude in coordinates:"
+        altitude_in_known_range: "Altitude in known range:"
+        distance_to_known_range: "Distance to known range:"
+        altitudinal_outlier: "Altitudinal outlier:"
+        environmental_outlier: "Environmental outlier:"
+        last_report: "Last report:"
+        last_update: "Last update:"
+        see_more: "see more"
+        see_less: "see less"
       contributions:
         title: "EDITION AND CONTRIBUTION"
         text_1: "BioModelos offers you three options to help document the distributions of species: editing the statistical model developed by BioModelos, creating an expert map in the application or publishing a model that you developed."
@@ -397,6 +447,8 @@ en:
         pending_validation: "Pending validation"
         valid: "Validated"
         developing: "Development"
+        no_model: "No model"
+        hypotheses_error: "There was an error querying the hypotheses"
     publish:
       title: "Publish your map"
       text_1: "To publish a distribution model in BioModelos, follow the next steps"
@@ -586,6 +638,10 @@ en:
         upload_photo_btn: "UPLOAD PHOTO"
         submit_btn: "SAVE"
     records:
+      new_record: "NEW RECORD FOR"
+      submit_btn: "SAVE"
+      error_new_record: "There was an error creating the record"
+      success_new_record: "Record created successfully"
       metadata:
         title: "Records metadata"
         sources: "SOURCES"
@@ -597,6 +653,9 @@ en:
         collectors: "Collectors"
         collaborators: "Curatorship collaborators"
         citation: "Citation"
+      edit:
+        success_notice: "Record updated successfully"
+        error_notice: "An error occurred while updating the record"
       report:
         title: "RECORD REPORT"
         outlier_lbl: "Geographic outlier"
@@ -610,7 +669,7 @@ en:
         cancel_lnk: "cancel"
         sign_up_notice: "You must be registered to be able to report a record"
         success_notice: "Your report has been successful"
-        error_notice: "An error occurred while reporting the record: "
+        error_notice: "An error occurred while reporting the record"
     models:
       metadata:
         title: "Models metadata"
@@ -633,11 +692,11 @@ en:
         contact: "Contact"
         error: 'An error occurred while obtaining model metadata.'
       init:
+        valid_model: "This is a distribution hypothesis approved by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses not approved by experts, available for this species."
+        pending_validation_model: "This is one of the available distribution hypotheses pending approval by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses pending approval available for this species."
+        statistic_model: "This is a distribution hypothesis without contributions from experts. To help improve it, join the group of experts of the species."
+        continuous_model: "This distribution hypothesis is under construction by the group of experts, to contribute to its development, register in the group of experts of the species."
         no_model: "This species does not have a distribution model yet. To contribute to its development, register in the group of experts of the species."
-        case_2: "This is a distribution hypothesis approved by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses not approved by experts, available for this species."
-        case_3: "This distribution hypothesis is pending approval by experts."
-        case_4: "This is one of the available distribution hypotheses pending approval by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses pending approval available for this species."
-        case_5: "This is a distribution hypothesis without contributions from experts. To help improve it, join the group of experts of the species."
       download:
         text_1: "Before download, remember:"
         read_terms_lnk: 'I have read and accept the terms and conditions'

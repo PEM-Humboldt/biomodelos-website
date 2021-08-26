@@ -3,12 +3,13 @@
 	$(".modelname").show();
 	$(".modelname").html("<%= map_status_name(@init_model.modelStatus) %>");
 	if(<%= @init_model.modelStatus == 'Developing' %> && !$(".modelname").hasClass("gradient"))
-        $(".modelname").addClass("gradient");
-	<% if !@popup_content.blank? %>
-		alertify.alert("<%= @popup_content %>");
-	<% end %>
+    $(".modelname").addClass("gradient");
 <% else %>
-	$(".modelname").html("");
-	$(".modelname").hide();
-	alertify.alert("<%= t('biomodelos.models.init.no_model') %>");
+	$(".modelname").html("<%= t('biomodelos.visor.models.no_model') %>");
+	$(".modelname").show();
+<% end %>
+
+<% unless @model_status.nil? %>
+  $("#model-status-btn").show();
+  $('#model-status-info').html('<%=j render partial: 'models/model_status_info' %>');
 <% end %>
