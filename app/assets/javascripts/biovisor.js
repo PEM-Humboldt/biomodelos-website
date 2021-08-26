@@ -645,11 +645,11 @@ var _BioModelosVisorModule = function() {
 	}
 
 	var setLayers = function(imgThresholdC, imgThreshold0, imgThreshold10, imgThreshold20, imgThreshold30) {
-		thresholdC = processModel(imgThresholdC);
-		threshold0 = processModel(imgThreshold0);
-		threshold10 = processModel(imgThreshold10);
-		threshold20 = processModel(imgThreshold20);
-		threshold30 = processModel(imgThreshold30);
+		thresholdC = processModel(JSON.parse(imgThresholdC));
+		threshold0 = processModel(JSON.parse(imgThreshold0));
+		threshold10 = processModel(JSON.parse(imgThreshold10));
+		threshold20 = processModel(JSON.parse(imgThreshold20));
+		threshold30 = processModel(JSON.parse(imgThreshold30));
 	}
 
 	var changeThresholdLayer = function (threshold){
