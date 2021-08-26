@@ -74,16 +74,16 @@ const HomeControllerModule = function() {
     });
 
     function _drawCharts(stats){
-    // Check if allgraphs class exists to Draw the charts. Avoids container errors.
+      // Check if allgraphs class exists to Draw the charts. Avoids container errors.
       if($(".allgraphs").length){
         google.charts.load("current", {packages:["corechart"]});
-        google.charts.setOnLoadCallback(genericDraw(1, 'donutmam'));
-        google.charts.setOnLoadCallback(genericDraw(2, 'donutave'));
-        google.charts.setOnLoadCallback(genericDraw(6, 'donutrep'));
-        google.charts.setOnLoadCallback(genericDraw(3, 'donutanf'));
-        google.charts.setOnLoadCallback(genericDraw(0, 'donutpec'));
-        google.charts.setOnLoadCallback(genericDraw(4, 'donutinv'));
-        google.charts.setOnLoadCallback(genericDraw(5, 'donutpla'));
+        google.charts.setOnLoadCallback(genericDraw(findGroupIdx('mamiferos'), 'donutmam'));
+        google.charts.setOnLoadCallback(genericDraw(findGroupIdx('aves'), 'donutave'));
+        google.charts.setOnLoadCallback(genericDraw(findGroupIdx('reptiles'), 'donutrep'));
+        google.charts.setOnLoadCallback(genericDraw(findGroupIdx('anfibios'), 'donutanf'));
+        google.charts.setOnLoadCallback(genericDraw(findGroupIdx('peces'), 'donutpec'));
+        google.charts.setOnLoadCallback(genericDraw(findGroupIdx('invertebrados'), 'donutinv'));
+        google.charts.setOnLoadCallback(genericDraw(findGroupIdx('plantas'), 'donutpla'));
 
         var options_chart = {
           titlePosition: 'none',
@@ -105,6 +105,12 @@ const HomeControllerModule = function() {
           pieSliceText: 'none',
           tooltip: {isHtml: true, textStyle: {color: '#fff'}}
         };
+
+        function findGroupIdx(name) {
+          return stats.findIndex(function (group) {
+            return group.taxonomicGroup === name;
+          })
+        }
 
         function genericDraw (idx, donutId) {
           return function () {
@@ -128,19 +134,19 @@ const HomeControllerModule = function() {
           }
         }
 
-        $("#mam_lbl").html(stats[1]["totalSpecies"]);
+        $("#mam_lbl").html(stats[findGroupIdx('mamiferos')]["totalSpecies"]);
 
-        $("#av_lbl").html(stats[2]["totalSpecies"]);
+        $("#av_lbl").html(stats[findGroupIdx('aves')]["totalSpecies"]);
 
-        $("#rep_lbl").html(stats[6]["totalSpecies"]);
+        $("#rep_lbl").html(stats[findGroupIdx('reptiles')]["totalSpecies"]);
 
-        $("#anf_lbl").html(stats[3]["totalSpecies"]);
+        $("#anf_lbl").html(stats[findGroupIdx('anfibios')]["totalSpecies"]);
 
-        $("#pec_lbl").html(stats[0]["totalSpecies"]);
+        $("#pec_lbl").html(stats[findGroupIdx('peces')]["totalSpecies"]);
 
-        $("#inv_lbl").html(stats[4]["totalSpecies"]);
+        $("#inv_lbl").html(stats[findGroupIdx('invertebrados')]["totalSpecies"]);
 
-        $("#pla_lbl").html(stats[5]["totalSpecies"]);
+        $("#pla_lbl").html(stats[findGroupIdx('plantas')]["totalSpecies"]);
       }
     }
   };
