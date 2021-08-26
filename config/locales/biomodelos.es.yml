@@ -139,7 +139,12 @@ es:
         copy_url_tt: "Copiar URL de la especie"
       hypotheses:
         title: "HIPÓTESIS DISPONIBLES"
-        text_1: 'Estas hipótesis corresponden al modelo aprobado en BioModelos, mapas de expertos o modelos publicados. Pueden ser calificadas por los miembros del grupo al que pertenece esta especie. Aquella con mayor calificación es la que se muestra por defecto. Puedes realizar la descarga de los modelos y consultar sus metadatos.'
+        text_1: 'Estas hipótesis corresponden al modelo aprobado en BioModelos (Validados), modelos publicados por usuarios (Publicados) o modelos estadísticos que han sido desarrollados de forma automatizada por el equipo de BioModelos (Estadísticos). Pueden ser calificadas por los miembros del grupo al que pertenece esta especie (Para calificar). Aquella con mayor calificación es la que se muestra por defecto. Puedes realizar la descarga de los modelos y consultar sus metadatos.'
+        validated: 'Validados'
+        published: 'Publicados'
+        statistical: 'Estadísticos'
+        to_rate: 'Para calificar'
+        all: 'Todos'
         level: 'Nivel'
         rating_mean: 'Calificación promedio'
         votes: 'votos'
@@ -167,6 +172,7 @@ es:
         valid_thumb: "VALIDADO"
       records:
         title: "registros y filtros"
+        year_label: "Año"
         year_filter_tt: "Advertencia: este filtro sólo funciona en los registros que tienen el campo fecha con el formato adecuado. Debido a errores de las fuentes, no es posible reconocer el año de todos los registros."
         month_filter_tt: "Si deseas filtrar los registros de la especie para algunos meses en particular selecciona las casillas correspondientes a estos."
         month_filter: "Mes"
@@ -244,6 +250,8 @@ es:
         environmental_outlier: "Ambiente atípico:"
         last_report: "Último reporte:"
         last_update: "Última actualización:"
+        see_more: "ver más"
+        see_less: "ver menos"
       contributions:
         title: "EDICIÓN Y CONTRIBUCIÓN"
         text_1: "BioModelos te ofrece tres opciones para contribuir a documentar las distribuciones de especies: editando sobre el modelo estadístico desarrollado por BioModelos, creando un mapa de experto en la aplicación o publicando un modelo que hayas desarrollado."

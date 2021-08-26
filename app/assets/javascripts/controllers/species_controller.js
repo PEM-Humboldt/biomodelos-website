@@ -37,10 +37,12 @@ $(document).ready(function() {
     $("#Reghidden").toggle("slow");
     if ($("#Showreg").hasClass("rotate")){
       $("#Showreg").removeClass("rotate");
-      $(".vermas").removeClass("vermenos");
+      $(".vermenos").addClass("invisible");
+      $(".vermas").removeClass("invisible");
     } else {
       $("#Showreg").addClass("rotate");
-      $(".vermas").addClass("vermenos");
+      $(".vermas").addClass("invisible");
+      $(".vermenos").removeClass("invisible");
     }
 	});
 
