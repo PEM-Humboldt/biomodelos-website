@@ -417,6 +417,11 @@ var _BioModelosVisorModule = function() {
           }
         });
         newRecordMarker = layer;
+        newRecordMarker.on('click', function(e) {
+          if ($('#regboxclose').length) {
+            $('#regboxclose').trigger('click')
+          }
+        })
       } else {
         //popup.setContent($('.editControls').html());
         if(!newModel){
@@ -426,11 +431,6 @@ var _BioModelosVisorModule = function() {
         layer.addTo(editableLayer);
       }
       $(".polig").removeClass("polibtnact");
-      newRecordMarker.on('click', function(e) {
-        if ($('#regboxclose').length) {
-          $('#regboxclose').trigger('click')
-        }
-      })
     });
 
 		map.on('popupclose', function(e) {
