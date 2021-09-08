@@ -429,8 +429,10 @@ var _BioModelosVisorModule = function() {
           layer.bindPopup(popup);
         }
         layer.addTo(editableLayer);
+        $(".polig").removeClass("polibtnact");
+        layer.openPopup();
+        currentPopupID = layer._popup._leaflet_id;
       }
-      $(".polig").removeClass("polibtnact");
     });
 
 		map.on('popupclose', function(e) {
@@ -549,12 +551,12 @@ var _BioModelosVisorModule = function() {
 	var getCurrentEditableLayer = function(popupId){
 		var polygonLayer;
 		editableLayer.eachLayer(function(layer) {
-	        if (layer._popup._leaflet_id === popupId) {
-	            polygonLayer = layer;
-	        }
-	    });
+      if (layer._popup._leaflet_id === popupId) {
+          polygonLayer = layer;
+      }
+    });
 
-	    return polygonLayer;
+    return polygonLayer;
 	}
 
   var cancelAddPoint = function(){
