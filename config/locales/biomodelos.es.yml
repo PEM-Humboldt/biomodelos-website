@@ -499,7 +499,7 @@ es:
                                 <p><b>3.</b> Utilizará los registros biológicos que acompañan el modelo únicamente para la visualización en BioModelos bajo las condiciones determinadas por los publicadores en el formulario de publicación del modelo. En ningún caso su uso o descarga estará habilitada en BioModelos, a menos que esto sea expresamente autorizado en el formulario de publicación de modelos.</p>
                                 <p><b>4.</b> Se reserva el derecho de publicar los modelos así como de bajarlos en cualquier momento de la página.</p>"
       have_read_terms: "He leído y acepto los términos y condiciones"
-      atlas_notice_html: 'Deseo postular mi trabajo para publicación en el <a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank">Atlas de la Biodiversidad de Colombia</a>'
+      atlas_notice_html: 'Deseo postular mi trabajo para publicación en el <a href="http://repository.humboldt.org.co/" target="_blank">Atlas de la Biodiversidad de Colombia</a>'
       contact_us: "Cualquier inquietud escríbenos a"
       upload_btn: 'ENVIAR'
       success_notice: 'La publicación se ha realizado con éxito.'
