@@ -427,11 +427,11 @@ var _BioModelosVisorModule = function() {
         if(!newModel){
           popup.setContent(popUpForm);
           layer.bindPopup(popup);
+          layer.openPopup();
+          currentPopupID = layer._popup._leaflet_id;
         }
         layer.addTo(editableLayer);
         $(".polig").removeClass("polibtnact");
-        layer.openPopup();
-        currentPopupID = layer._popup._leaflet_id;
       }
     });
 
