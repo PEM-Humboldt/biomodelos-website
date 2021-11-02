@@ -508,6 +508,16 @@ es:
                 BioModelos es una herramienta digital que permite la <b>comunicación entre expertos</b> en biodiversidad para el desarrollo de modelos de distribución de las especies existentes en Colombia de forma colaborativa y abierta.</br></br>
                 Esta iniciativa surge con el fin de acercar a investigadores, instituciones gubernamentales, ONGs y ciudadanos, a una <b>información precisa y validada</b> por expertos sobre la distribución de especies en Colombia, que sirva como referencia para estudios y la toma de decisiones sobre biodiversidad.
       team: "equipo actual"
+      coordinator: "Coordinador"
+      developer: "Desarrollo Informático"
+      frontend: "Diseño y Frontend"
+      network: "Administradora de Redes"
+      analyst: "Analista de datos"
+      founderinv: "Investigador Fundador"
+      humboldtname: "Instituto Humboldt"
+      photovid: "Fotografía y Video"
+      juridical: "Oficina Jurídica"
+      communic: "Oficina de Comunicaciones"
       founders: "Fundadores"
       acknowledgments: "colaboradores"
       awards: "reconocimientos"
@@ -780,5 +790,6 @@ es:
       octubre: "Octubre"
       noviembre: "Noviembre"
       diciembre: "Diciembre"
+      tituloatlas: "Atlas de la biodiversidad"
       titulovid: "Tutorial Curaduría de registros"
       cuerpovid: "A continuación presentamos el taller virtual realizado el 14 de agosto de 2019"
