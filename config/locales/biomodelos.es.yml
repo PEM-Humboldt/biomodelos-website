@@ -51,7 +51,6 @@ es:
                                 - Edición de los modelos estadísticos desarrollados por el Laboratorio de Biogeografía Aplicada.</br>
                                 - Documentando las coberturas terrestres idóneas para las especie.</br>
                                 - Desarrollando mapas de experto, especialmente para especies que cuentan con muy pocos o ningún registro biológico.</br>
-                                - Participando en el foro de las especies para compartir opiniones con otros expertos.</br>
                                 - Calificando las hipótesis de distribución geográfica disponibles para las especies.</br>
         profile_btn: 'PERFIL'
       publish:
@@ -500,15 +499,25 @@ es:
                                 <p><b>3.</b> Utilizará los registros biológicos que acompañan el modelo únicamente para la visualización en BioModelos bajo las condiciones determinadas por los publicadores en el formulario de publicación del modelo. En ningún caso su uso o descarga estará habilitada en BioModelos, a menos que esto sea expresamente autorizado en el formulario de publicación de modelos.</p>
                                 <p><b>4.</b> Se reserva el derecho de publicar los modelos así como de bajarlos en cualquier momento de la página.</p>"
       have_read_terms: "He leído y acepto los términos y condiciones"
-      atlas_notice_html: 'Deseo postular mi trabajo para publicación en el <a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank">Atlas de la Biodiversidad de Colombia</a>'
+      atlas_notice_html: 'Deseo postular mi trabajo para publicación en el <a href="http://repository.humboldt.org.co/" target="_blank">Atlas de la Biodiversidad de Colombia</a>'
       contact_us: "Cualquier inquietud escríbenos a"
       upload_btn: 'ENVIAR'
       success_notice: 'La publicación se ha realizado con éxito.'
     about_us:
       text_1_html: >
                 BioModelos es una herramienta digital que permite la <b>comunicación entre expertos</b> en biodiversidad para el desarrollo de modelos de distribución de las especies existentes en Colombia de forma colaborativa y abierta.</br></br>
-                Esta iniciativa surge con el fin de acercar a investigadores, instituciones gubernamentales, ONGs y ciudadanos, a una <b>información precisa y validada</b> por expertos sobre la distribución de especies en Colombia, que sirva como referencia para estudios y la toma de decisiones sobre biodiversidad."
+                Esta iniciativa surge con el fin de acercar a investigadores, instituciones gubernamentales, ONGs y ciudadanos, a una <b>información precisa y validada</b> por expertos sobre la distribución de especies en Colombia, que sirva como referencia para estudios y la toma de decisiones sobre biodiversidad.
       team: "equipo actual"
+      coordinator: "Coordinador"
+      developer: "Desarrollo Informático"
+      frontend: "Diseño y Frontend"
+      network: "Administradora de Redes"
+      analyst: "Analista de datos"
+      founderinv: "Investigador Fundador"
+      humboldtname: "Instituto Humboldt"
+      photovid: "Fotografía y Video"
+      juridical: "Oficina Jurídica"
+      communic: "Oficina de Comunicaciones"
       founders: "Fundadores"
       acknowledgments: "colaboradores"
       awards: "reconocimientos"
@@ -781,5 +790,6 @@ es:
       octubre: "Octubre"
       noviembre: "Noviembre"
       diciembre: "Diciembre"
+      tituloatlas: "Atlas de la biodiversidad"
       titulovid: "Tutorial Curaduría de registros"
       cuerpovid: "A continuación presentamos el taller virtual realizado el 14 de agosto de 2019"

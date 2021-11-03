@@ -51,7 +51,6 @@ en:
                                 - Edition of the statistical models developed by the Laboratory of Applied Biogeography.</br>
                                 - Documenting the land cover suitable for the species.</br>
                                 - Developing expert maps, especially for species that have very few or no biological records.</br>
-                                - Participating in the forum of the species to share opinions with other experts.</br>
                                 - Qualifying the geographical distribution hypothesis available for the species.</br>
         profile_btn: 'PROFILE'
       publish:
@@ -500,15 +499,25 @@ en:
                                 <p><b> 3.</b> Will use the biological records that accompany the model only for visualization in BioModelos under the conditions determined by the publishers in the model publication form. In no case its use or download will be enabled in BioModelos, unless this is expressly authorized in the model publication form.</p>
                                 <p><b> 4.</b> It reserves the right to publish the models as well as remove them at any time from the site.</p>"
       have_read_terms: "I have read and accept the terms and conditions"
-      atlas_notice_html: 'I want to postulate my work for publication in the <a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank"> Atlas of Biodiversity of Colombia</a>'
+      atlas_notice_html: 'I want to postulate my work for publication in the <a href="http://repository.humboldt.org.co/" target="_blank"> Atlas of Biodiversity of Colombia</a>'
       contact_us: "Any concerns write us to"
       upload_btn: 'SEND'
       success_notice: 'Publication has been successful.'
     about_us:
       text_1_html: >
                 BioModelos is a digital tool that allows <b>communication between experts</b> in biodiversity for the development of models of distribution of the existing species in Colombia in a collaborative and open manner.</br></br>
-                This initiative arises in order to bring researchers, government institutions, NGOs and citizens, an <b>accurate and validated information</b> by experts on the distribution of species in Colombia, that serves as reference for studies and decisions making on biodiversity."
+                This initiative arises in order to bring researchers, government institutions, NGOs and citizens, an <b>accurate and validated information</b> by experts on the distribution of species in Colombia, that serves as reference for studies and decisions making on biodiversity.
       team: "current team"
+      coordinator: "Coordinator"
+      developer: "Software Development"
+      frontend: "Frontend and Design"
+      network: "Network Administrator"
+      analyst: "Data Analyst"
+      founderinv: "Founding Researcher"
+      humboldtname: "Humboldt Institute"
+      photovid: "Video and Photography"
+      juridical: "Juridical Office"
+      communic: "Communications Office"
       founders: "founders"
       acknowledgments: "collaborators"
       awards: "acknowledgments"
@@ -781,5 +790,6 @@ en:
       octubre: "October"
       noviembre: "November"
       diciembre: "December"
+      tituloatlas: "Biodiversity atlas"
       titulovid: "Records curation tutorial"
       cuerpovid: "The next video shows the virtual workshop made august 14, 2019"
