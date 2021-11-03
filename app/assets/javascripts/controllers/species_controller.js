@@ -249,7 +249,7 @@ $(document).ready(function() {
 		    		},
 		    		success: function(){
 				    	/* TODO CANCELAR EDICION */
-						alertify.alert("El registro ha sido agregado con éxito");
+						alertify.alert("Las ediciones han sido enviadas con éxito");
 					},
 					error: function(jqXHR, textStatus, errorThrown){
 						alertify.alert("Ha ocurrido un error al enviar las ediciones: " + textStatus);
