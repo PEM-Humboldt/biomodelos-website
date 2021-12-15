@@ -12,6 +12,15 @@
 			 ga('send', 'pageview');
 			 </script>
 		<% end %>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-WD07J9FEXQ"></script>
+        <%= javascript_include_tag 'analytics', async: true %>
+        =begin <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-WD07J9FEXQ');
+        </script> =end
 		<meta charset="utf-8">
 		<meta name="google" content="notranslate">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
