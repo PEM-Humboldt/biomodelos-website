@@ -1,46 +1,40 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<% if Rails.env.production? %>
-	    	<script type="text/javascript">
-			/// Google Analytics//
-			 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-			 ga('create', 'UA-50977245-1', 'humboldt.org.co');
-			 ga('send', 'pageview');
-			 </script>
-		<% end %>
-		<meta charset="utf-8">
-		<meta name="google" content="notranslate">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
- 		<meta http-equiv="Content-Language" content="es" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta property="og:title" content="BioModelos - Mejores modelos con el apoyo de expertos">
-		<meta property="og:url" content="http://biomodelos.humboldt.org.co/">
-		<meta property="og:image" content="http://biomodelos.humboldt.org.co/biomodelosFB.jpg">
-		<meta property="og:description" content="BioModelos es una herramienta digital que permite la comunicación entre expertos en biodiversidad para el desarrollo de modelos de distribución de las especies existentes en Colombia de forma colaborativa y abierta.">
-		<meta name="description" content="BioModelos es una herramienta digital que permite la comunicación entre expertos en biodiversidad para el desarrollo de modelos de distribución de las especies existentes en Colombia de forma colaborativa y abierta." />
-		<title>BioModelos - Mejores modelos con el apoyo de expertos</title>
-		<%= favicon_link_tag 'favicon.ico' %>
-		<link href='https://fonts.googleapis.com/css?family=Lato:400,900italic,700italic,700,900,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
-		<%= stylesheet_link_tag "application", media: "all" %>
-		<%= javascript_include_tag "application" %>
-		<%= javascript_include_tag 'https://www.gstatic.com/charts/loader.js'%>
-		<%= csrf_meta_tags %>
-	</head>
-	<body ng-app='biomodelos'>
-	<!-- {{angular}} -->
+    <head>
+        <% if Rails.env.production? %>
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-WD07J9FEXQ"></script>
+            <%= javascript_include_tag 'analytics', async: true %>
+        <% end %>
+        <meta charset="utf-8">
+        <meta name="google" content="notranslate">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta http-equiv="Content-Language" content="es" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta property="og:title" content="BioModelos - Mejores modelos con el apoyo de expertos">
+        <meta property="og:url" content="http://biomodelos.humboldt.org.co/">
+        <meta property="og:image" content="http://biomodelos.humboldt.org.co/biomodelosFB.jpg">
+        <meta property="og:description" content="BioModelos es una herramienta digital que permite la comunicación entre expertos en biodiversidad para el desarrollo de modelos de distribución de las especies existentes en Colombia de forma colaborativa y abierta.">
+        <meta name="description" content="BioModelos es una herramienta digital que permite la comunicación entre expertos en biodiversidad para el desarrollo de modelos de distribución de las especies existentes en Colombia de forma colaborativa y abierta." />
+        <title>BioModelos - Mejores modelos con el apoyo de expertos</title>
+        <%= favicon_link_tag 'favicon.ico' %>
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,900italic,700italic,700,900,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
+        <%= stylesheet_link_tag "application", media: "all" %>
+        <%= javascript_include_tag "application" %>
+        <%= javascript_include_tag 'https://www.gstatic.com/charts/loader.js'%>
+        <%= csrf_meta_tags %>
+    </head>
+    <body ng-app='biomodelos'>
+    <!-- {{angular}} -->
     <div id="alerts">
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>" id="flashm"><%= value %></div>
       <% end %>
     </div>
-		<%= render 'shared/header' %>
-		<%= yield %>
-		<%= render 'shared/footer' unless @skip_footer %>
-	</body>
+        <%= render 'shared/header' %>
+        <%= yield %>
+        <%= render 'shared/footer' unless @skip_footer %>
+    </body>
 
 <!-- desaparece las alertas despues de 4 seg-->
 <script type="text/javascript">
