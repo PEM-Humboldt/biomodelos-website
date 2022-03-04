@@ -423,14 +423,17 @@ var _BioModelosVisorModule = function() {
           }
         })
       } else {
-        //popup.setContent($('.editControls').html());
-        if(!newModel){
+        if (newModel) {
+          if (currentPopup)
+            map.closePopup(currentPopup);
+        }
+        layer.addTo(editableLayer);
+        if(!newModel) {
           popup.setContent(popUpForm);
           layer.bindPopup(popup);
           layer.openPopup();
           currentPopupID = layer._popup._leaflet_id;
         }
-        layer.addTo(editableLayer);
         $(".polig").removeClass("polibtnact");
       }
     });
