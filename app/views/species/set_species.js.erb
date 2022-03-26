@@ -1,18 +1,15 @@
 $(document).ready(function(){
 	<% if !params[:species_id].blank? && is_integer_num(params[:species_id]) && params[:species_id] != 0 %>
-		$("#species_id_field").val("<%= params[:species_id] %>");
-		$(".spname").html("<%= @species_name %>");
-		$("#info_species_name").html("<%= @species_name %>");
-		$("#info_records_number").html("<%= @records_number %>");
-		$("#info_records_metadata").html('<%= link_to t("biomodelos.visor.statistics.records_metadata"), records_metadata_path(:id => params[:species_id]), target: "_blank" %>');
-    var btnInfoTop = $(".vbtninfo").css("top");
-    var btnHipoTop = $(".vbtnhipo").css("top");
-    $("#valid_model_info").attr("data-btnInfoTop", btnInfoTop)
-    $("#valid_model_info").attr("data-btnHipoTop", btnHipoTop)
+    $("#species_id_field").val("<%= params[:species_id] %>");
+    $(".spname").html("<%= @species_name %>");
+    $("#info_species_name").html("<%= @species_name %>");
+    $("#info_records_number").html("<%= @records_number %>");
+    $("#info_records_metadata").html('<%= link_to t("biomodelos.visor.statistics.records_metadata"), records_metadata_path(:id => params[:species_id]), target: "_blank" %>');
     <% if @approved_model.blank? %>
-      $(".vbtnhipo").css("top", btnInfoTop);
+      $(".vbtnhipo").removeClass('btn2Top').addClass('btn1Top');
     <% else %>
       $(".vbtninfo").show();
+      $(".vbtnhipo").removeClass('btn1Top').addClass('btn2Top');
       $("#valid_model_info").text("<%= @approved_model.modelID %>")
     <% end %>
     /* Clears layers */
@@ -35,12 +32,12 @@ $(document).ready(function(){
 		$.post( "/"+ $("#locale_field").val() +"/models/load_initial_model", { species_id: <%= params[:species_id] %>});
 		/* Dynamically loads the edition tools if the user can edit */
 		<% if user_signed_in? && @can_edit %>
-			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $('#edit_model_btn'), '<div ng-click="edit=!edit" title="<%= t("biomodelos.visor.tooltip.edit_btn") %>" rel="tooltip" class="visorbtn vbtnedit" selectable></div>');
+			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $('#edit_model_btn'), '<div ng-click="edit=!edit" title="<%= t("biomodelos.visor.tooltip.edit_btn") %>" rel="tooltip" class="visorbtn vbtnedit btn3Top" selectable></div>');
 			$(".vbtnedit").show();
-      var btnEditTop = $(".vbtnedit").css("top");
-      $("#valid_model_info").attr("data-btnEditTop", btnEditTop)
       <% if @approved_model.blank? %>
-        $(".vbtnedit").css("top", btnHipoTop);
+        $(".vbtnedit").removeClass('btn3Top').addClass('btn2Top');
+      <% else %>
+        $(".vbtnedit").removeClass('btn2Top').addClass('btn3Top');
       <% end %>
 			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $("#edit_box_btn"),'<div ng-click="editar=!editar" class="btnedicion" selectable><%= t("biomodelos.visor.edition_box.title") %></div>');
 			_utils_bio_module.compileDynamicAngularContent("#visCntrl", $("#edit_tools_box"), '<div ng-show="editar" class="cajitaeditar"><%=j render 'species/species_edition' %></div>');

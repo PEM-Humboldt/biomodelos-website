@@ -696,12 +696,12 @@ var _BioModelosVisorModule = function() {
 
     if(modelInfo.id !== $("#valid_model_info").text()) {
       $(".vbtninfo").hide();
-      $(".vbtnhipo").css("top", $("#valid_model_info").attr("data-btnInfoTop"));
-      $(".vbtnedit").css("top", $("#valid_model_info").attr("data-btnHipoTop"));
+      $(".vbtnhipo").removeClass('btn2Top').addClass('btn1Top');
+      $(".vbtnedit").removeClass('btn3Top').addClass('btn2Top');
     } else {
       $(".vbtninfo").show();
-      $(".vbtnhipo").css("top", $("#valid_model_info").attr("data-btnHipoTop"));
-      $(".vbtnedit").css("top", $("#valid_model_info").attr("data-btnEditTop"));
+      $(".vbtnhipo").removeClass('btn1Top').addClass('btn2Top');
+      $(".vbtnedit").removeClass('btn2Top').addClass('btn3Top');
     }
 
     modelLayer = processModel(modelInfo);
