@@ -87,7 +87,7 @@
          <p><b><%= t('biomodelos.visor.selected_record.url') %> </b> <span><%= @record["url"].nil? ? '-': @record["url"] %></span></p> <!-- url -->
          <p><b><%= t('biomodelos.visor.selected_record.source') %> </b> <%= @record["source"].nil? ? '-': @record["source"] %></p> <!-- source -->
          <p><b><%= t('biomodelos.visor.selected_record.occurrence_id') %> </b> <%= @record["occurrenceID"].nil? ? '-': @record["occurrenceID"] %></p> <!-- occurrenceID -->
-         <p><b><%= t('biomodelos.visor.selected_record.download_date') %> </b> 17/05/2016</p> <!-- downloadDate -->
+         <p><b><%= t('biomodelos.visor.selected_record.download_date') %> </b> <span><%= @record["downloadDate"].nil? ? '-': @record["downloadDate"] %></span></p> <!-- downloadDate -->
 
          <h2><%= t('biomodelos.visor.selected_record.record_quality') %></h2>
          <p><b><%= t('biomodelos.visor.selected_record.georeferencing_error') %></b> <%= @record["coordinateUncertaintyInMeters"].nil? ? '-': @record["coordinateUncertaintyInMeters"] %></p> <!-- coordinateUncertaintyInMeters -->
