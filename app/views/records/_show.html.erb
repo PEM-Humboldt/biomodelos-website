@@ -87,7 +87,7 @@
          <p><b><%= t('biomodelos.visor.selected_record.url') %> </b> <span><%= @record["url"].nil? ? '-': @record["url"] %></span></p> <!-- url -->
          <p><b><%= t('biomodelos.visor.selected_record.source') %> </b> <%= @record["source"].nil? ? '-': @record["source"] %></p> <!-- source -->
          <p><b><%= t('biomodelos.visor.selected_record.occurrence_id') %> </b> <%= @record["occurrenceID"].nil? ? '-': @record["occurrenceID"] %></p> <!-- occurrenceID -->
-         <p><b><%= t('biomodelos.visor.selected_record.download_date') %> </b> 17/05/2016</p> <!-- downloadDate -->
+         <p><b><%= t('biomodelos.visor.selected_record.download_date') %> </b> <span><%= @record["downloadDate"].nil? ? '-': @record["downloadDate"] %></span></p> <!-- downloadDate -->
 
          <h2><%= t('biomodelos.visor.selected_record.record_quality') %></h2>
          <p><b><%= t('biomodelos.visor.selected_record.georeferencing_error') %></b> <%= @record["coordinateUncertaintyInMeters"].nil? ? '-': @record["coordinateUncertaintyInMeters"] %></p> <!-- coordinateUncertaintyInMeters -->
@@ -95,8 +95,9 @@
          <p><b><%= t('biomodelos.visor.selected_record.altitude_in_coordinates') %></b> <%= @record["demAltitude"].nil? ? '-': @record["demAltitude"] %></p> <!-- demAltitude -->
          <p><b><%= t('biomodelos.visor.selected_record.altitude_in_known_range') %></b> <%= @record["consistentAltitude"].nil? ? '-': @record["consistentAltitude"] %></p> <!-- consistentAltitude -->
          <p><b><%= t('biomodelos.visor.selected_record.distance_to_known_range') %></b> <%= @record["dist2KnowRange"].nil? ? '-': @record["dist2KnowRange"] %></p> <!-- dist2KnowRange -->
-         <p><b><%= t('biomodelos.visor.selected_record.altitudinal_outlier') %></b> <%= @record["altitudinalOutlier"].nil? ? '-': @record["altitudinalOutlier"] %></p> <!-- altitudinalOutlier -->
-         <p><b><%= t('biomodelos.visor.selected_record.environmental_outlier') %></b> <%= @record["environmentalOutlier"].nil? ? '-': @record["environmentalOutlier"] %></p> <!-- environmentalOutlier -->
+         <p><b><%= t('biomodelos.visor.selected_record.altitudinal_outlier') %></b> <%= @record["altitudinalOutlier"].nil? ? '-': @record["altitudinalOutlier"] ? 'Sí' : 'No' %></p> <!-- altitudinalOutlier -->
+         <p><b><%= t('biomodelos.visor.selected_record.environmental_outlier') %></b> <%= @record["environmentalOutlier"].nil? ? '-': @record["environmentalOutlier"] ? 'Sí' : 'No' %></p> <!-- environmentalOutlier -->
+
 
          <br><br>
          <p><b><%= t('biomodelos.visor.selected_record.last_report') %> </b>

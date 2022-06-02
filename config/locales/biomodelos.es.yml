@@ -48,7 +48,7 @@ es:
         text_2: 'Puedes aportar a mejorar el conocimiento sobre la distribución geográfica de las especies a través de las siguientes actividades:'
         activities_list_html: >
                                 - Curación de registros biológicos.</br>
-                                - Edición de los modelos estadísticos desarrollados por el Laboratorio de Biogeografía Aplicada.</br>
+                                - Edición de los modelos estadísticos desarrollados por el equipo de BioModelos.</br>
                                 - Documentando las coberturas terrestres idóneas para las especie.</br>
                                 - Desarrollando mapas de experto, especialmente para especies que cuentan con muy pocos o ningún registro biológico.</br>
                                 - Calificando las hipótesis de distribución geográfica disponibles para las especies.</br>
@@ -245,7 +245,7 @@ es:
         altitude_in_coordinates: "Altitud en coordenadas:"
         altitude_in_known_range: "Altitud en rango conocido:"
         distance_to_known_range: "Distancia a rango conocido:"
-        altitudinal_outlier: "Altitud atipica:"
+        altitudinal_outlier: "Altitud atípica:"
         environmental_outlier: "Ambiente atípico:"
         last_report: "Último reporte:"
         last_update: "Última actualización:"
