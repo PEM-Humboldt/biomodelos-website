@@ -364,34 +364,42 @@ var _BioModelosVisorModule = function() {
 	}
 
 	/*
-	*	Function that lets draw a Feature (Markers or Polygons) and add an editable popup to them.
-	*	actionType = String with the name of the feature. "Polygon" or "Marker".
-	*	newMap = Boolean. True if the user is creating a new map and not working over a existing one.
-	*/
-	var drawObject = function (actionType, newModel){
-    // Polygon handler
-    if (actionType === 'Polygon'){
+   *  Function that lets draw a Feature (Markers or Polygons) and add an editable popup to them.
+   *  actionType = String with the name of the feature. "Polygon" or "Marker".
+   *  newMap = Boolean. True if the user is creating a new map and not working over a existing one.
+   */
+  var drawObject = function (actionType, newModel) {
+    if (actionType === 'Polygon') {
       polygonDrawer = new L.Draw.Polygon(map);
       polygonDrawer.enable();
-      popUpForm = '<div class="commentForm">' +
-      '<input id="review_type" type="hidden">'+
-      '<div class="row-fluid clearfix">'+
-      '<div class="labelcom clearfix">Acción</div></br>'+
-      '<input type="radio" name="EditType" value="Recortar del polígono" class="radiogaga"></input><label for="Cut">Recortar del polígono</label></br>'+
-      '<input type="radio" name="EditType" value="Agregar área" class="radiogaga"></input><label for="Intersect">Agregar área</label></br>'+
-      '<input type="radio" name="EditType" value="Sustraer área" class="radiogaga"></input><label for="Add">Eliminar área</label></br>'+
-      '<input type="radio" name="EditType" value="Otra" class="radiogaga"></input><label for="Other">Otra</label></br>'+
-      '<textarea rows="4" cols="32" placeholder="Defina otra acción" class="areaother" id="msgPolygon" maxlength="300"></textarea></br>'+
-      '<div class="centering"><button class="botonpopup" id="savePolBtn" type="button">aceptar</button>'+
-      '<button class="botonpopup ml0" id="puNewPolygonCancelBtn" type="button">cancelar</button></div>'+
-      '<a href="http://biomodelos.humboldt.org.co/faq#faq" target="_blank" title="Cómo utilizamos este aporte?" class="infolink" id="gotofaq"></a></div>';
-    }
-    else{
+      popUpForm = `
+        <div class="commentForm">
+          <input id="review_type" type="hidden">
+          <div class="row-fluid clearfix">
+          <div class="labelcom clearfix">Acción</div>
+          </br>
+          <input type="radio" name="EditType" value="Recortar del polígono" class="radiogaga"></input><label for="Cut">Recortar del polígono</label>
+          </br>
+          <input type="radio" name="EditType" value="Agregar área" class="radiogaga"></input><label for="Intersect">Agregar área</label>
+          </br>
+          <input type="radio" name="EditType" value="Sustraer área" class="radiogaga"></input><label for="Add">Eliminar área</label>
+          </br>
+          <input type="radio" name="EditType" value="Otra" class="radiogaga"></input><label for="Other">Otra</label>
+          </br>
+          <textarea rows="4" cols="32" placeholder="Defina otra acción" class="areaother" id="msgPolygon" maxlength="300"></textarea>
+          </br>
+          <div class="centering">
+            <button class="botonpopup" id="savePolBtn" type="button">aceptar</button>
+            <button class="botonpopup ml0" id="puNewPolygonCancelBtn" type="button">cancelar</button>
+          </div>
+          <a href="http://biomodelos.humboldt.org.co/faq#faq" target="_blank" title="Cómo utilizamos este aporte?" class="infolink" id="gotofaq"></a>
+        </div>
+      `;
+    } else {
       newRecordsLayer.clearLayers();
       pointDrawer.enable();
     }
 
-    // Add polygon layer to map
     map.on('draw:created', function (e) {
       var type = e.layerType,
         layer = e.layer,
@@ -423,22 +431,25 @@ var _BioModelosVisorModule = function() {
           }
         })
       } else {
-        //popup.setContent($('.editControls').html());
-        if(!newModel){
+        if (newModel) {
+          if (currentPopup)
+            map.closePopup(currentPopup);
+        }
+        layer.addTo(editableLayer);
+        if(!newModel) {
           popup.setContent(popUpForm);
           layer.bindPopup(popup);
           layer.openPopup();
           currentPopupID = layer._popup._leaflet_id;
         }
-        layer.addTo(editableLayer);
         $(".polig").removeClass("polibtnact");
       }
     });
 
-		map.on('popupclose', function(e) {
-    		e.popup.update();
-		});
-	}
+    map.on('popupclose', function(e) {
+      e.popup.update();
+    });
+  }
 
 	var addActionToPolygon = function(e){
 		var polygonLayer = getCurrentEditableLayer(currentPopupID);
@@ -685,12 +696,12 @@ var _BioModelosVisorModule = function() {
 
     if(modelInfo.id !== $("#valid_model_info").text()) {
       $(".vbtninfo").hide();
-      $(".vbtnhipo").css("top", $("#valid_model_info").attr("data-btnInfoTop"));
-      $(".vbtnedit").css("top", $("#valid_model_info").attr("data-btnHipoTop"));
+      $(".vbtnhipo").removeClass('btn2Top').addClass('btn1Top');
+      $(".vbtnedit").removeClass('btn3Top').addClass('btn2Top');
     } else {
       $(".vbtninfo").show();
-      $(".vbtnhipo").css("top", $("#valid_model_info").attr("data-btnHipoTop"));
-      $(".vbtnedit").css("top", $("#valid_model_info").attr("data-btnEditTop"));
+      $(".vbtnhipo").removeClass('btn1Top').addClass('btn2Top');
+      $(".vbtnedit").removeClass('btn2Top').addClass('btn3Top');
     }
 
     modelLayer = processModel(modelInfo);

@@ -83,25 +83,15 @@
 
 	    <div ng-show="isSet(1)" class="cajainfo">
 			<div class="infocontainer">
-					<div class="atlasSec">
-						<h4><%= t('biomodelos.info.tituloatlas') %></h4>
-						<a href="http://repository.humboldt.org.co/handle/20.500.11761/35844" target="_blank" class="cajathumb">
-							<%= image_tag("AnolisP.png") %>
-							<p>+</p>
-						</a>
-						<a href="http://repository.humboldt.org.co/handle/20.500.11761/35544" target="_blank" class="cajathumb">
-							<%= image_tag("PrimatesP.png") %>
-							<p>+</p>
-						</a>
-						<a href="http://repository.humboldt.org.co/handle/20.500.11761/35301" target="_blank" class="cajathumb">
-							<%= image_tag("ZamiasP.png") %>
-							<p>+</p>
-						</a>
-					</div>
-					<div class="blogg">
+				<div class="blogg">
+					<h4><%= t('biomodelos.info.titulovideo') %></h4>
+					<p><%= t('biomodelos.info.cuerpovideo') %></p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/6mNbBjPZzHM" title="¿Qué es BioModelos?" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="blogg">
 					<h4><%= t('biomodelos.info.titulovid') %></h4>
 					<p><%= t('biomodelos.info.cuerpovid') %></p>
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/eMgUnsq-26M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/xDu0uTt2sRM" title="¿Cómo contribuyen los expertos en BioModelos?" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					<a href="http://biomodelos.humboldt.org.co/PresentacionCuraduria.pdf" target="_blank" class="cajathumb">
 					<h6>PDF Tutorial</h6>
 					<p>+</p>
@@ -111,6 +101,21 @@
 					<p class="blogg20">Indicando el rango altitudinal y las coberturas terrestres de las especies de tu interés.</p>
 					<p class="blogg20">Manifestando tu interés en publicar modelos que hayas desarrollado para especies de Colombia en BioModelos aquí: <a href="http://bit.ly/25zPPmE." target="_blank">http://bit.ly/25zPPmE.</a></p> -->
 				</div>
+        <div class="atlasSec">
+          <h4><%= t('biomodelos.info.tituloatlas') %></h4>
+          <a href="http://repository.humboldt.org.co/handle/20.500.11761/35844" target="_blank" class="cajathumb">
+            <%= image_tag("AnolisP.png") %>
+            <p>+</p>
+          </a>
+          <a href="http://repository.humboldt.org.co/handle/20.500.11761/35544" target="_blank" class="cajathumb">
+            <%= image_tag("PrimatesP.png") %>
+            <p>+</p>
+          </a>
+          <a href="http://repository.humboldt.org.co/handle/20.500.11761/35301" target="_blank" class="cajathumb">
+            <%= image_tag("ZamiasP.png") %>
+            <p>+</p>
+          </a>
+        </div>
 			</div>
 		</div>
 

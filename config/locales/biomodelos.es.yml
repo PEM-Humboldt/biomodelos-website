@@ -48,7 +48,7 @@ es:
         text_2: 'Puedes aportar a mejorar el conocimiento sobre la distribución geográfica de las especies a través de las siguientes actividades:'
         activities_list_html: >
                                 - Curación de registros biológicos.</br>
-                                - Edición de los modelos estadísticos desarrollados por el Laboratorio de Biogeografía Aplicada.</br>
+                                - Edición de los modelos estadísticos desarrollados por el equipo de BioModelos.</br>
                                 - Documentando las coberturas terrestres idóneas para las especie.</br>
                                 - Desarrollando mapas de experto, especialmente para especies que cuentan con muy pocos o ningún registro biológico.</br>
                                 - Calificando las hipótesis de distribución geográfica disponibles para las especies.</br>
@@ -245,7 +245,7 @@ es:
         altitude_in_coordinates: "Altitud en coordenadas:"
         altitude_in_known_range: "Altitud en rango conocido:"
         distance_to_known_range: "Distancia a rango conocido:"
-        altitudinal_outlier: "Altitud atipica:"
+        altitudinal_outlier: "Altitud atípica:"
         environmental_outlier: "Ambiente atípico:"
         last_report: "Último reporte:"
         last_update: "Última actualización:"
@@ -791,5 +791,7 @@ es:
       noviembre: "Noviembre"
       diciembre: "Diciembre"
       tituloatlas: "Atlas de la biodiversidad"
-      titulovid: "Tutorial Curaduría de registros"
-      cuerpovid: "A continuación presentamos el taller virtual realizado el 14 de agosto de 2019"
+      titulovideo: "¿Qué es BioModelos?"
+      cuerpovideo: "BioModelos es una plataforma del Instituto Humboldt para desarrollar modelos de distribución de especies que integran el conocimiento de más de 500 expertos. La plataforma permite conocer dónde se encuentra la biodiversidad de Colombia a partir de modelos de nicho y expertos."
+      titulovid: "¿Cómo contribuyen los expertos en BioModelos?"
+      cuerpovid: "Encontrarás una guía de cómo realizar cada una de las tareas que componen nuestro flujo de trabajo, las cuales podrás hacer cuando seas parte de uno de los grupos que conforman la red de expertos de BioModelos."
