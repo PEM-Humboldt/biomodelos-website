@@ -83,7 +83,7 @@
          <p><b><%= t('biomodelos.visor.selected_record.catalog_number') %> </b> <span><%= @record["catalogNumber"].nil? ? '-': @record["catalogNumber"] %></span></p> <!-- catalogNumber -->
          <p><b><%= t('biomodelos.visor.selected_record.recorded_by') %> </b> <span><%= @record["recordedBy"].nil? ? '-': @record["recordedBy"] %></span></p> <!-- recordedBy -->
          <p><b><%= t('biomodelos.visor.selected_record.basis_of_record') %> </b> <span><%= @record["basisOfRecord"].nil? ? '-': @record["basisOfRecord"] %></span></p> <!-- basisOfRecord -->
-         <p><b><%= t('biomodelos.visor.selected_record.event_date') %> </b> <%= @record["year"].nil? ? '-': @record["year"] %>/<%= @record["month"].nil? ? '-': @record["month"] %>/<%= @record["day"].nil? ? '-': @record["day"] %></p> <!-- year month day -->
+         <p><b><%= t('biomodelos.visor.selected_record.event_date') %> </b> <%= @record["year"].nil? ? '': @record["year"] %>-<%= @record["month"].nil? ? '': @record["month"] %>-<%= @record["day"].nil? ? '': @record["day"] %></p> <!-- year month day -->
          <p><b><%= t('biomodelos.visor.selected_record.url') %> </b> <span><%= @record["url"].nil? ? '-': @record["url"] %></span></p> <!-- url -->
          <p><b><%= t('biomodelos.visor.selected_record.source') %> </b> <%= @record["source"].nil? ? '-': @record["source"] %></p> <!-- source -->
          <p><b><%= t('biomodelos.visor.selected_record.occurrence_id') %> </b> <%= @record["occurrenceID"].nil? ? '-': @record["occurrenceID"] %></p> <!-- occurrenceID -->
