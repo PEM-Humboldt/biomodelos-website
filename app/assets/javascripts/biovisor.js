@@ -392,7 +392,6 @@ var _BioModelosVisorModule = function() {
             <button class="botonpopup" id="savePolBtn" type="button">aceptar</button>
             <button class="botonpopup ml0" id="puNewPolygonCancelBtn" type="button">cancelar</button>
           </div>
-          <a href="http://biomodelos.humboldt.org.co/faq#faq" target="_blank" title="Cómo utilizamos este aporte?" class="infolink" id="gotofaq"></a>
         </div>
       `;
     } else {
@@ -459,8 +458,7 @@ var _BioModelosVisorModule = function() {
 				'<div class="row-fluid clearfix">'+
 				'<div class="labelcom clearfix">Acción</div></br>'+
 				'<label id="propValue">'+ $("input[name='EditType']:checked").val() +'</label></br>'+
-				'<input type="hidden" name="msginput" value="'+ $("#msgPolygon").val() +'" />' +
-				'<a href="http://biomodelos.humboldt.org.co/faq#faq" target="_blank" title="Cómo utilizamos este aporte?" class="infolink" id="gotofaq"></a></div>';
+				'<input type="hidden" name="msginput" value="'+ $("#msgPolygon").val() +'" /></div>';
 
 			polygonLayer.bindPopup(popUpActionForm);
 
