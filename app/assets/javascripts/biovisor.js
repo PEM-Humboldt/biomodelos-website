@@ -86,11 +86,11 @@ var _BioModelosVisorModule = function() {
     /* Base Layers */
     var googleTerrain = new L.Google('TERRAIN', {minZoom:mZoom, maxZoom: mxZoom});
     var googleSatellite = new L.Google('SATELLITE', {minZoom:mZoom, maxZoom: mxZoom});
-    var osmBase = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    var osmBase = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       {
         minZoom: mZoom,
         maxZoom: mxZoom,
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors'
+        attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> Contributors'
       });
 
     /* Overlays */
