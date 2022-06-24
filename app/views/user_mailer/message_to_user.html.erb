@@ -59,8 +59,8 @@ h3 span {
 <body>
 <div class="linewidth"></div>
 <div class ="contenido">
-	<h3>Saludos <%= @user.name %>,<br/> 
-	Ha recibido un mensaje de <i><a href="http://biomodelos.humboldt.org.co/users/<%= @sender.id %>" target="_blank"><%= @sender.name %></a>,</i> desde <span>BioModelos:</span></h3>
+	<h3>Saludos <%= @user.name %>,<br/>
+	Ha recibido un mensaje de <i><%= link_to  @sender.name, user_path(id: @sender.id), target: '_blank' %>,</i> desde <span>BioModelos:</span></h3>
 	Hora de recepción: <%= @datetime.strftime("%F %r") %><br/>
 	<br/>
 	Mensaje:<br/>
@@ -69,7 +69,7 @@ h3 span {
 	<br/>
 	Este correo está siendo enviado a su dirección de correo electrónico consignada en la base de datos de BioModelos. Sus datos están siendo tratados de acuerdo a la Ley Estatutaria 1581 de 2012 y el Decreto Reglamentario 1377 de 2013, por las cuales se dictan disposiciones para la protección de datos personales.
 	<br/><br/>
-	Si desea eliminar su dirección de correo electrónico de nuestra base de datos, por favor responda este correo con el asunto “Deseo dejar de recibir correo”. Ante cualquier inquietud puede comunicarse con nosotros al correo electrónico biomodelos@humboldt.org.co o desde la forma de contacto en <a href="http://biomodelos.humboldt.org.co/home/contact_us">BioModelos</a>
+	Si desea eliminar su dirección de correo electrónico de nuestra base de datos, por favor responda este correo con el asunto “Deseo dejar de recibir correo”. Ante cualquier inquietud puede comunicarse con nosotros al correo electrónico biomodelos@humboldt.org.co o desde la forma de contacto en  <%= link_to 'BioModelos', url_for(controller: 'home', action: 'contact_us') %>
 </div>
 </body>
 </html>
