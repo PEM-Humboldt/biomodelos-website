@@ -68,7 +68,6 @@ var _CustomSelectModule = function() {
 	* @param {array} filterValues - Array with the values to be loaded.
 	*/
 	var selectValues = function(auxSelect, filterValues){
-			$(auxSelect).html('<option value="">- Categoria -</option>');
 			if(filterValues != ""){
 				$.each(filterValues, function (index, value) {
 		    		$(auxSelect).append($('<option/>', { 
