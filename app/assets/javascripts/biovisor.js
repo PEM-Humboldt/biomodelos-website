@@ -341,13 +341,16 @@ var _BioModelosVisorModule = function() {
 
 			for (var item, i = 0; item = items[i++];) {
 			  switch(filterName){
-			  	case "Evidencia":
+                case "Evidence":
+                case "Evidencia":
 			  		name = item.properties.basisOfRecord;
 			  		break;
 			  	case "Fuente":
+                case "Source":
 			  		name = item.properties["source"];
 			  		break;
 			  	case "Institución":
+                case "Institution":
 			  		name = item.properties.institutionCode;
 			  		break;
 			  	default:
