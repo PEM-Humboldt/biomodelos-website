@@ -193,7 +193,7 @@ es:
         evidence_option: "Evidencia"
         source_option: "Fuente"
         institution_option: "Institución"
-        default_category: "Categoria"
+        default_category: "- Categoria -"
         visualize_tt_html: >
                         En esta sección podrás resaltar los registros por:&#013;&#013;
                         • Reportados: registros que han tenido un reporte de error en BioModelos.&#013;

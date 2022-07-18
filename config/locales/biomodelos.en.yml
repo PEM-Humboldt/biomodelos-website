@@ -193,7 +193,7 @@ en:
         evidence_option: "Evidence"
         source_option: "Source"
         institution_option: "Institution"
-        default_category: "Category"
+        default_category: "- Category -"
         visualize_tt_html: >
                         In this section you can highlight records by:&#013;&#013;
                         • Reported: records that have had an error report in BioModelos.&#013;
