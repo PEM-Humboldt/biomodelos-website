@@ -334,6 +334,15 @@ var _BioModelosVisorModule = function() {
 	*/
 	var uniqueValues = function(filterName){
 		var result = [];
+
+        if(['Evidencia', 'Fuente', 'Institución', '- Tipo de filtro -'].includes(filterName)) {
+            result.push('- Categoria -');
+        } else if(['Evidence', 'Source', 'Institution', '- Filter type -'].includes(filterName)) {
+            result.push('- Category -');
+        } else {
+            result.push('- Categoria -');
+        }
+
 		if(species_records){
 			var lookup = {},
 				items = species_records.features,
