@@ -334,6 +334,15 @@ var _BioModelosVisorModule = function() {
 	*/
 	var uniqueValues = function(filterName){
 		var result = [];
+
+        if(['Evidencia', 'Fuente', 'Institución', '- Tipo de filtro -'].includes(filterName)) {
+            result.push('- Categoria -');
+        } else if(['Evidence', 'Source', 'Institution', '- Filter type -'].includes(filterName)) {
+            result.push('- Category -');
+        } else {
+            result.push('- Categoria -');
+        }
+
 		if(species_records){
 			var lookup = {},
 				items = species_records.features,
@@ -341,13 +350,16 @@ var _BioModelosVisorModule = function() {
 
 			for (var item, i = 0; item = items[i++];) {
 			  switch(filterName){
-			  	case "Evidencia":
+                case "Evidence":
+                case "Evidencia":
 			  		name = item.properties.basisOfRecord;
 			  		break;
 			  	case "Fuente":
+                case "Source":
 			  		name = item.properties["source"];
 			  		break;
 			  	case "Institución":
+                case "Institution":
 			  		name = item.properties.institutionCode;
 			  		break;
 			  	default:
