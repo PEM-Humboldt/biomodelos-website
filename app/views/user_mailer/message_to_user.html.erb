@@ -60,7 +60,7 @@ h3 span {
 <div class="linewidth"></div>
 <div class ="contenido">
 	<h3>Saludos <%= @user.name %>,<br/>
-	Ha recibido un mensaje de <i><%= link_to  @sender.name, user_path(id: @sender.id), target: '_blank' %>,</i> desde <span>BioModelos:</span></h3>
+	Ha recibido un mensaje de <i><%= link_to  @sender.name, user_url(id: @sender.id), target: '_blank' %>,</i> desde <span>BioModelos:</span></h3>
 	Hora de recepción: <%= @datetime.strftime("%F %r") %><br/>
 	<br/>
 	Mensaje:<br/>

@@ -63,7 +63,7 @@ h3 span {
 	<br/>
 	Hora de recepción: <%= @datetime.strftime("%F %r") %><br/>
 	<br/>
-	<b>Experto:</b> <%= link_to @user.name, user_path(id: @user.id) %><br/>
+	<b>Experto:</b> <%= link_to @user.name, user_url(id: @user.id) %><br/>
 	<b>E-Mail:</b> <%= @user.email %><br/>
 	<b>Archivo:</b> <%= @publication.files %><br/>
 	<b>Licencia CC:</b> <%= @publication.cc_license %><br/>
