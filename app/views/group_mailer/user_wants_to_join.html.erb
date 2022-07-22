@@ -60,12 +60,12 @@ h3 span {
 <div class="linewidth"></div>
 <div class ="contenido">
 	<h3>Saludos <%= @admin.name %>, moderador del grupo <b><%= @group.name %></b></h3>
-	Ha recibido una solicitud por parte del usuario <%= link_to @user.name, user_path(id: @user.id) %> para unirse al grupo.<br/><br/>
+	Ha recibido una solicitud por parte del usuario <%= link_to @user.name, user_url(id: @user.id) %> para unirse al grupo.<br/><br/>
 	Solicitud recibida: <%= @datetime.strftime("%F %R") %><br/>
 	<br/>
 	Puede revisar el perfil del usuario, y en caso de requerir más información puede contactarlo al correo <%= @user.email %><br/>
 	<br/>
-	Para realizar alguna acción sobre esta solicitud, ingrese al perfil del <%= link_to 'grupo', group_path(id: @group.id) %> y en la pestaña "Expertos" podrá consultar las solicitudes pendientes en la sección "Expertos por aprobar".<br/>
+	Para realizar alguna acción sobre esta solicitud, ingrese al perfil del <%= link_to 'grupo', group_url(id: @group.id) %> y en la pestaña "Expertos" podrá consultar las solicitudes pendientes en la sección "Expertos por aprobar".<br/>
 	<br/>
 	<br/>
 	Este correo está siendo enviado a su dirección de correo electrónico consignada en la base de datos de BioModelos. Sus datos están siendo tratados de acuerdo a la Ley Estatutaria 1581 de 2012 y el Decreto Reglamentario 1377 de 2013, por las cuales se dictan disposiciones para la protección de datos personales.
