@@ -13,7 +13,7 @@ RUN mkdir -p $RAILS_ROOT
 WORKDIR $RAILS_ROOT
 
 COPY Gemfile Gemfile.lock ./
-RUN gem install bundler
+RUN gem install bundler -v 2.3.26
 RUN bundle install
 
 COPY . .

@@ -1,5 +1,5 @@
 #!/bin/bash
-gem install bundler
+gem install bundler -v 2.3.26
 bundle install
 
 bower install --allow-root
