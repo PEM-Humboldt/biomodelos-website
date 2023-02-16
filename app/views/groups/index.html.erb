@@ -26,7 +26,11 @@
 						<%= link_to group, :class => 'titgrcard' do%>
 							<%= group.name %>
 						<% end %>
-						<div class="subtgr"><b><%= t('biomodelos.groups.index.moderator') %></b></br><%= group.admin.first.user.name %></div>
+						<div class="subtgr">
+                            <b><%= t('biomodelos.groups.index.moderator') %></b>
+                            </br>
+                            <%= group.admin.first ? group.admin.first.user.name : t('biomodelos.groups.index.no_moderator') %>
+                        </div>
 						<div class="colhalf subtgr lineright">
 							<b><%= t('biomodelos.groups.index.species') %></b>
 							<h5><%= GroupsSpecies.where(group_id: group.id, groups_species_state_id: 1).count %></h5>
