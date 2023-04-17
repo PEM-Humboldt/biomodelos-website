@@ -1,11 +1,11 @@
 <% if @models && !@models.blank? %>
 	<p><%= t('biomodelos.visor.hypotheses.text_1') %></p>
 	<div class="button-group filter-button-group">
-	  <button class="filterbtn is-checked" data-filter=".validados"><%= t('biomodelos.visor.hypotheses.validated') %></button>
+	  <button class="filterbtn <%= !@valid_models.empty? ? 'is-checked' : '' %>" data-filter=".validados"><%= t('biomodelos.visor.hypotheses.validated') %></button>
 	  <button class="filterbtn" data-filter=".publicados"><%= t('biomodelos.visor.hypotheses.published') %></button>
 	  <button class="filterbtn" data-filter=".estadisticos"><%= t('biomodelos.visor.hypotheses.statistical') %></button>
 	  <button class="filterbtn" data-filter=".para-calificar"><%= t('biomodelos.visor.hypotheses.to_rate') %></button>
-	  <button class="filterbtn" data-filter="*"><%= t('biomodelos.visor.hypotheses.all') %></button>
+	  <button class="filterbtn <%= @valid_models.empty? ? 'is-checked' : '' %>" data-filter="*"><%= t('biomodelos.visor.hypotheses.all') %></button>
 	</div>
 
 	<div class="grid">
@@ -172,7 +172,7 @@ $('.user_star').raty({
 
 // init Isotope
 var $grid = $('.grid').isotope({
-  filter: ".validados"
+  filter: $('.button-group .is-checked').attr('data-filter')
 });
 
 $('.filter-button-group').on( 'click', 'button', function() {
