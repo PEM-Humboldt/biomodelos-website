@@ -591,6 +591,7 @@ en:
         moderator: "Moderator"
         species: "Species"
         members: "Members"
+        no_moderator: "No moderator"
       suggest_group:
         title: "Suggest Group"
         text: "Enter the information below about the group you want to suggest so we can contact you:"

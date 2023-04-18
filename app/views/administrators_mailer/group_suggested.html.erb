@@ -63,7 +63,7 @@ h3 span {
 
 	Hora de recepción: <%= @datetime.strftime("%F %r") %><br/>
 	<br/>
-	Usuario: <b><a href="biomodelos.humboldt.org.co/users/<%= @user.id %>"><%= @user.name %></a></b><br/>
+	Usuario: <b><%= link_to @user.name, user_url(id: @user.id) %></b><br/>
 	E-Mail: <b><%= @user.email %></b><br/>
 	Nombre del grupo: <b><%= @new_group.name %></b><br/>
 	Posible moderador: <b><%= @new_group.moderator %></b><br/>

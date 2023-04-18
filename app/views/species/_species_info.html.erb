@@ -78,7 +78,7 @@
 <script>
     var clipboard = new Clipboard('.urllink', {
     	text: function() {
-            return 'http://biomodelos.humboldt.org.co/species/visor?species_id=' + $("#species_id_field").val();
+            return '<%= url_for controller: 'species', action: 'visor', only_path: false %>?species_id=' + $("#species_id_field").val();
         }
     });
 </script>

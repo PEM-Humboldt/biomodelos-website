@@ -86,11 +86,11 @@ var _BioModelosVisorModule = function() {
     /* Base Layers */
     var googleTerrain = new L.Google('TERRAIN', {minZoom:mZoom, maxZoom: mxZoom});
     var googleSatellite = new L.Google('SATELLITE', {minZoom:mZoom, maxZoom: mxZoom});
-    var osmBase = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    var osmBase = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       {
         minZoom: mZoom,
         maxZoom: mxZoom,
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors'
+        attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> Contributors'
       });
 
     /* Overlays */
@@ -334,6 +334,15 @@ var _BioModelosVisorModule = function() {
 	*/
 	var uniqueValues = function(filterName){
 		var result = [];
+
+        if(['Evidencia', 'Fuente', 'Institución', '- Tipo de filtro -'].includes(filterName)) {
+            result.push('- Categoria -');
+        } else if(['Evidence', 'Source', 'Institution', '- Filter type -'].includes(filterName)) {
+            result.push('- Category -');
+        } else {
+            result.push('- Categoria -');
+        }
+
 		if(species_records){
 			var lookup = {},
 				items = species_records.features,
@@ -341,13 +350,16 @@ var _BioModelosVisorModule = function() {
 
 			for (var item, i = 0; item = items[i++];) {
 			  switch(filterName){
-			  	case "Evidencia":
+                case "Evidence":
+                case "Evidencia":
 			  		name = item.properties.basisOfRecord;
 			  		break;
 			  	case "Fuente":
+                case "Source":
 			  		name = item.properties["source"];
 			  		break;
 			  	case "Institución":
+                case "Institution":
 			  		name = item.properties.institutionCode;
 			  		break;
 			  	default:
@@ -392,7 +404,6 @@ var _BioModelosVisorModule = function() {
             <button class="botonpopup" id="savePolBtn" type="button">aceptar</button>
             <button class="botonpopup ml0" id="puNewPolygonCancelBtn" type="button">cancelar</button>
           </div>
-          <a href="http://biomodelos.humboldt.org.co/faq#faq" target="_blank" title="Cómo utilizamos este aporte?" class="infolink" id="gotofaq"></a>
         </div>
       `;
     } else {
@@ -459,8 +470,7 @@ var _BioModelosVisorModule = function() {
 				'<div class="row-fluid clearfix">'+
 				'<div class="labelcom clearfix">Acción</div></br>'+
 				'<label id="propValue">'+ $("input[name='EditType']:checked").val() +'</label></br>'+
-				'<input type="hidden" name="msginput" value="'+ $("#msgPolygon").val() +'" />' +
-				'<a href="http://biomodelos.humboldt.org.co/faq#faq" target="_blank" title="Cómo utilizamos este aporte?" class="infolink" id="gotofaq"></a></div>';
+				'<input type="hidden" name="msginput" value="'+ $("#msgPolygon").val() +'" /></div>';
 
 			polygonLayer.bindPopup(popUpActionForm);
 
