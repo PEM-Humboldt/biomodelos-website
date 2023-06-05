@@ -2,8 +2,40 @@
 <head>
   <style>
     [data-role=redoc-description] p {
-      padding-bottom: 10px;
+      margin-bottom: 10px;
     }
+    #redoc-container {
+      height: -moz-calc(100% - 190px);
+      height: -webkit-calc(100% - 190px);
+      height: calc(100% - 190px);
+      overflow: scroll;
+    }
+    .scrollbar-container > div:first-of-type  {
+      bottom: 135px !important;
+    }
+    .scrollbar-container span:first-of-type {
+      text-transform: uppercase;
+    }
+    .scrollbar-container li label:hover, .scrollbar-container li label.active {
+      color:#db3f2a;
+    }
+    .api-content > div {
+      padding: 30px 0 5px;
+    }
+    .api-content h1 {
+      text-transform: uppercase;
+      color:#db3f2a;
+    }
+    .api-content h2 {
+      color:#1b3337;
+    }
+    .api-content p a {
+      color: #db3f2a;
+    }
+    .api-content p a:hover {
+      color: tomato;
+    }
+
   </style>
 </head>
 <body>
@@ -16,7 +48,7 @@
       theme: {
         typography: {
           fontFamily: 'Lato',
-          fontSize: '14px'
+          fontSize: '16px'
         }
       }
     }, document.getElementById('redoc-container'))
