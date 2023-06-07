@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-	before_action :authenticate_user!, :except => [:show, :about_us, :contact_us, :send_contact_form, :terms]
+	before_action :authenticate_user!, :except => [:show, :about_us, :contact_us, :send_contact_form, :terms, :api]
 
 	def show
 	end
