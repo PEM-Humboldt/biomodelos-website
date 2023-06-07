@@ -20,6 +20,11 @@
 					<li>
 						<%= link_to t('biomodelos.footer.info'), info_index_path %>
 					</li>
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to 'Api', home_api_path %>
+            </li>
+          <% end %>
 					<!--
 					<li>
 						<%= link_to 'Expertos', root_path %>
@@ -41,10 +46,6 @@
 					<li>
 						<%= link_to t('biomodelos.footer.contact'), home_contact_us_path %>
 					</li>
-					<!-- 					
-					<li>
-						<%= link_to 'Api', home_api_path %>
-					</li> -->
 				</ul>
 			</nav>
 			<%= image_tag("logolba.png") %>
