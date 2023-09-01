@@ -704,7 +704,7 @@ es:
       init:
         valid_model: "Esta es una hipótesis de distribución aprobada por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución no aprobadas por expertos, disponibles para esta especie."
         pending_validation_model: "Esta es una de las hipótesis de distribución disponibles pendientes de aprobación por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución pendientes de aprobación disponibles para esta especie."
-        statistic_model: "Esta es una hipótesis de distribución sin aportes de expertos. Para contribuir a mejorarlo, registrate en el grupo de expertos de la especie."
+        statistic_model: "Esta es una hipótesis de distribución validada estadísticamente sin aportes de expertos. Para contribuir a mejorarlo, únete al grupo de expertos que maneja la especie. Por recomendación de literatura se muestra el umbral del 10%. No es descargable, pues no se encuentra aún en proceso de validación."
         continuous_model: "Esta hipótesis se encuentra en construcción por el grupo de expertos, si quieres aportar solicita unirte al grupo de la especie."
         no_model: "Esta especie aún no cuenta con modelo de distribución. Para contribuir a su desarrollo, registrate en el grupo de expertos de la especie."
       download:

@@ -704,7 +704,7 @@ en:
       init:
         valid_model: "This is a distribution hypothesis approved by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses not approved by experts, available for this species."
         pending_validation_model: "This is one of the available distribution hypotheses pending approval by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses pending approval available for this species."
-        statistic_model: "This is a distribution hypothesis without contributions from experts. To help improve it, join the group of experts of the species."
+        statistic_model: "This is a statistically validated distribution hypothesis without expert contributions. To contribute to its improvement, join the group of experts managing the species. Based on literature recommendations, the 10% threshold is displayed. It's not downloadable as it is still undergoing validation processes."
         continuous_model: "This distribution hypothesis is under construction by the group of experts, to contribute to its development, register in the group of experts of the species."
         no_model: "This species does not have a distribution model yet. To contribute to its development, register in the group of experts of the species."
       download:
