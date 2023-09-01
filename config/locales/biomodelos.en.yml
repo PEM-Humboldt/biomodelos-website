@@ -1,77 +1,77 @@
 en:
   biomodelos:
     header:
-      home: 'Home'
-      models: 'Models'
-      groups: 'Groups'
-      log_in: 'Log In'
-      sign_up: 'Sign Up'
-      profile_tt: 'Profile'
-      log_out_tt: 'Log Out'
+      home: "Home"
+      models: "Models"
+      groups: "Groups"
+      log_in: "Log In"
+      sign_up: "Sign Up"
+      profile_tt: "Profile"
+      log_out_tt: "Log Out"
     footer:
       institute_html: >
-                      The Alexander von Humboldt Institute for</br>
-                      Research on Biological Resources
-      program: 'Program of Biodiversity Assessment and Monitoring'
-      models: 'Models'
-      groups: 'Groups'
-      publish: 'Publish'
-      info: 'Info'
-      about: 'About Biomodelos'
-      terms: 'Terms'
-      contact: 'Contact'
+        The Alexander von Humboldt Institute for</br>
+        Research on Biological Resources
+      program: "Program of Biodiversity Assessment and Monitoring"
+      models: "Models"
+      groups: "Groups"
+      publish: "Publish"
+      info: "Info"
+      about: "About Biomodelos"
+      terms: "Terms"
+      contact: "Contact"
     home:
-      advanced_search: 'Advanced search'
-      search_ph: 'Scientific name'
-      go_to_species_tt: 'Go to species'
-      models_btn: 'CONSULT'
-      contribute_btn: 'CONTRIBUTE'
-      publish_btn: 'PUBLISH'
-      slogan: 'BETTER MODELS WITH SUPPORT FROM EXPERTS'
-      mammals: 'MAMMALS'
-      birds: 'BIRDS'
-      reptiles: 'REPTILES'
-      amphibians: 'AMPHIBIANS'
-      fish: 'FISHES'
-      invertebrates: 'INVERTEBRATES'
-      plants: 'PLANTS'
+      advanced_search: "Advanced search"
+      search_ph: "Scientific name"
+      go_to_species_tt: "Go to species"
+      models_btn: "CONSULT"
+      contribute_btn: "CONTRIBUTE"
+      publish_btn: "PUBLISH"
+      slogan: "BETTER MODELS WITH SUPPORT FROM EXPERTS"
+      mammals: "MAMMALS"
+      birds: "BIRDS"
+      reptiles: "REPTILES"
+      amphibians: "AMPHIBIANS"
+      fish: "FISHES"
+      invertebrates: "INVERTEBRATES"
+      plants: "PLANTS"
       consult:
-        title: 'query'
-        text_1: 'Enter directly to the BioModelos search engine the scientific name of the species of your interest to consult its distribution area in the viewer. You will find the distribution hypotheses available for the species and the rating other users gave to those, as well as some statistics about the species range.'
-        go_btn: 'GO'
+        title: "query"
+        text_1: "Enter directly to the BioModelos search engine the scientific name of the species of your interest to consult its distribution area in the viewer. You will find the distribution hypotheses available for the species and the rating other users gave to those, as well as some statistics about the species range."
+        go_btn: "GO"
         text_2: 'If you want to download the map you must go to the registration section, fill out the form and enter the platform with your username and password. To contribute to the knowledge of the distribution of some species, check the "contribute" section.'
       contribute:
-        title: 'contribute'
-        text_1: 'To contribute in BioModelos you must be a registered user and belong to one of the groups on the platform.'
-        sign_up_btn: 'SIGN UP'
-        contribution_types: 'HOW TO CONTRIBUTE'
-        text_2: 'You can contribute to improve the knowledge about the geographical distribution of the species through the following activities:'
+        title: "contribute"
+        text_1: "To contribute in BioModelos you must be a registered user and belong to one of the groups on the platform."
+        sign_up_btn: "SIGN UP"
+        contribution_types: "HOW TO CONTRIBUTE"
+        text_2: "You can contribute to improve the knowledge about the geographical distribution of the species through the following activities:"
         activities_list_html: >
-                                - Curation of biological records.</br>
-                                - Edition of the statistical models developed by the Laboratory of Applied Biogeography.</br>
-                                - Documenting the land cover suitable for the species.</br>
-                                - Developing expert maps, especially for species that have very few or no biological records.</br>
-                                - Qualifying the geographical distribution hypothesis available for the species.</br>
-        profile_btn: 'PROFILE'
+          - Curation of biological records.</br>
+          - Edition of the statistical models developed by the Laboratory of Applied Biogeography.</br>
+          - Documenting the land cover suitable for the species.</br>
+          - Developing expert maps, especially for species that have very few or no biological records.</br>
+          - Qualifying the geographical distribution hypothesis available for the species.</br>
+        profile_btn: "PROFILE"
       publish:
-        title: 'publish'
-        text_1: 'If you have developed distribution models for one or more species, you can publish them through BioModelos. This way you can make your work visible and facilitate its use by other researchers, as well as receive feedback from experts on the performance of your models. '
-        more_lnk: 'Find more.'
+        title: "publish"
+        text_1: "If you have developed distribution models for one or more species, you can publish them through BioModelos. This way you can make your work visible and facilitate its use by other researchers, as well as receive feedback from experts on the performance of your models. "
+        more_lnk: "Find more."
         text_2: 'You just have to be a registered user in BioModelos, click the "Publish" link and follow the instructions.'
-        publish_btn: 'PUBLISH'
+        publish_btn: "PUBLISH"
       news:
-        title: 'BioModelos news'
-        text_1: 'The second installment of the “Atlas of Biodiversity of Colombia” is here, for the Primates thematic group. Thanks to the work of this group in BioModelos, the compilation of validated models of 38 species, and analysis information from their distribution was achieved.'
-        text_2: 'Many groups have made progress in their species lists and some have already finished modeling the species of their thematic group, a clear case this year are the experts in primates, in support with the APC (Colombian Primatological Association). It is thanks to their collaboration that these distribution models achieve this validated status and are received as reliable information by the scientific community, allowing us to say “better models with support from experts”.'
+        title: "BioModelos news"
+        text_1: "The second installment of the “Atlas of Biodiversity of Colombia” is here, for the Primates thematic group. Thanks to the work of this group in BioModelos, the compilation of validated models of 38 species, and analysis information from their distribution was achieved."
+        text_2: "Many groups have made progress in their species lists and some have already finished modeling the species of their thematic group, a clear case this year are the experts in primates, in support with the APC (Colombian Primatological Association). It is thanks to their collaboration that these distribution models achieve this validated status and are received as reliable information by the scientific community, allowing us to say “better models with support from experts”."
     log_in:
-      title: 'log in'
-      log_in_btn: 'LOG IN'
+      title: "log in"
+      log_in_btn: "LOG IN"
     sign_up:
-      title: 'Sign Up'
+      title: "Sign Up"
       password_min_txt: "Minimum %{caracteres} characters long"
-      terms_txt: 'I have read and accept the terms and conditions of use'
-      data_policies_txt: 'I have read and accept the personal data policy'
-      sign_up_btn: 'SIGN UP'
+      terms_txt: "I have read and accept the terms and conditions of use"
+      data_policies_txt: "I have read and accept the personal data policy"
+      sign_up_btn: "SIGN UP"
     visor:
       tooltip:
         model_name: "Model status"
@@ -105,65 +105,65 @@ en:
         records_metadata: "OCCURRENCE METADATA"
         records_metadata_tt: "Metadata on occurrences used for model development and their data cleaning process."
         eoo_title: "EXTENT OF OCCURRENCE"
-        eoo_text_1_html: 'The extent of occurrence (EOO) is defined as the area contained within the shortest continuous imaginary boundary which can be drawn to encompass al the known, inferred or projected sites of present occurrence of a taxon, excluding cases of vagrancy (IUCN 2013).'
+        eoo_text_1_html: "The extent of occurrence (EOO) is defined as the area contained within the shortest continuous imaginary boundary which can be drawn to encompass al the known, inferred or projected sites of present occurrence of a taxon, excluding cases of vagrancy (IUCN 2013)."
         eoo_text_2_html: '<b>MCP on models:</b> area of minimum convex polygon computed on a species modeled distribution (<a href="http://www.humboldt.org.co/es/test/item/download/244_4bf9941429abe826cb0bee0e9f755f2a" target="_blank" style="float:none;">Figure 1, Renjifo et al. 2014</a>).'
-        eoo_fig_1_html: 'Figure 1. Example of minimum convex polygon generated for <em>Andigena hypoglauca</em> (red line) based on a model for its distribution (green area) (Renjifo et al. 2014).'
+        eoo_fig_1_html: "Figure 1. Example of minimum convex polygon generated for <em>Andigena hypoglauca</em> (red line) based on a model for its distribution (green area) (Renjifo et al. 2014)."
         eoo_text_3_html: '<b>MCP on occurrences:</b> area of the minimum convex polygon computed on all species occurrences. (<a href="http://s3.amazonaws.com/iucnredlist-newcms/staging/public/attachments/3156/reg_guidelines_sp.pdf" target="_blank" style="float:none;">Figure 2, IUCN 2013</a>)'
-        eoo_fig_2_html: 'Figure 2. Representation of computation of a minimum convex polygon on occurrences.'
-        eoo_geo_range: 'Range size'
-        eoo_pmc_models: 'MCP on models'
-        eoo_pmc_records: 'MCP on occurrences'
+        eoo_fig_2_html: "Figure 2. Representation of computation of a minimum convex polygon on occurrences."
+        eoo_geo_range: "Range size"
+        eoo_pmc_models: "MCP on models"
+        eoo_pmc_records: "MCP on occurrences"
         rpa_title: "REPRESENTATIVENESS IN PROTECTED AREAS"
         rpa_text_1: "This is the percentage of a species distribution that is protected under all types of protected areas and discriminated by National Parks, private reserves and other protected area types (forest reserves, regional parks, integrated management districts and recreational areas). The total representativeness may not match the summation of national parks, private reserves and other reserves if there is any overlap between protected area types."
-        rpa_total: 'Total representativeness'
-        rpa_pnn: 'National Parks'
-        rpa_rsc: 'Private reserves'
-        rpa_other: 'Other reserves'
+        rpa_total: "Total representativeness"
+        rpa_pnn: "National Parks"
+        rpa_rsc: "Private reserves"
+        rpa_other: "Other reserves"
         forest_loss_title: "FOREST LOSS"
         forest_loss_text_1: "This graph describes the percentage of forest within species distribution, according to the deforestation maps developed by IDEAM and projected deforestation scenarios proposed by Etter & Arevalo (2014) projected to the year 2030."
         forest_loss_text_2: "Etter, A. y Arévalo, P. (2014). Escenarios futuros de la cobertura forestal en Colombia. En: Bello et al. (ed). Biodiversidad 2014. Estado y tendencia de la biodiversidad continental en Colombia. Instituto Alexander von Humboldt. Bogotá, D.C., Colombia."
-        forest_graphic_blue: 'Historical'
-        forest_graphic_trend: 'TREND'
-        forest_graphic_orange: 'Business as usual'
-        forest_graphic_red: 'Extractivist'
-        forest_graphic_yellow: 'Industrialized'
-        forest_graphic_year: 'Year'
-        forest_graphic_col_1: 'Historical'
-        forest_graphic_col_2: 'Business as Usual'
-        forest_graphic_col_3: 'Extractivist economy'
-        forest_graphic_col_4: 'Industrial economy'
-        forest_graphic_percentage: 'Percent area (%)'
+        forest_graphic_blue: "Historical"
+        forest_graphic_trend: "TREND"
+        forest_graphic_orange: "Business as usual"
+        forest_graphic_red: "Extractivist"
+        forest_graphic_yellow: "Industrialized"
+        forest_graphic_year: "Year"
+        forest_graphic_col_1: "Historical"
+        forest_graphic_col_2: "Business as Usual"
+        forest_graphic_col_3: "Extractivist economy"
+        forest_graphic_col_4: "Industrial economy"
+        forest_graphic_percentage: "Percent area (%)"
         covers_title: "land cover types"
         covers_text_1: "Percent of species distribution within land cover types."
         copy_url_tt: "Copy species URL"
       hypotheses:
         title: "AVAILABLE HYPOTHESES"
-        text_1: 'Maps in this section are either approved models (Validated), published by users models (Published) or statistical models performed in an automated way by the BioModelos team (Statistical). They may be rated according to how well they reflect species distribution by experts belonging to the species group (To rate). The first model displayed in the viewer corresponds to the map with the highest rating. Registered users may download models and their metadata.'
-        validated: 'Validated'
-        published: 'Published'
-        statistical: 'Statistical'
-        to_rate: 'To rate'
-        all: 'All'
-        level: 'Level'
-        rating_mean: 'Average score'
-        votes: 'ratings'
-        downloads_number: 'Downloads'
-        download_tt: 'Download model'
-        metadata_tt: 'Metadata'
+        text_1: "Maps in this section are either approved models (Validated), published by users models (Published) or statistical models performed in an automated way by the BioModelos team (Statistical). They may be rated according to how well they reflect species distribution by experts belonging to the species group (To rate). The first model displayed in the viewer corresponds to the map with the highest rating. Registered users may download models and their metadata."
+        validated: "Validated"
+        published: "Published"
+        statistical: "Statistical"
+        to_rate: "To rate"
+        all: "All"
+        level: "Level"
+        rating_mean: "Average score"
+        votes: "ratings"
+        downloads_number: "Downloads"
+        download_tt: "Download model"
+        metadata_tt: "Metadata"
         text_2_html: >
-                There are no distribution hypothesis available for this species</br>
-                <b>Possible reasons:</b></br>
-                1)	Distribution hypothesis may be under development</br>
-                2)	Insufficient records for modeling.</br>
-                3)	There are no experts for this species.</br>
-                4)	It's under review (e.g. after a taxonomical change).</br>"
-        no_model: 'NO MODEL'
-        rating_0_hint: 'Poor model'
-        rating_1_hint: 'Fair model'
-        rating_2_hint: 'Good model'
-        rating_3_hint: 'Very good model'
-        rating_4_hint: 'Excellent model'
-        rating_delete: 'Erase rating'
+          There are no distribution hypothesis available for this species</br>
+          <b>Possible reasons:</b></br>
+          1)	Distribution hypothesis may be under development</br>
+          2)	Insufficient records for modeling.</br>
+          3)	There are no experts for this species.</br>
+          4)	It's under review (e.g. after a taxonomical change).</br>"
+        no_model: "NO MODEL"
+        rating_0_hint: "Poor model"
+        rating_1_hint: "Fair model"
+        rating_2_hint: "Good model"
+        rating_3_hint: "Very good model"
+        rating_4_hint: "Excellent model"
+        rating_delete: "Erase rating"
         rating_error: "Error. Rating was not saved."
         pending_and_published_thumb: "PUBLISHED PENDING VALIDATION"
         pending_thumb: "PENDING VALIDATION"
@@ -195,10 +195,10 @@ en:
         institution_option: "Institution"
         default_category: "Category"
         visualize_tt_html: >
-                        In this section you can highlight records by:&#013;&#013;
-                        • Reported: records that have had an error report in BioModelos.&#013;
-                        • Edited: records that have been modified by the experts of the species.&#013;
-                        • Review priority: records that require priority review."
+          In this section you can highlight records by:&#013;&#013;
+          • Reported: records that have had an error report in BioModelos.&#013;
+          • Edited: records that have been modified by the experts of the species.&#013;
+          • Review priority: records that require priority review."
         visualize: "Visualize"
         reported_lbl: "Reported"
         edited_lbl: "Edited"
@@ -389,12 +389,12 @@ en:
         cover_331_tt: "Includes those territories in which vegetation cover does not exist or is scarce, composed mainly of bare and burned soils, as well as sandy covers and rocky outcrops, some of which may be covered by ice and snow."
         cover_332: "Rocky outcrops"
         cover_332_tt_html: >
-                        They are areas in which the surface of the terrain is constituted by layers of exposed rocks, without development of vegetation, generally arranged in steep slopes, forming escarpments and cliffs; as well as areas of bare rocks related to volcanic or glacial activity. Associated with rocky outcrops can be found deposits of fine and coarse sediments, blocks or ash.&#013;
-                        They are mainly located in steeply sloping areas, where hard and resistant rock substrates predominate, associated with faults and geological deformations, volcanoes and mountain glaciers, located in the Andean region. This unit can also be found in the Orinoquía and in the Amazon associated with the mountainous landscapes and rocky outcrops of the Guiana Shield."
+          They are areas in which the surface of the terrain is constituted by layers of exposed rocks, without development of vegetation, generally arranged in steep slopes, forming escarpments and cliffs; as well as areas of bare rocks related to volcanic or glacial activity. Associated with rocky outcrops can be found deposits of fine and coarse sediments, blocks or ash.&#013;
+          They are mainly located in steeply sloping areas, where hard and resistant rock substrates predominate, associated with faults and geological deformations, volcanoes and mountain glaciers, located in the Andean region. This unit can also be found in the Orinoquía and in the Amazon associated with the mountainous landscapes and rocky outcrops of the Guiana Shield."
         cover_333: "Naked and degraded lands"
         cover_333_tt_html: >
-                        This coverage corresponds to land surfaces devoid of vegetation or with little vegetation coverage, due to the occurrence of both natural and anthropic processes of erosion and extreme degradation and / or extreme climatic conditions. It includes the areas where there are salinized lands, in the process of desertification or with intense erosion processes that can reach the formation of gullies.&#013;
-                        In Colombia, the unit is located mainly in the flat areas of the Caribbean region and in the plains of the valleys of the Magdalena and Cauca rivers, mainly in the departments of Cesar, Guajira, Magdalena, Bolívar, Atlántico, Sucre, Tolima, Huila and Valle del Cauca. "
+          This coverage corresponds to land surfaces devoid of vegetation or with little vegetation coverage, due to the occurrence of both natural and anthropic processes of erosion and extreme degradation and / or extreme climatic conditions. It includes the areas where there are salinized lands, in the process of desertification or with intense erosion processes that can reach the formation of gullies.&#013;
+          In Colombia, the unit is located mainly in the flat areas of the Caribbean region and in the plains of the valleys of the Magdalena and Cauca rivers, mainly in the departments of Cesar, Guajira, Magdalena, Bolívar, Atlántico, Sucre, Tolima, Huila and Valle del Cauca. "
         cover_334: "Burned areas"
         cover_334_tt: "Includes the areas affected by recent fires, where charred materials are still present. These areas refer to the territories affected by fires located in both natural and semi-natural areas, such as forests, crops, savannas and shrubs."
         cover_335: "Glacial and snow zones"
@@ -409,9 +409,9 @@ en:
         cover_412_tt: "They are lowlands of a swampy type, with a spongy texture, whose soil is mainly composed of mosses and decomposed plant matter. They are frequently found in Andean areas on lands located above 3,200 meters above sea level."
         cover_413: "Aquatic vegetation on bodies of water"
         cover_413_tt_html: >
-                        Under this category all floating vegetation that is established on bodies of water is classified, partially or totally covering them.&#013;
-                        It includes vegetation biotypologically classified as Pleustophyta, Rizophyta and Haptophyta.&#013;
-                        In Colombia, this coverage is associated with Andean lakes and lagoons in the process of eutrophication and in the lowlands associated with bodies of water located in the flood plains or overflow."
+          Under this category all floating vegetation that is established on bodies of water is classified, partially or totally covering them.&#013;
+          It includes vegetation biotypologically classified as Pleustophyta, Rizophyta and Haptophyta.&#013;
+          In Colombia, this coverage is associated with Andean lakes and lagoons in the process of eutrophication and in the lowlands associated with bodies of water located in the flood plains or overflow."
         cover_42: "Coastal wet areas"
         cover_42_tt: "On the coastal areas, the coastal swamp areas and the areas with tidal-related flooding processes were differentiated."
         cover_421: "Coastal swamps"
@@ -464,8 +464,8 @@ en:
       cc_noncommercial_txt: "This license allows to copy, transmit, reuse and adapt the information, as long as it is not for commercial purposes. For commercial use of the information, permission must be asked from the author."
       cc_public_domain: "Public Domain"
       cc_public_domain_txt_html: >
-                                Use this universal tool if you are the owner of the intellectual property rights and want to give up all your interests on the data and information. Allows others to freely copy, modify, distribute and reuse the material without requesting permission. </ Br>
-                                It is especially recommended for scientific data and is encouraged by publishers such as Pensoft and Nature. Although CC0 ("CC Zero") does not legally require users to reference the source of the data, it does not exempt them from the moral and ethical responsibility to give the necessary credits, as is usual in scientific research."
+        Use this universal tool if you are the owner of the intellectual property rights and want to give up all your interests on the data and information. Allows others to freely copy, modify, distribute and reuse the material without requesting permission. </ Br>
+        It is especially recommended for scientific data and is encouraged by publishers such as Pensoft and Nature. Although CC0 ("CC Zero") does not legally require users to reference the source of the data, it does not exempt them from the moral and ethical responsibility to give the necessary credits, as is usual in scientific research."
       select_license: "Select a license"
       step_3_1: "Select the"
       step_3_2: "display type"
@@ -473,7 +473,7 @@ en:
       records_vis_permission: "Record display permissions"
       choose_option: "Choose one of the following options:"
       all_users_opt: "All users"
-      experts_opt: 'Experts registered in the species group'
+      experts_opt: "Experts registered in the species group"
       sib_col_data: "Do you want to be contacted by SiB Colombia for the publication of your data set?"
       sib_col_yes: "Yes"
       sib_col_na: "Not applicable"
@@ -487,26 +487,26 @@ en:
       step_6_3: "of publication"
       terms_and_conditions_title: "terms and Conditions"
       terms_and_conditions_html: >
-                                <p>The publication of models in BioModelos will be governed by the following terms and conditions:</p>
-                                <h6>The publisher declares</h6>
-                                <p><b> 1.</b> That the model(s) that are uploaded to BioModelos are authorship of the people listed in the model publication form (hereinafter publishers) or have the current transfer of rights for that purpose.</p>
-                                <p><b> 2.</b> That all the authors of the model or set of models accept or authorize their publication in BioModelos from the moment the information is uploaded.</p>
-                                <p><b> 3.</b> That the biological records that accompany the model are of open use, owned or their use exclusively for visualization purposes in BioModelos has been authorized explicitly or implicitly (eg. through a Creative Commons license) by the owners of the information or those who have some cession or authorization from the individual.</p>
-                                <p><b> 4.</b> That the publishers authorize the download and use of their models by third parties through BioModelos under the conditions provided by the Creative Commons license indicated in the model publication form.</p>
-                                <h6>The Laboratory of Applied Biogeography of the Alexander von Humboldt Institute for Research on Biological Resources through the web application Biomodelos</h6>
-                                <p><b> 1.</b>Will provide activity statistics (viewing and downloading) and usage profile at the request of the information publishers.</p>
-                                <p><b> 2.</b>Will grant the corresponding credit to the publishers of models on the BioModelos page and in the autorship metadata that accompanies the models, based on the information registered in the publication form. </p>
-                                <p><b> 3.</b> Will use the biological records that accompany the model only for visualization in BioModelos under the conditions determined by the publishers in the model publication form. In no case its use or download will be enabled in BioModelos, unless this is expressly authorized in the model publication form.</p>
-                                <p><b> 4.</b> It reserves the right to publish the models as well as remove them at any time from the site.</p>"
+        <p>The publication of models in BioModelos will be governed by the following terms and conditions:</p>
+        <h6>The publisher declares</h6>
+        <p><b> 1.</b> That the model(s) that are uploaded to BioModelos are authorship of the people listed in the model publication form (hereinafter publishers) or have the current transfer of rights for that purpose.</p>
+        <p><b> 2.</b> That all the authors of the model or set of models accept or authorize their publication in BioModelos from the moment the information is uploaded.</p>
+        <p><b> 3.</b> That the biological records that accompany the model are of open use, owned or their use exclusively for visualization purposes in BioModelos has been authorized explicitly or implicitly (eg. through a Creative Commons license) by the owners of the information or those who have some cession or authorization from the individual.</p>
+        <p><b> 4.</b> That the publishers authorize the download and use of their models by third parties through BioModelos under the conditions provided by the Creative Commons license indicated in the model publication form.</p>
+        <h6>The Laboratory of Applied Biogeography of the Alexander von Humboldt Institute for Research on Biological Resources through the web application Biomodelos</h6>
+        <p><b> 1.</b>Will provide activity statistics (viewing and downloading) and usage profile at the request of the information publishers.</p>
+        <p><b> 2.</b>Will grant the corresponding credit to the publishers of models on the BioModelos page and in the autorship metadata that accompanies the models, based on the information registered in the publication form. </p>
+        <p><b> 3.</b> Will use the biological records that accompany the model only for visualization in BioModelos under the conditions determined by the publishers in the model publication form. In no case its use or download will be enabled in BioModelos, unless this is expressly authorized in the model publication form.</p>
+        <p><b> 4.</b> It reserves the right to publish the models as well as remove them at any time from the site.</p>"
       have_read_terms: "I have read and accept the terms and conditions"
       atlas_notice_html: 'I want to postulate my work for publication in the <a href="http://repository.humboldt.org.co/" target="_blank"> Atlas of Biodiversity of Colombia</a>'
       contact_us: "Any concerns write us to"
-      upload_btn: 'SEND'
-      success_notice: 'Publication has been successful.'
+      upload_btn: "SEND"
+      success_notice: "Publication has been successful."
     about_us:
       text_1_html: >
-                BioModelos is a digital tool that allows <b>communication between experts</b> in biodiversity for the development of models of distribution of the existing species in Colombia in a collaborative and open manner.</br></br>
-                This initiative arises in order to bring researchers, government institutions, NGOs and citizens, an <b>accurate and validated information</b> by experts on the distribution of species in Colombia, that serves as reference for studies and decisions making on biodiversity.
+        BioModelos is a digital tool that allows <b>communication between experts</b> in biodiversity for the development of models of distribution of the existing species in Colombia in a collaborative and open manner.</br></br>
+        This initiative arises in order to bring researchers, government institutions, NGOs and citizens, an <b>accurate and validated information</b> by experts on the distribution of species in Colombia, that serves as reference for studies and decisions making on biodiversity.
       team: "current team"
       coordinator: "Coordinator"
       developer: "Software Development"
@@ -531,7 +531,7 @@ en:
       address: "Address"
       phone: "Phone"
       fields_error: "You must fill the following fields: "
-      success_notice: 'Your message has been sent successfully.'
+      success_notice: "Your message has been sent successfully."
     users:
       message_to_expert: "Message to the expert."
       max_message_ph: "500 characters max."
@@ -575,8 +575,8 @@ en:
       validation_task_tt: "Approved model"
       advance_tt: "Percentage of completion"
       new_task: "Add new task"
-      choose_expert: 'Select expert *'
-      choose_species: 'Select species *'
+      choose_expert: "Select expert *"
+      choose_species: "Select species *"
       choose_tasks: "Select tasks to perform"
       submit_btn: "Add"
       species: "Species"
@@ -584,7 +584,7 @@ en:
       tasks_added_notice: "¡Tasks added successfully!"
       task_deleted_notice: "Task removed successfully"
       delete_task_tt: "Delete task"
-      confirm_deletion: 'Do you want to remove this task?'
+      confirm_deletion: "Do you want to remove this task?"
     groups:
       index:
         title: "BioModelos groups"
@@ -602,10 +602,10 @@ en:
       group_message:
         title: "Message to Group"
         message_ph: "maximum 500 characters"
-        submit_btn: 'SUBMIT'
+        submit_btn: "SUBMIT"
       profile:
         waiting_approval_tt: "Waiting for approval"
-        leave_group_confirm: 'Do you want to leave the group?'
+        leave_group_confirm: "Do you want to leave the group?"
         leave_group_tt: "Leave group"
         join_group_tt: "Request to join this group"
         group_message_tt: "Message group members"
@@ -630,13 +630,13 @@ en:
         email_ph: "E-mail"
         submit_btn: "SEND"
         experts_approval: "Experts to approve"
-        approve_tt: 'Approve expert'
-        not_approve_tt: 'Do not approve'
+        approve_tt: "Approve expert"
+        not_approve_tt: "Do not approve"
       species:
         suggest: "SUGGEST SPECIES"
         suggested: "Suggested species"
-        approved_tt: 'Approve species'
-        not_approved_tt: 'Do not approve'
+        approved_tt: "Approve species"
+        not_approved_tt: "Do not approve"
         species_name: "Species names"
         suggestion_success: "The species has been suggested successfully"
       edit:
@@ -700,7 +700,7 @@ en:
         docs_tt: "Code or methods for model generation"
         citation: "Citation"
         contact: "Contact"
-        error: 'An error occurred while obtaining model metadata.'
+        error: "An error occurred while obtaining model metadata."
       init:
         valid_model: "This is a distribution hypothesis approved by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses not approved by experts, available for this species."
         pending_validation_model: "This is one of the available distribution hypotheses pending approval by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses pending approval available for this species."
@@ -709,9 +709,9 @@ en:
         no_model: "This species does not have a distribution model yet. To contribute to its development, register in the group of experts of the species."
       download:
         text_1: "Before download, remember:"
-        read_terms_lnk: 'I have read and accept the terms and conditions'
+        read_terms_lnk: "I have read and accept the terms and conditions"
         text_2: "Select the use you will give the model:"
-        accept_btn: 'ACCEPT'
+        accept_btn: "ACCEPT"
         selection_notice: "You must read and accept the terms and conditions as well as select the use you will give the model to continue the download."
         sign_up_notice: "You must be registered in the platform to download the model."
     terms:
@@ -721,59 +721,59 @@ en:
       publish: "Publication"
       general_text: "Your use of BioModelos (biomodelos.humboldt.org.co), in any way, consulting or complementing its content, constitutes acceptance of the following Terms and Conditions, which become effective as of the date on which you enter to the indicated site."
       general_1_text: "This user agreement establishes the terms and conditions of a license for you to use the BioModelos web platform and the information contained therein. For the purposes of this agreement, the information of BioModelos includes the visualization of biological records through the geographic viewer of the platform, the distribution models of species developed from these records and the statistics and indicators calculated from the models. By accessing and/or using BioModelos, it is presumed that you have read, accepted and agree to comply with all the terms and conditions of this user agreement. The rights and obligations related to the use of BioModelos in accordance with this user agreement are personal and are not transferable to any natural or legal person. Eventually, these terms and conditions of use of BioModelos may be modified, which will be recorded on this page. Consequently, it is your responsibility to review and comply with the established terms and conditions, provided that you access or use BioModelos."
-      general_2_title:  "Copyright and intellectual property"
+      general_2_title: "Copyright and intellectual property"
       general_2_text_html: >
-                      BioModelos contains material protected by the laws and treaties related to intellectual property, therefore, the information of BioModelos is protected by the agreements, the laws and regulations of copyright throughout the world.</br></br>
-                      The Alexander von Humboldt Biological Resources Research Institute is the sole and exclusive owner of the BioModelos application, including trademark, trade name, trade secret and other intellectual property rights over this application.</br></br>
-                      Since the information that rests in BioModelos is the result of a collaboration process between the Alexander von Humboldt Institute and registered users, its administration and management corresponds exclusively to the Alexander von Humboldt Institute, according to the terms and scopes stipulated in the registration and publication forms.
-                      The Alexander von Humboldt Institute exclusively holds the patrimonial rights as author of the information generated from all the activity of registered users in BioModelos, particularly in the "edition and contribution" and "records and filters" modules. In any case, the Alexander von Humboldt Institute will recognize the author's moral rights for each contribution consigned by registered users in BioModelos.</br> </br>
-                      Once the information in BioModelos has been recorded by the "Publishers", the Alexander von Humboldt Institute will have a license for its use and disposal, according to the Creative Commons licenses with which said information is published, in accordance with what was established with the publisher(s) in the publication form.</br></br>
-                      You agree not to alter or eliminate any copyright symbol or other identification related to the authorship of any of the materials contained or made available in BioModelos.general_3_title:  "Productos derivados"
+        BioModelos contains material protected by the laws and treaties related to intellectual property, therefore, the information of BioModelos is protected by the agreements, the laws and regulations of copyright throughout the world.</br></br>
+        The Alexander von Humboldt Biological Resources Research Institute is the sole and exclusive owner of the BioModelos application, including trademark, trade name, trade secret and other intellectual property rights over this application.</br></br>
+        Since the information that rests in BioModelos is the result of a collaboration process between the Alexander von Humboldt Institute and registered users, its administration and management corresponds exclusively to the Alexander von Humboldt Institute, according to the terms and scopes stipulated in the registration and publication forms.
+        The Alexander von Humboldt Institute exclusively holds the patrimonial rights as author of the information generated from all the activity of registered users in BioModelos, particularly in the "edition and contribution" and "records and filters" modules. In any case, the Alexander von Humboldt Institute will recognize the author's moral rights for each contribution consigned by registered users in BioModelos.</br> </br>
+        Once the information in BioModelos has been recorded by the "Publishers", the Alexander von Humboldt Institute will have a license for its use and disposal, according to the Creative Commons licenses with which said information is published, in accordance with what was established with the publisher(s) in the publication form.</br></br>
+        You agree not to alter or eliminate any copyright symbol or other identification related to the authorship of any of the materials contained or made available in BioModelos.general_3_title:  "Productos derivados"
       general_3_title: "Derivative works"
       general_3_text_html: >
-                     Derivative works based on the information of BioModelos can be distributed, electronically or in printed form, without the prior written permission of the Alexander von Humboldt Institute, as long as they are available for non-commercial purposes and include the citation to the source, punctually indicated in the field corresponding to "citation" in the metadata. BioModelos reserves the right to use/reuse any derivative work based on your information in accordance with the same terms and conditions of use. For purposes of these terms and conditions, a "derivative work" is a new work that is based totally or partially on the BioModelos information. To be considered a derivative work, the new work must be transformative and include originality on the part of the creator, otherwise it can simply be considered redistribution, depending on the way in which the new work is made available.</br></br>
-                     use of the information of BioModelos in the creation of derivative works does not constitute an endorsement by the Alexander von Humboldt Institute or its partners to these derived products, reports or analyzes. It is expressly forbidden to use the BioModelos logos or the Alexander von Humboldt Institute in any derived product, report or analysis, or in support materials, without the prior written permission of the Institute.
+        Derivative works based on the information of BioModelos can be distributed, electronically or in printed form, without the prior written permission of the Alexander von Humboldt Institute, as long as they are available for non-commercial purposes and include the citation to the source, punctually indicated in the field corresponding to "citation" in the metadata. BioModelos reserves the right to use/reuse any derivative work based on your information in accordance with the same terms and conditions of use. For purposes of these terms and conditions, a "derivative work" is a new work that is based totally or partially on the BioModelos information. To be considered a derivative work, the new work must be transformative and include originality on the part of the creator, otherwise it can simply be considered redistribution, depending on the way in which the new work is made available.</br></br>
+        use of the information of BioModelos in the creation of derivative works does not constitute an endorsement by the Alexander von Humboldt Institute or its partners to these derived products, reports or analyzes. It is expressly forbidden to use the BioModelos logos or the Alexander von Humboldt Institute in any derived product, report or analysis, or in support materials, without the prior written permission of the Institute.
       general_4_title: "Use"
       general_4_text_html: >
-                    Provided that the use or consultation of the information of BioModelos is done in accordance with the terms and conditions of this user agreement, a free, indefinite and non-transferable license is granted for consultation, download or printing, without prior permission of the Institute.</br></br>
-                    The consultation and the use of the information coming from BioModelos is restricted to educational, investigative, academic or applied purposes. In any case, it is forbidden to advance or execute any act of economic order on it.</br></br>
-                    The products or results published from the information obtained in BioModelos must be sent in an electronic or physical copy to the contact data indicated in the section "contact information" of these terms and conditions.
+        Provided that the use or consultation of the information of BioModelos is done in accordance with the terms and conditions of this user agreement, a free, indefinite and non-transferable license is granted for consultation, download or printing, without prior permission of the Institute.</br></br>
+        The consultation and the use of the information coming from BioModelos is restricted to educational, investigative, academic or applied purposes. In any case, it is forbidden to advance or execute any act of economic order on it.</br></br>
+        The products or results published from the information obtained in BioModelos must be sent in an electronic or physical copy to the contact data indicated in the section "contact information" of these terms and conditions.
       general_5_title: "Recognition and citation"
       general_5_text_html: >
-                          The user of the BioModelos information must grant the corresponding credits to the source of said information, using the citation provided in the metadata that accompanies each model, indicating in a timely manner the version of the BioModelos information used.</br></br>
-                          The Alexander von Humboldt Institute invites users of BioModelos information to participate in its construction and complement. Likewise, it extends the invitation to tell the Institute of all those publications that are derived significantly from the information available in BioModelos, prior to its publication, in a space of joint collaboration. Expressions of interest can be sent directly to the Alexander von Humboldt Institute using the contact information indicated in the "contact information" section of these terms and conditions.
+        The user of the BioModelos information must grant the corresponding credits to the source of said information, using the citation provided in the metadata that accompanies each model, indicating in a timely manner the version of the BioModelos information used.</br></br>
+        The Alexander von Humboldt Institute invites users of BioModelos information to participate in its construction and complement. Likewise, it extends the invitation to tell the Institute of all those publications that are derived significantly from the information available in BioModelos, prior to its publication, in a space of joint collaboration. Expressions of interest can be sent directly to the Alexander von Humboldt Institute using the contact information indicated in the "contact information" section of these terms and conditions.
       general_6_title: "Updates"
       general_6_text_html: "Unless required for specific analyzes, no version of the BioModelos information should be used after it has been replaced by a later version. It is your responsibility to verify if an update of the information published in BioModelos is available."
       general_7_title: "Liability limitations"
       general_7_text_html: >
-                        The Alexander von Humboldt Institute, its partners, any of its respective employees, third-party content providers or licensors do not guarantee that the access and use of BioModelos will be free of interruptions or error-free, as well as, that any information accessible from or related to with the information is free of viruses or other harmful components. Likewise, no guarantees are given regarding the results that can be obtained from the use of the BioModelos information or the accuracy, reliability or content of any information or service provided through BioModelos.</br></br>
-                        BioModelos is a space for the discussion and scientific evaluation of models of geographic distribution of species. In this sense, the downloadable information represents hypotheses of the probable geographic distribution of the species and products derived from these hypotheses, which, although they may contain errors and biases associated with the data and statistical modeling, make an effort to reduce the impact of said factors by incorporating expert knowledge to produce validated maps.</br></br>
-                        The information that is available in BioModelos is not official information for Colombia and for that reason its use must be done under its own responsibility. The Alexander von Humboldt Institute, the sponsors of BioModelos and other collaborators, do not guarantee that the results derived from using the information downloaded comply with their particular requirements.
+        The Alexander von Humboldt Institute, its partners, any of its respective employees, third-party content providers or licensors do not guarantee that the access and use of BioModelos will be free of interruptions or error-free, as well as, that any information accessible from or related to with the information is free of viruses or other harmful components. Likewise, no guarantees are given regarding the results that can be obtained from the use of the BioModelos information or the accuracy, reliability or content of any information or service provided through BioModelos.</br></br>
+        BioModelos is a space for the discussion and scientific evaluation of models of geographic distribution of species. In this sense, the downloadable information represents hypotheses of the probable geographic distribution of the species and products derived from these hypotheses, which, although they may contain errors and biases associated with the data and statistical modeling, make an effort to reduce the impact of said factors by incorporating expert knowledge to produce validated maps.</br></br>
+        The information that is available in BioModelos is not official information for Colombia and for that reason its use must be done under its own responsibility. The Alexander von Humboldt Institute, the sponsors of BioModelos and other collaborators, do not guarantee that the results derived from using the information downloaded comply with their particular requirements.
       general_8_title: "Termination of the agreement"
       general_8_text_html: "You or the Alexander von Humboldt Institute may terminate this user agreement at any time, with immediate effect, with or without prior notice to the other party. Termination of this agreement automatically terminates your license to use BioModelos and any other content or material contained therein. The dispositions of sections 3, 4, and 5 will survive any termination of this user agreement."
       general_9_title: "Contact information"
       general_9_text_html: "If you have any questions about any of these terms or how they can be applied to the intended use of the information provided by BioModelos, contact the Laboratory of Applied Biogeography (LBA) of the Alexander von Humboldt Institute: "
       sign_up_1_title: "Registration terms and conditions"
       sign_up_1_text_html: >
-                      By registering in BioModelos, the user, in addition to accepting the previously defined terms and conditions of use, must accept the following BioModelos contribution treatment policy:</br></br>
-                      Are considered contributions to BioModelos all information related to the distribution of species that is entered by registered users of BioModelos, including but not limited to: reports and errors editions of records, editions to distribution models, selection of ecological variables by species, comments in forums, ratings to distribution models and expert maps. The Alexander von Humboldt Institute reserves the right to: store, distribute, use, advance any disposition acts or eliminate the contributions made by registered BioModelos users, as well as, the information regarding the origin of the contribution (name, email, date and IP address of the contributor), even when the user deletes their BioModelos registry.<br id ="personales"> </br>
-                      The moral rights of authors of the contributions belong to the contributors and the Alexander von Humboldt Institute undertakes to citate them properly whenever they are used for the purpose of BioModelos or the derived products that it deems appropriate.
+        By registering in BioModelos, the user, in addition to accepting the previously defined terms and conditions of use, must accept the following BioModelos contribution treatment policy:</br></br>
+        Are considered contributions to BioModelos all information related to the distribution of species that is entered by registered users of BioModelos, including but not limited to: reports and errors editions of records, editions to distribution models, selection of ecological variables by species, comments in forums, ratings to distribution models and expert maps. The Alexander von Humboldt Institute reserves the right to: store, distribute, use, advance any disposition acts or eliminate the contributions made by registered BioModelos users, as well as, the information regarding the origin of the contribution (name, email, date and IP address of the contributor), even when the user deletes their BioModelos registry.<br id ="personales"> </br>
+        The moral rights of authors of the contributions belong to the contributors and the Alexander von Humboldt Institute undertakes to citate them properly whenever they are used for the purpose of BioModelos or the derived products that it deems appropriate.
       sign_up_2_title: "Personal data protection policy"
       sign_up_2_text_html: >
-                    By virtue of the Statutory Law 1581 of 2012 by means of which the general dispositions for the protection of personal data are dictated, and its Regulatory Decree 1377 of 2013, the Institute of Investigation of Biological Resources Alexander von Humboldt, considered responsible and/or in charge of the treatment of personal data, requires your authorization to continue with the processing of your personal data stored in our databases, which include information that you have reported to us in the development of the different activities carried out by our institution in particular the following: Name, email, city, institutional affiliation and IP address from where you enter the platform biomodelos.humboldt.org.</br></br>
-                    <b>Purpose:</b> The data will be used for the institutional mission established in Law 99 of 1993, focused on developing scientific and technological research on biodiversity, promoting the establishment of research stations in the territory of the Nation, providing advice to the entities that make up the Environmental System (Sina) and build up the National Inventory of Biodiversity in the country.
+        By virtue of the Statutory Law 1581 of 2012 by means of which the general dispositions for the protection of personal data are dictated, and its Regulatory Decree 1377 of 2013, the Institute of Investigation of Biological Resources Alexander von Humboldt, considered responsible and/or in charge of the treatment of personal data, requires your authorization to continue with the processing of your personal data stored in our databases, which include information that you have reported to us in the development of the different activities carried out by our institution in particular the following: Name, email, city, institutional affiliation and IP address from where you enter the platform biomodelos.humboldt.org.</br></br>
+        <b>Purpose:</b> The data will be used for the institutional mission established in Law 99 of 1993, focused on developing scientific and technological research on biodiversity, promoting the establishment of research stations in the territory of the Nation, providing advice to the entities that make up the Environmental System (Sina) and build up the National Inventory of Biodiversity in the country.
       publish_1_title: "The publisher declares:"
       publish_1_text_html: >
-                        1. That the model(s) that are uploaded to BioModelos are the authorship of the people listed in the model publication form (hereinafter publishers) or have the transfer of rights valid for that purpose.</br>
-                        2. That all authors of the model or set of models accept or authorize their publication in BioModelos from the moment the information is uploaded.</br>
-                        3. That the biological records that accompany the model are of open use, are owned or their use exclusively for visualization purposes in BioModelos has been authorized explicitly or implicitly (eg. through a Creative Commons license) by the owners of the information or who have some assignment or authorization in regards to the information.</br>
-                        4. That the publishers authorize the download and use of their models by third parties through BioModelos under the conditions provided by the Creative Commons license indicated in the model publication form.
+        1. That the model(s) that are uploaded to BioModelos are the authorship of the people listed in the model publication form (hereinafter publishers) or have the transfer of rights valid for that purpose.</br>
+        2. That all authors of the model or set of models accept or authorize their publication in BioModelos from the moment the information is uploaded.</br>
+        3. That the biological records that accompany the model are of open use, are owned or their use exclusively for visualization purposes in BioModelos has been authorized explicitly or implicitly (eg. through a Creative Commons license) by the owners of the information or who have some assignment or authorization in regards to the information.</br>
+        4. That the publishers authorize the download and use of their models by third parties through BioModelos under the conditions provided by the Creative Commons license indicated in the model publication form.
       publish_2_title: "The Research Institute of biological resources Alexander Von Humboldt through the web application BioModelos"
       publish_2_text_html: >
-                        1. Will offer activity statistics (viewing and downloading) and usage profile at the request of the publishers of the information.</br>
-                        2. Will grant the corresponding credit to the model publishers in the BioModelos page and in the metadata that accompany the models of their authorship, based on the information registered in the publication form.</br>
-                        3. Will use the biological records that accompany the model only for visualization in BioModelos under the conditions determined by the publishers in the  model publication form. In no case will its use or download be enabled in BioModelos, unless this is expressly authorized in the model publication form.</br>
-                        4. It reserves the right to publish the models as well as download them at any time on the site.
+        1. Will offer activity statistics (viewing and downloading) and usage profile at the request of the publishers of the information.</br>
+        2. Will grant the corresponding credit to the model publishers in the BioModelos page and in the metadata that accompany the models of their authorship, based on the information registered in the publication form.</br>
+        3. Will use the biological records that accompany the model only for visualization in BioModelos under the conditions determined by the publishers in the  model publication form. In no case will its use or download be enabled in BioModelos, unless this is expressly authorized in the model publication form.</br>
+        4. It reserves the right to publish the models as well as download them at any time on the site.
     info:
       noticias: "Publications"
       boletines: "Newsletters"

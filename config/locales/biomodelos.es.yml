@@ -1,77 +1,77 @@
 es:
   biomodelos:
     header:
-      home: 'Inicio'
-      models: 'Modelos'
-      groups: 'Grupos'
-      log_in: 'Ingresar'
-      sign_up: 'Registrarse'
-      profile_tt: 'Perfil'
-      log_out_tt: 'Salir'
+      home: "Inicio"
+      models: "Modelos"
+      groups: "Grupos"
+      log_in: "Ingresar"
+      sign_up: "Registrarse"
+      profile_tt: "Perfil"
+      log_out_tt: "Salir"
     footer:
       institute_html: >
-                      Instituto de Investigación de Recursos Biológicos</br>
-                      Alexander von Humboldt
-      program: 'Programa de Evaluación y Monitoreo de la Biodiversidad'
-      models: 'Modelos'
-      groups: 'Grupos'
-      publish: 'Publicar'
-      info: 'Info'
-      about: 'Acerca de Biomodelos'
-      terms: 'Términos'
-      contact: 'Contacto'
+        Instituto de Investigación de Recursos Biológicos</br>
+        Alexander von Humboldt
+      program: "Programa de Evaluación y Monitoreo de la Biodiversidad"
+      models: "Modelos"
+      groups: "Grupos"
+      publish: "Publicar"
+      info: "Info"
+      about: "Acerca de Biomodelos"
+      terms: "Términos"
+      contact: "Contacto"
     home:
-      advanced_search: 'Búsqueda avanzada'
-      search_ph: 'Nombre científico'
-      go_to_species_tt: 'Ir a especie'
-      models_btn: 'CONSULTA'
-      contribute_btn: 'CONTRIBUYE'
-      publish_btn: 'PUBLICA'
-      slogan: 'MEJORES MODELOS CON EL APOYO DE EXPERTOS'
-      mammals: 'MAMÍFEROS'
-      birds: 'AVES'
-      reptiles: 'REPTILES'
-      amphibians: 'ANFIBIOS'
-      fish: 'PECES'
-      invertebrates: 'INVERTEBRADOS'
-      plants: 'PLANTAS'
+      advanced_search: "Búsqueda avanzada"
+      search_ph: "Nombre científico"
+      go_to_species_tt: "Ir a especie"
+      models_btn: "CONSULTA"
+      contribute_btn: "CONTRIBUYE"
+      publish_btn: "PUBLICA"
+      slogan: "MEJORES MODELOS CON EL APOYO DE EXPERTOS"
+      mammals: "MAMÍFEROS"
+      birds: "AVES"
+      reptiles: "REPTILES"
+      amphibians: "ANFIBIOS"
+      fish: "PECES"
+      invertebrates: "INVERTEBRADOS"
+      plants: "PLANTAS"
       consult:
-        title: 'consulta'
-        text_1: 'Ingresa directamente al buscador de BioModelos el nombre científico de la especie de tu interés para consultar su mapa de distribución en el visor. Allí podrás consultar las hipótesis de distribución disponibles para la especie y que calificación les han dado otros usuarios, así como algunas estadísticas sobre el rango de la especie.'
-        go_btn: 'IR'
-        text_2: 'Si deseas descargar el mapa deberás dirigirte a la sección de registro, llena el formulario e ingresa a la plataforma con tu usuario y contraseña. Para hacer aportes al conocimiento de la distribución de alguna especie, revisa la sección “contribuye”.'
+        title: "consulta"
+        text_1: "Ingresa directamente al buscador de BioModelos el nombre científico de la especie de tu interés para consultar su mapa de distribución en el visor. Allí podrás consultar las hipótesis de distribución disponibles para la especie y que calificación les han dado otros usuarios, así como algunas estadísticas sobre el rango de la especie."
+        go_btn: "IR"
+        text_2: "Si deseas descargar el mapa deberás dirigirte a la sección de registro, llena el formulario e ingresa a la plataforma con tu usuario y contraseña. Para hacer aportes al conocimiento de la distribución de alguna especie, revisa la sección “contribuye”."
       contribute:
-        title: 'contribuye'
-        text_1: 'Para contribuir en BioModelos debes ser un usuario registrado y pertenecer a uno de los grupos de la plataforma.'
-        sign_up_btn: 'REGISTRO'
-        contribution_types: 'TIPOS DE APORTES'
-        text_2: 'Puedes aportar a mejorar el conocimiento sobre la distribución geográfica de las especies a través de las siguientes actividades:'
+        title: "contribuye"
+        text_1: "Para contribuir en BioModelos debes ser un usuario registrado y pertenecer a uno de los grupos de la plataforma."
+        sign_up_btn: "REGISTRO"
+        contribution_types: "TIPOS DE APORTES"
+        text_2: "Puedes aportar a mejorar el conocimiento sobre la distribución geográfica de las especies a través de las siguientes actividades:"
         activities_list_html: >
-                                - Curación de registros biológicos.</br>
-                                - Edición de los modelos estadísticos desarrollados por el equipo de BioModelos.</br>
-                                - Documentando las coberturas terrestres idóneas para las especie.</br>
-                                - Desarrollando mapas de experto, especialmente para especies que cuentan con muy pocos o ningún registro biológico.</br>
-                                - Calificando las hipótesis de distribución geográfica disponibles para las especies.</br>
-        profile_btn: 'PERFIL'
+          - Curación de registros biológicos.</br>
+          - Edición de los modelos estadísticos desarrollados por el equipo de BioModelos.</br>
+          - Documentando las coberturas terrestres idóneas para las especie.</br>
+          - Desarrollando mapas de experto, especialmente para especies que cuentan con muy pocos o ningún registro biológico.</br>
+          - Calificando las hipótesis de distribución geográfica disponibles para las especies.</br>
+        profile_btn: "PERFIL"
       publish:
-        title: 'publica'
-        text_1: 'Si has desarrollado modelos de distribución para una o más especies, los puedes publicar a través de BioModelos. Así podrás visibilizar tu trabajo y facilitar su uso por otros investigadores, así como recibir la retroalimentación de expertos sobre el desempeño de tus modelos.'
-        more_lnk: 'Entérate más.'
-        text_2: 'Sólo debes ser un usuario registrado en BioModelos, ingresar al link “Publica” y seguir las instrucciones.'
-        publish_btn: 'PUBLICA'
+        title: "publica"
+        text_1: "Si has desarrollado modelos de distribución para una o más especies, los puedes publicar a través de BioModelos. Así podrás visibilizar tu trabajo y facilitar su uso por otros investigadores, así como recibir la retroalimentación de expertos sobre el desempeño de tus modelos."
+        more_lnk: "Entérate más."
+        text_2: "Sólo debes ser un usuario registrado en BioModelos, ingresar al link “Publica” y seguir las instrucciones."
+        publish_btn: "PUBLICA"
       news:
-        title: 'noticias BioModelos'
-        text_1: 'Y salió la segunda entrega del “Atlas de la Biodiversidad de Colombia”, para el grupo temático Primates. Gracias al trabajo de este grupo en BioModelos se logró la compilación de modelos validados de 38 especies, e información de análisis a partir de su distribución.'
-        text_2: 'Muchos grupos han avanzado en sus listas de especies y algunos ya han terminado de modelar las especies de su grupo temático, un claro caso este año son los expertos en primates, en apoyo con la APC (Asociación Primatológica Colombiana). Es gracias a su colaboración que dichos modelos de distribución consiguen ese estado de validados y son recibidos como información confiable por la comunidad científica, permitiéndonos decir “mejores modelos con el apoyo de expertos”.'
+        title: "noticias BioModelos"
+        text_1: "Y salió la segunda entrega del “Atlas de la Biodiversidad de Colombia”, para el grupo temático Primates. Gracias al trabajo de este grupo en BioModelos se logró la compilación de modelos validados de 38 especies, e información de análisis a partir de su distribución."
+        text_2: "Muchos grupos han avanzado en sus listas de especies y algunos ya han terminado de modelar las especies de su grupo temático, un claro caso este año son los expertos en primates, en apoyo con la APC (Asociación Primatológica Colombiana). Es gracias a su colaboración que dichos modelos de distribución consiguen ese estado de validados y son recibidos como información confiable por la comunidad científica, permitiéndonos decir “mejores modelos con el apoyo de expertos”."
     log_in:
-      title: 'ingresar'
-      log_in_btn: 'INGRESAR'
+      title: "ingresar"
+      log_in_btn: "INGRESAR"
     sign_up:
-      title: 'Registrarse'
+      title: "Registrarse"
       password_min_txt: "mínimo %{caracteres} caracteres"
-      terms_txt: 'He leído y acepto los términos y condiciones'
-      data_policies_txt: 'Políticas de protección de datos personales'
-      sign_up_btn: 'REGISTRARSE'
+      terms_txt: "He leído y acepto los términos y condiciones"
+      data_policies_txt: "Políticas de protección de datos personales"
+      sign_up_btn: "REGISTRARSE"
     visor:
       tooltip:
         model_name: "Estado del modelo"
@@ -105,65 +105,65 @@ es:
         records_metadata: "METADATOS REGISTROS"
         records_metadata_tt: "Información sobre los registros usados en el modelamiento y el proceso de curaduría de los mismos."
         eoo_title: "EXTENSIÓN DE OCURRENCIA"
-        eoo_text_1_html: 'La extensión de ocurrencia (EOO por sus siglas en inglés utilizadas en la literatura) se define como el área contenida dentro de los límites más cortos imaginarios que pueden ser dibujados para abarcar todos los sitios en donde se encuentra la especie, bien sea conocidos, inferidos o proyectados (IUCN 2013).'
+        eoo_text_1_html: "La extensión de ocurrencia (EOO por sus siglas en inglés utilizadas en la literatura) se define como el área contenida dentro de los límites más cortos imaginarios que pueden ser dibujados para abarcar todos los sitios en donde se encuentra la especie, bien sea conocidos, inferidos o proyectados (IUCN 2013)."
         eoo_text_2_html: '<b>PMC sobre modelos:</b> polígono mínimo convexo delimitado sobre la distribución modelada para cada especie (<a href="http://www.humboldt.org.co/es/test/item/download/244_4bf9941429abe826cb0bee0e9f755f2a" target="_blank" style="float:none;">Figura 1, Renjifo et al. 2014</a>).'
-        eoo_fig_1_html: 'Figura 1. Polígono mínimo convexo generado para <em>Andigena hypoglauca</em> (línea roja) de acuerdo a la distribución original de la especie (en verde) (Renjifo et al. 2014).'
+        eoo_fig_1_html: "Figura 1. Polígono mínimo convexo generado para <em>Andigena hypoglauca</em> (línea roja) de acuerdo a la distribución original de la especie (en verde) (Renjifo et al. 2014)."
         eoo_text_3_html: '<b>PMC sobre registros:</b> polígono mínimo convexo delimitado sobre los registros biológicos para cada especie. Representa el polígono de menor superficie que contiene todos los lugares de presencia, pero que ninguno de sus ángulos internos excede los 180 grados (<a href="http://s3.amazonaws.com/iucnredlist-newcms/staging/public/attachments/3156/reg_guidelines_sp.pdf" target="_blank" style="float:none;">Figura 2, IUCN 2013</a>)'
-        eoo_fig_2_html: 'Figura 2. Representación del cálculo de un polígono mínimo convexo.'
-        eoo_geo_range: 'Rango Geográfico'
-        eoo_pmc_models: 'PMC sobre modelos'
-        eoo_pmc_records: 'PMC sobre registros'
+        eoo_fig_2_html: "Figura 2. Representación del cálculo de un polígono mínimo convexo."
+        eoo_geo_range: "Rango Geográfico"
+        eoo_pmc_models: "PMC sobre modelos"
+        eoo_pmc_records: "PMC sobre registros"
         rpa_title: "REPRESENTATIVIDAD EN ÁREAS PROTEGIDAS"
         rpa_text_1: "Corresponde al porcentaje de área de la distribución de las especie en el total de las áreas protegidas del país, y discriminado por los Parques Nacionales Naturales (PNN), Reservas de la Sociedad Civil (RSC) y las otras figuras (Reservas Forestales Protectoras, Parques Naturales Regionales, Distritos de Manejo Integrado, Distritos de Conservación de Suelos y Áreas de Recreación). El porcentaje total de las áreas protegidas puede no coincidir con la suma de las áreas de PNN, RSC y otras, dado que alguna áreas portegidas se encuentran dentro del área de otras."
-        rpa_total: 'Total Representatividad'
-        rpa_pnn: 'PNN'
-        rpa_rsc: 'RSC'
-        rpa_other: 'otras figuras'
+        rpa_total: "Total Representatividad"
+        rpa_pnn: "PNN"
+        rpa_rsc: "RSC"
+        rpa_other: "otras figuras"
         forest_loss_title: "PÉRDIDA DE BOSQUE"
         forest_loss_text_1: "Esta gráfica describe la variación del porcentaje del área de la distribución de la especie en áreas de bosque del país, de acuerdo a los mapas de deforestación desarrollados por el IDEAM y a los escenarios de deforestación propuestos por Etter y Arévalo (2014) (proyectado al 2030)."
         forest_loss_text_2: "Etter, A. y Arévalo, P. (2014). Escenarios futuros de la cobertura forestal en Colombia. En: Bello et al. (ed). Biodiversidad 2014. Estado y tendencia de la biodiversidad continental en Colombia. Instituto Alexander von Humboldt. Bogotá, D.C., Colombia."
-        forest_graphic_blue: 'Histórico'
-        forest_graphic_trend: 'TENDENCIA'
-        forest_graphic_orange: 'Actual'
-        forest_graphic_red: 'Extractivista'
-        forest_graphic_yellow: 'Industrializada'
-        forest_graphic_year: 'Año'
-        forest_graphic_col_1: 'Histórico'
-        forest_graphic_col_2: 'Tendencia Actual'
-        forest_graphic_col_3: 'Tendencia Extractivista'
-        forest_graphic_col_4: 'Tendencia Industrializada'
-        forest_graphic_percentage: 'Porcentaje de área (%)'
+        forest_graphic_blue: "Histórico"
+        forest_graphic_trend: "TENDENCIA"
+        forest_graphic_orange: "Actual"
+        forest_graphic_red: "Extractivista"
+        forest_graphic_yellow: "Industrializada"
+        forest_graphic_year: "Año"
+        forest_graphic_col_1: "Histórico"
+        forest_graphic_col_2: "Tendencia Actual"
+        forest_graphic_col_3: "Tendencia Extractivista"
+        forest_graphic_col_4: "Tendencia Industrializada"
+        forest_graphic_percentage: "Porcentaje de área (%)"
         covers_title: "coberturas"
         covers_text_1: "Listado de las coberturas seleccionadas por los expertos para la especie en la sección variables ecológicas, con el correspondiente porcentaje de área de la distribución de la especie que se encuentra en cada una de ellas."
         copy_url_tt: "Copiar URL de la especie"
       hypotheses:
         title: "HIPÓTESIS DISPONIBLES"
-        text_1: 'Estas hipótesis corresponden al modelo aprobado en BioModelos (Validados), modelos publicados por usuarios (Publicados) o modelos estadísticos que han sido desarrollados de forma automatizada por el equipo de BioModelos (Estadísticos). Pueden ser calificadas por los miembros del grupo al que pertenece esta especie (Para calificar). Aquella con mayor calificación es la que se muestra por defecto. Puedes realizar la descarga de los modelos y consultar sus metadatos.'
-        validated: 'Validados'
-        published: 'Publicados'
-        statistical: 'Estadísticos'
-        to_rate: 'Para calificar'
-        all: 'Todos'
-        level: 'Nivel'
-        rating_mean: 'Calificación promedio'
-        votes: 'votos'
-        downloads_number: 'Número descargas'
-        download_tt: 'Descargar el modelo'
-        metadata_tt: 'Ver metadatos del modelo'
+        text_1: "Estas hipótesis corresponden al modelo aprobado en BioModelos (Validados), modelos publicados por usuarios (Publicados) o modelos estadísticos que han sido desarrollados de forma automatizada por el equipo de BioModelos (Estadísticos). Pueden ser calificadas por los miembros del grupo al que pertenece esta especie (Para calificar). Aquella con mayor calificación es la que se muestra por defecto. Puedes realizar la descarga de los modelos y consultar sus metadatos."
+        validated: "Validados"
+        published: "Publicados"
+        statistical: "Estadísticos"
+        to_rate: "Para calificar"
+        all: "Todos"
+        level: "Nivel"
+        rating_mean: "Calificación promedio"
+        votes: "votos"
+        downloads_number: "Número descargas"
+        download_tt: "Descargar el modelo"
+        metadata_tt: "Ver metadatos del modelo"
         text_2_html: >
-                Esta especie no cuenta con una hipótesis de distribución.</br>
-                <b>Razones Posibles:</b></br>
-                1)	Se encuentra en desarrollo.</br>
-                2)	No hay suficientes registros para poder desarrollar un modelo.</br>
-                3)	No contamos con expertos para esta especie.</br>
-                4)	En revisión ej. por cambio taxonómico.</br>"
-        no_model: 'SIN MODELO'
-        rating_0_hint: 'No representa'
-        rating_1_hint: 'Representa pobremente'
-        rating_2_hint: 'Representa regularmente'
-        rating_3_hint: 'Representa adecuadamente'
-        rating_4_hint: 'Representa muy bien'
-        rating_delete: 'Eliminar calificación'
+          Esta especie no cuenta con una hipótesis de distribución.</br>
+          <b>Razones Posibles:</b></br>
+          1)	Se encuentra en desarrollo.</br>
+          2)	No hay suficientes registros para poder desarrollar un modelo.</br>
+          3)	No contamos con expertos para esta especie.</br>
+          4)	En revisión ej. por cambio taxonómico.</br>"
+        no_model: "SIN MODELO"
+        rating_0_hint: "No representa"
+        rating_1_hint: "Representa pobremente"
+        rating_2_hint: "Representa regularmente"
+        rating_3_hint: "Representa adecuadamente"
+        rating_4_hint: "Representa muy bien"
+        rating_delete: "Eliminar calificación"
         rating_error: "Ha ocurrido un error al guardar la calificación"
         pending_and_published_thumb: "PUBLICADO POR VALIDAR"
         pending_thumb: "POR VALIDAR"
@@ -195,10 +195,10 @@ es:
         institution_option: "Institución"
         default_category: "Categoria"
         visualize_tt_html: >
-                        En esta sección podrás resaltar los registros por:&#013;&#013;
-                        • Reportados: registros que han tenido un reporte de error en BioModelos.&#013;
-                        • Editados: registros que han sido modificados por los expertos de la especie.&#013;
-                        • Prioritarios de revisión: registros que requieren revisión prioritaria."
+          En esta sección podrás resaltar los registros por:&#013;&#013;
+          • Reportados: registros que han tenido un reporte de error en BioModelos.&#013;
+          • Editados: registros que han sido modificados por los expertos de la especie.&#013;
+          • Prioritarios de revisión: registros que requieren revisión prioritaria."
         visualize: "Visualizar"
         reported_lbl: "Reportados"
         edited_lbl: "Editados"
@@ -389,12 +389,12 @@ es:
         cover_331_tt: "Comprende aquellos territorios en los cuales la cobertura vegetal no existe o es escasa, compuesta principalmente por suelos desnudos y quemados, así como por coberturas arenosas y afloramientos rocosos, algunos de los cuales pueden estar cubiertos por hielo y nieve."
         cover_332: "Afloramientos rocosos"
         cover_332_tt_html: >
-                        Son áreas en las cuales la superficie del terreno está constituida por capas de rocas expuestas, sin desarrollo de vegetación, generalmente dispuestas en laderas abruptas, formando escarpes y acantilados; así como zonas de rocas desnudas relacionadas con la actividad volcánica o glaciar. Asociados con los afloramientos rocosos se pueden encontrar depósitos de sedimentos finos y gruesos, de bloques o de cenizas.&#013;
-                        Se localizan principalmente en las áreas de fuerte pendiente, donde predominan los sustratos de rocas duras y resistentes, asociadas con fallas y deformaciones geológicas, volcanes y glaciares de montaña, localizados en la región andina. Esta unidad también se puede encontrar en la Orinoquía y en la Amazonía asociada con los paisajes de serranías y afloramientos rocosos del Escudo Guayanés."
+          Son áreas en las cuales la superficie del terreno está constituida por capas de rocas expuestas, sin desarrollo de vegetación, generalmente dispuestas en laderas abruptas, formando escarpes y acantilados; así como zonas de rocas desnudas relacionadas con la actividad volcánica o glaciar. Asociados con los afloramientos rocosos se pueden encontrar depósitos de sedimentos finos y gruesos, de bloques o de cenizas.&#013;
+          Se localizan principalmente en las áreas de fuerte pendiente, donde predominan los sustratos de rocas duras y resistentes, asociadas con fallas y deformaciones geológicas, volcanes y glaciares de montaña, localizados en la región andina. Esta unidad también se puede encontrar en la Orinoquía y en la Amazonía asociada con los paisajes de serranías y afloramientos rocosos del Escudo Guayanés."
         cover_333: "Tierras desnudas y degradadas"
         cover_333_tt_html: >
-                        Esta cobertura corresponde a las superficies de terreno desprovistas de vegetación o con escasa cobertura vegetal, debido a la ocurrencia de procesos tanto naturales como antrópicos de erosión y degradación extrema y/o condiciones climáticas extremas. Se incluyen las áreas donde se presentan tierras salinizadas, en proceso de desertificación o con intensos procesos de erosión que pueden llegar hasta la formación de cárcavas.&#013;
-                        En Colombia, la unidad se localiza principalmente en las áreas planas de la región Caribe y en las planicies de los valles de los ríos Magdalena y Cauca, principalmente de los departamentos de Cesar, Guajira, Magdalena, Bolívar, Atlántico, Sucre, Tolima, Huila y Valle del Cauca."
+          Esta cobertura corresponde a las superficies de terreno desprovistas de vegetación o con escasa cobertura vegetal, debido a la ocurrencia de procesos tanto naturales como antrópicos de erosión y degradación extrema y/o condiciones climáticas extremas. Se incluyen las áreas donde se presentan tierras salinizadas, en proceso de desertificación o con intensos procesos de erosión que pueden llegar hasta la formación de cárcavas.&#013;
+          En Colombia, la unidad se localiza principalmente en las áreas planas de la región Caribe y en las planicies de los valles de los ríos Magdalena y Cauca, principalmente de los departamentos de Cesar, Guajira, Magdalena, Bolívar, Atlántico, Sucre, Tolima, Huila y Valle del Cauca."
         cover_334: "Zonas quemadas"
         cover_334_tt: "Comprende las zonas afectadas por incendios recientes, donde los materiales carbonizados todavía están presentes. Estas zonas hacen referencia a los territorios afectados por incendios localizados tanto en áreas naturales como seminaturales, tales como bosques, cultivos, sabanas y arbustales."
         cover_335: "Zonas glaciares y nivales"
@@ -409,9 +409,9 @@ es:
         cover_412_tt: "Son terrenos bajos de tipo pantanoso, de textura esponjosa, cuyo suelo está compuesto principalmente por musgos y materias vegetales descompuestas. Se encuentran frecuentemente en áreas andinas en terrenos situados por encima de los 3.200 msnm."
         cover_413: "Vegetación acuática sobre cuerpos de agua"
         cover_413_tt_html: >
-                        Bajo esta categoría se clasifica toda aquella vegetación flotante que se encuentra establecida sobre cuerpos de agua, recubriéndolos en forma parcial o total.&#013;
-                        Comprende vegetación biotipológicamente clasificada como Pleustophyta, Rizophyta y Haptophyta.&#013;
-                        En Colombia, esta cobertura se encuentra asociada con lagos y lagunas andinos en proceso de eutrofización y en las zonas bajas asociada con cuerpos de agua localizados en las planicies de inundación o desborde."
+          Bajo esta categoría se clasifica toda aquella vegetación flotante que se encuentra establecida sobre cuerpos de agua, recubriéndolos en forma parcial o total.&#013;
+          Comprende vegetación biotipológicamente clasificada como Pleustophyta, Rizophyta y Haptophyta.&#013;
+          En Colombia, esta cobertura se encuentra asociada con lagos y lagunas andinos en proceso de eutrofización y en las zonas bajas asociada con cuerpos de agua localizados en las planicies de inundación o desborde."
         cover_42: "Áreas húmedas costeras"
         cover_42_tt: "Sobre las zonas costeras se diferenciaron las zonas de pantanos litorales y las áreas que presentan procesos de inundación relacionados con la marea."
         cover_421: "Pantanos costeros"
@@ -464,8 +464,8 @@ es:
       cc_noncommercial_txt: "Esta condición permite copiar, transmitir, reutilizar y adaptar la información, siempre y cuando no sea con fines comerciales. Para hacer uso comercial de la información, el usuario debe obtener permiso previo del autor."
       cc_public_domain: "Dominio Público"
       cc_public_domain_txt_html: >
-                                Utilice esta herramienta universal si usted es titular de los derechos de propiedad intelectual y desea renunciar a todos sus intereses sobre los datos e información. Permite a otros copiar, modificar, distribuir y reutilizar libremente el material sin solicitar permiso.</br>
-                                Es especialmente recomendada para datos científicos y es incentivada por editoriales como Pensoft y Nature. Aunque CC0 (“CC Cero”) no requiere legalmente que los usuarios citen la fuente de los datos, no los exime de la responsabilidad moral y ética de dar los créditos necesarios, como es habitual en la investigación científica."
+        Utilice esta herramienta universal si usted es titular de los derechos de propiedad intelectual y desea renunciar a todos sus intereses sobre los datos e información. Permite a otros copiar, modificar, distribuir y reutilizar libremente el material sin solicitar permiso.</br>
+        Es especialmente recomendada para datos científicos y es incentivada por editoriales como Pensoft y Nature. Aunque CC0 (“CC Cero”) no requiere legalmente que los usuarios citen la fuente de los datos, no los exime de la responsabilidad moral y ética de dar los créditos necesarios, como es habitual en la investigación científica."
       select_license: "Selecciona un tipo de licencia"
       step_3_1: "Selecciona el"
       step_3_2: "tipo de visualización"
@@ -473,7 +473,7 @@ es:
       records_vis_permission: "Permisos de visualización de registros"
       choose_option: "Escoge una de las siguientes opciones:"
       all_users_opt: "Todos los usuarios"
-      experts_opt: 'Expertos registrados en el grupo de la especie'
+      experts_opt: "Expertos registrados en el grupo de la especie"
       sib_col_data: "¿Deseas ser contactado por el SiB Colombia para la publicación de tu conjunto de datos?"
       sib_col_yes: "Sí"
       sib_col_na: "No aplica"
@@ -487,26 +487,26 @@ es:
       step_6_3: "de publicación"
       terms_and_conditions_title: "términos y condiciones"
       terms_and_conditions_html: >
-                                <p>La publicación de modelos en BioModelos se regirá por los siguientes términos y condiciones:</p>
-                                <h6>El publicador declara</h6>
-                                <p><b>1.</b> Que el/los modelo(s) que se suben a BioModelos son autoría de las personas listadas en el formulario de publicación de modelos (en adelante publicadores) o tienen la cesión de derechos vigente para tal fin.</p>
-                                <p><b>2.</b> Que todos los autores del modelo o conjunto de modelos aceptan o autorizan su publicación en BioModelos a partir del momento en que sube la información.</p>
-                                <p><b>3.</b> Que los registros biológicos que acompañan el modelo son de uso abierto, son propios o su uso exclusivamente para propósitos de visualización en BioModelos ha sido autorizado explícita o implícitamente (p. ej. a través de una licencia de Creative Commons) por los propietarios de la información o quienes tienen alguna cesión o autorización frente al particular.</p>
-                                <p><b>4.</b> Que los publicadores autorizan la descarga y uso de sus modelos por terceros a través de BioModelos bajo las condiciones provistas por la licencia Creative Commons señalada en el formulario de publicación de modelos.</p>
-                                <h6>El Laboratorio de Biogeografía Aplicada del Instituto de Investigación de Recursos Biológicos Alexander von Humboldt a través de la aplicación web Biomodelos</h6>
-                                <p><b>1.</b> Ofrecerá estadísticas de actividad (visualización y descarga) y perfil de uso a solicitud de los publicadores de la información.</p>
-                                <p><b>2.</b> Otorgará el crédito correspondiente a los publicadores de modelos en la página de BioModelos y en los metadatos que acompañan los modelos de su autoría, con base en la información registrada en el formulario de publicación.</p>
-                                <p><b>3.</b> Utilizará los registros biológicos que acompañan el modelo únicamente para la visualización en BioModelos bajo las condiciones determinadas por los publicadores en el formulario de publicación del modelo. En ningún caso su uso o descarga estará habilitada en BioModelos, a menos que esto sea expresamente autorizado en el formulario de publicación de modelos.</p>
-                                <p><b>4.</b> Se reserva el derecho de publicar los modelos así como de bajarlos en cualquier momento de la página.</p>"
+        <p>La publicación de modelos en BioModelos se regirá por los siguientes términos y condiciones:</p>
+        <h6>El publicador declara</h6>
+        <p><b>1.</b> Que el/los modelo(s) que se suben a BioModelos son autoría de las personas listadas en el formulario de publicación de modelos (en adelante publicadores) o tienen la cesión de derechos vigente para tal fin.</p>
+        <p><b>2.</b> Que todos los autores del modelo o conjunto de modelos aceptan o autorizan su publicación en BioModelos a partir del momento en que sube la información.</p>
+        <p><b>3.</b> Que los registros biológicos que acompañan el modelo son de uso abierto, son propios o su uso exclusivamente para propósitos de visualización en BioModelos ha sido autorizado explícita o implícitamente (p. ej. a través de una licencia de Creative Commons) por los propietarios de la información o quienes tienen alguna cesión o autorización frente al particular.</p>
+        <p><b>4.</b> Que los publicadores autorizan la descarga y uso de sus modelos por terceros a través de BioModelos bajo las condiciones provistas por la licencia Creative Commons señalada en el formulario de publicación de modelos.</p>
+        <h6>El Laboratorio de Biogeografía Aplicada del Instituto de Investigación de Recursos Biológicos Alexander von Humboldt a través de la aplicación web Biomodelos</h6>
+        <p><b>1.</b> Ofrecerá estadísticas de actividad (visualización y descarga) y perfil de uso a solicitud de los publicadores de la información.</p>
+        <p><b>2.</b> Otorgará el crédito correspondiente a los publicadores de modelos en la página de BioModelos y en los metadatos que acompañan los modelos de su autoría, con base en la información registrada en el formulario de publicación.</p>
+        <p><b>3.</b> Utilizará los registros biológicos que acompañan el modelo únicamente para la visualización en BioModelos bajo las condiciones determinadas por los publicadores en el formulario de publicación del modelo. En ningún caso su uso o descarga estará habilitada en BioModelos, a menos que esto sea expresamente autorizado en el formulario de publicación de modelos.</p>
+        <p><b>4.</b> Se reserva el derecho de publicar los modelos así como de bajarlos en cualquier momento de la página.</p>"
       have_read_terms: "He leído y acepto los términos y condiciones"
       atlas_notice_html: 'Deseo postular mi trabajo para publicación en el <a href="http://repository.humboldt.org.co/" target="_blank">Atlas de la Biodiversidad de Colombia</a>'
       contact_us: "Cualquier inquietud escríbenos a"
-      upload_btn: 'ENVIAR'
-      success_notice: 'La publicación se ha realizado con éxito.'
+      upload_btn: "ENVIAR"
+      success_notice: "La publicación se ha realizado con éxito."
     about_us:
       text_1_html: >
-                BioModelos es una herramienta digital que permite la <b>comunicación entre expertos</b> en biodiversidad para el desarrollo de modelos de distribución de las especies existentes en Colombia de forma colaborativa y abierta.</br></br>
-                Esta iniciativa surge con el fin de acercar a investigadores, instituciones gubernamentales, ONGs y ciudadanos, a una <b>información precisa y validada</b> por expertos sobre la distribución de especies en Colombia, que sirva como referencia para estudios y la toma de decisiones sobre biodiversidad.
+        BioModelos es una herramienta digital que permite la <b>comunicación entre expertos</b> en biodiversidad para el desarrollo de modelos de distribución de las especies existentes en Colombia de forma colaborativa y abierta.</br></br>
+        Esta iniciativa surge con el fin de acercar a investigadores, instituciones gubernamentales, ONGs y ciudadanos, a una <b>información precisa y validada</b> por expertos sobre la distribución de especies en Colombia, que sirva como referencia para estudios y la toma de decisiones sobre biodiversidad.
       team: "equipo actual"
       coordinator: "Coordinador"
       developer: "Desarrollo Informático"
@@ -531,7 +531,7 @@ es:
       address: "Dirección"
       phone: "Teléfono"
       fields_error: "Debe completar los siguientes campos: "
-      success_notice: 'Su mensaje ha sido enviado con éxito.'
+      success_notice: "Su mensaje ha sido enviado con éxito."
     users:
       message_to_expert: "Mensaje al experto."
       max_message_ph: "máximo 500 caracteres"
@@ -575,8 +575,8 @@ es:
       validation_task_tt: "Modelo aprobado"
       advance_tt: "Porcentaje de avance"
       new_task: "Agregar nueva tarea"
-      choose_expert: 'Seleccionar experto *'
-      choose_species: 'Seleccionar especie *'
+      choose_expert: "Seleccionar experto *"
+      choose_species: "Seleccionar especie *"
       choose_tasks: "Selecciona tareas a realizar"
       submit_btn: "Agregar"
       species: "Especie"
@@ -584,7 +584,7 @@ es:
       tasks_added_notice: "¡Las tareas han sido agregadas con éxito!"
       task_deleted_notice: "La tarea ha sido eliminada con éxito"
       delete_task_tt: "Borrar tarea"
-      confirm_deletion: '¿Quiere eliminar esta tarea?'
+      confirm_deletion: "¿Quiere eliminar esta tarea?"
     groups:
       index:
         title: "grupos biomodelos"
@@ -602,10 +602,10 @@ es:
       group_message:
         title: "Mensaje al Grupo"
         message_ph: "máximo 500 caracteres"
-        submit_btn: 'ENVIAR'
+        submit_btn: "ENVIAR"
       profile:
         waiting_approval_tt: "En espera de aprobación"
-        leave_group_confirm: '¿Quiere abandonar el grupo?'
+        leave_group_confirm: "¿Quiere abandonar el grupo?"
         leave_group_tt: "Abandonar el grupo"
         join_group_tt: "Solicitar unirse a este grupo"
         group_message_tt: "Mensaje a miembros del grupo"
@@ -630,13 +630,13 @@ es:
         email_ph: "E-mail"
         submit_btn: "ENVIAR"
         experts_approval: "Expertos por aprobar"
-        approve_tt: 'Aprobar experto'
-        not_approve_tt: 'No Aprobar'
+        approve_tt: "Aprobar experto"
+        not_approve_tt: "No Aprobar"
       species:
         suggest: "SUGERIR ESPECIE"
         suggested: "Especies sugeridas"
-        approved_tt: 'Aprobar especie'
-        not_approved_tt: 'No Aprobar'
+        approved_tt: "Aprobar especie"
+        not_approved_tt: "No Aprobar"
         species_name: "Nombre de la especie"
         suggestion_success: "La especie ha sido sugerida con éxito"
       edit:
@@ -700,7 +700,7 @@ es:
         docs_tt: "Código o métodos para la generación del modelo"
         citation: "Cita"
         contact: "Contacto"
-        error: 'Se ha producido un error al obtener los metadatos del modelo.'
+        error: "Se ha producido un error al obtener los metadatos del modelo."
       init:
         valid_model: "Esta es una hipótesis de distribución aprobada por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución no aprobadas por expertos, disponibles para esta especie."
         pending_validation_model: "Esta es una de las hipótesis de distribución disponibles pendientes de aprobación por expertos. Consulta la pestaña 'Hipótesis de distribución' para visualizar otras hipótesis de distribución pendientes de aprobación disponibles para esta especie."
@@ -709,9 +709,9 @@ es:
         no_model: "Esta especie aún no cuenta con modelo de distribución. Para contribuir a su desarrollo, registrate en el grupo de expertos de la especie."
       download:
         text_1: "Antes de descargar, recuerda:"
-        read_terms_lnk: 'He leído y acepto los términos y condiciones'
+        read_terms_lnk: "He leído y acepto los términos y condiciones"
         text_2: "Selecciona el uso que le darás al modelo:"
-        accept_btn: 'ACEPTO'
+        accept_btn: "ACEPTO"
         selection_notice: "Debe leer y aceptar los términos y condiciones al igual que seleccionar el uso que le darás al modelo para continuar con la descarga."
         sign_up_notice: "Debe estar registrado en la plataforma para poder descargar el modelo."
     terms:
@@ -721,59 +721,59 @@ es:
       publish: "Publicación"
       general_text: "El uso que haga de BioModelos (biomodelos.humboldt.org.co), en cualquier forma, consultando o complementando su contenido, constituye la aceptación de los siguientes Términos y Condiciones, los cuales se hacen efectivos a partir de la fecha en la que ingrese al sitio indicado."
       general_1_text: "Este acuerdo de usuario establece los términos y condiciones de una licencia para que usted utilice la plataforma web BioModelos y la información contenida en ella. Para los propósitos del presente acuerdo, la información de BioModelos comprende la visualización de registros biológicos a través del visor geográfico de la plataforma, los modelos de distribución de especies desarrollados a partir de dichos registros y las estadísticas e indicadores calculados a partir de los modelos. Al acceder y/o usar BioModelos, se presume que usted ha leído, aceptado y está de acuerdo con cumplir todos los términos y condiciones de este acuerdo de usuario. Los derechos y obligaciones relacionados con el uso de BioModelos de conformidad con este acuerdo de usuario son personales y no son transferibles a persona natural o jurídica alguna. Eventualmente, estos términos y condiciones de uso de BioModelos pueden ser modificados, lo cual quedará registrado en la presente página. En consecuencia es su responsabilidad revisar y cumplir los términos y condiciones establecidos, siempre que acceda o use BioModelos."
-      general_2_title:  "Derechos de autor y propiedad intelectual"
+      general_2_title: "Derechos de autor y propiedad intelectual"
       general_2_text_html: >
-                     BioModelos contiene material protegido por las leyes y tratados referidos a propiedad intelectual, por lo tanto, la información de BioModelos está protegida por los acuerdos, las leyes y reglamentos de derechos de autor en todo el mundo.</br></br>
-                     El Instituto de Investigación de Recursos Biológicos Alexander von Humboldt es el propietario único y exclusivo de la aplicación BioModelos, incluida la marca, nombre comercial, secreto comercial y otros derechos de propiedad intelectual sobre esta aplicación.</br></br>
-                     Dado que la información que reposa en BioModelos es el resultado de un proceso de colaboración entre el Instituto Alexander von Humboldt y los usuarios registrados, su administración y manejo corresponde exclusivamente al Instituto Alexander von Humboldt, de acuerdo a los términos y alcances estipulados en los formularios de registro y de publicación.
-                     El Instituto Alexander von Humboldt ostenta de manera exclusiva los derechos patrimoniales de autor de la información generada a partir de toda la actividad de usuarios registrados en BioModelos, particularmente en los módulos “edición y contribución” y “registros y filtros”. En todo caso, el Instituto Alexander von Humboldt reconocerá los derechos morales de autor para cada contribución consignada por los usuarios registrados en BioModelos.</br></br>
-                     Una vez consignada la información en BioModelos por parte de los “Publicadores”, el Instituto Alexander von Humboldt gozará de una licencia para su uso y disposición, de acuerdo a las licencia Creative Commons con que se publique dicha información, de acuerdo a lo establecido por el o los publicadores en el formulario de publicación.</br></br>
-                     Usted acepta no alterar ni eliminar ningún símbolo de copyright u otra identificación relativa a la autoría de ninguno de los materiales contenidos o puestos a su disposición en BioModelos.
-      general_3_title:  "Productos derivados"
+        BioModelos contiene material protegido por las leyes y tratados referidos a propiedad intelectual, por lo tanto, la información de BioModelos está protegida por los acuerdos, las leyes y reglamentos de derechos de autor en todo el mundo.</br></br>
+        El Instituto de Investigación de Recursos Biológicos Alexander von Humboldt es el propietario único y exclusivo de la aplicación BioModelos, incluida la marca, nombre comercial, secreto comercial y otros derechos de propiedad intelectual sobre esta aplicación.</br></br>
+        Dado que la información que reposa en BioModelos es el resultado de un proceso de colaboración entre el Instituto Alexander von Humboldt y los usuarios registrados, su administración y manejo corresponde exclusivamente al Instituto Alexander von Humboldt, de acuerdo a los términos y alcances estipulados en los formularios de registro y de publicación.
+        El Instituto Alexander von Humboldt ostenta de manera exclusiva los derechos patrimoniales de autor de la información generada a partir de toda la actividad de usuarios registrados en BioModelos, particularmente en los módulos “edición y contribución” y “registros y filtros”. En todo caso, el Instituto Alexander von Humboldt reconocerá los derechos morales de autor para cada contribución consignada por los usuarios registrados en BioModelos.</br></br>
+        Una vez consignada la información en BioModelos por parte de los “Publicadores”, el Instituto Alexander von Humboldt gozará de una licencia para su uso y disposición, de acuerdo a las licencia Creative Commons con que se publique dicha información, de acuerdo a lo establecido por el o los publicadores en el formulario de publicación.</br></br>
+        Usted acepta no alterar ni eliminar ningún símbolo de copyright u otra identificación relativa a la autoría de ninguno de los materiales contenidos o puestos a su disposición en BioModelos.
+      general_3_title: "Productos derivados"
       general_3_text_html: >
-                     Las obras derivadas basadas en la información de BioModelos pueden divulgarse, electrónicamente o en forma impresa, sin el permiso previo por escrito del Instituto Alexander von Humboldt, siempre y cuando estén disponibles sin fines comerciales y se incluya la citación a la fuente, puntualmente señalada en el campo correspondiente a “cita” en los metadatos. BioModelos se reserva el derecho de usar / reutilizar cualquier trabajo derivado basado en su información de acuerdo con los mismos términos y condiciones de uso. Para efectos de estos términos y condiciones, un "trabajo derivado" es un trabajo nuevo que se basa total o parcialmente en la información de BioModelos. Para ser considerada una obra derivada, la nueva obra debe ser transformadora e incluir originalidad por parte del creador, de lo contrario puede simplemente considerarse redistribución, dependiendo de la manera en que se pone a disposición el nuevo trabajo.</br></br>
-                     El uso de la información de BioModelos en la creación de obras derivadas no constituye un respaldo por parte del Instituto Alexander von Humboldt o de sus socios a esos productos derivados, informes o análisis. Queda expresamente prohibido el uso de los logotipos de BioModelos o del Instituto Alexander von Humboldt en cualquier producto derivado, informe o análisis, o en materiales de apoyo, sin el permiso escrito, previo y expreso por parte del Instituto.
+        Las obras derivadas basadas en la información de BioModelos pueden divulgarse, electrónicamente o en forma impresa, sin el permiso previo por escrito del Instituto Alexander von Humboldt, siempre y cuando estén disponibles sin fines comerciales y se incluya la citación a la fuente, puntualmente señalada en el campo correspondiente a “cita” en los metadatos. BioModelos se reserva el derecho de usar / reutilizar cualquier trabajo derivado basado en su información de acuerdo con los mismos términos y condiciones de uso. Para efectos de estos términos y condiciones, un "trabajo derivado" es un trabajo nuevo que se basa total o parcialmente en la información de BioModelos. Para ser considerada una obra derivada, la nueva obra debe ser transformadora e incluir originalidad por parte del creador, de lo contrario puede simplemente considerarse redistribución, dependiendo de la manera en que se pone a disposición el nuevo trabajo.</br></br>
+        El uso de la información de BioModelos en la creación de obras derivadas no constituye un respaldo por parte del Instituto Alexander von Humboldt o de sus socios a esos productos derivados, informes o análisis. Queda expresamente prohibido el uso de los logotipos de BioModelos o del Instituto Alexander von Humboldt en cualquier producto derivado, informe o análisis, o en materiales de apoyo, sin el permiso escrito, previo y expreso por parte del Instituto.
       general_4_title: "Uso"
       general_4_text_html: >
-                     Siempre que el uso o consulta de la información de BioModelos se haga de conformidad con los términos y condiciones de este acuerdo de usuario, se otorga una licencia gratuita, indefinida e intransferible para su consulta, descarga o impresión, sin necesidad de permiso previo por parte del Instituto.</br></br>
-                     La consulta y el uso de la información proveniente de BioModelos se restringe a fines educativos, investigativos académicos o aplicados. En todo caso, queda prohibido adelantar o ejecutar cualquier acto de disposición económica sobre la misma.</br></br>
-                     Los productos o resultados publicados a partir de la información obtenida en BioModelos deben ser enviados en copia electrónica o una copia en medio físico a los datos de contacto que se indican en la sección “información de contacto” de estos términos y condiciones.
+        Siempre que el uso o consulta de la información de BioModelos se haga de conformidad con los términos y condiciones de este acuerdo de usuario, se otorga una licencia gratuita, indefinida e intransferible para su consulta, descarga o impresión, sin necesidad de permiso previo por parte del Instituto.</br></br>
+        La consulta y el uso de la información proveniente de BioModelos se restringe a fines educativos, investigativos académicos o aplicados. En todo caso, queda prohibido adelantar o ejecutar cualquier acto de disposición económica sobre la misma.</br></br>
+        Los productos o resultados publicados a partir de la información obtenida en BioModelos deben ser enviados en copia electrónica o una copia en medio físico a los datos de contacto que se indican en la sección “información de contacto” de estos términos y condiciones.
       general_5_title: "Reconocimiento y citación"
       general_5_text_html: >
-                           El usuario de la información de BioModelos deberá otorgar los créditos correspondientes a la fuente de dicha información, empleando la citación provista en los metadatos que acompañan cada modelo, indicando de manera puntual la versión de la información de BioModelos utilizada.</br></br>
-                           El Instituto Alexander von Humboldt invita a los usuarios de la información de BioModelos a participar en su construcción y complemento. Igualmente, les extiende la invitación a hacer partícipe al Instituto de todas aquellas publicaciones que se deriven significativamente de la información disponible en BioModelos, previamente a su divulgación, en un espacio de colaboración conjunto. Las expresiones de interés pueden ser enviadas directamente al Instituto Alexander von Humboldt utilizando los datos de contacto que se indican en la sección “información de contacto”  de estos términos y condiciones.
+        El usuario de la información de BioModelos deberá otorgar los créditos correspondientes a la fuente de dicha información, empleando la citación provista en los metadatos que acompañan cada modelo, indicando de manera puntual la versión de la información de BioModelos utilizada.</br></br>
+        El Instituto Alexander von Humboldt invita a los usuarios de la información de BioModelos a participar en su construcción y complemento. Igualmente, les extiende la invitación a hacer partícipe al Instituto de todas aquellas publicaciones que se deriven significativamente de la información disponible en BioModelos, previamente a su divulgación, en un espacio de colaboración conjunto. Las expresiones de interés pueden ser enviadas directamente al Instituto Alexander von Humboldt utilizando los datos de contacto que se indican en la sección “información de contacto”  de estos términos y condiciones.
       general_6_title: "Actualizaciones"
       general_6_text_html: "A menos que se requiera para análisis específicos, no se debe utilizar ninguna versión de la información de BioModelos después de haber sido reemplazada por una versión posterior. Es su responsabilidad verificar si hay disponible una actualización de la información publicada en BioModelos."
       general_7_title: "Limitaciones en la responsabilidad"
       general_7_text_html: >
-                        El Instituto Alexander von Humboldt,  sus socios, cualquiera de sus respectivos empleados, proveedores de contenido de terceros o licenciantes no garantizan que el acceso y uso de BioModelos estará libre de interrupciones o libre de errores, así como,  que cualquier información accesible de o relacionados con la información está libre de virus u otros componentes dañinos. Igualmente no se otorgan garantías en relación con los resultados que se pueden obtener del uso de la información de BioModelos o de la exactitud, confiabilidad o contenido de cualquier información o servicio proporcionado a través de BioModelos.</br></br>
-                        BioModelos es un espacio para la discusión y evaluación científica de modelos de distribución geográfica de especies. En este sentido, la información descargable representa hipótesis de la probable distribución geográfica de las especies y productos derivados de esas hipótesis, que si bien pueden contener errores y sesgos asociados a los datos y el modelamiento estadístico, hace un esfuerzo por disminuir el impacto de dichos factores al incorporar el conocimiento experto para producir mapas validados. </br></br>
-                        La información que está disponible en BioModelos no es información oficial para Colombia y por tal motivo su uso lo debe realizar bajo su propia responsabilidad. El Instituto Alexander von Humboldt, los patrocinadores de BioModelos y demás colaboradores, no garantizan que los resultados derivados de usar la información descargada cumplan con sus requerimientos particulares.
+        El Instituto Alexander von Humboldt,  sus socios, cualquiera de sus respectivos empleados, proveedores de contenido de terceros o licenciantes no garantizan que el acceso y uso de BioModelos estará libre de interrupciones o libre de errores, así como,  que cualquier información accesible de o relacionados con la información está libre de virus u otros componentes dañinos. Igualmente no se otorgan garantías en relación con los resultados que se pueden obtener del uso de la información de BioModelos o de la exactitud, confiabilidad o contenido de cualquier información o servicio proporcionado a través de BioModelos.</br></br>
+        BioModelos es un espacio para la discusión y evaluación científica de modelos de distribución geográfica de especies. En este sentido, la información descargable representa hipótesis de la probable distribución geográfica de las especies y productos derivados de esas hipótesis, que si bien pueden contener errores y sesgos asociados a los datos y el modelamiento estadístico, hace un esfuerzo por disminuir el impacto de dichos factores al incorporar el conocimiento experto para producir mapas validados. </br></br>
+        La información que está disponible en BioModelos no es información oficial para Colombia y por tal motivo su uso lo debe realizar bajo su propia responsabilidad. El Instituto Alexander von Humboldt, los patrocinadores de BioModelos y demás colaboradores, no garantizan que los resultados derivados de usar la información descargada cumplan con sus requerimientos particulares.
       general_8_title: "Terminación del acuerdo"
       general_8_text_html: "Usted o el Instituto Alexander von Humboldt pueden terminar este acuerdo de usuario en cualquier momento, con efecto inmediato, con o sin previo aviso a la otra parte. La terminación de este acuerdo termina automáticamente su licencia para usar BioModelos y cualquier contenido u otro material contenido en ella. Las disposiciones de las secciones 3, 4, y 5 sobrevivirán a cualquier terminación de este acuerdo de usuario."
       general_9_title: "Información de contacto"
       general_9_text_html: "Si tiene alguna pregunta sobre cualquiera de estos términos o sobre cómo pueden aplicarse al uso previsto de la información que proporciona BioModelos, contacte al Laboratorio de Biogeografía Aplicada (LBA) del Instituto Alexander von Humboldt:"
       sign_up_1_title: "Términos y condiciones de registro"
       sign_up_1_text_html: >
-                      Al registrarse en BioModelos, el usuario además de aceptar los términos y condiciones de uso definidos previamente, deberá acoger la siguiente política de tratamiento de aportes de BioModelos:</br></br>
-                      Constituyen aportes a BioModelos toda la información relativa a la distribución de especies que es ingresada por los usuarios registrados a BioModelos, incluyendo pero no restringido a: los reportes y ediciones de error de registros, las ediciones a modelos de distribución, la selección de variables ecológicas por especie, los comentarios en foros, las calificaciones a modelos de distribución y mapas de experto. El Instituto Alexander von Humboldt se reserva el derecho a: almacenar, distribuir, usar, adelantar cualquier actos de disposición o eliminar los aportes realizados por usuarios registrados de BioModelos, así como, la información relativa al origen del aporte (nombre, correo electrónico, fecha y dirección IP del aportante), aun cuando el usuario elimine su registro de BioModelos. <br id="personales"></br>
-                      Los derechos morales de autor de los aportes pertenece a los aportantes y el Instituto Alexander von Humboldt se compromete a citar adecuadamente los mismos cada que estos sean utilizados para el fin de BioModelos o los productos derivados que estime convenientes.
+        Al registrarse en BioModelos, el usuario además de aceptar los términos y condiciones de uso definidos previamente, deberá acoger la siguiente política de tratamiento de aportes de BioModelos:</br></br>
+        Constituyen aportes a BioModelos toda la información relativa a la distribución de especies que es ingresada por los usuarios registrados a BioModelos, incluyendo pero no restringido a: los reportes y ediciones de error de registros, las ediciones a modelos de distribución, la selección de variables ecológicas por especie, los comentarios en foros, las calificaciones a modelos de distribución y mapas de experto. El Instituto Alexander von Humboldt se reserva el derecho a: almacenar, distribuir, usar, adelantar cualquier actos de disposición o eliminar los aportes realizados por usuarios registrados de BioModelos, así como, la información relativa al origen del aporte (nombre, correo electrónico, fecha y dirección IP del aportante), aun cuando el usuario elimine su registro de BioModelos. <br id="personales"></br>
+        Los derechos morales de autor de los aportes pertenece a los aportantes y el Instituto Alexander von Humboldt se compromete a citar adecuadamente los mismos cada que estos sean utilizados para el fin de BioModelos o los productos derivados que estime convenientes.
       sign_up_2_title: "Política de protección de datos personales"
       sign_up_2_text_html: >
-                    En virtud de la Ley Estatutaria 1581 del 2012 mediante la cual se dictan las disposiciones generales para la protección de datos personales, y su Decreto Reglamentario 1377 de 2013, el Instituto de Investigación de Recursos Biológicos Alexander von Humboldt, considerado como responsable y/o encargado del tratamiento de datos personales, requiere su autorización para continuar con el tratamiento de sus datos personales almacenados en nuestras bases de datos, las cuales incluyen información que ustedes nos han reportado en desarrollo de las diferentes actividades realizadas por nuestra institución en particular los siguientes: Nombres, correo electrónico, ciudad, afiliación institucional y dirección IP desde donde se ingrese a la plataforma biomodelos.humboldt.org.</br></br>
-                    <b>Finalidad:</b> Los datos serán utilizados para la misión institucional establecida en la ley 99 de 1993, centrada en desarrollar investigación científica y tecnológica sobre biodiversidad, promover el establecimiento de estaciones de investigaciones en el territorio de la Nación, brindar asesoría a las entidades que conforman el Sistema Ambiental (Sina) y conformar el Inventario Nacional de la Biodiversidad del país.
+        En virtud de la Ley Estatutaria 1581 del 2012 mediante la cual se dictan las disposiciones generales para la protección de datos personales, y su Decreto Reglamentario 1377 de 2013, el Instituto de Investigación de Recursos Biológicos Alexander von Humboldt, considerado como responsable y/o encargado del tratamiento de datos personales, requiere su autorización para continuar con el tratamiento de sus datos personales almacenados en nuestras bases de datos, las cuales incluyen información que ustedes nos han reportado en desarrollo de las diferentes actividades realizadas por nuestra institución en particular los siguientes: Nombres, correo electrónico, ciudad, afiliación institucional y dirección IP desde donde se ingrese a la plataforma biomodelos.humboldt.org.</br></br>
+        <b>Finalidad:</b> Los datos serán utilizados para la misión institucional establecida en la ley 99 de 1993, centrada en desarrollar investigación científica y tecnológica sobre biodiversidad, promover el establecimiento de estaciones de investigaciones en el territorio de la Nación, brindar asesoría a las entidades que conforman el Sistema Ambiental (Sina) y conformar el Inventario Nacional de la Biodiversidad del país.
       publish_1_title: "El publicador declara:"
       publish_1_text_html: >
-                        1. Que el/los modelo(s) que se suben a BioModelos son autoría de las personas listadas en el formulario de publicación de modelos (en adelante publicadores) o tienen la cesión de derechos vigente para tal fin.</br>
-                        2. Que todos los autores del modelo o conjunto de modelos aceptan o autorizan su publicación en BioModelos a partir del momento en que sube la información.</br>
-                        3. Que los registros biológicos que acompañan el modelo son de uso abierto, son propios o su uso exclusivamente para propósitos de visualización en BioModelos ha sido autorizado explícita o implícitamente (p. ej. a través de una licencia de Creative Commons) por los propietarios de la información o quienes tienen alguna cesión o autorización frente al particular.</br>
-                        4. Que los publicadores autorizan la descarga y uso de sus modelos por terceros a través de BioModelos bajo las condiciones provistas por la licencia Creative Commons señalada en el formulario de publicación de modelos.
+        1. Que el/los modelo(s) que se suben a BioModelos son autoría de las personas listadas en el formulario de publicación de modelos (en adelante publicadores) o tienen la cesión de derechos vigente para tal fin.</br>
+        2. Que todos los autores del modelo o conjunto de modelos aceptan o autorizan su publicación en BioModelos a partir del momento en que sube la información.</br>
+        3. Que los registros biológicos que acompañan el modelo son de uso abierto, son propios o su uso exclusivamente para propósitos de visualización en BioModelos ha sido autorizado explícita o implícitamente (p. ej. a través de una licencia de Creative Commons) por los propietarios de la información o quienes tienen alguna cesión o autorización frente al particular.</br>
+        4. Que los publicadores autorizan la descarga y uso de sus modelos por terceros a través de BioModelos bajo las condiciones provistas por la licencia Creative Commons señalada en el formulario de publicación de modelos.
       publish_2_title: "El Instituto de Investigación de recursos biológicos Alexander Von Humboldt a través de la aplicación web BioModelos"
       publish_2_text_html: >
-                        1. Ofrecerá estadísticas de actividad (visualización y descarga) y perfil de uso a solicitud de los publicadores de la información.</br>
-                        2. Otorgará el crédito correspondiente a los publicadores de modelos en la página de BioModelos y en los metadatos que acompañan los modelos de su autoría, con base en la información registrada en el formulario de publicación.</br>
-                        3. Utilizará los registros biológicos que acompañan el modelo únicamente para la visualización en BioModelos bajo las condiciones determinadas por los publicadores en el formulario de publicación del modelo. En ningún caso su uso o descarga estará habilitada en BioModelos, a menos que esto sea expresamente autorizado en el formulario de publicación de modelos.</br>
-                        4. Se reserva el derecho de publicar los modelos así como de bajarlos en cualquier momento de la página.
+        1. Ofrecerá estadísticas de actividad (visualización y descarga) y perfil de uso a solicitud de los publicadores de la información.</br>
+        2. Otorgará el crédito correspondiente a los publicadores de modelos en la página de BioModelos y en los metadatos que acompañan los modelos de su autoría, con base en la información registrada en el formulario de publicación.</br>
+        3. Utilizará los registros biológicos que acompañan el modelo únicamente para la visualización en BioModelos bajo las condiciones determinadas por los publicadores en el formulario de publicación del modelo. En ningún caso su uso o descarga estará habilitada en BioModelos, a menos que esto sea expresamente autorizado en el formulario de publicación de modelos.</br>
+        4. Se reserva el derecho de publicar los modelos así como de bajarlos en cualquier momento de la página.
     info:
       noticias: "publicaciones"
       boletines: "boletines"
