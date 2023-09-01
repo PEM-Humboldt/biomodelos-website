@@ -43,6 +43,8 @@ module ModelsHelper
 		  return I18n.t('biomodelos.visor.models.valid')
 		when 'Developing'
 		  return I18n.t('biomodelos.visor.models.developing')
+		when 'Statistic'
+			return I18n.t('biomodelos.visor.models.statistic')
 		else
 		  return status
 		end
