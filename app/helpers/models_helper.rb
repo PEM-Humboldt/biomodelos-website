@@ -79,7 +79,8 @@ module ModelsHelper
       return {
         "id" => model.modelID,
         "type" => "file",
-        "fileName" => "/models/#{model.pngUrl}"
+        "fileName" => "/models/#{model.pngUrl}",
+        "extentSize" => model.extentSize.nil? ? 'normal' : model.extentSize
       }.to_json
     else
       model_options = gs_options model

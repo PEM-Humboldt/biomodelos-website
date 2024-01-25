@@ -72,8 +72,6 @@ var _BioModelosVisorModule = function() {
 
 	var hiddenFields = ["stateProvince", "county", "taxID", "species", "reported", "updated", "environmentalOutlier"];
 
-	var imageBounds = [[13,-60],[-14, -83]];
-
 	var init = function(){
 		var latlng = new L.LatLng(4, -72),
       zoom = 6,
@@ -649,10 +647,13 @@ var _BioModelosVisorModule = function() {
    *
    * @param {Object} modelOptions options for the model
    */
-	var processModel = function(modelOptions) {
-
+	var processModel = function(modelOptions) {;
+  var imageBounds = [[13,-60],[-14, -83]];
 		var layer;
 		if (modelOptions.type === 'file') {
+      if (modelOptions.extentSize === 'large') {
+        imageBounds = [[17,-60],[-14, -86]];
+      }
 			layer = new L.ImageOverlay(modelOptions.fileName, imageBounds, { opacity: 0.6 });
 		} else {
 			// TODO: This won't be tested in continuous or thresholded models until thresholds are implemented in geoserver
