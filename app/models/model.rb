@@ -34,7 +34,7 @@ class Model
         t = Model.new(threshold["modelID"], threshold["modelStatus"], threshold["png"],
           threshold["zip"], threshold["thumb"], threshold["thresholdType"], threshold["modelLevel"],
           threshold["license"], threshold["customCitation"], threshold["methodFile"],
-          threshold["published"], threshold["extentSize"])
+          threshold["published"], threshold["gsLayer"], threshold["extentSize"])
         thresholds_array.push(t)
       end
       return thresholds_array
