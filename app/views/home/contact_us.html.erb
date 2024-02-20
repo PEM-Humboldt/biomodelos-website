@@ -3,14 +3,18 @@
             <div class="hcbase">
                   <h1><%= t('biomodelos.contact.title') %></h1>
                   <%= link_to '', root_path, class: 'closecb' %>
-                  <div id="mailform" class="forms">       
+                  <div id="mailform" class="forms">
                         <%= simple_form_for :contact_message, :url =>  home_send_contact_form_path, :method => :post do |f| %>
                               <%= f.error_notification %>
                               <%= f.input :name, :maxlength => 50, :placeholder => t('biomodelos.contact.name_ph'), :name => "nombre", label: false%>
                               <%= f.input :subject, :maxlength => 50, :placeholder => t('biomodelos.contact.subject_ph'), :name => "asunto", label: false %>
                               <%= f.input :email, :maxlength => 50, :placeholder => "E-mail", :name => "email", label: false %>
                               <%= f.input :content, :as => :text, :input_html => {:maxlength => 1200, :cols => "20", :rows => "12"}, :name => "cuerpo", label: false %>
-                              <p><%= recaptcha_tags %></p>
+                              <% if @show_checkbox_recaptcha %>
+                                    <%= recaptcha_tags(site_key: Rails.application.secrets.reCaptcha_key) %>
+                              <% else %>
+                                    <%= recaptcha_v3(action: 'contact_us', site_key: Rails.application.secrets.reCaptcha_key) %>
+                              <% end %>
                               <%= f.button :submit, :value => t('biomodelos.contact.submit_btn'), :class => 'boton1', data: { disable_with: t('biomodelos.contact.submit_btn') }%>
                         <% end %>
                         <p><strong><%= t('biomodelos.contact.address') %>:</strong> calle 28A no. 15-09 Bogotá D.C., Colombia.</br>
