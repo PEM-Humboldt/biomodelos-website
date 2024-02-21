@@ -12,7 +12,7 @@ es:
       institute_html: >
         Instituto de Investigación de Recursos Biológicos</br>
         Alexander von Humboldt
-      program: "Programa de Evaluación y Monitoreo de la Biodiversidad"
+      program: "Gerencia de Información Científica"
       models: "Modelos"
       groups: "Grupos"
       publish: "Publicar"
@@ -508,20 +508,18 @@ es:
         BioModelos es una herramienta digital que permite la <b>comunicación entre expertos</b> en biodiversidad para el desarrollo de modelos de distribución de las especies existentes en Colombia de forma colaborativa y abierta.</br></br>
         Esta iniciativa surge con el fin de acercar a investigadores, instituciones gubernamentales, ONGs y ciudadanos, a una <b>información precisa y validada</b> por expertos sobre la distribución de especies en Colombia, que sirva como referencia para estudios y la toma de decisiones sobre biodiversidad.
       team: "equipo actual"
-      coordinator: "Coordinador"
+      productowner: "Product Owner"
       developer: "Desarrollo Informático"
       frontend: "Diseño y Frontend"
       network: "Administradora de Redes"
-      analyst: "Analista de datos"
-      founderinv: "Investigador Fundador"
+      thematic: "Equipo Temático"
       humboldtname: "Instituto Humboldt"
       photovid: "Fotografía y Video"
-      juridical: "Oficina Jurídica"
-      communic: "Oficina de Comunicaciones"
+      board: "Comité Asesor Científico"
       founders: "Fundadores"
       acknowledgments: "colaboradores"
       awards: "reconocimientos"
-      sponsors: "patrocinadores"
+      sponsors: "financiadores"
       allies: "aliados"
     contact:
       title: "Contacto"
@@ -529,7 +527,6 @@ es:
       subject_ph: "Asunto"
       submit_btn: "ENVIAR"
       address: "Dirección"
-      phone: "Teléfono"
       fields_error: "Debe completar los siguientes campos: "
       success_notice: "Su mensaje ha sido enviado con éxito."
     users:
@@ -791,6 +788,7 @@ es:
       octubre: "Octubre"
       noviembre: "Noviembre"
       diciembre: "Diciembre"
+      tituloarticulos: "Artículos"
       tituloatlas: "Atlas de la biodiversidad"
       titulovideo: "¿Qué es BioModelos?"
       cuerpovideo: "BioModelos es una plataforma del Instituto Humboldt para desarrollar modelos de distribución de especies que integran el conocimiento de más de 500 expertos. La plataforma permite conocer dónde se encuentra la biodiversidad de Colombia a partir de modelos de nicho y expertos."

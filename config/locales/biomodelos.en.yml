@@ -12,7 +12,7 @@ en:
       institute_html: >
         The Alexander von Humboldt Institute for</br>
         Research on Biological Resources
-      program: "Program of Biodiversity Assessment and Monitoring"
+      program: "Scientific Information Management"
       models: "Models"
       groups: "Groups"
       publish: "Publish"
@@ -508,20 +508,18 @@ en:
         BioModelos is a digital tool that allows <b>communication between experts</b> in biodiversity for the development of models of distribution of the existing species in Colombia in a collaborative and open manner.</br></br>
         This initiative arises in order to bring researchers, government institutions, NGOs and citizens, an <b>accurate and validated information</b> by experts on the distribution of species in Colombia, that serves as reference for studies and decisions making on biodiversity.
       team: "current team"
-      coordinator: "Coordinator"
+      productowner: "Product Owner"
       developer: "Software Development"
       frontend: "Frontend and Design"
       network: "Network Administrator"
-      analyst: "Data Analyst"
-      founderinv: "Founding Researcher"
+      thematic: "Thematic Team"
       humboldtname: "Humboldt Institute"
       photovid: "Video and Photography"
-      juridical: "Juridical Office"
-      communic: "Communications Office"
+      board: "Scientific Advisory Board"
       founders: "founders"
       acknowledgments: "collaborators"
       awards: "acknowledgments"
-      sponsors: "sponsors"
+      sponsors: "funders"
       allies: "allies"
     contact:
       title: "Contact"
@@ -529,7 +527,6 @@ en:
       subject_ph: "Subject"
       submit_btn: "Submit"
       address: "Address"
-      phone: "Phone"
       fields_error: "You must fill the following fields: "
       success_notice: "Your message has been sent successfully."
     users:
@@ -791,6 +788,7 @@ en:
       octubre: "October"
       noviembre: "November"
       diciembre: "December"
+      tituloarticulos: "Articles"
       tituloatlas: "Biodiversity atlas"
       titulovideo: "What is BioModelos?"
       cuerpovideo: "BioModelos is a Humboldt Institute platform for developing species distribution models that integrates the knowledge of more than 500 experts. The platform allows you to know where Colombia's biodiversity is, based on niche and expert models."
