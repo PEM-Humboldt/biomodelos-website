@@ -27,15 +27,13 @@ class HomeController < ApplicationController
 	end
 
 	def send_contact_form
-		@contact_message = ContactMessage.new(message_params)	  
-		success = verify_recaptcha(action: 'contact_us', minimum_score: 0.8, secret_key: Rails.application.secrets.reCaptcha_secret)
-		checkbox_success = verify_recaptcha unless success
-		if @contact_message.valid? && (success || checkbox_success)
+		@contact_message = ContactMessage.new(message_params)
+		recaptcha_valid = verify_recaptcha(action: 'contact_us')
+  		if @contact_message.valid? && recaptcha_valid
 			AdministratorsMailer.contact_us(@contact_message).deliver_now
 			redirect_to root_path, notice: I18n.t('biomodelos.contact.success_notice')
 		else
-			if !success
-				@show_checkbox_recaptcha = true
+			if !recaptcha_valid
 				redirect_to home_contact_us_path
 			elsif !@contact_message.valid?
 			 	errores = I18n.t('biomodelos.contact.fields_error')
