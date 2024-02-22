@@ -451,7 +451,7 @@ en:
     publish:
       title: "Publish your map"
       text_1: "To publish a distribution model in BioModelos, follow the next steps"
-      step_1_html: Read the <a href="http://biomodelos.humboldt.org.co/publicacion.pdf" target="_blank"> publication guide </a>
+      step_1_html: Read the <a href="/publicacion.pdf" target="_blank"> publication guide </a>
       step_2_1: "Select one"
       step_2_2: "CC user license"
       step_2_3: "for models"
@@ -477,7 +477,7 @@ en:
       sib_col_data: "Do you want to be contacted by SiB Colombia for the publication of your data set?"
       sib_col_yes: "Yes"
       sib_col_na: "Not applicable"
-      step_4_html: '<a href="http://biomodelos.humboldt.org.co/guia_documentacion_y_plantillas.zip" download>Download</a> and fill in the templates for data and metadata documentation of the models'
+      step_4_html: '<a href="/guia_documentacion_y_plantillas.zip" download>Download</a> and fill in the templates for data and metadata documentation of the models'
       step_5: "Upload the methodology, the two templates and the models in a compressed file"
       select_file_ph: "Select File"
       file_notice: "3 types of formats are accepted (zip, rar, 7zip) with a maximum size of 50 MB."
