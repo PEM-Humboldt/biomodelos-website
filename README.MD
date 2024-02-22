@@ -148,7 +148,7 @@ services:
 Finally, you run the container with the next command:
 
 ```sh
-$ docker-compose  -d up
+$ docker-compose up -d
 ```
 
 ## LICENSE

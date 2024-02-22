@@ -43,6 +43,8 @@ module ModelsHelper
 		  return I18n.t('biomodelos.visor.models.valid')
 		when 'Developing'
 		  return I18n.t('biomodelos.visor.models.developing')
+		when 'Statistic'
+			return I18n.t('biomodelos.visor.models.statistic')
 		else
 		  return status
 		end
@@ -77,7 +79,8 @@ module ModelsHelper
       return {
         "id" => model.modelID,
         "type" => "file",
-        "fileName" => "/models/#{model.pngUrl}"
+        "fileName" => "/models/#{model.pngUrl}",
+        "extentSize" => model.extentSize.nil? ? 'normal' : model.extentSize
       }.to_json
     else
       model_options = gs_options model

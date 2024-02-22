@@ -4,10 +4,10 @@ class Model
     base_uri BASE_URI + '/models'
 
     attr_accessor :modelID, :modelStatus, :pngUrl, :zipUrl, :thumbUrl, :threshold, :level, :license,
-      :citation, :methodFile, :published, :gsLayer
+      :citation, :methodFile, :published, :gsLayer, :extentSize
 
     def initialize(modelID, modelStatus, pngUrl, zipUrl, thumbUrl, threshold, level, license,
-      citation, methodFile, published, gsLayer = nil)
+      citation, methodFile, published, gsLayer = nil, extentSize = 'normal')
   		self.modelID = modelID
       self.modelStatus = modelStatus
 	    self.pngUrl = pngUrl
@@ -20,6 +20,7 @@ class Model
       self.methodFile = methodFile
       self.published = published
       self.gsLayer = gsLayer
+      self.extentSize = extentSize
   	end
 
     # Gets an array of thresholds of the species continuous model developed by BioModelos via API.
@@ -33,7 +34,7 @@ class Model
         t = Model.new(threshold["modelID"], threshold["modelStatus"], threshold["png"],
           threshold["zip"], threshold["thumb"], threshold["thresholdType"], threshold["modelLevel"],
           threshold["license"], threshold["customCitation"], threshold["methodFile"],
-          threshold["published"])
+          threshold["published"], threshold["gsLayer"], threshold["extentSize"])
         thresholds_array.push(t)
       end
       return thresholds_array
@@ -50,7 +51,7 @@ class Model
         t = Model.new(hypothesis["modelID"], hypothesis["modelStatus"], hypothesis["png"],
           hypothesis["zip"], hypothesis["thumb"], hypothesis["thresholdType"],
           hypothesis["modelLevel"], hypothesis["license"], hypothesis["customCitation"],
-          hypothesis["methodFile"], hypothesis["published"], hypothesis["gsLayer"])
+          hypothesis["methodFile"], hypothesis["published"], hypothesis["gsLayer"], hypothesis["extentSize"])
         hypotheses_array.push(t)
       end
       return hypotheses_array
@@ -67,7 +68,7 @@ class Model
           response[0]["png"], response[0]["zip"], response[0]["thumb"],
           response[0]["thresholdType"], response[0]["modelLevel"], response[0]["license"],
           response[0]["customCitation"], response[0]["methodFile"], response[0]["published"],
-          response[0]["gsLayer"])
+          response[0]["gsLayer"], response[0]["extentSize"])
       else
         statistic_model = nil
       end
@@ -85,7 +86,7 @@ class Model
       response.each do |model|
         t = Model.new(model["modelID"], model["modelStatus"], model["png"], model["zip"],
           model["thumb"], model["thresholdType"], model["modelLevel"], model["license"],
-          model["customCitation"], model["methodFile"], model["published"], model["gsLayer"])
+          model["customCitation"], model["methodFile"], model["published"], model["gsLayer"], model["extentSize"])
         models_array.push(t)
       end
       return models_array
@@ -102,7 +103,7 @@ class Model
           response[0]["png"], response[0]["zip"], response[0]["thumb"],
           response[0]["thresholdType"], response[0]["modelLevel"], response[0]["license"],
           response[0]["customCitation"], response[0]["methodFile"], response[0]["published"],
-          response[0]["gsLayer"])
+          response[0]["gsLayer"], response[0]["extentSize"])
       else
         continuous_model = nil
       end
@@ -123,7 +124,7 @@ class Model
             valid_model = Model.new(model["modelID"], model["modelStatus"], model["png"],
               model["zip"], model["thumb"], model["thresholdType"], model["modelLevel"],
               model["license"], model["customCitation"], model["methodFile"], model["published"],
-              model["gsLayer"])
+              model["gsLayer"], model["extentSize"])
           end
         end
       elsif response.size == 1
@@ -131,7 +132,7 @@ class Model
           response[0]["png"], response[0]["zip"], response[0]["thumb"],
           response[0]["thresholdType"], response[0]["modelLevel"], response[0]["license"],
           response[0]["customCitation"], response[0]["methodFile"], response[0]["published"],
-          response[0]["gsLayer"])
+          response[0]["gsLayer"], response[0]["extentSize"])
       end
       return valid_model
     end
@@ -142,7 +143,7 @@ class Model
       response.each do |model|
         t = Model.new(model["modelID"], model["modelStatus"], model["png"], model["zip"],
           model["thumb"], model["thresholdType"], model["modelLevel"], model["license"],
-          model["customCitation"], model["methodFile"], model["published"], model["gsLayer"])
+          model["customCitation"], model["methodFile"], model["published"], model["gsLayer"], model["extentSize"])
         valid_models_array.push(t)
       end
       return valid_models_array

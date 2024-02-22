@@ -1,0 +1,299 @@
+openapi: 3.1.0
+info:
+  title: API de BioModelos
+  version: 2.0.0
+  description: |
+    ¡Bienvenidos a la API de Biomodelos! Esta API ha sido diseñada para brindar acceso fácil y rápido a valiosa información sobre la biodiversidad de Colombia. Ofrecemos a los usuarios una serie de endpoints para acceder a diferentes servicios relacionados con BioModelos, y la estaremos actualizando y expandiendo a medida que desarrollamos nuevos servicios y funcionalidades.
+
+    La disponibilidad de esta API se basa en nuestra convicción de que el acceso a la información y la colaboración son fundamentales para la investigación y conservación de la biodiversidad. Al ofrecer esta interfaz de programación de aplicaciones (API), buscamos facilitar el acceso a los datos y servicios relacionados con BioModelos, fomentando la participación activa de la comunidad científica y usuarios interesados en la biodiversidad de Colombia.
+
+    El primer paso para usar nuestra API es solicitar una api-key. Para obtenerla, por favor escriba a biomodelos@humboldt.org.co donde le explicaremos los pasos para obtenerla. Una vez que tenga su api-key, podrá utilizar todos los servicios que ofrece nuestra API. Recuerde revisar la documentación de cada endpoint, accesible de manera rápida a través del menú de la izquierda.
+servers:
+  - url: /v2
+paths:
+  /species/search/{searchWord}:
+    parameters:
+      - name: searchWord
+        in: path
+        required: true
+        schema:
+          type: string
+          description: Nombre completo o parcial de la especie que se desea consultar
+          example: abari
+    get:
+      tags: ["species"]
+      operationId: searchSpecies
+      summary: ID de especie
+      description: Este endpoint permite buscar el ID de una especie específica. Con este servicio, los usuarios pueden acceder de manera sencilla y eficiente al ID único asignado a cada especie en nuestra base de datos.
+      responses:
+        "200":
+          description: Operación exitosa
+          content:
+            application/json:
+              schema:
+                type: array
+                description: Arreglo de especies
+                items:
+                  $ref: "#/components/schemas/species"
+                example:
+                  $ref: "#/components/examples/speciesArray"
+
+  /species/records/{taxID}:
+    parameters:
+    - name: taxID
+      in: path
+      required: true
+      schema:
+        type: integer
+        description: Id de la especie de la cual traer los registros
+        example: 7010
+    get:
+      tags: ["species"]
+      operationId: speciesRecords
+      summary: Descargar registros
+      description: Este endpoint ofrece acceso a registros públicos y curados de una especie, proporcionando datos confiables y de calidad sobre la presencia de dicha especie, primer paso fundamental para la generación de nuevos modelos de distribución.
+      responses:
+        "200":
+          description: Operación exitosa
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    description: tipo del objeto
+                    example: FeatureCollection
+                  features:
+                    type: array
+                    description: Areglo de puntos con las propiedades de cada registro
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          description: tipo del objeto
+                          example: Feature
+                        geometry:
+                          type: object
+                          description: Información de la geometría de los features
+                          properties:
+                            type:
+                              type: string
+                              description: tipo del objeto
+                              example: Point
+                            coordinates:
+                              type: array
+                              description: Valores para describir las coordenadas del punto
+                              items:
+                                type: number
+                                format: double
+                              example: [-75.910772, 9.183333]
+                        properties:
+                          $ref: '#/components/schemas/recordProps'
+
+  /models:
+    post:
+      tags: ["models"]
+      operationId: uploadModel
+      summary: Cargar modelo
+      description: Este endpoint está destinado a cargar modelos generados por los expertos. Esto permite a investigadores y científicos compartir y colaborar en el desarrollo de modelos de distribución, lo cual promueve la colaboración y el intercambio de conocimientos entre la comunidad BioModelos, en beneficio de la conservación y el estudio de la biodiversidad.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                taxID:
+                  type: integer
+                  description: Id de la especie a la que corresponde el modelo
+                  example: 1234
+                biomodelos_user:
+                  type: string
+                  description: Nombre de usuario en la plataforma BioModelos
+                  example: my_username
+                cc_license:
+                  type: string
+                  enum:
+                    - by
+                    - by-sa
+                    - by-nc
+                    - by-nc-sa
+                    - cc-zero
+                  description: Tipo de licencia de acuerdo a las licencia creative commons (https://creativecommons.org/licenses/)
+                  example: cc-zero
+                atlas_agreement:
+                  type: boolean
+                  description: "Aceptación de la publicación del modelo en el Atlas de Biodiversidad de Colombia (más información: http://biomodelos.humboldt.org.co/publicacion.pdf)"
+                  example: true
+                model:
+                  type: string
+                  format: binary
+                  description: Archivo .zip con el modelo y sus metadatos
+
+      responses:
+        "204":
+          description: El modelo fue recibido exitosamente
+        "400":
+          description: Alguno de los campos de la petición está faltante o el archivo cargado está en un formato incorrecto
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Mensaje de error
+                    example: "'model' field is required and has to be a .zip file"
+
+security:
+  - api_key: []
+
+tags:
+  - name: species
+    description: Operaciones relacionadas con las especies que se encuentran disponibles para consulta en BioModelos
+  - name: models
+    description: Operaciones relacionadas con los modelos que están disponibles o se desean disponer en BioModelos
+
+components:
+  schemas:
+    recordProps:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: id del registro
+          example: 5824a337e21cc54c32cbcb1d
+        species:
+          type: string
+          description: Nombre de la especie
+          example: Alouatta palliata
+        acceptedNameUsage:
+          type: string
+          description: Nombre aceptado de la especie
+          example: Alouatta palliata
+        source:
+          type: string
+          description: Nombre de la fuente del recurso, puede ser el nombre original del archivo o una base de datos en linea
+          example: primatesARA
+        speciesOriginal:
+          type: string
+          description: Nombre científico original en el registro
+          example: Alouatta palliata
+        catalogNumber:
+          type: string
+          description: Identificador dentro de la colección de datos original
+          example: null
+        basisOfRecord:
+          type: string
+          description: Naturaleza del registro
+          default: null
+          enum:
+          - PRESERVED_SPECIMEN
+          - FOSSIL_SPECIMEN
+          - LIVING_SPECIMEN
+          - HUMAN_OBSERVATION
+          - MACHINE_OBSERVATION
+          - STILL_IMAGE
+          - MOVING_IMAGE
+          - SOUND_RECORDING
+          - MATERIAL_SAMPLE
+          - OCCURRENCE
+          - OTHER_SPECIMEN
+          example: HUMAN_OBSERVATION
+        suggestedStateProvince:
+          type: string
+          description: Departamento sugerido a partir de las coordenadas
+          example: Córdoba
+        suggestedCounty:
+          type: string
+          description: Municipio sugerido a partir de las coordenadas
+          example: LORICA
+        taxID:
+          type: integer
+          description: Id de la especie a la que pertenece el registro
+          example: 7010
+        url:
+          type: string
+          description: URL del registro (si aplica)
+          example: null
+        environmentalOutlier:
+          type: boolean
+          description: Si el registro fue detectado automáticamente como atípico ambientalmente
+          example: false
+        collectionCode:
+          type: string
+          description: Código para identificar la colección de datos original del registro
+          example: null
+        county:
+          type: string
+          description: Municipio del registro
+          example: Lorica
+        day:
+          type: integer
+          description: Día en el que el evento ocurrió
+          example: null
+        institutionCode:
+          type: string
+          description: Institución en custodia del registro original
+          example: null
+        month:
+          type: integer
+          description: Mes en el que el evento ocurrió
+          example: null
+        recordedBy:
+          type: string
+          description: Quien tomó el registro
+          example: Díaz-J C
+        stateProvince:
+          type: string
+          description: Departamento del registro
+          example: Córdoba
+        verbatimElevation:
+          type: string
+          description: Descripción original de la elevación (altitud) sobre la que se tomó el registro
+          example: "0-0"
+        verbatimLocality:
+          type: string
+          description: Descripción textual original del lugar del registro
+          example: Ceiba Pareja
+        year:
+          type: integer
+          description: Año en el que el evento ocurrió
+          example: null
+        reported:
+          type: boolean
+          description: Si el registro ha sido reportado
+          example: false
+        updated:
+          description: false si el registro no ha sido modificado, o un arreglo con el historial de versiones
+          oneOf:
+            - type: boolean
+              example: false
+            - type: array
+              items:
+                $ref: '#/components/schemas/recordProps'
+
+    species:
+      type: object
+      description: Información de una especie
+      properties:
+        species:
+          type: string
+          description: Nombre de la especie
+        taxID:
+          type: integer
+          description: Tax id de la especie
+
+  examples:
+    speciesArray:
+      value:
+        - species: Elleanthus cinnabarinus
+          taxID: 7506
+        - species: Hoplias malabaricus
+          taxID: 5858
+
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: Authorization
+      in: header

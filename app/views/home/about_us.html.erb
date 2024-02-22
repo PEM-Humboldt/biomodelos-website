@@ -14,62 +14,85 @@
 			</div>
 			<div class="equipo">
 				<div class="member">
-				<%= image_tag("elkin.png") %>
-				ELKIN NOGUERA URBANO</br>
-				<%= t('biomodelos.about_us.coordinator') %>
+				<%= image_tag("fotojair.png") %>
+				CARLOS JAIR MUÑOZ</br>
+				<%= t('biomodelos.about_us.thematic') %>
 				</div>
 				<div class="member">
-				<%= image_tag("daniel.jpg") %>
-				DANIEL LÓPEZ</br>
-				<%= t('biomodelos.about_us.developer') %>
+				<%= image_tag("fotonerieth.png") %>
+				NERIETH LEURO</br>
+				<%= t('biomodelos.about_us.thematic') %>
 				</div>
 				<div class="member">
-				<%= image_tag("cesar.jpg") %>
-				CÉSAR GUTIÉRREZ</br>
-				<%= t('biomodelos.about_us.frontend') %>
+				<%= image_tag("fotojuanrey.png") %>
+				JUAN CARLOS REY</br>
+				<%= t('biomodelos.about_us.thematic') %>
 				</div>
 				<div class="member">
-				<%= image_tag("helena.jpg") %>
-				HELENA OLAYA</br>
-				<%= t('biomodelos.about_us.network') %>
-				</div>
-				<div class="member">
-				<%= image_tag("erika.png") %>
+				<%= image_tag("fotoerika.png") %>
 				ERIKA SUAREZ</br>
 				<%= t('biomodelos.about_us.developer') %>
 				</div>
 				<div class="member">
-				<%= image_tag("Cristian.png") %>
-				CRISTIAN CRUZ</br>
-				<%= t('biomodelos.about_us.analyst') %>
+				<%= image_tag("fotocamilo.png") %>
+				CAMILO ZAPATA</br>
+				<%= t('biomodelos.about_us.developer') %>
+				</div>
+				<div class="member">
+				<%= image_tag("fotomanuel.png") %>
+				MANUEL GALVEZ</br>
+				<%= t('biomodelos.about_us.developer') %>
+				</div>
+				<div class="member">
+				<%= image_tag("fotocesar.png") %>
+				CÉSAR GUTIÉRREZ</br>
+				<%= t('biomodelos.about_us.frontend') %>
+				</div>
+				<div class="member">
+				<%= image_tag("fotohelena.png") %>
+				HELENA OLAYA</br>
+				<%= t('biomodelos.about_us.productowner') %>
+				</div>
+				<div class="member">
+				<%= image_tag("fotolaura.png") %>
+				LAURA GARCIA</br>
+				<%= t('biomodelos.about_us.network') %>
 				</div>
 			</div>
 			<div class="subt">
-				<%= t('biomodelos.about_us.founders') %>
+				<%= t('biomodelos.about_us.board') %>
 			</div>
 				<div class="member">
-				<%= image_tag("jorge.jpg") %>
-				JORGE VELÁSQUEZ</br>
-				<%= t('biomodelos.about_us.founderinv') %>
+				<%= image_tag("fotolina.png") %>
+				LINA SÁNCHEZ</br>
 				</div>
 				<div class="member">
-				<%= image_tag("mariac.jpg") %>
+				<%= image_tag("fotomariac.png") %>
 				MARÍA CECILIA LONDOÑO</br>
-				<%= t('biomodelos.about_us.founderinv') %>
 				</div>
 				<div class="member">
-				<%= image_tag("ivan.jpg") %>
-				IVAN GONZÁLEZ</br>
-				<%= t('biomodelos.about_us.founderinv') %>
+				<%= image_tag("fotoelkin.png") %>
+				ELKIN NOGUERA</br>
 				</div>
+			<div class="subt">
+				<%= t('biomodelos.about_us.founders') %>
+			</div>
+			<div class="member">
+				MARÍA CECILIA LONDOÑO</br>
+				JORGE VELÁSQUEZ</br>
+				IVÁN GONZÁLEZ</br>
+				DANIEL LÓPEZ</br>
+				CÉSAR GUTIÉRREZ</br>
+			</div>
 			<div class="subt">
 				<%= t('biomodelos.about_us.acknowledgments') %>
 			</div>
 			<div class="member">
-	<!-- 			<%= image_tag("felipe.jpg") %> -->
-				<b><%= t('biomodelos.about_us.photovid') %></b></br>
-				FELIPE VILLEGAS</br>
-				<%= t('biomodelos.about_us.humboldtname') %>
+				<b><%= t('biomodelos.about_us.thematic') %></b></br>
+				CRISTIAN CRUZ</br>
+				GABRIEL PERILLA</br>
+				LUIS ROMERO</br>
+				HÉCTOR MANUEL ARANGO</br>
 			</div>
 			<div class="member">
 				<b><%= t('biomodelos.about_us.developer') %></b></br>
@@ -79,48 +102,94 @@
 				ALEJANDRO MORENO</br>
 			</div>
 			<div class="member">
-				<b><%= t('biomodelos.about_us.juridical') %></b></br>
-				<%= t('biomodelos.about_us.humboldtname') %>
-			</div>
-			<div class="member">
-				<b><%= t('biomodelos.about_us.communic') %></b></br>
-				<%= t('biomodelos.about_us.humboldtname') %>
+				<b><%= t('biomodelos.about_us.photovid') %></b></br>
+				FELIPE VILLEGAS</br>
+				ANDRÉS FELIPE DUARTE</br>
+				BIA HUMBOLDT</br>
 			</div>
 			<div class="subt mb30">
 				<%= t('biomodelos.about_us.awards') %>
 			</div>
 			<div class="aliados">
-				<a href="https://www.colciencias.gov.co/sala_de_prensa/por-primera-vez-se-premian-iniciativas-ciencia-abierta" target="_blank"><%= image_tag("premio.png") %></a>
+				<%= link_to image_tag("premio.png"), "https://minciencias.gov.co/sala_de_prensa/por-primera-vez-se-premian-iniciativas-ciencia-abierta", target: "_blank" %>
 			</div>
 			<div class="aliados">
-				<a href="http://www.humboldt.org.co/es/actualidad/item/1414-programa-biomodelos-recibe-medalla-humboldt-caldas-2019" target="_blank"><%= image_tag("medalla.png") %></a>
+				<%= link_to image_tag("medalla.png"), "http://www.humboldt.org.co/es/actualidad/item/1414-programa-biomodelos-recibe-medalla-humboldt-caldas-2019", target: "_blank" %>
 			</div>
 			<div class="subt">
 				<%= t('biomodelos.about_us.sponsors') %>
 			</div>
 				<div class="logos">
-				<a href="https://www.minambiente.gov.co/" target="_blank"><%= image_tag("logoMA.png") %></a>
+					<%= link_to image_tag("logoMA.png"), "https://www.minambiente.gov.co/", target: "_blank" %>
 				</div>
 				<div class="logos">
-				<a href="http://sitio.fondoadaptacion.gov.co/" target="_blank"><%= image_tag("logoFA.png") %></a>
+					<%= link_to image_tag("logoMC.png"), "https://www.minciencias.gov.co/", target: "_blank" %>
+				</div>
+				<div class="logos">
+					<%= link_to image_tag("logoFA.png"), "https://www.fondoadaptacion.gov.co/", target: "_blank" %>
+				</div>
+				<div class="logos">
+					<%= link_to image_tag("logoGEE.png"), "https://earthengine.google.com/", target: "_blank" %>
+				</div>
+				<div class="logos">
+					<%= link_to image_tag("logoNASA.png"), "https://www.nasa.gov/", target: "_blank" %>
+				</div>
+				<div class="logos">
+					<%= link_to image_tag("logoGBIF.png"), "https://www.gbif.org/", target: "_blank" %>
 				</div>
 			<div class="subt">
 				<%= t('biomodelos.about_us.allies') %>
 			</div>
 				<div class="aliados">
-				<a href="http://www.sibcolombia.net/" target="_blank"><%= image_tag("LogosSIB.png") %></a>
+					<%= link_to image_tag("LogosSIB.png"), "https://biodiversidad.co/", target: "_blank" %>
 				</div>
 				<div class="aliados">
-				<a href="http://mamiferoscolombia.org/" target="_blank"><%= image_tag("logoscm.png") %></a>
+					<%= link_to image_tag("logoscm.png"), "https://mamiferoscolombia.org/", target: "_blank" %>
 				</div>
 				<div class="aliados">
-				<a href="http://calidris.org.co/" target="_blank"><%= image_tag("logocalidris.png") %></a>
+					<%= link_to image_tag("logocalidris.png"), "https://calidris.org.co/", target: "_blank" %>
 				</div>
 				<div class="aliados">
-				<a href="http://www.asoprimatologicacolombiana.org/" target="_blank"><%= image_tag("LogosAPC.png") %></a>
+					<%= link_to image_tag("LogosAPC.png"), "https://www.asoprimatologicacolombiana.org/", target: "_blank" %>
 				</div>
 				<div class="aliados">
-				<a href="http://www.acherpetologia.org/" target="_blank"><%= image_tag("logoach.png") %></a>
+					<%= link_to image_tag("logoach.png"), "https://www.acherpetologia.org/", target: "_blank" %>
+				</div>
+				<div class="aliados">
+					<%= link_to image_tag("logoASICTIOS.png"), "https://acictios.org/", target: "_blank" %>
+				</div>
+				<div class="aliados">
+					<%= link_to image_tag("logoACO.png"), "https://asociacioncolombianadeornitologia.org/", target: "_blank" %>
+				</div>
+				<div class="aliados">
+					<%= link_to image_tag("logoSelva.png"), "https://www.selva.org.co/", target: "_blank" %>
+				</div>
+				<div class="aliados">
+					<%= link_to image_tag("logoJBM"), "https://www.botanicomedellin.org/", target: "_blank" %>
+				</div>
+				<div class="aliados">
+					<%= link_to image_tag("logoINVEMAR.png"), "https://www.invemar.org.co/", target: "_blank" %>
+				</div>
+				<div class="aliados">
+					<%= link_to image_tag("logounal.png"), "https://unal.edu.co/", target: "_blank" %>
+				</div>
+				<div class="aliados">
+					<%= link_to image_tag("logoJaveriana.png"), "https://www.javeriana.edu.co/inicio", target: "_blank" %>
+				</div>
+				<div class="aliados">
+					<%= link_to image_tag("logoAntioquia.png"), "https://www.udea.edu.co/", target: "_blank" %>
+				</div>
+				<div class="aliados">
+					<%= link_to image_tag("logoCordoba.png"), "https://www.unicordoba.edu.co/", target: "_blank" %>
+				</div>
+				<div class="aliados">
+					<%= link_to image_tag("logoCauca.png"), "https://www.unicauca.edu.co/", target: "_blank" %>
+				</div>
+				<div class="aliados">
+					<%= link_to image_tag("logoUnivalle.png"), "https://www.univalle.edu.co/", target: "_blank" %>
+				</div>
+				<div class="aliados">
+					<%= link_to image_tag("logoAMNH.png"), "https://www.amnh.org/", target: "_blank" %>
 				</div>
 		</div>
 	</div>
