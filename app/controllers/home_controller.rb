@@ -28,7 +28,7 @@ class HomeController < ApplicationController
 
 	def send_contact_form
 		@contact_message = ContactMessage.new(message_params)
-		recaptcha_valid = verify_recaptcha(action: 'contact_us')
+		recaptcha_valid = verify_recaptcha(action: 'contact_us', minimum_score: 0.9)
   		if @contact_message.valid? && recaptcha_valid
 			AdministratorsMailer.contact_us(@contact_message).deliver_now
 			redirect_to root_path, notice: I18n.t('biomodelos.contact.success_notice')
