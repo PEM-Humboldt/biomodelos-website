@@ -36,7 +36,7 @@
         <label  class="checkboxterm"><a class="linkterminos" href="">He leído y acepto los términos y condiciones</a></label></br>
     </input> -->
   </div>
-  <%= recaptcha_tags %>
+  <%= recaptcha_v3(action: 'registration') %>
   <div class="actions">
     <%= f.submit t('biomodelos.sign_up.sign_up_btn') %>
   </div>

@@ -64,7 +64,7 @@ class SpeciesController < ApplicationController
     rescue => e
       logger.error "#{e.message} #{e.backtrace}"
       err_msg = e.message.tr(?',?").delete("\n")
-      render :js => "alertify.alert('Ha ocurrido un error cosultando la especie. #{err_msg}');"
+      render :js => "alertify.alert('Ha ocurrido un error consultando la especie. #{err_msg}');"
     end
 	end
 
