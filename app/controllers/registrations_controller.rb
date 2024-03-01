@@ -3,8 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   private
     def check_captcha
-      recaptcha_valid = verify_recaptcha(action: 'registration', minimum_score: 0.8)
-      if recaptcha_valid
+      unless verify_recaptcha
         self.resource = resource_class.new sign_up_params
         respond_with_navigational(resource) { render :new }
       end 

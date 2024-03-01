@@ -10,7 +10,7 @@
                               <%= f.input :subject, :maxlength => 50, :placeholder => t('biomodelos.contact.subject_ph'), :name => "asunto", label: false %>
                               <%= f.input :email, :maxlength => 50, :placeholder => "E-mail", :name => "email", label: false %>
                               <%= f.input :content, :as => :text, :input_html => {:maxlength => 1200, :cols => "20", :rows => "12"}, :name => "cuerpo", label: false %>
-                              <%= recaptcha_v3(action: 'contact_us') %>
+                              <p><%= recaptcha_tags %></p>
                               <%= f.button :submit, :value => t('biomodelos.contact.submit_btn'), :class => 'boton1', data: { disable_with: t('biomodelos.contact.submit_btn') }%>
                         <% end %>
                         <p><strong><%= t('biomodelos.contact.address') %>:</strong> calle 28A no. 15-09 Bogotá D.C., Colombia.</br>
