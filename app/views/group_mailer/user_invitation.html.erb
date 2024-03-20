@@ -60,17 +60,17 @@ h3 span {
 <div class="linewidth"></div>
 <div class ="contenido">
 	<h3>Saludos,</h3>
-	<h3><%= link_to @admin.name, group_path(id: @admin.id) %> te ha invitado a unirte al grupo <%= link_to @group.name, group_path(id: @group.id) %></b> en la aplicación <span>BioModelos:</span></h3>
+	<h3><%= link_to @admin.name, user_url(id: @admin.id) %> te ha invitado a unirte al grupo <%= link_to @group.name,  group_url(id: @group.id) %></b> en la aplicación <span>BioModelos:</span></h3>
 	<h4><%= @message %></h4>
 	<br/>
-	Para aceptar la invitación, debes registrarte en BioModelos. Si ya estás registrado, visita el <%= link_to 'perfil del grupo', group_path(id: @group.id) %> y haz clic en el botón "Solicitar unirse a este grupo".<br/>
+	Para aceptar la invitación, debes registrarte en BioModelos. Si ya estás registrado, visita el <%= link_to 'perfil del grupo', group_url(id: @group.id) %> y haz clic en el botón "Solicitar unirse a este grupo".<br/>
 	<br/>
-	Regístrate en BioModelos <%= link_to 'aquí', new_user_registration_path %>.<br/>
+	Regístrate en BioModelos <%= link_to 'aquí', main_app.new_user_registration_path %>.<br/>
 	<br/>
 	Atentamente,<br/>
 	<br/>
 	Equipo BioModelos
-	<h3><%= link_to 'biomodelos.humboldt.org.co', request.base_url %><br/>
+	<h3><%= link_to 'biomodelos.humboldt.org.co', url_for(controller: 'home', action: 'show') %><br/>
 	biomodelos@humboldt.org.co</h3>
 </div>
 </body>
