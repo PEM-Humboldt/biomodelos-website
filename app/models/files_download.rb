@@ -1,0 +1,2 @@
+class FilesDownload < ApplicationRecord
+end
