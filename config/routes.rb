@@ -65,6 +65,7 @@ Rails.application.routes.draw do
     get "geoserver/continuous_thumb"
     get "geoserver/zip"
     get 'atlas/:filename', to: 'downloads#download'
+    get '/downloads/generate_report', to: 'downloads#generate_report'
 
     # get "models/metadata/:id"
     # Example of named route that can be invoked with purchase_url(id: product.id)
