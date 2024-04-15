@@ -1,4 +1,3 @@
-# app/controllers/downloads_controller.rb
 class DownloadsController < ApplicationController
     def download
       file_path = Rails.root.join('public/atlas_files', request.parameters["filename"] + "." + request.parameters["format"])
