@@ -38,3 +38,4 @@ doc/
 /vendor/assets/bower_components
 public/*
 !public/api_spec*.yml
+!public/atlas_files/.keep
