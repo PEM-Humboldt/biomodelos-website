@@ -26,29 +26,32 @@
 					<p>+</p>
 					</a>
 				</div>
-				<div class="atlasSec">
-					<h4><%= t('biomodelos.info.tituloatlas') %></h4>
-					<a href="/atlas/AvesEndemicas.pdf" target="_blank" class="cajathumb">
-						<%= image_tag("EndemicasP.png") %>
-						<p>+</p>
-					</a>
-					<a href="/atlas/GrandesRoedores.pdf" target="_blank" class="cajathumb">
-						<%= image_tag("roedores.png") %>
-						<p>+</p>
-					</a>
-					<a href="/atlas/Anolis.pdf" target="_blank" class="cajathumb">
-						<%= image_tag("AnolisP.png") %>
-						<p>+</p>
-					</a>
-					<a href="/atlas/Primates.pdf" target="_blank" class="cajathumb">
-						<%= image_tag("PrimatesP.png") %>
-						<p>+</p>
-					</a>
-					<a href="/atlas/Zamias.pdf" target="_blank" class="cajathumb">
-						<%= image_tag("ZamiasP.png") %>
-						<p>+</p>
-					</a>
-				</div>
+        <div class="atlasSec">
+          <h4><%= t('biomodelos.info.tituloatlas') %></h4>
+          <% if Date.parse('2024-05-24') > Date.today %>
+            <p style="max-width:700px">Fe de erratas: las descargas del Atlas de aves endémicas que se hicieron antes del 23 de abril de 2024 presentan un error en la fotografía de la especie <i>Phylloscartes lanyoni</i>. En esta nueva versión se corrige dicho error.</p>
+          <% end %>
+          <a href="/atlas/AvesEndemicas.pdf" target="_blank" class="cajathumb">
+            <%= image_tag("EndemicasP.png") %>
+            <p>+</p>
+          </a>
+          <a href="/atlas/GrandesRoedores.pdf" target="_blank" class="cajathumb">
+            <%= image_tag("roedores.png") %>
+            <p>+</p>
+          </a>
+          <a href="/atlas/Anolis.pdf" target="_blank" class="cajathumb">
+            <%= image_tag("AnolisP.png") %>
+            <p>+</p>
+          </a>
+          <a href="/atlas/Primates.pdf" target="_blank" class="cajathumb">
+            <%= image_tag("PrimatesP.png") %>
+            <p>+</p>
+          </a>
+          <a href="/atlas/Zamias.pdf" target="_blank" class="cajathumb">
+            <%= image_tag("ZamiasP.png") %>
+            <p>+</p>
+          </a>
+        </div>
 				<div class="atlasSec">
 					<h4><%= t('biomodelos.info.tituloarticulos') %></h4>
 					<a href="https://doi.org/10.1371/journal.pone.0214522" target="_blank" class="cajathumb">
