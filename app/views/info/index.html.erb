@@ -28,7 +28,9 @@
 				</div>
         <div class="atlasSec">
           <h4><%= t('biomodelos.info.tituloatlas') %></h4>
-          <p style="max-width:700px">Fe de erratas: las descargas del Atlas de aves endémicas que se hicieron antes del 23 de abril de 2024 presentan un error en la fotografía de la especie <i>Phylloscartes lanyoni</i>. En esta nueva versión se corrige dicho error.</p>
+          <% if Date.parse('2024-05-24') > Date.today %>
+            <p style="max-width:700px">Fe de erratas: las descargas del Atlas de aves endémicas que se hicieron antes del 23 de abril de 2024 presentan un error en la fotografía de la especie <i>Phylloscartes lanyoni</i>. En esta nueva versión se corrige dicho error.</p>
+          <% end %>
           <a href="/atlas/AvesEndemicas.pdf" target="_blank" class="cajathumb">
             <%= image_tag("EndemicasP.png") %>
             <p>+</p>
