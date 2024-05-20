@@ -8,15 +8,6 @@ class GroupsController < ApplicationController
 			@group = Group.find(params[:id])
 			@tasks = Task.where(:group_id =>  @group.id)
 			@species_ids = GroupsSpecies.where(:group_id => @group.id, :groups_species_state_id => 1)
-			#@species_with_tasks_pending = @tasks.select{|x| x.task_state_id == 1}.map{|t| [Species.find_name(t.species_id.to_s),t.species_id]}.uniq
-			@models_approved = 0
-			# @species_with_tasks.each do |species|
-			# 	approved_by_species = @tasks.select{|x| x.species_id == species[1] && x.task_type_id == 4}
-			# 	approved_by_species_done = @tasks.select{|x| x.species_id == species[1] && x.task_type_id == 4 && x.task_state_id == 2}
-			# 	if approved_by_species.size > 0 && approved_by_species.size == approved_by_species_done.size
-			# 		@models_approved = @models_approved + 1
-			# 	end
-			# end
 			@group_members_number = GroupsUser.where(:group_id => @group.id, :groups_users_state_id => 1).count
 			@group_admins = GroupsUser.where(:group_id => @group.id, :groups_users_state_id => 1, :is_admin => true).joins(:user).order('users.name')
 			@groups_species = GroupsSpecies.new
