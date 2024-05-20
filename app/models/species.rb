@@ -15,6 +15,10 @@ class Species
 	end
 
 	def self.find_names(taxIDList)
+    if taxIDList.empty?
+      return []
+    end
+
 		res = JSON.parse(get('?speciesIn=' + taxIDList.join(',')).body)
 		return res
 	end
