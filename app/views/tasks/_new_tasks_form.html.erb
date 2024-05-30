@@ -1,31 +1,31 @@
 <%= simple_form_for @task, :url => {:controller => "tasks", :action => "add_tasks"}, :method => :post, :remote => true do |f| %>
-	<%= f.error_notification %>
-	<%= f.hidden_field :group_id, value: @group.id %>
-	<p><%= t('biomodelos.tasks.new_task') %></p>
-        <% if current_group_user.is_admin %>
-	       <%= f.select :user_id, options_from_collection_for_select(GroupsUser.where(:group_id => @group.id, :groups_users_state_id => 1).joins(:user).order('users.name'), 'user_id', 'user_name'), include_blank: t('biomodelos.tasks.choose_expert') %>
-        <% else %>
-                <%= f.hidden_field :user_id, value: current_user.id %>
-        <% end %>
-        <%= f.select :species_id, options_for_select(Species.find_names(@species_ids.map{|t| t.species_id}.uniq).map{|s| [s["acceptedNameUsage"], s["taxID"]]}), :include_blank => t('biomodelos.tasks.choose_species') %>
-	<p class="tarea"><%= t('biomodelos.tasks.choose_tasks') %></p>
-	<div id="chkBoxTask">
-        <label class="lblvisual" rel="tooltip" title="<%= t('biomodelos.tasks.records_task_tt') %>">
-        <%= check_box_tag :records_task,  1, checked:true %>
-        <%= image_tag("regperfil.png") %>
-        </label>
-        <label class="lblvisual" rel="tooltip" title="<%= t('biomodelos.tasks.edition_task_tt') %>">
-        <%= check_box_tag :edition_task,  2,  checked:true %>
-        <%= image_tag("penperfil.png") %>
-        </label>
-        <label class="lblvisual" rel="tooltip" title="<%= t('biomodelos.tasks.covers_task_tt') %>">
-        <%= check_box_tag :eco_task,  3, checked:true %>
-        <%= image_tag("veicon2.png") %>
-        </label>
-        <label class="lblvisual" rel="tooltip" title="<%= t('biomodelos.tasks.validation_task_tt') %>">
-        <%= check_box_tag :approval_task,  4, checked:true %>
-        <%= image_tag("aprobicon.png") %>
-        </label>
-        <%= f.button :submit, :value => t('biomodelos.tasks.submit_btn'), :class => 'btngen', data: { disable_with: t('biomodelos.tasks.submit_btn') }%>
-	</div>
+  <%= f.error_notification %>
+  <%= f.hidden_field :group_id, value: @group.id %>
+  <p><%= t('biomodelos.tasks.new_task') %></p>
+  <% if current_group_user.is_admin %>
+    <%= f.select :user_id, options_from_collection_for_select(GroupsUser.where(:group_id => @group.id, :groups_users_state_id => 1).joins(:user).order('users.name'), 'user_id', 'user_name'), include_blank: t('biomodelos.tasks.choose_expert') %>
+  <% else %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  <% end %>
+  <%= f.select :species_id, options_for_select(Species.find_names(@species_ids.map{|t| t.species_id}.uniq).map{|s| [s["acceptedNameUsage"], s["taxID"]]}), :include_blank => t('biomodelos.tasks.choose_species') %>
+  <p class="tarea"><%= t('biomodelos.tasks.choose_tasks') %></p>
+  <div id="chkBoxTask">
+    <label class="lblvisual" rel="tooltip" title="<%= t('biomodelos.tasks.records_task_tt') %>">
+      <%= check_box_tag :records_task,  1, checked:true %>
+      <%= image_tag("regperfil.png") %>
+    </label>
+    <label class="lblvisual" rel="tooltip" title="<%= t('biomodelos.tasks.edition_task_tt') %>">
+      <%= check_box_tag :edition_task,  2,  checked:true %>
+      <%= image_tag("penperfil.png") %>
+    </label>
+    <label class="lblvisual" rel="tooltip" title="<%= t('biomodelos.tasks.covers_task_tt') %>">
+      <%= check_box_tag :eco_task,  3, checked:true %>
+      <%= image_tag("veicon2.png") %>
+    </label>
+    <label class="lblvisual" rel="tooltip" title="<%= t('biomodelos.tasks.validation_task_tt') %>">
+      <%= check_box_tag :approval_task,  4, checked:true %>
+      <%= image_tag("aprobicon.png") %>
+    </label>
+    <%= f.button :submit, :value => t('biomodelos.tasks.submit_btn'), :class => 'btngen', data: { disable_with: t('biomodelos.tasks.submit_btn') }%>
+  </div>
 <% end %>
