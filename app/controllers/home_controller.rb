@@ -28,29 +28,35 @@ class HomeController < ApplicationController
 
 	def send_contact_form
 		@contact_message = ContactMessage.new(message_params)
-		recaptcha_valid = verify_recaptcha(action: 'contact_us', minimum_score: 0.9)
-  		if @contact_message.valid? && recaptcha_valid
-			AdministratorsMailer.contact_us(@contact_message).deliver_now
-			redirect_to root_path, notice: I18n.t('biomodelos.contact.success_notice')
-		else
-			if !recaptcha_valid
-				redirect_to home_contact_us_path
-			elsif !@contact_message.valid?
-			 	errores = I18n.t('biomodelos.contact.fields_error')
-				if !@contact_message.errors.messages[:name].blank?
-					errores << "Nombre "
-				end
-				if !@contact_message.errors.messages[:email].blank?
-					errores << "E-mail "
-				end
-				if !@contact_message.errors.messages[:content].blank?
-					errores << "Mensaje "
-				end
+		recaptcha_v3_valid = verify_recaptcha(action: 'contact_us', minimum_score: 0.9, secret_key: ENV['RECAPTCHA_SECRET_KEY_V3'])
+		recaptcha_v2_valid = verify_recaptcha unless recaptcha_v3_valid
 
-				redirect_to home_contact_us_path, :flash => { :error => errores }
+		if @contact_message.valid?
+			if recaptcha_v3_valid || recaptcha_v2_valid
+				AdministratorsMailer.contact_us(@contact_message).deliver_now
+				redirect_to root_path, notice: I18n.t('biomodelos.contact.success_notice')
+			else
+				if !recaptcha_v3_valid
+					@show_checkbox_recaptcha = true
+				end
+				render :contact_us
 			end
+		else
+			errores = I18n.t('biomodelos.contact.fields_error')
+			if !@contact_message.errors.messages[:name].blank?
+				errores << "Nombre | "
+			end
+			if !@contact_message.errors.messages[:email].blank?
+				errores << "E-mail | "
+			end
+			if !@contact_message.errors.messages[:content].blank?
+				errores << "Mensaje | "
+			end
+			redirect_to home_contact_us_path, :flash => { :error => errores }
 		end
 	end
+
+
 
 	def terms
 	end
