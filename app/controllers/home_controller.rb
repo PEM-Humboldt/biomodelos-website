@@ -56,8 +56,6 @@ class HomeController < ApplicationController
 		end
 	end
 
-
-
 	def terms
 	end
 
