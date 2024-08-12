@@ -4,7 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
   private
     def check_captcha
       recaptcha_v3_valid = verify_recaptcha(action: 'registration', minimum_score: 0.8, secret_key: Rails.application.secrets.reCaptcha_secret_v3)
-		  recaptcha_v2_valid = verify_recaptcha unless recaptcha_v3_valid
+	    recaptcha_v2_valid = verify_recaptcha unless recaptcha_v3_valid
       if !(recaptcha_v3_valid || recaptcha_v2_valid)
         if !recaptcha_v3_valid
           @show_checkbox_recaptcha = true
@@ -15,8 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
     
   protected
-
     def after_update_path_for(resource)
     	current_user
-	end
+	  end
 end
