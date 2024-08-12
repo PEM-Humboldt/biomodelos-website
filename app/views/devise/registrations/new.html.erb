@@ -36,7 +36,11 @@
         <label  class="checkboxterm"><a class="linkterminos" href="">He leído y acepto los términos y condiciones</a></label></br>
     </input> -->
   </div>
-  <%= recaptcha_tags %>
+  <% if @show_checkbox_recaptcha %>
+    <%= recaptcha_tags %>
+  <% else %>
+    <%= recaptcha_v3(action: 'registration', site_key: Rails.application.secrets.reCaptcha_key_v3) %>
+  <% end %>
   <div class="actions">
     <%= f.submit t('biomodelos.sign_up.sign_up_btn') %>
   </div>

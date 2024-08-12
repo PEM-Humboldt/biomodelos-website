@@ -66,8 +66,10 @@ SECRET_KEY_BASE: [secret key base]
 GOOGLE_MAPS_KEY: [key]
 
 \# Google reCaptcha
-RECAPTCHA_SITE_KEY: [site key]
-RECAPTCHA_SECRET_KEY: [secret key]
+RECAPTCHA_SITE_KEY_V2: [site key]
+RECAPTCHA_SECRET_KEY_V2: [site key]
+RECAPTCHA_SITE_KEY_V3: [site key]
+RECAPTCHA_SECRET_KEY_V3: [site key]
 
 \# Mail Server Gmail
 GMAIL_USERNAME: [username]
@@ -78,7 +80,7 @@ There, you should put information about:
 
 - Rails Application key.
 - Google maps key.
-- Recaptcha key.
+- Recaptcha keys (Version 2 and 3).
 - SMTP credentials.
 
 ## Run
