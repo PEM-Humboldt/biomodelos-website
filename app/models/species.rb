@@ -1,4 +1,5 @@
-class Species
+class Species 
+  
   include HTTParty
     format :json
     base_uri BASE_URI + '/species'
