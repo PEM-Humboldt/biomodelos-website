@@ -9,6 +9,7 @@ class Download < ApplicationRecord
 	validates :terminos, presence: true, acceptance: {message: "Debe aceptar los términos y condiciones."} 
 
 	belongs_to :user
+	belongs_to :species
 	has_one :model_use
 
 	# Gets the average rating of a model rounded to 2 decimals. 
