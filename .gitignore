@@ -39,3 +39,4 @@ doc/
 public/*
 !public/api_spec*.yml
 !public/atlas_files/.keep
+/coverage

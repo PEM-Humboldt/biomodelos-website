@@ -58,3 +58,5 @@ end
 
 # Added at 2017-09-21 13:51:12 -0500 by valentina:
 gem "pg", "~> 1.2.3"
+gem 'net-smtp', '~> 0.5.1'
+gem 'puma', '~> 6.6'

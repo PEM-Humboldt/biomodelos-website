@@ -64,7 +64,9 @@ class Species
         end
       end
     end
-    JSON.parse(get(URI.escape(url)).body)
+    JSON.parse(get(URI::DEFAULT_PARSER.escape(url)).body)
+
+    #JSON.parse(get(URI.escape(url)).body)
   end
 
   def self.search(params)
@@ -102,7 +104,8 @@ class Species
     if params[:endangered]
       url += "&endangered=" + params[:endangered]
     end
+    JSON.parse(get(URI::DEFAULT_PARSER.escape(url)).body)
 
-    JSON.parse(get(URI.escape(url)).body)
+    #JSON.parse(get(URI.escape(url)).body)
   end
 end
