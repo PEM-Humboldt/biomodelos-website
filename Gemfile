@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.7.10', '>= 6.1.6'
+gem 'rails', '~> 7.2'
 # Dependence required by rails
-gem 'actionpack', '~> 6.1', '>= 6.0.3.2'
+gem 'actionpack', '~> 7.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 6.0'
 # Use CoffeeScript for .coffee assets and views

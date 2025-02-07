@@ -40,3 +40,8 @@ public/*
 !public/api_spec*.yml
 !public/atlas_files/.keep
 /coverage
+/config/master.key
+
+/config/credentials/development.key
+
+/config/credentials/production.key
