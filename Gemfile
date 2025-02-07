@@ -60,3 +60,4 @@ end
 gem "pg", "~> 1.2.3"
 gem 'net-smtp', '~> 0.5.1'
 gem 'puma', '~> 6.6'
+gem 'stringio', '~> 3.0.1'
