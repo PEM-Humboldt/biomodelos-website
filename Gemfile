@@ -52,12 +52,14 @@ group :development do
   gem 'web-console', '~> 4.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 2.0.2'
+  gem 'spring', '~> 4.2.1'
 end
 
 
 # Added at 2017-09-21 13:51:12 -0500 by valentina:
 gem "pg", "~> 1.2.3"
+
+# Added at 2025-01-07 by Jorge:
 gem 'net-smtp', '~> 0.5.1'
 gem 'puma', '~> 6.6'
 gem 'stringio', '~> 3.0.2'
