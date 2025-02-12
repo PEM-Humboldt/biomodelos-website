@@ -13,7 +13,7 @@
                               <% if @show_checkbox_recaptcha %>
                                     <%= recaptcha_tags %>
                               <% else %>
-                                    <%= recaptcha_v3(action: 'contact_us', site_key: Rails.application.credentials.dig(:recaptcha, :RECAPTCHA_SECRET_KEY_V3)) %>
+                                    <%= recaptcha_v3(action: 'contact_us', site_key: Rails.application.credentials.dig(:recaptcha, :RECAPTCHA_SITE_KEY_V3)) %>
                               <% end %>
                               <%= f.button :submit, :value => t('biomodelos.contact.submit_btn'), :class => 'boton1', data: { disable_with: t('biomodelos.contact.submit_btn') }%>
                         <% end %>
