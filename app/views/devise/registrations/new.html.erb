@@ -39,7 +39,7 @@
   <% if @show_checkbox_recaptcha %>
     <%= recaptcha_tags %>
   <% else %>
-    <%= recaptcha_v3(action: 'registration', site_key: Rails.application.secrets.reCaptcha_key_v3) %>
+    <%= recaptcha_v3(action: 'registration', site_key: Rails.application.credentials.dig(:recaptcha, :RECAPTCHA_SITE_KEY_V3)) %>
   <% end %>
   <div class="actions">
     <%= f.submit t('biomodelos.sign_up.sign_up_btn') %>

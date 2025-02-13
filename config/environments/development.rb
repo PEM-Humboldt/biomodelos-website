@@ -23,8 +23,8 @@ Rails.application.configure do
       :port => 587,
       :authentication => "plain",
       :enable_starttls_auto => true,
-      :user_name => ENV["GMAIL_USERNAME"],
-      :password => ENV["GMAIL_PASSWORD"]
+      :user_name => Rails.application.credentials.dig(:mail_server, :GMAIL_USERNAME),
+      :password => Rails.application.credentials.dig(:mail_server, :GMAIL_PASSWORD)
   }
   config.action_mailer.default_url_options = { :host => 'localhost' }
 
