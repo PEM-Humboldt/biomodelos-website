@@ -8,13 +8,13 @@
 
 Deploy these services before setting up the app:
 
-- MongoDB Database Service
+- MongoDB Database Service v.8.0.4
 - BioModelos API Service [GitHub Repo](https://github.com/LBAB-Humboldt/biomodelos_db_api)
-- SQL Database Service
+- PosgresSQL Database Service v.17
 
 ## Software
 
-- Ruby version 2.5. It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
+- Ruby version 3.1.0 It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
 - [Docker](https://www.docker.com) version 17.05 or up.
 - [Git](https://git-scm.com/)
 - [Bower](https://bower.io/)
@@ -33,7 +33,7 @@ $ git clone git://github.com/LBAB-Humboldt/BioModelos.v2.git
 
 To build the database according to the schema file using the SQL Service, you should follow the next steps:
 
-1. Create a [database.yml](https://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) file with the configuration of your SQL Service and add it to the _/config/_ path. Use _database_template.yml_ as a template which is located at _/config/_ folder
+1. Create a [database.yml](https://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) file with the configuration of your PosgresSQL Service and add it to the _/config/_ path. Use _database_template.yml_ as a template which is located at _/config/_ folder
 2. Once you have the Docker container running, you may execute the **migrations** (_/db/migrate/_) following [this guide](https://edgeguides.rubyonrails.org/active_record_migrations.html#running-migrations).
 
 ## Configuration
@@ -57,7 +57,8 @@ GEOSERVER_URI = "http://localhost:8080/geoserver";
 
 ### Keys and credentials
 
-The app needs the following keys which you can set up in a _local_env.yml_ file under the _config_ folder like this:
+The keys are in the encrypted file credentials.yml.enc and they are specific for each environment (production, development or test).
+This file needs the master key to decrypt and modified the keys according to your specific requirements. 
 
 ```sh
 SECRET_KEY_BASE: [secret key base]
@@ -83,6 +84,8 @@ There, you should put information about:
 - Recaptcha keys (Version 2 and 3).
 - SMTP credentials.
 
+The app needs the master keys which you must add to config/credentials, it is inside the internal repository. You must ask for this file to support team.
+The credential
 ## Run
 
 Install dependencies
@@ -100,6 +103,7 @@ Run the following command to execute the app in your local env
 ```sh
 bundle exec rails s -b 0.0.0.0
 ```
+Extra configuration are in internal repository.
 
 ### Dev env with docker
 
