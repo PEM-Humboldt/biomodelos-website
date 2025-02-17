@@ -37,6 +37,8 @@ doc/
 /db/seeds.rb
 
 #Ignore bower components
+/bower.json
+.bowerrc
 /vendor/assets/bower_components
 public/*
 !public/api_spec*.yml
@@ -44,8 +46,10 @@ public/*
 /coverage
 /config/master.key
 
+#credentials project
 /config/credentials/development.key
-
 /config/credentials/production.key
-
 /config/credentials/test.key
+
+node
+/node_modules
