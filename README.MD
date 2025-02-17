@@ -17,7 +17,7 @@ Deploy these services before setting up the app:
 - Ruby version 3.1.0. It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
 - [Docker](https://www.docker.com) version 17.05 or up.
 - [Git](https://git-scm.com/)
-- [Yarn](https://yarnpkg.com/)
+- [Yarn](https://yarnpkg.com/). Install it using [npm](https://www.npmjs.com/package/yarn)
 
 # Setup
 
@@ -48,7 +48,7 @@ Some files and paths in BioModelos need to be configured in order for the app to
 
 ### Connection to other BioModelos services
 
-You need to setup a path to the BioModelos API service URL and geoserver URL. Create a new file _url.rb_ under the _/config/initializers/_ folder and setup the next env vars:
+You need to setup a path of BioModelos API service URL and geoserver URL, for that, you must create a new file _url.rb_ under the _/config/initializers/_ folder and setup the next env vars:
 
 ```sh
 BASE_URI = "http://localhost:3000/v2";
@@ -87,6 +87,8 @@ There, you should put information about:
 The app needs the master keys which you must add to config/credentials, it is avalaible in the internal repository. You must ask for this file to support team.
 
 ## Run
+
+**Important**: You should have installed previously Ruby 3.1.0.
 
 Install dependencies using these commands in your terminal
 
