@@ -17,7 +17,7 @@ Deploy these services before setting up the app:
 - Ruby version 3.1.0. It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
 - [Docker](https://www.docker.com) version 17.05 or up.
 - [Git](https://git-scm.com/)
-- [Bower](https://bower.io/)
+- [Yarn](https://yarnpkg.com/)
 
 # Setup
 
@@ -58,50 +58,50 @@ GEOSERVER_URI = "http://localhost:8080/geoserver";
 ### Keys and credentials
 
 The keys are in the encrypted file credentials.yml.enc and they are specific for each environment (production, development or test).
-This file needs the master key to decrypt and modified the keys according to your specific requirements. 
+This file needs the master key to decrypt and modified the keys according to your specific requirements.
 
 ```sh
-SECRET_KEY_BASE: [secret key base]
+# Google Maps API
+google_maps:
+  GOOGLE_MAPS_KEY: 'secret key'
 
-\# Google Maps API
-GOOGLE_MAPS_KEY: [key]
+# Google reCaptcha
+recaptcha:
+  RECAPTCHA_SITE_KEY_V2: "secret key"
+  RECAPTCHA_SECRET_KEY_V2: "secret key"
+  RECAPTCHA_SITE_KEY_V3: "secret key"
+  RECAPTCHA_SECRET_KEY_V3: "secret key"
 
-\# Google reCaptcha
-RECAPTCHA_SITE_KEY_V2: [site key]
-RECAPTCHA_SECRET_KEY_V2: [site key]
-RECAPTCHA_SITE_KEY_V3: [site key]
-RECAPTCHA_SECRET_KEY_V3: [site key]
-
-\# Mail Server Gmail
-GMAIL_USERNAME: [username]
-GMAIL_PASSWORD: [password]
+# Mail Server Gmail
+mail_server:
+  GMAIL_USERNAME: "secret email"
+  GMAIL_PASSWORD: "secret password"
 ```
 
 There, you should put information about:
 
-- Rails Application key.
 - Google maps key.
 - Recaptcha keys (Version 2 and 3).
 - SMTP credentials.
 
-The app needs the master keys which you must add to config/credentials, it is inside the internal repository. You must ask for this file to support team.
+The app needs the master keys which you must add to config/credentials, it is avalaible in the internal repository. You must ask for this file to support team.
 
 ## Run
 
-Install dependencies
+Install dependencies using these commands in your terminal
 
 ```sh
-gem install bundler
+$ gem install bundler
 
-bundle install
+$ bundle install
 
-bower install --allow-root
+$ yarn
 ```
 
-Run the following command to execute the app in your local env
+Run the following command to execute the app in your local env terminal
 
 ```sh
-bundle exec rails s -b 0.0.0.0
+$ bundle exec rails s -b 0.0.0.0
 ```
 Extra configuration are at the internal repository.
 

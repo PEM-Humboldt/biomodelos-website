@@ -37,7 +37,7 @@ doc/
 /db/seeds.rb
 
 #Ignore bower components
-/bower.json
+bower.json
 .bowerrc
 /vendor/assets/bower_components
 public/*
