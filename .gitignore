@@ -41,11 +41,15 @@ doc/
 public/*
 !public/api_spec*.yml
 !public/atlas_files/.keep
+
+#coverage
 /coverage
+
+#Master keys
 /config/master.key
-
 /config/credentials/development.key
-
 /config/credentials/production.key
-
 /config/credentials/test.key
+
+#Ignore node_modules
+/node_modules

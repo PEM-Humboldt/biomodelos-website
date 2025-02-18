@@ -14,7 +14,7 @@ Deploy these services before setting up the app:
 
 ## Software
 
-- Ruby version 3.1.0. It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
+- Ruby version 3.1.6. It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
 - [Docker](https://www.docker.com) version 17.05 or up.
 - [Git](https://git-scm.com/)
 - [Bower](https://bower.io/)
