@@ -8,7 +8,6 @@
 
 Deploy these services before setting up the app:
 
-- MongoDB Database Service v.8.0.4
 - BioModelos API Service [GitHub Repo](https://github.com/LBAB-Humboldt/biomodelos_db_api)
 - PosgresSQL Database Service v.17
 
@@ -55,9 +54,9 @@ BASE_URI = "http://localhost:3000/v2";
 GEOSERVER_URI = "http://localhost:8080/geoserver";
 ```
 
-### Keys and credentials
+### Credentials and Keys
 
-Is necessary to setup the secret keys and credentials in the encrypted file credentials.yml.enc. This file is specific for each environment (production, development or test).
+Is necessary to setup the secret keys and credentials in an encrypted file credentials.yml.enc. This file is specific for each environment (production, development or test).
 This file needs the master key file to decrypt and modified the keys according to your specific requirements.
 There is some [Information](https://webcrunch.com/posts/the-complete-guide-to-ruby-on-rails-encrypted-credentials) about how to setup the credentials.
 
