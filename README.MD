@@ -48,7 +48,7 @@ Some files and paths in BioModelos need to be configured in order for the app to
 
 ### Connection to other BioModelos services
 
-You need to setup a path to the BioModelos API service URL and geoserver URL. Create a new file _url.rb_ under the _/config/initializers/_ folder and setup the next env vars:
+You need to setup a path for the BioModelos API service URL and geoserver URL, then, you must create a new file _url.rb_ under the _/config/initializers/_ folder and setup the next env vars:
 
 ```sh
 BASE_URI = "http://localhost:3000/v2";
@@ -57,51 +57,58 @@ GEOSERVER_URI = "http://localhost:8080/geoserver";
 
 ### Keys and credentials
 
-The keys are in the encrypted file credentials.yml.enc and they are specific for each environment (production, development or test).
-This file needs the master key to decrypt and modified the keys according to your specific requirements. 
+Is necessary to setup the secret keys and credentials in the encrypted file credentials.yml.enc. This file is specific for each environment (production, development or test).
+This file needs the master key file to decrypt and modified the keys according to your specific requirements.
+There is some [Information](https://webcrunch.com/posts/the-complete-guide-to-ruby-on-rails-encrypted-credentials) about how to setup the credentials.
 
-```sh
-SECRET_KEY_BASE: [secret key base]
-
-\# Google Maps API
-GOOGLE_MAPS_KEY: [key]
-
-\# Google reCaptcha
-RECAPTCHA_SITE_KEY_V2: [site key]
-RECAPTCHA_SECRET_KEY_V2: [site key]
-RECAPTCHA_SITE_KEY_V3: [site key]
-RECAPTCHA_SECRET_KEY_V3: [site key]
-
-\# Mail Server Gmail
-GMAIL_USERNAME: [username]
-GMAIL_PASSWORD: [password]
-```
-
-There, you should put information about:
+In this file you should put information about:
 
 - Rails Application key.
 - Google maps key.
 - Recaptcha keys (Version 2 and 3).
 - SMTP credentials.
 
-The app needs the master keys which you must add to config/credentials, it is inside the internal repository. You must ask for this file to support team.
+Content file example:
+
+```sh
+# Rails Secret Key
+SECRET_KEY_BASE: "secret key"
+
+# Google Maps API
+google_maps:
+  GOOGLE_MAPS_KEY: "secret key"
+
+# Google reCaptcha
+recaptcha:
+  RECAPTCHA_SITE_KEY_V2: "secret key"
+  RECAPTCHA_SECRET_KEY_V2: "secret key"
+  RECAPTCHA_SITE_KEY_V3: "secret key"
+  RECAPTCHA_SECRET_KEY_V3: "secret key"
+
+# Mail Server Gmail
+mail_server:
+  GMAIL_USERNAME: "secret email"
+  GMAIL_PASSWORD: "secret password"
+```
+
+For Humboldt organization you must ask for the master keys file which you must add to config/credentials, it is inside the internal repository.
 
 ## Run
 
 Install dependencies
 
 ```sh
-gem install bundler
+$ gem install bundler
 
-bundle install
+$ bundle install
 
-bower install --allow-root
+$ bower install --allow-root
 ```
 
 Run the following command to execute the app in your local env
 
 ```sh
-bundle exec rails s -b 0.0.0.0
+$ bundle exec rails s -b 0.0.0.0
 ```
 Extra configuration are at the internal repository.
 
