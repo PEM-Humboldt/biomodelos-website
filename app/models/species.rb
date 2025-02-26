@@ -66,7 +66,6 @@ class Species
     end
     JSON.parse(get(URI::DEFAULT_PARSER.escape(url)).body)
 
-    #JSON.parse(get(URI.escape(url)).body)
   end
 
   def self.search(params)
@@ -106,6 +105,5 @@ class Species
     end
     JSON.parse(get(URI::DEFAULT_PARSER.escape(url)).body)
 
-    #JSON.parse(get(URI.escape(url)).body)
   end
 end

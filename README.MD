@@ -8,13 +8,12 @@
 
 Deploy these services before setting up the app:
 
-- MongoDB Database Service v.8.0.4
 - BioModelos API Service [GitHub Repo](https://github.com/LBAB-Humboldt/biomodelos_db_api)
 - PosgresSQL Database Service v.17
 
 ## Software
 
-- Ruby version 3.1.0. It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
+- Ruby version 3.1.6. It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
 - [Docker](https://www.docker.com) version 17.05 or up.
 - [Git](https://git-scm.com/)
 - [Yarn](https://yarnpkg.com/). Install it using [npm](https://www.npmjs.com/package/yarn)
@@ -48,22 +47,34 @@ Some files and paths in BioModelos need to be configured in order for the app to
 
 ### Connection to other BioModelos services
 
-You need to setup a path of BioModelos API service URL and geoserver URL, for that, you must create a new file _url.rb_ under the _/config/initializers/_ folder and setup the next env vars:
+You need to setup a path for the BioModelos API service URL and geoserver URL, then, you must create a new file _url.rb_ under the _/config/initializers/_ folder and setup the next env vars:
 
 ```sh
 BASE_URI = "http://localhost:3000/v2";
 GEOSERVER_URI = "http://localhost:8080/geoserver";
 ```
 
-### Keys and credentials
+### Credentials and Keys
 
-The keys are in the encrypted file credentials.yml.enc and they are specific for each environment (production, development or test).
-This file needs the master key to decrypt and modified the keys according to your specific requirements.
+Is necessary to setup the secret keys and credentials in an encrypted file credentials.yml.enc. This file is specific for each environment (production, development or test).
+This file needs the master key file to decrypt and modified the keys according to your specific requirements.
+There is some [Information](https://webcrunch.com/posts/the-complete-guide-to-ruby-on-rails-encrypted-credentials) about how to setup the credentials.
+
+In this file you should put information about:
+
+- Google maps key.
+- Recaptcha keys (Version 2 and 3).
+- SMTP credentials.
+
+Content file example:
 
 ```sh
+# Rails Secret Key
+SECRET_KEY_BASE: "secret key"
+
 # Google Maps API
 google_maps:
-  GOOGLE_MAPS_KEY: 'secret key'
+  GOOGLE_MAPS_KEY: "secret key"
 
 # Google reCaptcha
 recaptcha:
@@ -78,13 +89,7 @@ mail_server:
   GMAIL_PASSWORD: "secret password"
 ```
 
-There, you should put information about:
-
-- Google maps key.
-- Recaptcha keys (Version 2 and 3).
-- SMTP credentials.
-
-The app needs the master keys which you must add to config/credentials, it is avalaible in the internal repository. You must ask for this file to support team.
+For Humboldt organization you must ask for the master keys file which you must add to config/credentials, it is inside the internal repository.
 
 ## Run
 
