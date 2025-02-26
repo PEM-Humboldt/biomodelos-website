@@ -13,10 +13,10 @@ Deploy these services before setting up the app:
 
 ## Software
 
-- Ruby version 3.1.6. It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
+- [Ruby](https://www.ruby-lang.org/en/documentation/) version 3.1.6. It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
 - [Docker](https://www.docker.com) version 17.05 or up.
-- [Git](https://git-scm.com/)
-- [Yarn](https://yarnpkg.com/). Install it using [npm](https://www.npmjs.com/package/yarn)
+- [Git](https://git-scm.com/).
+- [Yarn](https://yarnpkg.com/). Install it using [npm](https://www.npmjs.com/package/yarn).
 
 # Setup
 
@@ -32,8 +32,8 @@ $ git clone git://github.com/LBAB-Humboldt/BioModelos.v2.git
 
 To build the database according to the schema file using the SQL Service, you should follow the next steps:
 
-1. Create a [database.yml](https://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) file with the configuration of your SQL Service and add it to the _/config/_ path. Use _database_template.yml_ as a template which is located at _/config/_ folder
-2. Once you have the Docker container running, you may execute the **migrations** (_/db/migrate/_) following [this guide](https://edgeguides.rubyonrails.org/active_record_migrations.html#running-migrations).
+1. Create a [database.yml](https://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) file with the configuration of your SQL Service and add it to the ```_/config/_``` path. Use _database_template.yml_ as a template which is located at ```_/config/_``` folder
+2. Once you have the Docker container running, you may execute the **migrations** ```_/db/migrate/_``` following [this guide](https://edgeguides.rubyonrails.org/active_record_migrations.html#running-migrations).
 
 ## Configuration
 
@@ -47,7 +47,7 @@ Some files and paths in BioModelos need to be configured in order for the app to
 
 ### Connection to other BioModelos services
 
-You need to setup a path for the BioModelos API service URL and geoserver URL, then, you must create a new file _url.rb_ under the _/config/initializers/_ folder and setup the next env vars:
+You need to setup a path for the BioModelos API service URL and geoserver URL, then, you must create a new file ```_url.rb_``` under the ```_/config/initializers/_``` folder and setup the next env vars:
 
 ```sh
 BASE_URI = "http://localhost:3000/v2";
@@ -56,7 +56,7 @@ GEOSERVER_URI = "http://localhost:8080/geoserver";
 
 ### Credentials and Keys
 
-Is necessary to setup the secret keys and credentials in an encrypted file credentials.yml.enc. This file is specific for each environment (production, development or test).
+Is necessary to setup the secret credentials and keys in an encrypted file credentials.yml.enc. This file is specific for each environment (production, development or test).
 This file needs the master key file to decrypt and modified the keys according to your specific requirements.
 There is some [Information](https://webcrunch.com/posts/the-complete-guide-to-ruby-on-rails-encrypted-credentials) about how to setup the credentials.
 
@@ -89,11 +89,11 @@ mail_server:
   GMAIL_PASSWORD: "secret password"
 ```
 
-For Humboldt organization you must ask for the master keys file which you must add to config/credentials, it is inside the internal repository.
+For Humboldt organization you must ask for the master keys file which you must add to ```config/credentials```, it is inside the internal repository.
 
 ## Run
 
-**Important**: You should have installed previously Ruby 3.1.0.
+**Important**: You should have installed previously Ruby 3.1.6.
 
 Install dependencies using these commands in your terminal
 
@@ -126,7 +126,7 @@ And remember to mount the volumes (or link them) in your source code path
 
 ### Copying static files
 
-First, there are some static .PDF, .PNG and .ZIP files you need to copy to the /public/ folder. Those files are part of the guides and graphic pieces to advertise BioModelos and are not part of our repo.
+First, there are some static .PDF, .PNG and .ZIP files you need to copy to the ```/public/``` folder. Those files are part of the guides and graphic pieces to advertise BioModelos and are not part of our repo.
 
 ### Building the image
 
