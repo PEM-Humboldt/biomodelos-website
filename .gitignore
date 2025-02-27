@@ -37,8 +37,6 @@ bower.json
 public/*
 !public/api_spec*.yml
 !public/atlas_files/.keep
-#coverage
-/coverage
 #Master keys
 /config/master.key
 /config/credentials/development.key
