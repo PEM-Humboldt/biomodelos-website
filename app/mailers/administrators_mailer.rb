@@ -1,5 +1,5 @@
 class AdministratorsMailer < ApplicationMailer
-
+	
 	def contact_us(message)
 		@message = message
 	  @datetime = DateTime.now
