@@ -2,25 +2,25 @@
 
 [BioModelos](http://biomodelos.humboldt.org.co) is a web app that facilitates the generation, validation and consultation of hypothesis of species distribution for the continental biodiversity of Colombia. As such, it provides tools to (1) improve existing species distribution models (SDMs) by integrating expert's opinion, (2) generate expert maps and (3) publish SDMs. Our objective is to provide freely and openly access to the most up to date information on species distributions, validated by a large network of researchers, to support national environmental decision making processes and research.
 
-# Requirements
+## Requirements
 
-## Services
+### Services
 
 Deploy these services before setting up the app:
 
 - BioModelos API Service [GitHub Repo](https://github.com/LBAB-Humboldt/biomodelos_db_api)
 - PosgresSQL Database Service v.17
 
-## Software
+### Software
 
 - [Ruby](https://www.ruby-lang.org/en/documentation/) version 3.1.6. It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
 - [Docker](https://www.docker.com) version 17.05 or up.
 - [Git](https://git-scm.com/).
 - [Yarn](https://yarnpkg.com/). Install it using [npm](https://www.npmjs.com/package/yarn).
 
-# Setup
+## Setup
 
-## Download the source code
+### Download the source code
 
 Clone the repo to the server where you are deploying the app:
 
@@ -32,8 +32,8 @@ $ git clone git://github.com/LBAB-Humboldt/BioModelos.v2.git
 
 To build the database according to the schema file using the SQL Service, you should follow the next steps:
 
-1. Create a [database.yml](https://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) file with the configuration of your SQL Service and add it to the ```_/config/_``` path. Use _database_template.yml_ as a template which is located at ```_/config/_``` folder
-2. Once you have the Docker container running, you may execute the **migrations** ```_/db/migrate/_``` following [this guide](https://edgeguides.rubyonrails.org/active_record_migrations.html#running-migrations).
+1. Create a [database.yml](https://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) file with the configuration of your SQL Service and add it to the ```/config/``` path. Use _database_template.yml_ as a template which is located at ```/config/``` folder
+2. Once you have the Docker container running, you may execute the **migrations** ```/db/migrate/``` following [this guide](https://edgeguides.rubyonrails.org/active_record_migrations.html#running-migrations).
 
 ## Configuration
 
@@ -47,7 +47,7 @@ Some files and paths in BioModelos need to be configured in order for the app to
 
 ### Connection to other BioModelos services
 
-You need to setup a path for the BioModelos API service URL and geoserver URL, then, you must create a new file ```_url.rb_``` under the ```_/config/initializers/_``` folder and setup the next env vars:
+You need to setup a path for the BioModelos API service URL and geoserver URL, then, you must create a new file ```url.rb``` under the ```/config/initializers/``` folder and setup the next env vars:
 
 ```sh
 BASE_URI = "http://localhost:3000/v2";

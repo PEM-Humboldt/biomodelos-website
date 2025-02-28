@@ -31,8 +31,6 @@ doc/
 *.csv
 /db/seeds.rb
 #Ignore bower components
-bower.json
-.bowerrc
 /vendor/assets/bower_components
 public/*
 !public/api_spec*.yml
