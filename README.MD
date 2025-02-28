@@ -16,7 +16,8 @@ Deploy these services before setting up the app:
 - [Ruby](https://www.ruby-lang.org/en/documentation/) version 3.1.6. It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
 - [Docker](https://www.docker.com) version 17.05 or up.
 - [Git](https://git-scm.com/).
-- [Yarn](https://yarnpkg.com/). Install it using [npm](https://www.npmjs.com/package/yarn).
+- [npm](https://www.npmjs.com/) version 10.8.2.
+- [Yarn classic](https://classic.yarnpkg.com/lang/en/) version 1.22.22. Install it using [npm](https://www.npmjs.com/package/yarn).
 
 ## Setup
 
