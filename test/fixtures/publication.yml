@@ -1,0 +1,10 @@
+algo:
+
+  id: 1,
+  user_id: 1,
+  cc_license: 1,
+  records_vis: 1,
+  sib_contact: 1,
+  files: nil,
+  atlas_agreement: nil,
+  
