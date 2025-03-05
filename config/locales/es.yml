@@ -230,3 +230,6 @@ es:
     errors:
       verification_failed: 'La validación del reCAPTCHA falló. Inténtelo de nuevo.'
       recaptcha_unreachable: 'Ocurrió un error al intentar validar el reCAPTCHA. Inténtelo de nuevo.'
+  home:
+    show:
+      text: "Estado actual modelos de distribución por grupos taxonómicos"
