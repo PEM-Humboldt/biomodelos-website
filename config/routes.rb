@@ -12,9 +12,9 @@ Rails.application.routes.draw do
 
     get "species/autocomplete"
     get "species/visor"
-    get "home/contact_us"
-    get "home/about_us", as: "about_us"
-    get "home/publish", as: "publish"
+    get "home/contact_us", to: "home#contact_us", as: :"home_contact_us"
+    get "home/about_us", to: "home#about_us", as: :"home_about_us"
+    get "home/publish", to: "home#publish", as: :"home_publish"
     get "home/api"
     get "home/terms"
     post "home/send_contact_form"
