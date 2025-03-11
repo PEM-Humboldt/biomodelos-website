@@ -42,3 +42,4 @@ public/*
 /config/credentials/test.key
 #Ignore node_modules
 /node_modules
+docker-compose.yml
