@@ -1,0 +1,11 @@
+services:
+  biomodelos:
+    image: biomodelos:3.0
+    ports:
+     - "3001:3000"
+    volumes:
+     - /path/to/host/methods:/var/www/BioModelos/public/methods
+     - /path/to/host/models:/var/www/BioModelos/public/models
+     - /path/to/host/thumbs:/var/www/BioModelos/public/thumbs
+     - /path/to/host/zip:/var/www/BioModelos/public/zip
+     - /path/to/host/uploads:/var/www/BioModelos/public/uploads
