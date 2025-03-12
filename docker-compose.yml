@@ -1,0 +1,12 @@
+services:
+  biomodelos:
+    image: biomodelos:4.0 
+    container_name: biomodelos
+    ports:
+     - "3001:3000"
+    volumes:
+     - /home/jorge/VS_folder_projects/biomodelos-website-R3oR7/public/methods:/var/www/BioModelos/public/methods
+     - /home/jorge/VS_folder_projects/biomodelos-website-R3oR7/public/models:/var/www/BioModelos/public/models
+     - /home/jorge/VS_folder_projects/biomodelos-website-R3oR7/public/thumbs:/var/www/BioModelos/public/thumbs
+     - /home/jorge/VS_folder_projects/biomodelos-website-R3oR7/public/zip:/var/www/BioModelos/public/zip
+     - /home/jorge/VS_folder_projects/biomodelos-website-R3oR7/public/uploads:/var/www/BioModelos/public/uploads
