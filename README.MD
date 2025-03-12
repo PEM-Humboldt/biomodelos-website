@@ -149,7 +149,7 @@ services:
   biomodelos:
     image: [image name]
     ports:
-     - [host port]:[container port]"
+     - "[host port]:[container port]"
     volumes:
      - /path/to/host/methods:/var/www/BioModelos/public/methods
      - /path/to/host/models:/var/www/BioModelos/public/models
