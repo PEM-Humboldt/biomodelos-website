@@ -99,7 +99,7 @@ For Humboldt organization you must ask for the master keys file which you must a
 Install dependencies using these commands in your terminal
 
 ```sh
-$ gem install bundler
+$ gem install bundler -v 2.6.5
 
 $ bundle install
 
