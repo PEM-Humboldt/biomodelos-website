@@ -22,6 +22,5 @@ class DownloadsController < ApplicationController
   
       send_data csv_string, filename: "files_download_report_#{Date.today}.csv"
     end
-  
-  end
+end
   

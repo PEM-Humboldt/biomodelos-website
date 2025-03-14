@@ -187,7 +187,7 @@ $(document).ready(function() {
     });
 
     /* Action to go to a species URL from home */
-    $("#searchBtnHome").click(function(e){
+    $("#searchBtnHome").on("click",function(e){
         e.preventDefault();
         window.location.href = "/"+ $("#locale_field").val() +"/species/visor?species_id=" + $("#species_id_home").val();
     });

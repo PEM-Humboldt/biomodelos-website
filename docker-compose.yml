@@ -1,6 +1,6 @@
 services:
   biomodelos:
-    image: biomodelos:4.0 
+    image: biomodelos:8.0 
     container_name: biomodelos
     ports:
      - "3001:3000"
