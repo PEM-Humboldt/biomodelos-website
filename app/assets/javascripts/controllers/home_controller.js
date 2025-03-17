@@ -2,7 +2,7 @@ const HomeControllerModule = function() {
   /*
   * Autocomplete function using typeahead.js library
   */
-  function typeahead_f() {
+    function typeahead_f() {
         var species_search = new Bloodhound({
             datumTokenizer: function (d) {
                 return Bloodhound.tokenizers.whitespace(d.species);
@@ -67,7 +67,7 @@ const HomeControllerModule = function() {
             });
     }
 
-  function google_charts_f() {
+    function google_charts_f() {
         $.post("/models/models_stats").done(function (data) {
             _drawCharts(data);
         });
@@ -155,11 +155,10 @@ const HomeControllerModule = function() {
             }
         }
     }
-
-  return { typeahead_f, google_charts_f };
+    return { typeahead_f, google_charts_f };
 }();
 
-$(document).ready(function() {
+$(document).jquery(function() {
     /* Add or remove class to show the selected element on license type */
     $("#class_checker input:checkbox").on('click', function() {
         var $box = $(this),
