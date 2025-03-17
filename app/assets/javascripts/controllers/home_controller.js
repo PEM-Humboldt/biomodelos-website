@@ -158,7 +158,7 @@ const HomeControllerModule = function() {
     return { typeahead_f, google_charts_f };
 }();
 
-$(document).jquery(function() {
+$(document).ready(function() {
     /* Add or remove class to show the selected element on license type */
     $("#class_checker input:checkbox").on('click', function() {
         var $box = $(this),
