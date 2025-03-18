@@ -65,8 +65,8 @@ const HomeControllerModule = function() {
                 $("#species_id_home").val(0);
                 $("#species_id").val(0);
             });
-    }
-
+    };
+    
     function google_charts_f() {
         $.post("/models/models_stats").done(function (data) {
             _drawCharts(data);
