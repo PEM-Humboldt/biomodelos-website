@@ -233,4 +233,4 @@ es:
       recaptcha_unreachable: 'Ocurrió un error al intentar validar el reCAPTCHA. Inténtelo de nuevo.'
   home:
     show:
-      text: "Estado actual modelos de distribución por grupos taxonómicos"
+      models_status_text: "Estado actual modelos de distribución por grupos taxonómicos"

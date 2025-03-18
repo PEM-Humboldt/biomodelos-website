@@ -38,7 +38,7 @@ en:
         bio: "Biography"
   home:
     show:
-      text: "Current status: distribution models by taxonomic groups"
+      models_status_text: "Current status distribution models by taxonomic groups"
   errors: &errors
     format: ! '%{message}'
     messages:
