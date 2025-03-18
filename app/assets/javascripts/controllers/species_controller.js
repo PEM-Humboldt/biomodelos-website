@@ -9,7 +9,7 @@ var _speciesFunctionsModule = function() {
 		//Reset meses
 		$('input:checkbox.meschk').removeAttr('checked');
 		//Reset filters
-		$(".select-options li:contains('Tipo de filtro')").trigger("click");
+		$(".select-options li:contains('Tipo de filtro')").click();
 		//Reset visualizar filters
 		$('#chkBoxFilters input:checkbox').removeAttr('checked');
 		//Activate the default checkbox
