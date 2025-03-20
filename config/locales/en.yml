@@ -36,3 +36,33 @@ en:
         organization: "Organization"
         location: "Location"
         bio: "Biography"
+  home:
+    show:
+      models_status_text: "Current status distribution models by taxonomic groups"
+  errors: &errors
+    format: ! '%{message}'
+    messages:
+      accepted: Must be accepted
+      blank: Password can't be blank  
+      confirmation: Passwords do not match
+      empty: Can't be empty
+      equal_to: Must be equal to %{count}
+      even: Must be even
+      exclusion: Is reserved
+      extension_whitelist_error: File format is not valid
+      greater_than: Must be greater than %{count}
+      greater_than_or_equal_to: Must be greater than or equal to %{count}
+      inclusion: Is not included in the list
+      invalid: Is not valid
+      less_than: Must be less than %{count}
+      less_than_or_equal_to: Must be less than or equal to %{count}
+      not_a_number: Is not a number
+      not_an_integer: Must be an integer
+      odd: Must be odd
+      record_invalid: ! 'Validation failed: %{errors}'
+      taken: Is already taken
+      too_long: Is too long (%{count} characters maximum)
+      too_short: Is too short (%{count} characters minimum)
+      wrong_length: Is the wrong length (%{count} characters exact)
+      max_size_error: File size exceeds the limit
+      processing_error: An error occurred while processing the file

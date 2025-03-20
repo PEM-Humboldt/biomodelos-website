@@ -22,8 +22,6 @@
 			</div>
 		<% end %>
 		<div class="perflinks">
-			<!-- <div class="rank" rel="tooltip" title="Ranking BioModelos del usuario">400</div> -->
-		<!-- 	<a href="" class="edituser" rel="tooltip" title="Editar usuario"></a> -->
 		<% if user_signed_in? %>
 			<% if @user.id != current_user.id %>
 				<a href="" class="mailto" rel="tooltip" title="<%= t('biomodelos.users.message_to_expert_tt') %>" ng-click="messagebox=!messagebox"></a>
@@ -49,38 +47,13 @@
 	       	<li ng-class="{ active: isSet(2) }">
 	          	<a href ng-click="setTab(2)" class="user_tasks_tab"><%= t('biomodelos.users.tasks_tab') %></a>
 	       	</li>
-<!-- 	       	<li ng-class="{ active: isSet(3) }">
-	          	<a href ng-click="setTab(3)">mis mapas</a>
-	       	</li>
-	       	<li ng-class="{ active: isSet(4) }">
-	          	<a href ng-click="setTab(4)">especies</a>
-	       	</li>
-	       	<li ng-class="{ active: isSet(5) }">
-	          	<a href ng-click="setTab(5)">actividad</a>
-	       	</li>
-	       	<li ng-class="{ active: isSet(6) }">
-	          	<a href ng-click="setTab(6)">notificaciones</a>
-	       	</li> -->
 	     </ul>
-
 		<div ng-show="isSet(1)" class="cajaperfil scrollp">
 			<%= render 'users/users_statistics' %>
 		</div>
 		<div ng-show="isSet(2)" class="cajaperfil">
 			<%= render 'users/users_tasks' %>
 		</div>
-<!-- 		<div ng-show="isSet(3)" class="cajaperfil">
-			<%= render 'users/users_maps' %>
-		</div>
-		<div ng-show="isSet(4)" class="cajaperfil sppbox">
-			<%= render 'users/users_species' %>
-		</div>
-		<div ng-show="isSet(5)" class="cajaperfil">
-			<%= render 'users/users_activity' %>
-		</div>
-		<div ng-show="isSet(6)" class="cajaperfil">
-			<%= render 'users/users_notifications' %>
-		</div> -->
 	</div>
 </div>
 </div>

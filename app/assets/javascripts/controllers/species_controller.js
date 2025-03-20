@@ -91,22 +91,22 @@ $(document).ready(function() {
 	/*
 	* Botones de cerrar las cajas del menú: Búsqueda, Info, Modelos, Contribuciones
 	*/
-	$("#clsSearchBox").click(function(e){
+	$("#clsSearchBox").on("click", function(e){
 		if ($(".vbtnfind").hasClass('vbtnact')){
       		$(".vbtnfind").removeClass('vbtnact');
    		}
 	});
-	$("#clsInfoBox").click(function(e){
+	$("#clsInfoBox").on("click",function(e){
 		if ($(".vbtninfo").hasClass('vbtnact')){
       		$(".vbtninfo").removeClass('vbtnact');
    		}
 	});
-	$("#clsModelsBox").click(function(e){
+	$("#clsModelsBox").on("click",function(e){
 		if ($(".vbtnhipo").hasClass('vbtnact')){
       		$(".vbtnhipo").removeClass('vbtnact');
    		}
 	});
-	$("#clsEditBox").click(function(e){
+	$("#clsEditBox").on("click",function(e){
 		if ($(".vbtnedit").hasClass('vbtnact')){
       		$(".vbtnedit").removeClass('vbtnact');
    		}

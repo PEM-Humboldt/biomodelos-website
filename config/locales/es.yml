@@ -98,29 +98,30 @@ es:
   errors: &errors
     format: ! '%{message}'
     messages:
-      accepted: debe ser aceptado
-      blank: no puede estar en blanco
-      confirmation: no coincide con la confirmación
-      empty: no puede estar vacío
-      equal_to: debe ser igual a %{count}
-      even: debe ser par
-      exclusion: está reservado
+      accepted: Debe ser aceptado
+      blank: La contraseña no puede estar en blanco
+      confirmation: Las contraseñas no coinciden
+      empty: No puede estar vacío
+      equal_to: Debe ser igual a %{count}
+      even: Debe ser par
+      exclusion: Está reservado
       extension_whitelist_error: El formato del archivo no es válido.
-      greater_than: debe ser mayor que %{count}
-      greater_than_or_equal_to: debe ser mayor que o igual a %{count}
-      inclusion: no está incluido en la lista
-      invalid: no es válido
-      less_than: debe ser menor que %{count}
-      less_than_or_equal_to: debe ser menor que o igual a %{count}
-      not_a_number: no es un número
-      not_an_integer: debe ser un entero
-      odd: debe ser impar
+      greater_than: Debe ser mayor que %{count}
+      greater_than_or_equal_to: Debe ser mayor que o igual a %{count}
+      inclusion: No está incluido en la lista
+      invalid: No es válido
+      less_than: Debe ser menor que %{count}
+      less_than_or_equal_to: Debe ser menor que o igual a %{count}
+      not_a_number: No es un número
+      not_an_integer: Debe ser un entero
+      odd: Debe ser impar
       record_invalid: ! 'La validación falló: %{errors}'
-      taken: ya está en uso
-      too_long: es demasiado largo (%{count} caracteres máximo)
-      too_short: es demasiado corto (%{count} caracteres mínimo)
-      wrong_length: no tiene la longitud correcta (%{count} caracteres exactos)
-      max_size_error: el tamaño del archivo supera el límite establecido
+      taken: Ya está en uso
+      too_long: Es demasiado largo (%{count} caracteres máximo)
+      too_short: Es demasiado corto (%{count} caracteres mínimo)
+      wrong_length: No tiene la longitud correcta (%{count} caracteres exactos)
+      max_size_error: El tamaño del archivo supera el límite establecido
+      processing_error: Ocurrió un error al procesar el archivo
     template:
       body: ! 'Se encontraron problemas con los siguientes campos:'
       header:
@@ -230,3 +231,6 @@ es:
     errors:
       verification_failed: 'La validación del reCAPTCHA falló. Inténtelo de nuevo.'
       recaptcha_unreachable: 'Ocurrió un error al intentar validar el reCAPTCHA. Inténtelo de nuevo.'
+  home:
+    show:
+      models_status_text: "Estado actual modelos de distribución por grupos taxonómicos"
