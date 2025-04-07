@@ -4,4 +4,7 @@ function gtag() {
 }
 gtag("js", new Date());
 
-gtag("config", "G-WD07J9FEXQ");
+gtag("config", "G-WD07J9FEXQ", {
+  cookie_domain: '.humboldt.org.co',
+  cookie_flags: 'SameSite=None;Secure'
+});
