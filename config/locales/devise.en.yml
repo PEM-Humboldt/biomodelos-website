@@ -66,5 +66,5 @@ en:
       not_locked: "was not locked"
       unsupported_image_type: "wrong file type"
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        one: "There was 1 error that prohibited this %{resource} from being saved:"
+        other: "There were %{count} errors that prohibited this %{resource} from being saved:"

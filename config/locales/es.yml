@@ -99,8 +99,6 @@ es:
     format: ! '%{message}'
     messages:
       accepted: Debe ser aceptado
-      blank: La contraseña no puede estar en blanco
-      confirmation: Las contraseñas no coinciden
       empty: No puede estar vacío
       equal_to: Debe ser igual a %{count}
       even: Debe ser par
@@ -193,7 +191,6 @@ es:
       long: ! '%d de %B de %Y %H:%M'
       short: ! '%d de %b %H:%M'
     pm: pm
-  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
     errors:
       <<: *errors
@@ -202,31 +199,39 @@ es:
       user: "User"
     attributes:
       user:
+        name: "Nombres y apellidos"
         email: "Email"
         clave: 'Contraseña'
         password_confirmation: "Confirmar contraseña"
         current_password: "Contraseña actual"
         remember_me: 'Recordarme'
-        name: "Nombres y apellidos"
         expertise: "Grupos de Interés"
         organization: "Organización"
         location: "Ubicación"
         bio: "Biografía"
-    errors:
+    errors: &errors
+      format: ! '%{message}'
       models:
           user:
             attributes:
+              name:
+                blank: "El nombre no puede estar vacío."
               email:
-                blank: "Ingrese una dirección de correo electrónico"
-                taken: "El correo que ingresó ya existe en BioModelos"
-                invalid: "Ingrese una dirección de correo válida"
+                blank: "El email no puede estar vacío."
+                taken: "El email que ingresó ya existe en BioModelos."
+                invalid: "Formato de email no valido."
               password:
-                blank: "Ingrese una contraseña"
-                confirmation: "La contraseña y su confirmación no coinciden"
-                too_long: La contraseña es demasiado larga (%{count} caracteres máximo)
-                too_short: La contraseña es demasiado corta (%{count} caracteres mínimo)
+                blank: "La contraseña no puede estar vacía."
+                confirmation: "La contraseña y su confirmación no coinciden."
+                too_long: "La contraseña es demasiado larga (%{count} caracteres máximo)"
+                too_short: "La contraseña es demasiado corta (%{count} caracteres mínimo)."
               password_confirmation:
-                blank: "Ingrese la confirmación de la contraseña"
+                blank: "La confirmación de la contraseña no puede estar vacía."
+                confirmation: "La contraseña y su confirmación no coinciden."
+              terms_of_service:
+                terms_not_accepted: "Debe leer y aceptar los términos y condiciones."
+              data_policy:
+                policy_not_accepted: "Debe leer y aceptar las políticas de protección de datos personales."
   recaptcha:
     errors:
       verification_failed: 'La validación del reCAPTCHA falló. Inténtelo de nuevo.'

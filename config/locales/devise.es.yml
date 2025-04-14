@@ -7,8 +7,8 @@ es:
       not_locked: "no ha sido bloqueada"
       unsupported_image_type: "tipo de archivo equivocado"
       not_saved:
-        one: "Ha habido 1 error:"
-        other: "Han habido %{count} errores:"
+        one: "Hay 1 error que no permite registrar el usuario:"
+        other: "Hay %{count} errores que no permiten registrar el usuario:"
 
   devise:
     failure:
