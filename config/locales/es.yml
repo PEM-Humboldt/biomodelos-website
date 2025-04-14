@@ -228,6 +228,10 @@ es:
               password_confirmation:
                 blank: "La confirmación de la contraseña no puede estar vacía."
                 confirmation: "La contraseña y su confirmación no coinciden."
+              terms_of_service:
+                terms_not_accepted: "Debe leer y aceptar los términos y condiciones."
+              data_policy:
+                policy_not_accepted: "Debe leer y aceptar las políticas de protección de datos personales."
   recaptcha:
     errors:
       verification_failed: 'La validación del reCAPTCHA falló. Inténtelo de nuevo.'

@@ -33,6 +33,10 @@ en:
             password_confirmation:
               blank: "Password confirmation can't be blank."
               confirmation: "Password and password confirmation do not match."
+            terms_of_service:
+              terms_not_accepted: "You must read and accept the terms and conditions of service."
+            data_policy:
+              policy_not_accepted: "You must read and accept the personal data policy."
   recaptcha:
     errors:
       verification_failed: 'reCAPTCHA validation failed. Please try again.'
