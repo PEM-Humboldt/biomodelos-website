@@ -1,41 +1,46 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
   activerecord:
     models:
       user: "User"
     attributes:
       user:
+        name: "Full name"
         email: "Email"
         clave: "Password"
         password_confirmation: "Password confirmation"
         current_password: "Current password"
         remember_me: "Remember me"
-        name: "Full name"
         expertise: "Expertise"
         organization: "Organization"
         location: "Location"
         bio: "Biography"
+    errors: &errors
+      format: ! '%{message}'
+      models:
+        user:
+          attributes:
+            name:
+              blank: "Full name can't be blank."
+            email:
+              blank: "Email can't be blank."
+              invalid: "Email format does not valid."
+              taken: "Email is already taken."
+            password:
+              blank: "Password can't be blank."
+              confirmation: "Password and password confirmation do not match."
+              too_short: "Password is too short (minimum is %{count} characters)."
+              too_long: "Password is too long (maximum is %{count} characters)."
+            password_confirmation:
+              blank: "Password confirmation can't be blank."
+              confirmation: "Password and password confirmation do not match."
+            terms_of_service:
+              terms_not_accepted: "You must read and accept the terms and conditions of service."
+            data_policy:
+              policy_not_accepted: "You must read and accept the personal data policy."
+  recaptcha:
+    errors:
+      verification_failed: 'reCAPTCHA validation failed. Please try again.'
+      recaptcha_unreachable: 'reCAPTCHA service is unreachable. Please try again later.'
   home:
     show:
       models_status_text: "Current status distribution models by taxonomic groups"
@@ -43,8 +48,6 @@ en:
     format: ! '%{message}'
     messages:
       accepted: Must be accepted
-      blank: Password can't be blank  
-      confirmation: Passwords do not match
       empty: Can't be empty
       equal_to: Must be equal to %{count}
       even: Must be even

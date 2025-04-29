@@ -2,19 +2,19 @@
   <div class="loginbox">
   	<h2>Olvidé mi clave</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field mb40">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-  <p class="groupuser">*En caso de que haya olvidado el correo con el cual se registró en la plataforma o ya no tenga acceso al mismo, escríbanos un correo a <b>biomodelos@humboldt.org.co</b> con el asunto "Recuperar mi cuenta".</p><br/>
-  <div class="actions">
-    <%= f.submit "ENVIAR" %>
-  </div>
-<% end %>
-<div class="respclear"></div>
-<%= render "devise/shared/links" %>
+      <div class="field mb40">
+        <%= f.label :email %><br/>
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+      <p class="groupuser">*En caso de que haya olvidado el correo con el cual se registró en la plataforma o ya no tenga acceso al mismo, escríbanos un correo a <b>biomodelos@humboldt.org.co</b> con el asunto "Recuperar mi cuenta".</p><br/>
+      <div class="actions">
+        <%= f.submit "ENVIAR" %>
+      </div>
+    <% end %>
+    <div class="respclear"></div>
+    <%= render "devise/shared/links" %>
   </div>
 </div>
