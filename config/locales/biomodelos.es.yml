@@ -529,6 +529,20 @@ es:
       address: "Dirección"
       fields_error: "Debe completar los siguientes campos: "
       success_notice: "Su mensaje ha sido enviado con éxito."
+    password:
+      new:
+        alert_text_html: >
+          *En caso de que haya olvidado el correo con el cual se registró en la plataforma o ya no tenga acceso al mismo, escríbanos un correo a <b>biomodelos@humboldt.org.co</b> con el asunto "Recuperar mi cuenta".
+        submit_btn: "ENVIAR"
+        title: "Olvidé mi clave"
+      edit:
+        title: "CAMBIAR MI CLAVE"
+        new_password: "Nueva clave"
+        confirm_new_password: "Confirmar nueva clave"
+        submit_btn: "CAMBIAR"
+        min: "(mínimo "
+        char: " caracteres)"
+        
     users:
       message_to_expert: "Mensaje al experto."
       max_message_ph: "máximo 500 caracteres"

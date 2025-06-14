@@ -1,26 +1,30 @@
 <div class="innercontainer fondoplumas">
   <div class="loginbox">
-    <h2>cambiar mi clave</h2>
+    <h2><%= t('biomodelos.password.edit.title')%></h2>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       <%= f.hidden_field :reset_password_token %>
 
       <div class="field">
-        <%= f.label :nueva_clave, "New password" %><br />
+        <%= f.label :nueva_clave, t('biomodelos.password.edit.new_password') %><br />
         <% if @minimum_password_length %>
-        <em>(mínimo <%= @minimum_password_length %> caracteres)</em><br />
+        <em>
+            <%=t('biomodelos.password.edit.min') %>
+            <%= @minimum_password_length %> 
+            <%=t('biomodelos.password.edit.char') %>
+        </em><br />
         <% end %>
         <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
       </div>
 
       <div class="field mb40">
-        <%= f.label :confirmar_clave, "Confirm new password" %><br />
+        <%= f.label :confirmar_clave, t('biomodelos.password.edit.confirm_new_password') %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
 
       <div class="actions">
-        <%= f.submit "CAMBIAR" %>
+        <%= f.submit t('biomodelos.password.edit.submit_btn') %>
       </div>
     <% end %>
 
