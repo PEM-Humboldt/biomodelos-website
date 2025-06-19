@@ -529,6 +529,20 @@ en:
       address: "Address"
       fields_error: "You must fill the following fields: "
       success_notice: "Your message has been sent successfully."
+    password:
+      new:
+        alert_text_html: >
+          *If you have forgotten the email address that you used to register on the platform or you do not have access to it, please send us an email to <b>biomodelos@humboldt.org.co</b> with the subject "Recuperar mi cuenta".
+        submit_btn: "SEND"
+        title: "Password recovery"
+      edit:
+        title: "CHANGE PASSWORD"
+        new_password: "New password"
+        confirm_new_password: "Confirm new password"
+        submit_btn: "CHANGE"
+        min: "(minimum "
+        char: " characters)"
+
     users:
       message_to_expert: "Message to the expert."
       max_message_ph: "500 characters max."
