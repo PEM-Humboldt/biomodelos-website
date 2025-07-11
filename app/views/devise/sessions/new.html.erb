@@ -1,6 +1,6 @@
 <div class="innercontainer fondoplumas nbg5">
   <div class="loginbox">
-    <h2><%= t('biomodelos.log_in.title') %></h2>
+    <h2><%= t('devise.sessions.new.title') %></h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <%= f.label :email %>
@@ -20,7 +20,7 @@
       <% end -%>
 
       <div class="actions">
-        <%= f.submit t('biomodelos.log_in.log_in_btn') %>
+        <%= f.submit t('devise.sessions.new.log_in_btn') %>
       </div>
     <% end %>
     <div class="respclear"></div>

@@ -63,15 +63,6 @@ en:
         title: "BioModelos news"
         text_1: "The second installment of the “Atlas of Biodiversity of Colombia” is here, for the Primates thematic group. Thanks to the work of this group in BioModelos, the compilation of validated models of 38 species, and analysis information from their distribution was achieved."
         text_2: "Many groups have made progress in their species lists and some have already finished modeling the species of their thematic group, a clear case this year are the experts in primates, in support with the APC (Colombian Primatological Association). It is thanks to their collaboration that these distribution models achieve this validated status and are received as reliable information by the scientific community, allowing us to say “better models with support from experts”."
-    log_in:
-      title: "log in"
-      log_in_btn: "LOG IN"
-    sign_up:
-      title: "Sign Up"
-      password_min_txt: "Minimum %{caracteres} characters long"
-      terms_txt: "I have read and accept the terms and conditions of use"
-      data_policies_txt: "I have read and accept the personal data policy"
-      sign_up_btn: "SIGN UP"
     visor:
       tooltip:
         model_name: "Model status"
@@ -529,20 +520,6 @@ en:
       address: "Address"
       fields_error: "You must fill the following fields: "
       success_notice: "Your message has been sent successfully."
-    password:
-      new:
-        alert_text_html: >
-          *If you have forgotten the email address that you used to register on the platform or you do not have access to it, please send us an email to <b>biomodelos@humboldt.org.co</b> with the subject "Recuperar mi cuenta".
-        submit_btn: "SEND"
-        title: "Password recovery"
-      edit:
-        title: "CHANGE PASSWORD"
-        new_password: "New password"
-        confirm_new_password: "Confirm new password"
-        submit_btn: "CHANGE"
-        min: "(minimum "
-        char: " characters)"
-
     users:
       message_to_expert: "Message to the expert."
       max_message_ph: "500 characters max."
@@ -558,6 +535,7 @@ en:
       edit_profile:
         title: "Edit my user"
         text_1: "By completing your user profile, you increase the possibility of joining the groups of experts and improve your interaction with other users."
+        text_2: "Currently waiting confirmation for: "
         valid_email_tt: "It is important to have a valid email to receive notifications and information from the application."
         name_ph: "Names and surnames"
         expertise_ph: "Taxonomic group(s) of interest"
