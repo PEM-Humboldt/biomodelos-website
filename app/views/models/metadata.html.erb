@@ -13,7 +13,17 @@
         <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.validation_type_tt') %>"><%= t('biomodelos.models.metadata.validation_type') %> <b><%= @metadata[0]["validationType"] %></b></h3>
         <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.stat_type_tt') %>"><%= @metadata[0]["perfStatType"] %> <b><%= @metadata[0]["perfStatValue"] %></b></h3>
         <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.level_tt') %>"><%= t('biomodelos.models.metadata.level') %> <b><%= map_level_name(@metadata[0]["modelLevel"]) %></b></h3>
-        <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.docs_tt') %>"><%= t('biomodelos.models.metadata.docs') %> <b><%= @metadata[0]["methodFile"].blank? ? "NA" : link_to(@metadata[0]["methodFile"], @metadata[0]['methodFile'], target: "_blank") %></b></h3>
+        
+        <% metadata_file = @metadata[0]["methodFile"] %>
+        <% if metadata_file.present? %>
+            <% if metadata_file.start_with?("http://", "https://") %>
+                <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.docs_tt') %>"><%= t('biomodelos.models.metadata.docs') %> <b><%= link_to(@metadata[0]["methodFile"], @metadata[0]['methodFile'], target: "_blank") %></b></h3>
+            <% elsif metadata_file.end_with?(".pdf")%>
+                <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.docs_tt') %>"><%= t('biomodelos.models.metadata.docs') %> <b><%= link_to(@metadata[0]["methodFile"], "/models/#{@metadata[0]["modelID"]}/#{ERB::Util.url_encode(@metadata[0]["methodFile"])}", target: "_blank") %></b></h3>
+            <% else %>
+                <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.docs_tt') %>"><%= t('biomodelos.models.metadata.docs') %> <b><%= "NA" %></b></h3>
+            <% end %>
+        <% end %>
         </div>
 
         <h2><%= t('biomodelos.models.metadata.citation') %></h2>
