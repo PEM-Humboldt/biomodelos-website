@@ -1,18 +1,22 @@
-<h2>Resend unlock instructions</h2>
+<div class="innercontainer fondoplumas nbg8">
+  <div class="loginbox">
 
-<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <h2><%= t('devise.unlocks.new.title')%></h2>
 
-  <div class="field">
-    <%= f.label :email %><br/>
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="actions">
-    <%= f.submit "Resend unlock instructions" %>
-  </div>
-<% end %>
+    <div class="field mb40">
+        <%= f.label :email %><br/>
+        <%= f.email_field :email, autofocus: true %>
+    </div>
 
-<div class="respclear"></div>
-<%= render "devise/shared/links" %>
+    <div class="actions">
+        <%= f.submit t('devise.unlocks.new.submit_btn') %>
+    </div>
+    <% end %>
+
+    <div class="respclear"></div>
+    <%= render "devise/shared/links" %>
+   </div>
 </div>

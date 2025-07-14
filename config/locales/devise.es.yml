@@ -48,6 +48,9 @@ es:
         min: "(mínimo "
         char: " caracteres)"
     confirmations:
+      new:
+        title: "Confirmar cuenta"
+        submit_btn: "Reenviar instrucciones de confirmación"
       send_instructions: 'Recibirás instrucciones para confirmar tu cuenta en tu email en unos minutos.'
       send_paranoid_instructions: 'Si tu email existe en el sistema, recibirás instrucciones para confirmar tu cuenta en tu email en unos minutos.'
       confirmed: 'Tu cuenta fue confirmada. Has iniciado sesión.'
@@ -66,6 +69,9 @@ es:
         data_policies_txt: "Políticas de protección de datos personales"
         sign_up_btn: "REGISTRARSE"    
     unlocks:
+      new:
+        title: "Desbloquear cuenta"
+        submit_btn: "Reenviar instrucciones de desbloqueo"
       send_instructions: 'Recibirás un email con instrucciones para desbloquear tu cuenta en unos minutos'
       unlocked: 'Tu cuenta ha sido desbloqueada. Inicia sesión para continuar.'
       send_paranoid_instructions: 'Si tu cuenta existe, recibirás instrucciones para desbloquear tu cuenta en unos minutos'
