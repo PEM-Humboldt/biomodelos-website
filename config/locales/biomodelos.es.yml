@@ -63,15 +63,6 @@ es:
         title: "noticias BioModelos"
         text_1: "Y salió la segunda entrega del “Atlas de la Biodiversidad de Colombia”, para el grupo temático Primates. Gracias al trabajo de este grupo en BioModelos se logró la compilación de modelos validados de 38 especies, e información de análisis a partir de su distribución."
         text_2: "Muchos grupos han avanzado en sus listas de especies y algunos ya han terminado de modelar las especies de su grupo temático, un claro caso este año son los expertos en primates, en apoyo con la APC (Asociación Primatológica Colombiana). Es gracias a su colaboración que dichos modelos de distribución consiguen ese estado de validados y son recibidos como información confiable por la comunidad científica, permitiéndonos decir “mejores modelos con el apoyo de expertos”."
-    log_in:
-      title: "ingresar"
-      log_in_btn: "INGRESAR"
-    sign_up:
-      title: "Registrarse"
-      password_min_txt: "mínimo %{caracteres} caracteres"
-      terms_txt: "He leído y acepto los términos y condiciones"
-      data_policies_txt: "Políticas de protección de datos personales"
-      sign_up_btn: "REGISTRARSE"
     visor:
       tooltip:
         model_name: "Estado del modelo"
@@ -529,20 +520,6 @@ es:
       address: "Dirección"
       fields_error: "Debe completar los siguientes campos: "
       success_notice: "Su mensaje ha sido enviado con éxito."
-    password:
-      new:
-        alert_text_html: >
-          *En caso de que haya olvidado el correo con el cual se registró en la plataforma o ya no tenga acceso al mismo, escríbanos un correo a <b>biomodelos@humboldt.org.co</b> con el asunto "Recuperar mi cuenta".
-        submit_btn: "ENVIAR"
-        title: "Olvidé mi clave"
-      edit:
-        title: "CAMBIAR MI CLAVE"
-        new_password: "Nueva clave"
-        confirm_new_password: "Confirmar nueva clave"
-        submit_btn: "CAMBIAR"
-        min: "(mínimo "
-        char: " caracteres)"
-        
     users:
       message_to_expert: "Mensaje al experto."
       max_message_ph: "máximo 500 caracteres"
@@ -558,6 +535,7 @@ es:
       edit_profile:
         title: "Editar mi usuario"
         text_1: "Completando tu perfil de usuario aumentas la posibilidad de ingresar a los grupos de expertos y de mejorar la interacción con los demás usuarios."
+        text_2: "Esperando confirmación para: "
         valid_email_tt: "Es importante tener un email válido para recibir notificaciones e información desde la aplicación."
         name_ph: "Nombres y apellidos"
         expertise_ph: "Grupo(s) taxonómico(s) de interés"
