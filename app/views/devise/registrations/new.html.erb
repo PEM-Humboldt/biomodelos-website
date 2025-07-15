@@ -4,7 +4,7 @@
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
-      <!-- <%= flash[:recaptcha_error] %> -->
+      
       <div class="field">
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true %>
@@ -32,9 +32,7 @@
         <label class="checkboxterm"><%= link_to t('devise.registrations.new.terms_txt'), home_terms_path(:anchor => "politica"), {class: 'linkterminos', target: '_blank'} %></label></br>
         <%= f.check_box :data_policy, {:class => "mb40"} %>
         <label class="checkboxterm2"><%= link_to t('devise.registrations.new.data_policies_txt'), home_terms_path(:anchor => "personales"), {class: 'linkterminos', target: '_blank'} %></label></br>
-        <!-- <input type="checkbox" name="aceptoterms" value="terms" id="acepto-chk" class="mb40" />
-        <label  class="checkboxterm"><a class="linkterminos" href="">He leído y acepto los términos y condiciones</a></label></br>
-        </input> -->
+       
       </div>
       <% if @show_checkbox_recaptcha %>
         <%= recaptcha_tags %>
