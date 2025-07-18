@@ -28,7 +28,7 @@ en:
         text_2: "If you did not make this request, you can ignore this email."
         text_3: "Your password will not change until you access the link above and create a new one."
         text_4: "This email is being sent to your email address registered in the BioModelos database. Your data is being processed in accordance with Colombian Statutory Law 1581 of 2012 and Regulatory Decree 1377 of 2013, which establish provisions for the protection of personal data."
-        text_5: "If you wish to remove your email address from our database, please reply to this email with the subject “I wish to stop receiving emails.” If you have any questions, please contact us at biomodelos@humboldt.org.co or use the contact form at "
+        text_5: "If you wish to remove your email address from our database, please reply to this email with the subject “Deseo dejar de recibir correo electrónico”. If you have any questions, please contact us at biomodelos@humboldt.org.co or use the contact form at "
         link: 'Change my password'
       password_change:
         title: "Hello"
