@@ -8,12 +8,41 @@
 
         <h2><%= t('biomodelos.models.metadata.info') %></h2>
         <div class="infocontent">
-        <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.method_tt') %>"><%= t('biomodelos.models.metadata.method') %> <b><%= map_method_name(@metadata[0]["modelingMethod"]) %></b></h3>
-        <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.threshold_tt') %>"><%= t('biomodelos.models.metadata.threshold') %> <b><%= @metadata[0]["thresholdType"] %></b></h3>
-        <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.validation_type_tt') %>"><%= t('biomodelos.models.metadata.validation_type') %> <b><%= @metadata[0]["validationType"] %></b></h3>
-        <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.stat_type_tt') %>"><%= @metadata[0]["perfStatType"] %> <b><%= @metadata[0]["perfStatValue"] %></b></h3>
-        <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.level_tt') %>"><%= t('biomodelos.models.metadata.level') %> <b><%= map_level_name(@metadata[0]["modelLevel"]) %></b></h3>
-        <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.docs_tt') %>"><%= t('biomodelos.models.metadata.docs') %> <b><%= @metadata[0]["methodFile"].blank? ? "NA" : link_to(@metadata[0]["methodFile"], @metadata[0]['methodFile'], target: "_blank") %></b></h3>
+            <% modelingMethod = @metadata[0]["modelingMethod"] %>
+            <% if modelingMethod.present? %>  
+                <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.method_tt') %>"><%= t('biomodelos.models.metadata.method') %> <b><%= map_method_name(modelingMethod) %></b></h3>
+            <% end %>
+            
+            <% thresholdType = @metadata[0]["thresholdType"] %>
+            <% if thresholdType.present? %>
+                <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.threshold_tt') %>"><%= t('biomodelos.models.metadata.threshold') %> <b><%= thresholdType %></b></h3>
+            <% end %>
+            
+            <% validationType = @metadata[0]["validationType"] %>
+            <% if validationType.present? %>
+                <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.validation_type_tt') %>"><%= t('biomodelos.models.metadata.validation_type') %> <b><%= validationType %></b></h3>
+            <% end %>
+            
+            <% perfStatType = @metadata[0]["perfStatType"] %>
+            <% if perfStatType.present? %>
+                <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.stat_type_tt') %>"><%= perfStatType %> <b><%= @metadata[0]["perfStatValue"] %></b></h3>
+            <% end %>
+            
+            <% modelLevel = @metadata[0]["modelLevel"] %>
+            <% if modelLevel.present? %>
+                <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.level_tt') %>"><%= t('biomodelos.models.metadata.level') %> <b><%= map_level_name(modelLevel) %></b></h3>
+            <% end %>
+
+            <% methodFile = @metadata[0]["methodFile"] %>
+            <% if methodFile.present? %>
+                <% if methodFile.start_with?("http://", "https://") %>
+                    <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.docs_tt') %>"><%= t('biomodelos.models.metadata.docs') %> <b><%= link_to(methodFile, methodFile, target: "_blank") %></b></h3>
+                <% else%>
+                    <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.docs_tt') %>"><%= t('biomodelos.models.metadata.docs') %> <b><%= link_to(methodFile, "/methods/#{ERB::Util.url_encode(methodFile)}", target: "_blank") %></b></h3>
+                <% end %>
+            <% else %>
+                <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.docs_tt') %>"><%= t('biomodelos.models.metadata.docs') %> <b>NA</b></h3>
+            <% end %>
         </div>
 
         <h2><%= t('biomodelos.models.metadata.citation') %></h2>
