@@ -13,22 +13,40 @@ es:
   devise:
     failure:
       already_authenticated: 'Ya iniciaste sesión.'
+      inactive: 'Tu cuenta aun no ha sido activada.'
+      invalid: 'Email o contraseña inválidos.'
+      locked: 'Tu cuenta está bloqueada.'
+      last_attempt: 'Último intento antes de que tu cuenta sea bloqueada.'
+      not_found_in_database: "El email o la contraseña no son válidos."
+      timeout: 'Tu sesión ha expirado. Inicia sesión nuevamente.'
       unauthenticated: 'Tienes que registrarte o iniciar sesión antes de continuar.'
       unconfirmed: 'Tienes que confirmar tu cuenta antes de continuar.'
-      locked: 'Tu cuente está bloqueada.'
-      not_found_in_database: "El email o la contraseña no son válidos."
-      invalid: 'Email o contraseña inválidos.'
+      confirmation_instructions:
+        subject: "Instrucciones de confirmación"
+      reset_password_instructions:
+        subject: "Instrucciones de cambio de contraseña"
+      unlock_instructions:
+        subject: "Instrucciones de desbloqueo"
+      password_change:
+        subject: "Clave cambiada"
       invalid_token: 'Token de autentificación inválido.'
-      timeout: 'Tu sesión ha expirado. Inicia sesión nuevamente.'
-      inactive: 'Tu cuenta aun no ha sido activada.'
-    sessions:
-      signed_in: 'Iniciaste sesión correctamente.'
-      signed_out: 'Cerraste sesión correctamente.'
     passwords:
       send_instructions: 'Recibirás un email con instrucciones para reiniciar tu contraseña en unos minutos.'
       updated: 'Tu contraseña fue cambiada correctamente. Has iniciado sesión.'
       updated_not_active: 'Tu contraseña fue cambiada correctamente.'
       send_paranoid_instructions: "Si tu email existe en el sistema, recibirás instrucciones para recuperar tu contraseña en él"
+      new:
+        alert_text_html: >
+          *En caso de que haya olvidado el correo con el cual se registró en la plataforma o ya no tenga acceso al mismo, escríbanos un correo a <b>biomodelos@humboldt.org.co</b> con el asunto "Recuperar mi cuenta".
+        submit_btn: "ENVIAR"
+        title: "Olvidé mi clave"
+      edit:
+        title: "CAMBIAR MI CLAVE"
+        new_password: "Nueva clave"
+        confirm_new_password: "Confirmar nueva clave"
+        submit_btn: "CAMBIAR"
+        min: "(mínimo "
+        char: " caracteres)"
     confirmations:
       send_instructions: 'Recibirás instrucciones para confirmar tu cuenta en tu email en unos minutos.'
       send_paranoid_instructions: 'Si tu email existe en el sistema, recibirás instrucciones para confirmar tu cuenta en tu email en unos minutos.'
@@ -41,6 +59,12 @@ es:
       updated: 'Actualizaste tu cuenta correctamente.'
       update_needs_confirmation: "Actualizaste tu cuenta correctamente, pero tenemos que revalidar tu email. Revisa tu correo para confirmar la dirección."
       destroyed: 'Adiós, tu cuenta ha sido eliminada. Esperamos verte de vuelta pronto!'
+      new:
+        title: "Registrarse"
+        password_min_txt: "(mínimo %{caracteres} caracteres)"
+        terms_txt: "He leído y acepto los términos y condiciones del servicio"
+        data_policies_txt: "He leído y acepto las políticas de protección de datos personales"
+        sign_up_btn: "REGISTRARSE"
     unlocks:
       send_instructions: 'Recibirás un email con instrucciones para desbloquear tu cuenta en unos minutos'
       unlocked: 'Tu cuenta ha sido desbloqueada. Inicia sesión para continuar.'
@@ -49,12 +73,26 @@ es:
       success: 'Te autentificaste correctamente con tu cuenta de %{kind}.'
       failure: 'No pudimos autentificar tu cuenta de %{kind} por la siguiente razón: %{reason}.'
     mailer:
-      confirmation_instructions:
-        subject: 'Instrucciones de confirmación'
-      reset_password_instructions:
-        subject: 'Instrucciones de cambio de contraseña'
       unlock_instructions:
-        subject: 'Instrucciones de desbloqueo'
+        title: "Hola"
+        text_1: "Su cuenta ha sido bloqueada debido a que excedió la cantidad de intentos de ingreso fallidos."
+        text_2: "Haga click en el siguiente enlace para desbloquear su cuenta:"
+        link: 'Desbloquear mi cuenta'
+      reset_password_instructions:
+        title: "Saludos,"
+        text_1: "Hemos recibido una petición para cambiar tu contraseña. Lo puedes hacer a través del link que se encuentra a continuación."
+        text_2: "Si no realizaste esta solicitud, puedes ignorar éste correo."
+        text_3: "Tu contraseña no cambiará hasta que accedas al link anterior y crees una nueva."
+        text_4: "Este correo está siendo enviado a su dirección de correo electrónico consignada en la base de datos de BioModelos. Sus datos están siendo tratados de acuerdo a la Ley Estatutaria 1581 de 2012 y el Decreto Reglamentario 1377 de 2013, por las cuales se dictan disposiciones para la protección de datos personales."
+        text_5: "Si desea eliminar su dirección de correo electrónico de nuestra base de datos, por favor responda este correo con el asunto “Deseo dejar de recibir correo electrónico”. Ante cualquier inquietud puede comunicarse con nosotros al correo electrónico biomodelos@humboldt.org.co o desde la forma de contacto en "
+        link: 'Cambiar mi contraseña'
+      password_change:
+        title: "Hola"
+        text_1: "Te estamos contactando para notificarte que su contraseña ha sido cambiada."
+      confirmation_instructions:
+        title: "Bienvenido"
+        text_1: "Para confirmar tu cuenta debes dar click en el link a continuación:"
+        link: 'Confirmar tu cuenta'
     links:
       sign_in: 'INGRESAR'
       sign_up: 'REGISTRARSE'
@@ -62,3 +100,10 @@ es:
       no_instructions_sent: 'No recibí instrucciones de confirmación'
       no_unlock_instructions_sent: 'No recibí instrucciones para desbloquear'
       omniauthable: 'Registrarse con %{provider}'
+    sessions:
+      signed_in: 'Iniciaste sesión correctamente.'
+      signed_out: 'Cerraste sesión correctamente.'
+      already_signed_out: 'Cerraste sesión correctamente.'
+      new:
+        title: "ingresar"
+        log_in_btn: "INGRESAR"
