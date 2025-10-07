@@ -40,6 +40,8 @@ public/*
 /config/credentials/development.key
 /config/credentials/production.key
 /config/credentials/test.key
+.env
+config/keys
 #Ignore node_modules
 /node_modules
 docker-compose.yml
