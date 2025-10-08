@@ -140,67 +140,52 @@ $ docker build -t <image name>:<tag> .
 ```
 ### Environment variables
 
-You must to create the .env file based on the file [env.example](https://github.com/PEM-Humboldt/biomodelos-website/blob/develop/env.example)
+You must create the .env file based on the file [env.example](https://github.com/PEM-Humboldt/biomodelos-website/blob/develop/env.example)
 
 ### Starting the container
 
 Once you have the image, it's recommended to use [docker-compose](https://docs.docker.com/compose/) to run the container.
 
-You need to create a docker-compose.yml file and set the volumes according to the models, thumbnails, zip and uploads folders like this:
+The docker compose files are included in the repository, there are two corresponding to development and production environments. 
+You must need to modify the docker-compose.yml file and set the volumes according to the methods, models, thumbs, zip, uploads and credentials folders like this:
 
 ```sh
 services:
-  biomodelos_prod:
-    image: <image name>:<tag>
+  biomodelos:
+    image: <image_name>:<tag>
     build:
       context: .
       args:
         - RAILS_ENV=${RAILS_ENV}
-    container_name: Biomodelos_website_production
+    env_file:
+        - .env
+    container_name: <container_name>
     environment:
       - RAILS_ENV=${RAILS_ENV}
-      - RAILS_MASTER_KEY=${PRODUCTION_MASTER_KEY}
+      - RAILS_MASTER_KEY=${ENV_MASTER_KEY}
     volumes:
      - /path/to/host/methods:/var/www/BioModelos/public/methods
      - /path/to/host/models:/var/www/BioModelos/public/models
      - /path/to/host/thumbs:/var/www/BioModelos/public/thumbs
      - /path/to/host/zip:/var/www/BioModelos/public/zip
      - /path/to/host/uploads:/var/www/BioModelos/public/uploads
+     - /path/to/host/credentials:/var/www/BioModelos/config/credentials/
     ports:
-     - "[host port]:[container port]"
+     - "[host_port]:[container_port]"
     command: bundle exec rails server -b 0.0.0.0
-
-  biomodelos_dev:
-    image: <image name>:<tag>
-    build:
-      context: .
-      args:
-        - RAILS_ENV=${RAILS_ENV}
-    container_name: BBiomodelos_website_development
-    environment:
-      - RAILS_ENV=${RAILS_ENV}
-      - RAILS_MASTER_KEY=${DEVELOPMENT_MASTER_KEY}
-    volumes:
-     - /path/to/host/methods:/var/www/BioModelos/public/methods
-     - /path/to/host/models:/var/www/BioModelos/public/models
-     - /path/to/host/thumbs:/var/www/BioModelos/public/thumbs
-     - /path/to/host/zip:/var/www/BioModelos/public/zip
-     - /path/to/host/uploads:/var/www/BioModelos/public/uploads
-    ports:
-     - "[host port]:[container port]"
-    command: bundle exec rails server -b 0.0.0.0
+    restart: always
 ```
 Now, you have two environments, development and production with the same image.
 You can run the development environment container with the next command:
 
 ```sh
-$ RAILS_ENV=development docker-compose up biomodelos_dev -d
+$ RAILS_ENV=development docker-compose -f docker-compose.dev.yml up -d --build
 ```
 
 And, you can run the production environment container with the next command:
 
 ```sh
-$ RAILS_ENV=production docker-compose up biomodelos_prod -d
+$ RAILS_ENV=production docker-compose -f docker-compose.prod.yml up -d --build
 ```
 
 
