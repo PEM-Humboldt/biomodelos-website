@@ -15,6 +15,11 @@ if [ "$RAILS_ENV" = "development" ]; then
 fi
 
 if [ "$RAILS_ENV" = "production" ]; then
+  echo "Precompilando assets..."
+  bundle exec rake assets:precompile
+fi
+
+if [ "$RAILS_ENV" = "production" ]; then
   echo "🧭 Ejecutando migraciones..."
   bundle exec rails db:migrate 2>/dev/null || echo "⚠️ Saltando migraciones (puede que ya estén aplicadas)"
 fi
