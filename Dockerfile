@@ -17,10 +17,6 @@ RUN bundle install
 COPY . .
 RUN yarn install --check-files
 
-# Precompila assets solo para produccion
-ARG RAILS_ENV
-ENV RAILS_ENV=${RAILS_ENV}
-RUN if [ "$RAILS_ENV" != "development" ]; then bundle exec rake assets:precompile; fi
 
 # Etapa 2: imagen final
 FROM ruby:3.1.6-alpine
