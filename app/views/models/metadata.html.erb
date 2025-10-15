@@ -47,12 +47,18 @@
 
         <h2><%= t('biomodelos.models.metadata.citation') %></h2>
         <blockquote>
-        <p><% if @metadata[0]["citation"].blank? %>
-              <%= @metadata[0]["modelAuthors"] %>. <%= @metadata[0]["yyyy"].blank? ? "NA" : @metadata[0]["yyyy"] %>. Modelo de distribución de <em><%= @species_name.blank? ? "" : @species_name %></em> ID <%= @metadata[0]["modelID"] %>. Instituto Alexander von Humboldt.</p><div class="overf"><%= link_to url_for(controller: 'species', action: 'visor', params: { :species_id => @metadata[0]["taxID"] }, only_path: false) %></a>.</div>
-           <% else %>
-              <%= @metadata[0]["citation"] %>
-           <% end %>
-        </p>
+            <p><% if @metadata[0]["citation"].blank? %>
+                    <%= @metadata[0]["modelAuthors"] %>. <%= @metadata[0]["yyyy"].blank? ? "NA" : @metadata[0]["yyyy"] %>. Modelo de distribución de <em><%= @species_name.blank? ? "" : @species_name %></em> ID <%= @metadata[0]["modelID"] %>. Instituto Alexander von Humboldt.</p>
+                    <div class="overf">
+                        <% url_model = url_for(controller: 'species', action: 'visor', params: { :species_id => @metadata[0]["taxID"] }, only_path: false)%>
+                        <%= link_to url_model, url_model %>
+                        </a>
+                        .
+                    </div>
+                <% else %>
+                    <%= @metadata[0]["citation"] %>
+                <% end %>
+            </p>
         </blockquote>
       <% end %>
 
