@@ -25,7 +25,7 @@
             
             <% perfStatType = @metadata[0]["perfStatType"] %>
             <% if perfStatType.present? %>
-                <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.stat_type_tt') %>"><%= perfStatType %> <b><%= @metadata[0]["perfStatValue"] %></b></h3>
+                <h3 rel="tooltip" title="<%= t('biomodelos.models.metadata.stat_type_tt') %>"><%= t('biomodelos.models.metadata.stat_type') + perfStatType %> <b><%= @metadata[0]["perfStatValue"] %></b></h3>
             <% end %>
             
             <% modelLevel = @metadata[0]["modelLevel"] %>

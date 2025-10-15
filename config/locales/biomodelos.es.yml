@@ -690,6 +690,7 @@ es:
         threshold_tt: "Criterio empleado para aplicar umbral"
         validation_type: "Tipo validación"
         validation_type_tt: "Método de partición empleado para validación"
+        stat_type: "Estadístico de desempeño "
         stat_type_tt: "Estadístico empleado para medir desempeño"
         level: "Nivel"
         level_tt: "Componente de la distribución de la especie descrita por el modelo"
