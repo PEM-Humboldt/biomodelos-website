@@ -92,6 +92,8 @@ mail_server:
 
 For Humboldt organization you must ask for the master keys file which you must add to ```config/credentials```, it is inside the internal repository.
 
+These keys are required for the .env file and the dockerization. See the section below.
+
 ## Run
 
 **Important**: You should have installed previously Ruby 3.1.6.
@@ -136,34 +138,56 @@ On the root path of the rails app you enter this command to build the image:
 ```sh
 $ docker build -t <image name>:<tag> .
 ```
+### Environment variables
+
+You must create the .env file based on the file [env.example](https://github.com/PEM-Humboldt/biomodelos-website/blob/develop/env.example)
 
 ### Starting the container
 
 Once you have the image, it's recommended to use [docker-compose](https://docs.docker.com/compose/) to run the container.
 
-You need to create a docker-compose.yml file and set the volumes according to the models, thumbnails, zip and uploads folders like this:
+The docker compose files are included in the repository, there are two corresponding to development and production environments. 
+You must need to modify the docker-compose.yml file and set the volumes according to the methods, models, thumbs, zip, uploads and credentials folders like this:
 
 ```sh
-version: '3'
 services:
   biomodelos:
-    image: [image name]
-    ports:
-     - "[host port]:[container port]"
+    image: <image_name>:<tag>
+    build:
+      context: .
+      args:
+        - RAILS_ENV=${RAILS_ENV}
+    env_file:
+        - .env
+    container_name: <container_name>
+    environment:
+      - RAILS_ENV=${RAILS_ENV}
+      - RAILS_MASTER_KEY=${ENV_MASTER_KEY}
     volumes:
      - /path/to/host/methods:/var/www/BioModelos/public/methods
      - /path/to/host/models:/var/www/BioModelos/public/models
      - /path/to/host/thumbs:/var/www/BioModelos/public/thumbs
      - /path/to/host/zip:/var/www/BioModelos/public/zip
      - /path/to/host/uploads:/var/www/BioModelos/public/uploads
-
+     - /path/to/host/credentials:/var/www/BioModelos/config/credentials/
+    ports:
+     - "[host_port]:[container_port]"
+    command: bundle exec rails server -b 0.0.0.0
+    restart: always
 ```
-
-Finally, you run the container with the next command:
+Now, you have two environments, development and production with the same image.
+You can run the development environment container with the next command:
 
 ```sh
-$ docker-compose up -d
+$ RAILS_ENV=development docker-compose -f docker-compose.dev.yml up -d --build
 ```
+
+And, you can run the production environment container with the next command:
+
+```sh
+$ RAILS_ENV=production docker-compose -f docker-compose.prod.yml up -d --build
+```
+
 
 ## LICENSE
 
