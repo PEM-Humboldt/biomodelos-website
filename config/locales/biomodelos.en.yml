@@ -682,6 +682,7 @@ en:
         threshold_tt: "Criterion used to apply threshold"
         validation_type: "Validation type"
         validation_type_tt: "Partitioning method used for validation"
+        stat_type: "Statistic performance "
         stat_type_tt: "Statistic used to measure performance"
         level: "Level"
         level_tt: "Component of the distribution of the species described by the model"
