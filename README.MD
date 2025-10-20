@@ -58,7 +58,7 @@ GEOSERVER_URI = "http://localhost:8080/geoserver";
 ### Credentials and Keys
 
 Is necessary to setup the secret credentials and keys in an encrypted file credentials.yml.enc. This file is specific for each environment (production, development or test).
-This file needs the master key file to decrypt and modified the keys according to your specific requirements.
+This file needs the master key file to decrypt and modify the keys according to your specific requirements.
 There is some [Information](https://webcrunch.com/posts/the-complete-guide-to-ruby-on-rails-encrypted-credentials) about how to setup the credentials.
 
 In this file you should put information about:
@@ -90,7 +90,7 @@ mail_server:
   GMAIL_PASSWORD: "secret password"
 ```
 
-For Humboldt organization you must ask for the master keys file which you must add to ```config/credentials```, it is inside the internal repository.
+For Humboldt organization, you must copy the encrypted files and the master keys from the internal repository to ```config/credentials```.
 
 These keys are required for the .env file and the dockerization. See the section below.
 
@@ -147,47 +147,21 @@ You must create the .env file based on the file [env.example](https://github.com
 Once you have the image, it's recommended to use [docker-compose](https://docs.docker.com/compose/) to run the container.
 
 The docker compose files are included in the repository, there are two corresponding to development and production environments. 
-You must need to modify the docker-compose.yml file and set the volumes according to the methods, models, thumbs, zip, uploads and credentials folders like this:
 
-```sh
-services:
-  biomodelos:
-    image: <image_name>:<tag>
-    build:
-      context: .
-      args:
-        - RAILS_ENV=${RAILS_ENV}
-    env_file:
-        - .env
-    container_name: <container_name>
-    environment:
-      - RAILS_ENV=${RAILS_ENV}
-      - RAILS_MASTER_KEY=${ENV_MASTER_KEY}
-    volumes:
-     - /path/to/host/methods:/var/www/BioModelos/public/methods
-     - /path/to/host/models:/var/www/BioModelos/public/models
-     - /path/to/host/thumbs:/var/www/BioModelos/public/thumbs
-     - /path/to/host/zip:/var/www/BioModelos/public/zip
-     - /path/to/host/uploads:/var/www/BioModelos/public/uploads
-     - /path/to/host/credentials:/var/www/BioModelos/config/credentials/
-    ports:
-     - "[host_port]:[container_port]"
-    command: bundle exec rails server -b 0.0.0.0
-    restart: always
-```
-Now, you have two environments, development and production with the same image.
+You must need to modify the docker-compose.yml file and set the volumes according to the methods, models, thumbs, zip, uploads and credentials folders.
+
+You have two environments, development and production, from the same image.
 You can run the development environment container with the next command:
 
 ```sh
 $ RAILS_ENV=development docker-compose -f docker-compose.dev.yml up -d --build
 ```
 
-And, you can run the production environment container with the next command:
+Or, you can run the production environment container with the next command:
 
 ```sh
 $ RAILS_ENV=production docker-compose -f docker-compose.prod.yml up -d --build
 ```
-
 
 ## LICENSE
 
