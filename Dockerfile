@@ -1,4 +1,4 @@
-# Etapa 1: build de dependencias y assets
+# Stage 1: building dependencies and assets
 FROM ruby:3.1.6-alpine AS builder
 
 ENV BUILD_PACKAGES="build-base curl-dev openssh"
@@ -18,7 +18,7 @@ COPY . .
 RUN yarn install --check-files
 
 
-# Etapa 2: imagen final
+# Stage 2: final image
 FROM ruby:3.1.6-alpine
 
 ENV RAILS_ROOT=/var/www/BioModelos
@@ -32,15 +32,12 @@ RUN apk add --no-cache \
   nodejs \
   npm \
   yarn
-
   
 COPY --from=builder /usr/local/bundle /usr/local/bundle
 COPY --from=builder $RAILS_ROOT $RAILS_ROOT
 
-
 COPY entrypoint.sh /usr/bin/
 RUN dos2unix /usr/bin/entrypoint.sh && chmod +x /usr/bin/entrypoint.sh
-
 
 ARG RAILS_ENV
 ENV RAILS_ENV=${RAILS_ENV}

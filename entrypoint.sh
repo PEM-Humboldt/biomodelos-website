@@ -1,29 +1,29 @@
 #!/bin/sh
 set -e
 
-echo "🚀 Iniciando contenedor BioModelos con entorno: ${RAILS_ENV:-development}"
+echo "🚀 Starting BioModelos container with environtment: ${RAILS_ENV:-development}"
 
 if [ -f tmp/pids/server.pid ]; then
-  echo "🧹 Eliminando PID antiguo..."
+  echo "🧹 Removing old PID..."
   rm -f tmp/pids/server.pid
 fi
 
 if [ "$RAILS_ENV" = "development" ]; then
-  echo "📦 Verificando dependencias..."
+  echo "📦 Checking dependencies..."
   bundle check || bundle install
   yarn install --check-files || yarn install
 fi
 
 if [ "$RAILS_ENV" = "production" ]; then
-  echo "Precompilando assets..."
+  echo "Gathering assets..."
   bundle exec rake assets:precompile
 fi
 
 if [ "$RAILS_ENV" = "production" ]; then
-  echo "🧭 Ejecutando migraciones..."
-  bundle exec rails db:migrate 2>/dev/null || echo "⚠️ Saltando migraciones (puede que ya estén aplicadas)"
+  echo "🧭 Doing migrations..."
+  bundle exec rails db:migrate 2>/dev/null || echo "⚠️ Avoiding migrations (They could be already aplied)"
 fi
 
-echo "🏁 Iniciando aplicación Rails..."
+echo "🏁 Starting Rails application..."
 exec "$@"
 ```
