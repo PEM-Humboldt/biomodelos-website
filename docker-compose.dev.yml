@@ -1,6 +1,6 @@
 services:
   biomodelos_dev:
-    image: biomodelos:<Current version>
+    image: biomodelos:<current_version>
     build:
       context: .
       args:
@@ -17,8 +17,9 @@ services:
     - /path/to/host/thumbs:/var/www/BioModelos/public/thumbs
     - /path/to/host/zip:/var/www/BioModelos/public/zip
     - /path/to/host/uploads:/var/www/BioModelos/public/uploads
-    - /path/to/host/credentials/development.yml.enc:/var/www/BioModelos/config/credentials/development.yml.enc
+    - /path/to/host/config/credentials/development.yml.enc:/var/www/BioModelos/config/credentials/development.yml.enc
+    
     ports:
-    - "3001:3000"
+    - "[host port]:[container port]"
     command: bundle exec rails server -b 0.0.0.0
-    restart: always
+    

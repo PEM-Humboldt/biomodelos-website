@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-echo "🚀 Starting BioModelos container with environtment: ${RAILS_ENV:-development}"
+echo "🚀 Starting BioModelos container with environtment: ${RAILS_ENV}"
 
 if [ -f tmp/pids/server.pid ]; then
   echo "🧹 Removing old PID..."

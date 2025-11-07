@@ -1,6 +1,6 @@
 services:
   biomodelos:
-    image: biomodelos:<Current version>
+    image: biomodelos:<current_version>
     build:
       context: .
       args:
@@ -19,6 +19,6 @@ services:
      - /path/to/host/uploads:/var/www/BioModelos/public/uploads
      - /path/to/host/credentials/production.yml.enc:/var/www/BioModelos/config/credentials/production.yml.enc
     ports:
-     - "3000:3000"
+     - "[host port]:[container port]"
     command: bundle exec rails server -b 0.0.0.0
     restart: always

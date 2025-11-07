@@ -57,9 +57,14 @@ GEOSERVER_URI = "http://localhost:8080/geoserver";
 
 ### Credentials and Keys
 
-Is necessary to setup the secret credentials and keys in an encrypted file credentials.yml.enc. This file is specific for each environment (production, development or test).
-This file needs the master key file to decrypt and modify the keys according to your specific requirements.
-There is some [Information](https://webcrunch.com/posts/the-complete-guide-to-ruby-on-rails-encrypted-credentials) about how to setup the credentials.
+You need to configure the secret credentials in an encrypted file such as ENVIRONMENT.yml.enc, where ENVIRONMENT must be: production, development or test.
+
+There are more [Information](https://webcrunch.com/posts/the-complete-guide-to-ruby-on-rails-encrypted-credentials) about how to setup the credentials.
+
+These credentials files require the master key file (ENVIRONMENT.key) to decrypt and modify the keys according to your specific requirements.
+
+For deploy, each master secret key must be added to the .env file according to the environment.
+You will find more information below in the Environment variables section.
 
 In this file you should put information about:
 
@@ -140,7 +145,7 @@ $ docker build -t <image name>:<tag> .
 ```
 ### Environment variables
 
-You must create the .env file based on the file [env.example](https://github.com/PEM-Humboldt/biomodelos-website/blob/develop/env.example)
+You must create the .env file based on the file [env.dev.example](https://github.com/PEM-Humboldt/biomodelos-website/blob/develop/env.dev.example)
 
 ### Starting the container
 
@@ -154,13 +159,13 @@ You have two environments, development and production, from the same image.
 You can run the development environment container with the next command:
 
 ```sh
-$ RAILS_ENV=development docker-compose -f docker-compose.dev.yml up -d --build
+$ docker-compose -f docker-compose.dev.yml up -d --build
 ```
 
 Or, you can run the production environment container with the next command:
 
 ```sh
-$ RAILS_ENV=production docker-compose -f docker-compose.prod.yml up -d --build
+$ docker-compose -f docker-compose.prod.yml up -d --build
 ```
 
 ## LICENSE
