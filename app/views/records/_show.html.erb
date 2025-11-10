@@ -72,8 +72,8 @@
          </div><!-- locality -->
          <p><b><%= t('biomodelos.visor.selected_record.altitude') %></b></p>
          <div class="camposreg">
-            <div class="campouno"><span id="txtAltEdit"><%= @record["verbatimElevation"].nil? ? '-': @record["verbatimElevation"] %></span></div>
-         </div><!-- verbatimElevation -->
+            <div class="campouno"><span id="txtAltEdit"><%= @record["minimumElevationInMeters"].nil? ? '-': @record["minimumElevationInMeters"] %></span></div>
+         </div><!-- minimumElevationInMeters -->
       </div>
 
       <div class="invisible" id="Reghidden">

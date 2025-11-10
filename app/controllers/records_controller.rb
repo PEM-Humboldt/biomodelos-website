@@ -130,7 +130,7 @@ class RecordsController < ApplicationController
     params[:new_record]
       .permit([
         :decimalLatitude, :decimalLongitude, :verbatimLocality, :acceptedNameUsage, :userIdBm,
-        :taxID, :verbatimElevation, :date, :stateProvince, :county, :basisOfRecord, :recordedBy,
+        :taxID, :minimumElevationInMeters, :date, :stateProvince, :county, :basisOfRecord, :recordedBy,
         :createdCitationBm, :catalogNumber, :collectionCode, :institutionCode, :createdCommentsBm
       ]).to_h
   end
