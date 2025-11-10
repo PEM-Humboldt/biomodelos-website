@@ -4,7 +4,7 @@ en:
       new_record:
         decimalLatitude: "Latitude"
         decimalLongitude: "Longitude"
-        verbatimElevation: "Altitude"
+        minimumElevationInMeters: "Altitude"
         date: "Date"
         stateProvince: "State"
         county: "County"

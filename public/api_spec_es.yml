@@ -248,7 +248,7 @@ components:
           type: string
           description: Departamento del registro
           example: Córdoba
-        verbatimElevation:
+        minimumElevationInMeters:
           type: string
           description: Descripción original de la elevación (altitud) sobre la que se tomó el registro
           example: "0-0"
