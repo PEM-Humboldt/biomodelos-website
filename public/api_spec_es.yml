@@ -200,11 +200,11 @@ components:
           - OCCURRENCE
           - OTHER_SPECIMEN
           example: HUMAN_OBSERVATION
-        suggestedStateProvince:
+        stateProvince:
           type: string
           description: Departamento sugerido a partir de las coordenadas
           example: Córdoba
-        suggestedCounty:
+        county:
           type: string
           description: Municipio sugerido a partir de las coordenadas
           example: LORICA
