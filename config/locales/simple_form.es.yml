@@ -8,7 +8,7 @@ es:
         date: "Fecha"
         stateProvince: "Departamento"
         county: "Municipio"
-        verbatimLocality: "Localidad"
+        locality: "Localidad"
         basisOfRecord: "Evidencia de registro"
         recordedBy: "Colector"
         createdCitationBm: "Cita"
