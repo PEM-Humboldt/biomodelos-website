@@ -252,7 +252,7 @@ components:
           type: string
           description: Descripción original de la elevación (altitud) sobre la que se tomó el registro
           example: "0-0"
-        verbatimLocality:
+        locality:
           type: string
           description: Descripción textual original del lugar del registro
           example: Ceiba Pareja

@@ -8,7 +8,7 @@ en:
         date: "Date"
         stateProvince: "State"
         county: "County"
-        verbatimLocality: "Locality"
+        locality: "Locality"
         basisOfRecord: "Basis of record"
         recordedBy: "Recorded by"
         createdCitationBm: "Citation"

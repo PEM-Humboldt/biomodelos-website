@@ -57,7 +57,7 @@ var _BioModelosVisorModule = function() {
 						"source":"Fuente",
 						"suggestedStateProvince":"Departamento",
 						"suggestedCounty":"Municipio",
-						"verbatimLocality":"Localidad",
+						"locality":"Localidad",
 						"minimumElevationInMeters":"Altitud",
 						"institutionCode":"Institución",
 						"catalogNumber":"Número de catálogo",

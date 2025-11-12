@@ -527,7 +527,7 @@ $(document).ready(function() {
 			constraints.localidad = {};
 			constraints.localidad.presence = true;
 			constraints.localidad.length = { maximum: 100 };
-			data.verbatimLocality = locRecordEdition.text();
+			data.locality = locRecordEdition.text();
 		}
 		const valResponse = validate(varsToValidate, constraints, { format: "flat" });
 		if (valResponse) {
