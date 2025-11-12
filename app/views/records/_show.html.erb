@@ -42,39 +42,11 @@
       <h2><%= t('biomodelos.visor.selected_record.location') %></h2>
       <p><b><%= t('biomodelos.visor.selected_record.latitude') %></b> <span class="contented" id="txtLatEdit" oldVal="<%= @record['decimalLatitude'] %>"><%= @record["decimalLatitude"] %></span></p> <!-- decimalLatitude -->
       <p><b><%= t('biomodelos.visor.selected_record.longitude') %></b> <span class="contented" id="txtLonEdit" oldVal="<%= @record['decimalLongitude'] %>"><%= @record["decimalLongitude"] %></span></p> <!-- decimalLongitude -->
-      <br>
-      <div class="regcateg">
-         <div><b><%= t('biomodelos.visor.selected_record.original') %></b> · <i><%= t('biomodelos.visor.selected_record.interpreted') %></i></div>
-         <div><%= t('biomodelos.visor.selected_record.consistent') %></div>
-      </div>
-      <div class="colreg">
-         <p><b><%= t('biomodelos.visor.selected_record.country') %></b></p>
-         <div class="camposreg">
-            <div class="campouno"><%= @record["country"] %></div>
-            <div class="campodos"><%= @record["suggestedCountry"] %></div>
-            <% if @record["correctCountry"] %><div class="correctoreg"></div><% else %><div class="falsoreg"></div><% end %>
-         </div><!-- country, suggestedCountry, correctCountry -->
-         <p><b><%= t('biomodelos.visor.selected_record.state') %></b></p>
-         <div class="camposreg">
-            <div class="campouno"><span id="txtAdm1Edit"><%= @record["stateProvince"].nil? ? '-': @record["stateProvince"] %></span></div>
-            <div class="campodos"><%= @record["suggestedStateProvince"].nil? ? '-': @record["suggestedStateProvince"] %></div>
-            <% if @record["correctStateProvince"] %><div class="correctoreg"></div><% else %><div class="falsoreg"></div><% end %>
-         </div><!-- stateProvince, suggestedStateProvince, correctStateProvince -->
-         <p><b><%= t('biomodelos.visor.selected_record.county') %></b></p>
-         <div class="camposreg">
-            <div class="campouno"><span id="txtAdm2Edit"><%= @record["county"].nil? ? '-': @record["county"] %></span></div>
-            <div class="campodos"><%= @record["suggestedCounty"].nil? ? '-': @record["suggestedCounty"] %></div>
-            <% if @record["correctCounty"] %><div class="correctoreg"></div><% else %><div class="falsoreg"></div><% end %>
-         </div><!-- county, suggestedCounty, correctCounty -->
-         <p><b><%= t('biomodelos.visor.selected_record.locality') %></b></p>
-         <div class="camposreg">
-            <div class="campouno"><span class="contented" id="txtLocEdit" oldVal="<%= @record['verbatimLocality'] %>"><%= @record["verbatimLocality"].nil? ? '-': @record["verbatimLocality"] %></span></div>
-         </div><!-- locality -->
-         <p><b><%= t('biomodelos.visor.selected_record.altitude') %></b></p>
-         <div class="camposreg">
-            <div class="campouno"><span id="txtAltEdit"><%= @record["minimumElevationInMeters"].nil? ? '-': @record["minimumElevationInMeters"] %></span></div>
-         </div><!-- minimumElevationInMeters -->
-      </div>
+      <p><b><%= t('biomodelos.visor.selected_record.country') %></b> <%= @record['country'].nil? ? '-': @record["country"] %></p><!-- country -->
+      <p><b><%= t('biomodelos.visor.selected_record.state') %></b> <span class="contented" id="txtAdm1Edit"><%= @record["stateProvince"].nil? ? '-': @record["stateProvince"] %></span></p><!-- stateProvince -->
+      <p><b><%= t('biomodelos.visor.selected_record.county') %></b> <span class="contented" id="txtAdm2Edit"><%= @record["county"].nil? ? '-': @record["county"] %></span></p> <!-- county, suggestedCounty, correctCounty -->
+      <p><b><%= t('biomodelos.visor.selected_record.locality') %></b> <span class="contented" id="txtLocEdit" oldVal="<%= @record['verbatimLocality'] %>"><%= @record["verbatimLocality"].nil? ? '-': @record["verbatimLocality"] %></span></p><!-- locality -->
+      <p><b><%= t('biomodelos.visor.selected_record.altitude') %></b> <span class="contented" id="txtAltEdit"><%= @record["minimumElevationInMeters"].nil? ? '-': @record["minimumElevationInMeters"] %></span></p><!-- minimumElevationInMeters -->
 
       <div class="invisible" id="Reghidden">
          <h2><%= t('biomodelos.visor.selected_record.record_information') %></h2>
