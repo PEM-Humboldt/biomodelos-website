@@ -23,10 +23,10 @@ Deploy these services before setting up the app:
 
 ### Download the source code
 
-Clone the repo to the server where you are deploying the app:
+Clone the [repository](https://github.com/PEM-Humboldt/biomodelos-website/tree/develop) to the server where you are deploying the app:
 
 ```sh
-$ git clone git://github.com/LBAB-Humboldt/BioModelos.v2.git
+$ git clone https://github.com/PEM-Humboldt/biomodelos-website.git
 ```
 
 ## Web app database
@@ -145,7 +145,7 @@ $ docker build -t <image name>:<tag> .
 ```
 ### Environment variables
 
-You must create the .env file based on the file [env.dev.example](https://github.com/PEM-Humboldt/biomodelos-website/blob/develop/env.dev.example)
+There is [example](https://github.com/PEM-Humboldt/biomodelos-website/blob/JorgeHiguita/LIB-321/docker-compose.dev.yml) for the .env file for development environment, you must create the .env file based on this file for your environments. 
 
 ### Starting the container
 
