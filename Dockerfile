@@ -4,6 +4,9 @@ ENV BUILD_PACKAGES="curl-dev build-base openssh"
 
 ENV DEV_PACKAGES="tzdata libxml2-dev libxslt-dev postgresql-dev imagemagick imagemagick-dev git gmp-dev nodejs npm"
 
+ENV BASE_URI="http://build-placeholder/api/v2"
+ENV GEOSERVER_URI="http://build-placeholder/geoserver/"
+
 RUN apk --update --upgrade add $BUILD_PACKAGES $DEV_PACKAGES && rm -rf /var/cache/apk/*
 RUN npm install -g yarn
 
