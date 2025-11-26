@@ -1,24 +1,21 @@
 services:
   biomodelos:
-    image: biomodelos:<current_version>
+    image: biomodelos:2.12.5
     build:
       context: .
-      args:
-        - RAILS_ENV=${RAILS_ENV}
-    env_file:
-      - .env
     container_name: biomodelos_website
     environment:
-      - RAILS_ENV=${RAILS_ENV}
-      - RAILS_MASTER_KEY=${PRODUCTION_MASTER_KEY}
+      - RAILS_ENV=production
+      - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
     volumes:
-     - /path/to/host/methods:/var/www/BioModelos/public/methods
-     - /path/to/host/models:/var/www/BioModelos/public/models
-     - /path/to/host/thumbs:/var/www/BioModelos/public/thumbs
-     - /path/to/host/zip:/var/www/BioModelos/public/zip
-     - /path/to/host/uploads:/var/www/BioModelos/public/uploads
-     - /path/to/host/credentials/production.yml.enc:/var/www/BioModelos/config/credentials/production.yml.enc
+     - "${METHODS_FOLDER}:/var/www/BioModelos/public/methods"
+     - "${MODELS_FOLDER}:/var/www/BioModelos/public/models"
+     - "${THUMBS_FOLDER}:/var/www/BioModelos/public/thumbs"
+     - "${ZIPS_FOLDER}:/var/www/BioModelos/public/zip"
+     - "${UPLOADS_FOLDER}:/var/www/BioModelos/public/uploads"
+     - "${CREDENTIALS_FILE}:/var/www/BioModelos/config/credentials/production.yml.enc"
+     
     ports:
-     - "[host port]:[container port]"
+     - "${HOST_PORT}:3000"
     command: bundle exec rails server -b 0.0.0.0
     restart: always
