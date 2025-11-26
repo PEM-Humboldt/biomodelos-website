@@ -1,4 +1,4 @@
-FROM ruby:3.1.6-alpine
+FROM public.ecr.aws/docker/library/ruby:3.1.6-alpine
 
 ENV BUILD_PACKAGES="curl-dev build-base openssh"
 
