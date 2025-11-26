@@ -39,8 +39,6 @@ COPY --from=builder $RAILS_ROOT $RAILS_ROOT
 COPY entrypoint.sh /usr/bin/
 RUN dos2unix /usr/bin/entrypoint.sh && chmod +x /usr/bin/entrypoint.sh
 
-ARG RAILS_ENV
-ENV RAILS_ENV=${RAILS_ENV}
 ENV RAILS_LOG_TO_STDOUT=true
 
 ENTRYPOINT ["/usr/bin/entrypoint.sh"]
