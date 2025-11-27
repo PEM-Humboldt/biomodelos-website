@@ -1,9 +1,11 @@
 services:
-  biomodelos:
+  biomodelos_dev:
     image: biomodelos:2.12.5
     build:
       context: .
-    container_name: biomodelos_website
+    env_file:
+      - .env
+    container_name: biomodelos_website_dev
     environment:
       - RAILS_ENV=development
       - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}

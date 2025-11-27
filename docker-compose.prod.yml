@@ -1,8 +1,10 @@
 services:
-  biomodelos:
+  biomodelos_prod:
     image: biomodelos:2.12.5
     build:
       context: .
+    env_file:
+      - .env
     container_name: biomodelos_website
     environment:
       - RAILS_ENV=production
