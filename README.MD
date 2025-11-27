@@ -63,9 +63,6 @@ There are more [Information](https://webcrunch.com/posts/the-complete-guide-to-r
 
 These credentials files require the master key file (ENVIRONMENT.key) to decrypt and modify the keys according to your specific requirements.
 
-For deploy, each master secret key must be added to the .env file according to the environment.
-You will find more information below in the Environment variables section.
-
 In this file you should put information about:
 
 - Google maps key.
@@ -97,7 +94,6 @@ mail_server:
 
 For Humboldt organization, you must copy the encrypted files and the master keys from the internal repository to ```config/credentials```.
 
-These keys are required for the .env file and the dockerization. See the section below.
 
 ## Run
 
@@ -120,49 +116,41 @@ $ bundle exec rails s -b 0.0.0.0
 ```
 Extra configuration are at the internal repository.
 
-### Dev env with docker
+## Dockerization
 
-You can create a docker container for development purposes, just build the image with the dev file:
-
-```sh
-$ docker build -f Dockerfile.dev -t <image name> .
-```
-
-And remember to mount the volumes (or link them) in your source code path
-
-## Deploy
-
-### Copying static files
-
-First, there are some static .PDF, .PNG and .ZIP files you need to copy to the ```/public/``` folder. Those files are part of the guides and graphic pieces to advertise BioModelos and are not part of our repo.
-
-### Building the image
-
-On the root path of the rails app you enter this command to build the image:
-
-```sh
-$ docker build -t <image name>:<tag> .
-```
 ### Environment variables
 
-There is [example](https://github.com/PEM-Humboldt/biomodelos-website/blob/JorgeHiguita/LIB-321/docker-compose.dev.yml) for the .env file for development environment, you must create the .env file based on this file for your environments. 
+To run the application in Docker, you need to configure the environment variables in the .env file, as in this [example](https://github.com/PEM-Humboldt/biomodelos-website/blob/master/env.dev.example). This file contains environment variables for the rails application and configuration variables for the docker container. 
 
-### Starting the container
+### Dev env with docker
 
-Once you have the image, it's recommended to use [docker-compose](https://docs.docker.com/compose/) to run the container.
-
-The docker compose files are included in the repository, there are two corresponding to development and production environments. 
-
-You must need to modify the docker-compose.yml file and set the volumes according to the methods, models, thumbs, zip, uploads and credentials folders.
-
-You have two environments, development and production, from the same image.
-You can run the development environment container with the next command:
+You can create a docker container for development purposes, just build the image with the [docker-compose.dev.yml](https://github.com/PEM-Humboldt/biomodelos-website/blob/master/docker-compose.dev.yml) file:
 
 ```sh
 $ docker-compose -f docker-compose.dev.yml up -d --build
 ```
 
-Or, you can run the production environment container with the next command:
+And remember to mount the volumes (or link them) in the .env file.
+
+## Deploy
+
+### Copying static files
+
+First, there are some static .PDF, .PNG and .ZIP files that you need to copy to the ```/public/``` folder. Those files are part of the guides and graphic pieces to advertise BioModelos and are not part of our repo.
+
+### Environment variables
+
+Configure the .env file according to the [.env example](https://github.com/PEM-Humboldt/biomodelos-website/blob/master/env.prod.example).
+
+You must modify the .env file and set the volumes according to the methods, models, thumbs, zip, uploads and credentials folders.
+
+### Running the container
+
+It's recommended to use [docker-compose](https://docs.docker.com/compose/) for build the image and run the container. 
+
+The [production docker-compose]((https://github.com/PEM-Humboldt/biomodelos-website/blob/master/docker-compose.prod.yml)) file is included in the repository.
+
+On the root path of the rails app you enter this command to build the image and run the container:
 
 ```sh
 $ docker-compose -f docker-compose.prod.yml up -d --build
