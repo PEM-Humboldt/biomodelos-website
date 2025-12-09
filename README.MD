@@ -23,7 +23,7 @@ Deploy these services before setting up the app:
 
 ### Download the source code
 
-Clone the [repository](https://github.com/PEM-Humboldt/biomodelos-website/tree/develop) to the server where you are deploying the app:
+Clone the [repository](https://github.com/PEM-Humboldt/biomodelos-website) to the server where you are deploying the app:
 
 ```sh
 $ git clone https://github.com/PEM-Humboldt/biomodelos-website.git
@@ -120,17 +120,17 @@ Extra configuration are at the internal repository.
 
 ### Environment variables
 
-To run the application in Docker, you need to configure the environment variables in the .env file, as in this [example](https://github.com/PEM-Humboldt/biomodelos-website/blob/master/env.dev.example). This file contains environment variables for the rails application and configuration variables for the docker container. 
+To run the application in Docker, you need to configure the environment variables in the .env file, as in this [example](./env.example). This file contains environment variables for the rails application and configuration variables for the docker container.
 
 ### Dev env with docker
 
-You can create a docker container for development purposes, just build the image with the [docker-compose.dev.yml](https://github.com/PEM-Humboldt/biomodelos-website/blob/master/docker-compose.dev.yml) file:
+You can create a docker container for development purposes, just build the image with the [docker-compose.dev.yml](./docker-compose.dev.yml) file:
 
 ```sh
 $ docker-compose -f docker-compose.dev.yml up -d --build
 ```
 
-And remember to mount the volumes (or link them) in the .env file.
+And remember to configure the volumes in the .env file
 
 ## Deploy
 
@@ -140,15 +140,15 @@ First, there are some static .PDF, .PNG and .ZIP files that you need to copy to 
 
 ### Environment variables
 
-Configure the .env file according to the [.env example](https://github.com/PEM-Humboldt/biomodelos-website/blob/master/env.prod.example).
+Configure the .env file according to the [example](./env.example).
 
-You must modify the .env file and set the volumes according to the methods, models, thumbs, zip, uploads and credentials folders.
+You must modify the .env file and configure the volumes according to the methods, models, thumbs, zip, uploads and credentials folders.
 
 ### Running the container
 
-It's recommended to use [docker-compose](https://docs.docker.com/compose/) for build the image and run the container. 
+It's recommended to use [docker-compose](https://docs.docker.com/compose/) to build the image and run the container.
 
-The [production docker-compose]((https://github.com/PEM-Humboldt/biomodelos-website/blob/master/docker-compose.prod.yml)) file is included in the repository.
+The [production docker-compose](./docker-compose.prod.yml) file is included in the repository.
 
 On the root path of the rails app you enter this command to build the image and run the container:
 
