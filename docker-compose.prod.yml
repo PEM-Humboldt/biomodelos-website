@@ -15,7 +15,6 @@ services:
      - "${THUMBS_FOLDER}:/var/www/BioModelos/public/thumbs"
      - "${ZIPS_FOLDER}:/var/www/BioModelos/public/zip"
      - "${UPLOADS_FOLDER}:/var/www/BioModelos/public/uploads"
-     - "${ATLAS_FOLDER}:/var/www/BioModelos/public/atlas_files"
      - "${CREDENTIALS_FILE}:/var/www/BioModelos/config/credentials/production.yml.enc"
      
     ports:
