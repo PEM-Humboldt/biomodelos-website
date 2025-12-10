@@ -488,6 +488,10 @@ $(document).ready(function() {
 		const lonRecordEdition = $("#txtLonEdit");
 		const speRecordEdition = $("#txtSpeciesEdit");
 		const locRecordEdition = $("#txtLocEdit");
+        const countryEdition = $("#txtCountryEdit");
+        const stateProvinceEdition = $("#txtStateProvinceEdit");
+        const countyEdition = $("#txtCountyEdit");
+        const minimumElevationInMetersEdition = $("#txtAltEdit");
 
 		const varsToValidate = {},
 		constraints = {},
@@ -522,6 +526,34 @@ $(document).ready(function() {
 			constraints.acceptedNameUsage.length = { maximum: 100 };
 			data.acceptedNameUsage = speRecordEdition.text();
 		}
+        if(countryEdition.text() != countryEdition.attr('oldVal')){
+			varsToValidate.country = countryEdition.text();
+			constraints.country = {};
+			constraints.country.length = { maximum: 100 };
+			data.country = countryEdition.text();
+		}
+        if(stateProvinceEdition.text() != stateProvinceEdition.attr('oldVal')){
+			varsToValidate.stateProvince = stateProvinceEdition.text();
+			constraints.stateProvince = {};
+			constraints.stateProvince.length = { maximum: 100 };
+			data.stateProvince = stateProvinceEdition.text();
+		}
+        if(countyEdition.text() != countyEdition.attr('oldVal')){
+			varsToValidate.county = countyEdition.text();
+			constraints.county = {};
+			constraints.county.length = { maximum: 100 };
+			data.county = countyEdition.text();
+		}
+		if (minimumElevationInMetersEdition.text() != minimumElevationInMetersEdition.attr('oldVal')){
+			varsToValidate.minimumElevationInMetersEdition = minimumElevationInMetersEdition.text();
+			constraints.minimumElevationInMetersEdition = {};
+			constraints.minimumElevationInMetersEdition.presence = true;
+			constraints.minimumElevationInMetersEdition.numericality = {
+				greaterThanOrEqualTo: 0,
+				lessThanOrEqualTo: 8000,
+			};
+			data.minimumElevationInMeters = minimumElevationInMetersEdition.text();
+		}        
 		if (locRecordEdition.text() != locRecordEdition.attr('oldVal')){
 			varsToValidate.localidad = locRecordEdition.text();
 			constraints.localidad = {};

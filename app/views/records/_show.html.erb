@@ -42,9 +42,9 @@
       <h2><%= t('biomodelos.visor.selected_record.location') %></h2>
       <p><b><%= t('biomodelos.visor.selected_record.latitude') %></b> <span class="contented" id="txtLatEdit" oldVal="<%= @record['decimalLatitude'] %>"><%= @record["decimalLatitude"] %></span></p> <!-- decimalLatitude -->
       <p><b><%= t('biomodelos.visor.selected_record.longitude') %></b> <span class="contented" id="txtLonEdit" oldVal="<%= @record['decimalLongitude'] %>"><%= @record["decimalLongitude"] %></span></p> <!-- decimalLongitude -->
-      <p><b><%= t('biomodelos.visor.selected_record.country') %></b> <%= @record['country'].nil? ? '-': @record["country"] %></p><!-- country -->
-      <p><b><%= t('biomodelos.visor.selected_record.state') %></b> <span class="contented" id="txtAdm1Edit"><%= @record["stateProvince"].nil? ? '-': @record["stateProvince"] %></span></p><!-- stateProvince -->
-      <p><b><%= t('biomodelos.visor.selected_record.county') %></b> <span class="contented" id="txtAdm2Edit"><%= @record["county"].nil? ? '-': @record["county"] %></span></p> <!-- county -->
+      <p><b><%= t('biomodelos.visor.selected_record.country') %></b> <span class="contented" id="txtCountryEdit" oldVal="<%= @record['country'] %>"><%= @record["country"] %></span></p><!-- country -->
+      <p><b><%= t('biomodelos.visor.selected_record.state') %></b> <span class="contented" id="txtStateProvinceEdit"><%= @record["stateProvince"].nil? ? '-': @record["stateProvince"] %></span></p><!-- stateProvince -->
+      <p><b><%= t('biomodelos.visor.selected_record.county') %></b> <span class="contented" id="txtCountyEdit"><%= @record["county"].nil? ? '-': @record["county"] %></span></p> <!-- county -->
       <p><b><%= t('biomodelos.visor.selected_record.locality') %></b> <span class="contented" id="txtLocEdit" oldVal="<%= @record['locality'] %>"><%= @record["locality"].nil? ? '-': @record["locality"] %></span></p><!-- locality -->
       <p><b><%= t('biomodelos.visor.selected_record.altitude') %></b> <span class="contented" id="txtAltEdit"><%= @record["minimumElevationInMeters"].nil? ? '-': @record["minimumElevationInMeters"] %></span></p><!-- minimumElevationInMeters -->
 
