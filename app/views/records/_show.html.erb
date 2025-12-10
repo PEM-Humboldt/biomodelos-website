@@ -70,8 +70,8 @@
          <p><b><%= t('biomodelos.visor.selected_record.environmental_outlier') %></b> <%= @record["environmentalOutlier"].nil? ? '-': @record["environmentalOutlier"] ? 'Sí' : 'No' %></p> <!-- environmentalOutlier -->
          <p><b><%= t('biomodelos.visor.selected_record.last_report') %> </b>
             <br>
-            <% if !@record["reportedDate"].nil? %>
-               <%= Date.parse @record["reportedDate"] %>
+            <% if !@record["reported"][-1]["reportedDate"].nil? %>
+               <%= Date.parse @record["reported"][-1]["reportedDate"] %>
             <% else %>
                -
             <% end %> <!-- TODO: We would need to query the user by userIdBm (updated) or reportedUserIdBm -->
