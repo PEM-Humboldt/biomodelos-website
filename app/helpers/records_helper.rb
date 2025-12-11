@@ -11,8 +11,9 @@ module RecordsHelper
       'SoundRecording',
       'MaterialSample',
       'Occurrence',
-      'OtherSpecimen'
-    ]
+      'OtherSpecimen',
+      'MaterialCitation',
+  ].sort!
   end
 
   def states
