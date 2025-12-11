@@ -65,7 +65,6 @@
          <p><b><%= t('biomodelos.visor.selected_record.in_urban_area') %></b> <%= @record["inUrbanArea"].nil? ? '-': @record["inUrbanArea"] ? 'Sí' : 'No' %></p> <!-- inUrbanArea -->
          <p><b><%= t('biomodelos.visor.selected_record.altitude_in_coordinates') %></b> <%= @record["demAltitude"].nil? ? '-': @record["demAltitude"] %></p> <!-- demAltitude -->
          <p><b><%= t('biomodelos.visor.selected_record.altitude_in_known_range') %></b> <%= @record["consistentAltitude"].nil? ? '-': @record["consistentAltitude"] %></p> <!-- consistentAltitude -->
-         <p><b><%= t('biomodelos.visor.selected_record.distance_to_known_range') %></b> <%= @record["dist2KnowRange"].nil? ? '-': @record["dist2KnowRange"] %></p> <!-- dist2KnowRange -->
          <p><b><%= t('biomodelos.visor.selected_record.altitudinal_outlier') %></b> <%= @record["altitudinalOutlier"].nil? ? '-': @record["altitudinalOutlier"] ? 'Sí' : 'No' %></p> <!-- altitudinalOutlier -->
          <p><b><%= t('biomodelos.visor.selected_record.environmental_outlier') %></b> <%= @record["environmentalOutlier"].nil? ? '-': @record["environmentalOutlier"] ? 'Sí' : 'No' %></p> <!-- environmentalOutlier -->
          <p><b><%= t('biomodelos.visor.selected_record.last_report') %> </b>
