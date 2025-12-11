@@ -199,6 +199,7 @@ components:
           - MATERIAL_SAMPLE
           - OCCURRENCE
           - OTHER_SPECIMEN
+          - MATERIAL_CITATION
           example: HUMAN_OBSERVATION
         stateProvince:
           type: string
