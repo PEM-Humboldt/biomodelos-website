@@ -70,6 +70,10 @@
     <p><b><%= t('biomodelos.visor.selected_record.catalog_number') %> </b> <span><%= @record["catalogNumber"].blank? ? '-': @record["catalogNumber"] %></span></p>
     <!-- recordedBy -->
     <p><b><%= t('biomodelos.visor.selected_record.recorded_by') %> </b> <span><%= @record["recordedBy"].blank? ? '-': @record["recordedBy"] %></span></p>
+    <!-- identifiedBy -->
+    <p><b><%= t('biomodelos.visor.selected_record.identifiedBy') %> </b> <span><%= @record["identifiedBy"].blank? ? '-': @record["identifiedBy"] %></span></p>
+    <!-- dateIdentified -->
+    <p><b><%= t('biomodelos.visor.selected_record.dateIdentified') %> </b> <span><%= @record["dateIdentified"].blank? ? '-': Date.parse(@record["dateIdentified"]) %></span></p>
     <!-- basisOfRecord -->
     <p><b><%= t('biomodelos.visor.selected_record.basis_of_record') %> </b> <span><%= @record["basisOfRecord"].blank? ? '-': @record["basisOfRecord"] %></span></p>
     <!-- year month day -->
@@ -85,16 +89,11 @@
     <h2><%= t('biomodelos.visor.selected_record.record_quality') %></h2>
     <!-- inUrbanArea -->
     <p><b><%= t('biomodelos.visor.selected_record.in_urban_area') %></b> <%= @record["inUrbanArea"].blank? ? '-': @record["inUrbanArea"] ? 'Sí' : 'No' %></p>
-    <!-- demAltitude -->
-    <p><b><%= t('biomodelos.visor.selected_record.altitude_in_coordinates') %></b> <%= @record["demAltitude"].blank? ? '-': @record["demAltitude"] %></p>
-    <!-- consistentAltitude -->
-    <p><b><%= t('biomodelos.visor.selected_record.altitude_in_known_range') %></b> <%= @record["consistentAltitude"].blank? ? '-': @record["consistentAltitude"] %></p>
     <!-- altitudinalOutlier -->
     <p><b><%= t('biomodelos.visor.selected_record.altitudinal_outlier') %></b> <%= @record["altitudinalOutlier"].blank? ? '-': @record["altitudinalOutlier"] ? 'Sí' : 'No' %></p>
     <!-- environmentalOutlier -->
     <p><b><%= t('biomodelos.visor.selected_record.environmental_outlier') %></b> <%= @record["environmentalOutlier"].blank? ? '-': @record["environmentalOutlier"] ? 'Sí' : 'No' %></p>
     <p><b><%= t('biomodelos.visor.selected_record.last_report') %> </b>
-      <br>
       <% lastReport = @record["reported"]&.last %>
       <% if lastReport && lastReport["reportedDate"].present? %>
         <%= Date.parse(lastReport["reportedDate"]) %>
@@ -102,7 +101,6 @@
         -
       <% end %><!-- TODO: We would need to query the user by userIdBm (updated) or reportedUserIdBm -->
       <p><b><%= t('biomodelos.visor.selected_record.last_update') %> </b>
-        <br>
         <% if !@record["updated"].nil? && !@record["updated"][-1].nil? && !@record["updated"][-1]["updatedDate"].nil? %>
           <% updatedRecord = @record["updated"][-1] %>
           <% if ((!@record["reportedDate"].nil? && updatedRecord["updatedDate"] > @record["reportedDate"]) ||
