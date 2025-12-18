@@ -6,12 +6,8 @@ module RecordsHelper
       'LivingSpecimen',
       'HumanObservation',
       'MachineObservation',
-      'StillImage',
-      'MovingImage',
-      'SoundRecording',
       'MaterialSample',
       'Occurrence',
-      'OtherSpecimen',
       'MaterialCitation',
   ].sort!
   end
