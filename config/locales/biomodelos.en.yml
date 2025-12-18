@@ -242,6 +242,8 @@ en:
         last_update: "Last update:"
         see_more: "see more"
         see_less: "see less"
+        identifiedBy: "Identified by:"
+        dateIdentified: "Date identified:"
       contributions:
         title: "EDITION AND CONTRIBUTION"
         text_1: "BioModelos offers you three options to help document the distributions of species: editing the statistical model developed by BioModelos, creating an expert map in the application or publishing a model that you developed."

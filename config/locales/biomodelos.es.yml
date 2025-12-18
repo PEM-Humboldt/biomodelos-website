@@ -242,6 +242,8 @@ es:
         last_update: "Última actualización:"
         see_more: "ver más"
         see_less: "ver menos"
+        identifiedBy: "Identificado por:"
+        dateIdentified: "Fecha de identificación:"
       contributions:
         title: "EDICIÓN Y CONTRIBUCIÓN"
         text_1: "BioModelos te ofrece tres opciones para contribuir a documentar las distribuciones de especies: editando sobre el modelo estadístico desarrollado por BioModelos, creando un mapa de experto en la aplicación o publicando un modelo que hayas desarrollado."
