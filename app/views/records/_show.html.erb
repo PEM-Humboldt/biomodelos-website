@@ -1,100 +1,124 @@
-  <div class="cajavisor2" >
-     <div class="dialog regdialog nobox">
-      <div class="headernobox2">
-         <h1><%= t('biomodelos.visor.selected_record.record_of') %></br>
-         <em><%= @record["acceptedNameUsage"] %></em></h1>
-         <a class="closevb vatop" id="regboxclose">x</a>
-      </div>
-      <blockquote>
-        <p>
-        <b><%= t('biomodelos.visor.selected_record.id_of_the_record') %></b> <span id="record_id"><%= @record["id"] %></span><br> <!-- _id -->
-        </p>
-      </blockquote>
-      <% if user_signed_in? && @record["reportedDate"].nil? %>
-         <button id="editregbtn" class="botonpopup">editar</button>
-         <div id="cancelEditBtn"></div>
-         <!-- <a href="#" class="approved" title="Registro correcto" rel="tooltip"></a> -->
-         <a href="#" class="unapproved" title="Reportar" rel="tooltip"></a>
-         <form class="forms reportar invisible" id="report-form">
-            <h3 class="mb10">Reportar Registro</h3>
-            <input type="hidden" name="recordId" value="<%= @record["id"] %>">
-            <input type="checkbox" name="idIssue" checked="checked"><%= t('biomodelos.records.report.id_issue_lbl') %><br>
-            <input type="checkbox" name="geoIssue"><%= t('biomodelos.records.report.geo_issue_lbl') %><br>
-            <input type="checkbox" name="originVagrant"><%= t('biomodelos.records.report.outlier_lbl') %><br>
-            <input type="checkbox" name="oldTaxonomy"><%= t('biomodelos.records.report.old_taxonomy_lbl') %><br>
-            <input type="checkbox" name="originIntroduced"><%= t('biomodelos.records.report.in_captivity_lbl') %><br>
-            <input type="checkbox" name="otherIssues"><%= t('biomodelos.records.report.other_issues_lbl') %><br>
-            <textarea name="commentsIssue"></textarea>
-            <input type="submit" id='send-report' value='<%= t('biomodelos.records.report.submit_btn') %>'>
-            <input type="button" id='cancel-point-cmt' class="cancelbtn" value='<%= t('biomodelos.records.report.cancel_lnk') %>'>
-         </form>
-      <% end %>
-      <div class="clearfix"></div>
-      <h2><%= t('biomodelos.visor.selected_record.taxonomy') %></h2>
-      <% speciesInfo = @record["speciesInfo"] ? @record["speciesInfo"][0] : {} %>
-      <p><b><%= t('biomodelos.visor.selected_record.accepted_name') %></b> <span class="contented" id="txtSpeciesEdit" oldVal="<%= @record['acceptedNameUsage'] %>"><%= @record["acceptedNameUsage"] %></span></p> <!-- acceptedNameUsage -->
-      <p><b><%= t('biomodelos.visor.selected_record.original_name') %></b> <%= @record["speciesOriginal"] %></p> <!-- speciesOriginal -->
-      <p><b><%= t('biomodelos.visor.selected_record.family') %></b> <%= speciesInfo["family"] ? speciesInfo["family"] : '-' %></p> <!-- family -->
-      <p><b><%= t('biomodelos.visor.selected_record.order') %></b> <%= speciesInfo["order"] ? speciesInfo["order"] : '-' %></p> <!-- order -->
-      <p><b><%= t('biomodelos.visor.selected_record.class') %></b> <%= speciesInfo["class"] ? speciesInfo["class"] : '-' %></p> <!-- class -->
-      <p><b><%= t('biomodelos.visor.selected_record.kingdom') %></b> <%= speciesInfo["kingdom"] ? speciesInfo["kingdom"] : '-' %></p> <!-- kingdom -->
-
-      <h2><%= t('biomodelos.visor.selected_record.location') %></h2>
-      <p><b><%= t('biomodelos.visor.selected_record.latitude') %></b> <span class="contented" id="txtLatEdit" oldVal="<%= @record['decimalLatitude'] %>"><%= @record["decimalLatitude"] %></span></p> <!-- decimalLatitude -->
-      <p><b><%= t('biomodelos.visor.selected_record.longitude') %></b> <span class="contented" id="txtLonEdit" oldVal="<%= @record['decimalLongitude'] %>"><%= @record["decimalLongitude"] %></span></p> <!-- decimalLongitude -->
-      <p><b><%= t('biomodelos.visor.selected_record.country') %></b> <span class="contented" id="txtCountryEdit" oldVal="<%= @record['country'] %>"><%= @record["country"] %></span></p><!-- country -->
-      <p><b><%= t('biomodelos.visor.selected_record.state') %></b> <span class="contented" id="txtStateProvinceEdit"><%= @record["stateProvince"].nil? ? '-': @record["stateProvince"] %></span></p><!-- stateProvince -->
-      <p><b><%= t('biomodelos.visor.selected_record.county') %></b> <span class="contented" id="txtCountyEdit"><%= @record["county"].nil? ? '-': @record["county"] %></span></p> <!-- county -->
-      <p><b><%= t('biomodelos.visor.selected_record.locality') %></b> <span class="contented" id="txtLocEdit" oldVal="<%= @record['locality'] %>"><%= @record["locality"].nil? ? '-': @record["locality"] %></span></p><!-- locality -->
-      <p><b><%= t('biomodelos.visor.selected_record.altitude') %></b> <span class="contented" id="txtAltEdit"><%= @record["minimumElevationInMeters"].nil? ? '-': @record["minimumElevationInMeters"] %></span></p><!-- minimumElevationInMeters -->
-
-      <div class="invisible" id="Reghidden">
-         <h2><%= t('biomodelos.visor.selected_record.record_information') %></h2>
-         <p><b><%= t('biomodelos.visor.selected_record.institution') %> </b> <span><%= @record["institutionCode"].nil? ? '-': @record["institutionCode"] %></span></p> <!-- institutionCode -->
-         <p><b><%= t('biomodelos.visor.selected_record.collection') %> </b> <span><%= @record["collectionCode"].nil? ? '-': @record["collectionCode"] %></span></p> <!-- collectionCode -->
-         <p><b><%= t('biomodelos.visor.selected_record.catalog_number') %> </b> <span><%= @record["catalogNumber"].nil? ? '-': @record["catalogNumber"] %></span></p> <!-- catalogNumber -->
-         <p><b><%= t('biomodelos.visor.selected_record.recorded_by') %> </b> <span><%= @record["recordedBy"].nil? ? '-': @record["recordedBy"] %></span></p> <!-- recordedBy -->
-         <p><b><%= t('biomodelos.visor.selected_record.basis_of_record') %> </b> <span><%= @record["basisOfRecord"].nil? ? '-': @record["basisOfRecord"] %></span></p> <!-- basisOfRecord -->
-         <p><b><%= t('biomodelos.visor.selected_record.event_date') %> </b> <%= @record["year"].nil? ? '': @record["year"] %>-<%= @record["month"].nil? ? '': @record["month"] %>-<%= @record["day"].nil? ? '': @record["day"] %></p> <!-- year month day -->
-         <p><b><%= t('biomodelos.visor.selected_record.url') %> </b> <span><%= @record["url"].nil? ? '-': @record["url"] %></span></p> <!-- url -->
-         <p><b><%= t('biomodelos.visor.selected_record.source') %> </b> <%= @record["source"].nil? ? '-': @record["source"] %></p> <!-- source -->
-         <p><b><%= t('biomodelos.visor.selected_record.occurrence_id') %> </b> <%= @record["occurrenceID"].nil? ? '-': @record["occurrenceID"] %></p> <!-- occurrenceID -->
-         <p><b><%= t('biomodelos.visor.selected_record.download_date') %> </b> <span><%= @record["downloadDate"].nil? ? '-': @record["downloadDate"] %></span></p> <!-- downloadDate -->
-
-         <h2><%= t('biomodelos.visor.selected_record.record_quality') %></h2>
-         <p><b><%= t('biomodelos.visor.selected_record.in_urban_area') %></b> <%= @record["inUrbanArea"].nil? ? '-': @record["inUrbanArea"] ? 'Sí' : 'No' %></p> <!-- inUrbanArea -->
-         <p><b><%= t('biomodelos.visor.selected_record.altitude_in_coordinates') %></b> <%= @record["demAltitude"].nil? ? '-': @record["demAltitude"] %></p> <!-- demAltitude -->
-         <p><b><%= t('biomodelos.visor.selected_record.altitude_in_known_range') %></b> <%= @record["consistentAltitude"].nil? ? '-': @record["consistentAltitude"] %></p> <!-- consistentAltitude -->
-         <p><b><%= t('biomodelos.visor.selected_record.altitudinal_outlier') %></b> <%= @record["altitudinalOutlier"].nil? ? '-': @record["altitudinalOutlier"] ? 'Sí' : 'No' %></p> <!-- altitudinalOutlier -->
-         <p><b><%= t('biomodelos.visor.selected_record.environmental_outlier') %></b> <%= @record["environmentalOutlier"].nil? ? '-': @record["environmentalOutlier"] ? 'Sí' : 'No' %></p> <!-- environmentalOutlier -->
-         <p><b><%= t('biomodelos.visor.selected_record.last_report') %> </b>
-            <br>
-            <% lastReport = @record["reported"]&.last %>
-            <% if lastReport && lastReport["reportedDate"].present? %>
-              <%= Date.parse(lastReport["reportedDate"]) %>
-            <% else %>
-              -
-            <% end %><!-- TODO: We would need to query the user by userIdBm (updated) or reportedUserIdBm -->
-         <p><b><%= t('biomodelos.visor.selected_record.last_update') %> </b>
-            <br>
-            <% if !@record["updated"].nil? && !@record["updated"][-1].nil? && !@record["updated"][-1]["updatedDate"].nil? %>
-               <% updatedRecord = @record["updated"][-1] %>
-               <% if ((!@record["reportedDate"].nil? && updatedRecord["updatedDate"] > @record["reportedDate"]) ||
+<div class="cajavisor2" >
+  <div class="dialog regdialog nobox">
+    <div class="headernobox2">
+      <h1><%= t('biomodelos.visor.selected_record.record_of') %></br>
+      <em><%= @record["acceptedNameUsage"] %></em></h1>
+    <a class="closevb vatop" id="regboxclose">x</a>
+  </div>
+  <blockquote>
+    <p>
+      <!-- _id -->
+      <b><%= t('biomodelos.visor.selected_record.id_of_the_record') %></b> <span id="record_id"><%= @record["id"] %></span><br>
+    </p>
+  </blockquote>
+  <% if user_signed_in? && @record["reportedDate"].nil? %>
+    <button id="editregbtn" class="botonpopup">editar</button>
+    <div id="cancelEditBtn"></div>
+    <!-- <a href="#" class="approved" title="Registro correcto" rel="tooltip"></a> -->
+    <a href="#" class="unapproved" title="Reportar" rel="tooltip"></a>
+    <form class="forms reportar invisible" id="report-form">
+      <h3 class="mb10">Reportar Registro</h3>
+      <input type="hidden" name="recordId" value="<%= @record["id"] %>">
+      <input type="checkbox" name="idIssue" checked="checked"><%= t('biomodelos.records.report.id_issue_lbl') %><br>
+      <input type="checkbox" name="geoIssue"><%= t('biomodelos.records.report.geo_issue_lbl') %><br>
+      <input type="checkbox" name="originVagrant"><%= t('biomodelos.records.report.outlier_lbl') %><br>
+      <input type="checkbox" name="oldTaxonomy"><%= t('biomodelos.records.report.old_taxonomy_lbl') %><br>
+      <input type="checkbox" name="originIntroduced"><%= t('biomodelos.records.report.in_captivity_lbl') %><br>
+      <input type="checkbox" name="otherIssues"><%= t('biomodelos.records.report.other_issues_lbl') %><br>
+      <textarea name="commentsIssue"></textarea>
+      <input type="submit" id='send-report' value='<%= t('biomodelos.records.report.submit_btn') %>'>
+      <input type="button" id='cancel-point-cmt' class="cancelbtn" value='<%= t('biomodelos.records.report.cancel_lnk') %>'>
+    </form>
+  <% end %>
+  <div class="clearfix"></div>
+  <h2><%= t('biomodelos.visor.selected_record.taxonomy') %></h2>
+  <% speciesInfo = @record["speciesInfo"] ? @record["speciesInfo"][0] : {} %>
+  <!-- acceptedNameUsage -->
+  <p><b><%= t('biomodelos.visor.selected_record.accepted_name') %></b> <span class="contented" id="txtSpeciesEdit" oldVal="<%= @record['acceptedNameUsage'] %>"><%= @record["acceptedNameUsage"] %></span></p>
+  <!-- speciesOriginal -->
+  <p><b><%= t('biomodelos.visor.selected_record.original_name') %></b> <%= @record["speciesOriginal"] %></p>
+  <!-- family -->
+  <p><b><%= t('biomodelos.visor.selected_record.family') %></b> <%= speciesInfo["family"] ? speciesInfo["family"] : '-' %></p>
+  <!-- order -->
+  <p><b><%= t('biomodelos.visor.selected_record.order') %></b> <%= speciesInfo["order"] ? speciesInfo["order"] : '-' %></p>
+  <!-- class -->
+  <p><b><%= t('biomodelos.visor.selected_record.class') %></b> <%= speciesInfo["class"] ? speciesInfo["class"] : '-' %></p>
+  <!-- kingdom -->
+  <p><b><%= t('biomodelos.visor.selected_record.kingdom') %></b> <%= speciesInfo["kingdom"] ? speciesInfo["kingdom"] : '-' %></p>
+  <h2><%= t('biomodelos.visor.selected_record.location') %></h2>
+  <!-- decimalLatitude -->
+  <p><b><%= t('biomodelos.visor.selected_record.latitude') %></b> <span class="contented" id="txtLatEdit" oldVal="<%= @record['decimalLatitude'] %>"><%= @record["decimalLatitude"] %></span></p>
+  <!-- decimalLongitude -->
+  <p><b><%= t('biomodelos.visor.selected_record.longitude') %></b> <span class="contented" id="txtLonEdit" oldVal="<%= @record['decimalLongitude'] %>"><%= @record["decimalLongitude"] %></span></p>
+  <!-- country -->
+  <p><b><%= t('biomodelos.visor.selected_record.country') %></b> <%= @record['country'].blank? ? '-': @record["country"] %></p>
+  <!-- stateProvince -->
+  <p><b><%= t('biomodelos.visor.selected_record.state') %></b> <%= @record["stateProvince"].blank? ? '-': @record["stateProvince"] %></p>
+  <!-- county -->
+  <p><b><%= t('biomodelos.visor.selected_record.county') %></b> <%= @record["county"].blank? ? '-': @record["county"] %></p>
+  <!-- locality -->
+  <p><b><%= t('biomodelos.visor.selected_record.locality') %></b> <span class="contented" id="txtLocEdit" oldVal="<%= @record['locality'] %>"><%= @record["locality"].nil? ? '-': @record["locality"] %></span></p>
+  <!-- minimumElevationInMeters -->
+  <p><b><%= t('biomodelos.visor.selected_record.altitude') %></b> <%= @record["minimumElevationInMeters"].blank? ? '-': @record["minimumElevationInMeters"] %></p>
+  <div class="invisible" id="Reghidden">
+    <h2><%= t('biomodelos.visor.selected_record.record_information') %></h2>
+    <!-- institutionCode -->
+    <p><b><%= t('biomodelos.visor.selected_record.institution') %> </b> <span><%= @record["institutionCode"].blank? ? '-': @record["institutionCode"] %></span></p>
+    <!-- collectionCode -->
+    <p><b><%= t('biomodelos.visor.selected_record.collection') %> </b> <span><%= @record["collectionCode"].blank? ? '-': @record["collectionCode"] %></span></p>
+    <!-- catalogNumber -->
+    <p><b><%= t('biomodelos.visor.selected_record.catalog_number') %> </b> <span><%= @record["catalogNumber"].blank? ? '-': @record["catalogNumber"] %></span></p>
+    <!-- recordedBy -->
+    <p><b><%= t('biomodelos.visor.selected_record.recorded_by') %> </b> <span><%= @record["recordedBy"].blank? ? '-': @record["recordedBy"] %></span></p>
+    <!-- basisOfRecord -->
+    <p><b><%= t('biomodelos.visor.selected_record.basis_of_record') %> </b> <span><%= @record["basisOfRecord"].blank? ? '-': @record["basisOfRecord"] %></span></p>
+    <!-- year month day -->
+    <p><b><%= t('biomodelos.visor.selected_record.event_date') %> </b> <%= @record["year"].blank? ? '': @record["year"] %>-<%= @record["month"].nil? ? '': @record["month"] %>-<%= @record["day"].nil? ? '': @record["day"] %></p>
+    <!-- url -->
+    <p><b><%= t('biomodelos.visor.selected_record.url') %> </b> <span><%= @record["url"].blank? ? '-': @record["url"] %></span></p>
+    <!-- source -->
+    <p><b><%= t('biomodelos.visor.selected_record.source') %> </b> <%= @record["source"].blank? ? '-': @record["source"] %></p>
+    <!-- occurrenceID -->
+    <p><b><%= t('biomodelos.visor.selected_record.occurrence_id') %> </b> <%= @record["occurrenceID"].blank? ? '-': @record["occurrenceID"] %></p>
+    <!-- downloadDate -->
+    <p><b><%= t('biomodelos.visor.selected_record.download_date') %> </b> <span><%= @record["downloadDate"].blank? ? '-': @record["downloadDate"] %></span></p>
+    <h2><%= t('biomodelos.visor.selected_record.record_quality') %></h2>
+    <!-- inUrbanArea -->
+    <p><b><%= t('biomodelos.visor.selected_record.in_urban_area') %></b> <%= @record["inUrbanArea"].blank? ? '-': @record["inUrbanArea"] ? 'Sí' : 'No' %></p>
+    <!-- demAltitude -->
+    <p><b><%= t('biomodelos.visor.selected_record.altitude_in_coordinates') %></b> <%= @record["demAltitude"].blank? ? '-': @record["demAltitude"] %></p>
+    <!-- consistentAltitude -->
+    <p><b><%= t('biomodelos.visor.selected_record.altitude_in_known_range') %></b> <%= @record["consistentAltitude"].blank? ? '-': @record["consistentAltitude"] %></p>
+    <!-- altitudinalOutlier -->
+    <p><b><%= t('biomodelos.visor.selected_record.altitudinal_outlier') %></b> <%= @record["altitudinalOutlier"].blank? ? '-': @record["altitudinalOutlier"] ? 'Sí' : 'No' %></p>
+    <!-- environmentalOutlier -->
+    <p><b><%= t('biomodelos.visor.selected_record.environmental_outlier') %></b> <%= @record["environmentalOutlier"].blank? ? '-': @record["environmentalOutlier"] ? 'Sí' : 'No' %></p>
+    <p><b><%= t('biomodelos.visor.selected_record.last_report') %> </b>
+      <br>
+      <% lastReport = @record["reported"]&.last %>
+      <% if lastReport && lastReport["reportedDate"].present? %>
+        <%= Date.parse(lastReport["reportedDate"]) %>
+      <% else %>
+        -
+      <% end %><!-- TODO: We would need to query the user by userIdBm (updated) or reportedUserIdBm -->
+      <p><b><%= t('biomodelos.visor.selected_record.last_update') %> </b>
+        <br>
+        <% if !@record["updated"].nil? && !@record["updated"][-1].nil? && !@record["updated"][-1]["updatedDate"].nil? %>
+          <% updatedRecord = @record["updated"][-1] %>
+          <% if ((!@record["reportedDate"].nil? && updatedRecord["updatedDate"] > @record["reportedDate"]) ||
                   @record["reportedDate"].nil?) %>
-                  <%= Date.parse updatedRecord["updatedDate"] %>
-               <% else %>
-                  <%= Date.parse @record["reportedDate"] %>
-               <% end %>
-            <% elsif !@record["reportedDate"].nil? %>
-               <%= Date.parse @record["reportedDate"] %>
-            <% else %>
-               -
-            <% end %> <!-- TODO: We would need to query the user by userIdBm (updated) or reportedUserIdBm -->
-      </div>
-
-      <div class="showreg" id="Showreg"></div>
-      <div class="vermastxt vermas"><%= t('biomodelos.visor.selected_record.see_more') %></div>
-      <div class="vermastxt vermenos invisible"><%= t('biomodelos.visor.selected_record.see_less') %></div>
-      
+          <%= Date.parse updatedRecord["updatedDate"] %>
+        <% else %>
+          <%= Date.parse @record["reportedDate"] %>
+        <% end %>
+      <% elsif !@record["reportedDate"].nil? %>
+        <%= Date.parse @record["reportedDate"] %>
+      <% else %>
+        -
+      <% end %> <!-- TODO: We would need to query the user by userIdBm (updated) or reportedUserIdBm -->
     </div>
+    <div class="showreg" id="Showreg"></div>
+    <div class="vermastxt vermas"><%= t('biomodelos.visor.selected_record.see_more') %></div>
+    <div class="vermastxt vermenos invisible"><%= t('biomodelos.visor.selected_record.see_less') %></div>
+  </div>
 </div>
