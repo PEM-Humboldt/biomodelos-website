@@ -1,4 +1,4 @@
-# BioModelos v2.12.5
+# BioModelos v2.12.6
 
 [BioModelos](http://biomodelos.humboldt.org.co) is a web app that facilitates the generation, validation and consultation of hypothesis of species distribution for the continental biodiversity of Colombia. As such, it provides tools to (1) improve existing species distribution models (SDMs) by integrating expert's opinion, (2) generate expert maps and (3) publish SDMs. Our objective is to provide freely and openly access to the most up to date information on species distributions, validated by a large network of researchers, to support national environmental decision making processes and research.
 
@@ -23,10 +23,10 @@ Deploy these services before setting up the app:
 
 ### Download the source code
 
-Clone the repo to the server where you are deploying the app:
+Clone the [repository](https://github.com/PEM-Humboldt/biomodelos-website) to the server where you are deploying the app:
 
 ```sh
-$ git clone git://github.com/LBAB-Humboldt/BioModelos.v2.git
+$ git clone https://github.com/PEM-Humboldt/biomodelos-website.git
 ```
 
 ## Web app database
@@ -57,9 +57,11 @@ GEOSERVER_URI = "http://localhost:8080/geoserver";
 
 ### Credentials and Keys
 
-Is necessary to setup the secret credentials and keys in an encrypted file credentials.yml.enc. This file is specific for each environment (production, development or test).
-This file needs the master key file to decrypt and modified the keys according to your specific requirements.
-There is some [Information](https://webcrunch.com/posts/the-complete-guide-to-ruby-on-rails-encrypted-credentials) about how to setup the credentials.
+You need to configure the secret credentials in an encrypted file such as ENVIRONMENT.yml.enc, where ENVIRONMENT must be: production, development or test.
+
+There are more [Information](https://webcrunch.com/posts/the-complete-guide-to-ruby-on-rails-encrypted-credentials) about how to setup the credentials.
+
+These credentials files require the master key file (ENVIRONMENT.key) to decrypt and modify the keys according to your specific requirements.
 
 In this file you should put information about:
 
@@ -90,7 +92,8 @@ mail_server:
   GMAIL_PASSWORD: "secret password"
 ```
 
-For Humboldt organization you must ask for the master keys file which you must add to ```config/credentials```, it is inside the internal repository.
+For Humboldt organization, you must copy the encrypted files and the master keys from the internal repository to ```config/credentials```.
+
 
 ## Run
 
@@ -113,56 +116,44 @@ $ bundle exec rails s -b 0.0.0.0
 ```
 Extra configuration are at the internal repository.
 
+## Dockerization
+
+### Environment variables
+
+To run the application in Docker, you need to configure the environment variables in the .env file, as in this [example](./env.example). This file contains environment variables for the rails application and configuration variables for the docker container.
+
 ### Dev env with docker
 
-You can create a docker container for development purposes, just build the image with the dev file:
+You can create a docker container for development purposes, just build the image with the [docker-compose.dev.yml](./docker-compose.dev.yml) file:
 
 ```sh
-$ docker build -f Dockerfile.dev -t <image name> .
+$ docker-compose -f docker-compose.dev.yml up -d --build
 ```
 
-And remember to mount the volumes (or link them) in your source code path
+And remember to configure the volumes in the .env file
 
 ## Deploy
 
 ### Copying static files
 
-First, there are some static .PDF, .PNG and .ZIP files you need to copy to the ```/public/``` folder. Those files are part of the guides and graphic pieces to advertise BioModelos and are not part of our repo.
+First, there are some static .PDF, .PNG and .ZIP files that you need to copy to the ```/public/``` folder. Those files are part of the guides and graphic pieces to advertise BioModelos and are not part of our repo.
 
-### Building the image
+### Environment variables
 
-On the root path of the rails app you enter this command to build the image:
+Configure the .env file according to the [example](./env.example).
 
-```sh
-$ docker build -t <image name>:<tag> .
-```
+You must modify the .env file and configure the volumes according to the methods, models, thumbs, zip, uploads and credentials folders.
 
-### Starting the container
+### Running the container
 
-Once you have the image, it's recommended to use [docker-compose](https://docs.docker.com/compose/) to run the container.
+It's recommended to use [docker-compose](https://docs.docker.com/compose/) to build the image and run the container.
 
-You need to create a docker-compose.yml file and set the volumes according to the models, thumbnails, zip and uploads folders like this:
+The [production docker-compose](./docker-compose.prod.yml) file is included in the repository.
 
-```sh
-version: '3'
-services:
-  biomodelos:
-    image: [image name]
-    ports:
-     - "[host port]:[container port]"
-    volumes:
-     - /path/to/host/methods:/var/www/BioModelos/public/methods
-     - /path/to/host/models:/var/www/BioModelos/public/models
-     - /path/to/host/thumbs:/var/www/BioModelos/public/thumbs
-     - /path/to/host/zip:/var/www/BioModelos/public/zip
-     - /path/to/host/uploads:/var/www/BioModelos/public/uploads
-
-```
-
-Finally, you run the container with the next command:
+On the root path of the rails app you enter this command to build the image and run the container:
 
 ```sh
-$ docker-compose up -d
+$ docker-compose -f docker-compose.prod.yml up -d --build
 ```
 
 ## LICENSE
