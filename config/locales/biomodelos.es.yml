@@ -236,7 +236,6 @@ es:
         altitude_in_coordinates: "Altitud en coordenadas:"
         altitude_in_known_range: "Altitud en rango conocido:"
         distance_to_known_range: "Distancia a rango conocido:"
-        altitudinal_outlier: "Altitud atípica:"
         environmental_outlier: "Ambiente atípico:"
         last_report: "Último reporte:"
         last_update: "Última actualización:"

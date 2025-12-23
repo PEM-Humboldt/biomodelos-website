@@ -89,8 +89,6 @@
     <h2><%= t('biomodelos.visor.selected_record.record_quality') %></h2>
     <!-- inUrbanArea -->
     <p><b><%= t('biomodelos.visor.selected_record.in_urban_area') %></b> <%= @record["inUrbanArea"].blank? ? '-': @record["inUrbanArea"] ? 'Sí' : 'No' %></p>
-    <!-- altitudinalOutlier -->
-    <p><b><%= t('biomodelos.visor.selected_record.altitudinal_outlier') %></b> <%= @record["altitudinalOutlier"].blank? ? '-': @record["altitudinalOutlier"] ? 'Sí' : 'No' %></p>
     <!-- environmentalOutlier -->
     <p><b><%= t('biomodelos.visor.selected_record.environmental_outlier') %></b> <%= @record["environmentalOutlier"].blank? ? '-': @record["environmentalOutlier"] ? 'Sí' : 'No' %></p>
     <p><b><%= t('biomodelos.visor.selected_record.last_report') %> </b>
