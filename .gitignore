@@ -14,7 +14,6 @@
 /tmp
 # Ignore other unneeded files.
 /config/local_env.yml
-config/initializers/url*.rb
 !database_template.yml
 doc/
 *.swp

@@ -23,5 +23,9 @@ phases:
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
       - printf '[{"name":"biomodelos-frontend","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+  deploy:
+    commands:
+      - echo deploy image $REPOSITORY_URI:$IMAGE_TAG
+      - aws ecs update-service --cluster humbolt-cluster-dev  --service biomodelos-frontend-test-v2 --force-new-deployment
 artifacts:
     files: imagedefinitions.json
