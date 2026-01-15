@@ -4,11 +4,11 @@ en:
       new_record:
         decimalLatitude: "Latitude"
         decimalLongitude: "Longitude"
-        verbatimElevation: "Altitude"
+        minimumElevationInMeters: "Altitude"
         date: "Date"
         stateProvince: "State"
         county: "County"
-        verbatimLocality: "Locality"
+        locality: "Locality"
         basisOfRecord: "Basis of record"
         recordedBy: "Recorded by"
         createdCitationBm: "Citation"

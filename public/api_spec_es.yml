@@ -199,12 +199,13 @@ components:
           - MATERIAL_SAMPLE
           - OCCURRENCE
           - OTHER_SPECIMEN
+          - MATERIAL_CITATION
           example: HUMAN_OBSERVATION
-        suggestedStateProvince:
+        stateProvince:
           type: string
           description: Departamento sugerido a partir de las coordenadas
           example: Córdoba
-        suggestedCounty:
+        county:
           type: string
           description: Municipio sugerido a partir de las coordenadas
           example: LORICA
@@ -248,11 +249,11 @@ components:
           type: string
           description: Departamento del registro
           example: Córdoba
-        verbatimElevation:
+        minimumElevationInMeters:
           type: string
           description: Descripción original de la elevación (altitud) sobre la que se tomó el registro
           example: "0-0"
-        verbatimLocality:
+        locality:
           type: string
           description: Descripción textual original del lugar del registro
           example: Ceiba Pareja

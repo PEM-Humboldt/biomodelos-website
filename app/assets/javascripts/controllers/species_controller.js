@@ -522,12 +522,12 @@ $(document).ready(function() {
 			constraints.acceptedNameUsage.length = { maximum: 100 };
 			data.acceptedNameUsage = speRecordEdition.text();
 		}
-		if (locRecordEdition.text() != locRecordEdition.attr('oldVal')){
+        if (locRecordEdition.text() != locRecordEdition.attr('oldVal')){
 			varsToValidate.localidad = locRecordEdition.text();
 			constraints.localidad = {};
 			constraints.localidad.presence = true;
 			constraints.localidad.length = { maximum: 100 };
-			data.verbatimLocality = locRecordEdition.text();
+			data.locality = locRecordEdition.text();
 		}
 		const valResponse = validate(varsToValidate, constraints, { format: "flat" });
 		if (valResponse) {

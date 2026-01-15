@@ -199,12 +199,13 @@ components:
           - MATERIAL_SAMPLE
           - OCCURRENCE
           - OTHER_SPECIMEN
+          - MATERIAL_CITATION
           example: HUMAN_OBSERVATION
-        suggestedStateProvince:
+        stateProvince:
           type: string
           description: Suggested state/province based on the record coordinates.
           example: Córdoba
-        suggestedCounty:
+        county:
           type: string
           description: Suggested county based on the record coordinates.
           example: LORICA
@@ -248,11 +249,11 @@ components:
           type: string
           description: The name of the next smaller administrative region than country
           example: Córdoba
-        verbatimElevation:
+        minimumElevationInMeters:
           type: string
           description:  The original description of the elevation (altitude, usually above sea level) of the Location.
           example: "0-0"
-        verbatimLocality:
+        locality:
           type: string
           description: The original textual description of the place.
           example: Ceiba Pareja
