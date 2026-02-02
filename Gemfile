@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '~> 7.2', '>= 7.2.2.1'
+gem 'rails', '~> 7.2.3', '>= 7.2.3'
 gem 'actionpack', '~> 7.2'
 gem 'sass-rails', '~> 6.0'
 gem 'coffee-rails', '~> 5.0.0'
