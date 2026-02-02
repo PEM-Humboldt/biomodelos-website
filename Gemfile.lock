@@ -135,7 +135,7 @@ GEM
     ffi (1.15.5)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    httparty (0.22.0)
+    httparty (0.24.2)
       csv
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
@@ -325,7 +325,7 @@ DEPENDENCIES
   coffee-rails (~> 5.0.0)
   devise (~> 4.9, >= 4.9.4)
   factory_girl_rails (~> 4.7.0)
-  httparty (~> 0.22.0)
+  httparty (>= 0.24.0)
   jbuilder (~> 2.13)
   jquery-rails (~> 4.6, >= 4.6.0)
   mini_magick (~> 5.1, >= 5.1.2)

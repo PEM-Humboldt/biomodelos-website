@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.13'
 gem 'sdoc', '~> 2.6', '>= 2.6.1'
 gem 'devise', '~> 4.9', '>= 4.9.4'
 gem 'simple_form', '~> 5.3', '>= 5.3.1'
-gem 'httparty', '~> 0.22.0'
+gem "httparty", ">= 0.24.0"
 gem 'carrierwave', '~> 3.1', '>= 3.1.1'
 gem 'mini_magick', '~> 5.1', '>= 5.1.2'
 gem 'carrierwave-bombshelter', '~> 0.2.2' 
