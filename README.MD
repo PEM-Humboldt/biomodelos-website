@@ -13,7 +13,7 @@ Deploy these services before setting up the app:
 
 ### Software
 
-- [Ruby](https://www.ruby-lang.org/en/documentation/) version 3.1.6. It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
+- [Ruby](https://www.ruby-lang.org/en/documentation/) version 3.1.7. It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
 - [Docker](https://www.docker.com) version 17.05 or up.
 - [Git](https://git-scm.com/).
 - [npm](https://www.npmjs.com/) version 10.8.2.
