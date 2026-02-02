@@ -329,7 +329,7 @@ DEPENDENCIES
   jbuilder (~> 2.13)
   jquery-rails (~> 4.6, >= 4.6.0)
   mini_magick (~> 5.1, >= 5.1.2)
-  nokogiri (~> 1.18, >= 1.18.3)
+  nokogiri (~> 1.18, >= 1.18.9)
   pg (~> 1.5, >= 1.5.9)
   puma (~> 6.6)
   rails (~> 7.2.3, >= 7.2.3)
