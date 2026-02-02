@@ -19,6 +19,7 @@ gem 'alertifyjs-rails', '~> 1.12', '>= 1.11.2'
 gem 'pg', '~> 1.5', '>= 1.5.9'
 gem 'puma', '~> 6.6'
 gem 'nokogiri', '~> 1.18', '>= 1.18.9'
+gem "rack", ">= 3.1.18"
 
 group :development, :test do
   gem 'rspec-rails', '~> 7.1', '>= 7.1.1'
