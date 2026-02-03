@@ -17,7 +17,7 @@ gem 'mini_magick', '~> 5.3', '>= 5.3.1'
 gem 'carrierwave-bombshelter', '~> 0.2.2' 
 gem 'recaptcha', '~> 5.21', require: "recaptcha/rails" 
 gem 'alertifyjs-rails', '~> 1.12', '>= 1.12'
-gem 'pg', '~> 1.5', '>= 1.5.9'
+gem 'pg', '~> 1.6', '>= 1.6.3'
 gem 'puma', '~> 6.6'
 gem 'nokogiri', '~> 1.18', '>= 1.18.9'
 gem "rack", ">= 3.1.18"
