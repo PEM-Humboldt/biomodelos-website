@@ -9,7 +9,7 @@ gem 'coffee-rails', '~> 5.0.0'
 gem 'jquery-rails', '~> 4.6', '>= 4.6.1'
 gem 'jbuilder', '~> 2.14', '>= 2.14.1'
 gem 'sdoc', '~> 2.6', '>= 2.6.5'
-gem 'devise', '~> 4.9', '>= 4.9.4'
+gem 'devise', '~> 5.0', '>= 5.0.0'
 gem 'simple_form', '~> 5.4', '>= 5.4.1'
 gem "httparty", ">= 0.24.0"
 gem 'carrierwave', '~> 3.1', '>= 3.1.1'
