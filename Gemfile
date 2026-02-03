@@ -18,7 +18,7 @@ gem 'carrierwave-bombshelter', '~> 0.2.2'
 gem 'recaptcha', '~> 5.21', require: "recaptcha/rails" 
 gem 'alertifyjs-rails', '~> 1.12', '>= 1.12'
 gem 'pg', '~> 1.6', '>= 1.6.3'
-gem 'puma', '~> 6.6'
+gem 'puma', '~> 7.2'
 gem 'nokogiri', '~> 1.18', '>= 1.18.9'
 gem "rack", ">= 3.1.18"
 gem "net-imap", ">= 0.5.7"

@@ -193,7 +193,7 @@ GEM
       date
       stringio
     public_suffix (6.0.1)
-    puma (6.6.0)
+    puma (7.2.0)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.4)
@@ -332,7 +332,7 @@ DEPENDENCIES
   net-imap (>= 0.5.7)
   nokogiri (~> 1.18, >= 1.18.9)
   pg (~> 1.6, >= 1.6.3)
-  puma (~> 6.6)
+  puma (~> 7.2)
   rack (>= 3.1.18)
   rails (~> 7.2.3, >= 7.2.3)
   recaptcha (~> 5.21)
