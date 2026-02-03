@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
+ruby '~> 3.2.0' 
 
 gem 'rails', '~> 7.2.3', '>= 7.2.3'
 gem 'actionpack', '~> 7.2'
 gem 'sass-rails', '~> 6.0'
 gem 'coffee-rails', '~> 5.0.0'
 gem 'jquery-rails', '~> 4.6', '>= 4.6.1'
-gem 'jbuilder', '~> 2.13'
+gem 'jbuilder', '~> 2.14', '>= 2.14.1'
 gem 'sdoc', '~> 2.6', '>= 2.6.1'
 gem 'devise', '~> 4.9', '>= 4.9.4'
 gem 'simple_form', '~> 5.3', '>= 5.3.1'
