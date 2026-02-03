@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '~> 3.2.8', '>= 3.2.8' 
+ruby '~> 3.2' 
 
 gem 'rails', '~> 7.2.3', '>= 7.2.3'
 gem 'actionpack', '~> 7.2'
@@ -10,7 +10,7 @@ gem 'jquery-rails', '~> 4.6', '>= 4.6.1'
 gem 'jbuilder', '~> 2.14', '>= 2.14.1'
 gem 'sdoc', '~> 2.6', '>= 2.6.1'
 gem 'devise', '~> 4.9', '>= 4.9.4'
-gem 'simple_form', '~> 5.3', '>= 5.3.1'
+gem 'simple_form', '~> 5.4', '>= 5.4.1'
 gem "httparty", ">= 0.24.0"
 gem 'carrierwave', '~> 3.1', '>= 3.1.1'
 gem 'mini_magick', '~> 5.1', '>= 5.1.2'
