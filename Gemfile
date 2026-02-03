@@ -13,7 +13,7 @@ gem 'devise', '~> 5.0', '>= 5.0.0'
 gem 'simple_form', '~> 5.4', '>= 5.4.1'
 gem "httparty", ">= 0.24.0"
 gem 'carrierwave', '~> 3.1', '>= 3.1.2'
-gem 'mini_magick', '~> 5.1', '>= 5.1.2'
+gem 'mini_magick', '~> 5.3', '>= 5.3.1'
 gem 'carrierwave-bombshelter', '~> 0.2.2' 
 gem 'recaptcha', '~> 5.19', require: "recaptcha/rails" 
 gem 'alertifyjs-rails', '~> 1.12', '>= 1.11.2'
