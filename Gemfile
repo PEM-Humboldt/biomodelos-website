@@ -24,7 +24,7 @@ gem "rack", ">= 3.1.18"
 gem "net-imap", ">= 0.5.7"
 
 group :development, :test do
-  gem 'rspec-rails', '~> 7.1', '>= 7.1.1'
+  gem 'rspec-rails', '~> 8.0', '>= 8.0.2'
   gem 'factory_girl_rails', '~> 4.7.0'
   gem 'capybara', '~> 3.40'
 end
