@@ -97,7 +97,7 @@ For Humboldt organization, you must copy the encrypted files and the master keys
 
 ## Run
 
-**Important**: You should have installed previously Ruby 3.1.6.
+**Important**: You should have installed previously Ruby 3.4.8.
 
 Install dependencies using these commands in your terminal
 
