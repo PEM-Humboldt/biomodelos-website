@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '~> 3.2' 
+ruby '~> 3.3', '>= 3.3.8' 
 
 gem 'rails', '~> 7.2', '>= 7.2.3'
 gem 'actionpack', '~> 7.2'
