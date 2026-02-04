@@ -1,5 +1,5 @@
 # Stage 1: building dependencies and assets
-FROM ruby:3.1.6-alpine AS builder
+ ruby:3.4.8 AS builder
 
 ENV BUILD_PACKAGES="build-base curl-dev openssh"
 ENV DEV_PACKAGES="tzdata libxml2-dev libxslt-dev postgresql-dev imagemagick imagemagick-dev git gmp-dev nodejs npm dos2unix"
@@ -19,7 +19,7 @@ RUN yarn install --check-files
 
 
 # Stage 2: final image
-FROM ruby:3.1.6-alpine
+FROM ruby:3.4.8
 
 ENV RAILS_ROOT=/var/www/BioModelos
 WORKDIR $RAILS_ROOT
