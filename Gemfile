@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '~> 3.2' 
 
-gem 'rails', '~> 7.2.3', '>= 7.2.3'
+gem 'rails', '~> 7.2', '>= 7.2.3'
 gem 'actionpack', '~> 7.2'
 gem 'sass-rails', '~> 6.0'
 gem 'coffee-rails', '~> 5.0.0'
@@ -25,11 +25,11 @@ gem "net-imap", ">= 0.5.7"
 
 group :development, :test do
   gem 'rspec-rails', '~> 8.0', '>= 8.0.2'
-  gem 'factory_girl_rails', '~> 4.7.0'
+  gem 'factory_bot', '~> 6.5', '>= 6.5.6'
   gem 'capybara', '~> 3.40'
 end
 
 group :development do
   gem 'web-console', '~> 4.2', '>= 4.2.1'
-  gem 'spring', '~> 4.2.1'
+  gem 'spring', '~> 4.4', '>= 4.4.2'
 end
