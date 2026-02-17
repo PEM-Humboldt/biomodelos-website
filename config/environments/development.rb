@@ -36,7 +36,17 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
-
+  config.action_mailer.perform_deliveries = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :authentication => "plain",
+      :enable_starttls_auto => true,
+      :user_name => Rails.application.credentials.dig(:mail_server, :GMAIL_USERNAME),
+      :password => Rails.application.credentials.dig(:mail_server, :GMAIL_PASSWORD)
+  }
   # Disable caching for Action Mailer templates even if Action Controller
   # caching is enabled.
   config.action_mailer.perform_caching = false
@@ -63,6 +73,7 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+  config.assets.raise_runtime_errors = true
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
@@ -75,4 +86,5 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions.
   config.action_controller.raise_on_missing_callback_actions = true
+  #config.web_console.allowed_ips = '172.22.0.1'
 end
