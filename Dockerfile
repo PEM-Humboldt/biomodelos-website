@@ -32,7 +32,9 @@ RUN apk add --no-cache \
   nodejs \
   npm \
   yarn
-  
+
+RUN apk add --no-cache libjpeg-turbo libjpeg-turbo-dev
+
 COPY --from=builder /usr/local/bundle /usr/local/bundle
 COPY --from=builder $RAILS_ROOT $RAILS_ROOT
 
