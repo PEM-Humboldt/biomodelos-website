@@ -87,4 +87,25 @@ Rails.application.configure do
   # Raise error when a before_action's only/except options reference missing actions.
   config.action_controller.raise_on_missing_callback_actions = true
   #config.web_console.allowed_ips = '172.22.0.1'
+
+  config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
+  config.log_formatter = ::Logger::Formatter.new
+
+  stdout_logger = ActiveSupport::Logger.new(STDOUT)
+  stdout_logger.formatter = config.log_formatter
+
+  file_logger = ActiveSupport::Logger.new(
+    Rails.root.join("log/development.log"),
+    10,
+    50 * 1024 * 1024
+  )
+  file_logger.formatter = config.log_formatter
+
+  config.logger = ActiveSupport::TaggedLogging.new(
+    ActiveSupport::BroadcastLogger.new(
+      stdout_logger,
+      file_logger
+    )
+  )
+
 end
