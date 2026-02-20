@@ -124,6 +124,8 @@ To run the application in Docker, you need to configure the environment variable
 
 ### Dev env with docker
 
+You must config the variable `config.web_console.allowed_ips` at [development.rb](config/environments/development.rb) to allow the local ips for debug.
+
 You can create a docker container for development purposes, just build the image with the [docker-compose.dev.yml](./docker-compose.dev.yml) file:
 
 ```sh
