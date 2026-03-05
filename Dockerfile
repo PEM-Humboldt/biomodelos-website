@@ -38,7 +38,7 @@ RUN apk add --no-cache \
   npm \
   yarn \
   libjpeg-turbo \
-  libstdc++ \
+  libstdc++ 
 
 COPY --from=builder /usr/local/bundle /usr/local/bundle
 COPY --from=builder $RAILS_ROOT $RAILS_ROOT
