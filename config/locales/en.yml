@@ -33,6 +33,8 @@ en:
             password_confirmation:
               blank: "Password confirmation can't be blank."
               confirmation: "Password and password confirmation do not match."
+            current_password:
+              blank: "Current password can't be blank."
             terms_of_service:
               terms_not_accepted: "You must read and accept the terms and conditions of service."
             data_policy:
