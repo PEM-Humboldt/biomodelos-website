@@ -44,6 +44,7 @@ es:
         title: "contribuye"
         text_1: "Para contribuir en BioModelos debes ser un usuario registrado y pertenecer a uno de los grupos de la plataforma."
         sign_up_btn: "REGISTRO"
+        log_in_btn: "INGRESAR"
         contribution_types: "TIPOS DE APORTES"
         text_2: "Puedes aportar a mejorar el conocimiento sobre la distribución geográfica de las especies a través de las siguientes actividades:"
         activities_list_html: >

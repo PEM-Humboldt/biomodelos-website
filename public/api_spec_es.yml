@@ -225,10 +225,6 @@ components:
           type: string
           description: Código para identificar la colección de datos original del registro
           example: null
-        county:
-          type: string
-          description: Municipio del registro
-          example: Lorica
         day:
           type: integer
           description: Día en el que el evento ocurrió
@@ -245,10 +241,6 @@ components:
           type: string
           description: Quien tomó el registro
           example: Díaz-J C
-        stateProvince:
-          type: string
-          description: Departamento del registro
-          example: Córdoba
         minimumElevationInMeters:
           type: string
           description: Descripción original de la elevación (altitud) sobre la que se tomó el registro

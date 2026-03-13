@@ -19,6 +19,6 @@ services:
      
     ports:
      - "${HOST_PORT}:3000"
-    command: bundle exec rails server -b 0.0.0.0
+    command: bundle exec puma -C config/puma.rb
     restart: always
     

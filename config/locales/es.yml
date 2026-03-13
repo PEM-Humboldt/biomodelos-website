@@ -225,6 +225,8 @@ es:
                 confirmation: "La contraseña y su confirmación no coinciden."
                 too_long: "La contraseña es demasiado larga (%{count} caracteres máximo)"
                 too_short: "La contraseña es demasiado corta (%{count} caracteres mínimo)."
+              current_password:
+                blank: "La contraseña actual no puede estar vacía."
               password_confirmation:
                 blank: "La confirmación de la contraseña no puede estar vacía."
                 confirmation: "La contraseña y su confirmación no coinciden."
