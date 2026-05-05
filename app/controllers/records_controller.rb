@@ -42,7 +42,6 @@ class RecordsController < ApplicationController
         new_record[:year] = mydate.year
         new_record[:month] = mydate.month
         new_record[:day] = mydate.day
-        new_record.delete(:date)
       end
       Record.new_record(new_record)
       @alerts_to_show.push({
