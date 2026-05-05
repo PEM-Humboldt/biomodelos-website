@@ -644,6 +644,7 @@ en:
       submit_btn: "SAVE"
       error_new_record: "There was an error creating the record"
       success_new_record: "Record created successfully"
+      error_current_date: "The date must be less than or equal to the current date"
       metadata:
         title: "Records metadata"
         sources: "SOURCES"
