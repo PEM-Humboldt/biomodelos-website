@@ -24,7 +24,7 @@
 
       <div class="field">
         <%= f.label :date, title: t('simple_form.labels.new_record.date'), required: false %>
-        <%= f.input :date, as: :date, required: false, autofocus: "off", label: false, html5: true %>
+        <%= f.input :date, as: :date, required: false, autofocus: "off", label: false, html5: true, input_html: {max: Date.current} %>
       </div>
 
       <div class="field">
