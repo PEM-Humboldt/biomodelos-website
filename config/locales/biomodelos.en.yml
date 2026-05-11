@@ -44,6 +44,7 @@ en:
         title: "contribute"
         text_1: "To contribute in BioModelos you must be a registered user and belong to one of the groups on the platform."
         sign_up_btn: "SIGN UP"
+        log_in_btn: "LOG IN"
         contribution_types: "HOW TO CONTRIBUTE"
         text_2: "You can contribute to improve the knowledge about the geographical distribution of the species through the following activities:"
         activities_list_html: >
@@ -53,6 +54,7 @@ en:
           - Developing expert maps, especially for species that have very few or no biological records.</br>
           - Qualifying the geographical distribution hypothesis available for the species.</br>
         profile_btn: "PROFILE"
+
       publish:
         title: "publish"
         text_1: "If you have developed distribution models for one or more species, you can publish them through BioModelos. This way you can make your work visible and facilitate its use by other researchers, as well as receive feedback from experts on the performance of your models. "
@@ -236,12 +238,13 @@ en:
         altitude_in_coordinates: "Altitude in coordinates:"
         altitude_in_known_range: "Altitude in known range:"
         distance_to_known_range: "Distance to known range:"
-        altitudinal_outlier: "Altitudinal outlier:"
         environmental_outlier: "Environmental outlier:"
         last_report: "Last report:"
         last_update: "Last update:"
         see_more: "see more"
         see_less: "see less"
+        identifiedBy: "Identified by:"
+        dateIdentified: "Date identified:"
       contributions:
         title: "EDITION AND CONTRIBUTION"
         text_1: "BioModelos offers you three options to help document the distributions of species: editing the statistical model developed by BioModelos, creating an expert map in the application or publishing a model that you developed."

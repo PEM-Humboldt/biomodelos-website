@@ -18,8 +18,8 @@
       </div>
 
       <div class="field">
-        <%= f.label :verbatimElevation, title: t('simple_form.labels.new_record.verbatimElevation'), required: false %>
-        <%= f.input :verbatimElevation, as: :float, required: false, autofocus: "off", label: false %>
+        <%= f.label :minimumElevationInMeters, title: t('simple_form.labels.new_record.minimumElevationInMeters'), required: false %>
+        <%= f.input :minimumElevationInMeters, as: :float, required: false, autofocus: "off", label: false %>
       </div>
 
       <div class="field">
@@ -38,8 +38,8 @@
       </div>
 
       <div class="field">
-        <%= f.label :verbatimLocality, title: t('simple_form.labels.new_record.verbatimLocality'), required: true %>
-        <%= f.input :verbatimLocality, as: :string, required: true, autofocus: "off", label: false %>
+        <%= f.label :locality, title: t('simple_form.labels.new_record.locality'), required: true %>
+        <%= f.input :locality, as: :string, required: true, autofocus: "off", label: false %>
       </div>
 
       <div class="field">
@@ -124,7 +124,7 @@
       "new_record[decimalLongitude]": {
         range: [-180, 180]
       },
-      "new_record[verbatimElevation]": {
+      "new_record[minimumElevationInMeters]": {
         range: [0, 10000]
       }
     },
