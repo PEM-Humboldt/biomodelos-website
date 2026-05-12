@@ -10,7 +10,7 @@ class GroupMailer < ApplicationMailer
   	def bulk_email_group (message, group_emails, group_name, admin_name)
 	    @message = message
 	    @group_name = group_name
-	    @datetime = DateTime.now
+	    @datetime = Time.current
 	    @admin_name = admin_name
 	    mail bcc: group_emails,  subject: "BioModelos: Mensaje del moderador del grupo " + group_name
   	end
@@ -19,7 +19,7 @@ class GroupMailer < ApplicationMailer
   	def user_wants_to_join(user, group, admin)
     	@user = user
     	@group = group
-    	@datetime = DateTime.now
+    	@datetime = Time.current
     	@admin = admin
     	mail to: @admin.email, bcc: "biomodelos@humboldt.org.co", subject: "BioModelos: Un usuario quiere unirse a tu grupo " + @group.name 
   	end
@@ -27,7 +27,7 @@ class GroupMailer < ApplicationMailer
     def user_invitation(emails, group, admin, message)
       @admin = admin
       @group = group
-      @datetime = DateTime.now
+      @datetime = Time.current
       @message = message
       mail bcc: emails, subject: "Has Recibido una invitación desde BioModelos" 
     end
