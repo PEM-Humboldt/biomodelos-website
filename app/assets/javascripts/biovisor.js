@@ -14,170 +14,170 @@ var _BioModelosVisorModule = function() {
 		recordsLayer,
 		cluster,
 		currentPopupID,
-    newRecordMarker,
+        newRecordMarker,
 		currentPopup,
 		pointDrawer,
 		polygonDrawer,
 		modelLayer;
 
 	var redIcon = new L.Icon({
-    iconUrl: '/assets/redmarker.png',
-    shadowUrl: "/assets/marker-shadow.png",
-    iconSize:    [25, 25],
-    iconAnchor:  [12, 25],
-    popupAnchor: [1, -25],
-    tooltipAnchor: [16, -28],
-    shadowAnchor: [7, 25],
-    shadowSize:  [25, 25]
-  });
-  var blueIcon = new L.Icon({
-    iconUrl: '/assets/regperfil.png',
-    shadowUrl: "/assets/marker-shadow.png",
-    iconSize:    [25, 25],
-    iconAnchor:  [12, 25],
-    popupAnchor: [1, -25],
-    tooltipAnchor: [16, -28],
-    shadowAnchor: [7, 25],
-    shadowSize:  [25, 25]
-  })
-  var greenIcon = new L.Icon({
-    iconUrl: '/assets/cyanmarker.png',
-    shadowUrl: "/assets/marker-shadow.png",
-    iconSize:    [25, 25],
-    iconAnchor:  [12, 25],
-    popupAnchor: [1, -25],
-    tooltipAnchor: [16, -28],
-    shadowAnchor: [7, 25],
-    shadowSize:  [25, 25]
-  });
+        iconUrl: '/assets/redmarker.png',
+        shadowUrl: "/assets/marker-shadow.png",
+        iconSize:    [25, 25],
+        iconAnchor:  [12, 25],
+        popupAnchor: [1, -25],
+        tooltipAnchor: [16, -28],
+        shadowAnchor: [7, 25],
+        shadowSize:  [25, 25]
+    });
+    var blueIcon = new L.Icon({
+        iconUrl: '/assets/regperfil.png',
+        shadowUrl: "/assets/marker-shadow.png",
+        iconSize:    [25, 25],
+        iconAnchor:  [12, 25],
+        popupAnchor: [1, -25],
+        tooltipAnchor: [16, -28],
+        shadowAnchor: [7, 25],
+        shadowSize:  [25, 25]
+    })
+    var greenIcon = new L.Icon({
+        iconUrl: '/assets/cyanmarker.png',
+        shadowUrl: "/assets/marker-shadow.png",
+        iconSize:    [25, 25],
+        iconAnchor:  [12, 25],
+        popupAnchor: [1, -25],
+        tooltipAnchor: [16, -28],
+        shadowAnchor: [7, 25],
+        shadowSize:  [25, 25]
+    });
 
     var headers = {
-    					"acceptedNameUsage":"Nombre aceptado",
-						"speciesOriginal":"Especie original",
-						"source":"Fuente",
-						"stateProvince":"Departamento",
-						"county":"Municipio",
-						"locality":"Localidad",
-						"minimumElevationInMeters":"Altitud",
-						"institutionCode":"Institución",
-						"catalogNumber":"Número de catálogo",
-						"basisOfRecord":"Evidencia",
-						"recordedBy":"Recolector",
-						"collectionCode":"Colección",
-						"year":"Año",
-						"month":"Mes",
-						"day":"Día",
-						"url":"Url"
-					};
+        "acceptedNameUsage":"Nombre aceptado",
+        "speciesOriginal":"Especie original",
+        "source":"Fuente",
+        "stateProvince":"Departamento",
+        "county":"Municipio",
+        "locality":"Localidad",
+        "minimumElevationInMeters":"Altitud",
+        "institutionCode":"Institución",
+        "catalogNumber":"Número de catálogo",
+        "basisOfRecord":"Evidencia",
+        "recordedBy":"Recolector",
+        "collectionCode":"Colección",
+        "year":"Año",
+        "month":"Mes",
+        "day":"Día",
+        "url":"Url"
+    };
 
 	var hiddenFields = ["stateProvince", "county", "taxID", "species", "reported", "updated", "environmentalOutlier"];
 
 	var init = function(){
 		var latlng = new L.LatLng(4, -72),
-      zoom = 6,
-      mZoom = 2,
-      mxZoom = 16;
+        zoom = 6,
+        mZoom = 2,
+        mxZoom = 16;
 
-    /* Elevation API object */
-    var elevator = new google.maps.ElevationService;
+        /* Elevation API object */
+        var elevator = new google.maps.ElevationService;
 
-    /* Base Layers */
-    var googleTerrain = new L.Google('TERRAIN', {minZoom:mZoom, maxZoom: mxZoom});
-    var googleSatellite = new L.Google('SATELLITE', {minZoom:mZoom, maxZoom: mxZoom});
-    var osmBase = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      {
-        minZoom: mZoom,
-        maxZoom: mxZoom,
-        attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> Contributors'
-      });
+        /* Base Layers */
+        var googleTerrain = new L.Google('TERRAIN', {minZoom:mZoom, maxZoom: mxZoom});
+        var googleSatellite = new L.Google('SATELLITE', {minZoom:mZoom, maxZoom: mxZoom});
+        var osmBase = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {
+            minZoom: mZoom,
+            maxZoom: mxZoom,
+            attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> Contributors'
+        });
 
-    /* Overlays */
-    var paramos_fondo_2016 = new L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Proyecto_fondo_adaptacion/wms', {
-      format: 'image/png',
-      transparent: true,
-      layers: 'Proyecto_fondo_adaptacion:Limites24Paramos_25K_2016'
-    });
-    var ecosistemas_etter = L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Historicos/wms', {
-      format: 'image/png',
-      transparent: true,
-      layers: 'Historicos:ecosistemas_generales_etter'
-    });
-    var bosque_seco = L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Historicos/wms', {
-      format: 'image/png',
-      transparent: true,
-      layers: 'Historicos:bosque_seco_tropical'
-    });
-    var zon_hidrografica = L.tileLayer.wms('http://geoapps.ideam.gov.co/geoserver/unidades_analisis/wfs', {
-      format: 'image/png',
-      transparent: true,
-      layers: 'unidades_analisis:GDBIDEAM.ZONIFICACION_HIDROGRAFICA_2013'
-    });
+        /* Overlays */
+        var paramos_fondo_2016 = new L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Proyecto_fondo_adaptacion/wms', {
+            format: 'image/png',
+            transparent: true,
+            layers: 'Proyecto_fondo_adaptacion:Limites24Paramos_25K_2016'
+        });
+        var ecosistemas_etter = L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Historicos/wms', {
+            format: 'image/png',
+            transparent: true,
+            layers: 'Historicos:ecosistemas_generales_etter'
+        });
+        var bosque_seco = L.tileLayer.wms('http://geoservicios.humboldt.org.co/geoserver/Historicos/wms', {
+            format: 'image/png',
+            transparent: true,
+            layers: 'Historicos:bosque_seco_tropical'
+        });
+        var zon_hidrografica = L.tileLayer.wms('http://geoapps.ideam.gov.co/geoserver/unidades_analisis/wfs', {
+            format: 'image/png',
+            transparent: true,
+            layers: 'unidades_analisis:GDBIDEAM.ZONIFICACION_HIDROGRAFICA_2013'
+        });
 
-    var	baseLayers = {
-      "Google Terrain": googleTerrain,
-      "Google Satellite": googleSatellite,
-      "OpenStreetMap": osmBase
-    };
+        var	baseLayers = {
+            "Google Terrain": googleTerrain,
+            "Google Satellite": googleSatellite,
+            "OpenStreetMap": osmBase
+        };
 
-    var overlays = {
-      "Páramos (2016)": paramos_fondo_2016,
-      "Ecosistemas generales (Etter)" : ecosistemas_etter,
-      "Bosque seco tropical" : bosque_seco,
-      "Zonificación Hidrográfica 2013 (IDEAM)" : zon_hidrografica
-    };
+        var overlays = {
+            "Páramos (2016)": paramos_fondo_2016,
+            "Ecosistemas generales (Etter)" : ecosistemas_etter,
+            "Bosque seco tropical" : bosque_seco,
+            "Zonificación Hidrográfica 2013 (IDEAM)" : zon_hidrografica
+        };
 
-    map = L.map('map', {crs: L.CRS.EPSG4326}).setView(latlng, zoom);
+        map = L.map('map', {crs: L.CRS.EPSG4326}).setView(latlng, zoom);
 
-    map.addLayer(googleTerrain);
+        map.addLayer(googleTerrain);
 
-    /* autoZIndex controls the layer order */
-    layerControl = L.control.layers(baseLayers, overlays, {autoZIndex: true, collapsed: false});
-    layerControl.addTo(map);
+        /* autoZIndex controls the layer order */
+        layerControl = L.control.layers(baseLayers, overlays, {autoZIndex: true, collapsed: false});
+        layerControl.addTo(map);
 
-    //Capa editable
-    editableLayer = new L.FeatureGroup();
+        //Capa editable
+        editableLayer = new L.FeatureGroup();
 
-    //Capa registros nuevos
-    newRecordsLayer = new L.FeatureGroup();
-    map.addLayer(newRecordsLayer);
+        //Capa registros nuevos
+        newRecordsLayer = new L.FeatureGroup();
+        map.addLayer(newRecordsLayer);
 
-    var drawControl = new L.Control.Draw({
-      draw: false,
-      edit: false
-    }).addTo(map);
+        var drawControl = new L.Control.Draw({
+            draw: false,
+            edit: false
+        }).addTo(map);
 
-    //Polygon editor and delete handler
-    polygonEditor = new L.EditToolbar.Edit(map, {
-      featureGroup: editableLayer
-    });
+        //Polygon editor and delete handler
+        polygonEditor = new L.EditToolbar.Edit(map, {
+            featureGroup: editableLayer
+        });
 
-    polygonDelete = new L.EditToolbar.Delete(map, {
-      featureGroup: editableLayer
-    });
+        polygonDelete = new L.EditToolbar.Delete(map, {
+            featureGroup: editableLayer
+        });
 
-    //Point handler
-    pointDrawer = new L.Draw.Marker(map, { icon: greenIcon });
+        //Point handler
+        pointDrawer = new L.Draw.Marker(map, { icon: greenIcon });
 
-    //Threshold layers
-    thresholdLayers = new L.layerGroup();
+        //Threshold layers
+        thresholdLayers = new L.layerGroup();
 
-    L.control.coordinates({
-      position:"bottomright", //optional default "bootomright"
-      decimals:2, //optional default 4
-      decimalSeperator:".", //optional default "."
-      labelTemplateLat:"Latitud: {y}", //optional default "Lat: {y}"
-      labelTemplateLng:"Longitud: {x}", //optional default "Lng: {x}"
-      enableUserInput:false, //optional default true
-      useDMS:false, //optional default false
-      useLatLngOrder: true //ordering of labels, default false-> lng-lat
-    }).addTo(map);
+        L.control.coordinates({
+            position:"bottomright", //optional default "bootomright"
+            decimals:2, //optional default 4
+            decimalSeperator:".", //optional default "."
+            labelTemplateLat:"Latitud: {y}", //optional default "Lat: {y}"
+            labelTemplateLng:"Longitud: {x}", //optional default "Lng: {x}"
+            enableUserInput:false, //optional default true
+            useDMS:false, //optional default false
+            useLatLngOrder: true //ordering of labels, default false-> lng-lat
+        }).addTo(map);
 
-    // Elevation listener
-    // map.on('mouseover', function(e) {
-    //      getLocationElevation(e.latlng, elevator);
-    // });
-    //setLayers("../Aburria aburri_0.png", "../Aburria aburri_0.png", "../Aburria aburri_10.png", "../Aburria aburri_20.png", "../Aburria aburri_30.png");
-    // getSpeciesRecords();
+        // Elevation listener
+        // map.on('mouseover', function(e) {
+        //      getLocationElevation(e.latlng, elevator);
+        // });
+        //setLayers("../Aburria aburri_0.png", "../Aburria aburri_0.png", "../Aburria aburri_10.png", "../Aburria aburri_20.png", "../Aburria aburri_30.png");
+        // getSpeciesRecords();
 	}
 
 	var getLocationElevation = function (location, elevator){
@@ -373,92 +373,91 @@ var _BioModelosVisorModule = function() {
 		return result;
 	}
 
-	/*
-   *  Function that lets draw a Feature (Markers or Polygons) and add an editable popup to them.
-   *  actionType = String with the name of the feature. "Polygon" or "Marker".
-   *  newMap = Boolean. True if the user is creating a new map and not working over a existing one.
-   */
-  var drawObject = function (actionType, newModel) {
-    if (actionType === 'Polygon') {
-      polygonDrawer = new L.Draw.Polygon(map);
-      polygonDrawer.enable();
-      popUpForm = `
-        <div class="commentForm">
-          <input id="review_type" type="hidden">
-          <div class="row-fluid clearfix">
-          <div class="labelcom clearfix">Acción</div>
-          </br>
-          <input type="radio" name="EditType" value="Recortar del polígono" class="radiogaga"></input><label for="Cut">Recortar del polígono</label>
-          </br>
-          <input type="radio" name="EditType" value="Agregar área" class="radiogaga"></input><label for="Intersect">Agregar área</label>
-          </br>
-          <input type="radio" name="EditType" value="Sustraer área" class="radiogaga"></input><label for="Add">Eliminar área</label>
-          </br>
-          <input type="radio" name="EditType" value="Otra" class="radiogaga"></input><label for="Other">Otra</label>
-          </br>
-          <textarea rows="4" cols="32" placeholder="Defina otra acción" class="areaother" id="msgPolygon" maxlength="300"></textarea>
-          </br>
-          <div class="centering">
-            <button class="botonpopup" id="savePolBtn" type="button">aceptar</button>
-            <button class="botonpopup ml0" id="puNewPolygonCancelBtn" type="button">cancelar</button>
-          </div>
-        </div>
-      `;
-    } else {
-      newRecordsLayer.clearLayers();
-      pointDrawer.enable();
+    /*
+    *  Function that lets draw a Feature (Markers or Polygons) and add an editable popup to them.
+    *  actionType = String with the name of the feature. "Polygon" or "Marker".
+    *  newMap = Boolean. True if the user is creating a new map and not working over a existing one.
+    */
+    var drawObject = function (actionType, newModel) {
+        if (actionType === 'Polygon') {
+            polygonDrawer = new L.Draw.Polygon(map);
+            polygonDrawer.enable();
+            popUpForm = `
+                <div class="commentForm">
+                <input id="review_type" type="hidden">
+                <div class="row-fluid clearfix">
+                <div class="labelcom clearfix">Acción</div>
+                </br>
+                <input type="radio" name="EditType" value="Recortar del polígono" class="radiogaga"></input><label for="Cut">Recortar del polígono</label>
+                </br>
+                <input type="radio" name="EditType" value="Agregar área" class="radiogaga"></input><label for="Intersect">Agregar área</label>
+                </br>
+                <input type="radio" name="EditType" value="Sustraer área" class="radiogaga"></input><label for="Add">Eliminar área</label>
+                </br>
+                <input type="radio" name="EditType" value="Otra" class="radiogaga"></input><label for="Other">Otra</label>
+                </br>
+                <textarea rows="4" cols="32" placeholder="Defina otra acción" class="areaother" id="msgPolygon" maxlength="300"></textarea>
+                </br>
+                <div class="centering">
+                    <button class="botonpopup" id="savePolBtn" type="button">aceptar</button>
+                    <button class="botonpopup ml0" id="puNewPolygonCancelBtn" type="button">cancelar</button>
+                </div>
+                </div>`;
+        } else {
+            newRecordsLayer.clearLayers();
+            pointDrawer.enable();
+        }
+
+        map.on('draw:created', function (e) {
+            var type = e.layerType,
+            layer = e.layer,
+            popup = new L.Popup({
+            keepInView: true,
+                closeButton: false,
+                maxWidth: 350,
+                maxHeight: 450
+            });
+
+            if (type === 'marker') {
+                var pLatLng = layer.getLatLng();
+                layer.addTo(newRecordsLayer);
+                $.ajax({
+                type: 'POST',
+                url: "/records/new_form",
+                data: {
+                    lat: L.NumberFormatter.round(pLatLng.lat, 2, "."),
+                    lon: L.NumberFormatter.round(pLatLng.lng, 2, "."),
+                    spName: $(".spname").html(),
+                    user: $("#user_id_field").val(),
+                    tax: $("#species_id_field").val()
+                }
+                });
+                newRecordMarker = layer;
+                newRecordMarker.on('click', function(e) {
+                if ($('#regboxclose').length) {
+                    $('#regboxclose').trigger('click')
+                }
+                })
+            } else {
+                if (newModel) {
+                if (currentPopup)
+                    map.closePopup(currentPopup);
+                }
+                layer.addTo(editableLayer);
+                if(!newModel) {
+                    popup.setContent(popUpForm);
+                    layer.bindPopup(popup);
+                    layer.openPopup();
+                    currentPopupID = layer._popup._leaflet_id;
+                }
+                $(".polig").removeClass("polibtnact");
+            }
+        });
+
+        map.on('popupclose', function(e) {
+            e.popup.update();
+        });
     }
-
-    map.on('draw:created', function (e) {
-      var type = e.layerType,
-        layer = e.layer,
-        popup = new L.Popup({
-          keepInView: true,
-            closeButton: false,
-            maxWidth: 350,
-            maxHeight: 450
-        });
-
-      if (type === 'marker') {
-        var pLatLng = layer.getLatLng();
-        layer.addTo(newRecordsLayer);
-        $.ajax({
-          type: 'POST',
-          url: "/records/new_form",
-          data: {
-            lat: L.NumberFormatter.round(pLatLng.lat, 2, "."),
-            lon: L.NumberFormatter.round(pLatLng.lng, 2, "."),
-            spName: $(".spname").html(),
-            user: $("#user_id_field").val(),
-            tax: $("#species_id_field").val()
-          }
-        });
-        newRecordMarker = layer;
-        newRecordMarker.on('click', function(e) {
-          if ($('#regboxclose').length) {
-            $('#regboxclose').trigger('click')
-          }
-        })
-      } else {
-        if (newModel) {
-          if (currentPopup)
-            map.closePopup(currentPopup);
-        }
-        layer.addTo(editableLayer);
-        if(!newModel) {
-          popup.setContent(popUpForm);
-          layer.bindPopup(popup);
-          layer.openPopup();
-          currentPopupID = layer._popup._leaflet_id;
-        }
-        $(".polig").removeClass("polibtnact");
-      }
-    });
-
-    map.on('popupclose', function(e) {
-      e.popup.update();
-    });
-  }
 
 	var addActionToPolygon = function(e){
 		var polygonLayer = getCurrentEditableLayer(currentPopupID);
@@ -561,8 +560,6 @@ var _BioModelosVisorModule = function() {
 					action: valueProp
 				};
 			}
-
-
 			return response;
 		}
 	}
@@ -570,17 +567,17 @@ var _BioModelosVisorModule = function() {
 	var getCurrentEditableLayer = function(popupId){
 		var polygonLayer;
 		editableLayer.eachLayer(function(layer) {
-      if (layer._popup._leaflet_id === popupId) {
-          polygonLayer = layer;
-      }
-    });
+            if (layer._popup._leaflet_id === popupId) {
+                polygonLayer = layer;
+            }
+        });
 
-    return polygonLayer;
+        return polygonLayer;
 	}
 
   var cancelAddPoint = function(){
-    pointDrawer.disable();
-    newRecordsLayer.removeLayer(newRecordMarker);
+        pointDrawer.disable();
+        newRecordsLayer.removeLayer(newRecordMarker);
   }
 
 	var getGeojsonLayer = function(newModel){
@@ -592,8 +589,9 @@ var _BioModelosVisorModule = function() {
 	}
 
 	var deactivateDraw = function(){
-		if(polygonDrawer)
-			polygonDrawer.disable();
+		if(polygonDrawer){
+            polygonDrawer.disable();
+        }
 	}
 
 	var editPolygon = function (){
@@ -615,8 +613,9 @@ var _BioModelosVisorModule = function() {
 	}
 
 	var cancelDeletePolygon = function(){
-		if(typeof polygonDelete._deletedLayers != 'undefined')
-			polygonDelete.revertLayers();
+		if(typeof polygonDelete._deletedLayers != 'undefined'){
+            polygonDelete.revertLayers();
+        }
 		polygonDelete.disable();
 	}
 
@@ -625,9 +624,9 @@ var _BioModelosVisorModule = function() {
 		polygonDelete.disable();
 	}
 
-  var drawSinglePoint = function(){
-    drawObject('Marker', false);
-  }
+    var drawSinglePoint = function(){
+        drawObject('Marker', false);
+    }
 
 	var clearLayer = function(layer){
 		if(map.hasLayer(layer)) {
@@ -647,13 +646,13 @@ var _BioModelosVisorModule = function() {
    *
    * @param {Object} modelOptions options for the model
    */
-	var processModel = function(modelOptions) {;
-  var imageBounds = [[13,-60],[-14, -83]];
+	var processModel = function(modelOptions) {
+        var imageBounds = [[13,-60],[-14, -83]];
 		var layer;
 		if (modelOptions.type === 'file') {
-      if (modelOptions.extentSize === 'large') {
-        imageBounds = [[17,-60],[-14, -86]];
-      }
+            if (modelOptions.extentSize === 'large') {
+                imageBounds = [[17,-60],[-14, -86]];
+            }
 			layer = new L.ImageOverlay(modelOptions.fileName, imageBounds, { opacity: 0.6 });
 		} else {
 			// TODO: This won't be tested in continuous or thresholded models until thresholds are implemented in geoserver
@@ -699,26 +698,26 @@ var _BioModelosVisorModule = function() {
 		}
 	}
 
-  var loadModel = function (jsonOptions) {
-    /* Dispose older model if it exists */
-    unloadModel();
+    var loadModel = function (jsonOptions) {
+        /* Dispose older model if it exists */
+        unloadModel();
 
-    const modelInfo = JSON.parse(jsonOptions);
+        const modelInfo = JSON.parse(jsonOptions);
 
-    if(modelInfo.id !== $("#valid_model_info").text()) {
-      $(".vbtninfo").hide();
-      $(".vbtnhipo").removeClass('btn2Top').addClass('btn1Top');
-      $(".vbtnedit").removeClass('btn3Top').addClass('btn2Top');
-    } else {
-      $(".vbtninfo").show();
-      $(".vbtnhipo").removeClass('btn1Top').addClass('btn2Top');
-      $(".vbtnedit").removeClass('btn2Top').addClass('btn3Top');
-    }
+        if(modelInfo.id !== $("#valid_model_info").text()) {
+            $(".vbtninfo").hide();
+            $(".vbtnhipo").removeClass('btn2Top').addClass('btn1Top');
+            $(".vbtnedit").removeClass('btn3Top').addClass('btn2Top');
+        } else {
+            $(".vbtninfo").show();
+            $(".vbtnhipo").removeClass('btn1Top').addClass('btn2Top');
+            $(".vbtnedit").removeClass('btn2Top').addClass('btn3Top');
+        }
 
-    modelLayer = processModel(modelInfo);
-    map.addLayer(modelLayer, true);
-    layerControl.addOverlay(modelLayer, "Modelo");
-  };
+        modelLayer = processModel(modelInfo);
+        map.addLayer(modelLayer, true);
+        layerControl.addOverlay(modelLayer, "Modelo");
+    };
 
 	var unloadModel = function() {
 		if(map.hasLayer(modelLayer)) {
@@ -729,60 +728,58 @@ var _BioModelosVisorModule = function() {
 
 	var loadUserLayer = function (userLayer) {
 		/* Dispose older review if it exists */
-       editableLayer.clearLayers();
+        editableLayer.clearLayers();
 
-       reviewLayer = new L.GeoJSON(JSON.parse(userLayer), {
-       	onEachFeature: function (feature, layer) {
-       		var popUpContent = '<div class="commentForm">' +
-				'<div class="row-fluid clearfix">'+
-				'<div class="labelcom clearfix">Acción</div></br>'+
-				'<label id="propValue">'+ feature.properties.action +'</label></br>'+
-				'</div>';
+        reviewLayer = new L.GeoJSON(JSON.parse(userLayer), {
+            onEachFeature: function (feature, layer) {
+                var popUpContent = '<div class="commentForm">' +
+                    '<div class="row-fluid clearfix">'+
+                    '<div class="labelcom clearfix">Acción</div></br>'+
+                    '<label id="propValue">'+ feature.properties.action +'</label></br>'+
+                    '</div>';
 
+                layer.setStyle({color: '#f06eaa'})
+                layer.bindPopup(popUpContent);
+                editableLayer.addLayer(layer);
+            }
+        });
+    };
 
-			layer.setStyle({color: '#f06eaa'})
-       		layer.bindPopup(popUpContent);
-       		editableLayer.addLayer(layer);
-       	}
-       });
-   };
+    var loadEditionLayer = function(){
+        if(!map.hasLayer(editableLayer)) {
+            map.addLayer(editableLayer);
+            layerControl.addOverlay(editableLayer, 'Edición');
+        }
+    }
 
-   var loadEditionLayer = function(){
-   		if(!map.hasLayer(editableLayer)) {
-       		map.addLayer(editableLayer);
-       		layerControl.addOverlay(editableLayer, 'Edición');
-       }
-   }
+    var unloadEditionLayer = function(){
+        if(map.hasLayer(editableLayer)) {
+            editableLayer.clearLayers();
+            map.removeLayer(editableLayer);
+            layerControl.removeLayer(editableLayer);
+        }
+    }
 
-   var unloadEditionLayer = function(){
-   		if(map.hasLayer(editableLayer)) {
-   			editableLayer.clearLayers();
-       		map.removeLayer(editableLayer);
-       		layerControl.removeLayer(editableLayer);
-       }
-   }
+    var loadThresholdLayer = function(){
+        if(!map.hasLayer(thresholdLayers)) {
+            map.addLayer(thresholdLayers);
+            layerControl.addOverlay(thresholdLayers, 'Umbrales');
+        }
+    }
 
-   var loadThresholdLayer = function(){
-   	   	if(!map.hasLayer(thresholdLayers)) {
-       		map.addLayer(thresholdLayers);
-       		layerControl.addOverlay(thresholdLayers, 'Umbrales');
-       }
-   }
+    var unloadThresholdLayer = function(){
+        if(map.hasLayer(thresholdLayers)) {
+            thresholdLayers.clearLayers();
+            map.removeLayer(thresholdLayers);
+            layerControl.removeLayer(thresholdLayers);
+        }
+    }
 
-   var unloadThresholdLayer = function(){
-   	   	if(map.hasLayer(thresholdLayers)) {
-   			thresholdLayers.clearLayers();
-       		map.removeLayer(thresholdLayers);
-       		layerControl.removeLayer(thresholdLayers);
-       }
-   }
-
-   var unloadAllLayers = function(){
-   		unloadModel();
+    var unloadAllLayers = function(){
+        unloadModel();
         unloadEditionLayer();
         unloadThresholdLayer();
-   }
-
+    }
 
 	return{
 		init:init,
@@ -817,9 +814,9 @@ var _BioModelosVisorModule = function() {
 }();
 
 $(document).ready(function() {
-  _BioModelosVisorModule.init();
-  $("body").on("click","#savePolBtn",function(e){
-    e.preventDefault();
-    _BioModelosVisorModule.addActionToPolygon(e);
-  });
+    _BioModelosVisorModule.init();
+    $("body").on("click","#savePolBtn",function(e){
+        e.preventDefault();
+        _BioModelosVisorModule.addActionToPolygon(e);
+    });
 });
