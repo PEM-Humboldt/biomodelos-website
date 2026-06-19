@@ -272,26 +272,26 @@ var _BioModelosVisorModule = function() {
 					monthFilter = true,
 					dataFilter = true;
 
-				if (yearFilters != "") {
+				if (yearFilters.length > 0) {
 					var yearValue = feature.properties.year;
 					if (yearValue == null) {
 						yearValue = 0;
 					}
-					if (yearValue < yearFilters[0] || feature.properties.year > yearFilters[1]) {
+					if (yearValue < yearFilters[0] || yearValue > yearFilters[1]) {
 						yearFilter = false;
 					}
 				}
-				if (monthFilters != "") {
+				if (monthFilters.length > 0) {
 					monthFilter = includesValue(feature.properties.month, monthFilters);
 				}
 				switch (selectFilters[0]) {
-					case 'Evidencia':
+					case 'evidencia':
 						dataFilter = feature.properties.basisOfRecord === selectFilters[1];
 						break;
-					case 'Fuente':
+					case 'fuente':
 						dataFilter = feature.properties.source === selectFilters[1];
 						break;
-					case 'Institución':
+					case 'institucion':
 						dataFilter = feature.properties.institutionCode === selectFilters[1];
 						break;
 					case '':
