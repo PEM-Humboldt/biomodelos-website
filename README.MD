@@ -1,4 +1,4 @@
-# BioModelos v2.12.7
+# BioModelos v2.13.0
 
 [BioModelos](http://biomodelos.humboldt.org.co) is a web app that facilitates the generation, validation and consultation of hypothesis of species distribution for the continental biodiversity of Colombia. As such, it provides tools to (1) improve existing species distribution models (SDMs) by integrating expert's opinion, (2) generate expert maps and (3) publish SDMs. Our objective is to provide freely and openly access to the most up to date information on species distributions, validated by a large network of researchers, to support national environmental decision making processes and research.
 
@@ -13,7 +13,7 @@ Deploy these services before setting up the app:
 
 ### Software
 
-- [Ruby](https://www.ruby-lang.org/en/documentation/) version 3.1.6. It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
+- [Ruby](https://www.ruby-lang.org/en/documentation/) version 3.4.8. It is advisable to use [rbenv](https://github.com/rbenv/rbenv#installation) to install and manage ruby local version.
 - [Docker](https://www.docker.com) version 17.05 or up.
 - [Git](https://git-scm.com/).
 - [npm](https://www.npmjs.com/) version 10.8.2.
@@ -97,7 +97,7 @@ For Humboldt organization, you must copy the encrypted files and the master keys
 
 ## Run
 
-**Important**: You should have installed previously Ruby 3.1.6.
+**Important**: You should have installed previously Ruby 3.4.8.
 
 Install dependencies using these commands in your terminal
 
@@ -123,6 +123,8 @@ Extra configuration are at the internal repository.
 To run the application in Docker, you need to configure the environment variables in the .env file, as in this [example](./env.example). This file contains environment variables for the rails application and configuration variables for the docker container.
 
 ### Dev env with docker
+
+You must config the variable `config.web_console.allowed_ips` at [development.rb](config/environments/development.rb) to allow the local ips for debug.
 
 You can create a docker container for development purposes, just build the image with the [docker-compose.dev.yml](./docker-compose.dev.yml) file:
 

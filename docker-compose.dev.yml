@@ -1,6 +1,7 @@
+version: '3'
 services:
   biomodelos_dev:
-    image: biomodelos:2.12.7
+    image: biomodelos_dev:2.13.0
     build:
       context: .
     env_file:
@@ -19,6 +20,6 @@ services:
      
     ports:
      - "${HOST_PORT}:3000"
-    command: bundle exec rails server -b 0.0.0.0
+    command: bundle exec puma -C config/puma.rb
     restart: always
     

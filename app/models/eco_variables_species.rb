@@ -1,3 +1,5 @@
 class EcoVariablesSpecies < ApplicationRecord
-	belongs_to :species
+  def species_name
+    Species.find_name(species_id)
+  end
 end

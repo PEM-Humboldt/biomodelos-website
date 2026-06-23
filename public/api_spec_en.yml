@@ -199,12 +199,13 @@ components:
           - MATERIAL_SAMPLE
           - OCCURRENCE
           - OTHER_SPECIMEN
+          - MATERIAL_CITATION
           example: HUMAN_OBSERVATION
-        suggestedStateProvince:
+        stateProvince:
           type: string
           description: Suggested state/province based on the record coordinates.
           example: Córdoba
-        suggestedCounty:
+        county:
           type: string
           description: Suggested county based on the record coordinates.
           example: LORICA
@@ -224,10 +225,6 @@ components:
           type: string
           description: The name, acronym, coden, or initialism identifying the collection or data set from which the record was derived.
           example: null
-        county:
-          type: string
-          description: The name of the next smaller administrative region than state province
-          example: Lorica
         day:
           type: integer
           description: The integer day of the month on which the Event occurred.
@@ -244,15 +241,11 @@ components:
           type: string
           description: The collector of the specimen/record.
           example: Díaz-J C
-        stateProvince:
-          type: string
-          description: The name of the next smaller administrative region than country
-          example: Córdoba
-        verbatimElevation:
+        minimumElevationInMeters:
           type: string
           description:  The original description of the elevation (altitude, usually above sea level) of the Location.
           example: "0-0"
-        verbatimLocality:
+        locality:
           type: string
           description: The original textual description of the place.
           example: Ceiba Pareja

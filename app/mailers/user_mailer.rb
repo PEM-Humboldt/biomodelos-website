@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
 		@user = user
 		@sender = sender
 		@message = message
-		@datetime = DateTime.now
+		@datetime = Time.current
 		mail to: @user.email,  subject: "BioModelos: Ha recibido un mensaje de " + sender.name
 	end
 end

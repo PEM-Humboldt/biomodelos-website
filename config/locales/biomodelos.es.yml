@@ -44,6 +44,7 @@ es:
         title: "contribuye"
         text_1: "Para contribuir en BioModelos debes ser un usuario registrado y pertenecer a uno de los grupos de la plataforma."
         sign_up_btn: "REGISTRO"
+        log_in_btn: "INGRESAR"
         contribution_types: "TIPOS DE APORTES"
         text_2: "Puedes aportar a mejorar el conocimiento sobre la distribución geográfica de las especies a través de las siguientes actividades:"
         activities_list_html: >
@@ -63,15 +64,6 @@ es:
         title: "noticias BioModelos"
         text_1: "Y salió la segunda entrega del “Atlas de la Biodiversidad de Colombia”, para el grupo temático Primates. Gracias al trabajo de este grupo en BioModelos se logró la compilación de modelos validados de 38 especies, e información de análisis a partir de su distribución."
         text_2: "Muchos grupos han avanzado en sus listas de especies y algunos ya han terminado de modelar las especies de su grupo temático, un claro caso este año son los expertos en primates, en apoyo con la APC (Asociación Primatológica Colombiana). Es gracias a su colaboración que dichos modelos de distribución consiguen ese estado de validados y son recibidos como información confiable por la comunidad científica, permitiéndonos decir “mejores modelos con el apoyo de expertos”."
-    log_in:
-      title: "ingresar"
-      log_in_btn: "INGRESAR"
-    sign_up:
-      title: "Registrarse"
-      password_min_txt: "mínimo %{caracteres} caracteres"
-      terms_txt: "He leído y acepto los términos y condiciones"
-      data_policies_txt: "Políticas de protección de datos personales"
-      sign_up_btn: "REGISTRARSE"
     visor:
       tooltip:
         model_name: "Estado del modelo"
@@ -245,12 +237,13 @@ es:
         altitude_in_coordinates: "Altitud en coordenadas:"
         altitude_in_known_range: "Altitud en rango conocido:"
         distance_to_known_range: "Distancia a rango conocido:"
-        altitudinal_outlier: "Altitud atípica:"
         environmental_outlier: "Ambiente atípico:"
         last_report: "Último reporte:"
         last_update: "Última actualización:"
         see_more: "ver más"
         see_less: "ver menos"
+        identifiedBy: "Identificado por:"
+        dateIdentified: "Fecha de identificación:"
       contributions:
         title: "EDICIÓN Y CONTRIBUCIÓN"
         text_1: "BioModelos te ofrece tres opciones para contribuir a documentar las distribuciones de especies: editando sobre el modelo estadístico desarrollado por BioModelos, creando un mapa de experto en la aplicación o publicando un modelo que hayas desarrollado."
@@ -544,6 +537,7 @@ es:
       edit_profile:
         title: "Editar mi usuario"
         text_1: "Completando tu perfil de usuario aumentas la posibilidad de ingresar a los grupos de expertos y de mejorar la interacción con los demás usuarios."
+        text_2: "Esperando confirmación para: "
         valid_email_tt: "Es importante tener un email válido para recibir notificaciones e información desde la aplicación."
         name_ph: "Nombres y apellidos"
         expertise_ph: "Grupo(s) taxonómico(s) de interés"
@@ -649,6 +643,7 @@ es:
       submit_btn: "GUARDAR"
       error_new_record: "Hubo un error al crear el registro"
       success_new_record: "Registro creado exitosamente"
+      error_current_date: "La fecha no puede ser mayor a hoy"
       metadata:
         title: "Metadatos registros"
         sources: "FUENTES"
