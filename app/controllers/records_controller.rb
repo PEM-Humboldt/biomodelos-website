@@ -24,21 +24,33 @@ class RecordsController < ApplicationController
 
   def new_record
     new_record = new_record_params()
-    unless new_record[:date].empty?
-      mydate = Date.parse(new_record[:date])
-      new_record[:year] = mydate.year
-      new_record[:month] = mydate.month
-      new_record[:day] = mydate.day
-      new_record.delete(:date)
-    end
     @alerts_to_show = []
     begin
+      unless new_record[:date].empty?
+        mydate = Date.parse(new_record[:date])
+        # Validar que no sea futura
+        if mydate > Date.current
+          @alerts_to_show.push({
+            "message" => t('biomodelos.records.error_current_date'),
+            "type" => 'error'
+          })
+          respond_to do |format|
+            format.js
+          end
+          return
+        end
+        new_record[:year] = mydate.year
+        new_record[:month] = mydate.month
+        new_record[:day] = mydate.day
+        new_record.delete(:date)
+      end
       Record.new_record(new_record)
       @alerts_to_show.push({
         "message" => t('biomodelos.records.success_new_record'),
         "type" => 'notice'
       })
     rescue => myError
+      Rails.logger.error(t('biomodelos.records.error_new_record') + ": #{myError}")
       @alerts_to_show.push({
         "message" => t('biomodelos.records.error_new_record'),
         "type" => 'error'
@@ -68,6 +80,7 @@ class RecordsController < ApplicationController
         "type" => "notice"
       })
     rescue => myError
+      Rails.logger.error(t('biomodelos.records.edit.error_notice') + ": #{myError}")
       @alerts_to_show.push({
         "message" => t('biomodelos.records.edit.error_notice'),
         "type" => 'error'
@@ -99,6 +112,7 @@ class RecordsController < ApplicationController
         "type" => "notice"
       })
     rescue => myError
+      Rails.logger.error(t('biomodelos.records.report.error_notice') + ": #{myError}")
       @alerts_to_show.push({
         "message" => t('biomodelos.records.report.error_notice'),
         "type" => 'error'
@@ -129,8 +143,8 @@ class RecordsController < ApplicationController
   def new_record_params
     params[:new_record]
       .permit([
-        :decimalLatitude, :decimalLongitude, :verbatimLocality, :acceptedNameUsage, :userIdBm,
-        :taxID, :verbatimElevation, :date, :stateProvince, :county, :basisOfRecord, :recordedBy,
+        :decimalLatitude, :decimalLongitude, :locality, :acceptedNameUsage, :userIdBm,
+        :taxID, :minimumElevationInMeters, :date, :stateProvince, :county, :basisOfRecord, :recordedBy,
         :createdCitationBm, :catalogNumber, :collectionCode, :institutionCode, :createdCommentsBm
       ]).to_h
   end
