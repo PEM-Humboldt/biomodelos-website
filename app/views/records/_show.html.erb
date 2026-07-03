@@ -17,7 +17,7 @@
     <!-- <a href="#" class="approved" title="Registro correcto" rel="tooltip"></a> -->
     <a href="#" class="unapproved" title="Reportar" rel="tooltip"></a>
     <form class="forms reportar invisible" id="report-form">
-      <h3 class="mb10">Reportar Registro</h3>
+      <h3 class="mb10"><%= t('biomodelos.records.report.title') %></h3>
       <input type="hidden" name="recordId" value="<%= @record["id"] %>">
       <input type="checkbox" name="idIssue" checked="checked"><%= t('biomodelos.records.report.id_issue_lbl') %><br>
       <input type="checkbox" name="geoIssue"><%= t('biomodelos.records.report.geo_issue_lbl') %><br>
