@@ -3,18 +3,24 @@ var _speciesFunctionsModule = function() {
  	* Reset the filter controls (año, mes, select, filtros) to the
  	* default values.
 	*/
-	function resetRecordsFilters(){
-		//Reset slider Año
-		angular.element($("#visCntrl")).scope().resetSlider();
-		//Reset meses
-		$('input:checkbox.meschk').removeAttr('checked');
-		//Reset filters
-		$(".select-options li:contains('Tipo de filtro')").click();
-		//Reset visualizar filters
-		$('#chkBoxFilters input:checkbox').removeAttr('checked');
-		//Activate the default checkbox
-		$('#chkBoxFilters input:checkbox[name="visualadd"]').prop('checked', true);
-	}
+    function resetRecordsFilters() {
+        //Reset slider Año
+        angular.element($("#visCntrl")).scope().resetSlider();
+        //Reset meses
+        $('input:checkbox.meschk').prop('checked', false);
+        //Reset filters
+        $("#filtroRegistro")
+            .nextAll(".select-options")
+            .find("li[rel='']")
+            .first()
+            .click();
+        //Reset visualizar filters    
+        $('#chkBoxFilters input:checkbox').prop('checked', false);
+        //Activate the default checkbox
+        $('#chkBoxFilters input:checkbox[name="visualadd"]')
+            .prop('checked', true);
+    }
+
 	return { resetRecordsFilters: resetRecordsFilters };
 }();
 
@@ -280,8 +286,8 @@ $(document).ready(function() {
 			yearNotApplicableValue = 0,
 			yearTodayValue = moment().format("YYYY");
 
-		findByFilters[0] = $("#filtroRegistro option:selected").text();
-		findByFilters[1] = $("#resultadoFiltro option:selected").text();
+		findByFilters[0] = $("#filtroRegistro option:selected").val();
+		findByFilters[1] = $("#resultadoFiltro option:selected").val();
 
   		yearFilters[0] = $("#sliYearMin").val();
   		yearFilters[1] = $("#sliYearMax").val();
