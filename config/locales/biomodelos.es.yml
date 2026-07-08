@@ -202,6 +202,8 @@ es:
       selected_record:
         record_of: "REGISTRO DE"
         id_of_the_record: "ID del registro:"
+        edit_btn: "editar"
+        report_btn_tt: "Reportar"
         taxonomy: "Taxonomía"
         accepted_name: "Nombre aceptado:"
         original_name: "Nombre original:"

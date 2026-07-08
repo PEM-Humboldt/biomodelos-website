@@ -12,10 +12,10 @@
     </p>
   </blockquote>
   <% if user_signed_in? && @record["reportedDate"].nil? %>
-    <button id="editregbtn" class="botonpopup">editar</button>
+    <button id="editregbtn" class="botonpopup"><%= t('biomodelos.visor.selected_record.edit_btn') %></button>
     <div id="cancelEditBtn"></div>
     <!-- <a href="#" class="approved" title="Registro correcto" rel="tooltip"></a> -->
-    <a href="#" class="unapproved" title="Reportar" rel="tooltip"></a>
+    <a href="#" class="unapproved" title="<%= t('biomodelos.visor.selected_record.report_btn_tt') %>" rel="tooltip"></a>
     <form class="forms reportar invisible" id="report-form">
       <h3 class="mb10"><%= t('biomodelos.records.report.title') %></h3>
       <input type="hidden" name="recordId" value="<%= @record["id"] %>">
