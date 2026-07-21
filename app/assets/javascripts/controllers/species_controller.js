@@ -473,9 +473,10 @@ $(document).ready(function() {
 
 	// Action for Edit - Save - Cancel buttons on _show for record information / edition
 	$("body").on("click", "#editregbtn", function(){
+    var editLabels = $("#record-edit-labels");
     $(".contented").attr("contenteditable","true").addClass("redtext");
-		$("#editregbtn").replaceWith('<button id="saveregbtn" class="botonpopup2">guardar</button>');
-		$("#cancelEditBtn").html('<button id="cancelregbtn" class="botonpopup2">cancelar</button>');
+		$("#editregbtn").replaceWith('<button id="saveregbtn" class="botonpopup2">' + editLabels.data("save-label") + '</button>');
+		$("#cancelEditBtn").html('<button id="cancelregbtn" class="botonpopup2">' + editLabels.data("cancel-label") + '</button>');
 	});
 	$("body").on("click", "#cancelregbtn", function() {
 		$.post( "/records/show", { id: $("span#record_id").text()}).done();

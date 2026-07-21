@@ -660,6 +660,8 @@ es:
       edit:
         success_notice: "Su edición se ha realizado con éxito"
         error_notice: "Ha ocurrido un error al editar el registro"
+        save_btn: "guardar"
+        cancel_btn: "cancelar"
       report:
         title: "REPORTAR REGISTRO"
         outlier_lbl: "Outlier geográfico"

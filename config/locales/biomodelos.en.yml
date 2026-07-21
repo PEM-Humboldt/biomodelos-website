@@ -661,6 +661,8 @@ en:
       edit:
         success_notice: "Record updated successfully"
         error_notice: "An error occurred while updating the record"
+        save_btn: "save"
+        cancel_btn: "cancel"
       report:
         title: "RECORD REPORT"
         outlier_lbl: "Geographic outlier"
