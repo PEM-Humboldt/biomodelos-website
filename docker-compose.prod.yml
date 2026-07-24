@@ -1,6 +1,6 @@
 services:
   biomodelos_prod:
-    image: biomodelos:2.12.7
+    image: biomodelos:2.13.0
     build:
       context: .
     env_file:

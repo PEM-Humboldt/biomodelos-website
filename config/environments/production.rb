@@ -2,7 +2,7 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  
+
   # Code is not reloaded between requests.
   config.enable_reloading = false
 
@@ -32,14 +32,40 @@ Rails.application.configure do
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
-  
+
+  # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
+
+  # Specifies the header that your server uses for sending files.
+  # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
+  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
+
+  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+  # config.force_ssl = true
+
+  # Use the lowest log level to ensure availability of diagnostic information
+  # when problems arise.
+  config.log_level = :info
+
+  config.logger = ActiveSupport::Logger.new(STDOUT)
+  config.log_level = :debug
+  config.log_tags = [ :request_id ]
+
+  # Prepend all log lines with the following tags.
+  # config.log_tags = [ :subdomain, :uuid ]
+
+  # Use a different logger for distributed setups.
+  # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
+
+  # Use a different cache store in production.
+  # config.cache_store = :mem_cache_store
+
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = "http://assets.example.com"
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  
-  #config.action_mailer.raise_delivery_errors = false 
-  config.action_mailer.perform_deliveries = true 
+
+  #config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
@@ -49,7 +75,7 @@ Rails.application.configure do
       :enable_starttls_auto => true,
       :user_name => Rails.application.credentials.dig(:mail_server, :GMAIL_USERNAME),
       :password => Rails.application.credentials.dig(:mail_server, :GMAIL_PASSWORD)
-      
+
   }
 
   config.action_mailer.default_url_options = { :host => 'biomodelos.humboldt.org.co' }

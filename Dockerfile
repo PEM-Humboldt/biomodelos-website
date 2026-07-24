@@ -1,8 +1,11 @@
 # Stage 1: building dependencies and assets
-FROM ruby:3.4.8-alpine3.23 AS builder
+FROM public.ecr.aws/docker/library/ruby:3.4.8-alpine3.23 AS builder
 
 ENV BUILD_PACKAGES="build-base curl-dev openssh pkgconf"
 ENV DEV_PACKAGES="tzdata libxml2-dev libxslt-dev postgresql-dev imagemagick imagemagick-dev git gmp-dev nodejs npm dos2unix yaml yaml-dev libjpeg-turbo libjpeg-turbo-dev libstdc++"
+
+ENV BASE_URI="http://build-placeholder/api/v2"
+ENV GEOSERVER_URI="http://build-placeholder/geoserver/"
 
 RUN apk --update --upgrade add $BUILD_PACKAGES $DEV_PACKAGES && rm -rf /var/cache/apk/*
 
@@ -22,7 +25,7 @@ RUN yarn install --check-files
 
 
 # Stage 2: final image
-FROM ruby:3.4.8-alpine3.23
+FROM public.ecr.aws/docker/library/ruby:3.4.8-alpine3.23
 
 ENV RAILS_ROOT=/var/www/BioModelos
 ENV BOOTSNAP_CACHE_DIR=/tmp/bootsnap
@@ -38,7 +41,7 @@ RUN apk add --no-cache \
   npm \
   yarn \
   libjpeg-turbo \
-  libstdc++ 
+  libstdc++
 
 COPY --from=builder /usr/local/bundle /usr/local/bundle
 COPY --from=builder $RAILS_ROOT $RAILS_ROOT
