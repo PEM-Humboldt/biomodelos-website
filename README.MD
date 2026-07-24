@@ -29,13 +29,6 @@ Clone the [repository](https://github.com/PEM-Humboldt/biomodelos-website) to th
 $ git clone https://github.com/PEM-Humboldt/biomodelos-website.git
 ```
 
-## Web app database
-
-To build the database according to the schema file using the SQL Service, you should follow the next steps:
-
-1. Create a [database.yml](https://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) file with the configuration of your SQL Service and add it to the ```/config/``` path. Use _database_template.yml_ as a template which is located at ```/config/``` folder
-2. Once you have the Docker container running, you may execute the **migrations** ```/db/migrate/``` following [this guide](https://edgeguides.rubyonrails.org/active_record_migrations.html#running-migrations).
-
 ## Configuration
 
 Some files and paths in BioModelos need to be configured in order for the app to work as intended.
@@ -45,15 +38,6 @@ Some files and paths in BioModelos need to be configured in order for the app to
 - Models folder with raster files.
 - Thumbnails folder with thumbnails image files.
 - Zip folder with zip files of the models.
-
-### Connection to other BioModelos services
-
-You need to setup a path for the BioModelos API service URL and geoserver URL, then, you must create a new file ```url.rb``` under the ```/config/initializers/``` folder and setup the next env vars:
-
-```sh
-BASE_URI = "http://localhost:3000/v2";
-GEOSERVER_URI = "http://localhost:8080/geoserver";
-```
 
 ### Credentials and Keys
 
@@ -94,6 +78,16 @@ mail_server:
 
 For Humboldt organization, you must copy the encrypted files and the master keys from the internal repository to ```config/credentials```.
 
+### Environment variables and other BioModelos services
+
+To run the application, you need to setup the environment variables in the .env file, as in this [example](./env.example) into the root proyect folder. This file contains environment variables for the rails application, configuration variables for the docker container, database and other BioModelos services as geoserver and [api](https://github.com/PEM-Humboldt/biomodelos-api).
+
+## Web app database
+
+To build the database according to the schema file using the SQL Service, you should follow the next steps:
+
+1. You must setup the database variables at the .env file.
+2. After that you may execute the **migrations** ```/db/migrate/``` following [this guide](https://edgeguides.rubyonrails.org/active_record_migrations.html#running-migrations).
 
 ## Run
 
@@ -117,10 +111,6 @@ $ bundle exec rails s -b 0.0.0.0
 Extra configuration are at the internal repository.
 
 ## Dockerization
-
-### Environment variables
-
-To run the application in Docker, you need to configure the environment variables in the .env file, as in this [example](./env.example). This file contains environment variables for the rails application and configuration variables for the docker container.
 
 ### Dev env with docker
 
