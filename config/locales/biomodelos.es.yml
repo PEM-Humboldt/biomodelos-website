@@ -157,6 +157,7 @@ es:
         rating_4_hint: "Representa muy bien"
         rating_delete: "Eliminar calificación"
         rating_error: "Ha ocurrido un error al guardar la calificación"
+        rating_success: "Calificación guardada exitosamente"
         pending_and_published_thumb: "PUBLICADO POR VALIDAR"
         pending_thumb: "POR VALIDAR"
         valid_published_thumb: "PUBLICADO VALIDADO"
