@@ -1,4 +1,7 @@
 es:
+  common:
+    save: "Guardar"
+    cancel: "Cancelar"
   date:
     abbr_day_names:
     - dom
