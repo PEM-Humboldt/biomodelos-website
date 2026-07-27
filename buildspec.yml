@@ -1,5 +1,9 @@
 version: 0.2
 
+env:
+  secrets-manager:
+    PRODUCTION_CREDENTIALS_ENC_B64: "biomodelos/frontend/production_yml_enc"
+
 phases:
   pre_build:
     commands:
@@ -9,18 +13,22 @@ phases:
       - REPOSITORY_URI=005235113454.dkr.ecr.us-east-1.amazonaws.com/biomodelos/frontend
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - echo "Materializing config/credentials/production.yml.enc from Secrets Manager..."
+      - mkdir -p config/credentials
+      - printf '%s' "$PRODUCTION_CREDENTIALS_ENC_B64" | base64 -d > config/credentials/production.yml.enc
+      - 'test -s config/credentials/production.yml.enc || { echo "ERROR: production.yml.enc empty"; exit 1; }'
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      # - docker build -t $REPOSITORY_URI:latest .
-      # - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
-      # - echo Build completed on `date`
-      # - echo Pushing the Docker images...
-      # - docker push $REPOSITORY_URI:latest
-      # - docker push $REPOSITORY_URI:$IMAGE_TAG
-      # - echo Writing image definitions file...
-      # - printf '[{"name":"biomodelos-frontend","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - docker build -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - echo Writing image definitions file...
+      - printf '[{"name":"biomodelos-frontend","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
   post_build:
     commands:
       - echo "Assuming cross account role..."
