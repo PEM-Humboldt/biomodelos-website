@@ -158,6 +158,7 @@ en:
         rating_4_hint: "Excellent model"
         rating_delete: "Erase rating"
         rating_error: "Error. Rating was not saved."
+        rating_success: "Rating saved successfully."
         pending_and_published_thumb: "PUBLISHED PENDING VALIDATION"
         pending_thumb: "PENDING VALIDATION"
         valid_published_thumb: "PUBLISHED VALIDATED"
