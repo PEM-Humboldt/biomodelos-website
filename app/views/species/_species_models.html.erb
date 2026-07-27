@@ -159,7 +159,7 @@ $('.user_star').raty({
 				url: "/ratings/rate_model",
 				data: { model_id: $(".model_id[value='"+model_clicked_id+"']").val(), species_id: $("#species_id_field").val(), score: score,},
 				success: function(data){
-
+                    alertify.success("<%= t('biomodelos.visor.hypotheses.rating_success') %>");
 				},
 				error: function(data){
 					alertify.alert("<%= t('biomodelos.visor.hypotheses.rating_error') %>");

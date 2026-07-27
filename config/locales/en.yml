@@ -39,6 +39,11 @@ en:
               terms_not_accepted: "You must read and accept the terms and conditions of service."
             data_policy:
               policy_not_accepted: "You must read and accept the personal data policy."
+        task:
+          attributes:
+            tasks_completed:
+              required: "Something went wrong and the task could not be created. Please try again."
+              blank: "Completed by can't be blank."
   recaptcha:
     errors:
       verification_failed: 'reCAPTCHA validation failed. Please try again.'

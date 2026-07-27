@@ -234,6 +234,11 @@ es:
                 terms_not_accepted: "Debe leer y aceptar los términos y condiciones."
               data_policy:
                 policy_not_accepted: "Debe leer y aceptar las políticas de protección de datos personales."
+          task:
+            attributes:
+              tasks_completed:
+                required: "Algo ocurrió y no fue posible crear la tarea. Por favor intente de nuevo."
+                blank: "Debe seleccionar el usuario que completa la tarea"
   recaptcha:
     errors:
       verification_failed: 'La validación del reCAPTCHA falló. Inténtelo de nuevo.'
