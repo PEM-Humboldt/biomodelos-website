@@ -1,6 +1,6 @@
 class Rating < ApplicationRecord
 
-	belongs_to :users
+	belongs_to :user
 
 	def self.rating_exists(options)
 		exists?(model_id: options[:model_id], user_id: options[:user_id])
