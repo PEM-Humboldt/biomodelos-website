@@ -37,95 +37,95 @@ class TasksController < ApplicationController
 		end
 	end
 
-	def add_tasks
-		@tasks = []
-		duplicate_error_counter = 0
-		validation_errors = [false, false]
+  def add_tasks
+    @tasks = []
+    duplicate_error_counter = 0
+    validation_errors = [false, false]
 
-		if(params[:records_task].blank? && params[:edition_task].blank? && params[:eco_task].blank? && params[:approval_task].blank?)
-			validation_errors[0] = true
-		end
-		if(params[:task][:species_id].blank? || params[:task][:user_id].blank?)
-			validation_errors[1] = true
-		end
+    if(params[:records_task].blank? && params[:edition_task].blank? && params[:eco_task].blank? && params[:approval_task].blank?)
+      validation_errors[0] = true
+    end
+    if(params[:task][:species_id].blank? || params[:task][:user_id].blank?)
+      validation_errors[1] = true
+    end
 
-		if validation_errors[0] || validation_errors[1]
-			render :js => "alertify.alert('Error: Debe elegir una especie, un experto y al menos un tipo de tarea a asignar.');"
-		else
-			if(params[:records_task] == "1")
+    if validation_errors[0] || validation_errors[1]
+      render :js => "alertify.alert('Error: Debe elegir una especie, un experto y al menos un tipo de tarea a asignar.');"
+    else
+      if(params[:records_task] == "1")
         @task_records = Task.new(:species_id => params[:task][:species_id], :user_id => params[:task][:user_id], :group_id => params[:task][:group_id], :task_type_id => params[:records_task], :created_by => current_user.id, :task_state_id => 1)
-				if @task_records.valid?
-					@tasks.push(@task_records)
-				else
-					if @task_records.errors[:user_id].include?("Tarea duplicada")
-						duplicate_error_counter += 1
-					else
+        if @task_records.valid?
+          @tasks.push(@task_records)
+        else
+          if @task_records.errors[:user_id].include?("Tarea duplicada")
+            duplicate_error_counter += 1
+          else
             Rails.logger.error(@task_records.errors.details)
             message = @task_records.errors.full_messages.join("\n")
             return render js: "alertify.alert(#{message.to_json});"
-            
-					end
-				end
-			end
+
+          end
+        end
+      end
       if(params[:edition_task] == "2")
-				@task_edition = Task.new(:species_id => params[:task][:species_id], :user_id => params[:task][:user_id], :group_id => params[:task][:group_id], :task_type_id => params[:edition_task], :created_by => current_user.id, :task_state_id => 1)
-				if @task_edition.valid?
-					@tasks.push(@task_edition)
-				else
+        @task_edition = Task.new(:species_id => params[:task][:species_id], :user_id => params[:task][:user_id], :group_id => params[:task][:group_id], :task_type_id => params[:edition_task], :created_by => current_user.id, :task_state_id => 1)
+        if @task_edition.valid?
+          @tasks.push(@task_edition)
+        else
           if @task_edition.errors[:user_id].include?("Tarea duplicada")
-						duplicate_error_counter += 1
+            duplicate_error_counter += 1
           else
             Rails.logger.error(@task_edition.errors.details)
             message = @task_edition.errors.full_messages.join("\n")
             return render js: "alertify.alert(#{message.to_json});"
           end
-				end
+        end
       end
-			if(params[:eco_task] == "3")
-				@task_eco = Task.new(:species_id => params[:task][:species_id], :user_id => params[:task][:user_id], :group_id => params[:task][:group_id], :task_type_id => params[:eco_task], :created_by => current_user.id, :task_state_id => 1)
-				if @task_eco.valid?
-					@tasks.push(@task_eco)
-				else
-					if @task_eco.errors[:user_id].include?("Tarea duplicada")
-						duplicate_error_counter += 1
-					else
-						Rails.logger.error(@task_eco.errors.details)
-						message = @task_eco.errors.full_messages.join("\n")
-						return render js: "alertify.alert(#{message.to_json});"
-					end
-				end
-			end
-			if(params[:approval_task] == "4")
-				@task_approval = Task.new(:species_id => params[:task][:species_id], :user_id => params[:task][:user_id], :group_id => params[:task][:group_id], :task_type_id => params[:approval_task], :created_by => current_user.id, :task_state_id => 1)
-				if @task_approval.valid?
-					@tasks.push(@task_approval)
-				else
-					if @task_approval.errors[:user_id].include?("Tarea duplicada")
-						duplicate_error_counter += 1
-					else
-						Rails.logger.error(@task_approval.errors.details)
-						message = @task_approval.errors.full_messages.join("\n")
-						return render js: "alertify.alert(#{message.to_json});"
-					end
-				end
-			end
+      if(params[:eco_task] == "3")
+        @task_eco = Task.new(:species_id => params[:task][:species_id], :user_id => params[:task][:user_id], :group_id => params[:task][:group_id], :task_type_id => params[:eco_task], :created_by => current_user.id, :task_state_id => 1)
+        if @task_eco.valid?
+          @tasks.push(@task_eco)
+        else
+          if @task_eco.errors[:user_id].include?("Tarea duplicada")
+            duplicate_error_counter += 1
+          else
+            Rails.logger.error(@task_eco.errors.details)
+            message = @task_eco.errors.full_messages.join("\n")
+            return render js: "alertify.alert(#{message.to_json});"
+          end
+        end
+      end
+      if(params[:approval_task] == "4")
+        @task_approval = Task.new(:species_id => params[:task][:species_id], :user_id => params[:task][:user_id], :group_id => params[:task][:group_id], :task_type_id => params[:approval_task], :created_by => current_user.id, :task_state_id => 1)
+        if @task_approval.valid?
+          @tasks.push(@task_approval)
+        else
+          if @task_approval.errors[:user_id].include?("Tarea duplicada")
+            duplicate_error_counter += 1
+          else
+            Rails.logger.error(@task_approval.errors.details)
+            message = @task_approval.errors.full_messages.join("\n")
+            return render js: "alertify.alert(#{message.to_json});"
+          end
+        end
+      end
 
-			if duplicate_error_counter > 0
-				render :js => "alertify.alert('Error: #{duplicate_error_counter} de las tareas que quiere asignar se encuentran duplicadas.');"
-			else
+      if duplicate_error_counter > 0
+        render :js => "alertify.alert('Error: #{duplicate_error_counter} de las tareas que quiere asignar se encuentran duplicadas.');"
+      else
         if @tasks.empty?
           return render js: "alertify.alert('No fue posible crear ninguna tarea.');"
         else
-					@tasks.each do |t|
-						t.save
-					end
-					respond_to do |format|
-						format.js
-					end
+          @tasks.each do |t|
+            t.save
+          end
+          respond_to do |format|
+            format.js
+          end
         end
-			end
-		end
-	end
+      end
+    end
+  end
 
 	def destroy
   		@task = Task.find(params[:id])
