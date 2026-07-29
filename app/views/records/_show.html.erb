@@ -1,5 +1,9 @@
 <div class="cajavisor2" >
   <div class="dialog regdialog nobox">
+    <div id="translations"
+         data-save="<%= t('common.save') %>"
+         data-cancel="<%= t('common.cancel') %>"
+         class="invisible"></div>
     <div class="headernobox2">
       <h1><%= t('biomodelos.visor.selected_record.record_of') %></br>
       <em><%= @record["acceptedNameUsage"] %></em></h1>
@@ -12,12 +16,12 @@
     </p>
   </blockquote>
   <% if user_signed_in? && @record["reportedDate"].nil? %>
-    <button id="editregbtn" class="botonpopup">editar</button>
+    <button id="editregbtn" class="botonpopup"><%= t('biomodelos.visor.selected_record.edit_btn') %></button>
     <div id="cancelEditBtn"></div>
     <!-- <a href="#" class="approved" title="Registro correcto" rel="tooltip"></a> -->
-    <a href="#" class="unapproved" title="Reportar" rel="tooltip"></a>
+    <a href="#" class="unapproved" title="<%= t('biomodelos.visor.selected_record.report_btn_tt') %>" rel="tooltip"></a>
     <form class="forms reportar invisible" id="report-form">
-      <h3 class="mb10">Reportar Registro</h3>
+      <h3 class="mb10"><%= t('biomodelos.records.report.title') %></h3>
       <input type="hidden" name="recordId" value="<%= @record["id"] %>">
       <input type="checkbox" name="idIssue" checked="checked"><%= t('biomodelos.records.report.id_issue_lbl') %><br>
       <input type="checkbox" name="geoIssue"><%= t('biomodelos.records.report.geo_issue_lbl') %><br>

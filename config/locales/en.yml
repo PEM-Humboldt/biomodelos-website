@@ -1,4 +1,7 @@
 en:
+  common:
+    save: "Save"
+    cancel: "Cancel"
   activerecord:
     models:
       user: "User"

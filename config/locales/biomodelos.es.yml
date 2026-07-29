@@ -203,6 +203,8 @@ es:
       selected_record:
         record_of: "REGISTRO DE"
         id_of_the_record: "ID del registro:"
+        edit_btn: "editar"
+        report_btn_tt: "Reportar"
         taxonomy: "Taxonomía"
         accepted_name: "Nombre aceptado:"
         original_name: "Nombre original:"
@@ -659,6 +661,8 @@ es:
       edit:
         success_notice: "Su edición se ha realizado con éxito"
         error_notice: "Ha ocurrido un error al editar el registro"
+        save_btn: "guardar"
+        cancel_btn: "cancelar"
       report:
         title: "REPORTAR REGISTRO"
         outlier_lbl: "Outlier geográfico"

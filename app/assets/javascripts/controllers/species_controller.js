@@ -479,9 +479,16 @@ $(document).ready(function() {
 
 	// Action for Edit - Save - Cancel buttons on _show for record information / edition
 	$("body").on("click", "#editregbtn", function(){
+    const translations = $("#translations");
+    const saveText = translations.data("save");
+    const cancelText = translations.data("cancel");
     $(".contented").attr("contenteditable","true").addClass("redtext");
-		$("#editregbtn").replaceWith('<button id="saveregbtn" class="botonpopup2">guardar</button>');
-		$("#cancelEditBtn").html('<button id="cancelregbtn" class="botonpopup2">cancelar</button>');
+		$("#editregbtn").replaceWith(
+      `<button id="saveregbtn" class="botonpopup2">${saveText}</button>`
+    );
+		$("#cancelEditBtn").html(
+      `<button id="cancelregbtn" class="botonpopup2">${cancelText}</button>`
+    );
 	});
 	$("body").on("click", "#cancelregbtn", function() {
 		$.post( "/records/show", { id: $("span#record_id").text()}).done();

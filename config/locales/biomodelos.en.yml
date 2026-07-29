@@ -204,6 +204,8 @@ en:
       selected_record:
         record_of: "RECORD OF"
         id_of_the_record: "ID of the record:"
+        edit_btn: "edit"
+        report_btn_tt: "Report"
         taxonomy: "Taxonomy"
         accepted_name: "Accepted name:"
         original_name: "Original name:"
@@ -660,6 +662,8 @@ en:
       edit:
         success_notice: "Record updated successfully"
         error_notice: "An error occurred while updating the record"
+        save_btn: "save"
+        cancel_btn: "cancel"
       report:
         title: "RECORD REPORT"
         outlier_lbl: "Geographic outlier"
