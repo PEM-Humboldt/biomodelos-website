@@ -21,7 +21,7 @@
 				<% @groups.each do |group| %>
 					<div class="groupcard">
 						<div class="groupthumb">
-						<%= link_to image_tag(group.logo.url(:thumb).to_s), group %>
+						<%= link_to group_logo_tag(group, version: :thumb), group %>
 						</div>
 						<%= link_to group, :class => 'titgrcard' do%>
 							<%= group.name %>

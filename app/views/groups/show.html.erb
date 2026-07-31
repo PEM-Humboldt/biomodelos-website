@@ -19,7 +19,7 @@
 				</div>
 			<% end %>
 			<div class="groupimg">
-				<%= image_tag(@group.logo.url(:profile).to_s) %>
+				<%= group_logo_tag(@group, version: :profile) %>
 			</div>
 			<div class="perflinks">
 				<% if user_signed_in? %>
@@ -30,7 +30,7 @@
 							<%= f.submit "", :class=> "joingroup", :title=>t('biomodelos.groups.profile.join_group_tt'), :rel=>"tooltip", data: { disable_with: "" } %>
 						<% end %>
 					<% elsif @user_group.groups_users_state_id == 2 %>
-						<%= image_tag "groupjoin2.png", :title=>t('biomodelos.groups.profile.waiting_approval_tt'), :rel=>"tooltip" %>
+						<span class="joingroup2" title="<%= t('biomodelos.groups.profile.waiting_approval_tt') %>" rel="tooltip"><%= inline_svg_tag("icons/groupjoin2.svg", class: "icon icon-delicon", aria_hidden: true) %></span>
 					<% elsif @user_group.groups_users_state_id == 1 %>
 						<% if @user_group.is_admin%>
 							<a href="" title="<%= t('biomodelos.groups.profile.group_message_tt') %>" rel="tooltip" class="mailto" ng-click="messagebox=!messagebox"><%= inline_svg_tag("icons/perfilcontacto.svg", class: "icon icon-white", aria_hidden: true) %></a>
