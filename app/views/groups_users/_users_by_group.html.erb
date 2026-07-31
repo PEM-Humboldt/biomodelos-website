@@ -7,8 +7,8 @@
 			<div class="spp noitalic">
 				<a href="/users/<%= p_member.user_id %>"><%= p_member.user.name %><%= hidden_field_tag('', p_member.user_id, :class => 'p_usr_id') %></a>
 				<div class="acceptbuttons">
-				<a href="" class="btn_dismiss_usr"><%= image_tag("delicon.png", :title => t('biomodelos.groups.experts.not_approve_tt'), :rel => "tooltip") %></a>
-				<a href="" class="btn_approve_usr"><%= image_tag("aprobicon.png", :title => t('biomodelos.groups.experts.approve_tt'), :rel => "tooltip") %></a>
+				<a href="" class="btn_dismiss_usr" title="<%= t('biomodelos.groups.experts.not_approve_tt') %>" rel="tooltip"><%= inline_svg_tag("icons/delicon.svg", class: "icon icon-delicon", aria_hidden: true) %></a>
+				<a href="" class="btn_approve_usr" title="<%= t('biomodelos.groups.experts.approve_tt') %>" rel="tooltip"><%= inline_svg_tag("icons/aprobicon.svg", class: "icon icon-aprobicon", aria_hidden: true) %></a>
 				</div>
 			</div>
 		<% end %>

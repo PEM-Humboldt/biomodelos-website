@@ -7,7 +7,7 @@
 		<div class="perfilsub"><%= @user.organization %></div>
 		<div class="perfilsub"><%= @user.location %></div>
 		<div class="perfilimg">
-			<%= image_tag(@user.avatarURL.url(:profile).to_s) %>
+			<%= user_avatar_tag(@user, version: :profile) %>
 		</div>
 		<% if user_signed_in? && @user.id != current_user.id %>
 			<div class="editgroupform" ng-show="messagebox">

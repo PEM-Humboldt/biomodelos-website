@@ -1099,6 +1099,11 @@ p.redsq::before	{
   min-width: 100%;
 }
 
+.perfilimg svg {
+  width: 100%;
+  height: 100%;
+}
+
 .perflinks{
 	margin-left: 10px;
     float: left;
@@ -1107,21 +1112,13 @@ p.redsq::before	{
     height: auto;
 }
 
-.mailto, .edituser, .joingroup {
+.mailto, .edituser, .joingroup, .leavegroup {
 	width: 30px;
 	height: 30px;
 	cursor: pointer;
-    background-image: url(<%= asset_path 'perfilcontacto.png' %>);
-    background-repeat: no-repeat;
     vertical-align: text-bottom;
     float: left;
-    margin-top: 9px;
-}
-
-.edituser {
-    background-image: url(<%= asset_path 'perfileditar.png' %>);
-    margin-top: 7px;
-    margin-left: 8px;
+    margin: 10px 0 0;
 }
 
 .rank {
@@ -1144,13 +1141,8 @@ p.redsq::before	{
 }
 
 .leavegroup {
-	margin-top: 5px;
-	width: 30px;
-	height: 30px;
 	border: 0;
 	outline: none;
-	cursor: pointer;
-	margin-left: 1px;
 }
 
 .perfilunder {
@@ -1229,7 +1221,8 @@ p.groupuser {
 	margin-bottom: 15px;
 }
 
-.notif img {
+.notif img,
+.notif svg {
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
@@ -1329,6 +1322,61 @@ p.groupuser {
 
 .acceptbuttons {
 	margin-top: 7px;
+}
+
+/* Inline SVG icons (replacing legacy PNG icons) */
+.icon {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	vertical-align: middle;
+}
+
+.icon-delicon,
+.icon-newtask {
+	color: #be412f;
+}
+
+.icon-aprobicon {
+	color: #28363a;
+}
+
+.icon-develop,
+.icon-notask {
+	color: #28363a;
+}
+
+.icon-task {
+	width: 18px;
+	height: 18px;
+}
+
+.icon-sm {
+	width: 13px;
+	height: 13px;
+}
+
+.userspp a.icon-link,
+.tareaspp a.icon-link {
+	vertical-align: middle;
+	line-height: 1;
+}
+
+.userspp input[type="checkbox"],
+.tareaspp input[type="checkbox"] {
+	vertical-align: middle;
+}
+
+.icon-tablehead {
+	color: #67b2b0;
+}
+
+.icon-white {
+	color: #fff;
+}
+
+.icon-avatar-placeholder {
+	color: #28363a;
 }
 
 .aporte {
@@ -1464,7 +1512,9 @@ button.pad3 {
 	vertical-align: top;
 }
 
-.newtask img {
+.newtask svg {
+	width: 15px;
+	height: 15px;
 	margin: 3px 5px 0;
 	cursor: pointer;
 }
@@ -1549,11 +1599,6 @@ button.pad3 {
 	width: 30px;
 	margin-left: 8px;
 	margin-top: 12px;
-}
-
-.bckgroup .edituser {
-	margin-top: 5px;
-	margin-left: 4px;
 }
 
 .groupnav a {
@@ -1864,12 +1909,21 @@ p.moderlink{
 .arrrowsm {
 	border: none;
 	background: none;
-	width: 11px;
-	height: 7px;
+	width: 16px;
+	height: 10px;
 	float: right;
-	background-image: url(<%= asset_path 'arrowsm.png' %>);
 	margin: 3px;
 	cursor: pointer;
+	background-color: #28363a;
+	transition: transform .15s ease;
+	-webkit-mask-image: url(<%= asset_path 'icons/chevron.svg' %>);
+	mask-image: url(<%= asset_path 'icons/chevron.svg' %>);
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: contain;
+	mask-size: contain;
+	-webkit-mask-position: center;
+	mask-position: center;
 }
 
 .rotatearr {
@@ -3997,7 +4051,7 @@ label.checkboxdown {
 	padding: 5px;
 }
 
-.lblvisual img {
+.lblvisual svg {
 	vertical-align: middle;
 }
 
