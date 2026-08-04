@@ -1,13 +1,13 @@
 class SpeciesController < ApplicationController
 	include UsersHelper
-
-	def autocomplete
-	    species = Species.search(query: params[:query])
-	    result = species.collect do |t|
-	      { sci_name: t.sci_name, id: t.id }
-	    end
-	    render json: result
-  	end
+  
+  def autocomplete
+    species = Species.search(query: params[:query])
+    result = species.collect do |t|
+      { sci_name: t.sci_name, id: t.id }
+    end
+    render json: result
+  end
 
   def visor
     @skip_footer = true
@@ -24,7 +24,7 @@ class SpeciesController < ApplicationController
       logger.error "#{e.message} #{e.backtrace}"
       err_msg = e.message.tr(?',?").delete("\n")
         render :js => "alertify.alert('Ha ocurrido un error en la búsqueda. #{err_msg}');"
-      end
+    end
   end
 
   def filter
@@ -66,25 +66,24 @@ class SpeciesController < ApplicationController
       err_msg = e.message.tr(?',?").delete("\n")
       render :js => "alertify.alert('Ha ocurrido un error consultando la especie. #{err_msg}');"
     end
-	end
-
+  end
+  
 	def get_species_records
-		begin
+    begin
 			if !params[:inGroup].blank? && params[:inGroup]
 				records = Species.group_records(params[:id])
 			else
 				records = Species.records(params[:id])
 			end
 			render json: records
-		rescue => e
+    rescue => e
 			logger.error "#{e.message} #{e.backtrace}"
 			err_msg = e.message.tr(?',?").delete("\n")
-	    	render :js => "alertify.alert('Ha ocurrido consultando los registros. #{err_msg}');"
-	    end
+      render :js => "alertify.alert('Ha ocurrido consultando los registros. #{err_msg}');"
+    end
 	end
-
-	# Sets the statistics info for the species, sorting and filtering the cover's data
-    #
+    
+  # Sets the statistics info for the species, sorting and filtering the cover's data#
 	def species_info
 		begin
 			@eoo = Model.eoo(params[:species_id])
@@ -112,14 +111,29 @@ class SpeciesController < ApplicationController
 			if !@all_covers.blank?
 				@covers =  Hash[@all_covers.select{|k, v| v && v!= 0 && k != "modelID" && k!= "modelLevel"}.sort_by{ |k, v| v }.reverse]
 			end
-
-			respond_to do |format|
-	      		format.js
-	    	end
-	    rescue => e
-	    	logger.error "#{e.message} #{e.backtrace}"
-			err_msg = e.message.tr(?',?").delete("\n")
-			render :js => "alertify.alert('Se ha producido un error al consultar las estadísticas. #{err_msg}');"
-	    end
+      respond_to do |format|
+        format.js
+      end
+    rescue => e
+      logger.error "#{e.message} #{e.backtrace}"
+      err_msg = e.message.tr(?',?").delete("\n")
+      render :js => "alertify.alert('Se ha producido un error al consultar las estadísticas. #{err_msg}');"
+    end
 	end
+  # Validates if a species name exists in BioModelos
+  def validate_species_name
+    result = Species.validate_species_name(params)
+    if result["valid"] == true
+      render json: { 
+        valid: true, 
+        species: result["species"],
+      }
+    else
+      render json: {
+        valid: false,
+        message: "La especie '#{params[:species_name]}' no existe en BioModelos, por favor comuniquese con el administrador para agregarla."
+      }
+    end
+  end
+	
 end
