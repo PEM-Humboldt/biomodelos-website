@@ -2,6 +2,8 @@ en:
   common:
     save: "Save"
     cancel: "Cancel"
+    selected_record:
+      blank_message_save: "can't be blank"
   activerecord:
     models:
       user: "User"
