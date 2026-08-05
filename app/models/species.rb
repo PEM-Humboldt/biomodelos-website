@@ -107,9 +107,9 @@ class Species
 
   end
 
-  def self.validate_species_name(params)
+  def self.validate_name(params)
     species_name = params[:species_name]
-    url = "/validate_species_name"
+    url = "/validate_name"
     if species_name
       url += "/" + species_name + "?"
     end

@@ -121,8 +121,8 @@ class SpeciesController < ApplicationController
     end
 	end
   # Validates if a species name exists in BioModelos
-  def validate_species_name
-    result = Species.validate_species_name(params)
+  def validate_name
+    result = Species.validate_name(params)
     if result["valid"] == true
       render json: { 
         valid: true, 

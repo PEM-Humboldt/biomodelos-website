@@ -569,7 +569,7 @@ $(document).ready(function() {
             if (speRecordEdition.text() != speRecordEdition.attr("oldVal")) {
                 $.ajax({
                     type: "GET",
-                    url: "/" + $("#locale_field").val() + "/species/validate_species_name",
+                    url: "/" + $("#locale_field").val() + "/species/validate_name",
                     data: {
                         species_name: speRecordEdition.text()
                     },
