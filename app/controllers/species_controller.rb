@@ -120,7 +120,7 @@ class SpeciesController < ApplicationController
       render :js => "alertify.alert('Se ha producido un error al consultar las estadísticas. #{err_msg}');"
     end
 	end
-  # Validates if a species name exists in BioModelos
+  
   def validate_name
     result = Species.validate_name(params)
     if result["valid"] == true
