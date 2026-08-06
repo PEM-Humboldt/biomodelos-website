@@ -106,4 +106,13 @@ class Species
     JSON.parse(get(URI::DEFAULT_PARSER.escape(url)).body)
 
   end
+
+  def self.validate_name(params)
+    species_name = params[:species_name]
+    url = "/validate_name"
+    if species_name
+      url += "/" + species_name + "?"
+    end
+    JSON.parse(get(URI::DEFAULT_PARSER.escape(url)).body)
+  end
 end

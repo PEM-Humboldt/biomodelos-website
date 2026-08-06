@@ -2,6 +2,8 @@ es:
   common:
     save: "Guardar"
     cancel: "Cancelar"
+    selected_record:
+      blank_message_save: "no puede estar vacío"
   date:
     abbr_day_names:
     - dom
