@@ -1,4 +1,3 @@
-version: '3'
 services:
   biomodelos_dev:
     image: biomodelos_dev:2.13.1
