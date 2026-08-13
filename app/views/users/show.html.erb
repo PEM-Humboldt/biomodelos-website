@@ -24,7 +24,7 @@
       <div class="perflinks">
       <% if user_signed_in? %>
         <% if @user.id != current_user.id %>
-          <a href="" class="mailto" rel="tooltip" title="<%= t('biomodelos.users.message_to_expert_tt') %>" ng-click="messagebox=!messagebox"></a>
+          <a href="" class="mailto" rel="tooltip" title="<%= t('biomodelos.users.message_to_expert_tt') %>" ng-click="messagebox=!messagebox"><%= inline_svg_tag("icons/perfilcontacto.svg", class: "icon icon-white", aria_hidden: true) %></a>
         <% else %>
           <%= link_to edit_user_registration_path, class: 'edituser', rel: "tooltip", title: t('biomodelos.users.edit_user_tt') do %>
             <%= inline_svg_tag("icons/penperfil.svg", class: "icon icon-white", aria_hidden: true) %>
