@@ -1,148 +1,148 @@
 en:
   biomodelos:
     header:
-      home: "Home"
-      models: "Models"
-      groups: "Groups"
-      log_in: "Log In"
-      sign_up: "Sign Up"
-      profile_tt: "Profile"
-      log_out_tt: "Log Out"
+      home: 'Home'
+      models: 'Models'
+      groups: 'Groups'
+      log_in: 'Log In'
+      sign_up: 'Sign Up'
+      profile_tt: 'Profile'
+      log_out_tt: 'Log Out'
     footer:
       institute_html: >
         The Alexander von Humboldt Institute for</br>
         Research on Biological Resources
-      program: "Scientific Information Management"
-      models: "Models"
-      groups: "Groups"
-      publish: "Publish"
-      info: "Info"
-      about: "About Biomodelos"
-      terms: "Terms"
-      contact: "Contact"
+      program: 'Scientific Information Management'
+      models: 'Models'
+      groups: 'Groups'
+      publish: 'Publish'
+      info: 'Info'
+      about: 'About Biomodelos'
+      terms: 'Terms'
+      contact: 'Contact'
     home:
-      advanced_search: "Advanced search"
-      search_ph: "Scientific name"
-      go_to_species_tt: "Go to species"
-      models_btn: "CONSULT"
-      contribute_btn: "CONTRIBUTE"
-      publish_btn: "PUBLISH"
-      slogan: "BETTER MODELS WITH SUPPORT FROM EXPERTS"
-      mammals: "MAMMALS"
-      birds: "BIRDS"
-      reptiles: "REPTILES"
-      amphibians: "AMPHIBIANS"
-      fish: "FISHES"
-      invertebrates: "INVERTEBRATES"
-      plants: "PLANTS"
+      advanced_search: 'Advanced search'
+      search_ph: 'Scientific name'
+      go_to_species_tt: 'Go to species'
+      models_btn: 'CONSULT'
+      contribute_btn: 'CONTRIBUTE'
+      publish_btn: 'PUBLISH'
+      slogan: 'BETTER MODELS WITH SUPPORT FROM EXPERTS'
+      mammals: 'MAMMALS'
+      birds: 'BIRDS'
+      reptiles: 'REPTILES'
+      amphibians: 'AMPHIBIANS'
+      fish: 'FISHES'
+      invertebrates: 'INVERTEBRATES'
+      plants: 'PLANTS'
       consult:
-        title: "query"
-        text_1: "Enter directly to the BioModelos search engine the scientific name of the species of your interest to consult its distribution area in the viewer. You will find the distribution hypotheses available for the species and the rating other users gave to those, as well as some statistics about the species range."
-        go_btn: "GO"
+        title: 'query'
+        text_1: 'Enter directly to the BioModelos search engine the scientific name of the species of your interest to consult its distribution area in the viewer. You will find the distribution hypotheses available for the species and the rating other users gave to those, as well as some statistics about the species range.'
+        go_btn: 'GO'
         text_2: 'If you want to download the map you must go to the registration section, fill out the form and enter the platform with your username and password. To contribute to the knowledge of the distribution of some species, check the "contribute" section.'
       contribute:
-        title: "contribute"
-        text_1: "To contribute in BioModelos you must be a registered user and belong to one of the groups on the platform."
-        sign_up_btn: "SIGN UP"
-        log_in_btn: "LOG IN"
-        contribution_types: "HOW TO CONTRIBUTE"
-        text_2: "You can contribute to improve the knowledge about the geographical distribution of the species through the following activities:"
+        title: 'contribute'
+        text_1: 'To contribute in BioModelos you must be a registered user and belong to one of the groups on the platform.'
+        sign_up_btn: 'SIGN UP'
+        log_in_btn: 'LOG IN'
+        contribution_types: 'HOW TO CONTRIBUTE'
+        text_2: 'You can contribute to improve the knowledge about the geographical distribution of the species through the following activities:'
         activities_list_html: >
           - Curation of biological records.</br>
           - Edition of the statistical models developed by the Laboratory of Applied Biogeography.</br>
           - Documenting the land cover suitable for the species.</br>
           - Developing expert maps, especially for species that have very few or no biological records.</br>
           - Qualifying the geographical distribution hypothesis available for the species.</br>
-        profile_btn: "PROFILE"
+        profile_btn: 'PROFILE'
 
       publish:
-        title: "publish"
-        text_1: "If you have developed distribution models for one or more species, you can publish them through BioModelos. This way you can make your work visible and facilitate its use by other researchers, as well as receive feedback from experts on the performance of your models. "
-        more_lnk: "Find more."
+        title: 'publish'
+        text_1: 'If you have developed distribution models for one or more species, you can publish them through BioModelos. This way you can make your work visible and facilitate its use by other researchers, as well as receive feedback from experts on the performance of your models. '
+        more_lnk: 'Find more.'
         text_2: 'You just have to be a registered user in BioModelos, click the "Publish" link and follow the instructions.'
-        publish_btn: "PUBLISH"
+        publish_btn: 'PUBLISH'
       news:
-        title: "BioModelos news"
-        text_1: "The second installment of the “Atlas of Biodiversity of Colombia” is here, for the Primates thematic group. Thanks to the work of this group in BioModelos, the compilation of validated models of 38 species, and analysis information from their distribution was achieved."
-        text_2: "Many groups have made progress in their species lists and some have already finished modeling the species of their thematic group, a clear case this year are the experts in primates, in support with the APC (Colombian Primatological Association). It is thanks to their collaboration that these distribution models achieve this validated status and are received as reliable information by the scientific community, allowing us to say “better models with support from experts”."
+        title: 'BioModelos news'
+        text_1: 'The second installment of the “Atlas of Biodiversity of Colombia” is here, for the Primates thematic group. Thanks to the work of this group in BioModelos, the compilation of validated models of 38 species, and analysis information from their distribution was achieved.'
+        text_2: 'Many groups have made progress in their species lists and some have already finished modeling the species of their thematic group, a clear case this year are the experts in primates, in support with the APC (Colombian Primatological Association). It is thanks to their collaboration that these distribution models achieve this validated status and are received as reliable information by the scientific community, allowing us to say “better models with support from experts”.'
     visor:
       tooltip:
-        model_name: "Model status"
-        layer_btn: "Geographical layers"
-        find_btn: "Advanced search"
-        info_btn: "Species information"
-        hipo_btn: "Distribution hypotheses"
-        edit_btn: "Edit model"
+        model_name: 'Model status'
+        layer_btn: 'Geographical layers'
+        find_btn: 'Advanced search'
+        info_btn: 'Species information'
+        hipo_btn: 'Distribution hypotheses'
+        edit_btn: 'Edit model'
       search:
-        title: "ADVANCED SEARCH"
-        text_1: "Refine the species list using the filters provided below. Although not all species have a distribution model they may have options to advance their development."
-        filters_title: "FILTERS"
-        mammals_tt: "Mammals"
-        birds_tt: "Birds"
-        reptiles_tt: "Reptiles"
-        amphibians_tt: "Amphibians"
-        fish_tt: "Fishes"
-        invertebrates_tt: "Invertebrates"
-        plants_tt: "Plants"
-        endemic: "endemic"
-        invasive: "invasive"
-        threatened: "threatened"
-        validated: "validated"
-        withmodel: "with model"
-        no_results: "No results found."
-        error: "There was an error in the search."
+        title: 'ADVANCED SEARCH'
+        text_1: 'Refine the species list using the filters provided below. Although not all species have a distribution model they may have options to advance their development.'
+        filters_title: 'FILTERS'
+        mammals_tt: 'Mammals'
+        birds_tt: 'Birds'
+        reptiles_tt: 'Reptiles'
+        amphibians_tt: 'Amphibians'
+        fish_tt: 'Fishes'
+        invertebrates_tt: 'Invertebrates'
+        plants_tt: 'Plants'
+        endemic: 'endemic'
+        invasive: 'invasive'
+        threatened: 'threatened'
+        validated: 'validated'
+        withmodel: 'with model'
+        no_results: 'No results found.'
+        error: 'There was an error in the search.'
       statistics:
-        title: "Statistics on validated model"
-        records_number: "Occurrences"
-        records_number_tt: "The quantity of biological records used in the development of this model."
-        records_metadata: "OCCURRENCE METADATA"
-        records_metadata_tt: "Metadata on occurrences used for model development and their data cleaning process."
-        eoo_title: "EXTENT OF OCCURRENCE"
-        eoo_text_1_html: "The extent of occurrence (EOO) is defined as the area contained within the shortest continuous imaginary boundary which can be drawn to encompass al the known, inferred or projected sites of present occurrence of a taxon, excluding cases of vagrancy (IUCN 2013)."
+        title: 'Statistics on validated model'
+        records_number: 'Occurrences'
+        records_number_tt: 'The quantity of biological records used in the development of this model.'
+        records_metadata: 'OCCURRENCE METADATA'
+        records_metadata_tt: 'Metadata on occurrences used for model development and their data cleaning process.'
+        eoo_title: 'EXTENT OF OCCURRENCE'
+        eoo_text_1_html: 'The extent of occurrence (EOO) is defined as the area contained within the shortest continuous imaginary boundary which can be drawn to encompass al the known, inferred or projected sites of present occurrence of a taxon, excluding cases of vagrancy (IUCN 2013).'
         eoo_text_2_html: '<b>MCP on models:</b> area of minimum convex polygon computed on a species modeled distribution (<a href="http://www.humboldt.org.co/es/test/item/download/244_4bf9941429abe826cb0bee0e9f755f2a" target="_blank" style="float:none;">Figure 1, Renjifo et al. 2014</a>).'
-        eoo_fig_1_html: "Figure 1. Example of minimum convex polygon generated for <em>Andigena hypoglauca</em> (red line) based on a model for its distribution (green area) (Renjifo et al. 2014)."
+        eoo_fig_1_html: 'Figure 1. Example of minimum convex polygon generated for <em>Andigena hypoglauca</em> (red line) based on a model for its distribution (green area) (Renjifo et al. 2014).'
         eoo_text_3_html: '<b>MCP on occurrences:</b> area of the minimum convex polygon computed on all species occurrences. (<a href="http://s3.amazonaws.com/iucnredlist-newcms/staging/public/attachments/3156/reg_guidelines_sp.pdf" target="_blank" style="float:none;">Figure 2, IUCN 2013</a>)'
-        eoo_fig_2_html: "Figure 2. Representation of computation of a minimum convex polygon on occurrences."
-        eoo_geo_range: "Range size"
-        eoo_pmc_models: "MCP on models"
-        eoo_pmc_records: "MCP on occurrences"
-        rpa_title: "REPRESENTATIVENESS IN PROTECTED AREAS"
-        rpa_text_1: "This is the percentage of a species distribution that is protected under all types of protected areas and discriminated by National Parks, private reserves and other protected area types (forest reserves, regional parks, integrated management districts and recreational areas). The total representativeness may not match the summation of national parks, private reserves and other reserves if there is any overlap between protected area types."
-        rpa_total: "Total representativeness"
-        rpa_pnn: "National Parks"
-        rpa_rsc: "Private reserves"
-        rpa_other: "Other reserves"
-        forest_loss_title: "FOREST LOSS"
-        forest_loss_text_1: "This graph describes the percentage of forest within species distribution, according to the deforestation maps developed by IDEAM and projected deforestation scenarios proposed by Etter & Arevalo (2014) projected to the year 2030."
-        forest_loss_text_2: "Etter, A. y Arévalo, P. (2014). Escenarios futuros de la cobertura forestal en Colombia. En: Bello et al. (ed). Biodiversidad 2014. Estado y tendencia de la biodiversidad continental en Colombia. Instituto Alexander von Humboldt. Bogotá, D.C., Colombia."
-        forest_graphic_blue: "Historical"
-        forest_graphic_trend: "TREND"
-        forest_graphic_orange: "Business as usual"
-        forest_graphic_red: "Extractivist"
-        forest_graphic_yellow: "Industrialized"
-        forest_graphic_year: "Year"
-        forest_graphic_col_1: "Historical"
-        forest_graphic_col_2: "Business as Usual"
-        forest_graphic_col_3: "Extractivist economy"
-        forest_graphic_col_4: "Industrial economy"
-        forest_graphic_percentage: "Percent area (%)"
-        covers_title: "land cover types"
-        covers_text_1: "Percent of species distribution within land cover types."
-        copy_url_tt: "Copy species URL"
+        eoo_fig_2_html: 'Figure 2. Representation of computation of a minimum convex polygon on occurrences.'
+        eoo_geo_range: 'Range size'
+        eoo_pmc_models: 'MCP on models'
+        eoo_pmc_records: 'MCP on occurrences'
+        rpa_title: 'REPRESENTATIVENESS IN PROTECTED AREAS'
+        rpa_text_1: 'This is the percentage of a species distribution that is protected under all types of protected areas and discriminated by National Parks, private reserves and other protected area types (forest reserves, regional parks, integrated management districts and recreational areas). The total representativeness may not match the summation of national parks, private reserves and other reserves if there is any overlap between protected area types.'
+        rpa_total: 'Total representativeness'
+        rpa_pnn: 'National Parks'
+        rpa_rsc: 'Private reserves'
+        rpa_other: 'Other reserves'
+        forest_loss_title: 'FOREST LOSS'
+        forest_loss_text_1: 'This graph describes the percentage of forest within species distribution, according to the deforestation maps developed by IDEAM and projected deforestation scenarios proposed by Etter & Arevalo (2014) projected to the year 2030.'
+        forest_loss_text_2: 'Etter, A. y Arévalo, P. (2014). Escenarios futuros de la cobertura forestal en Colombia. En: Bello et al. (ed). Biodiversidad 2014. Estado y tendencia de la biodiversidad continental en Colombia. Instituto Alexander von Humboldt. Bogotá, D.C., Colombia.'
+        forest_graphic_blue: 'Historical'
+        forest_graphic_trend: 'TREND'
+        forest_graphic_orange: 'Business as usual'
+        forest_graphic_red: 'Extractivist'
+        forest_graphic_yellow: 'Industrialized'
+        forest_graphic_year: 'Year'
+        forest_graphic_col_1: 'Historical'
+        forest_graphic_col_2: 'Business as Usual'
+        forest_graphic_col_3: 'Extractivist economy'
+        forest_graphic_col_4: 'Industrial economy'
+        forest_graphic_percentage: 'Percent area (%)'
+        covers_title: 'land cover types'
+        covers_text_1: 'Percent of species distribution within land cover types.'
+        copy_url_tt: 'Copy species URL'
       hypotheses:
-        title: "AVAILABLE HYPOTHESES"
-        text_1: "Maps in this section are either approved models (Validated), published by users models (Published) or statistical models performed in an automated way by the BioModelos team (Statistical). They may be rated according to how well they reflect species distribution by experts belonging to the species group (To rate). The first model displayed in the viewer corresponds to the map with the highest rating. Registered users may download models and their metadata."
-        validated: "Validated"
-        published: "Published"
-        statistical: "Statistical"
-        to_rate: "To rate"
-        all: "All"
-        level: "Level"
-        rating_mean: "Average score"
-        votes: "ratings"
-        downloads_number: "Downloads"
-        download_tt: "Download model"
-        metadata_tt: "Metadata"
+        title: 'AVAILABLE HYPOTHESES'
+        text_1: 'Maps in this section are either approved models (Validated), published by users models (Published) or statistical models performed in an automated way by the BioModelos team (Statistical). They may be rated according to how well they reflect species distribution by experts belonging to the species group (To rate). The first model displayed in the viewer corresponds to the map with the highest rating. Registered users may download models and their metadata.'
+        validated: 'Validated'
+        published: 'Published'
+        statistical: 'Statistical'
+        to_rate: 'To rate'
+        all: 'All'
+        level: 'Level'
+        rating_mean: 'Average score'
+        votes: 'ratings'
+        downloads_number: 'Downloads'
+        download_tt: 'Download model'
+        metadata_tt: 'Metadata'
         text_2_html: >
           There are no distribution hypothesis available for this species</br>
           <b>Possible reasons:</b></br>
@@ -150,339 +150,339 @@ en:
           2)	Insufficient records for modeling.</br>
           3)	There are no experts for this species.</br>
           4)	It's under review (e.g. after a taxonomical change).</br>"
-        no_model: "NO MODEL"
-        rating_0_hint: "Poor model"
-        rating_1_hint: "Fair model"
-        rating_2_hint: "Good model"
-        rating_3_hint: "Very good model"
-        rating_4_hint: "Excellent model"
-        rating_delete: "Erase rating"
-        rating_error: "Error. Rating was not saved."
-        rating_success: "Rating saved successfully."
-        pending_and_published_thumb: "PUBLISHED PENDING VALIDATION"
-        pending_thumb: "PENDING VALIDATION"
-        valid_published_thumb: "PUBLISHED VALIDATED"
-        valid_thumb: "VALIDATED"
+        no_model: 'NO MODEL'
+        rating_0_hint: 'Poor model'
+        rating_1_hint: 'Fair model'
+        rating_2_hint: 'Good model'
+        rating_3_hint: 'Very good model'
+        rating_4_hint: 'Excellent model'
+        rating_delete: 'Erase rating'
+        rating_error: 'Error. Rating was not saved.'
+        rating_success: 'Rating saved successfully.'
+        pending_and_published_thumb: 'PUBLISHED PENDING VALIDATION'
+        pending_thumb: 'PENDING VALIDATION'
+        valid_published_thumb: 'PUBLISHED VALIDATED'
+        valid_thumb: 'VALIDATED'
       records:
-        title: "records and filters"
-        year_label: "Year"
-        year_filter_tt: "Warning: this filter works only in records that have the date field with an appropriate format. Due to errors in the sources, it is not possible to recognize the year of all records."
-        month_filter_tt: "If you want to filter the records of the species for some particular months, select the boxes corresponding to those."
-        month_filter: "Month"
-        month_1_filter: "Jan"
-        month_2_filter: "Feb"
-        month_3_filter: "Mar"
-        month_4_filter: "Apr"
-        month_5_filter: "May"
-        month_6_filter: "Jun"
-        month_7_filter: "Jul"
-        month_8_filter: "Aug"
-        month_9_filter: "Sep"
-        month_10_filter: "Oct"
-        month_11_filter: "Nov"
-        month_12_filter: "Dec"
-        search_tt: "You can filter records by type of evidence, source of the records or institution. Once you have selected a field, you will only find the values of that field in the following box."
-        search: "Search by"
-        filter_type: "Filter type"
-        evidence_option: "Evidence"
-        source_option: "Source"
-        institution_option: "Institution"
-        default_category: "Category"
+        title: 'records and filters'
+        year_label: 'Year'
+        year_filter_tt: 'Warning: this filter works only in records that have the date field with an appropriate format. Due to errors in the sources, it is not possible to recognize the year of all records.'
+        month_filter_tt: 'If you want to filter the records of the species for some particular months, select the boxes corresponding to those.'
+        month_filter: 'Month'
+        month_1_filter: 'Jan'
+        month_2_filter: 'Feb'
+        month_3_filter: 'Mar'
+        month_4_filter: 'Apr'
+        month_5_filter: 'May'
+        month_6_filter: 'Jun'
+        month_7_filter: 'Jul'
+        month_8_filter: 'Aug'
+        month_9_filter: 'Sep'
+        month_10_filter: 'Oct'
+        month_11_filter: 'Nov'
+        month_12_filter: 'Dec'
+        search_tt: 'You can filter records by type of evidence, source of the records or institution. Once you have selected a field, you will only find the values of that field in the following box.'
+        search: 'Search by'
+        filter_type: 'Filter type'
+        evidence_option: 'Evidence'
+        source_option: 'Source'
+        institution_option: 'Institution'
+        default_category: 'Category'
         visualize_tt_html: >
           In this section you can highlight records by:&#013;&#013;
           • Reported: records that have had an error report in BioModelos.&#013;
           • Edited: records that have been modified by the experts of the species.&#013;
           • Review priority: records that require priority review."
-        visualize: "Visualize"
-        reported_lbl: "Reported"
-        edited_lbl: "Edited"
-        priority_lbl: "Review priority"
-        clean_btn: "clean"
-        filter_btn: "filter"
-        add_tt: "1: The coordinates of the geographic viewer allow you to add a record for the species, after that you can change them and fill the other documentation fields."
-        add: "Add record"
+        visualize: 'Visualize'
+        reported_lbl: 'Reported'
+        edited_lbl: 'Edited'
+        priority_lbl: 'Review priority'
+        clean_btn: 'clean'
+        filter_btn: 'filter'
+        add_tt: 'The coordinates of the geographic viewer allow you to add a record for the species, after that you can change them and fill the other documentation fields.'
+        add: 'Add record'
       selected_record:
-        record_of: "RECORD OF"
-        id_of_the_record: "ID of the record:"
-        edit_btn: "edit"
-        report_btn_tt: "Report"
-        taxonomy: "Taxonomy"
-        accepted_name: "Accepted name:"
-        original_name: "Original name:"
-        family: "Family:"
-        order: "Order:"
-        class: "Class:"
-        kingdom: "Kingdom:"
-        location: "Location"
-        latitude: "Latitude:"
-        longitude: "Longitude:"
-        original: "original"
-        interpreted: "interpreted"
-        consistent: "consistent"
-        country: "Country:"
-        state: "State:"
-        county: "County:"
-        locality: "Locality:"
-        altitude: "Altitude:"
-        record_information: "Record Information"
-        institution: "Institution:"
-        collection: "Collection:"
-        catalog_number: "Catalog number:"
-        recorded_by: "Recorded by:"
-        basis_of_record: "Basis of record:"
-        event_date: "Event date:"
-        url: "URL:"
-        source: "Source:"
-        occurrence_id: "Occurrence ID:"
-        download_date: "Download date:"
-        record_quality: "Record Quality"
-        georeferencing_error: "Georeferencing error:"
-        in_urban_area: "In urban area:"
-        altitude_in_coordinates: "Altitude in coordinates:"
-        altitude_in_known_range: "Altitude in known range:"
-        distance_to_known_range: "Distance to known range:"
-        environmental_outlier: "Environmental outlier:"
-        last_report: "Last report:"
-        last_update: "Last update:"
-        see_more: "see more"
-        see_less: "see less"
-        identifiedBy: "Identified by:"
-        dateIdentified: "Date identified:"
+        record_of: 'RECORD OF'
+        id_of_the_record: 'ID of the record:'
+        edit_btn: 'edit'
+        report_btn_tt: 'Report'
+        taxonomy: 'Taxonomy'
+        accepted_name: 'Accepted name:'
+        original_name: 'Original name:'
+        family: 'Family:'
+        order: 'Order:'
+        class: 'Class:'
+        kingdom: 'Kingdom:'
+        location: 'Location'
+        latitude: 'Latitude:'
+        longitude: 'Longitude:'
+        original: 'original'
+        interpreted: 'interpreted'
+        consistent: 'consistent'
+        country: 'Country:'
+        state: 'State:'
+        county: 'County:'
+        locality: 'Locality:'
+        altitude: 'Altitude:'
+        record_information: 'Record Information'
+        institution: 'Institution:'
+        collection: 'Collection:'
+        catalog_number: 'Catalog number:'
+        recorded_by: 'Recorded by:'
+        basis_of_record: 'Basis of record:'
+        event_date: 'Event date:'
+        url: 'URL:'
+        source: 'Source:'
+        occurrence_id: 'Occurrence ID:'
+        download_date: 'Download date:'
+        record_quality: 'Record Quality'
+        georeferencing_error: 'Georeferencing error:'
+        in_urban_area: 'In urban area:'
+        altitude_in_coordinates: 'Altitude in coordinates:'
+        altitude_in_known_range: 'Altitude in known range:'
+        distance_to_known_range: 'Distance to known range:'
+        environmental_outlier: 'Environmental outlier:'
+        last_report: 'Last report:'
+        last_update: 'Last update:'
+        see_more: 'see more'
+        see_less: 'see less'
+        identifiedBy: 'Identified by:'
+        dateIdentified: 'Date identified:'
       contributions:
-        title: "EDITION AND CONTRIBUTION"
-        text_1: "BioModelos offers you three options to help document the distributions of species: editing the statistical model developed by BioModelos, creating an expert map in the application or publishing a model that you developed."
-        model_development: "MODEL DEVELOPMENT"
-        statistical_model: "From statistical model"
-        edit_btn: "edit"
-        threshold_title: "THRESHOLD"
-        threshold_text: "Use the slider to identify the model that best represents the climatically suitable area for the species (the distribution limits are defined with the polygon tool.) If you want more information about the definition of the threshold, consult the methodological document of BioModelos."
-        tools_title: "POLYGON TOOLS"
-        tools_text: "The first button creates polygons, you can draw an area you wish to cut the proposed distribution, as well as add areas that are not shown in the statistical model or subtract areas. The other two buttons allow you to modify the drawn polygons or eliminate them."
-        variables_title: "ECOLOGICAL VARIABLES"
-        variables_text: "Select the adequate land cover that supports the species populations, according to the national legend of land cover."
-        create_your_map: "Create your map"
-        create_your_map_text: "Using the polygon tool you can delineate the areas that correspond to the distribution range of a species."
-        create_btn: "create"
-        publish: "Publish your map"
-        publish_text: "This link will take you to the form that describes the procedure to publish your models in BioModelos."
+        title: 'EDITION AND CONTRIBUTION'
+        text_1: 'BioModelos offers you three options to help document the distributions of species: editing the statistical model developed by BioModelos, creating an expert map in the application or publishing a model that you developed.'
+        model_development: 'MODEL DEVELOPMENT'
+        statistical_model: 'From statistical model'
+        edit_btn: 'edit'
+        threshold_title: 'THRESHOLD'
+        threshold_text: 'Use the slider to identify the model that best represents the climatically suitable area for the species (the distribution limits are defined with the polygon tool.) If you want more information about the definition of the threshold, consult the methodological document of BioModelos.'
+        tools_title: 'POLYGON TOOLS'
+        tools_text: 'The first button creates polygons, you can draw an area you wish to cut the proposed distribution, as well as add areas that are not shown in the statistical model or subtract areas. The other two buttons allow you to modify the drawn polygons or eliminate them.'
+        variables_title: 'ECOLOGICAL VARIABLES'
+        variables_text: 'Select the adequate land cover that supports the species populations, according to the national legend of land cover.'
+        create_your_map: 'Create your map'
+        create_your_map_text: 'Using the polygon tool you can delineate the areas that correspond to the distribution range of a species.'
+        create_btn: 'create'
+        publish: 'Publish your map'
+        publish_text: 'This link will take you to the form that describes the procedure to publish your models in BioModelos.'
       edition_box:
-        title: "edition"
-        select_threshold: "Select Threshold"
-        polygon_tools: "Polygon tool"
-        draw_tt: "Draw polygon"
-        edit_tt: "Edit polygon"
-        delete_tt: "Erase polygon"
-        confirm_btn: "confirm"
-        undo_btn: "undo"
-        pause_btn: "pause"
-        send_btn: "send"
-        pause_success: "The edition of the model has been saved."
+        title: 'edition'
+        select_threshold: 'Select Threshold'
+        polygon_tools: 'Polygon tool'
+        draw_tt: 'Draw polygon'
+        edit_tt: 'Edit polygon'
+        delete_tt: 'Erase polygon'
+        confirm_btn: 'confirm'
+        undo_btn: 'undo'
+        pause_btn: 'pause'
+        send_btn: 'send'
+        pause_success: 'The edition of the model has been saved.'
       covers:
-        covers_tt: "DEAM 2010. National Legend of Land Coverage. CORINE Land Cover methodology adapted for Colombia Scale 1: 100,000. Institute of Hydrology, Meteorology and Environmental Studies. Bogotá, D. C., 72p."
-        title: "Land Covers"
-        cover_1: "Artificial territories"
-        cover_1_tt: "It includes the areas of cities and towns and those peripheral areas that are being incorporated into urban areas through a gradual process of urbanization or change of land use towards commercial, industrial, service and recreational purposes."
-        cover_11: "Urbanized areas"
-        cover_11_tt: "Urbanized areas include the territories covered by urban infrastructure and all those green spaces and communication networks associated with them, which make up an urban fabric."
-        cover_111: "Continuous urban fabric"
-        cover_111_tt: "They are spaces made up of buildings and the spaces adjacent to the built infrastructure. The buildings, roads and artificially covered surfaces cover more than 80% of the land surface. Vegetation and bare soil represent a low proportion of the urban fabric area."
-        cover_112: "Discontinuous urban fabric"
-        cover_112_tt: "They are spaces made up of buildings and green areas. The buildings, roads and built infrastructure cover the land surface in a dispersed and discontinuous manner, since the rest of the area is covered by vegetation."
-        cover_12: "Industrial or commercial areas and communication networks"
-        cover_12_tt: "It includes the territories covered by infrastructure for exclusively commercial, industrial, services and communications use."
-        cover_121: "Industrial or commercial areas"
-        cover_121_tt: "They are the areas covered by artificial infrastructure (cemented, tarred, asphalted or stabilized land), without the presence of dominant green areas, which are also used for commercial or industrial activities. "
-        cover_122: "Road, rail and associated land network"
-        cover_122_tt: "They are artificial spaces with communication infrastructures such as roads, highways and railways; the related infrastructure and associated facilities such as: service stations, platforms, embankments and green areas are included."
-        cover_123: "Port areas"
-        cover_123_tt: "These are spaces covered by the port infrastructure, which include the docks, parking, administration and storage areas."
-        cover_124: "Airports"
-        cover_124_tt: "It includes the infrastructure where an air terminal operates. It includes the runways and taxiways, buildings, free surfaces, buffer zones and associated vegetation."
-        cover_125: "Hydraulic works"
-        cover_125_tt: "Surfaces that correspond to permanent consolidated constructions, intended for hydraulic installations, and those of small magnitude, generally associated with urban infrastructure, such as aqueducts, intakes, treatment plants and small dams."
-        cover_13: "Mining extraction areas and dumps"
-        cover_13_tt: "It includes the areas where materials associated with mining, construction, industrial production and dumping of waste from different sources are extracted or accumulated."
-        cover_131: "Mining extraction areas"
-        cover_131_tt: "They are areas dedicated to the extraction of mineral materials in the open pit."
-        cover_132: "Waste disposal area"
-        cover_132_tt: "These are spaces where construction debris, urban waste, industrial waste and sterile material from mines are deposited."
-        cover_14: "Artificial green areas, non-agricultural"
-        cover_14_tt: "Includes green areas located in urban areas, on which commercial, recreational, conservation and buffer activities are carried out, where different land uses do not require appreciable built infrastructure. In general, these green areas are resulting areas of urban planning processes or areas that, due to the urbanization processes, were embedded in the perimeter of the city."
-        cover_141: "Urban green areas"
-        cover_141_tt: "It comprises the areas covered by vegetation within the urban fabric, including urban parks and cemeteries."
-        cover_142: "Recreational facilities"
-        cover_142_tt: "It is the land dedicated to camping, sports, attraction parks, golf, racetracks and other recreation and leisure activities, including parks enabled for recreation, not included within the urban fabric."
-        cover_2: "Agricultural territories"
-        cover_2_tt: "They are the lands dedicated mainly to the production of food, fibers and other industrial raw materials, whether they are found with crops, with pastures, in rotation and in rest or fallow. It includes the areas dedicated to permanent, transitory crops, pasture areas and heterogeneous agricultural areas, in which livestock uses can also be used in addition to agricultural ones."
-        cover_21: "Transient crops"
-        cover_21_tt: "Includes the areas occupied with crops whose vegetative cycle is less than a year, even reaching only a few months, such as cereals (corn, wheat, barley and rice), tubers (potatoes and cassava) , the oilseeds (sesame and cotton), most of the vegetables and some species of open-air flowers. Their fundamental characteristic is that after the harvest it is necessary to re-sow or plant to continue producing."
-        cover_211: "Other temporary crops"
-        cover_211_tt: "They are the lands occupied by transitory crops not included in the groups of cereals, oilseeds, legumes, vegetables and tubers considered in this legend."
-        cover_212: "Cereals"
-        cover_212_tt: "Cover composed mainly of transitory grass crops such as rice, corn, sorghum, barley and wheat."
-        cover_213: "Oilseeds and legumes"
-        cover_213_tt: "Cover composed mainly of transitory crops of plants for the consumption and production of oil and starch. Oilseeds are characterized by being plants whose seeds are consumed or used for oil extraction. Agricultural lands covered by legumes include a wide variety of products, rich in starch."
-        cover_214: "Vegetables"
-        cover_214_tt: "Intensive management land cover characterized by being a set of herbaceous plants, generally grown in gardens, which are consumed as human food."
-        cover_215: "Tubers"
-        cover_215_tt: "Cover composed mainly of temporary crops of different types of plants that have tubers. This cover is mainly composed of potato and cassava crops."
-        cover_22: "Permanent crops"
-        cover_22_tt: "Includes the territories dedicated to crops whose vegetative cycle is greater than one year, producing several crops without the need for replanting; in this category are included in this category herbaceous crops such as sugar cane, sugar cane, plantain and banana; bush crops like coffee and cocoa, and tree crops like African palm and fruit trees."
-        cover_221: "Permanent herbaceous crops"
-        cover_221_tt: "Cover composed mainly of permanent herbaceous crops such as sugar cane and panelera, plantain, banana and tobacco."
-        cover_222: "Permanent shrub crops"
-        cover_222_tt: "Permanent covers occupied mainly by crops with a shrub habit such as coffee, cocoa, coca and vineyards. A shrub is a perennial plant, with a woody stem structure, with a height between 0.5 and 5 m, strongly branched at the base and without a defined crown (FAO, 2001)."
-        cover_223: "Permanent tree crops"
-        cover_223_tt: "Cover mainly occupied by arboreal crops, different from timber plantations or recovery, such as citrus, palm, mango, etc."
-        cover_224: "Agroforestry crops"
-        cover_224_tt: "Zones occupied by arrangements or combinations of crops of different species, with others of herbaceous, shrub and arboreal habits, where the main characteristic of the coverage is that the increase in detail does not imply the subdivision into pure units, because these are they are found combined in the same area, alternated by furrows or rows of trees with crops or trees with grasses. It does not include coffee with shades."
-        cover_225: "Confined crops"
-        cover_225_tt: "They comprise the lands occupied by crops under greenhouse infrastructures, mainly dedicated to the cultivation of flowers, fruit trees and vegetables. It includes all that closed structure covered by transparent materials, within which it is possible to obtain artificial microclimate conditions, and with this will grow plants in optimal conditions."
-        cover_23: "Pastures"
-        cover_23_tt: "It includes the lands covered with dense grass with a floristic composition mainly dominated by the Poaceae family, dedicated to permanent grazing for a period of two or more years. Some of the defined categories may present temporary or permanent flooding when they are located in low areas or in depressions of the land. A characteristic of this coverage is that in a high percentage its presence is due to anthropic action, especially referring to its plantation, with the introduction of mainly non-native species, and in the subsequent management that is done to it."
-        cover_231: "Clean Pastures"
-        cover_231_tt: "This coverage includes the lands occupied by clean pastures with a coverage percentage greater than 70%; the performance of management practices (cleaning, liming and / or fertilization, etc.) and the technological level used prevent the presence or the development of other coverage."
-        cover_232: "Wooded Pastures"
-        cover_232_tt: "Coverage that includes the lands covered with pastures, in which pastures have been structured with the presence of trees taller than five meters, distributed in a dispersed manner. The tree coverage must be greater than 30% and less than 50% of the total area of ​​the pasture unit."
-        cover_233: "Weedy Pastures"
-        cover_233_tt: "They are the covers represented by lands with grasses and weeds forming associations of secondary vegetation, mainly due to the performance of few management practices or the occurrence of abandonment processes. In general, the height of secondary vegetation is less than 1,5m."
-        cover_24: "Heterogeneous agricultural areas"
-        cover_24_tt: "They are units that bring together two or more classes of agricultural and natural covers, arranged in an intricate pattern of geometric mosaics that makes it difficult to separate them into individual covers; the geometric arrangements are related to the reduced size of the properties, local conditions of the soils, the management practices used and the local forms of land tenure."
-        cover_241: "Crop Mosaic"
-        cover_241_tt: "Includes land occupied with annual, temporary or permanent crops, in which the size of the plots is very small (less than 25 ha) and the distribution pattern of the plots is too intricate to be individually mapped."
-        cover_242: "Mosaic of Pastures and Crops"
-        cover_242_tt: "Includes land occupied by pastures and crops, in which the size of the plots is very small (less than 25 ha) and the distribution pattern of the plots is too intricate to be mapped individually."
-        cover_243: "Mosaic of Crops, Pastures and Natural Spaces"
-        cover_243_tt: "It includes the areas of the territory occupied mainly by crop and pasture covers in combination with natural spaces. In this unit, the coverage distribution pattern cannot be represented individually, such as plots with a size greater than 25 hectares. of crops and pastures occupy between 30% and 70% of the total surface of the unit."
-        cover_244: "Mosaic of Pastures and Natural Spaces"
-        cover_244_tt: "Made up of the areas occupied mainly by pasture coverage in combination with natural spaces. In this unit, the distribution pattern of the pasture areas and natural spaces cannot be represented individually and the pasture parcels have a smaller area to 25 hectares. Pasture coverage represents between 30% and 70% of the total surface of the mosaic. Natural spaces are made up of the areas occupied by relict natural forest, shrublands, gallery or riparian forest, swamps and other areas not intervened or little transformed and that due to limitations of use due to their biophysical characteristics remain in a natural or almost natural state."
-        cover_245: "Mosaic of Crops and Natural Spaces"
-        cover_245_tt: "Corresponds to the areas occupied mainly by crops in combination with natural spaces, where the size of the plots is very small and the distribution pattern of the lots is too intricate to represent them individually cartographically. In this unit, the spaces Natural areas are presented as small patches or remnants that are distributed in an irregular and heterogeneous way, sometimes intermixed with the cultivation areas, making it difficult to differentiate. The cultivation areas represent between 30% and 70% of the total surface of the unit. patches and residues of natural spaces are made up of those areas covered by remnants of forest, shrubs, gallery and / or riparian forest, secondary or transitional vegetation, swampy areas or other areas not intervened or little transformed that remain in a natural state or almost natural."
-        cover_3: "Forests and semi-natural areas"
-        cover_3_tt: "It comprises a group of wooded, shrubby and herbaceous plant covers, developed on different substrates and elevational floors that are the result of climatic processes; also by those territories constituted by bare soils and rocky and sandy outcrops, resulting from the occurrence of natural or induced degradation processes. For the legend of land covers of Colombia, this category includes other covers that are the result of strong anthropic management, such as forest plantations and secondary or transitional vegetation."
-        cover_31: "Forests"
-        cover_31_tt: "It includes natural or semi-natural areas, consisting mainly of arboreal elements of native or exotic species. Trees are perennial woody plants with a single main trunk, which has a more or less defined crown. This cover includes natural forests and plantations. For the legend of land covers of Colombia, this category includes other natural biological forms, such as palm and guadua."
-        cover_311: "Dense forest"
-        cover_311_tt: "Cover made up of a plant community dominated by typically arboreal elements, which form a more or less continuous layer of crowns (canopy) whose tree cover area represents more than 70% of the total area of ​​the unit, and with a height of canopy greater than five meters. These plant formations have not been intervened or their intervention has been selective and has not altered their original structure and functional characteristics (IGAC, 1999). Fragmented forests are excepted from this unit, which are classified as fragmented forest."
-        cover_312: "Open forest"
-        cover_312_tt: "Cover made up of a plant community dominated by regularly distributed typically arboreal elements, which form a discontinuous layer of crowns (canopy), with a canopy height greater than five meters and whose tree cover area represents between 30% and 70% of the total area of ​​the unit. These plant formations have not been intervened or their intervention has been selective and has not altered their original structure and functional characteristics. Fragmented forests are excepted from this unit, which are classified as fragmented forest."
-        cover_313: "Fragmented forest"
-        cover_313_tt: "It includes the territories covered by dense or open natural forests whose horizontal continuity is affected by the inclusion of other types of cover such as grass, crops or vegetation in transition, which should represent between 5% and 30% of the total area of the natural forest unit. The distance between the intervention fragments should not be greater than 250 meters."
-        cover_314: "Gallery and riparian forest"
-        cover_314_tt: "It refers to the covers made up of arboreal vegetation located on the margins of permanent or temporary watercourses. This type of cover is limited by its amplitude, since it borders watercourses and natural drains. When the presence of These fringes of forests occur in savanna regions and are known as gallery forest or ravines, the other fringes of forest in streams of Andean zones are known as riparian forest."
-        cover_315: "Forest plantation"
-        cover_315_tt: "They are covers made up of tree vegetation plantations, carried out by direct human intervention for forest management purposes. In this process, forest stands are constituted, established through planting and / or sowing during the afforestation or reforestation process, for the production of wood commercial plantations) or of environmental goods and services (protective plantations)."
-        cover_32: "Areas with herbaceous and / or shrub vegetation"
-        cover_32_tt_html: "It comprises a group of plant covers of a natural type and product of natural succession, whose growth habit is shrubby and herbaceous, developed on different substrates and altitudinal floors, with little or no anthropic intervention.&#013;For the CORINE Land Cover legend adapted for Colombia, this class includes other types of cover such as areas covered by mainly shrubby vegetation with an irregular canopy and the presence of shrubs, palms, vines and low growth vegetation."
-        cover_321: "Herbazal"
-        cover_321_tt: "Cover made up of a plant community dominated by typically herbaceous elements developed naturally in different densities and substrates, which form a dense (> 70% occupancy) or open (30% - 70% occupancy) cover. Vegetable formations have not been intervened or their intervention has been selective and has not altered their original structure and functional characteristics. It comprises the territories covered by shrub vegetation developed naturally in different densities and substrates. A shrub is a perennial plant, with structure of woody stem, with a height between 0.5 and 5 m, strongly branched at the base and without a defined crown. It includes coverings of the paramo and subparamo."
-        cover_322: "Bushland"
-        cover_322_tt: "It includes the territories covered by shrub vegetation developed naturally in different densities and substrates. A shrub is a perennial plant, with a woody stem structure, with a height between 0.5 and 5 m, strongly branched at the base and without a defined crown. It comprises the territories covered by shrub vegetation developed naturally in different densities and substrates. A shrub is a perennial plant, with a woody stem structure, with a height between 0.5 and 5 m, strongly branched in the base and without a defined crown. Includes moorland and subparamo coverage."
-        cover_323: "Secondary or transitional vegetation"
-        cover_323_tt: "Are those areas covered by mainly shrub and herbaceous vegetation with an irregular canopy and occasional presence of trees and vines, which corresponds to the initial stages of plant succession after a process of deforestation of forests or afforestation of grasslands occurs. It develops after the original intervention and, generally, they are conformed by communities of shrubs and herbaceous formed by many species."
-        cover_33: "Open areas, with no or little vegetation"
-        cover_33_tt: "Includes those territories in which vegetation cover does not exist or is scarce, mainly composed of bare and burned soils, as well as sandy covers and rocky outcrops, some of which may be covered by ice and snow."
-        cover_331: "Natural sandy areas"
-        cover_331_tt: "Includes those territories in which vegetation cover does not exist or is scarce, composed mainly of bare and burned soils, as well as sandy covers and rocky outcrops, some of which may be covered by ice and snow."
-        cover_332: "Rocky outcrops"
+        covers_tt: 'DEAM 2010. National Legend of Land Coverage. CORINE Land Cover methodology adapted for Colombia Scale 1: 100,000. Institute of Hydrology, Meteorology and Environmental Studies. Bogotá, D. C., 72p.'
+        title: 'Land Covers'
+        cover_1: 'Artificial territories'
+        cover_1_tt: 'It includes the areas of cities and towns and those peripheral areas that are being incorporated into urban areas through a gradual process of urbanization or change of land use towards commercial, industrial, service and recreational purposes.'
+        cover_11: 'Urbanized areas'
+        cover_11_tt: 'Urbanized areas include the territories covered by urban infrastructure and all those green spaces and communication networks associated with them, which make up an urban fabric.'
+        cover_111: 'Continuous urban fabric'
+        cover_111_tt: 'They are spaces made up of buildings and the spaces adjacent to the built infrastructure. The buildings, roads and artificially covered surfaces cover more than 80% of the land surface. Vegetation and bare soil represent a low proportion of the urban fabric area.'
+        cover_112: 'Discontinuous urban fabric'
+        cover_112_tt: 'They are spaces made up of buildings and green areas. The buildings, roads and built infrastructure cover the land surface in a dispersed and discontinuous manner, since the rest of the area is covered by vegetation.'
+        cover_12: 'Industrial or commercial areas and communication networks'
+        cover_12_tt: 'It includes the territories covered by infrastructure for exclusively commercial, industrial, services and communications use.'
+        cover_121: 'Industrial or commercial areas'
+        cover_121_tt: 'They are the areas covered by artificial infrastructure (cemented, tarred, asphalted or stabilized land), without the presence of dominant green areas, which are also used for commercial or industrial activities. '
+        cover_122: 'Road, rail and associated land network'
+        cover_122_tt: 'They are artificial spaces with communication infrastructures such as roads, highways and railways; the related infrastructure and associated facilities such as: service stations, platforms, embankments and green areas are included.'
+        cover_123: 'Port areas'
+        cover_123_tt: 'These are spaces covered by the port infrastructure, which include the docks, parking, administration and storage areas.'
+        cover_124: 'Airports'
+        cover_124_tt: 'It includes the infrastructure where an air terminal operates. It includes the runways and taxiways, buildings, free surfaces, buffer zones and associated vegetation.'
+        cover_125: 'Hydraulic works'
+        cover_125_tt: 'Surfaces that correspond to permanent consolidated constructions, intended for hydraulic installations, and those of small magnitude, generally associated with urban infrastructure, such as aqueducts, intakes, treatment plants and small dams.'
+        cover_13: 'Mining extraction areas and dumps'
+        cover_13_tt: 'It includes the areas where materials associated with mining, construction, industrial production and dumping of waste from different sources are extracted or accumulated.'
+        cover_131: 'Mining extraction areas'
+        cover_131_tt: 'They are areas dedicated to the extraction of mineral materials in the open pit.'
+        cover_132: 'Waste disposal area'
+        cover_132_tt: 'These are spaces where construction debris, urban waste, industrial waste and sterile material from mines are deposited.'
+        cover_14: 'Artificial green areas, non-agricultural'
+        cover_14_tt: 'Includes green areas located in urban areas, on which commercial, recreational, conservation and buffer activities are carried out, where different land uses do not require appreciable built infrastructure. In general, these green areas are resulting areas of urban planning processes or areas that, due to the urbanization processes, were embedded in the perimeter of the city.'
+        cover_141: 'Urban green areas'
+        cover_141_tt: 'It comprises the areas covered by vegetation within the urban fabric, including urban parks and cemeteries.'
+        cover_142: 'Recreational facilities'
+        cover_142_tt: 'It is the land dedicated to camping, sports, attraction parks, golf, racetracks and other recreation and leisure activities, including parks enabled for recreation, not included within the urban fabric.'
+        cover_2: 'Agricultural territories'
+        cover_2_tt: 'They are the lands dedicated mainly to the production of food, fibers and other industrial raw materials, whether they are found with crops, with pastures, in rotation and in rest or fallow. It includes the areas dedicated to permanent, transitory crops, pasture areas and heterogeneous agricultural areas, in which livestock uses can also be used in addition to agricultural ones.'
+        cover_21: 'Transient crops'
+        cover_21_tt: 'Includes the areas occupied with crops whose vegetative cycle is less than a year, even reaching only a few months, such as cereals (corn, wheat, barley and rice), tubers (potatoes and cassava) , the oilseeds (sesame and cotton), most of the vegetables and some species of open-air flowers. Their fundamental characteristic is that after the harvest it is necessary to re-sow or plant to continue producing.'
+        cover_211: 'Other temporary crops'
+        cover_211_tt: 'They are the lands occupied by transitory crops not included in the groups of cereals, oilseeds, legumes, vegetables and tubers considered in this legend.'
+        cover_212: 'Cereals'
+        cover_212_tt: 'Cover composed mainly of transitory grass crops such as rice, corn, sorghum, barley and wheat.'
+        cover_213: 'Oilseeds and legumes'
+        cover_213_tt: 'Cover composed mainly of transitory crops of plants for the consumption and production of oil and starch. Oilseeds are characterized by being plants whose seeds are consumed or used for oil extraction. Agricultural lands covered by legumes include a wide variety of products, rich in starch.'
+        cover_214: 'Vegetables'
+        cover_214_tt: 'Intensive management land cover characterized by being a set of herbaceous plants, generally grown in gardens, which are consumed as human food.'
+        cover_215: 'Tubers'
+        cover_215_tt: 'Cover composed mainly of temporary crops of different types of plants that have tubers. This cover is mainly composed of potato and cassava crops.'
+        cover_22: 'Permanent crops'
+        cover_22_tt: 'Includes the territories dedicated to crops whose vegetative cycle is greater than one year, producing several crops without the need for replanting; in this category are included in this category herbaceous crops such as sugar cane, sugar cane, plantain and banana; bush crops like coffee and cocoa, and tree crops like African palm and fruit trees.'
+        cover_221: 'Permanent herbaceous crops'
+        cover_221_tt: 'Cover composed mainly of permanent herbaceous crops such as sugar cane and panelera, plantain, banana and tobacco.'
+        cover_222: 'Permanent shrub crops'
+        cover_222_tt: 'Permanent covers occupied mainly by crops with a shrub habit such as coffee, cocoa, coca and vineyards. A shrub is a perennial plant, with a woody stem structure, with a height between 0.5 and 5 m, strongly branched at the base and without a defined crown (FAO, 2001).'
+        cover_223: 'Permanent tree crops'
+        cover_223_tt: 'Cover mainly occupied by arboreal crops, different from timber plantations or recovery, such as citrus, palm, mango, etc.'
+        cover_224: 'Agroforestry crops'
+        cover_224_tt: 'Zones occupied by arrangements or combinations of crops of different species, with others of herbaceous, shrub and arboreal habits, where the main characteristic of the coverage is that the increase in detail does not imply the subdivision into pure units, because these are they are found combined in the same area, alternated by furrows or rows of trees with crops or trees with grasses. It does not include coffee with shades.'
+        cover_225: 'Confined crops'
+        cover_225_tt: 'They comprise the lands occupied by crops under greenhouse infrastructures, mainly dedicated to the cultivation of flowers, fruit trees and vegetables. It includes all that closed structure covered by transparent materials, within which it is possible to obtain artificial microclimate conditions, and with this will grow plants in optimal conditions.'
+        cover_23: 'Pastures'
+        cover_23_tt: 'It includes the lands covered with dense grass with a floristic composition mainly dominated by the Poaceae family, dedicated to permanent grazing for a period of two or more years. Some of the defined categories may present temporary or permanent flooding when they are located in low areas or in depressions of the land. A characteristic of this coverage is that in a high percentage its presence is due to anthropic action, especially referring to its plantation, with the introduction of mainly non-native species, and in the subsequent management that is done to it.'
+        cover_231: 'Clean Pastures'
+        cover_231_tt: 'This coverage includes the lands occupied by clean pastures with a coverage percentage greater than 70%; the performance of management practices (cleaning, liming and / or fertilization, etc.) and the technological level used prevent the presence or the development of other coverage.'
+        cover_232: 'Wooded Pastures'
+        cover_232_tt: 'Coverage that includes the lands covered with pastures, in which pastures have been structured with the presence of trees taller than five meters, distributed in a dispersed manner. The tree coverage must be greater than 30% and less than 50% of the total area of ​​the pasture unit.'
+        cover_233: 'Weedy Pastures'
+        cover_233_tt: 'They are the covers represented by lands with grasses and weeds forming associations of secondary vegetation, mainly due to the performance of few management practices or the occurrence of abandonment processes. In general, the height of secondary vegetation is less than 1,5m.'
+        cover_24: 'Heterogeneous agricultural areas'
+        cover_24_tt: 'They are units that bring together two or more classes of agricultural and natural covers, arranged in an intricate pattern of geometric mosaics that makes it difficult to separate them into individual covers; the geometric arrangements are related to the reduced size of the properties, local conditions of the soils, the management practices used and the local forms of land tenure.'
+        cover_241: 'Crop Mosaic'
+        cover_241_tt: 'Includes land occupied with annual, temporary or permanent crops, in which the size of the plots is very small (less than 25 ha) and the distribution pattern of the plots is too intricate to be individually mapped.'
+        cover_242: 'Mosaic of Pastures and Crops'
+        cover_242_tt: 'Includes land occupied by pastures and crops, in which the size of the plots is very small (less than 25 ha) and the distribution pattern of the plots is too intricate to be mapped individually.'
+        cover_243: 'Mosaic of Crops, Pastures and Natural Spaces'
+        cover_243_tt: 'It includes the areas of the territory occupied mainly by crop and pasture covers in combination with natural spaces. In this unit, the coverage distribution pattern cannot be represented individually, such as plots with a size greater than 25 hectares. of crops and pastures occupy between 30% and 70% of the total surface of the unit.'
+        cover_244: 'Mosaic of Pastures and Natural Spaces'
+        cover_244_tt: 'Made up of the areas occupied mainly by pasture coverage in combination with natural spaces. In this unit, the distribution pattern of the pasture areas and natural spaces cannot be represented individually and the pasture parcels have a smaller area to 25 hectares. Pasture coverage represents between 30% and 70% of the total surface of the mosaic. Natural spaces are made up of the areas occupied by relict natural forest, shrublands, gallery or riparian forest, swamps and other areas not intervened or little transformed and that due to limitations of use due to their biophysical characteristics remain in a natural or almost natural state.'
+        cover_245: 'Mosaic of Crops and Natural Spaces'
+        cover_245_tt: 'Corresponds to the areas occupied mainly by crops in combination with natural spaces, where the size of the plots is very small and the distribution pattern of the lots is too intricate to represent them individually cartographically. In this unit, the spaces Natural areas are presented as small patches or remnants that are distributed in an irregular and heterogeneous way, sometimes intermixed with the cultivation areas, making it difficult to differentiate. The cultivation areas represent between 30% and 70% of the total surface of the unit. patches and residues of natural spaces are made up of those areas covered by remnants of forest, shrubs, gallery and / or riparian forest, secondary or transitional vegetation, swampy areas or other areas not intervened or little transformed that remain in a natural state or almost natural.'
+        cover_3: 'Forests and semi-natural areas'
+        cover_3_tt: 'It comprises a group of wooded, shrubby and herbaceous plant covers, developed on different substrates and elevational floors that are the result of climatic processes; also by those territories constituted by bare soils and rocky and sandy outcrops, resulting from the occurrence of natural or induced degradation processes. For the legend of land covers of Colombia, this category includes other covers that are the result of strong anthropic management, such as forest plantations and secondary or transitional vegetation.'
+        cover_31: 'Forests'
+        cover_31_tt: 'It includes natural or semi-natural areas, consisting mainly of arboreal elements of native or exotic species. Trees are perennial woody plants with a single main trunk, which has a more or less defined crown. This cover includes natural forests and plantations. For the legend of land covers of Colombia, this category includes other natural biological forms, such as palm and guadua.'
+        cover_311: 'Dense forest'
+        cover_311_tt: 'Cover made up of a plant community dominated by typically arboreal elements, which form a more or less continuous layer of crowns (canopy) whose tree cover area represents more than 70% of the total area of ​​the unit, and with a height of canopy greater than five meters. These plant formations have not been intervened or their intervention has been selective and has not altered their original structure and functional characteristics (IGAC, 1999). Fragmented forests are excepted from this unit, which are classified as fragmented forest.'
+        cover_312: 'Open forest'
+        cover_312_tt: 'Cover made up of a plant community dominated by regularly distributed typically arboreal elements, which form a discontinuous layer of crowns (canopy), with a canopy height greater than five meters and whose tree cover area represents between 30% and 70% of the total area of ​​the unit. These plant formations have not been intervened or their intervention has been selective and has not altered their original structure and functional characteristics. Fragmented forests are excepted from this unit, which are classified as fragmented forest.'
+        cover_313: 'Fragmented forest'
+        cover_313_tt: 'It includes the territories covered by dense or open natural forests whose horizontal continuity is affected by the inclusion of other types of cover such as grass, crops or vegetation in transition, which should represent between 5% and 30% of the total area of the natural forest unit. The distance between the intervention fragments should not be greater than 250 meters.'
+        cover_314: 'Gallery and riparian forest'
+        cover_314_tt: 'It refers to the covers made up of arboreal vegetation located on the margins of permanent or temporary watercourses. This type of cover is limited by its amplitude, since it borders watercourses and natural drains. When the presence of These fringes of forests occur in savanna regions and are known as gallery forest or ravines, the other fringes of forest in streams of Andean zones are known as riparian forest.'
+        cover_315: 'Forest plantation'
+        cover_315_tt: 'They are covers made up of tree vegetation plantations, carried out by direct human intervention for forest management purposes. In this process, forest stands are constituted, established through planting and / or sowing during the afforestation or reforestation process, for the production of wood commercial plantations) or of environmental goods and services (protective plantations).'
+        cover_32: 'Areas with herbaceous and / or shrub vegetation'
+        cover_32_tt_html: 'It comprises a group of plant covers of a natural type and product of natural succession, whose growth habit is shrubby and herbaceous, developed on different substrates and altitudinal floors, with little or no anthropic intervention.&#013;For the CORINE Land Cover legend adapted for Colombia, this class includes other types of cover such as areas covered by mainly shrubby vegetation with an irregular canopy and the presence of shrubs, palms, vines and low growth vegetation.'
+        cover_321: 'Herbazal'
+        cover_321_tt: 'Cover made up of a plant community dominated by typically herbaceous elements developed naturally in different densities and substrates, which form a dense (> 70% occupancy) or open (30% - 70% occupancy) cover. Vegetable formations have not been intervened or their intervention has been selective and has not altered their original structure and functional characteristics. It comprises the territories covered by shrub vegetation developed naturally in different densities and substrates. A shrub is a perennial plant, with structure of woody stem, with a height between 0.5 and 5 m, strongly branched at the base and without a defined crown. It includes coverings of the paramo and subparamo.'
+        cover_322: 'Bushland'
+        cover_322_tt: 'It includes the territories covered by shrub vegetation developed naturally in different densities and substrates. A shrub is a perennial plant, with a woody stem structure, with a height between 0.5 and 5 m, strongly branched at the base and without a defined crown. It comprises the territories covered by shrub vegetation developed naturally in different densities and substrates. A shrub is a perennial plant, with a woody stem structure, with a height between 0.5 and 5 m, strongly branched in the base and without a defined crown. Includes moorland and subparamo coverage.'
+        cover_323: 'Secondary or transitional vegetation'
+        cover_323_tt: 'Are those areas covered by mainly shrub and herbaceous vegetation with an irregular canopy and occasional presence of trees and vines, which corresponds to the initial stages of plant succession after a process of deforestation of forests or afforestation of grasslands occurs. It develops after the original intervention and, generally, they are conformed by communities of shrubs and herbaceous formed by many species.'
+        cover_33: 'Open areas, with no or little vegetation'
+        cover_33_tt: 'Includes those territories in which vegetation cover does not exist or is scarce, mainly composed of bare and burned soils, as well as sandy covers and rocky outcrops, some of which may be covered by ice and snow.'
+        cover_331: 'Natural sandy areas'
+        cover_331_tt: 'Includes those territories in which vegetation cover does not exist or is scarce, composed mainly of bare and burned soils, as well as sandy covers and rocky outcrops, some of which may be covered by ice and snow.'
+        cover_332: 'Rocky outcrops'
         cover_332_tt_html: >
           They are areas in which the surface of the terrain is constituted by layers of exposed rocks, without development of vegetation, generally arranged in steep slopes, forming escarpments and cliffs; as well as areas of bare rocks related to volcanic or glacial activity. Associated with rocky outcrops can be found deposits of fine and coarse sediments, blocks or ash.&#013;
           They are mainly located in steeply sloping areas, where hard and resistant rock substrates predominate, associated with faults and geological deformations, volcanoes and mountain glaciers, located in the Andean region. This unit can also be found in the Orinoquía and in the Amazon associated with the mountainous landscapes and rocky outcrops of the Guiana Shield."
-        cover_333: "Naked and degraded lands"
+        cover_333: 'Naked and degraded lands'
         cover_333_tt_html: >
           This coverage corresponds to land surfaces devoid of vegetation or with little vegetation coverage, due to the occurrence of both natural and anthropic processes of erosion and extreme degradation and / or extreme climatic conditions. It includes the areas where there are salinized lands, in the process of desertification or with intense erosion processes that can reach the formation of gullies.&#013;
           In Colombia, the unit is located mainly in the flat areas of the Caribbean region and in the plains of the valleys of the Magdalena and Cauca rivers, mainly in the departments of Cesar, Guajira, Magdalena, Bolívar, Atlántico, Sucre, Tolima, Huila and Valle del Cauca. "
-        cover_334: "Burned areas"
-        cover_334_tt: "Includes the areas affected by recent fires, where charred materials are still present. These areas refer to the territories affected by fires located in both natural and semi-natural areas, such as forests, crops, savannas and shrubs."
-        cover_335: "Glacial and snow zones"
-        cover_335_tt: "Areas covered by ice permanently and by snow occasionally. Ice cover is located on the top and slopes of some of the highest mountains in the Colombian Andes, above the level of 4,900 It is characterized by presenting little variation in its area over time, with a tendency to slow down due to the warming of the atmosphere due to climate change, although extreme events such as volcanic eruptions can produce great losses of glacial masses."
-        cover_4: "Wet areas"
-        cover_4_tt: "Includes those covers constituted by flooded lands, which may be temporarily flooded and be partially covered by aquatic vegetation, located on the sea edges and in the interior of the continent."
-        cover_41: "Continental humid areas"
-        cover_41_tt: "Wet areas refer to the different types of floodplains, swamps, and floodplains in which the water table is temporarily or permanently at ground level."
-        cover_411: "Swampy Zones"
-        cover_411_tt: "This cover includes the lowlands, which generally remain flooded for most of the year, may be made up of areas of wandering water courses, flood plains, old wandering valleys and natural depressions where the water table outcrops of permanently or seasonally. They comprise hollows where the waters collect and naturally stop, with more or less muddy bottoms. Within the swamps you can find bodies of water, some with partial coverage of aquatic vegetation, with a size of less than 25 ha. and that in total represent less than 30% of the total area of ​​the swamp."
-        cover_412: "Peatlands"
-        cover_412_tt: "They are lowlands of a swampy type, with a spongy texture, whose soil is mainly composed of mosses and decomposed plant matter. They are frequently found in Andean areas on lands located above 3,200 meters above sea level."
-        cover_413: "Aquatic vegetation on bodies of water"
+        cover_334: 'Burned areas'
+        cover_334_tt: 'Includes the areas affected by recent fires, where charred materials are still present. These areas refer to the territories affected by fires located in both natural and semi-natural areas, such as forests, crops, savannas and shrubs.'
+        cover_335: 'Glacial and snow zones'
+        cover_335_tt: 'Areas covered by ice permanently and by snow occasionally. Ice cover is located on the top and slopes of some of the highest mountains in the Colombian Andes, above the level of 4,900 It is characterized by presenting little variation in its area over time, with a tendency to slow down due to the warming of the atmosphere due to climate change, although extreme events such as volcanic eruptions can produce great losses of glacial masses.'
+        cover_4: 'Wet areas'
+        cover_4_tt: 'Includes those covers constituted by flooded lands, which may be temporarily flooded and be partially covered by aquatic vegetation, located on the sea edges and in the interior of the continent.'
+        cover_41: 'Continental humid areas'
+        cover_41_tt: 'Wet areas refer to the different types of floodplains, swamps, and floodplains in which the water table is temporarily or permanently at ground level.'
+        cover_411: 'Swampy Zones'
+        cover_411_tt: 'This cover includes the lowlands, which generally remain flooded for most of the year, may be made up of areas of wandering water courses, flood plains, old wandering valleys and natural depressions where the water table outcrops of permanently or seasonally. They comprise hollows where the waters collect and naturally stop, with more or less muddy bottoms. Within the swamps you can find bodies of water, some with partial coverage of aquatic vegetation, with a size of less than 25 ha. and that in total represent less than 30% of the total area of ​​the swamp.'
+        cover_412: 'Peatlands'
+        cover_412_tt: 'They are lowlands of a swampy type, with a spongy texture, whose soil is mainly composed of mosses and decomposed plant matter. They are frequently found in Andean areas on lands located above 3,200 meters above sea level.'
+        cover_413: 'Aquatic vegetation on bodies of water'
         cover_413_tt_html: >
           Under this category all floating vegetation that is established on bodies of water is classified, partially or totally covering them.&#013;
           It includes vegetation biotypologically classified as Pleustophyta, Rizophyta and Haptophyta.&#013;
           In Colombia, this coverage is associated with Andean lakes and lagoons in the process of eutrophication and in the lowlands associated with bodies of water located in the flood plains or overflow."
-        cover_42: "Coastal wet areas"
-        cover_42_tt: "On the coastal areas, the coastal swamp areas and the areas with tidal-related flooding processes were differentiated."
-        cover_421: "Coastal swamps"
-        cover_421_tt: "They are low coastal areas covered by herbaceous and sparse shrub vegetation, adapted to brackish environments, which are under the influence of the tide. They are located in areas associated with deltas, estuaries, coastal lagoons and marine flood plains, generally occupying concave spaces behind the beach bar. They are susceptible to flooding during periods of high sea level, storms and strong waves. They are colonized by halophilic plants1 other than mangroves."
-        cover_422: "Salitral"
-        cover_422_tt: "This coverage includes the flat coastal territories where the formation of deposits of evaporitic minerals occurs naturally, which due to the action of the wind may be accompanied by clays, silts, sands and mud, forming crusts that cover the soil, which may be associated with processes of accumulation of salts by infiltration and evaporation, as well as by ascent by capillarity. These lands are characterized by being generally devoid of vegetation, presenting on rare occasions the development of low and sparse grass vegetation. They are generally associated with the edges of coastal marshes, low sea terraces, and ancient marine floodplains."
-        cover_423: "Sediments exposed at low tide"
-        cover_423_tt: "It includes the areas constituted by tidal coastal plains that remain uncovered by water during periods of low tide. They are mainly composed of mud and silt deposits, but also include the coastal edges composed of accumulations of sand and rocks. These surfaces are characterized for being devoid of vegetation or, in very rare occasions, they can present the development of small herbaceous patches. In Colombia, they are mainly found on the coast of the Pacific coast."
-        cover_5: "Water surfaces"
-        cover_5_tt: "They are the permanent, intermittent and seasonal bodies and channels of water, located in the interior of the continent and those that border or are adjacent to the continental coastline, such as the seas. The funds associated with the seas, whose depth does not exceed 12 meters."
-        cover_51: "Inland waters"
-        cover_51_tt: "They are permanent, intermittent and seasonal bodies of water that include lakes, lagoons, swamps, reservoirs and natural or artificial freshwater (not saline) ponds, reservoirs and moving bodies of water, such as rivers and canals."
-        cover_511: "Rivers (50 m)"
-        cover_511_tt: "A river is a natural stream of water that flows continuously, has a considerable flow, and empties into the sea, a lake or another river."
-        cover_512: "Lagoons, lakes and natural swamps"
-        cover_512_tt: "Natural open or closed surfaces or reservoirs, fresh or brackish, that may or may not be connected to a river or the sea."
-        cover_513: "Channels"
-        cover_513_tt: "Open artificial channel that contains permanently moving water, that has a minimum width of 50 m and that may or may not link two bodies of water. It includes the navigation channels and those of the irrigation districts."
-        cover_514: "Artificial bodies of water"
-        cover_514_tt: "This coverage includes artificial bodies of water, which were created by man to store water, usually for the purpose of generating electricity and supplying aqueducts, but also to provide other services such as flow control, flooding , water supply, irrigation and for tourist and recreational purposes."
-        cover_52: "Maritime waters"
-        cover_52_tt: "This cover comprises the natural salty and brackish water bodies associated with seas or oceans that border the coastline."
-        cover_521: "Coastal lagoons"
-        cover_521_tt: "Salty or brackish water surfaces, separated from the sea by overhangs or other similar topographies. They may have permanent or temporary communication with the sea through channels, sand bars and coastal swamp areas."
-        cover_522: "Seas and oceans"
-        cover_522_tt: "It includes the bodies of salty water that border the littoral zone and that extend from the coastline at low tide."
-        cover_523: "Ponds for marine aquaculture"
-        cover_523_tt: "Artificial bodies of water intended for the rearing of crustaceans and fish. They are generally located in the regions adjacent to the sea."
+        cover_42: 'Coastal wet areas'
+        cover_42_tt: 'On the coastal areas, the coastal swamp areas and the areas with tidal-related flooding processes were differentiated.'
+        cover_421: 'Coastal swamps'
+        cover_421_tt: 'They are low coastal areas covered by herbaceous and sparse shrub vegetation, adapted to brackish environments, which are under the influence of the tide. They are located in areas associated with deltas, estuaries, coastal lagoons and marine flood plains, generally occupying concave spaces behind the beach bar. They are susceptible to flooding during periods of high sea level, storms and strong waves. They are colonized by halophilic plants1 other than mangroves.'
+        cover_422: 'Salitral'
+        cover_422_tt: 'This coverage includes the flat coastal territories where the formation of deposits of evaporitic minerals occurs naturally, which due to the action of the wind may be accompanied by clays, silts, sands and mud, forming crusts that cover the soil, which may be associated with processes of accumulation of salts by infiltration and evaporation, as well as by ascent by capillarity. These lands are characterized by being generally devoid of vegetation, presenting on rare occasions the development of low and sparse grass vegetation. They are generally associated with the edges of coastal marshes, low sea terraces, and ancient marine floodplains.'
+        cover_423: 'Sediments exposed at low tide'
+        cover_423_tt: 'It includes the areas constituted by tidal coastal plains that remain uncovered by water during periods of low tide. They are mainly composed of mud and silt deposits, but also include the coastal edges composed of accumulations of sand and rocks. These surfaces are characterized for being devoid of vegetation or, in very rare occasions, they can present the development of small herbaceous patches. In Colombia, they are mainly found on the coast of the Pacific coast.'
+        cover_5: 'Water surfaces'
+        cover_5_tt: 'They are the permanent, intermittent and seasonal bodies and channels of water, located in the interior of the continent and those that border or are adjacent to the continental coastline, such as the seas. The funds associated with the seas, whose depth does not exceed 12 meters.'
+        cover_51: 'Inland waters'
+        cover_51_tt: 'They are permanent, intermittent and seasonal bodies of water that include lakes, lagoons, swamps, reservoirs and natural or artificial freshwater (not saline) ponds, reservoirs and moving bodies of water, such as rivers and canals.'
+        cover_511: 'Rivers (50 m)'
+        cover_511_tt: 'A river is a natural stream of water that flows continuously, has a considerable flow, and empties into the sea, a lake or another river.'
+        cover_512: 'Lagoons, lakes and natural swamps'
+        cover_512_tt: 'Natural open or closed surfaces or reservoirs, fresh or brackish, that may or may not be connected to a river or the sea.'
+        cover_513: 'Channels'
+        cover_513_tt: 'Open artificial channel that contains permanently moving water, that has a minimum width of 50 m and that may or may not link two bodies of water. It includes the navigation channels and those of the irrigation districts.'
+        cover_514: 'Artificial bodies of water'
+        cover_514_tt: 'This coverage includes artificial bodies of water, which were created by man to store water, usually for the purpose of generating electricity and supplying aqueducts, but also to provide other services such as flow control, flooding , water supply, irrigation and for tourist and recreational purposes.'
+        cover_52: 'Maritime waters'
+        cover_52_tt: 'This cover comprises the natural salty and brackish water bodies associated with seas or oceans that border the coastline.'
+        cover_521: 'Coastal lagoons'
+        cover_521_tt: 'Salty or brackish water surfaces, separated from the sea by overhangs or other similar topographies. They may have permanent or temporary communication with the sea through channels, sand bars and coastal swamp areas.'
+        cover_522: 'Seas and oceans'
+        cover_522_tt: 'It includes the bodies of salty water that border the littoral zone and that extend from the coastline at low tide.'
+        cover_523: 'Ponds for marine aquaculture'
+        cover_523_tt: 'Artificial bodies of water intended for the rearing of crustaceans and fish. They are generally located in the regions adjacent to the sea.'
       models:
-        level_1: "Climatic"
-        level_2: "Land cover"
-        pending_validation: "Pending validation"
-        valid: "Validated"
-        developing: "Development"
-        no_model: "No model"
-        hypotheses_error: "There was an error querying the hypotheses"
+        level_1: 'Climatic'
+        level_2: 'Land cover'
+        pending_validation: 'Pending validation'
+        valid: 'Validated'
+        developing: 'Development'
+        no_model: 'No model'
+        hypotheses_error: 'There was an error querying the hypotheses'
     publish:
-      title: "Publish your map"
-      text_1: "To publish a distribution model in BioModelos, follow the next steps"
+      title: 'Publish your map'
+      text_1: 'To publish a distribution model in BioModelos, follow the next steps'
       step_1_html: Read the <a href="/publicacion.pdf" target="_blank"> publication guide </a>
-      step_2_1: "Select one"
-      step_2_2: "CC user license"
-      step_2_3: "for models"
-      cc_title: "Type of Creative Commons license"
-      cc_attribution: "Attribution"
-      cc_attribution_txt: "This license allows to copy, transmit, reuse and adapt the information. If the user wishes to use the data or information without giving due credit or for purposes other than those allowed, permission must be asked from the author."
-      cc_sharealike: "Share Alike"
-      cc_sharealike_txt: "This license allows to copy, transmit, reuse and adapt the information, as long as the result is shared under an equal, similar or compatible license. If the user wishes to share the information modified under other terms, permission must be asked from the author."
-      cc_noncommercial: "Non Commercial"
-      cc_noncommercial_txt: "This license allows to copy, transmit, reuse and adapt the information, as long as it is not for commercial purposes. For commercial use of the information, permission must be asked from the author."
-      cc_public_domain: "Public Domain"
+      step_2_1: 'Select one'
+      step_2_2: 'CC user license'
+      step_2_3: 'for models'
+      cc_title: 'Type of Creative Commons license'
+      cc_attribution: 'Attribution'
+      cc_attribution_txt: 'This license allows to copy, transmit, reuse and adapt the information. If the user wishes to use the data or information without giving due credit or for purposes other than those allowed, permission must be asked from the author.'
+      cc_sharealike: 'Share Alike'
+      cc_sharealike_txt: 'This license allows to copy, transmit, reuse and adapt the information, as long as the result is shared under an equal, similar or compatible license. If the user wishes to share the information modified under other terms, permission must be asked from the author.'
+      cc_noncommercial: 'Non Commercial'
+      cc_noncommercial_txt: 'This license allows to copy, transmit, reuse and adapt the information, as long as it is not for commercial purposes. For commercial use of the information, permission must be asked from the author.'
+      cc_public_domain: 'Public Domain'
       cc_public_domain_txt_html: >
         Use this universal tool if you are the owner of the intellectual property rights and want to give up all your interests on the data and information. Allows others to freely copy, modify, distribute and reuse the material without requesting permission. </ Br>
         It is especially recommended for scientific data and is encouraged by publishers such as Pensoft and Nature. Although CC0 ("CC Zero") does not legally require users to reference the source of the data, it does not exempt them from the moral and ethical responsibility to give the necessary credits, as is usual in scientific research."
-      select_license: "Select a license"
-      step_3_1: "Select the"
-      step_3_2: "display type"
-      step_3_3: "of the records in BioModelos"
-      records_vis_permission: "Record display permissions"
-      choose_option: "Choose one of the following options:"
-      all_users_opt: "All users"
-      experts_opt: "Experts registered in the species group"
-      sib_col_data: "Do you want to be contacted by SiB Colombia for the publication of your data set?"
-      sib_col_yes: "Yes"
-      sib_col_na: "Not applicable"
+      select_license: 'Select a license'
+      step_3_1: 'Select the'
+      step_3_2: 'display type'
+      step_3_3: 'of the records in BioModelos'
+      records_vis_permission: 'Record display permissions'
+      choose_option: 'Choose one of the following options:'
+      all_users_opt: 'All users'
+      experts_opt: 'Experts registered in the species group'
+      sib_col_data: 'Do you want to be contacted by SiB Colombia for the publication of your data set?'
+      sib_col_yes: 'Yes'
+      sib_col_na: 'Not applicable'
       step_4_html: '<a href="/guia_documentacion_y_plantillas.zip" download>Download</a> and fill in the templates for data and metadata documentation of the models'
-      step_5: "Upload the methodology, the two templates and the models in a compressed file"
-      select_file_ph: "Select File"
-      file_notice: "3 types of formats are accepted (zip, rar, 7zip) with a maximum size of 50 MB."
-      browse_btn: "SEARCH"
-      step_6_1: "Read and accept"
-      step_6_2: "terms and Conditions"
-      step_6_3: "of publication"
-      terms_and_conditions_title: "terms and Conditions"
+      step_5: 'Upload the methodology, the two templates and the models in a compressed file'
+      select_file_ph: 'Select File'
+      file_notice: '3 types of formats are accepted (zip, rar, 7zip) with a maximum size of 50 MB.'
+      browse_btn: 'SEARCH'
+      step_6_1: 'Read and accept'
+      step_6_2: 'terms and Conditions'
+      step_6_3: 'of publication'
+      terms_and_conditions_title: 'terms and Conditions'
       terms_and_conditions_html: >
         <p>The publication of models in BioModelos will be governed by the following terms and conditions:</p>
         <h6>The publisher declares</h6>
@@ -495,232 +495,232 @@ en:
         <p><b> 2.</b>Will grant the corresponding credit to the publishers of models on the BioModelos page and in the autorship metadata that accompanies the models, based on the information registered in the publication form. </p>
         <p><b> 3.</b> Will use the biological records that accompany the model only for visualization in BioModelos under the conditions determined by the publishers in the model publication form. In no case its use or download will be enabled in BioModelos, unless this is expressly authorized in the model publication form.</p>
         <p><b> 4.</b> It reserves the right to publish the models as well as remove them at any time from the site.</p>"
-      have_read_terms: "I have read and accept the terms and conditions"
+      have_read_terms: 'I have read and accept the terms and conditions'
       atlas_notice_html: 'I want to postulate my work for publication in the <a href="http://repository.humboldt.org.co/" target="_blank"> Atlas of Biodiversity of Colombia</a>'
-      contact_us: "Any concerns write us to"
-      upload_btn: "SEND"
-      success_notice: "Publication has been successful."
+      contact_us: 'Any concerns write us to'
+      upload_btn: 'SEND'
+      success_notice: 'Publication has been successful.'
     about_us:
       text_1_html: >
         BioModelos is a digital tool that allows <b>communication between experts</b> in biodiversity for the development of models of distribution of the existing species in Colombia in a collaborative and open manner.</br></br>
         This initiative arises in order to bring researchers, government institutions, NGOs and citizens, an <b>accurate and validated information</b> by experts on the distribution of species in Colombia, that serves as reference for studies and decisions making on biodiversity.
-      team: "current team"
-      productleader: "Product Leader"
-      developer: "Software Development"
-      frontend: "Frontend and Design"
-      network: "Network Administrator"
-      thematic: "Thematic Team"
-      humboldtname: "Humboldt Institute"
-      photovid: "Video and Photography"
-      board: "Scientific Advisory Board"
-      founders: "founders"
-      acknowledgments: "collaborators"
-      awards: "acknowledgments"
-      sponsors: "funders"
-      allies: "allies"
+      team: 'current team'
+      productleader: 'Product Leader'
+      developer: 'Software Development'
+      frontend: 'Frontend and Design'
+      network: 'Network Administrator'
+      thematic: 'Thematic Team'
+      humboldtname: 'Humboldt Institute'
+      photovid: 'Video and Photography'
+      board: 'Scientific Advisory Board'
+      founders: 'founders'
+      acknowledgments: 'collaborators'
+      awards: 'acknowledgments'
+      sponsors: 'funders'
+      allies: 'allies'
     contact:
-      title: "Contact"
-      name_ph: "Name or Institution"
-      subject_ph: "Subject"
-      submit_btn: "Submit"
-      address: "Address"
-      fields_error: "You must fill the following fields: "
-      success_notice: "Your message has been sent successfully."
+      title: 'Contact'
+      name_ph: 'Name or Institution'
+      subject_ph: 'Subject'
+      submit_btn: 'Submit'
+      address: 'Address'
+      fields_error: 'You must fill the following fields: '
+      success_notice: 'Your message has been sent successfully.'
     users:
-      message_to_expert: "Message to the expert."
-      max_message_ph: "500 characters max."
-      message_to_expert_tt: "Message to the user"
-      edit_user_tt: "Edit user"
-      bio: "Bio"
-      groups: "Groups"
-      statistics_tab: "statistics"
-      tasks_tab: "tasks"
-      developing_tasks: "Tasks in development"
-      species_tasks: "Species with tasks"
-      maps_published: "published maps"
+      message_to_expert: 'Message to the expert.'
+      max_message_ph: '500 characters max.'
+      message_to_expert_tt: 'Message to the user'
+      edit_user_tt: 'Edit user'
+      bio: 'Bio'
+      groups: 'Groups'
+      statistics_tab: 'statistics'
+      tasks_tab: 'tasks'
+      developing_tasks: 'Tasks in development'
+      species_tasks: 'Species with tasks'
+      maps_published: 'published maps'
       edit_profile:
-        title: "Edit my user"
-        text_1: "By completing your user profile, you increase the possibility of joining the groups of experts and improve your interaction with other users."
-        text_2: "Currently waiting confirmation for: "
-        valid_email_tt: "It is important to have a valid email to receive notifications and information from the application."
-        name_ph: "Names and surnames"
-        expertise_ph: "Taxonomic group(s) of interest"
-        organization_ph: "Organization"
-        location_ph: "Country, city or municipality"
-        bio_ph: "Summary bio (600 characters max)"
-        file_ph: "Select File"
-        new_password_ph: "Enter a new password"
-        confirm_password_ph: "Confirm new password"
-        current_password_ph: "Enter your current password"
-        submit_btn: "UPDATE"
-        back_lnk: "Back"
-        change_photo: "CHANGE PICTURE"
-        password_change: "Change password"
+        title: 'Edit my user'
+        text_1: 'By completing your user profile, you increase the possibility of joining the groups of experts and improve your interaction with other users.'
+        text_2: 'Currently waiting confirmation for: '
+        valid_email_tt: 'It is important to have a valid email to receive notifications and information from the application.'
+        name_ph: 'Names and surnames'
+        expertise_ph: 'Taxonomic group(s) of interest'
+        organization_ph: 'Organization'
+        location_ph: 'Country, city or municipality'
+        bio_ph: 'Summary bio (600 characters max)'
+        file_ph: 'Select File'
+        new_password_ph: 'Enter a new password'
+        confirm_password_ph: 'Confirm new password'
+        current_password_ph: 'Enter your current password'
+        submit_btn: 'UPDATE'
+        back_lnk: 'Back'
+        change_photo: 'CHANGE PICTURE'
+        password_change: 'Change password'
         password_notice: "(only if you're going to change it)"
-        confirm_changes: "Confirm changes"
-        current_password_notice: "(Needed to make changes)"
+        confirm_changes: 'Confirm changes'
+        current_password_notice: '(Needed to make changes)'
     tasks:
-      title: "tasks"
-      done_tt: "Done!"
-      developing_tt: "In development"
-      not_assigned_tt: "Not assigned"
-      records_task_tt: "Records curation"
-      edition_task_tt: "Models editing"
-      covers_task_tt: "Ecological variables"
-      validation_task_tt: "Approved model"
-      advance_tt: "Percentage of completion"
-      new_task: "Add new task"
-      choose_expert: "Select expert *"
-      choose_species: "Select species *"
-      choose_tasks: "Select tasks to perform"
-      submit_btn: "Add"
-      species: "Species"
-      task_added_notice: "¡Task added successfully!"
-      tasks_added_notice: "¡Tasks added successfully!"
-      task_deleted_notice: "Task removed successfully"
-      delete_task_tt: "Delete task"
-      confirm_deletion: "Do you want to remove this task?"
+      title: 'tasks'
+      done_tt: 'Done!'
+      developing_tt: 'In development'
+      not_assigned_tt: 'Not assigned'
+      records_task_tt: 'Records curation'
+      edition_task_tt: 'Models editing'
+      covers_task_tt: 'Ecological variables'
+      validation_task_tt: 'Approved model'
+      advance_tt: 'Percentage of completion'
+      new_task: 'Add new task'
+      choose_expert: 'Select expert *'
+      choose_species: 'Select species *'
+      choose_tasks: 'Select tasks to perform'
+      submit_btn: 'Add'
+      species: 'Species'
+      task_added_notice: '¡Task added successfully!'
+      tasks_added_notice: '¡Tasks added successfully!'
+      task_deleted_notice: 'Task removed successfully'
+      delete_task_tt: 'Delete task'
+      confirm_deletion: 'Do you want to remove this task?'
     groups:
       index:
-        title: "BioModelos groups"
-        moderator: "Moderator"
-        species: "Species"
-        members: "Members"
-        no_moderator: "No moderator"
+        title: 'BioModelos groups'
+        moderator: 'Moderator'
+        species: 'Species'
+        members: 'Members'
+        no_moderator: 'No moderator'
       suggest_group:
-        title: "Suggest Group"
-        text: "Enter the information below about the group you want to suggest so we can contact you:"
-        group_name_ph: "Group name"
-        moderator_ph: "Possible moderator"
-        content_ph: "Short description"
-        submit_btn: "Send"
+        title: 'Suggest Group'
+        text: 'Enter the information below about the group you want to suggest so we can contact you:'
+        group_name_ph: 'Group name'
+        moderator_ph: 'Possible moderator'
+        content_ph: 'Short description'
+        submit_btn: 'Send'
       group_message:
-        title: "Message to Group"
-        message_ph: "maximum 500 characters"
-        submit_btn: "SUBMIT"
+        title: 'Message to Group'
+        message_ph: 'maximum 500 characters'
+        submit_btn: 'SUBMIT'
       profile:
-        waiting_approval_tt: "Waiting for approval"
-        leave_group_confirm: "Do you want to leave the group?"
-        leave_group_tt: "Leave group"
-        join_group_tt: "Request to join this group"
-        group_message_tt: "Message group members"
-        edit_group_tt: "Edit group information"
-        moderators: "Moderator(s)"
-        moderator_message: "Moderator message"
-        statistics_tab: "statistics"
-        tasks_tab: "tasks"
-        activity_tab: "activity"
-        species_tab: "species"
-        experts_tab: "experts"
-        experts_in_group: "group experts"
-        species_in_group: "assigned species"
-        species_with_tasks: "species with tasks"
-        task_completed: "task completed"
-        for_the_species: "for the species"
-        joined_group: "joined group."
+        waiting_approval_tt: 'Waiting for approval'
+        leave_group_confirm: 'Do you want to leave the group?'
+        leave_group_tt: 'Leave group'
+        join_group_tt: 'Request to join this group'
+        group_message_tt: 'Message group members'
+        edit_group_tt: 'Edit group information'
+        moderators: 'Moderator(s)'
+        moderator_message: 'Moderator message'
+        statistics_tab: 'statistics'
+        tasks_tab: 'tasks'
+        activity_tab: 'activity'
+        species_tab: 'species'
+        experts_tab: 'experts'
+        experts_in_group: 'group experts'
+        species_in_group: 'assigned species'
+        species_with_tasks: 'species with tasks'
+        task_completed: 'task completed'
+        for_the_species: 'for the species'
+        joined_group: 'joined group.'
       experts:
-        title: "experts"
-        invitation_title: "EXPERT INVITE"
-        invitation_notice: "To send simultaneous invitations to a group of experts, the email addresses must be separated using a semicolon (;) without leaving spaces in between. 500 characters max."
-        email_ph: "E-mail"
-        submit_btn: "SEND"
-        experts_approval: "Experts to approve"
-        approve_tt: "Approve expert"
-        not_approve_tt: "Do not approve"
+        title: 'experts'
+        invitation_title: 'EXPERT INVITE'
+        invitation_notice: 'To send simultaneous invitations to a group of experts, the email addresses must be separated using a semicolon (;) without leaving spaces in between. 500 characters max.'
+        email_ph: 'E-mail'
+        submit_btn: 'SEND'
+        experts_approval: 'Experts to approve'
+        approve_tt: 'Approve expert'
+        not_approve_tt: 'Do not approve'
       species:
-        suggest: "SUGGEST SPECIES"
-        suggested: "Suggested species"
-        approved_tt: "Approve species"
-        not_approved_tt: "Do not approve"
-        species_name: "Species names"
-        suggestion_success: "The species has been suggested successfully"
+        suggest: 'SUGGEST SPECIES'
+        suggested: 'Suggested species'
+        approved_tt: 'Approve species'
+        not_approved_tt: 'Do not approve'
+        species_name: 'Species names'
+        suggestion_success: 'The species has been suggested successfully'
       edit:
-        title: "Edit Group"
-        group_name: "Group name"
-        former_name_ph: "Previous name"
-        former_message_ph: "Previous message"
-        change_photo: "Change image"
-        upload_photo_btn: "UPLOAD PHOTO"
-        submit_btn: "SAVE"
+        title: 'Edit Group'
+        group_name: 'Group name'
+        former_name_ph: 'Previous name'
+        former_message_ph: 'Previous message'
+        change_photo: 'Change image'
+        upload_photo_btn: 'UPLOAD PHOTO'
+        submit_btn: 'SAVE'
     records:
-      new_record: "NEW RECORD FOR"
-      submit_btn: "SAVE"
-      error_new_record: "There was an error creating the record"
-      success_new_record: "Record created successfully"
-      error_current_date: "The date must be less than or equal to the current date"
+      new_record: 'NEW RECORD FOR'
+      submit_btn: 'SAVE'
+      error_new_record: 'There was an error creating the record'
+      success_new_record: 'Record created successfully'
+      error_current_date: 'The date must be less than or equal to the current date'
       metadata:
-        title: "Records metadata"
-        sources: "SOURCES"
-        no_info: "No information available."
-        total_unique_records: "Unique records total:"
-        last_update: "Last update:"
-        institutions: "Institutions"
-        collections: "Collections"
-        collectors: "Collectors"
-        collaborators: "Curatorship collaborators"
-        citation: "Citation"
+        title: 'Records metadata'
+        sources: 'SOURCES'
+        no_info: 'No information available.'
+        total_unique_records: 'Unique records total:'
+        last_update: 'Last update:'
+        institutions: 'Institutions'
+        collections: 'Collections'
+        collectors: 'Collectors'
+        collaborators: 'Curatorship collaborators'
+        citation: 'Citation'
       edit:
-        success_notice: "Record updated successfully"
-        error_notice: "An error occurred while updating the record"
-        save_btn: "save"
-        cancel_btn: "cancel"
+        success_notice: 'Record updated successfully'
+        error_notice: 'An error occurred while updating the record'
+        save_btn: 'save'
+        cancel_btn: 'cancel'
       report:
-        title: "RECORD REPORT"
-        outlier_lbl: "Geographic outlier"
-        geo_issue_lbl: "Dubious georeferencing"
-        id_issue_lbl: "Dubious identification"
-        old_taxonomy_lbl: "Outdated name"
-        in_captivity_lbl: "Introduced individual"
-        other_issues_lbl: "Other (comment)"
-        comment_ph: "Comment"
-        submit_btn: "submit"
-        cancel_lnk: "cancel"
-        sign_up_notice: "You must be registered to be able to report a record"
-        success_notice: "Your report has been successful"
-        error_notice: "An error occurred while reporting the record"
+        title: 'RECORD REPORT'
+        outlier_lbl: 'Geographic outlier'
+        geo_issue_lbl: 'Dubious georeferencing'
+        id_issue_lbl: 'Dubious identification'
+        old_taxonomy_lbl: 'Outdated name'
+        in_captivity_lbl: 'Introduced individual'
+        other_issues_lbl: 'Other (comment)'
+        comment_ph: 'Comment'
+        submit_btn: 'submit'
+        cancel_lnk: 'cancel'
+        sign_up_notice: 'You must be registered to be able to report a record'
+        success_notice: 'Your report has been successful'
+        error_notice: 'An error occurred while reporting the record'
     models:
       metadata:
-        title: "Models metadata"
-        model_id: "Model ID:"
-        records_number: "Number of records:"
-        date: "Development date:"
-        info: "Info"
-        method: "Method"
-        method_tt: "Method used to develop the model"
-        threshold: "Threshold"
-        threshold_tt: "Criterion used to apply threshold"
-        validation_type: "Validation type"
-        validation_type_tt: "Partitioning method used for validation"
-        stat_type: "Statistic performance "
-        stat_type_tt: "Statistic used to measure performance"
-        level: "Level"
-        level_tt: "Component of the distribution of the species described by the model"
-        docs: "Documentation"
-        docs_tt: "Code or methods for model generation"
-        citation: "Citation"
-        contact: "Contact"
-        error: "An error occurred while obtaining model metadata."
+        title: 'Models metadata'
+        model_id: 'Model ID:'
+        records_number: 'Number of records:'
+        date: 'Development date:'
+        info: 'Info'
+        method: 'Method'
+        method_tt: 'Method used to develop the model'
+        threshold: 'Threshold'
+        threshold_tt: 'Criterion used to apply threshold'
+        validation_type: 'Validation type'
+        validation_type_tt: 'Partitioning method used for validation'
+        stat_type: 'Statistic performance '
+        stat_type_tt: 'Statistic used to measure performance'
+        level: 'Level'
+        level_tt: 'Component of the distribution of the species described by the model'
+        docs: 'Documentation'
+        docs_tt: 'Code or methods for model generation'
+        citation: 'Citation'
+        contact: 'Contact'
+        error: 'An error occurred while obtaining model metadata.'
       init:
         valid_model: "This is a distribution hypothesis approved by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses not approved by experts, available for this species."
         pending_validation_model: "This is one of the available distribution hypotheses pending approval by experts. Consult the 'Distribution hypothesis' tab to view other distribution hypotheses pending approval available for this species."
         statistic_model: "This is a statistically validated distribution hypothesis without expert contributions. To contribute to its improvement, join the group of experts managing the species. Based on literature recommendations, the 10% threshold is displayed. It's not downloadable as it is still undergoing validation processes."
-        continuous_model: "This distribution hypothesis is under construction by the group of experts, to contribute to its development, register in the group of experts of the species."
-        no_model: "This species does not have a distribution model yet. To contribute to its development, register in the group of experts of the species."
+        continuous_model: 'This distribution hypothesis is under construction by the group of experts, to contribute to its development, register in the group of experts of the species.'
+        no_model: 'This species does not have a distribution model yet. To contribute to its development, register in the group of experts of the species.'
       download:
-        text_1: "Before download, remember:"
-        read_terms_lnk: "I have read and accept the terms and conditions"
-        text_2: "Select the use you will give the model:"
-        accept_btn: "ACCEPT"
-        selection_notice: "You must read and accept the terms and conditions as well as select the use you will give the model to continue the download."
-        sign_up_notice: "You must be registered in the platform to download the model."
+        text_1: 'Before download, remember:'
+        read_terms_lnk: 'I have read and accept the terms and conditions'
+        text_2: 'Select the use you will give the model:'
+        accept_btn: 'ACCEPT'
+        selection_notice: 'You must read and accept the terms and conditions as well as select the use you will give the model to continue the download.'
+        sign_up_notice: 'You must be registered in the platform to download the model.'
     terms:
-      title: "Terms and conditions of USE OF BIOMODELS (V 1.0)"
-      general: "General"
-      sign_up: "Registration"
-      publish: "Publication"
-      general_text: "Your use of BioModelos (biomodelos.humboldt.org.co), in any way, consulting or complementing its content, constitutes acceptance of the following Terms and Conditions, which become effective as of the date on which you enter to the indicated site."
-      general_1_text: "This user agreement establishes the terms and conditions of a license for you to use the BioModelos web platform and the information contained therein. For the purposes of this agreement, the information of BioModelos includes the visualization of biological records through the geographic viewer of the platform, the distribution models of species developed from these records and the statistics and indicators calculated from the models. By accessing and/or using BioModelos, it is presumed that you have read, accepted and agree to comply with all the terms and conditions of this user agreement. The rights and obligations related to the use of BioModelos in accordance with this user agreement are personal and are not transferable to any natural or legal person. Eventually, these terms and conditions of use of BioModelos may be modified, which will be recorded on this page. Consequently, it is your responsibility to review and comply with the established terms and conditions, provided that you access or use BioModelos."
-      general_2_title: "Copyright and intellectual property"
+      title: 'Terms and conditions of USE OF BIOMODELS (V 1.0)'
+      general: 'General'
+      sign_up: 'Registration'
+      publish: 'Publication'
+      general_text: 'Your use of BioModelos (biomodelos.humboldt.org.co), in any way, consulting or complementing its content, constitutes acceptance of the following Terms and Conditions, which become effective as of the date on which you enter to the indicated site.'
+      general_1_text: 'This user agreement establishes the terms and conditions of a license for you to use the BioModelos web platform and the information contained therein. For the purposes of this agreement, the information of BioModelos includes the visualization of biological records through the geographic viewer of the platform, the distribution models of species developed from these records and the statistics and indicators calculated from the models. By accessing and/or using BioModelos, it is presumed that you have read, accepted and agree to comply with all the terms and conditions of this user agreement. The rights and obligations related to the use of BioModelos in accordance with this user agreement are personal and are not transferable to any natural or legal person. Eventually, these terms and conditions of use of BioModelos may be modified, which will be recorded on this page. Consequently, it is your responsibility to review and comply with the established terms and conditions, provided that you access or use BioModelos.'
+      general_2_title: 'Copyright and intellectual property'
       general_2_text_html: >
         BioModelos contains material protected by the laws and treaties related to intellectual property, therefore, the information of BioModelos is protected by the agreements, the laws and regulations of copyright throughout the world.</br></br>
         The Alexander von Humboldt Biological Resources Research Institute is the sole and exclusive owner of the BioModelos application, including trademark, trade name, trade secret and other intellectual property rights over this application.</br></br>
@@ -728,71 +728,71 @@ en:
         The Alexander von Humboldt Institute exclusively holds the patrimonial rights as author of the information generated from all the activity of registered users in BioModelos, particularly in the "edition and contribution" and "records and filters" modules. In any case, the Alexander von Humboldt Institute will recognize the author's moral rights for each contribution consigned by registered users in BioModelos.</br> </br>
         Once the information in BioModelos has been recorded by the "Publishers", the Alexander von Humboldt Institute will have a license for its use and disposal, according to the Creative Commons licenses with which said information is published, in accordance with what was established with the publisher(s) in the publication form.</br></br>
         You agree not to alter or eliminate any copyright symbol or other identification related to the authorship of any of the materials contained or made available in BioModelos.general_3_title:  "Productos derivados"
-      general_3_title: "Derivative works"
+      general_3_title: 'Derivative works'
       general_3_text_html: >
         Derivative works based on the information of BioModelos can be distributed, electronically or in printed form, without the prior written permission of the Alexander von Humboldt Institute, as long as they are available for non-commercial purposes and include the citation to the source, punctually indicated in the field corresponding to "citation" in the metadata. BioModelos reserves the right to use/reuse any derivative work based on your information in accordance with the same terms and conditions of use. For purposes of these terms and conditions, a "derivative work" is a new work that is based totally or partially on the BioModelos information. To be considered a derivative work, the new work must be transformative and include originality on the part of the creator, otherwise it can simply be considered redistribution, depending on the way in which the new work is made available.</br></br>
         use of the information of BioModelos in the creation of derivative works does not constitute an endorsement by the Alexander von Humboldt Institute or its partners to these derived products, reports or analyzes. It is expressly forbidden to use the BioModelos logos or the Alexander von Humboldt Institute in any derived product, report or analysis, or in support materials, without the prior written permission of the Institute.
-      general_4_title: "Use"
+      general_4_title: 'Use'
       general_4_text_html: >
         Provided that the use or consultation of the information of BioModelos is done in accordance with the terms and conditions of this user agreement, a free, indefinite and non-transferable license is granted for consultation, download or printing, without prior permission of the Institute.</br></br>
         The consultation and the use of the information coming from BioModelos is restricted to educational, investigative, academic or applied purposes. In any case, it is forbidden to advance or execute any act of economic order on it.</br></br>
         The products or results published from the information obtained in BioModelos must be sent in an electronic or physical copy to the contact data indicated in the section "contact information" of these terms and conditions.
-      general_5_title: "Recognition and citation"
+      general_5_title: 'Recognition and citation'
       general_5_text_html: >
         The user of the BioModelos information must grant the corresponding credits to the source of said information, using the citation provided in the metadata that accompanies each model, indicating in a timely manner the version of the BioModelos information used.</br></br>
         The Alexander von Humboldt Institute invites users of BioModelos information to participate in its construction and complement. Likewise, it extends the invitation to tell the Institute of all those publications that are derived significantly from the information available in BioModelos, prior to its publication, in a space of joint collaboration. Expressions of interest can be sent directly to the Alexander von Humboldt Institute using the contact information indicated in the "contact information" section of these terms and conditions.
-      general_6_title: "Updates"
-      general_6_text_html: "Unless required for specific analyzes, no version of the BioModelos information should be used after it has been replaced by a later version. It is your responsibility to verify if an update of the information published in BioModelos is available."
-      general_7_title: "Liability limitations"
+      general_6_title: 'Updates'
+      general_6_text_html: 'Unless required for specific analyzes, no version of the BioModelos information should be used after it has been replaced by a later version. It is your responsibility to verify if an update of the information published in BioModelos is available.'
+      general_7_title: 'Liability limitations'
       general_7_text_html: >
         The Alexander von Humboldt Institute, its partners, any of its respective employees, third-party content providers or licensors do not guarantee that the access and use of BioModelos will be free of interruptions or error-free, as well as, that any information accessible from or related to with the information is free of viruses or other harmful components. Likewise, no guarantees are given regarding the results that can be obtained from the use of the BioModelos information or the accuracy, reliability or content of any information or service provided through BioModelos.</br></br>
         BioModelos is a space for the discussion and scientific evaluation of models of geographic distribution of species. In this sense, the downloadable information represents hypotheses of the probable geographic distribution of the species and products derived from these hypotheses, which, although they may contain errors and biases associated with the data and statistical modeling, make an effort to reduce the impact of said factors by incorporating expert knowledge to produce validated maps.</br></br>
         The information that is available in BioModelos is not official information for Colombia and for that reason its use must be done under its own responsibility. The Alexander von Humboldt Institute, the sponsors of BioModelos and other collaborators, do not guarantee that the results derived from using the information downloaded comply with their particular requirements.
-      general_8_title: "Termination of the agreement"
-      general_8_text_html: "You or the Alexander von Humboldt Institute may terminate this user agreement at any time, with immediate effect, with or without prior notice to the other party. Termination of this agreement automatically terminates your license to use BioModelos and any other content or material contained therein. The dispositions of sections 3, 4, and 5 will survive any termination of this user agreement."
-      general_9_title: "Contact information"
-      general_9_text_html: "If you have any questions about any of these terms or how they can be applied to the intended use of the information provided by BioModelos, contact the Laboratory of Applied Biogeography (LBA) of the Alexander von Humboldt Institute: "
-      sign_up_1_title: "Registration terms and conditions"
+      general_8_title: 'Termination of the agreement'
+      general_8_text_html: 'You or the Alexander von Humboldt Institute may terminate this user agreement at any time, with immediate effect, with or without prior notice to the other party. Termination of this agreement automatically terminates your license to use BioModelos and any other content or material contained therein. The dispositions of sections 3, 4, and 5 will survive any termination of this user agreement.'
+      general_9_title: 'Contact information'
+      general_9_text_html: 'If you have any questions about any of these terms or how they can be applied to the intended use of the information provided by BioModelos, contact the Laboratory of Applied Biogeography (LBA) of the Alexander von Humboldt Institute: '
+      sign_up_1_title: 'Registration terms and conditions'
       sign_up_1_text_html: >
         By registering in BioModelos, the user, in addition to accepting the previously defined terms and conditions of use, must accept the following BioModelos contribution treatment policy:</br></br>
         Are considered contributions to BioModelos all information related to the distribution of species that is entered by registered users of BioModelos, including but not limited to: reports and errors editions of records, editions to distribution models, selection of ecological variables by species, comments in forums, ratings to distribution models and expert maps. The Alexander von Humboldt Institute reserves the right to: store, distribute, use, advance any disposition acts or eliminate the contributions made by registered BioModelos users, as well as, the information regarding the origin of the contribution (name, email, date and IP address of the contributor), even when the user deletes their BioModelos registry.<br id ="personales"> </br>
         The moral rights of authors of the contributions belong to the contributors and the Alexander von Humboldt Institute undertakes to citate them properly whenever they are used for the purpose of BioModelos or the derived products that it deems appropriate.
-      sign_up_2_title: "Personal data protection policy"
+      sign_up_2_title: 'Personal data protection policy'
       sign_up_2_text_html: >
         By virtue of the Statutory Law 1581 of 2012 by means of which the general dispositions for the protection of personal data are dictated, and its Regulatory Decree 1377 of 2013, the Institute of Investigation of Biological Resources Alexander von Humboldt, considered responsible and/or in charge of the treatment of personal data, requires your authorization to continue with the processing of your personal data stored in our databases, which include information that you have reported to us in the development of the different activities carried out by our institution in particular the following: Name, email, city, institutional affiliation and IP address from where you enter the platform biomodelos.humboldt.org.</br></br>
         <b>Purpose:</b> The data will be used for the institutional mission established in Law 99 of 1993, focused on developing scientific and technological research on biodiversity, promoting the establishment of research stations in the territory of the Nation, providing advice to the entities that make up the Environmental System (Sina) and build up the National Inventory of Biodiversity in the country.
-      publish_1_title: "The publisher declares:"
+      publish_1_title: 'The publisher declares:'
       publish_1_text_html: >
         1. That the model(s) that are uploaded to BioModelos are the authorship of the people listed in the model publication form (hereinafter publishers) or have the transfer of rights valid for that purpose.</br>
         2. That all authors of the model or set of models accept or authorize their publication in BioModelos from the moment the information is uploaded.</br>
         3. That the biological records that accompany the model are of open use, are owned or their use exclusively for visualization purposes in BioModelos has been authorized explicitly or implicitly (eg. through a Creative Commons license) by the owners of the information or who have some assignment or authorization in regards to the information.</br>
         4. That the publishers authorize the download and use of their models by third parties through BioModelos under the conditions provided by the Creative Commons license indicated in the model publication form.
-      publish_2_title: "The Research Institute of biological resources Alexander Von Humboldt through the web application BioModelos"
+      publish_2_title: 'The Research Institute of biological resources Alexander Von Humboldt through the web application BioModelos'
       publish_2_text_html: >
         1. Will offer activity statistics (viewing and downloading) and usage profile at the request of the publishers of the information.</br>
         2. Will grant the corresponding credit to the model publishers in the BioModelos page and in the metadata that accompany the models of their authorship, based on the information registered in the publication form.</br>
         3. Will use the biological records that accompany the model only for visualization in BioModelos under the conditions determined by the publishers in the  model publication form. In no case will its use or download be enabled in BioModelos, unless this is expressly authorized in the model publication form.</br>
         4. It reserves the right to publish the models as well as download them at any time on the site.
     info:
-      noticias: "Publications"
-      boletines: "Newsletters"
-      guias: "Guides"
-      boletin: "Newsletter"
-      enero: "January"
-      febrero: "February"
-      marzo: "March"
-      abril: "April"
-      mayo: "May"
-      junio: "June"
-      julio: "July"
-      agosto: "August"
-      septiembre: "September"
-      octubre: "October"
-      noviembre: "November"
-      diciembre: "December"
-      tituloarticulos: "Articles"
-      tituloatlas: "Biodiversity atlas"
-      titulovideo: "What is BioModelos?"
+      noticias: 'Publications'
+      boletines: 'Newsletters'
+      guias: 'Guides'
+      boletin: 'Newsletter'
+      enero: 'January'
+      febrero: 'February'
+      marzo: 'March'
+      abril: 'April'
+      mayo: 'May'
+      junio: 'June'
+      julio: 'July'
+      agosto: 'August'
+      septiembre: 'September'
+      octubre: 'October'
+      noviembre: 'November'
+      diciembre: 'December'
+      tituloarticulos: 'Articles'
+      tituloatlas: 'Biodiversity atlas'
+      titulovideo: 'What is BioModelos?'
       cuerpovideo: "BioModelos is a Humboldt Institute platform for developing species distribution models that integrates the knowledge of more than 500 experts. The platform allows you to know where Colombia's biodiversity is, based on niche and expert models."
-      titulovid: "How do experts contribute in BioModelos?"
-      cuerpovid: "You will find a guide on how to perform each one of the tasks that make up our workflow, which you can access when you are part of one of the groups that make the network of BioModelos experts."
+      titulovid: 'How do experts contribute in BioModelos?'
+      cuerpovid: 'You will find a guide on how to perform each one of the tasks that make up our workflow, which you can access when you are part of one of the groups that make the network of BioModelos experts.'
