@@ -1,6 +1,6 @@
 * {
-	margin:0;
-	padding:0;
+  margin:0;
+  padding:0;
 }
 
 html {
@@ -107,11 +107,11 @@ div.google-visualization-tooltip { pointer-events: none !important } /* flickeri
 {
     text-align: left;
     color: #fff;
-    background: #124c5e;
+    background: #303030;
     position: absolute;
     z-index: 1004;
     padding: 10px;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 0.87em;
     white-space: pre-line;
     pointer-events: none;
@@ -123,7 +123,7 @@ div.google-visualization-tooltip { pointer-events: none !important } /* flickeri
         height: 0;
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
-        border-top: 10px solid #124c5e;
+        border-top: 10px solid #303030;
         content: '';
         position: absolute;
         left: 50%;
@@ -134,7 +134,7 @@ div.google-visualization-tooltip { pointer-events: none !important } /* flickeri
         #tooltip.top:after
         {
             border-top-color: transparent;
-            border-bottom: 10px solid #124c5e;
+            border-bottom: 10px solid #303030;
             top: -20px;
             bottom: auto;
         }
@@ -1141,7 +1141,7 @@ p.redsq::before	{
 	width: 120px;
 	height: 120px;
 	float: left;
-	margin-bottom: 15px;
+	margin-bottom: 30px;
 	margin-top: 8px;
 	overflow: hidden;
 	position: relative;
@@ -3692,7 +3692,7 @@ a.cajathumb p {
 	margin-top: -2px;
 	width: 14px;
 	height: 14px;
-	background-color: #707070;
+	background-color: #BDBDBD;
 	-webkit-mask-image: url(<%= asset_path 'icons/infoicon.svg' %>);
 	mask-image: url(<%= asset_path 'icons/infoicon.svg' %>);
 	-webkit-mask-repeat: no-repeat;
@@ -4614,6 +4614,9 @@ label.checkboxdown {
 	cursor: pointer;
 }
 
+.marginreg {
+  margin: 10px 10px 0 0;
+}
 .btngen:hover, .btngenact {
 	background-color: #db3f2a;
 	color:#fff;
@@ -4624,7 +4627,7 @@ label.checkboxdown {
 	vertical-align: middle;
 	width: 25px;
 	height: 25px;
-	margin-left: 8px;
+	margin-top: 5px;
 	border: 1px solid #db3f2a;
 	background: none;
 	cursor: pointer;
