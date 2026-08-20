@@ -13,7 +13,13 @@ module UsersHelper
       groups_users_state_id: 1)
     user_species_groups.size.positive? || false
   end
-
+  # Renders a user's avatar for the requested image version, or a placeholder
+  # icon when the user's avatar is not available.
+  #
+  # @param user [User] User whose avatar should be rendered.
+  # @param version [Symbol, String] CarrierWave avatar version to use.
+  # @param html_options [Hash] HTML attributes for the rendered image or icon.
+  # @return [String] Rendered avatar image or placeholder icon HTML.
   def user_avatar_tag(user, version:, html_options: {})
     uploader = user.avatarURL
     url = uploader.url(version).to_s
