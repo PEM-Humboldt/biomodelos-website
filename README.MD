@@ -76,18 +76,18 @@ mail_server:
   GMAIL_PASSWORD: "secret password"
 ```
 
-For Humboldt organization, you must copy the encrypted files and the master keys from the internal repository to ```config/credentials```.
+For Humboldt organization, you must copy the encrypted files and the master keys from the internal repository to `config/credentials`.
 
 ### Environment variables and other BioModelos services
 
-To run the application, you need to setup the environment variables in the .env file, as in this [example](./env.example) into the root proyect folder. This file contains environment variables for the rails application, configuration variables for the docker container, database and other BioModelos services as geoserver and [api](https://github.com/PEM-Humboldt/biomodelos-api).
+To run the application, you need to setup the environment variables in the .env file, as in this [example](./env.example) into the root project folder. This file contains environment variables for the rails application, configuration variables for the docker container, database and other BioModelos services as geoserver and [api](https://github.com/PEM-Humboldt/biomodelos-api).
 
 ## Web app database
 
 To build the database according to the schema file using the SQL Service, you should follow the next steps:
 
 1. You must setup the database variables at the .env file.
-2. After that you may execute the **migrations** ```/db/migrate/``` following [this guide](https://edgeguides.rubyonrails.org/active_record_migrations.html#running-migrations).
+2. After that you may execute the **migrations** `/db/migrate/` following [this guide](https://edgeguides.rubyonrails.org/active_record_migrations.html#running-migrations).
 
 ## Run
 
@@ -103,11 +103,19 @@ $ bundle install
 $ yarn
 ```
 
-Run the following command to execute the app in your local env terminal
+For run the app at local terminal, you must set the env variables such as:
 
 ```sh
-$ bundle exec rails s -b 0.0.0.0
+$ BASE_URI=http://yourAPI \
+GEOSERVER_URI=http://yourGeoserver/ \
+DB_DATABASE=database \
+DB_USER=user \
+DB_PASSWORD=pass \
+DB_HOST=localhost \
+DB_PORT=5432 \
+bin/rails server -p PORT
 ```
+
 Extra configuration are at the internal repository.
 
 ## Dockerization
@@ -128,7 +136,7 @@ And remember to configure the volumes in the .env file
 
 ### Copying static files
 
-First, there are some static .PDF, .PNG and .ZIP files that you need to copy to the ```/public/``` folder. Those files are part of the guides and graphic pieces to advertise BioModelos and are not part of our repo.
+First, there are some static .PDF, .PNG and .ZIP files that you need to copy to the `/public/` folder. Those files are part of the guides and graphic pieces to advertise BioModelos and are not part of our repo.
 
 ### Environment variables
 
