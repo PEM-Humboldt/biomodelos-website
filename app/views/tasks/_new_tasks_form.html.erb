@@ -12,19 +12,19 @@
   <div id="chkBoxTask">
     <label class="lblvisual" rel="tooltip" title="<%= t('biomodelos.tasks.records_task_tt') %>">
       <%= check_box_tag :records_task,  1, checked:true %>
-      <%= image_tag("regperfil.png") %>
+      <%= inline_svg_tag("icons/regperfil.svg", class: "icon icon-tablehead", aria_hidden: true) %>
     </label>
     <label class="lblvisual" rel="tooltip" title="<%= t('biomodelos.tasks.edition_task_tt') %>">
       <%= check_box_tag :edition_task,  2,  checked:true %>
-      <%= image_tag("penperfil.png") %>
+      <%= inline_svg_tag("icons/penperfil.svg", class: "icon icon-tablehead", aria_hidden: true) %>
     </label>
     <label class="lblvisual" rel="tooltip" title="<%= t('biomodelos.tasks.covers_task_tt') %>">
       <%= check_box_tag :eco_task,  3, checked:true %>
-      <%= image_tag("veicon2.png") %>
+      <%= inline_svg_tag("icons/veicon.svg", class: "icon icon-tablehead", aria_hidden: true) %>
     </label>
     <label class="lblvisual" rel="tooltip" title="<%= t('biomodelos.tasks.validation_task_tt') %>">
       <%= check_box_tag :approval_task,  4, checked:true %>
-      <%= image_tag("aprobicon.png") %>
+      <%= inline_svg_tag("icons/aprobicon.svg", class: "icon icon-tablehead", aria_hidden: true) %>
     </label>
     <%= f.button :submit, :value => t('biomodelos.tasks.submit_btn'), :class => 'btngen', data: { disable_with: t('biomodelos.tasks.submit_btn') }%>
   </div>
