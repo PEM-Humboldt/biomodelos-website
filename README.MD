@@ -113,7 +113,8 @@ DB_USER=user \
 DB_PASSWORD=pass \
 DB_HOST=localhost \
 DB_PORT=5432 \
-bin/rails server -p PORT
+RAILS_ENV=development \
+bundle exec puma -C config/puma.rb -p PORT
 ```
 
 Extra configuration are at the internal repository.
