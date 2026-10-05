@@ -438,7 +438,7 @@ en:
         cover_523: 'Ponds for marine aquaculture'
         cover_523_tt: 'Artificial bodies of water intended for the rearing of crustaceans and fish. They are generally located in the regions adjacent to the sea.'
       models:
-        level_1: 'Climatic'
+        level_1: 'Environmental'
         level_2: 'Land cover'
         pending_validation: 'Pending validation'
         valid: 'Validated'
