@@ -437,7 +437,7 @@ es:
         cover_523: 'Estanques para acuicultura marina'
         cover_523_tt: 'Cuerpos de agua artificial destinados a la cría de crustáceos y peces. Se ubican, generalmente, en las regiones adyacentes al mar.'
       models:
-        level_1: 'Climático'
+        level_1: 'Ambiental'
         level_2: 'Coberturas'
         pending_validation: 'Validación pendiente'
         valid: 'Validado'
