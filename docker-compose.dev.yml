@@ -11,6 +11,7 @@ services:
       - RAILS_ENV=development
       - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
     volumes:
+      - "${ATLAS_FOLDER}:/var/www/BioModelos/public/atlas_files"
       - "${METHODS_FOLDER}:/var/www/BioModelos/public/methods"
       - "${MODELS_FOLDER}:/var/www/BioModelos/public/models"
       - "${THUMBS_FOLDER}:/var/www/BioModelos/public/thumbs"
