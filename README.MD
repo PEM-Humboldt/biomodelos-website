@@ -35,6 +35,7 @@ Some files and paths in BioModelos need to be configured in order for the app to
 
 ### Files
 
+- Atlas files folder with pdf of the published atlas
 - Models folder with raster files.
 - Thumbnails folder with thumbnails image files.
 - Zip folder with zip files of the models.
