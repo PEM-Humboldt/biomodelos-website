@@ -66,10 +66,10 @@
 			<div class="mmicon clearfix">
 				<%= button_to models_download_terms_path(:zip_url => model_zip(
 				model), :box => 2, :model_id => model.modelID , :species_id => @species_id), {:class => 'pad3', :title => t('biomodelos.visor.hypotheses.download_tt'), :rel => "tooltip", :remote => true} do %>
-						<%= image_tag("downicon.png") %>
+						<%= inline_svg_tag("icons/downicon.svg", class: "icon icon-downicon", aria_hidden: true) %>
 					<% end %>
 				<%= link_to "/#{I18n.locale}/models/#{model.modelID}/metadata", target: "_blank", title: t('biomodelos.visor.hypotheses.metadata_tt'), rel: "tooltip", class: "pad3"  do %>
-					<%= image_tag("metaicon.png") %>
+					<%= inline_svg_tag("icons/metaicon.svg", class: "icon icon-metaicon", aria_hidden: true) %>
 				<% end %>
 				<% if user_signed_in? && can_edit %>
 					<div class="user_star">
@@ -109,7 +109,7 @@
 <input type="submit" value="COMENTAR"></input>
 <div class="clearfix"></div>
 <div class="notif">
-	<%= image_tag("nouserthumb.png") %>
+	<%= inline_svg_tag("icons/noperfil.svg", class: "icon icon-avatar-placeholder", aria_hidden: true) %>
 	<a class="foroname" href="">Victor Setina Liz</a>
 	<h6 class="fechanotif">18 · Jun · 2016 - 16:36</h6>
 	<p>Fue aceptado en el grupo <a href="">Mamíferos de Colombia</a></p>
@@ -120,7 +120,7 @@
 	</div>
 </div>
 <div class="notif reply">
-	<%= image_tag("userthumbp.png") %>
+	<%= inline_svg_tag("icons/noperfil.svg", class: "icon icon-avatar-placeholder", aria_hidden: true) %>
 	<a class="foroname" href="">César Gutiérrez</a>
 	<h6 class="fechanotif">18 · Jun · 2016 - 16:36</h6>
 	<p>Fue aceptado en el grupo <a href="">Mamíferos de Colombia</a></p>
@@ -131,9 +131,13 @@
 </div> -->
 <script type="text/javascript">
 /* Rating */
-var raty_icon_path = "/assets/raty/lib/images";
 $('.user_star').raty({
-	path: raty_icon_path,
+	path: '',
+	starOn:    '<%= asset_path('icons/star-on.svg') %>',
+	starOff:   '<%= asset_path('icons/star-off.svg') %>',
+	cancelOn:  '<%= asset_path('icons/cancel-on.svg') %>',
+	cancelOff: '<%= asset_path('icons/cancel-off.svg') %>',
+	halfShow: false,
 	hints: ['<%= t('biomodelos.visor.hypotheses.rating_0_hint') %>', '<%= t('biomodelos.visor.hypotheses.rating_1_hint') %>', '<%= t('biomodelos.visor.hypotheses.rating_2_hint') %>', '<%= t('biomodelos.visor.hypotheses.rating_3_hint') %>', '<%= t('biomodelos.visor.hypotheses.rating_4_hint') %>'],
 	cancel: true,
 	cancelHint:   '<%= t('biomodelos.visor.hypotheses.rating_delete') %>',

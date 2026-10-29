@@ -12,10 +12,10 @@
 				</div>
 			<div class="editactions clearfix">
 			<%= button_to models_download_terms_path(:zip_url => model_zip(continuous_t), :box => 1, :model_id => continuous_t.modelID, :species_id => @species_id), {:class => 'pad3', :title => t('biomodelos.visor.hypotheses.download_tt'), :rel => "tooltip", :remote => true} do %>
-						<%= image_tag("downicon.png") %>
+						<%= inline_svg_tag("icons/downicon.svg", class: "icon icon-downicon", aria_hidden: true) %>
 					<% end %>
-					<%= link_to "/#{I18n.locale}/models/#{continuous_t.modelID}/metadata",  target: "_blank", title: t('biomodelos.visor.hypotheses.metadata_tt'), rel: "tooltip"  do %>
-						<%= image_tag("metaicon.png") %>
+					<%= link_to "/#{I18n.locale}/models/#{continuous_t.modelID}/metadata",  target: "_blank", title: t('biomodelos.visor.hypotheses.metadata_tt'), rel: "tooltip", class: "pad3"  do %>
+						<%= inline_svg_tag("icons/metaicon.svg", class: "icon icon-metaicon", aria_hidden: true) %>
 					<% end %>
 					<%= hidden_field_tag 'continuous_t_url', model_layer(continuous_t).html_safe %>
 					<button class="newgrbtn btnemergencia" id="cbt_editBtn"><%= t('biomodelos.visor.contributions.edit_btn') %></a>
@@ -48,7 +48,7 @@
 			</div>
 		</div>
 		<div class="dinblock">
-			<p class="estadistico"><%= t('biomodelos.visor.contributions.threshold_title') %></p>
+			<p class="estadistico thresholdicon"><%= t('biomodelos.visor.contributions.threshold_title') %></p>
 			<p><%= t('biomodelos.visor.contributions.threshold_text') %></p>
 			<p class="estadistico edicon"><%= t('biomodelos.visor.contributions.tools_title') %></p>
 			<p><%= t('biomodelos.visor.contributions.tools_text') %></p>
@@ -63,5 +63,5 @@
 
 		<div class="steptitle">3. <%= t('biomodelos.visor.contributions.publish') %></div>
 		<p><%= t('biomodelos.visor.contributions.publish_text') %></p>
-		<%= link_to image_tag("uploadicon.png"), home_publish_path %>
+		<%= link_to inline_svg_tag("icons/uploadicon.svg", class: "icon icon-uploadicon"), home_publish_path %>
 		<div class ="termbox"></div>
