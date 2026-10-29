@@ -19,7 +19,7 @@
 				</div>
 			<% end %>
 			<div class="groupimg">
-				<%= image_tag(@group.logo.url(:profile).to_s) %>
+				<%= group_logo_tag(@group, version: :profile) %>
 			</div>
 			<div class="perflinks">
 				<% if user_signed_in? %>
@@ -30,14 +30,14 @@
 							<%= f.submit "", :class=> "joingroup", :title=>t('biomodelos.groups.profile.join_group_tt'), :rel=>"tooltip", data: { disable_with: "" } %>
 						<% end %>
 					<% elsif @user_group.groups_users_state_id == 2 %>
-						<%= image_tag "groupjoin2.png", :title=>t('biomodelos.groups.profile.waiting_approval_tt'), :rel=>"tooltip" %>
+						<span class="joingroup2" title="<%= t('biomodelos.groups.profile.waiting_approval_tt') %>" rel="tooltip"><%= inline_svg_tag("icons/groupjoin2.svg", class: "icon icon-delicon", aria_hidden: true) %></span>
 					<% elsif @user_group.groups_users_state_id == 1 %>
-						<%= link_to groups_user_path(@user_group), {method: :delete, data: { confirm: t('biomodelos.groups.profile.leave_group_confirm') }}  do %>
-							<%= image_tag "leave.png", title:t('biomodelos.groups.profile.leave_group_tt'), class: 'leavegroup', rel: 'tooltip' %>
-						<% end %>
 						<% if @user_group.is_admin%>
-							<a href="" title="<%= t('biomodelos.groups.profile.group_message_tt') %>" rel="tooltip" class="mailto" ng-click="messagebox=!messagebox"></a>
-							<a href="" title="<%= t('biomodelos.groups.profile.edit_group_tt') %>" rel="tooltip" class="edituser" ng-click="editgroup=!editgroup"></a>
+							<a href="" title="<%= t('biomodelos.groups.profile.group_message_tt') %>" rel="tooltip" class="mailto" ng-click="messagebox=!messagebox"><%= inline_svg_tag("icons/perfilcontacto.svg", class: "icon icon-white", aria_hidden: true) %></a>
+							<a href="" title="<%= t('biomodelos.groups.profile.edit_group_tt') %>" rel="tooltip" class="edituser" ng-click="editgroup=!editgroup"><%= inline_svg_tag("icons/penperfil.svg", class: "icon icon-white", aria_hidden: true) %></a>
+						<% end %>
+						<%= link_to groups_user_path(@user_group), {method: :delete, class: 'leavegroup', title: t('biomodelos.groups.profile.leave_group_tt'), rel: 'tooltip', data: { confirm: t('biomodelos.groups.profile.leave_group_confirm') }} do %>
+							<%= inline_svg_tag("icons/delicon.svg", class: "icon icon-delicon", aria_hidden: true) %>
 						<% end %>
 					<% end %>
 				<% end %>

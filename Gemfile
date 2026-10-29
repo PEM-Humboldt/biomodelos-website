@@ -22,6 +22,7 @@ gem 'puma', '~> 7.2'
 gem 'nokogiri', '~> 1.19', '>= 1.19.0'
 gem "rack", ">= 3.1.18"
 gem "net-imap", ">= 0.5.7"
+gem 'inline_svg', '>= 1.7.2'
 
 group :development, :test do
   gem 'rspec-rails', '~> 8.0', '>= 8.0.2'
