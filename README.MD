@@ -1,4 +1,4 @@
-# BioModelos v2.13.2
+# BioModelos v2.13.3
 
 [BioModelos](http://biomodelos.humboldt.org.co) is a web app that facilitates the generation, validation and consultation of hypothesis of species distribution for the continental biodiversity of Colombia. As such, it provides tools to (1) improve existing species distribution models (SDMs) by integrating expert's opinion, (2) generate expert maps and (3) publish SDMs. Our objective is to provide freely and openly access to the most up to date information on species distributions, validated by a large network of researchers, to support national environmental decision making processes and research.
 
@@ -35,6 +35,7 @@ Some files and paths in BioModelos need to be configured in order for the app to
 
 ### Files
 
+- Atlas files folder with pdf of the published atlas
 - Models folder with raster files.
 - Thumbnails folder with thumbnails image files.
 - Zip folder with zip files of the models.
